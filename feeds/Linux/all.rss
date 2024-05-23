@@ -1,5 +1,5 @@
 <?xml version='1.0' encoding='UTF-8'?>
-<rss xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/" version="2.0"><channel><title>CVE Feed for Linux -- all</title><link>https://raw.githubusercontent.com/deepseas/cvelistV5monitor/main/feeds/Linux/all.rss</link><description>The latest CVEs for Linux -- all</description><docs>http://www.rssboard.org/rss-specification</docs><generator>python-feedgen</generator><lastBuildDate>Thu, 23 May 2024 21:20:20 +0000</lastBuildDate><ttl>60</ttl><item><title>CVE-2024-36013|2024-05-23T07:03:07.571Z -- Linux -- Linux
+<rss xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/" version="2.0"><channel><title>CVE Feed for Linux -- all</title><link>https://raw.githubusercontent.com/deepseas/cvelistV5monitor/main/feeds/Linux/all.rss</link><description>The latest CVEs for Linux -- all</description><docs>http://www.rssboard.org/rss-specification</docs><generator>python-feedgen</generator><lastBuildDate>Thu, 23 May 2024 22:21:54 +0000</lastBuildDate><ttl>60</ttl><item><title>CVE-2024-36013|2024-05-23T07:03:07.571Z -- Linux -- Linux
 </title><link>https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2024-36013</link><description>In the Linux kernel, the following vulnerability has been resolved:
 
 Bluetooth: L2CAP: Fix slab-use-after-free in l2cap_connect()
@@ -282,6 +282,144 @@ kernel/locking/mutex.c:587 [inline]
 BUG: KASAN: slab-use-after-free in __mutex_lock+0x8f/0xc30
 kernel/locking/mutex.c:752
 Read of size 8 at addr ffff888106cbbca8 by task kworker/u5:2/309</description><guid isPermaLink="false">CVE-2024-36012|2024-05-23T07:03:06.904Z</guid><pubDate>Thu, 23 May 2024 07:03:06 +0000</pubDate></item><item><title>CVE-2024-36012|2024-05-23T07:03:06.904Z -- Linux -- Linux</title><link>https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2024-36012</link><description>In the Linux kernel, the following vulnerability has been resolved:
+
+Bluetooth: msft: fix slab-use-after-free in msft_do_close()
+
+Tying the msft-&gt;data lifetime to hdev by freeing it in
+hci_release_dev() to fix the following case:
+
+[use]
+msft_do_close()
+  msft = hdev-&gt;msft_data;
+  if (!msft)                      ...(1) &lt;- passed.
+    return;
+  mutex_lock(&amp;amp;msft-&gt;filter_lock); ...(4) &lt;- used after freed.
+
+[free]
+msft_unregister()
+  msft = hdev-&gt;msft_data;
+  hdev-&gt;msft_data = NULL;         ...(2)
+  kfree(msft);                    ...(3) &lt;- msft is freed.
+
+==================================================================
+BUG: KASAN: slab-use-after-free in __mutex_lock_common
+kernel/locking/mutex.c:587 [inline]
+BUG: KASAN: slab-use-after-free in __mutex_lock+0x8f/0xc30
+kernel/locking/mutex.c:752
+Read of size 8 at addr ffff888106cbbca8 by task kworker/u5:2/309</description><guid isPermaLink="false">CVE-2024-36012|2024-05-23T07:03:06.904Z</guid><pubDate>Thu, 23 May 2024 07:03:06 +0000</pubDate></item><item><title>CVE-2024-36012|2024-05-23T07:03:06.904Z -- Linux -- Linux</title><link>https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2024-36012</link><description>In the Linux kernel, the following vulnerability has been resolved:
+
+Bluetooth: msft: fix slab-use-after-free in msft_do_close()
+
+Tying the msft-&gt;data lifetime to hdev by freeing it in
+hci_release_dev() to fix the following case:
+
+[use]
+msft_do_close()
+  msft = hdev-&gt;msft_data;
+  if (!msft)                      ...(1) &lt;- passed.
+    return;
+  mutex_lock(&amp;amp;msft-&gt;filter_lock); ...(4) &lt;- used after freed.
+
+[free]
+msft_unregister()
+  msft = hdev-&gt;msft_data;
+  hdev-&gt;msft_data = NULL;         ...(2)
+  kfree(msft);                    ...(3) &lt;- msft is freed.
+
+==================================================================
+BUG: KASAN: slab-use-after-free in __mutex_lock_common
+kernel/locking/mutex.c:587 [inline]
+BUG: KASAN: slab-use-after-free in __mutex_lock+0x8f/0xc30
+kernel/locking/mutex.c:752
+Read of size 8 at addr ffff888106cbbca8 by task kworker/u5:2/309</description><guid isPermaLink="false">CVE-2024-36012|2024-05-23T07:03:06.904Z</guid><pubDate>Thu, 23 May 2024 07:03:06 +0000</pubDate></item><item><title>CVE-2024-36011|2024-05-23T07:03:06.225Z -- Linux -- Linux</title><link>https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2024-36011</link><description>In the Linux kernel, the following vulnerability has been resolved:
+
+Bluetooth: HCI: Fix potential null-ptr-deref
+
+Fix potential null-ptr-deref in hci_le_big_sync_established_evt().</description><guid isPermaLink="false">CVE-2024-36011|2024-05-23T07:03:06.225Z</guid><pubDate>Thu, 23 May 2024 07:03:06 +0000</pubDate></item><item><title>CVE-2024-36011|2024-05-23T07:03:06.225Z -- Linux -- Linux</title><link>https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2024-36011</link><description>In the Linux kernel, the following vulnerability has been resolved:
+
+Bluetooth: HCI: Fix potential null-ptr-deref
+
+Fix potential null-ptr-deref in hci_le_big_sync_established_evt().</description><guid isPermaLink="false">CVE-2024-36011|2024-05-23T07:03:06.225Z</guid><pubDate>Thu, 23 May 2024 07:03:06 +0000</pubDate></item><item><title>CVE-2024-36013|2024-05-23T07:03:07.571Z -- Linux -- Linux</title><link>https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2024-36013</link><description>In the Linux kernel, the following vulnerability has been resolved:
+
+Bluetooth: L2CAP: Fix slab-use-after-free in l2cap_connect()
+
+Extend a critical section to prevent chan from early freeing.
+Also make the l2cap_connect() return type void. Nothing is using the
+returned value but it is ugly to return a potentially freed pointer.
+Making it void will help with backports because earlier kernels did use
+the return value. Now the compile will break for kernels where this
+patch is not a complete fix.
+
+Call stack summary:
+
+[use]
+l2cap_bredr_sig_cmd
+  l2cap_connect
+  ┌ mutex_lock(&amp;amp;conn-&gt;chan_lock);
+  │ chan = pchan-&gt;ops-&gt;new_connection(pchan); &lt;- alloc chan
+  │ __l2cap_chan_add(conn, chan);
+  │   l2cap_chan_hold(chan);
+  │   list_add(&amp;amp;chan-&gt;list, &amp;amp;conn-&gt;chan_l);   ... (1)
+  └ mutex_unlock(&amp;amp;conn-&gt;chan_lock);
+    chan-&gt;conf_state              ... (4) &lt;- use after free
+
+[free]
+l2cap_conn_del
+┌ mutex_lock(&amp;amp;conn-&gt;chan_lock);
+│ foreach chan in conn-&gt;chan_l:            ... (2)
+│   l2cap_chan_put(chan);
+│     l2cap_chan_destroy
+│       kfree(chan)               ... (3) &lt;- chan freed
+└ mutex_unlock(&amp;amp;conn-&gt;chan_lock);
+
+==================================================================
+BUG: KASAN: slab-use-after-free in instrument_atomic_read
+include/linux/instrumented.h:68 [inline]
+BUG: KASAN: slab-use-after-free in _test_bit
+include/asm-generic/bitops/instrumented-non-atomic.h:141 [inline]
+BUG: KASAN: slab-use-after-free in l2cap_connect+0xa67/0x11a0
+net/bluetooth/l2cap_core.c:4260
+Read of size 8 at addr ffff88810bf040a0 by task kworker/u3:1/311</description><guid isPermaLink="false">CVE-2024-36013|2024-05-23T07:03:07.571Z</guid><pubDate>Thu, 23 May 2024 07:03:07 +0000</pubDate></item><item><title>CVE-2024-36013|2024-05-23T07:03:07.571Z -- Linux -- Linux</title><link>https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2024-36013</link><description>In the Linux kernel, the following vulnerability has been resolved:
+
+Bluetooth: L2CAP: Fix slab-use-after-free in l2cap_connect()
+
+Extend a critical section to prevent chan from early freeing.
+Also make the l2cap_connect() return type void. Nothing is using the
+returned value but it is ugly to return a potentially freed pointer.
+Making it void will help with backports because earlier kernels did use
+the return value. Now the compile will break for kernels where this
+patch is not a complete fix.
+
+Call stack summary:
+
+[use]
+l2cap_bredr_sig_cmd
+  l2cap_connect
+  ┌ mutex_lock(&amp;amp;conn-&gt;chan_lock);
+  │ chan = pchan-&gt;ops-&gt;new_connection(pchan); &lt;- alloc chan
+  │ __l2cap_chan_add(conn, chan);
+  │   l2cap_chan_hold(chan);
+  │   list_add(&amp;amp;chan-&gt;list, &amp;amp;conn-&gt;chan_l);   ... (1)
+  └ mutex_unlock(&amp;amp;conn-&gt;chan_lock);
+    chan-&gt;conf_state              ... (4) &lt;- use after free
+
+[free]
+l2cap_conn_del
+┌ mutex_lock(&amp;amp;conn-&gt;chan_lock);
+│ foreach chan in conn-&gt;chan_l:            ... (2)
+│   l2cap_chan_put(chan);
+│     l2cap_chan_destroy
+│       kfree(chan)               ... (3) &lt;- chan freed
+└ mutex_unlock(&amp;amp;conn-&gt;chan_lock);
+
+==================================================================
+BUG: KASAN: slab-use-after-free in instrument_atomic_read
+include/linux/instrumented.h:68 [inline]
+BUG: KASAN: slab-use-after-free in _test_bit
+include/asm-generic/bitops/instrumented-non-atomic.h:141 [inline]
+BUG: KASAN: slab-use-after-free in l2cap_connect+0xa67/0x11a0
+net/bluetooth/l2cap_core.c:4260
+Read of size 8 at addr ffff88810bf040a0 by task kworker/u3:1/311</description><guid isPermaLink="false">CVE-2024-36013|2024-05-23T07:03:07.571Z</guid><pubDate>Thu, 23 May 2024 07:03:07 +0000</pubDate></item><item><title>CVE-2024-36012|2024-05-23T07:03:06.904Z -- Linux -- Linux</title><link>https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2024-36012</link><description>In the Linux kernel, the following vulnerability has been resolved:
 
 Bluetooth: msft: fix slab-use-after-free in msft_do_close()
 
