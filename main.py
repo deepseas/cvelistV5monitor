@@ -10,16 +10,20 @@ import urllib.parse
 import zipfile
 
 
-def create_feed(year, vendor, product="all"):
+def create_feed(vendor, product="all"):
     # create feed
     fg = FeedGenerator()
-    if os.path.isfile(f"feeds/{year}/{vendor}/{product}.rss"):
-        fd = feedparser.parse(f"feeds/{year}/{vendor}/{product}.rss")
+    if os.path.isfile(f"feeds/{vendor}/{product}.rss"):
+        fd = feedparser.parse(f"feeds/{vendor}/{product}.rss")
         fg.title(fd.feed.title)
         fg.link(href=fd.feed.link)
         fg.description(fd.feed.description)
         fg.ttl(fd.feed.ttl)
         for entry in fd.entries:
+            entry_year = dateutil.parser.parse(entry.published).year
+            now_year = datetime.datetime.now().year
+            if entry_year < now_year:
+                continue
             fe = fg.add_entry()
             fe.id(entry.id)
             fe.title(entry.title)
@@ -29,7 +33,7 @@ def create_feed(year, vendor, product="all"):
             fe.updated(entry.updated)
     else:
         fg.title(f"CVE Feed for {vendor} -- {product}")
-        fg.link(href=f"https://raw.githubusercontent.com/deepseas/cvelistV5monitor/main/feeds/{year}/{vendor}/{product}.rss")
+        fg.link(href=f"https://raw.githubusercontent.com/deepseas/cvelistV5monitor/main/feeds/{vendor}/{product}.rss")
         fg.description(f"The latest CVEs for {vendor} -- {product if product else 'all products'}")
         fg.ttl(60)
 
@@ -82,9 +86,7 @@ def main():
             cve = json.load(f)
         if cve["cveMetadata"]["state"] != "PUBLISHED":
             continue
-        cve_year = cve_file[4:8]
-        if cve_year not in feeds:
-            feeds[cve_year] = {}
+
         for affected in cve["containers"]["cna"]["affected"]:
             if affected.get("vendor") is None:
                 continue
@@ -93,14 +95,14 @@ def main():
             safe_vendor = urllib.parse.quote(vendor, safe="")
             product = affected.get("product")
             safe_product = urllib.parse.quote(product, safe="")
-            if vendor not in feeds[cve_year]:
-                feeds[cve_year][vendor] = {
-                    "all": create_feed(cve_year, safe_vendor)
+            if vendor not in feeds:
+                feeds[vendor] = {
+                    "all": create_feed(safe_vendor)
                 }
-            if product not in feeds[cve_year][vendor]:
-                feeds[cve_year][vendor][product] = create_feed(cve_year, safe_vendor, safe_product)
-            fg_all = feeds[cve_year][vendor]["all"]
-            fg_product = feeds[cve_year][vendor][product]
+            if product not in feeds[vendor]:
+                feeds[vendor][product] = create_feed(safe_vendor, safe_product)
+            fg_all = feeds[vendor]["all"]
+            fg_product = feeds[vendor][product]
             fe_all = fg_all.add_entry()
             fe_product = fg_product.add_entry()
             # id, title, link, description, published, updated
@@ -131,13 +133,12 @@ def main():
             fe_product.description(entry_description)
             fe_product.published(entry_published)
             fe_product.updated(entry_updated)
-    for year, year_feeds in feeds.items():
-        for vendor, vendor_feeds in year_feeds.items():
-            for product, feed in vendor_feeds.items():
-                safe_vendor = urllib.parse.quote(vendor, safe="")
-                safe_product = urllib.parse.quote(product, safe="")
-                os.makedirs(f"feeds/{year}/{safe_vendor}", exist_ok=True)
-                feed.rss_file(f"feeds/{year}/{safe_vendor}/{safe_product}.rss")
+    for vendor, vendor_feeds in feeds.items():
+        for product, feed in vendor_feeds.items():
+            safe_vendor = urllib.parse.quote(vendor, safe="")
+            safe_product = urllib.parse.quote(product, safe="")
+            os.makedirs(f"feeds/{safe_vendor}", exist_ok=True)
+            feed.rss_file(f"feeds/{safe_vendor}/{safe_product}.rss")
 
 
 if __name__ == "__main__":
