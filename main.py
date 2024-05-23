@@ -70,15 +70,15 @@ def main():
         },
         stream=True,
     )
-    with open(delta_asset.get("name"), "wb") as f:
+    with open("data/"+delta_asset.get("name"), "wb") as f:
         f.write(download.content)
-    with zipfile.ZipFile(delta_asset.get("name"), "r") as zip_ref:
-        zip_ref.extractall()
+    with zipfile.ZipFile("data/"+delta_asset.get("name"), "r") as zip_ref:
+        zip_ref.extractall(path="data/")
 
     # generate feeds
     feeds = {}
-    for cve_file in os.listdir("deltaCves"):
-        with open(f"deltaCves/{cve_file}", "r") as f:
+    for cve_file in os.listdir("data/deltaCves"):
+        with open(f"data/deltaCves/{cve_file}", "r") as f:
             cve = json.load(f)
         if cve["cveMetadata"]["state"] != "PUBLISHED":
             continue
