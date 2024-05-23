@@ -99,10 +99,10 @@ def main():
             safe_product = urllib.parse.quote(product, safe="")
             if vendor not in feeds:
                 feeds[vendor] = {
-                    "all": create_feed(safe_vendor)
+                    "all": create_feed(vendor)
                 }
             if product not in feeds[vendor]:
-                feeds[vendor][product] = create_feed(vendor, safe_product)
+                feeds[vendor][product] = create_feed(vendor, product)
             fg_all = feeds[vendor]["all"]
             fg_product = feeds[vendor][product]
             fe_all = fg_all.add_entry()
