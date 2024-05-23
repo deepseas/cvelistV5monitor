@@ -136,9 +136,8 @@ def main():
             for product, feed in vendor_feeds.items():
                 safe_vendor = urllib.parse.quote(vendor, safe="")
                 safe_product = urllib.parse.quote(product, safe="")
-                print(year, safe_vendor, safe_product)
-                os.makedirs(f"../feeds/{year}/{safe_vendor}", exist_ok=True)
-                feed.rss_file(f"../feeds/{year}/{safe_vendor}/{safe_product}.rss")
+                os.makedirs(f"feeds/{year}/{safe_vendor}", exist_ok=True)
+                feed.rss_file(f"feeds/{year}/{safe_vendor}/{safe_product}.rss")
 
 
 if __name__ == "__main__":
