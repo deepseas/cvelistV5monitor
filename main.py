@@ -11,10 +11,12 @@ import zipfile
 
 
 def create_feed(vendor, product="all"):
+    safe_vendor = urllib.parse.quote(vendor, safe="")
+    safe_product = urllib.parse.quote(product, safe="")
     # create feed
     fg = FeedGenerator()
-    if os.path.isfile(f"feeds/{vendor}/{product}.rss"):
-        fd = feedparser.parse(f"feeds/{vendor}/{product}.rss")
+    if os.path.isfile(f"feeds/{safe_vendor}/{safe_product}.rss"):
+        fd = feedparser.parse(f"feeds/{safe_vendor}/{safe_product}.rss")
         fg.title(fd.feed.title)
         fg.link(href=fd.feed.link)
         fg.description(fd.feed.description)
@@ -33,7 +35,7 @@ def create_feed(vendor, product="all"):
             fe.updated(entry.updated)
     else:
         fg.title(f"CVE Feed for {vendor} -- {product}")
-        fg.link(href=f"https://raw.githubusercontent.com/deepseas/cvelistV5monitor/main/feeds/{vendor}/{product}.rss")
+        fg.link(href=f"https://raw.githubusercontent.com/deepseas/cvelistV5monitor/main/feeds/{safe_vendor}/{safe_product}.rss")
         fg.description(f"The latest CVEs for {vendor} -- {product if product else 'all products'}")
         fg.ttl(60)
 
@@ -100,7 +102,7 @@ def main():
                     "all": create_feed(safe_vendor)
                 }
             if product not in feeds[vendor]:
-                feeds[vendor][product] = create_feed(safe_vendor, safe_product)
+                feeds[vendor][product] = create_feed(vendor, safe_product)
             fg_all = feeds[vendor]["all"]
             fg_product = feeds[vendor][product]
             fe_all = fg_all.add_entry()
