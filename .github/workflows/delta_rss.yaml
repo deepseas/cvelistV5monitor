@@ -25,5 +25,4 @@ jobs:
           git config --global user.email "no-reply@deepseas.com"
           git config --global user.name "DeepSeas Bot"
           git add feeds/*
-          git commit -m "Update feeds `date`"
-          git push
+          git diff-index --quiet HEAD || git commit -m "Update feeds `date`" && git push
