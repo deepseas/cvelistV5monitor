@@ -1,0 +1,21 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<rss xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/" version="2.0"><channel><title>CVE Feed for langchain-ai -- langchain-ai/langchain</title><link>https://raw.githubusercontent.com/deepseas/cvelistV5monitor/main/feeds/langchain-ai/langchain-ai%2Flangchain.rss</link><description>The latest CVEs for langchain-ai -- langchain-ai/langchain</description><docs>http://www.rssboard.org/rss-specification</docs><generator>python-feedgen</generator><lastBuildDate>Fri, 24 May 2024 21:24:10 +0000</lastBuildDate><ttl>60</ttl><item><title>CVE-2024-1455|2024-04-16T11:10:22.131Z -- langchain-ai -- langchain-ai/langchain
+</title><link>https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2024-1455</link><description>A vulnerability in the langchain-ai/langchain repository allows for a Billion Laughs Attack, a type of XML External Entity (XXE) exploitation. By nesting multiple layers of entities within an XML document, an attacker can cause the XML parser to consume excessive CPU and memory resources, leading to a denial of service (DoS). </description><guid isPermaLink="false">CVE-2024-1455|2024-04-16T11:10:22.131Z</guid><pubDate>Tue, 26 Mar 2024 14:03:46 +0000</pubDate></item><item><title>CVE-2024-0243|2024-02-24T17:59:26.498Z -- langchain-ai -- langchain-ai/langchain
+</title><link>https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2024-0243</link><description>With the following crawler configuration:
+
+```python
+from bs4 import BeautifulSoup as Soup
+
+url = "https://example.com"
+loader = RecursiveUrlLoader(
+    url=url, max_depth=2, extractor=lambda x: Soup(x, "html.parser").text
+)
+docs = loader.load()
+```
+
+An attacker in control of the contents of `https://example.com` could place a malicious HTML file in there with links like "https://example.completely.different/my_file.html" and the crawler would proceed to download that file as well even though `prevent_outside=True`.
+
+https://github.com/langchain-ai/langchain/blob/bf0b3cc0b5ade1fb95a5b1b6fa260e99064c2e22/libs/community/langchain_community/document_loaders/recursive_url_loader.py#L51-L51
+
+Resolved in https://github.com/langchain-ai/langchain/pull/15559</description><guid isPermaLink="false">CVE-2024-0243|2024-02-24T17:59:26.498Z</guid><pubDate>Sat, 24 Feb 2024 17:59:26 +0000</pubDate></item><item><title>CVE-2024-3571|2024-04-16T11:10:52.495Z -- langchain-ai -- langchain-ai/langchain
+</title><link>https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2024-3571</link><description>langchain-ai/langchain is vulnerable to path traversal due to improper limitation of a pathname to a restricted directory ('Path Traversal') in its LocalFileStore functionality. An attacker can leverage this vulnerability to read or write files anywhere on the filesystem, potentially leading to information disclosure or remote code execution. The issue lies in the handling of file paths in the mset and mget methods, where user-supplied input is not adequately sanitized, allowing directory traversal sequences to reach unintended directories.</description><guid isPermaLink="false">CVE-2024-3571|2024-04-16T11:10:52.495Z</guid><pubDate>Tue, 16 Apr 2024 00:00:15 +0000</pubDate></item></channel></rss>

@@ -1,0 +1,73 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<rss xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/" version="2.0"><channel><title>CVE Feed for OpenSSL -- all</title><link>https://raw.githubusercontent.com/deepseas/cvelistV5monitor/main/feeds/openssl/all.rss</link><description>The latest CVEs for OpenSSL -- all</description><docs>http://www.rssboard.org/rss-specification</docs><generator>python-feedgen</generator><lastBuildDate>Fri, 24 May 2024 21:24:09 +0000</lastBuildDate><ttl>60</ttl><item><title>CVE-2024-0727|2024-01-26T08:57:19.579Z -- OpenSSL -- OpenSSL
+</title><link>https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2024-0727</link><description>Issue summary: Processing a maliciously formatted PKCS12 file may lead OpenSSL
+to crash leading to a potential Denial of Service attack
+
+Impact summary: Applications loading files in the PKCS12 format from untrusted
+sources might terminate abruptly.
+
+A file in PKCS12 format can contain certificates and keys and may come from an
+untrusted source. The PKCS12 specification allows certain fields to be NULL, but
+OpenSSL does not correctly check for this case. This can lead to a NULL pointer
+dereference that results in OpenSSL crashing. If an application processes PKCS12
+files from an untrusted source using the OpenSSL APIs then that application will
+be vulnerable to this issue.
+
+OpenSSL APIs that are vulnerable to this are: PKCS12_parse(),
+PKCS12_unpack_p7data(), PKCS12_unpack_p7encdata(), PKCS12_unpack_authsafes()
+and PKCS12_newpass().
+
+We have also fixed a similar issue in SMIME_write_PKCS7(). However since this
+function is related to writing data we do not consider it security significant.
+
+The FIPS modules in 3.2, 3.1 and 3.0 are not affected by this issue.</description><guid isPermaLink="false">CVE-2024-0727|2024-01-26T08:57:19.579Z</guid><pubDate>Fri, 26 Jan 2024 08:57:19 +0000</pubDate></item><item><title>CVE-2024-4603|2024-05-16T15:21:20.050Z -- OpenSSL -- OpenSSL
+</title><link>https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2024-4603</link><description>Issue summary: Checking excessively long DSA keys or parameters may be very
+slow.
+
+Impact summary: Applications that use the functions EVP_PKEY_param_check()
+or EVP_PKEY_public_check() to check a DSA public key or DSA parameters may
+experience long delays. Where the key or parameters that are being checked
+have been obtained from an untrusted source this may lead to a Denial of
+Service.
+
+The functions EVP_PKEY_param_check() or EVP_PKEY_public_check() perform
+various checks on DSA parameters. Some of those computations take a long time
+if the modulus (`p` parameter) is too large.
+
+Trying to use a very large modulus is slow and OpenSSL will not allow using
+public keys with a modulus which is over 10,000 bits in length for signature
+verification. However the key and parameter check functions do not limit
+the modulus size when performing the checks.
+
+An application that calls EVP_PKEY_param_check() or EVP_PKEY_public_check()
+and supplies a key or parameters obtained from an untrusted source could be
+vulnerable to a Denial of Service attack.
+
+These functions are not called by OpenSSL itself on untrusted DSA keys so
+only applications that directly call these functions may be vulnerable.
+
+Also vulnerable are the OpenSSL pkey and pkeyparam command line applications
+when using the `-check` option.
+
+The OpenSSL SSL/TLS implementation is not affected by this issue.
+
+The OpenSSL 3.0 and 3.1 FIPS providers are affected by this issue.</description><guid isPermaLink="false">CVE-2024-4603|2024-05-16T15:21:20.050Z</guid><pubDate>Thu, 16 May 2024 15:21:20 +0000</pubDate></item><item><title>CVE-2024-2511|2024-04-08T13:51:12.349Z -- OpenSSL -- OpenSSL
+</title><link>https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2024-2511</link><description>Issue summary: Some non-default TLS server configurations can cause unbounded
+memory growth when processing TLSv1.3 sessions
+
+Impact summary: An attacker may exploit certain server configurations to trigger
+unbounded memory growth that would lead to a Denial of Service
+
+This problem can occur in TLSv1.3 if the non-default SSL_OP_NO_TICKET option is
+being used (but not if early_data support is also configured and the default
+anti-replay protection is in use). In this case, under certain conditions, the
+session cache can get into an incorrect state and it will fail to flush properly
+as it fills. The session cache will continue to grow in an unbounded manner. A
+malicious client could deliberately create the scenario for this failure to
+force a Denial of Service. It may also happen by accident in normal operation.
+
+This issue only affects TLS servers supporting TLSv1.3. It does not affect TLS
+clients.
+
+The FIPS modules in 3.2, 3.1 and 3.0 are not affected by this issue. OpenSSL
+1.0.2 is also not affected by this issue.</description><guid isPermaLink="false">CVE-2024-2511|2024-04-08T13:51:12.349Z</guid><pubDate>Mon, 08 Apr 2024 13:51:12 +0000</pubDate></item></channel></rss>
