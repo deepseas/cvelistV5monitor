@@ -108,7 +108,11 @@ def generate_feeds(cve_files):
             fe_product.description(entry_description)
             fe_product.published(entry_published)
             fe_product.updated(entry_updated)
-    manifest = {}
+    if os.path.exists("feeds/manifest.json"):
+        with open("feeds/manifest.json", "r") as f:
+            manifest = json.load(f)
+    else:
+        manifest = {}
     for clean_vendor, vendor_feeds in feeds.items():
         manifest[clean_vendor] = []
         for clean_product, feed in vendor_feeds.items():
@@ -129,4 +133,4 @@ def generate_feeds(cve_files):
             rss_filename = os.path.join("feeds", file_safe_vendor, file_safe_product_dir, file_safe_product_name)
             feed.rss_file(rss_filename)
     with open("feeds/manifest.json", "w") as f:
-        json.dump(manifest, f, indent=2)
+        json.dump(manifest, f, indent=2, sort_keys=True)
