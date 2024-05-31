@@ -174,6 +174,8 @@ def update_manifest():
         # convert the lists to strings and add to manifest
         vendor = "".join(vendor_parts)
         product = "".join(product_parts)
+        # strip extension
+        product = product[:-4]
         if vendor not in manifest:
             manifest[vendor] = []
         if product not in manifest[vendor]:
