@@ -154,7 +154,10 @@ def update_manifest():
         else:
             # cases 2. - 4.
             # parts are in order and all vendor parts will precede product parts
-            for i, part in enumerate(p.parts):
+            for part in p.parts:
+                # skip root.rss part
+                if part == "root.rss":
+                    continue
                 # vendor part, will happen only for cases 3. and 4.
                 if part.startswith("v__"):
                     vendor_parts.append(urllib.parse.unquote(part[3:]))
