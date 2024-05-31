@@ -167,15 +167,16 @@ def update_manifest():
                     # case 2. implies the vendor part list will only ever have 0 or 1 elements
                     # since vendor parts precede product parts, if it has 0, then this part is the whole vendor name
                     if len(vendor_parts) == 0:
-                        vendor_parts.append(urllib.parse.unquote(part))
+                        vendor_parts.append(part)
                     # otherwise, this is the whole product name and case 3.
                     else:
-                        product_parts.append(urllib.parse.unquote(part))
+                        product_parts.append(part)
         # convert the lists to strings and add to manifest
         vendor = "".join(vendor_parts)
+        vendor = urllib.parse.unquote(vendor)
         product = "".join(product_parts)
-        # strip extension
         product = product[:-4]
+        product = urllib.parse.unquote(product)
         if vendor not in manifest:
             manifest[vendor] = []
         if product not in manifest[vendor] and product != "all":
