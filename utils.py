@@ -184,4 +184,4 @@ def update_manifest():
             manifest[vendor].sort()
     # write manifest to file
     with open("feeds/manifest.json", "w") as f:
-        json.dump(manifest, f, indent=2)
+        json.dump(manifest, f, indent=2, sort_keys=True)
