@@ -178,7 +178,7 @@ def update_manifest():
         product = product[:-4]
         if vendor not in manifest:
             manifest[vendor] = []
-        if product not in manifest[vendor]:
+        if product not in manifest[vendor] and product != "all":
             manifest[vendor].append(product)
             manifest[vendor].sort()
     # write manifest to file
