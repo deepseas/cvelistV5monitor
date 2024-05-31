@@ -3,7 +3,7 @@ from pathlib import Path
 import requests
 import zipfile
 
-from generate_feeds import generate_feeds
+from utils import generate_feeds, update_manifest
 
 
 def main():
@@ -42,6 +42,7 @@ def main():
     # generate feeds
     cve_files = list(Path("data/cves/").rglob("*.json"))
     generate_feeds(cve_files)
+    update_manifest()
 
 
 if __name__ == "__main__":

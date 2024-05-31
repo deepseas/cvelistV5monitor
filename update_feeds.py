@@ -1,54 +1,9 @@
-import datetime
-import dateutil.parser
-from feedgen.feed import FeedGenerator
-import feedparser
-import os
 from pathlib import Path
 import re
 import requests
-import urllib.parse
 import zipfile
 
-from generate_feeds import generate_feeds
-
-
-def create_feed(vendor, product="all") -> FeedGenerator:
-    clean_vendor = vendor.lower().strip()
-    safe_vendor = urllib.parse.quote(clean_vendor, safe="")
-    clean_product = product.lower().strip()
-    safe_product = urllib.parse.quote(clean_product, safe="")
-    # create feed
-    fg = FeedGenerator()
-    if os.path.isfile(f"feeds/{safe_vendor}/{safe_product}.rss"):
-        fd = feedparser.parse(f"feeds/{safe_vendor}/{safe_product}.rss")
-        fg.title(fd.feed.title)
-        fg.link(href=fd.feed.link)
-        fg.description(fd.feed.description)
-        fg.ttl(fd.feed.ttl)
-        for entry in fd.entries:
-            pub_date = dateutil.parser.parse(entry.published)
-            if datetime.datetime.now(datetime.UTC) - pub_date > datetime.timedelta(
-                days=180
-            ):
-                continue
-            fe = fg.add_entry()
-            fe.id(entry.id)
-            fe.title(entry.title)
-            fe.link(href=entry.link)
-            fe.description(entry.description)
-            fe.published(entry.published)
-            fe.updated(entry.updated)
-    else:
-        fg.title(f"CVE Feed for {vendor} -- {product}")
-        fg.link(
-            href=f"https://raw.githubusercontent.com/deepseas/cvelistV5monitor/main/feeds/{safe_vendor}/{safe_product}.rss"
-        )
-        fg.description(
-            f"The latest CVEs for {vendor} -- {product if product else 'all products'}"
-        )
-        fg.ttl(60)
-
-    return fg
+from utils import generate_feeds, update_manifest
 
 
 def main():
@@ -93,6 +48,7 @@ def main():
     # generate feeds
     cve_files = list(Path("data/deltaCves/").rglob("*.json"))
     generate_feeds(cve_files)
+    update_manifest()
 
 
 if __name__ == "__main__":
