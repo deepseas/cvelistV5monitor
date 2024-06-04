@@ -13,45 +13,6 @@ from utils import generate_feeds
 from utils import update_manifest
 
 
-def create_feed(vendor, product="all") -> FeedGenerator:
-    clean_vendor = vendor.lower().strip()
-    safe_vendor = urllib.parse.quote(clean_vendor, safe="")
-    clean_product = product.lower().strip()
-    safe_product = urllib.parse.quote(clean_product, safe="")
-    # create feed
-    fg = FeedGenerator()
-    if os.path.isfile(f"feeds/{safe_vendor}/{safe_product}.rss"):
-        fd = feedparser.parse(f"feeds/{safe_vendor}/{safe_product}.rss")
-        fg.title(fd.feed.title)
-        fg.link(href=fd.feed.link)
-        fg.description(fd.feed.description)
-        fg.ttl(fd.feed.ttl)
-        for entry in fd.entries:
-            pub_date = dateutil.parser.parse(entry.published)
-            if datetime.datetime.now(datetime.UTC) - pub_date > datetime.timedelta(
-                days=180
-            ):
-                continue
-            fe = fg.add_entry()
-            fe.id(entry.id)
-            fe.title(entry.title)
-            fe.link(href=entry.link)
-            fe.description(entry.description)
-            fe.published(entry.published)
-            fe.updated(entry.updated)
-    else:
-        fg.title(f"CVE Feed for {vendor} -- {product}")
-        fg.link(
-            href=f"https://raw.githubusercontent.com/deepseas/cvelistV5monitor/main/feeds/{safe_vendor}/{safe_product}.rss"
-        )
-        fg.description(
-            f"The latest CVEs for {vendor} -- {product if product else 'all products'}"
-        )
-        fg.ttl(60)
-
-    return fg
-
-
 def main():
     # get latest release from github
     latest_release_response = requests.get(
@@ -77,7 +38,9 @@ def main():
         if "delta" in asset["name"]:
             delta_asset = asset
             break
-
+    if not delta_asset:
+        print("No delta asset found")
+        return
     download = requests.get(
         delta_asset["url"],
         headers={
