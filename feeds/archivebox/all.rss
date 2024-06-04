@@ -1,0 +1,20 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<rss xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/" version="2.0">
+  <channel>
+    <title>CVE Feed for ArchiveBox -- all</title>
+    <link>https://raw.githubusercontent.com/deepseas/cvelistV5monitor/main/feeds/archivebox/all.rss</link>
+    <description>The latest CVEs for ArchiveBox -- all products</description>
+    <docs>http://www.rssboard.org/rss-specification</docs>
+    <generator>python-feedgen</generator>
+    <lastBuildDate>Tue, 04 Jun 2024 17:29:38 +0000</lastBuildDate>
+    <ttl>60</ttl>
+    <item>
+      <title>CVE-2023-45815|2023-10-19T21:05:11.466Z -- archivebox -- archivebox
+</title>
+      <link>https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2023-45815</link>
+      <description>ArchiveBox is an open source self-hosted web archiving system. Any users who are using the `wget` extractor and view the content it outputs. The impact is potentially severe if you are logged in to the ArchiveBox admin site in the same browser session and view an archived malicious page designed to target your ArchiveBox instance. Malicious Javascript could potentially act using your logged-in admin credentials and add/remove/modify snapshots, add/remove/modify ArchiveBox users, and generally do anything an admin user could do. The impact is less severe for non-logged-in users, as malicious Javascript cannot *modify* any archives, but it can still *read* all the other archived content by fetching the snapshot index and iterating through it. Because all of ArchiveBox's archived content is served from the same host and port as the admin panel, when archived pages are viewed the JS executes in the same context as all the other archived pages (and the admin panel), defeating most of the browser's usual CORS/CSRF security protections and leading to this issue. A patch is being developed in https://github.com/ArchiveBox/ArchiveBox/issues/239. As a mitigation for this issue would be to disable the wget extractor by setting `archivebox config --set SAVE_WGET=False`, ensure you are always logged out, or serve only a [static HTML version](https://github.com/ArchiveBox/ArchiveBox/wiki/Publishing-Your-Archive#2-export-and-host-it-as-static-html) of your archive.</description>
+      <guid isPermaLink="false">CVE-2023-45815|2023-10-19T21:05:11.466Z</guid>
+      <pubDate>Thu, 19 Oct 2023 21:05:11 +0000</pubDate>
+    </item>
+  </channel>
+</rss>

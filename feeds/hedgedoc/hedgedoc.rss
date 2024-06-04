@@ -1,0 +1,26 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<rss xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/" version="2.0">
+  <channel>
+    <title>CVE Feed for hedgedoc -- hedgedoc</title>
+    <link>https://raw.githubusercontent.com/deepseas/cvelistV5monitor/main/feeds/hedgedoc/hedgedoc.rss</link>
+    <description>The latest CVEs for hedgedoc -- hedgedoc</description>
+    <docs>http://www.rssboard.org/rss-specification</docs>
+    <generator>python-feedgen</generator>
+    <lastBuildDate>Tue, 04 Jun 2024 17:29:48 +0000</lastBuildDate>
+    <ttl>60</ttl>
+    <item>
+      <title>CVE-2023-38487|2023-08-04T15:40:16.370Z -- hedgedoc -- hedgedoc
+</title>
+      <link>https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2023-38487</link>
+      <description>HedgeDoc is software for creating real-time collaborative markdown notes. Prior to version 1.9.9, the API of HedgeDoc 1 can be used to create notes with an alias matching the ID of existing notes. The affected existing note can then not be accessed anymore and is effectively hidden by the new one.
+
+When the freeURL feature is enabled (by setting the `allowFreeURL` config option or the `CMD_ALLOW_FREEURL` environment variable to `true`), any user with the appropriate permissions can create a note by making a POST request to the `/new/&lt;ALIAS&gt;` API endpoint. The `&lt;ALIAS&gt;` parameter can be set to the ID of an existing note. HedgeDoc did not verify whether the provided `&lt;ALIAS&gt;` value corresponds to a valid ID of an existing note and always allowed creation of the new note. When a visitor tried to access the existing note, HedgeDoc will first search for a note with a matching alias before it searches using the ID, therefore only the new note can be accessed.
+
+Depending on the permission settings of the HedgeDoc instance, the issue can be exploited only by logged-in users or by all (including non-logged-in) users. The exploit requires knowledge of the ID of the target note. Attackers could use this issue to present a manipulated copy of the original note to the user, e.g. by replacing the links with malicious ones. Attackers can also use this issue to prevent access to the original note, causing a denial of service. No data is lost, as the original content of the affected notes is still present in the database.
+
+This issue was fixed in version 1.9.9. As a workaround, disabling freeURL mode prevents the exploitation of this issue. The impact can be limited by restricting freeURL note creation to trusted, logged-in users by enabling `requireFreeURLAuthentication`/`CMD_REQUIRE_FREEURL_AUTHENTICATION`.</description>
+      <guid isPermaLink="false">CVE-2023-38487|2023-08-04T15:40:16.370Z</guid>
+      <pubDate>Fri, 04 Aug 2023 15:40:16 +0000</pubDate>
+    </item>
+  </channel>
+</rss>

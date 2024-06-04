@@ -1,5 +1,20 @@
 <?xml version='1.0' encoding='UTF-8'?>
-<rss xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/" version="2.0"><channel><title>CVE Feed for AlexxIT -- go2rtc</title><link>https://raw.githubusercontent.com/deepseas/cvelistV5monitor/main/feeds/alexxit/go2rtc.rss</link><description>The latest CVEs for AlexxIT -- go2rtc</description><docs>http://www.rssboard.org/rss-specification</docs><generator>python-feedgen</generator><lastBuildDate>Fri, 31 May 2024 16:28:20 +0000</lastBuildDate><ttl>60</ttl><item><title>CVE-2024-29193|2024-04-04T18:35:28.817Z -- AlexxIT -- go2rtc
-</title><link>https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2024-29193</link><description>gotortc is a camera streaming application. Versions 1.8.5 and prior are vulnerable to DOM-based cross-site scripting. The index page (`index.html`) shows the available streams by fetching the API (`[0]`) in the client side. Then, it uses `Object.entries` to iterate over the result (`[1]`) whose first item (`name`) gets appended using `innerHTML` (`[2]`). In the event of a victim visiting the server in question, their browser will execute the request against the go2rtc instance. After the request, the browser will be redirected to go2rtc, in which the XSS would be executed in the context of go2rtc’s origin. As of time of publication, no patch is available.</description><guid isPermaLink="false">CVE-2024-29193|2024-04-04T18:35:28.817Z</guid><pubDate>Thu, 04 Apr 2024 18:35:28 +0000</pubDate></item><item><title>CVE-2024-29192|2024-04-04T18:08:26.078Z -- AlexxIT -- go2rtc
-</title><link>https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2024-29192</link><description>gotortc is a camera streaming application. Versions 1.8.5 and prior are vulnerable to Cross-Site Request Forgery. The `/api/config` endpoint allows one to modify the existing configuration with user-supplied values. While the API is only allowing localhost to interact without authentication, an attacker may be able to achieve that depending on how go2rtc is set up on the upstream application, and given that this endpoint is not protected against CSRF, it allows requests from any origin (e.g. a "drive-by" attack) . The `exec` handler allows for any stream to execute arbitrary commands. An attacker may add a custom stream through `api/config`, which may lead to arbitrary command execution. In the event of a victim visiting the server in question, their browser will execute the requests against the go2rtc instance. Commit 8793c3636493c5efdda08f3b5ed5c6e1ea594fd9 adds a warning about secure API access.</description><guid isPermaLink="false">CVE-2024-29192|2024-04-04T18:08:26.078Z</guid><pubDate>Thu, 04 Apr 2024 18:08:26 +0000</pubDate></item><item><title>CVE-2024-29191|2024-04-04T14:52:30.977Z -- AlexxIT -- go2rtc
-</title><link>https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2024-29191</link><description>gotortc is a camera streaming application. Versions 1.8.5 and prior are vulnerable to DOM-based cross-site scripting. The links page (`links.html`) appends the `src` GET parameter (`[0]`) in all of its links for 1-click previews. The context in which `src` is being appended is `innerHTML` (`[1]`), which will insert the text as HTML. Commit 3b3d5b033aac3a019af64f83dec84f70ed2c8aba contains a patch for the issue.</description><guid isPermaLink="false">CVE-2024-29191|2024-04-04T14:52:30.977Z</guid><pubDate>Thu, 04 Apr 2024 14:52:30 +0000</pubDate></item></channel></rss>
+<rss xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/" version="2.0">
+  <channel>
+    <title>CVE Feed for AlexxIT -- go2rtc</title>
+    <link>https://raw.githubusercontent.com/deepseas/cvelistV5monitor/main/feeds/alexxit/go2rtc.rss</link>
+    <description>The latest CVEs for AlexxIT -- go2rtc</description>
+    <docs>http://www.rssboard.org/rss-specification</docs>
+    <generator>python-feedgen</generator>
+    <lastBuildDate>Tue, 04 Jun 2024 17:29:29 +0000</lastBuildDate>
+    <ttl>60</ttl>
+    <item>
+      <title>CVE-2024-29191|2024-04-04T14:52:30.977Z -- alexxit -- go2rtc
+</title>
+      <link>https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2024-29191</link>
+      <description>gotortc is a camera streaming application. Versions 1.8.5 and prior are vulnerable to DOM-based cross-site scripting. The links page (`links.html`) appends the `src` GET parameter (`[0]`) in all of its links for 1-click previews. The context in which `src` is being appended is `innerHTML` (`[1]`), which will insert the text as HTML. Commit 3b3d5b033aac3a019af64f83dec84f70ed2c8aba contains a patch for the issue.</description>
+      <guid isPermaLink="false">CVE-2024-29191|2024-04-04T14:52:30.977Z</guid>
+      <pubDate>Thu, 04 Apr 2024 14:52:30 +0000</pubDate>
+    </item>
+  </channel>
+</rss>

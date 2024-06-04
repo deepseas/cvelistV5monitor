@@ -8,6 +8,7 @@ from utils import generate_feeds, update_manifest
 
 def main():
     # get latest all at midnight release
+    print("downloading data from github")
     latest_release_response = requests.get(
         "https://api.github.com/repos/CVEProject/cvelistV5/releases/latest"
     )
@@ -33,11 +34,10 @@ def main():
     # extract the cves for this year
     with zipfile.ZipFile("data/cves.zip", "r") as zip_ref:
         all_members = zip_ref.namelist()
-        this_year = datetime.datetime.now().year
-        this_years_members = [
-            m for m in all_members if m.startswith(f"cves/{this_year}/")
+        members = [
+            m for m in all_members if m.startswith(f"cves/2024/") or m.startswith(f"cves/2023/")
         ]
-        zip_ref.extractall(path="data/", members=this_years_members)
+        zip_ref.extractall(path="data/", members=members)
 
     # generate feeds
     cve_files = list(Path("data/cves/").rglob("*.json"))

@@ -1,0 +1,24 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<rss xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/" version="2.0">
+  <channel>
+    <title>CVE Feed for typelevel -- grackle</title>
+    <link>https://raw.githubusercontent.com/deepseas/cvelistV5monitor/main/feeds/typelevel/grackle.rss</link>
+    <description>The latest CVEs for typelevel -- grackle</description>
+    <docs>http://www.rssboard.org/rss-specification</docs>
+    <generator>python-feedgen</generator>
+    <lastBuildDate>Tue, 04 Jun 2024 17:29:34 +0000</lastBuildDate>
+    <ttl>60</ttl>
+    <item>
+      <title>CVE-2023-50730|2023-12-22T20:36:11.402Z -- typelevel -- grackle
+</title>
+      <link>https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2023-50730</link>
+      <description>Grackle is a GraphQL server written in functional Scala, built on the Typelevel stack. The GraphQL specification requires that GraphQL fragments must not form cycles, either directly or indirectly. Prior to Grackle version 0.18.0, that requirement wasn't checked, and queries with cyclic fragments would have been accepted for type checking and compilation. The attempted compilation of such fragments would result in a JVM `StackOverflowError` being thrown. Some knowledge of an applications GraphQL schema would be required to construct such a query, however no knowledge of any application-specific performance or other behavioural characteristics would be needed.
+
+Grackle uses the cats-parse library for parsing GraphQL queries. Prior to version 0.18.0, Grackle made use of the cats-parse `recursive` operator. However, `recursive` is not currently stack safe. `recursive` was used in three places in the parser: nested selection sets, nested input values (lists and objects), and nested list type declarations. Consequently, queries with deeply nested selection sets, input values or list types could be constructed which exploited this, causing a JVM `StackOverflowException` to be thrown during parsing. Because this happens very early in query processing, no specific knowledge of an applications GraphQL schema would be required to construct such a query.
+
+The possibility of small queries resulting in stack overflow is a potential denial of service vulnerability. This potentially affects all applications using Grackle which have untrusted users. Both stack overflow issues have been resolved in the v0.18.0 release of Grackle. As a workaround, users could interpose a sanitizing layer in between untrusted input and Grackle query processing.</description>
+      <guid isPermaLink="false">CVE-2023-50730|2023-12-22T20:36:11.402Z</guid>
+      <pubDate>Fri, 22 Dec 2023 20:36:11 +0000</pubDate>
+    </item>
+  </channel>
+</rss>

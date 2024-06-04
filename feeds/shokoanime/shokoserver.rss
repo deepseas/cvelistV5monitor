@@ -1,0 +1,20 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<rss xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/" version="2.0">
+  <channel>
+    <title>CVE Feed for ShokoAnime -- ShokoServer</title>
+    <link>https://raw.githubusercontent.com/deepseas/cvelistV5monitor/main/feeds/shokoanime/shokoserver.rss</link>
+    <description>The latest CVEs for ShokoAnime -- ShokoServer</description>
+    <docs>http://www.rssboard.org/rss-specification</docs>
+    <generator>python-feedgen</generator>
+    <lastBuildDate>Tue, 04 Jun 2024 17:29:44 +0000</lastBuildDate>
+    <ttl>60</ttl>
+    <item>
+      <title>CVE-2023-43662|2023-09-28T21:54:44.467Z -- shokoanime -- shokoserver
+</title>
+      <link>https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2023-43662</link>
+      <description>ShokoServer is a media server which specializes in organizing anime. In affected versions the `/api/Image/WithPath` endpoint is accessible without authentication and is supposed to return default server images. The endpoint accepts the parameter `serverImagePath`, which is not sanitized in any way before being passed to `System.IO.File.OpenRead`, which results in an arbitrary file read. This issue may lead to an arbitrary file read which is exacerbated in the windows installer which installs the ShokoServer as administrator. Any unauthenticated attacker may be able to access sensitive information and read files stored on the server. The `/api/Image/WithPath` endpoint has been removed in commit `6c57ba0f0` which will be included in subsequent releases. Users should limit access to the `/api/Image/WithPath` endpoint or manually patch their installations until a patched release is made. This issue was discovered by the GitHub Security lab and is also indexed as GHSL-2023-191.</description>
+      <guid isPermaLink="false">CVE-2023-43662|2023-09-28T21:54:44.467Z</guid>
+      <pubDate>Thu, 28 Sep 2023 21:54:44 +0000</pubDate>
+    </item>
+  </channel>
+</rss>

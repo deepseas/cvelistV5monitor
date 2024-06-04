@@ -5,19 +5,18 @@ import feedparser
 import json
 import os
 from pathlib import Path
-from textwrap import wrap
 import urllib.parse
 
 
-def create_feed(vendor, product="all") -> FeedGenerator:
-    clean_vendor = vendor.lower().strip()
-    safe_vendor = urllib.parse.quote(clean_vendor, safe="")
-    clean_product = product.lower().strip()
-    safe_product = urllib.parse.quote(clean_product, safe="")
+def create_feed(orig_vendor, orig_product="all") -> FeedGenerator:
+    vendor = normalize_name(orig_vendor)
+    product = normalize_name(orig_product)
+    # a check for None is not necessary since we only pass input from generate_feeds which has already checked for None
     # create feed
     fg = FeedGenerator()
-    if os.path.isfile(f"feeds/{safe_vendor}/{safe_product}.rss"):
-        fd = feedparser.parse(f"feeds/{safe_vendor}/{safe_product}.rss")
+    rss_filename = f"feeds/{vendor}/{product}.rss"
+    if os.path.isfile(rss_filename):
+        fd = feedparser.parse(rss_filename)
         fg.title(fd.feed.title)
         fg.link(href=fd.feed.link)
         fg.description(fd.feed.description)
@@ -36,12 +35,12 @@ def create_feed(vendor, product="all") -> FeedGenerator:
             fe.published(entry.published)
             fe.updated(entry.updated)
     else:
-        fg.title(f"CVE Feed for {vendor} -- {product}")
+        fg.title(f"CVE Feed for {orig_vendor} -- {orig_product}")
         fg.link(
-            href=f"https://raw.githubusercontent.com/deepseas/cvelistV5monitor/main/feeds/{safe_vendor}/{safe_product}.rss"
+            href=f"https://raw.githubusercontent.com/deepseas/cvelistV5monitor/main/feeds/{vendor}/{product}.rss"
         )
         fg.description(
-            f"The latest CVEs for {vendor} -- {product if product else 'all products'}"
+            f"The latest CVEs for {orig_vendor} -- {orig_product if product != "all" else 'all products'}"
         )
         fg.ttl(60)
 
@@ -50,29 +49,36 @@ def create_feed(vendor, product="all") -> FeedGenerator:
 
 def generate_feeds(cve_files):
     feeds = {}
-    for cve_file in cve_files:
+    l = len(cve_files)
+    for i, cve_file in enumerate(cve_files):
+        print(f"{i+1}/{l}", cve_file)
         with open(cve_file, "r") as f:
             cve = json.load(f)
         if cve["cveMetadata"]["state"] != "PUBLISHED":
             continue
 
         for affected in cve["containers"]["cna"]["affected"]:
-            vendor = affected.get("vendor")
-            product = affected.get("product")
+            orig_vendor = affected.get("vendor")
+            orig_product = affected.get("product")
+            vendor = normalize_name(orig_vendor)
+            product = normalize_name(orig_product)
             if vendor is None or product is None:
                 continue
             # create feed for vendor
-            clean_vendor = vendor.lower().strip()
-            clean_product = product.lower().strip()
-            if clean_vendor not in feeds:
-                feeds[clean_vendor] = {"all": create_feed(vendor)}
-            if clean_product not in feeds[clean_vendor]:
-                feeds[clean_vendor][clean_product] = create_feed(vendor, product)
-            fg_all = feeds[clean_vendor]["all"]
-            fg_product: FeedGenerator = feeds[clean_vendor][clean_product]
+            if vendor not in feeds:
+                feeds[vendor] = {"all": create_feed(orig_vendor)}
+            else:
+                continue
+            if product not in feeds[vendor]:
+                feeds[vendor][product] = create_feed(orig_vendor, orig_product)
+            fg_all = feeds[vendor]["all"]
+            fg_product: FeedGenerator = feeds[vendor][product]
             # id
             cve_id = cve["cveMetadata"]["cveId"]
-            entry_id = f"{cve_id}|{cve["cveMetadata"]["dateUpdated"]}"
+            updated_date = cve["cveMetadata"].get("dateUpdated")
+            published_date = cve["cveMetadata"].get("datePublished")
+            entry_date = updated_date if updated_date else published_date
+            entry_id = f"{cve_id}|{entry_date}"
             # first check if entry exists
             skip_affected = False
             for existing_entry in fg_all.entry():
@@ -89,45 +95,39 @@ def generate_feeds(cve_files):
             entry_link = f"https://cve.mitre.org/cgi-bin/cvename.cgi?name={cve_id}"
             cve_descriptions = cve["containers"]["cna"].get("descriptions")
             entry_description = "\n".join([desc["value"] for desc in cve_descriptions])
-            cve_updated = cve["cveMetadata"]["dateUpdated"]
+            entry_updated = None
+            entry_published = None
+            cve_updated = cve["cveMetadata"].get("dateUpdated")
             cve_published = cve["cveMetadata"].get("datePublished", cve_updated)
-            entry_updated = dateutil.parser.parse(cve_updated)
-            if entry_updated.tzinfo is None:
-                entry_updated = entry_updated.replace(tzinfo=datetime.timezone.utc)
-            entry_published = dateutil.parser.parse(cve_published)
-            if entry_published.tzinfo is None:
-                entry_published = entry_published.replace(tzinfo=datetime.timezone.utc)
+            if cve_updated:
+                entry_updated = dateutil.parser.parse(cve_updated)
+                if entry_updated.tzinfo is None:
+                    entry_updated = entry_updated.replace(tzinfo=datetime.timezone.utc)
+            if cve_published:
+                entry_published = dateutil.parser.parse(cve_published)
+                if entry_published.tzinfo is None:
+                    entry_published = entry_published.replace(tzinfo=datetime.timezone.utc)
             fe_all.id(entry_id)
             fe_all.title(entry_title)
             fe_all.link(href=entry_link)
             fe_all.description(entry_description)
-            fe_all.published(entry_published)
-            fe_all.updated(entry_updated)
+            if entry_published:
+                fe_all.published(entry_published)
+            if entry_updated:
+                fe_all.updated(entry_updated)
             fe_product.id(entry_id)
             fe_product.title(entry_title)
             fe_product.link(href=entry_link)
             fe_product.description(entry_description)
-            fe_product.published(entry_published)
-            fe_product.updated(entry_updated)
-    for clean_vendor, vendor_feeds in feeds.items():
-        for clean_product, feed in vendor_feeds.items():
-            safe_vendor = urllib.parse.quote(clean_vendor, safe="")
-            safe_product = urllib.parse.quote(clean_product, safe="")
-            if len(safe_vendor) > 255:
-                vendors = ["v__"+v for v in wrap(safe_vendor, 252)]
-                file_safe_vendor = "/".join(vendors)
-            else:
-                file_safe_vendor = safe_vendor
-            if len(safe_product+".rss") > 255:
-                products = ["p__"+p for p in wrap(safe_product, 252)]
-                file_safe_product_dir = "/".join(products)
-                file_safe_product_name = "root.rss"
-            else:
-                file_safe_product_dir = ""
-                file_safe_product_name = safe_product+".rss"
-            os.makedirs(os.path.join("feeds", file_safe_vendor, file_safe_product_dir), exist_ok=True)
-            rss_filename = os.path.join("feeds", file_safe_vendor, file_safe_product_dir, file_safe_product_name)
-            feed.rss_file(rss_filename)
+            if entry_published:
+                fe_product.published(entry_published)
+            if entry_updated:
+                fe_product.updated(entry_updated)
+    for vendor, products in feeds.items():
+        for product, feed in products.items():
+            os.makedirs(os.path.join("feeds", vendor), exist_ok=True)
+            rss_filename = f"feeds/{vendor}/{product}.rss"
+            feed.rss_file(rss_filename, pretty=True)
 
 
 def update_manifest():
@@ -188,3 +188,13 @@ def update_manifest():
     # write manifest to file
     with open("feeds/manifest.json", "w") as f:
         json.dump(manifest, f, indent=2, sort_keys=True)
+
+
+def normalize_name(name):
+    if name is None:
+        return None
+    clean_name = urllib.parse.quote(name.lower().strip(), safe="")[:250]
+    if clean_name:
+        return clean_name
+    else:
+        return None

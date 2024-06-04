@@ -1,0 +1,45 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<rss xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/" version="2.0">
+  <channel>
+    <title>CVE Feed for  LF-Edge, Zededa -- all</title>
+    <link>https://raw.githubusercontent.com/deepseas/cvelistV5monitor/main/feeds/lf-edge%2C%20zededa/all.rss</link>
+    <description>The latest CVEs for  LF-Edge, Zededa -- all products</description>
+    <docs>http://www.rssboard.org/rss-specification</docs>
+    <generator>python-feedgen</generator>
+    <lastBuildDate>Tue, 04 Jun 2024 17:29:44 +0000</lastBuildDate>
+    <ttl>60</ttl>
+    <item>
+      <title>CVE-2023-43630|2023-09-28T05:39:02.209Z -- lf-edge%2C%20zededa -- eve%20os
+</title>
+      <link>https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2023-43630</link>
+      <description>PCR14 is not in the list of PCRs that seal/unseal the “vault” key, but
+due to the change that was implemented in commit
+“7638364bc0acf8b5c481b5ce5fea11ad44ad7fd4”, fixing this issue alone would not solve the
+problem of the config partition not being measured correctly.
+
+Also, the “vault” key is sealed/unsealed with SHA1 PCRs instead of
+SHA256. 
+This issue was somewhat mitigated due to all of the PCR extend functions
+updating both the values of SHA256 and SHA1 for a given PCR ID.
+
+However, due to the change that was implemented in commit
+“7638364bc0acf8b5c481b5ce5fea11ad44ad7fd4”, this is no longer the case for PCR14, as
+the code in “measurefs.go” explicitly updates only the SHA256 instance of PCR14, which
+means that even if PCR14 were to be added to the list of PCRs sealing/unsealing the “vault”
+key, changes to the config partition would still not be measured.
+
+
+
+An attacker could modify the config partition without triggering the measured boot, this could
+result in the attacker gaining full control over the device with full access to the contents of the
+encrypted “vault” 
+
+
+
+
+</description>
+      <guid isPermaLink="false">CVE-2023-43630|2023-09-28T05:39:02.209Z</guid>
+      <pubDate>Wed, 20 Sep 2023 14:37:44 +0000</pubDate>
+    </item>
+  </channel>
+</rss>

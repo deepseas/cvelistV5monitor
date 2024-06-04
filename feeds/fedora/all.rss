@@ -1,22 +1,18 @@
 <?xml version='1.0' encoding='UTF-8'?>
-<rss xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/" version="2.0"><channel><title>CVE Feed for Fedora -- all</title><link>https://raw.githubusercontent.com/deepseas/cvelistV5monitor/main/feeds/fedora/all.rss</link><description>The latest CVEs for Fedora -- all</description><docs>http://www.rssboard.org/rss-specification</docs><generator>python-feedgen</generator><lastBuildDate>Fri, 31 May 2024 16:28:16 +0000</lastBuildDate><ttl>60</ttl><item><title>CVE-2024-1454|2024-02-12T22:29:58.226Z -- Fedora -- Fedora
-</title><link>https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2024-1454</link><description>The use-after-free vulnerability was found in the AuthentIC driver in OpenSC packages, occuring in the card enrolment process using pkcs15-init when a user or administrator enrols or modifies cards. An attacker must have physical access to the computer system and requires a crafted USB device or smart card to present the system with specially crafted responses to the APDUs, which are considered high complexity and low severity. This manipulation can allow for compromised card management operations during enrolment.</description><guid isPermaLink="false">CVE-2024-1454|2024-02-12T22:29:58.226Z</guid><pubDate>Mon, 12 Feb 2024 22:29:58 +0000</pubDate></item><item><title>CVE-2024-1930|2024-05-08T01:52:54.938Z -- Fedora -- dnf5daemon-server
-</title><link>https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2024-1930</link><description>No Limit on Number of Open Sessions / Bad Session Close Behaviour  in dnf5daemon-server before 5.1.17 allows a malicious user to impact Availability via No Limit on Number of Open Sessions.
-
-There is no limit on how many sessions D-Bus clients may create using the `open_session()` D-Bus method. For each session a thread is created in dnf5daemon-server. This spends a couple of hundred megabytes of memory in the process. Further connections will become impossible, likely because no more threads can be spawned by the D-Bus service.
-
-</description><guid isPermaLink="false">CVE-2024-1930|2024-05-08T01:52:54.938Z</guid><pubDate>Wed, 08 May 2024 01:52:54 +0000</pubDate></item><item><title>CVE-2024-1929|2024-05-08T01:53:34.726Z -- Fedora -- dnf5daemon-server
-</title><link>https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2024-1929</link><description>Local Root Exploit via Configuration Dictionary  in dnf5daemon-server before 5.1.17 allows a malicious user to impact Confidentiality and Integrity via Configuration Dictionary.
-
-There are issues with the D-Bus interface long before Polkit is invoked. The `org.rpm.dnf.v0.SessionManager.open_session` method takes a key/value map of configuration entries. A sub-entry in this map, placed under the "config" key, is another key/value map. The configuration values found in it will be forwarded as configuration overrides to the `libdnf5::Base` configuration. 
-
-Practically all libdnf5 configuration aspects can be influenced here. Already when opening the session via D-Bus, the libdnf5 will be initialized using these override configuration values. There is no sanity checking of the content of this "config" map, which is untrusted data. It is possible to make the library loading a plug-in shared library under control of an unprivileged user, hence achieving root access. 
-
-</description><guid isPermaLink="false">CVE-2024-1929|2024-05-08T01:53:34.726Z</guid><pubDate>Wed, 08 May 2024 01:53:34 +0000</pubDate></item><item><title>CVE-2024-1312|2024-02-15T06:56:43.291Z -- Fedora -- Fedora
-</title><link>https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2024-1312</link><description>A use-after-free flaw was found in the Linux kernel's Memory Management subsystem when a user wins two races at the same time with a fail in the mas_prev_slot function. This issue could allow a local user to crash the system.</description><guid isPermaLink="false">CVE-2024-1312|2024-02-15T06:56:43.291Z</guid><pubDate>Thu, 08 Feb 2024 12:38:03 +0000</pubDate></item><item><title>CVE-2024-31082|2024-04-04T13:48:34.893Z -- Fedora -- Fedora
-</title><link>https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2024-31082</link><description>A heap-based buffer over-read vulnerability was found in the X.org server's ProcAppleDRICreatePixmap() function. This issue occurs when byte-swapped length values are used in replies, potentially leading to memory leakage and segmentation faults, particularly when triggered by a client with a different endianness. This vulnerability could be exploited by an attacker to cause the X server to read heap memory values and then transmit them back to the client until encountering an unmapped page, resulting in a crash. Despite the attacker's inability to control the specific memory copied into the replies, the small length values typically stored in a 32-bit integer can result in significant attempted out-of-bounds reads.</description><guid isPermaLink="false">CVE-2024-31082|2024-04-04T13:48:34.893Z</guid><pubDate>Thu, 04 Apr 2024 13:48:34 +0000</pubDate></item><item><title>CVE-2024-3296|2024-04-05T12:03:59.886Z -- Fedora -- Fedora
-</title><link>https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2024-3296</link><description>A timing-based side-channel flaw exists in the rust-openssl package, which could be sufficient to recover a plaintext across a network in a Bleichenbacher-style attack. To achieve successful decryption, an attacker would have to be able to send a large number of trial messages for decryption. The vulnerability affects the legacy PKCS#1v1.5 RSA encryption padding mode.</description><guid isPermaLink="false">CVE-2024-3296|2024-04-05T12:03:59.886Z</guid><pubDate>Thu, 04 Apr 2024 13:47:24 +0000</pubDate></item><item><title>CVE-2024-2746|2024-05-08T01:55:10.092Z -- Fedora -- dnf5daemon-server
-</title><link>https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2024-2746</link><description>Incomplete fix for CVE-2024-1929
+<rss xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/" version="2.0">
+  <channel>
+    <title>CVE Feed for Fedora -- all</title>
+    <link>https://raw.githubusercontent.com/deepseas/cvelistV5monitor/main/feeds/fedora/all.rss</link>
+    <description>The latest CVEs for Fedora -- all products</description>
+    <docs>http://www.rssboard.org/rss-specification</docs>
+    <generator>python-feedgen</generator>
+    <lastBuildDate>Tue, 04 Jun 2024 17:29:24 +0000</lastBuildDate>
+    <ttl>60</ttl>
+    <item>
+      <title>CVE-2024-2746|2024-05-08T01:55:10.092Z -- fedora -- dnf5daemon-server
+</title>
+      <link>https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2024-2746</link>
+      <description>Incomplete fix for CVE-2024-1929
 
 The problem with CVE-2024-1929 was that the dnf5 D-Bus daemon accepted arbitrary configuration parameters from unprivileged users, which allowed a
 local root exploit by tricking the daemon into loading a user controlled "plugin". All of this happened before Polkit authentication was even started.
@@ -30,4 +26,9 @@ are accessible to unprivileged users. In the case of libdnf5, no such user acces
 
 Also, a local attacker can place a valid repository configuration file in this directory. This configuration file allows to specify
 a plethora of additional configuration options. This makes various additional code paths in libdnf5 accessible to the attacker. 
-</description><guid isPermaLink="false">CVE-2024-2746|2024-05-08T01:55:10.092Z</guid><pubDate>Wed, 08 May 2024 01:55:10 +0000</pubDate></item></channel></rss>
+</description>
+      <guid isPermaLink="false">CVE-2024-2746|2024-05-08T01:55:10.092Z</guid>
+      <pubDate>Wed, 08 May 2024 01:55:10 +0000</pubDate>
+    </item>
+  </channel>
+</rss>

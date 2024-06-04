@@ -1,0 +1,20 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<rss xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/" version="2.0">
+  <channel>
+    <title>CVE Feed for gentoo -- all</title>
+    <link>https://raw.githubusercontent.com/deepseas/cvelistV5monitor/main/feeds/gentoo/all.rss</link>
+    <description>The latest CVEs for gentoo -- all products</description>
+    <docs>http://www.rssboard.org/rss-specification</docs>
+    <generator>python-feedgen</generator>
+    <lastBuildDate>Tue, 04 Jun 2024 17:29:44 +0000</lastBuildDate>
+    <ttl>60</ttl>
+    <item>
+      <title>CVE-2023-26033|2023-02-24T23:29:36.567Z -- gentoo -- soko
+</title>
+      <link>https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2023-26033</link>
+      <description>Gentoo soko is the code that powers packages.gentoo.org. Versions prior to 1.0.1 are vulnerable to SQL Injection, leading to a Denial of Service. If the user selects (in user preferences) the "Recently Visited Packages" view for the index page, the value of the `search_history` cookie is used as a base64 encoded comma separated list of atoms. These are string loaded directly into the SQL query with `atom = '%s'` format string. As a result, any user can modify the browser's cookie value and inject most SQL queries. A proof of concept malformed cookie was generated that wiped the database or changed it's content. On the database, only public data is stored, so there is no confidentiality issues to site users. If it is known that the database was modified, a full restoration of data is possible by performing a full database wipe and performing full update of all components. This issue is patched with commit id 5ae9ca83b73. Version 1.0.1 contains the patch. If users are unable to upgrade immediately, the following workarounds may be applied: (1.) Use a proxy to always drop the `search_history` cookie until upgraded. The impact on user experience is low. (2.) Sanitize to the value of `search_history` cookie after base64 decoding it.</description>
+      <guid isPermaLink="false">CVE-2023-26033|2023-02-24T23:29:36.567Z</guid>
+      <pubDate>Fri, 24 Feb 2023 23:29:36 +0000</pubDate>
+    </item>
+  </channel>
+</rss>

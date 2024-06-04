@@ -1,0 +1,30 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<rss xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/" version="2.0">
+  <channel>
+    <title>CVE Feed for miniflux -- v2</title>
+    <link>https://raw.githubusercontent.com/deepseas/cvelistV5monitor/main/feeds/miniflux/v2.rss</link>
+    <description>The latest CVEs for miniflux -- v2</description>
+    <docs>http://www.rssboard.org/rss-specification</docs>
+    <generator>python-feedgen</generator>
+    <lastBuildDate>Tue, 04 Jun 2024 17:29:43 +0000</lastBuildDate>
+    <ttl>60</ttl>
+    <item>
+      <title>CVE-2023-27592|2023-03-17T19:04:00.630Z -- miniflux -- v2
+</title>
+      <link>https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2023-27592</link>
+      <description>Miniflux is a feed reader. Since v2.0.25, Miniflux will automatically proxy images served over HTTP to prevent mixed content errors. 
+
+When an outbound request made by the Go HTTP client fails, the `html.ServerError` is returned unescaped without the expected Content Security Policy header added to valid responses.
+
+By creating an RSS feed item with the inline description containing an `&lt;img&gt;` tag with a `srcset` attribute pointing to an invalid URL like `http:a&lt;script&gt;alert(1)&lt;/script&gt;`, we can coerce the proxy handler into an error condition where the invalid URL is returned unescaped and in full.
+
+This results in JavaScript execution on the Miniflux instance as soon as the user is convinced (e.g. by a message in the alt text) to open the broken image.
+
+An attacker can execute arbitrary JavaScript in the context of a victim Miniflux user when they open a broken image in a crafted RSS feed. This can be used to perform actions on the Miniflux instance as that user and gain administrative access to the Miniflux instance if it is reachable and the victim is an administrator.
+
+A patch is available in version 2.0.43. As a workaround sisable image proxy; default value is `http-only`.</description>
+      <guid isPermaLink="false">CVE-2023-27592|2023-03-17T19:04:00.630Z</guid>
+      <pubDate>Fri, 17 Mar 2023 19:04:00 +0000</pubDate>
+    </item>
+  </channel>
+</rss>
