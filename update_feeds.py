@@ -9,8 +9,8 @@ import requests
 import urllib.parse
 import zipfile
 
-from feeds import generate_feeds
-from update_manifest import update_manifest
+from utils import generate_feeds
+from utils import update_manifest
 
 
 def create_feed(vendor, product="all") -> FeedGenerator:
