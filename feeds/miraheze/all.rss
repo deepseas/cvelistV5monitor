@@ -6,15 +6,8 @@
     <description>The latest CVEs for miraheze -- all products</description>
     <docs>http://www.rssboard.org/rss-specification</docs>
     <generator>python-feedgen</generator>
-    <lastBuildDate>Thu, 06 Jun 2024 21:21:34 +0000</lastBuildDate>
+    <lastBuildDate>Thu, 06 Jun 2024 22:21:50 +0000</lastBuildDate>
     <ttl>60</ttl>
-    <item>
-      <title>CVE-2024-25107|2024-02-08T22:46:39.144Z -- miraheze -- wikidiscover</title>
-      <link>https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2024-25107</link>
-      <description>WikiDiscover is an extension designed for use with a CreateWiki managed farm to display wikis. On Special:WikiDiscover, the `Language::date` function is used when making the human-readable timestamp for inclusion on the wiki_creation column. This function uses interface messages to translate the names of months and days. It uses the `-&gt;text()` output mode, returning unescaped interface messages. Since the output is not escaped later, the unescaped interface message is included on the output, resulting in an XSS vulnerability. Exploiting this on-wiki requires the `(editinterface)` right. This vulnerability has been addressed in commit `267e763a0`. Users are advised to update their installations. There are no known workarounds for this vulnerability.</description>
-      <guid isPermaLink="false">CVE-2024-25107|2024-02-08T22:46:39.144Z</guid>
-      <pubDate>Thu, 08 Feb 2024 22:46:39 +0000</pubDate>
-    </item>
     <item>
       <title>CVE-2024-34701|2024-06-06T19:06:13.272Z -- miraheze -- createwiki</title>
       <link>https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2024-34701</link>
@@ -25,6 +18,13 @@ Commit 02e0f298f8d35155c39aa74193cb7b867432c5b8 fixes the issue. Important note 
 As a workaround, it is possible to disable the special pages outside of one's own global wiki by doing something similar to `miraheze/mw-config` commit e5664995fbb8644f9a80b450b4326194f20f9ddc that is adapted to one's own setup. As for the REST API, before the fix, there wasn't any REST endpoint that allowed one to make writes. Regardless, it is possible to also disable it outside of the global wiki by using `$wgCreateWikiDisableRESTAPI` and `$wgConf` in the configuration for one's own wiki farm..</description>
       <guid isPermaLink="false">CVE-2024-34701|2024-06-06T19:06:13.272Z</guid>
       <pubDate>Mon, 13 May 2024 15:54:12 +0000</pubDate>
+    </item>
+    <item>
+      <title>CVE-2024-25107|2024-02-08T22:46:39.144Z -- miraheze -- wikidiscover</title>
+      <link>https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2024-25107</link>
+      <description>WikiDiscover is an extension designed for use with a CreateWiki managed farm to display wikis. On Special:WikiDiscover, the `Language::date` function is used when making the human-readable timestamp for inclusion on the wiki_creation column. This function uses interface messages to translate the names of months and days. It uses the `-&gt;text()` output mode, returning unescaped interface messages. Since the output is not escaped later, the unescaped interface message is included on the output, resulting in an XSS vulnerability. Exploiting this on-wiki requires the `(editinterface)` right. This vulnerability has been addressed in commit `267e763a0`. Users are advised to update their installations. There are no known workarounds for this vulnerability.</description>
+      <guid isPermaLink="false">CVE-2024-25107|2024-02-08T22:46:39.144Z</guid>
+      <pubDate>Thu, 08 Feb 2024 22:46:39 +0000</pubDate>
     </item>
   </channel>
 </rss>
