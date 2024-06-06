@@ -6,23 +6,52 @@
     <description>The latest CVEs for Linux -- Linux</description>
     <docs>http://www.rssboard.org/rss-specification</docs>
     <generator>python-feedgen</generator>
-    <lastBuildDate>Thu, 06 Jun 2024 14:22:18 +0000</lastBuildDate>
+    <lastBuildDate>Thu, 06 Jun 2024 15:22:45 +0000</lastBuildDate>
     <ttl>60</ttl>
     <item>
-      <title>CVE-2023-52696|2024-06-06T13:00:58.958Z -- linux -- linux
-</title>
-      <link>https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2023-52696</link>
+      <title>CVE-2024-36920|2024-06-05T18:22:15.903Z -- linux -- linux</title>
+      <link>https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2024-36920</link>
       <description>In the Linux kernel, the following vulnerability has been resolved:
 
-powerpc/powernv: Add a null pointer check in opal_powercap_init()
+scsi: mpi3mr: Avoid memcpy field-spanning write WARNING
 
-kasprintf() returns a pointer to dynamically allocated memory
-which can be NULL upon failure.</description>
-      <guid isPermaLink="false">CVE-2023-52696|2024-06-06T13:00:58.958Z</guid>
-      <pubDate>Fri, 17 May 2024 14:27:28 +0000</pubDate>
+When the "storcli2 show" command is executed for eHBA-9600, mpi3mr driver
+prints this WARNING message:
+
+  memcpy: detected field-spanning write (size 128) of single field "bsg_reply_buf-&gt;reply_buf" at drivers/scsi/mpi3mr/mpi3mr_app.c:1658 (size 1)
+  WARNING: CPU: 0 PID: 12760 at drivers/scsi/mpi3mr/mpi3mr_app.c:1658 mpi3mr_bsg_request+0x6b12/0x7f10 [mpi3mr]
+
+The cause of the WARN is 128 bytes memcpy to the 1 byte size array "__u8
+replay_buf[1]" in the struct mpi3mr_bsg_in_reply_buf. The array is intended
+to be a flexible length array, so the WARN is a false positive.
+
+To suppress the WARN, remove the constant number '1' from the array
+declaration and clarify that it has flexible length. Also, adjust the
+memory allocation size to match the change.</description>
+      <guid isPermaLink="false">CVE-2024-36920|2024-06-05T18:22:15.903Z</guid>
+      <pubDate>Thu, 30 May 2024 15:29:15 +0000</pubDate>
     </item>
     <item>
-      <title>CVE-2022-48655|2024-06-05T13:55:57.618Z -- linux -- linux</title>
+      <title>CVE-2024-36913|2024-06-05T14:41:56.102Z -- linux -- linux</title>
+      <link>https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2024-36913</link>
+      <description>In the Linux kernel, the following vulnerability has been resolved:
+
+Drivers: hv: vmbus: Leak pages if set_memory_encrypted() fails
+
+In CoCo VMs it is possible for the untrusted host to cause
+set_memory_encrypted() or set_memory_decrypted() to fail such that an
+error is returned and the resulting memory is shared. Callers need to
+take care to handle these errors to avoid returning decrypted (shared)
+memory to the page allocator, which could lead to functional or security
+issues.
+
+VMBus code could free decrypted pages if set_memory_encrypted()/decrypted()
+fails. Leak the pages if this happens.</description>
+      <guid isPermaLink="false">CVE-2024-36913|2024-06-05T14:41:56.102Z</guid>
+      <pubDate>Thu, 30 May 2024 15:29:11 +0000</pubDate>
+    </item>
+    <item>
+      <title>CVE-2022-48655|2024-06-05T04:01:14.185Z -- linux -- linux</title>
       <link>https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2022-48655</link>
       <description>In the Linux kernel, the following vulnerability has been resolved:
 
@@ -34,7 +63,7 @@ lead to out-of-bound violations if the SCMI driver misbehave.
 
 Add an internal consistency check before any such domains descriptors
 accesses.</description>
-      <guid isPermaLink="false">CVE-2022-48655|2024-06-05T13:55:57.618Z</guid>
+      <guid isPermaLink="false">CVE-2022-48655|2024-06-05T04:01:14.185Z</guid>
       <pubDate>Sun, 28 Apr 2024 13:01:00 +0000</pubDate>
     </item>
     <item>
@@ -80,7 +109,7 @@ all out into driver (well, arch/platform) code.
       <pubDate>Sun, 19 May 2024 08:34:32 +0000</pubDate>
     </item>
     <item>
-      <title>CVE-2022-48655|2024-06-05T04:01:14.185Z -- linux -- linux</title>
+      <title>CVE-2022-48655|2024-06-05T13:55:57.618Z -- linux -- linux</title>
       <link>https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2022-48655</link>
       <description>In the Linux kernel, the following vulnerability has been resolved:
 
@@ -92,50 +121,20 @@ lead to out-of-bound violations if the SCMI driver misbehave.
 
 Add an internal consistency check before any such domains descriptors
 accesses.</description>
-      <guid isPermaLink="false">CVE-2022-48655|2024-06-05T04:01:14.185Z</guid>
+      <guid isPermaLink="false">CVE-2022-48655|2024-06-05T13:55:57.618Z</guid>
       <pubDate>Sun, 28 Apr 2024 13:01:00 +0000</pubDate>
     </item>
     <item>
-      <title>CVE-2024-36913|2024-06-05T14:41:56.102Z -- linux -- linux</title>
-      <link>https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2024-36913</link>
+      <title>CVE-2023-52696|2024-06-06T13:00:58.958Z -- linux -- linux</title>
+      <link>https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2023-52696</link>
       <description>In the Linux kernel, the following vulnerability has been resolved:
 
-Drivers: hv: vmbus: Leak pages if set_memory_encrypted() fails
+powerpc/powernv: Add a null pointer check in opal_powercap_init()
 
-In CoCo VMs it is possible for the untrusted host to cause
-set_memory_encrypted() or set_memory_decrypted() to fail such that an
-error is returned and the resulting memory is shared. Callers need to
-take care to handle these errors to avoid returning decrypted (shared)
-memory to the page allocator, which could lead to functional or security
-issues.
-
-VMBus code could free decrypted pages if set_memory_encrypted()/decrypted()
-fails. Leak the pages if this happens.</description>
-      <guid isPermaLink="false">CVE-2024-36913|2024-06-05T14:41:56.102Z</guid>
-      <pubDate>Thu, 30 May 2024 15:29:11 +0000</pubDate>
-    </item>
-    <item>
-      <title>CVE-2024-36920|2024-06-05T18:22:15.903Z -- linux -- linux</title>
-      <link>https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2024-36920</link>
-      <description>In the Linux kernel, the following vulnerability has been resolved:
-
-scsi: mpi3mr: Avoid memcpy field-spanning write WARNING
-
-When the "storcli2 show" command is executed for eHBA-9600, mpi3mr driver
-prints this WARNING message:
-
-  memcpy: detected field-spanning write (size 128) of single field "bsg_reply_buf-&gt;reply_buf" at drivers/scsi/mpi3mr/mpi3mr_app.c:1658 (size 1)
-  WARNING: CPU: 0 PID: 12760 at drivers/scsi/mpi3mr/mpi3mr_app.c:1658 mpi3mr_bsg_request+0x6b12/0x7f10 [mpi3mr]
-
-The cause of the WARN is 128 bytes memcpy to the 1 byte size array "__u8
-replay_buf[1]" in the struct mpi3mr_bsg_in_reply_buf. The array is intended
-to be a flexible length array, so the WARN is a false positive.
-
-To suppress the WARN, remove the constant number '1' from the array
-declaration and clarify that it has flexible length. Also, adjust the
-memory allocation size to match the change.</description>
-      <guid isPermaLink="false">CVE-2024-36920|2024-06-05T18:22:15.903Z</guid>
-      <pubDate>Thu, 30 May 2024 15:29:15 +0000</pubDate>
+kasprintf() returns a pointer to dynamically allocated memory
+which can be NULL upon failure.</description>
+      <guid isPermaLink="false">CVE-2023-52696|2024-06-06T13:00:58.958Z</guid>
+      <pubDate>Fri, 17 May 2024 14:27:28 +0000</pubDate>
     </item>
   </channel>
 </rss>
