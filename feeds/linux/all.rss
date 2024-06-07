@@ -6,73 +6,126 @@
     <description>The latest CVEs for Linux -- all products</description>
     <docs>http://www.rssboard.org/rss-specification</docs>
     <generator>python-feedgen</generator>
-    <lastBuildDate>Thu, 06 Jun 2024 23:23:26 +0000</lastBuildDate>
+    <lastBuildDate>Fri, 07 Jun 2024 15:23:12 +0000</lastBuildDate>
     <ttl>60</ttl>
     <item>
-      <title>CVE-2024-27032|2024-06-06T18:39:28.141Z -- linux -- linux</title>
-      <link>https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2024-27032</link>
+      <title>CVE-2024-36919|2024-06-07T14:28:19.585Z -- linux -- linux
+</title>
+      <link>https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2024-36919</link>
       <description>In the Linux kernel, the following vulnerability has been resolved:
 
-f2fs: fix to avoid potential panic during recovery
+scsi: bnx2fc: Remove spin_lock_bh while releasing resources after upload
 
-During recovery, if FAULT_BLOCK is on, it is possible that
-f2fs_reserve_new_block() will return -ENOSPC during recovery,
-then it may trigger panic.
+The session resources are used by FW and driver when session is offloaded,
+once session is uploaded these resources are not used. The lock is not
+required as these fields won't be used any longer. The offload and upload
+calls are sequential, hence lock is not required.
 
-Also, if fault injection rate is 1 and only FAULT_BLOCK fault
-type is on, it may encounter deadloop in loop of block reservation.
+This will suppress following BUG_ON():
 
-Let's change as below to fix these issues:
-- remove bug_on() to avoid panic.
-- limit the loop count of block reservation to avoid potential
-deadloop.</description>
-      <guid isPermaLink="false">CVE-2024-27032|2024-06-06T18:39:28.141Z</guid>
-      <pubDate>Wed, 01 May 2024 12:53:32 +0000</pubDate>
+[  449.843143] ------------[ cut here ]------------
+[  449.848302] kernel BUG at mm/vmalloc.c:2727!
+[  449.853072] invalid opcode: 0000 [#1] PREEMPT SMP PTI
+[  449.858712] CPU: 5 PID: 1996 Comm: kworker/u24:2 Not tainted 5.14.0-118.el9.x86_64 #1
+Rebooting.
+[  449.867454] Hardware name: Dell Inc. PowerEdge R730/0WCJNT, BIOS 2.3.4 11/08/2016
+[  449.876966] Workqueue: fc_rport_eq fc_rport_work [libfc]
+[  449.882910] RIP: 0010:vunmap+0x2e/0x30
+[  449.887098] Code: 00 65 8b 05 14 a2 f0 4a a9 00 ff ff 00 75 1b 55 48 89 fd e8 34 36 79 00 48 85 ed 74 0b 48 89 ef 31 f6 5d e9 14 fc ff ff 5d c3 &lt;0f&gt; 0b 0f 1f 44 00 00 41 57 41 56 49 89 ce 41 55 49 89 fd 41 54 41
+[  449.908054] RSP: 0018:ffffb83d878b3d68 EFLAGS: 00010206
+[  449.913887] RAX: 0000000080000201 RBX: ffff8f4355133550 RCX: 000000000d400005
+[  449.921843] RDX: 0000000000000001 RSI: 0000000000001000 RDI: ffffb83da53f5000
+[  449.929808] RBP: ffff8f4ac6675800 R08: ffffb83d878b3d30 R09: 00000000000efbdf
+[  449.937774] R10: 0000000000000003 R11: ffff8f434573e000 R12: 0000000000001000
+[  449.945736] R13: 0000000000001000 R14: ffffb83da53f5000 R15: ffff8f43d4ea3ae0
+[  449.953701] FS:  0000000000000000(0000) GS:ffff8f529fc80000(0000) knlGS:0000000000000000
+[  449.962732] CS:  0010 DS: 0000 ES: 0000 CR0: 0000000080050033
+[  449.969138] CR2: 00007f8cf993e150 CR3: 0000000efbe10003 CR4: 00000000003706e0
+[  449.977102] DR0: 0000000000000000 DR1: 0000000000000000 DR2: 0000000000000000
+[  449.985065] DR3: 0000000000000000 DR6: 00000000fffe0ff0 DR7: 0000000000000400
+[  449.993028] Call Trace:
+[  449.995756]  __iommu_dma_free+0x96/0x100
+[  450.000139]  bnx2fc_free_session_resc+0x67/0x240 [bnx2fc]
+[  450.006171]  bnx2fc_upload_session+0xce/0x100 [bnx2fc]
+[  450.011910]  bnx2fc_rport_event_handler+0x9f/0x240 [bnx2fc]
+[  450.018136]  fc_rport_work+0x103/0x5b0 [libfc]
+[  450.023103]  process_one_work+0x1e8/0x3c0
+[  450.027581]  worker_thread+0x50/0x3b0
+[  450.031669]  ? rescuer_thread+0x370/0x370
+[  450.036143]  kthread+0x149/0x170
+[  450.039744]  ? set_kthread_struct+0x40/0x40
+[  450.044411]  ret_from_fork+0x22/0x30
+[  450.048404] Modules linked in: vfat msdos fat xfs nfs_layout_nfsv41_files rpcsec_gss_krb5 auth_rpcgss nfsv4 dns_resolver dm_service_time qedf qed crc8 bnx2fc libfcoe libfc scsi_transport_fc intel_rapl_msr intel_rapl_common x86_pkg_temp_thermal intel_powerclamp dcdbas rapl intel_cstate intel_uncore mei_me pcspkr mei ipmi_ssif lpc_ich ipmi_si fuse zram ext4 mbcache jbd2 loop nfsv3 nfs_acl nfs lockd grace fscache netfs irdma ice sd_mod t10_pi sg ib_uverbs ib_core 8021q garp mrp stp llc mgag200 i2c_algo_bit drm_kms_helper syscopyarea sysfillrect sysimgblt mxm_wmi fb_sys_fops cec crct10dif_pclmul ahci crc32_pclmul bnx2x drm ghash_clmulni_intel libahci rfkill i40e libata megaraid_sas mdio wmi sunrpc lrw dm_crypt dm_round_robin dm_multipath dm_snapshot dm_bufio dm_mirror dm_region_hash dm_log dm_zero dm_mod linear raid10 raid456 async_raid6_recov async_memcpy async_pq async_xor async_tx raid6_pq libcrc32c crc32c_intel raid1 raid0 iscsi_ibft squashfs be2iscsi bnx2i cnic uio cxgb4i cxgb4 tls
+[  450.048497]  libcxgbi libcxgb qla4xxx iscsi_boot_sysfs iscsi_tcp libiscsi_tcp libiscsi scsi_transport_iscsi edd ipmi_devintf ipmi_msghandler
+[  450.159753] ---[ end trace 712de2c57c64abc8 ]---</description>
+      <guid isPermaLink="false">CVE-2024-36919|2024-06-07T14:28:19.585Z</guid>
+      <pubDate>Thu, 30 May 2024 15:29:14 +0000</pubDate>
     </item>
     <item>
-      <title>CVE-2024-36920|2024-06-05T18:22:15.903Z -- linux -- linux</title>
-      <link>https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2024-36920</link>
+      <title>CVE-2023-52608|2024-06-06T17:51:11.177Z -- linux -- linux</title>
+      <link>https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2023-52608</link>
       <description>In the Linux kernel, the following vulnerability has been resolved:
 
-scsi: mpi3mr: Avoid memcpy field-spanning write WARNING
+firmware: arm_scmi: Check mailbox/SMT channel for consistency
 
-When the "storcli2 show" command is executed for eHBA-9600, mpi3mr driver
-prints this WARNING message:
+On reception of a completion interrupt the shared memory area is accessed
+to retrieve the message header at first and then, if the message sequence
+number identifies a transaction which is still pending, the related
+payload is fetched too.
 
-  memcpy: detected field-spanning write (size 128) of single field "bsg_reply_buf-&gt;reply_buf" at drivers/scsi/mpi3mr/mpi3mr_app.c:1658 (size 1)
-  WARNING: CPU: 0 PID: 12760 at drivers/scsi/mpi3mr/mpi3mr_app.c:1658 mpi3mr_bsg_request+0x6b12/0x7f10 [mpi3mr]
+When an SCMI command times out the channel ownership remains with the
+platform until eventually a late reply is received and, as a consequence,
+any further transmission attempt remains pending, waiting for the channel
+to be relinquished by the platform.
 
-The cause of the WARN is 128 bytes memcpy to the 1 byte size array "__u8
-replay_buf[1]" in the struct mpi3mr_bsg_in_reply_buf. The array is intended
-to be a flexible length array, so the WARN is a false positive.
+Once that late reply is received the channel ownership is given back
+to the agent and any pending request is then allowed to proceed and
+overwrite the SMT area of the just delivered late reply; then the wait
+for the reply to the new request starts.
 
-To suppress the WARN, remove the constant number '1' from the array
-declaration and clarify that it has flexible length. Also, adjust the
-memory allocation size to match the change.</description>
-      <guid isPermaLink="false">CVE-2024-36920|2024-06-05T18:22:15.903Z</guid>
-      <pubDate>Thu, 30 May 2024 15:29:15 +0000</pubDate>
+It has been observed that the spurious IRQ related to the late reply can
+be wrongly associated with the freshly enqueued request: when that happens
+the SCMI stack in-flight lookup procedure is fooled by the fact that the
+message header now present in the SMT area is related to the new pending
+transaction, even though the real reply has still to arrive.
+
+This race-condition on the A2P channel can be detected by looking at the
+channel status bits: a genuine reply from the platform will have set the
+channel free bit before triggering the completion IRQ.
+
+Add a consistency check to validate such condition in the A2P ISR.</description>
+      <guid isPermaLink="false">CVE-2023-52608|2024-06-06T17:51:11.177Z</guid>
+      <pubDate>Wed, 13 Mar 2024 14:01:48 +0000</pubDate>
     </item>
     <item>
-      <title>CVE-2024-36913|2024-06-05T14:41:56.102Z -- linux -- linux</title>
-      <link>https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2024-36913</link>
+      <title>CVE-2021-47329|2024-06-06T15:46:52.437Z -- linux -- linux</title>
+      <link>https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2021-47329</link>
       <description>In the Linux kernel, the following vulnerability has been resolved:
 
-Drivers: hv: vmbus: Leak pages if set_memory_encrypted() fails
+scsi: megaraid_sas: Fix resource leak in case of probe failure
 
-In CoCo VMs it is possible for the untrusted host to cause
-set_memory_encrypted() or set_memory_decrypted() to fail such that an
-error is returned and the resulting memory is shared. Callers need to
-take care to handle these errors to avoid returning decrypted (shared)
-memory to the page allocator, which could lead to functional or security
-issues.
+The driver doesn't clean up all the allocated resources properly when
+scsi_add_host(), megasas_start_aen() function fails during the PCI device
+probe.
 
-VMBus code could free decrypted pages if set_memory_encrypted()/decrypted()
-fails. Leak the pages if this happens.</description>
-      <guid isPermaLink="false">CVE-2024-36913|2024-06-05T14:41:56.102Z</guid>
-      <pubDate>Thu, 30 May 2024 15:29:11 +0000</pubDate>
+Clean up all those resources.</description>
+      <guid isPermaLink="false">CVE-2021-47329|2024-06-06T15:46:52.437Z</guid>
+      <pubDate>Tue, 21 May 2024 14:35:41 +0000</pubDate>
     </item>
     <item>
-      <title>CVE-2022-48655|2024-06-05T04:01:14.185Z -- linux -- linux</title>
+      <title>CVE-2023-52696|2024-06-06T13:00:58.958Z -- linux -- linux</title>
+      <link>https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2023-52696</link>
+      <description>In the Linux kernel, the following vulnerability has been resolved:
+
+powerpc/powernv: Add a null pointer check in opal_powercap_init()
+
+kasprintf() returns a pointer to dynamically allocated memory
+which can be NULL upon failure.</description>
+      <guid isPermaLink="false">CVE-2023-52696|2024-06-06T13:00:58.958Z</guid>
+      <pubDate>Fri, 17 May 2024 14:27:28 +0000</pubDate>
+    </item>
+    <item>
+      <title>CVE-2022-48655|2024-06-05T13:55:57.618Z -- linux -- linux</title>
       <link>https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2022-48655</link>
       <description>In the Linux kernel, the following vulnerability has been resolved:
 
@@ -84,7 +137,7 @@ lead to out-of-bound violations if the SCMI driver misbehave.
 
 Add an internal consistency check before any such domains descriptors
 accesses.</description>
-      <guid isPermaLink="false">CVE-2022-48655|2024-06-05T04:01:14.185Z</guid>
+      <guid isPermaLink="false">CVE-2022-48655|2024-06-05T13:55:57.618Z</guid>
       <pubDate>Sun, 28 Apr 2024 13:01:00 +0000</pubDate>
     </item>
     <item>
@@ -130,7 +183,7 @@ all out into driver (well, arch/platform) code.
       <pubDate>Sun, 19 May 2024 08:34:32 +0000</pubDate>
     </item>
     <item>
-      <title>CVE-2022-48655|2024-06-05T13:55:57.618Z -- linux -- linux</title>
+      <title>CVE-2022-48655|2024-06-05T04:01:14.185Z -- linux -- linux</title>
       <link>https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2022-48655</link>
       <description>In the Linux kernel, the following vulnerability has been resolved:
 
@@ -142,71 +195,71 @@ lead to out-of-bound violations if the SCMI driver misbehave.
 
 Add an internal consistency check before any such domains descriptors
 accesses.</description>
-      <guid isPermaLink="false">CVE-2022-48655|2024-06-05T13:55:57.618Z</guid>
+      <guid isPermaLink="false">CVE-2022-48655|2024-06-05T04:01:14.185Z</guid>
       <pubDate>Sun, 28 Apr 2024 13:01:00 +0000</pubDate>
     </item>
     <item>
-      <title>CVE-2023-52696|2024-06-06T13:00:58.958Z -- linux -- linux</title>
-      <link>https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2023-52696</link>
+      <title>CVE-2024-36913|2024-06-05T14:41:56.102Z -- linux -- linux</title>
+      <link>https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2024-36913</link>
       <description>In the Linux kernel, the following vulnerability has been resolved:
 
-powerpc/powernv: Add a null pointer check in opal_powercap_init()
+Drivers: hv: vmbus: Leak pages if set_memory_encrypted() fails
 
-kasprintf() returns a pointer to dynamically allocated memory
-which can be NULL upon failure.</description>
-      <guid isPermaLink="false">CVE-2023-52696|2024-06-06T13:00:58.958Z</guid>
-      <pubDate>Fri, 17 May 2024 14:27:28 +0000</pubDate>
+In CoCo VMs it is possible for the untrusted host to cause
+set_memory_encrypted() or set_memory_decrypted() to fail such that an
+error is returned and the resulting memory is shared. Callers need to
+take care to handle these errors to avoid returning decrypted (shared)
+memory to the page allocator, which could lead to functional or security
+issues.
+
+VMBus code could free decrypted pages if set_memory_encrypted()/decrypted()
+fails. Leak the pages if this happens.</description>
+      <guid isPermaLink="false">CVE-2024-36913|2024-06-05T14:41:56.102Z</guid>
+      <pubDate>Thu, 30 May 2024 15:29:11 +0000</pubDate>
     </item>
     <item>
-      <title>CVE-2021-47329|2024-06-06T15:46:52.437Z -- linux -- linux</title>
-      <link>https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2021-47329</link>
+      <title>CVE-2024-36920|2024-06-05T18:22:15.903Z -- linux -- linux</title>
+      <link>https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2024-36920</link>
       <description>In the Linux kernel, the following vulnerability has been resolved:
 
-scsi: megaraid_sas: Fix resource leak in case of probe failure
+scsi: mpi3mr: Avoid memcpy field-spanning write WARNING
 
-The driver doesn't clean up all the allocated resources properly when
-scsi_add_host(), megasas_start_aen() function fails during the PCI device
-probe.
+When the "storcli2 show" command is executed for eHBA-9600, mpi3mr driver
+prints this WARNING message:
 
-Clean up all those resources.</description>
-      <guid isPermaLink="false">CVE-2021-47329|2024-06-06T15:46:52.437Z</guid>
-      <pubDate>Tue, 21 May 2024 14:35:41 +0000</pubDate>
+  memcpy: detected field-spanning write (size 128) of single field "bsg_reply_buf-&gt;reply_buf" at drivers/scsi/mpi3mr/mpi3mr_app.c:1658 (size 1)
+  WARNING: CPU: 0 PID: 12760 at drivers/scsi/mpi3mr/mpi3mr_app.c:1658 mpi3mr_bsg_request+0x6b12/0x7f10 [mpi3mr]
+
+The cause of the WARN is 128 bytes memcpy to the 1 byte size array "__u8
+replay_buf[1]" in the struct mpi3mr_bsg_in_reply_buf. The array is intended
+to be a flexible length array, so the WARN is a false positive.
+
+To suppress the WARN, remove the constant number '1' from the array
+declaration and clarify that it has flexible length. Also, adjust the
+memory allocation size to match the change.</description>
+      <guid isPermaLink="false">CVE-2024-36920|2024-06-05T18:22:15.903Z</guid>
+      <pubDate>Thu, 30 May 2024 15:29:15 +0000</pubDate>
     </item>
     <item>
-      <title>CVE-2023-52608|2024-06-06T17:51:11.177Z -- linux -- linux</title>
-      <link>https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2023-52608</link>
+      <title>CVE-2024-27032|2024-06-06T18:39:28.141Z -- linux -- linux</title>
+      <link>https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2024-27032</link>
       <description>In the Linux kernel, the following vulnerability has been resolved:
 
-firmware: arm_scmi: Check mailbox/SMT channel for consistency
+f2fs: fix to avoid potential panic during recovery
 
-On reception of a completion interrupt the shared memory area is accessed
-to retrieve the message header at first and then, if the message sequence
-number identifies a transaction which is still pending, the related
-payload is fetched too.
+During recovery, if FAULT_BLOCK is on, it is possible that
+f2fs_reserve_new_block() will return -ENOSPC during recovery,
+then it may trigger panic.
 
-When an SCMI command times out the channel ownership remains with the
-platform until eventually a late reply is received and, as a consequence,
-any further transmission attempt remains pending, waiting for the channel
-to be relinquished by the platform.
+Also, if fault injection rate is 1 and only FAULT_BLOCK fault
+type is on, it may encounter deadloop in loop of block reservation.
 
-Once that late reply is received the channel ownership is given back
-to the agent and any pending request is then allowed to proceed and
-overwrite the SMT area of the just delivered late reply; then the wait
-for the reply to the new request starts.
-
-It has been observed that the spurious IRQ related to the late reply can
-be wrongly associated with the freshly enqueued request: when that happens
-the SCMI stack in-flight lookup procedure is fooled by the fact that the
-message header now present in the SMT area is related to the new pending
-transaction, even though the real reply has still to arrive.
-
-This race-condition on the A2P channel can be detected by looking at the
-channel status bits: a genuine reply from the platform will have set the
-channel free bit before triggering the completion IRQ.
-
-Add a consistency check to validate such condition in the A2P ISR.</description>
-      <guid isPermaLink="false">CVE-2023-52608|2024-06-06T17:51:11.177Z</guid>
-      <pubDate>Wed, 13 Mar 2024 14:01:48 +0000</pubDate>
+Let's change as below to fix these issues:
+- remove bug_on() to avoid panic.
+- limit the loop count of block reservation to avoid potential
+deadloop.</description>
+      <guid isPermaLink="false">CVE-2024-27032|2024-06-06T18:39:28.141Z</guid>
+      <pubDate>Wed, 01 May 2024 12:53:32 +0000</pubDate>
     </item>
   </channel>
 </rss>
