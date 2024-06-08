@@ -67,11 +67,9 @@ def generate_feeds(cve_files):
             # create feed for vendor
             if vendor not in feeds:
                 feeds[vendor] = {"all": create_feed(orig_vendor)}
-            else:
-                continue
             if product not in feeds[vendor]:
                 feeds[vendor][product] = create_feed(orig_vendor, orig_product)
-            fg_all = feeds[vendor]["all"]
+            fg_all: FeedGenerator = feeds[vendor]["all"]
             fg_product: FeedGenerator = feeds[vendor][product]
             # id
             cve_id = cve["cveMetadata"]["cveId"]
