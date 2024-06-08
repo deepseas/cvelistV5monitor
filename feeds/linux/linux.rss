@@ -6,37 +6,223 @@
     <description>The latest CVEs for Linux -- Linux</description>
     <docs>http://www.rssboard.org/rss-specification</docs>
     <generator>python-feedgen</generator>
-    <lastBuildDate>Sat, 08 Jun 2024 13:21:44 +0000</lastBuildDate>
+    <lastBuildDate>Sat, 08 Jun 2024 14:21:39 +0000</lastBuildDate>
     <ttl>60</ttl>
     <item>
-      <title>CVE-2024-36967|2024-06-08T12:52:59.895Z -- linux -- linux
-</title>
-      <link>https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2024-36967</link>
+      <title>CVE-2024-35984|2024-06-08T11:49:36.732Z -- linux -- linux</title>
+      <link>https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2024-35984</link>
       <description>In the Linux kernel, the following vulnerability has been resolved:
 
-KEYS: trusted: Fix memory leak in tpm2_key_encode()
+i2c: smbus: fix NULL function pointer dereference
 
-'scratch' is never freed. Fix this by calling kfree() in the success, and
-in the error case.</description>
-      <guid isPermaLink="false">CVE-2024-36967|2024-06-08T12:52:59.895Z</guid>
-      <pubDate>Sat, 08 Jun 2024 12:52:59 +0000</pubDate>
+Baruch reported an OOPS when using the designware controller as target
+only. Target-only modes break the assumption of one transfer function
+always being available. Fix this by always checking the pointer in
+__i2c_transfer.
+
+[wsa: dropped the simplification in core-smbus to avoid theoretical regressions]</description>
+      <guid isPermaLink="false">CVE-2024-35984|2024-06-08T11:49:36.732Z</guid>
+      <pubDate>Mon, 20 May 2024 09:47:51 +0000</pubDate>
     </item>
     <item>
-      <title>CVE-2024-36947|2024-06-07T16:32:11.458Z -- linux -- linux</title>
-      <link>https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2024-36947</link>
+      <title>CVE-2024-27032|2024-06-06T18:39:28.141Z -- linux -- linux</title>
+      <link>https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2024-27032</link>
       <description>In the Linux kernel, the following vulnerability has been resolved:
 
-qibfs: fix dentry leak
+f2fs: fix to avoid potential panic during recovery
 
-simple_recursive_removal() drops the pinning references to all positives
-in subtree.  For the cases when its argument has been kept alive by
-the pinning alone that's exactly the right thing to do, but here
-the argument comes from dcache lookup, that needs to be balanced by
-explicit dput().
+During recovery, if FAULT_BLOCK is on, it is possible that
+f2fs_reserve_new_block() will return -ENOSPC during recovery,
+then it may trigger panic.
 
-Fucked-up-by: Al Viro</description>
-      <guid isPermaLink="false">CVE-2024-36947|2024-06-07T16:32:11.458Z</guid>
-      <pubDate>Thu, 30 May 2024 15:35:44 +0000</pubDate>
+Also, if fault injection rate is 1 and only FAULT_BLOCK fault
+type is on, it may encounter deadloop in loop of block reservation.
+
+Let's change as below to fix these issues:
+- remove bug_on() to avoid panic.
+- limit the loop count of block reservation to avoid potential
+deadloop.</description>
+      <guid isPermaLink="false">CVE-2024-27032|2024-06-06T18:39:28.141Z</guid>
+      <pubDate>Wed, 01 May 2024 12:53:32 +0000</pubDate>
+    </item>
+    <item>
+      <title>CVE-2024-36920|2024-06-05T18:22:15.903Z -- linux -- linux</title>
+      <link>https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2024-36920</link>
+      <description>In the Linux kernel, the following vulnerability has been resolved:
+
+scsi: mpi3mr: Avoid memcpy field-spanning write WARNING
+
+When the "storcli2 show" command is executed for eHBA-9600, mpi3mr driver
+prints this WARNING message:
+
+  memcpy: detected field-spanning write (size 128) of single field "bsg_reply_buf-&gt;reply_buf" at drivers/scsi/mpi3mr/mpi3mr_app.c:1658 (size 1)
+  WARNING: CPU: 0 PID: 12760 at drivers/scsi/mpi3mr/mpi3mr_app.c:1658 mpi3mr_bsg_request+0x6b12/0x7f10 [mpi3mr]
+
+The cause of the WARN is 128 bytes memcpy to the 1 byte size array "__u8
+replay_buf[1]" in the struct mpi3mr_bsg_in_reply_buf. The array is intended
+to be a flexible length array, so the WARN is a false positive.
+
+To suppress the WARN, remove the constant number '1' from the array
+declaration and clarify that it has flexible length. Also, adjust the
+memory allocation size to match the change.</description>
+      <guid isPermaLink="false">CVE-2024-36920|2024-06-05T18:22:15.903Z</guid>
+      <pubDate>Thu, 30 May 2024 15:29:15 +0000</pubDate>
+    </item>
+    <item>
+      <title>CVE-2024-36913|2024-06-05T14:41:56.102Z -- linux -- linux</title>
+      <link>https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2024-36913</link>
+      <description>In the Linux kernel, the following vulnerability has been resolved:
+
+Drivers: hv: vmbus: Leak pages if set_memory_encrypted() fails
+
+In CoCo VMs it is possible for the untrusted host to cause
+set_memory_encrypted() or set_memory_decrypted() to fail such that an
+error is returned and the resulting memory is shared. Callers need to
+take care to handle these errors to avoid returning decrypted (shared)
+memory to the page allocator, which could lead to functional or security
+issues.
+
+VMBus code could free decrypted pages if set_memory_encrypted()/decrypted()
+fails. Leak the pages if this happens.</description>
+      <guid isPermaLink="false">CVE-2024-36913|2024-06-05T14:41:56.102Z</guid>
+      <pubDate>Thu, 30 May 2024 15:29:11 +0000</pubDate>
+    </item>
+    <item>
+      <title>CVE-2022-48655|2024-06-05T04:01:14.185Z -- linux -- linux</title>
+      <link>https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2022-48655</link>
+      <description>In the Linux kernel, the following vulnerability has been resolved:
+
+firmware: arm_scmi: Harden accesses to the reset domains
+
+Accessing reset domains descriptors by the index upon the SCMI drivers
+requests through the SCMI reset operations interface can potentially
+lead to out-of-bound violations if the SCMI driver misbehave.
+
+Add an internal consistency check before any such domains descriptors
+accesses.</description>
+      <guid isPermaLink="false">CVE-2022-48655|2024-06-05T04:01:14.185Z</guid>
+      <pubDate>Sun, 28 Apr 2024 13:01:00 +0000</pubDate>
+    </item>
+    <item>
+      <title>CVE-2024-35875|2024-05-29T05:30:31.974Z -- linux -- linux</title>
+      <link>https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2024-35875</link>
+      <description>In the Linux kernel, the following vulnerability has been resolved:
+
+x86/coco: Require seeding RNG with RDRAND on CoCo systems
+
+There are few uses of CoCo that don't rely on working cryptography and
+hence a working RNG. Unfortunately, the CoCo threat model means that the
+VM host cannot be trusted and may actively work against guests to
+extract secrets or manipulate computation. Since a malicious host can
+modify or observe nearly all inputs to guests, the only remaining source
+of entropy for CoCo guests is RDRAND.
+
+If RDRAND is broken -- due to CPU hardware fault -- the RNG as a whole
+is meant to gracefully continue on gathering entropy from other sources,
+but since there aren't other sources on CoCo, this is catastrophic.
+This is mostly a concern at boot time when initially seeding the RNG, as
+after that the consequences of a broken RDRAND are much more
+theoretical.
+
+So, try at boot to seed the RNG using 256 bits of RDRAND output. If this
+fails, panic(). This will also trigger if the system is booted without
+RDRAND, as RDRAND is essential for a safe CoCo boot.
+
+Add this deliberately to be "just a CoCo x86 driver feature" and not
+part of the RNG itself. Many device drivers and platforms have some
+desire to contribute something to the RNG, and add_device_randomness()
+is specifically meant for this purpose.
+
+Any driver can call it with seed data of any quality, or even garbage
+quality, and it can only possibly make the quality of the RNG better or
+have no effect, but can never make it worse.
+
+Rather than trying to build something into the core of the RNG, consider
+the particular CoCo issue just a CoCo issue, and therefore separate it
+all out into driver (well, arch/platform) code.
+
+  [ bp: Massage commit message. ]</description>
+      <guid isPermaLink="false">CVE-2024-35875|2024-05-29T05:30:31.974Z</guid>
+      <pubDate>Sun, 19 May 2024 08:34:32 +0000</pubDate>
+    </item>
+    <item>
+      <title>CVE-2022-48655|2024-06-05T13:55:57.618Z -- linux -- linux</title>
+      <link>https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2022-48655</link>
+      <description>In the Linux kernel, the following vulnerability has been resolved:
+
+firmware: arm_scmi: Harden accesses to the reset domains
+
+Accessing reset domains descriptors by the index upon the SCMI drivers
+requests through the SCMI reset operations interface can potentially
+lead to out-of-bound violations if the SCMI driver misbehave.
+
+Add an internal consistency check before any such domains descriptors
+accesses.</description>
+      <guid isPermaLink="false">CVE-2022-48655|2024-06-05T13:55:57.618Z</guid>
+      <pubDate>Sun, 28 Apr 2024 13:01:00 +0000</pubDate>
+    </item>
+    <item>
+      <title>CVE-2023-52696|2024-06-06T13:00:58.958Z -- linux -- linux</title>
+      <link>https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2023-52696</link>
+      <description>In the Linux kernel, the following vulnerability has been resolved:
+
+powerpc/powernv: Add a null pointer check in opal_powercap_init()
+
+kasprintf() returns a pointer to dynamically allocated memory
+which can be NULL upon failure.</description>
+      <guid isPermaLink="false">CVE-2023-52696|2024-06-06T13:00:58.958Z</guid>
+      <pubDate>Fri, 17 May 2024 14:27:28 +0000</pubDate>
+    </item>
+    <item>
+      <title>CVE-2021-47329|2024-06-06T15:46:52.437Z -- linux -- linux</title>
+      <link>https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2021-47329</link>
+      <description>In the Linux kernel, the following vulnerability has been resolved:
+
+scsi: megaraid_sas: Fix resource leak in case of probe failure
+
+The driver doesn't clean up all the allocated resources properly when
+scsi_add_host(), megasas_start_aen() function fails during the PCI device
+probe.
+
+Clean up all those resources.</description>
+      <guid isPermaLink="false">CVE-2021-47329|2024-06-06T15:46:52.437Z</guid>
+      <pubDate>Tue, 21 May 2024 14:35:41 +0000</pubDate>
+    </item>
+    <item>
+      <title>CVE-2023-52608|2024-06-06T17:51:11.177Z -- linux -- linux</title>
+      <link>https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2023-52608</link>
+      <description>In the Linux kernel, the following vulnerability has been resolved:
+
+firmware: arm_scmi: Check mailbox/SMT channel for consistency
+
+On reception of a completion interrupt the shared memory area is accessed
+to retrieve the message header at first and then, if the message sequence
+number identifies a transaction which is still pending, the related
+payload is fetched too.
+
+When an SCMI command times out the channel ownership remains with the
+platform until eventually a late reply is received and, as a consequence,
+any further transmission attempt remains pending, waiting for the channel
+to be relinquished by the platform.
+
+Once that late reply is received the channel ownership is given back
+to the agent and any pending request is then allowed to proceed and
+overwrite the SMT area of the just delivered late reply; then the wait
+for the reply to the new request starts.
+
+It has been observed that the spurious IRQ related to the late reply can
+be wrongly associated with the freshly enqueued request: when that happens
+the SCMI stack in-flight lookup procedure is fooled by the fact that the
+message header now present in the SMT area is related to the new pending
+transaction, even though the real reply has still to arrive.
+
+This race-condition on the A2P channel can be detected by looking at the
+channel status bits: a genuine reply from the platform will have set the
+channel free bit before triggering the completion IRQ.
+
+Add a consistency check to validate such condition in the A2P ISR.</description>
+      <guid isPermaLink="false">CVE-2023-52608|2024-06-06T17:51:11.177Z</guid>
+      <pubDate>Wed, 13 Mar 2024 14:01:48 +0000</pubDate>
     </item>
     <item>
       <title>CVE-2024-36919|2024-06-07T14:28:19.585Z -- linux -- linux</title>
@@ -91,220 +277,33 @@ Rebooting.
       <pubDate>Thu, 30 May 2024 15:29:14 +0000</pubDate>
     </item>
     <item>
-      <title>CVE-2023-52608|2024-06-06T17:51:11.177Z -- linux -- linux</title>
-      <link>https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2023-52608</link>
+      <title>CVE-2024-36947|2024-06-07T16:32:11.458Z -- linux -- linux</title>
+      <link>https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2024-36947</link>
       <description>In the Linux kernel, the following vulnerability has been resolved:
 
-firmware: arm_scmi: Check mailbox/SMT channel for consistency
+qibfs: fix dentry leak
 
-On reception of a completion interrupt the shared memory area is accessed
-to retrieve the message header at first and then, if the message sequence
-number identifies a transaction which is still pending, the related
-payload is fetched too.
+simple_recursive_removal() drops the pinning references to all positives
+in subtree.  For the cases when its argument has been kept alive by
+the pinning alone that's exactly the right thing to do, but here
+the argument comes from dcache lookup, that needs to be balanced by
+explicit dput().
 
-When an SCMI command times out the channel ownership remains with the
-platform until eventually a late reply is received and, as a consequence,
-any further transmission attempt remains pending, waiting for the channel
-to be relinquished by the platform.
-
-Once that late reply is received the channel ownership is given back
-to the agent and any pending request is then allowed to proceed and
-overwrite the SMT area of the just delivered late reply; then the wait
-for the reply to the new request starts.
-
-It has been observed that the spurious IRQ related to the late reply can
-be wrongly associated with the freshly enqueued request: when that happens
-the SCMI stack in-flight lookup procedure is fooled by the fact that the
-message header now present in the SMT area is related to the new pending
-transaction, even though the real reply has still to arrive.
-
-This race-condition on the A2P channel can be detected by looking at the
-channel status bits: a genuine reply from the platform will have set the
-channel free bit before triggering the completion IRQ.
-
-Add a consistency check to validate such condition in the A2P ISR.</description>
-      <guid isPermaLink="false">CVE-2023-52608|2024-06-06T17:51:11.177Z</guid>
-      <pubDate>Wed, 13 Mar 2024 14:01:48 +0000</pubDate>
+Fucked-up-by: Al Viro</description>
+      <guid isPermaLink="false">CVE-2024-36947|2024-06-07T16:32:11.458Z</guid>
+      <pubDate>Thu, 30 May 2024 15:35:44 +0000</pubDate>
     </item>
     <item>
-      <title>CVE-2021-47329|2024-06-06T15:46:52.437Z -- linux -- linux</title>
-      <link>https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2021-47329</link>
+      <title>CVE-2024-36967|2024-06-08T12:52:59.895Z -- linux -- linux</title>
+      <link>https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2024-36967</link>
       <description>In the Linux kernel, the following vulnerability has been resolved:
 
-scsi: megaraid_sas: Fix resource leak in case of probe failure
+KEYS: trusted: Fix memory leak in tpm2_key_encode()
 
-The driver doesn't clean up all the allocated resources properly when
-scsi_add_host(), megasas_start_aen() function fails during the PCI device
-probe.
-
-Clean up all those resources.</description>
-      <guid isPermaLink="false">CVE-2021-47329|2024-06-06T15:46:52.437Z</guid>
-      <pubDate>Tue, 21 May 2024 14:35:41 +0000</pubDate>
-    </item>
-    <item>
-      <title>CVE-2023-52696|2024-06-06T13:00:58.958Z -- linux -- linux</title>
-      <link>https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2023-52696</link>
-      <description>In the Linux kernel, the following vulnerability has been resolved:
-
-powerpc/powernv: Add a null pointer check in opal_powercap_init()
-
-kasprintf() returns a pointer to dynamically allocated memory
-which can be NULL upon failure.</description>
-      <guid isPermaLink="false">CVE-2023-52696|2024-06-06T13:00:58.958Z</guid>
-      <pubDate>Fri, 17 May 2024 14:27:28 +0000</pubDate>
-    </item>
-    <item>
-      <title>CVE-2022-48655|2024-06-05T13:55:57.618Z -- linux -- linux</title>
-      <link>https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2022-48655</link>
-      <description>In the Linux kernel, the following vulnerability has been resolved:
-
-firmware: arm_scmi: Harden accesses to the reset domains
-
-Accessing reset domains descriptors by the index upon the SCMI drivers
-requests through the SCMI reset operations interface can potentially
-lead to out-of-bound violations if the SCMI driver misbehave.
-
-Add an internal consistency check before any such domains descriptors
-accesses.</description>
-      <guid isPermaLink="false">CVE-2022-48655|2024-06-05T13:55:57.618Z</guid>
-      <pubDate>Sun, 28 Apr 2024 13:01:00 +0000</pubDate>
-    </item>
-    <item>
-      <title>CVE-2024-35875|2024-05-29T05:30:31.974Z -- linux -- linux</title>
-      <link>https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2024-35875</link>
-      <description>In the Linux kernel, the following vulnerability has been resolved:
-
-x86/coco: Require seeding RNG with RDRAND on CoCo systems
-
-There are few uses of CoCo that don't rely on working cryptography and
-hence a working RNG. Unfortunately, the CoCo threat model means that the
-VM host cannot be trusted and may actively work against guests to
-extract secrets or manipulate computation. Since a malicious host can
-modify or observe nearly all inputs to guests, the only remaining source
-of entropy for CoCo guests is RDRAND.
-
-If RDRAND is broken -- due to CPU hardware fault -- the RNG as a whole
-is meant to gracefully continue on gathering entropy from other sources,
-but since there aren't other sources on CoCo, this is catastrophic.
-This is mostly a concern at boot time when initially seeding the RNG, as
-after that the consequences of a broken RDRAND are much more
-theoretical.
-
-So, try at boot to seed the RNG using 256 bits of RDRAND output. If this
-fails, panic(). This will also trigger if the system is booted without
-RDRAND, as RDRAND is essential for a safe CoCo boot.
-
-Add this deliberately to be "just a CoCo x86 driver feature" and not
-part of the RNG itself. Many device drivers and platforms have some
-desire to contribute something to the RNG, and add_device_randomness()
-is specifically meant for this purpose.
-
-Any driver can call it with seed data of any quality, or even garbage
-quality, and it can only possibly make the quality of the RNG better or
-have no effect, but can never make it worse.
-
-Rather than trying to build something into the core of the RNG, consider
-the particular CoCo issue just a CoCo issue, and therefore separate it
-all out into driver (well, arch/platform) code.
-
-  [ bp: Massage commit message. ]</description>
-      <guid isPermaLink="false">CVE-2024-35875|2024-05-29T05:30:31.974Z</guid>
-      <pubDate>Sun, 19 May 2024 08:34:32 +0000</pubDate>
-    </item>
-    <item>
-      <title>CVE-2022-48655|2024-06-05T04:01:14.185Z -- linux -- linux</title>
-      <link>https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2022-48655</link>
-      <description>In the Linux kernel, the following vulnerability has been resolved:
-
-firmware: arm_scmi: Harden accesses to the reset domains
-
-Accessing reset domains descriptors by the index upon the SCMI drivers
-requests through the SCMI reset operations interface can potentially
-lead to out-of-bound violations if the SCMI driver misbehave.
-
-Add an internal consistency check before any such domains descriptors
-accesses.</description>
-      <guid isPermaLink="false">CVE-2022-48655|2024-06-05T04:01:14.185Z</guid>
-      <pubDate>Sun, 28 Apr 2024 13:01:00 +0000</pubDate>
-    </item>
-    <item>
-      <title>CVE-2024-36913|2024-06-05T14:41:56.102Z -- linux -- linux</title>
-      <link>https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2024-36913</link>
-      <description>In the Linux kernel, the following vulnerability has been resolved:
-
-Drivers: hv: vmbus: Leak pages if set_memory_encrypted() fails
-
-In CoCo VMs it is possible for the untrusted host to cause
-set_memory_encrypted() or set_memory_decrypted() to fail such that an
-error is returned and the resulting memory is shared. Callers need to
-take care to handle these errors to avoid returning decrypted (shared)
-memory to the page allocator, which could lead to functional or security
-issues.
-
-VMBus code could free decrypted pages if set_memory_encrypted()/decrypted()
-fails. Leak the pages if this happens.</description>
-      <guid isPermaLink="false">CVE-2024-36913|2024-06-05T14:41:56.102Z</guid>
-      <pubDate>Thu, 30 May 2024 15:29:11 +0000</pubDate>
-    </item>
-    <item>
-      <title>CVE-2024-36920|2024-06-05T18:22:15.903Z -- linux -- linux</title>
-      <link>https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2024-36920</link>
-      <description>In the Linux kernel, the following vulnerability has been resolved:
-
-scsi: mpi3mr: Avoid memcpy field-spanning write WARNING
-
-When the "storcli2 show" command is executed for eHBA-9600, mpi3mr driver
-prints this WARNING message:
-
-  memcpy: detected field-spanning write (size 128) of single field "bsg_reply_buf-&gt;reply_buf" at drivers/scsi/mpi3mr/mpi3mr_app.c:1658 (size 1)
-  WARNING: CPU: 0 PID: 12760 at drivers/scsi/mpi3mr/mpi3mr_app.c:1658 mpi3mr_bsg_request+0x6b12/0x7f10 [mpi3mr]
-
-The cause of the WARN is 128 bytes memcpy to the 1 byte size array "__u8
-replay_buf[1]" in the struct mpi3mr_bsg_in_reply_buf. The array is intended
-to be a flexible length array, so the WARN is a false positive.
-
-To suppress the WARN, remove the constant number '1' from the array
-declaration and clarify that it has flexible length. Also, adjust the
-memory allocation size to match the change.</description>
-      <guid isPermaLink="false">CVE-2024-36920|2024-06-05T18:22:15.903Z</guid>
-      <pubDate>Thu, 30 May 2024 15:29:15 +0000</pubDate>
-    </item>
-    <item>
-      <title>CVE-2024-27032|2024-06-06T18:39:28.141Z -- linux -- linux</title>
-      <link>https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2024-27032</link>
-      <description>In the Linux kernel, the following vulnerability has been resolved:
-
-f2fs: fix to avoid potential panic during recovery
-
-During recovery, if FAULT_BLOCK is on, it is possible that
-f2fs_reserve_new_block() will return -ENOSPC during recovery,
-then it may trigger panic.
-
-Also, if fault injection rate is 1 and only FAULT_BLOCK fault
-type is on, it may encounter deadloop in loop of block reservation.
-
-Let's change as below to fix these issues:
-- remove bug_on() to avoid panic.
-- limit the loop count of block reservation to avoid potential
-deadloop.</description>
-      <guid isPermaLink="false">CVE-2024-27032|2024-06-06T18:39:28.141Z</guid>
-      <pubDate>Wed, 01 May 2024 12:53:32 +0000</pubDate>
-    </item>
-    <item>
-      <title>CVE-2024-35984|2024-06-08T11:49:36.732Z -- linux -- linux</title>
-      <link>https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2024-35984</link>
-      <description>In the Linux kernel, the following vulnerability has been resolved:
-
-i2c: smbus: fix NULL function pointer dereference
-
-Baruch reported an OOPS when using the designware controller as target
-only. Target-only modes break the assumption of one transfer function
-always being available. Fix this by always checking the pointer in
-__i2c_transfer.
-
-[wsa: dropped the simplification in core-smbus to avoid theoretical regressions]</description>
-      <guid isPermaLink="false">CVE-2024-35984|2024-06-08T11:49:36.732Z</guid>
-      <pubDate>Mon, 20 May 2024 09:47:51 +0000</pubDate>
+'scratch' is never freed. Fix this by calling kfree() in the success, and
+in the error case.</description>
+      <guid isPermaLink="false">CVE-2024-36967|2024-06-08T12:52:59.895Z</guid>
+      <pubDate>Sat, 08 Jun 2024 12:52:59 +0000</pubDate>
     </item>
   </channel>
 </rss>
