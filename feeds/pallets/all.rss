@@ -6,72 +6,36 @@
     <description>The latest CVEs for pallets -- all products</description>
     <docs>http://www.rssboard.org/rss-specification</docs>
     <generator>python-feedgen</generator>
-    <lastBuildDate>Wed, 12 Jun 2024 11:24:21 +0000</lastBuildDate>
+    <lastBuildDate>Wed, 12 Jun 2024 21:21:07 +0000</lastBuildDate>
     <ttl>60</ttl>
     <item>
-      <title>CVE-2023-23934|2023-02-14T19:56:22.659Z -- pallets -- werkzeug
+      <title>CVE-2024-34069|2024-06-12T19:56:20.233Z -- pallets -- werkzeug
 </title>
-      <link>https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2023-23934</link>
-      <description>Werkzeug is a comprehensive WSGI web application library. Browsers may allow "nameless" cookies that look like `=value` instead of `key=value`. A vulnerable browser may allow a compromised application on an adjacent subdomain to exploit this to set a cookie like `=__Host-test=bad` for another subdomain. Werkzeug prior to 2.2.3 will parse the cookie `=__Host-test=bad` as __Host-test=bad`. If a Werkzeug application is running next to a vulnerable or malicious subdomain which sets such a cookie using a vulnerable browser, the Werkzeug application will see the bad cookie value but the valid cookie key. The issue is fixed in Werkzeug 2.2.3.</description>
-      <guid isPermaLink="false">CVE-2023-23934|2023-02-14T19:56:22.659Z</guid>
-      <pubDate>Tue, 14 Feb 2023 19:56:22 +0000</pubDate>
+      <link>https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2024-34069</link>
+      <description>Werkzeug is a comprehensive WSGI web application library. The debugger in affected versions of Werkzeug can allow an attacker to execute code on a developer's machine under some circumstances. This requires the attacker to get the developer to interact with a domain and subdomain they control, and enter the debugger PIN, but if they are successful it allows access to the debugger even if it is only running on localhost. This also requires the attacker to guess a URL in the developer's application that will trigger the debugger. This vulnerability is fixed in 3.0.3.</description>
+      <guid isPermaLink="false">CVE-2024-34069|2024-06-12T19:56:20.233Z</guid>
+      <pubDate>Mon, 06 May 2024 14:44:38 +0000</pubDate>
     </item>
     <item>
-      <title>CVE-2023-46136|2023-10-24T23:48:56.960Z -- pallets -- werkzeug
-</title>
-      <link>https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2023-46136</link>
-      <description>Werkzeug is a comprehensive WSGI web application library. If an upload of a file that starts with CR or LF and then is followed by megabytes of data without these characters: all of these bytes are appended chunk by chunk into internal bytearray and lookup for boundary is performed on growing buffer. This allows an attacker to cause a denial of service by sending crafted multipart data to an endpoint that will parse it. The amount of CPU time required can block worker processes from handling legitimate requests. This vulnerability has been patched in version 3.0.1.</description>
-      <guid isPermaLink="false">CVE-2023-46136|2023-10-24T23:48:56.960Z</guid>
-      <pubDate>Tue, 24 Oct 2023 23:48:56 +0000</pubDate>
+      <title>CVE-2024-34069|2024-05-06T14:44:38.780Z -- pallets -- werkzeug</title>
+      <link>https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2024-34069</link>
+      <description>Werkzeug is a comprehensive WSGI web application library. The debugger in affected versions of Werkzeug can allow an attacker to execute code on a developer's machine under some circumstances. This requires the attacker to get the developer to interact with a domain and subdomain they control, and enter the debugger PIN, but if they are successful it allows access to the debugger even if it is only running on localhost. This also requires the attacker to guess a URL in the developer's application that will trigger the debugger. This vulnerability is fixed in 3.0.3.</description>
+      <guid isPermaLink="false">CVE-2024-34069|2024-05-06T14:44:38.780Z</guid>
+      <pubDate>Mon, 06 May 2024 14:44:38 +0000</pubDate>
     </item>
     <item>
-      <title>CVE-2023-30861|2023-05-02T17:04:22.197Z -- pallets -- flask
-</title>
-      <link>https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2023-30861</link>
-      <description>Flask is a lightweight WSGI web application framework. When all of the following conditions are met, a response containing data intended for one client may be cached and subsequently sent by the proxy to other clients. If the proxy also caches `Set-Cookie` headers, it may send one client's `session` cookie to other clients. The severity depends on the application's use of the session and the proxy's behavior regarding cookies. The risk depends on all these conditions being met.
-
-1. The application must be hosted behind a caching proxy that does not strip cookies or ignore responses with cookies.
-2. The application sets `session.permanent = True`
-3. The application does not access or modify the session at any point during a request.
-4. `SESSION_REFRESH_EACH_REQUEST` enabled (the default).
-5. The application does not set a `Cache-Control` header to indicate that a page is private or should not be cached.
-
-This happens because vulnerable versions of Flask only set the `Vary: Cookie` header when the session is accessed or modified, not when it is refreshed (re-sent to update the expiration) without being accessed or modified. This issue has been fixed in versions 2.3.2 and 2.2.5.</description>
-      <guid isPermaLink="false">CVE-2023-30861|2023-05-02T17:04:22.197Z</guid>
-      <pubDate>Tue, 02 May 2023 17:04:22 +0000</pubDate>
-    </item>
-    <item>
-      <title>CVE-2023-25577|2023-02-14T19:56:26.346Z -- pallets -- werkzeug
-</title>
-      <link>https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2023-25577</link>
-      <description>Werkzeug is a comprehensive WSGI web application library. Prior to version 2.2.3, Werkzeug's multipart form data parser will parse an unlimited number of parts, including file parts. Parts can be a small amount of bytes, but each requires CPU time to parse and may use more memory as Python data. If a request can be made to an endpoint that accesses `request.data`, `request.form`, `request.files`, or `request.get_data(parse_form_data=False)`, it can cause unexpectedly high resource usage. This allows an attacker to cause a denial of service by sending crafted multipart data to an endpoint that will parse it. The amount of CPU time required can block worker processes from handling legitimate requests. The amount of RAM required can trigger an out of memory kill of the process. Unlimited file parts can use up memory and file handles. If many concurrent requests are sent continuously, this can exhaust or kill all available workers. Version 2.2.3 contains a patch for this issue.</description>
-      <guid isPermaLink="false">CVE-2023-25577|2023-02-14T19:56:26.346Z</guid>
-      <pubDate>Tue, 14 Feb 2023 19:56:26 +0000</pubDate>
-    </item>
-    <item>
-      <title>CVE-2024-22195|2024-01-11T02:25:44.239Z -- pallets -- jinja
-</title>
-      <link>https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2024-22195</link>
-      <description>Jinja is an extensible templating engine. Special placeholders in the template allow writing code similar to Python syntax. It is possible to inject arbitrary HTML attributes into the rendered HTML template, potentially leading to Cross-Site Scripting (XSS). The Jinja `xmlattr` filter can be abused to inject arbitrary HTML attribute keys and values, bypassing the auto escaping mechanism and potentially leading to XSS. It may also be possible to bypass attribute validation checks if they are blacklist-based.
-</description>
-      <guid isPermaLink="false">CVE-2024-22195|2024-01-11T02:25:44.239Z</guid>
-      <pubDate>Thu, 11 Jan 2024 02:25:44 +0000</pubDate>
-    </item>
-    <item>
-      <title>CVE-2024-34064|2024-05-06T14:41:39.912Z -- pallets -- jinja
-</title>
+      <title>CVE-2024-34064|2024-05-06T14:41:39.912Z -- pallets -- jinja</title>
       <link>https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2024-34064</link>
       <description>Jinja is an extensible templating engine. The `xmlattr` filter in affected versions of Jinja accepts keys containing non-attribute characters. XML/HTML attributes cannot contain spaces, `/`, `&gt;`, or `=`, as each would then be interpreted as starting a separate attribute. If an application accepts keys (as opposed to only values) as user input, and renders these in pages that other users see as well, an attacker could use this to inject other attributes and perform XSS. The fix for CVE-2024-22195 only addressed spaces but not other characters. Accepting keys as user input is now explicitly considered an unintended use case of the `xmlattr` filter, and code that does so without otherwise validating the input should be flagged as insecure, regardless of Jinja version. Accepting _values_ as user input continues to be safe. This vulnerability is fixed in 3.1.4.</description>
       <guid isPermaLink="false">CVE-2024-34064|2024-05-06T14:41:39.912Z</guid>
       <pubDate>Mon, 06 May 2024 14:41:39 +0000</pubDate>
     </item>
     <item>
-      <title>CVE-2024-34069|2024-05-06T14:44:38.780Z -- pallets -- werkzeug
-</title>
-      <link>https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2024-34069</link>
-      <description>Werkzeug is a comprehensive WSGI web application library. The debugger in affected versions of Werkzeug can allow an attacker to execute code on a developer's machine under some circumstances. This requires the attacker to get the developer to interact with a domain and subdomain they control, and enter the debugger PIN, but if they are successful it allows access to the debugger even if it is only running on localhost. This also requires the attacker to guess a URL in the developer's application that will trigger the debugger. This vulnerability is fixed in 3.0.3.</description>
-      <guid isPermaLink="false">CVE-2024-34069|2024-05-06T14:44:38.780Z</guid>
-      <pubDate>Mon, 06 May 2024 14:44:38 +0000</pubDate>
+      <title>CVE-2024-22195|2024-01-11T02:25:44.239Z -- pallets -- jinja</title>
+      <link>https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2024-22195</link>
+      <description>Jinja is an extensible templating engine. Special placeholders in the template allow writing code similar to Python syntax. It is possible to inject arbitrary HTML attributes into the rendered HTML template, potentially leading to Cross-Site Scripting (XSS). The Jinja `xmlattr` filter can be abused to inject arbitrary HTML attribute keys and values, bypassing the auto escaping mechanism and potentially leading to XSS. It may also be possible to bypass attribute validation checks if they are blacklist-based.</description>
+      <guid isPermaLink="false">CVE-2024-22195|2024-01-11T02:25:44.239Z</guid>
+      <pubDate>Thu, 11 Jan 2024 02:25:44 +0000</pubDate>
     </item>
   </channel>
 </rss>
