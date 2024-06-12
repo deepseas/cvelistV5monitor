@@ -6,113 +6,64 @@
     <description>The latest CVEs for directus -- all products</description>
     <docs>http://www.rssboard.org/rss-specification</docs>
     <generator>python-feedgen</generator>
-    <lastBuildDate>Wed, 12 Jun 2024 11:24:21 +0000</lastBuildDate>
+    <lastBuildDate>Wed, 12 Jun 2024 20:22:44 +0000</lastBuildDate>
     <ttl>60</ttl>
     <item>
-      <title>CVE-2023-28443|2023-03-23T23:13:58.299Z -- directus -- directus
+      <title>CVE-2024-34709|2024-06-12T19:00:40.071Z -- directus -- directus
 </title>
-      <link>https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2023-28443</link>
-      <description>Directus is a real-time API and App dashboard for managing SQL database content. Prior to version 9.23.3, the `directus_refresh_token` is not redacted properly from the log outputs and can be used to impersonate users without their permission. This issue is patched in version 9.23.3.</description>
-      <guid isPermaLink="false">CVE-2023-28443|2023-03-23T23:13:58.299Z</guid>
-      <pubDate>Thu, 23 Mar 2023 23:13:58 +0000</pubDate>
+      <link>https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2024-34709</link>
+      <description>Directus is a real-time API and App dashboard for managing SQL database content. Prior to 10.11.0, session tokens function like the other JWT tokens where they are not actually invalidated when logging out. The `directus_session` gets destroyed and the cookie gets deleted but if the cookie value is captured, it will still work for the entire expiry time which is set to 1 day by default. Making it effectively a long lived unrevokable stateless token instead of the stateful session token it was meant to be. This vulnerability is fixed in 10.11.0.</description>
+      <guid isPermaLink="false">CVE-2024-34709|2024-06-12T19:00:40.071Z</guid>
+      <pubDate>Mon, 13 May 2024 19:39:32 +0000</pubDate>
     </item>
     <item>
-      <title>CVE-2023-38503|2023-07-25T22:06:00.476Z -- directus -- directus
-</title>
-      <link>https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2023-38503</link>
-      <description>Directus is a real-time API and App dashboard for managing SQL database content. Starting in version 10.3.0 and prior to version 10.5.0, the permission filters (i.e. `user_created IS $CURRENT_USER`) are not properly checked when using GraphQL subscription resulting in unauthorized users getting event on their subscription which they should not be receiving according to the permissions. This can be any collection but out-of-the box the `directus_users` collection is configured with such a permissions filter allowing you to get updates for other users when changes happen. Version 10.5.0 contains a patch. As a workaround, disable GraphQL subscriptions.</description>
-      <guid isPermaLink="false">CVE-2023-38503|2023-07-25T22:06:00.476Z</guid>
-      <pubDate>Tue, 25 Jul 2023 22:06:00 +0000</pubDate>
+      <title>CVE-2024-34708|2024-06-04T17:42:21.964Z -- directus -- directus</title>
+      <link>https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2024-34708</link>
+      <description>Directus is a real-time API and App dashboard for managing SQL database content. A user with permission to view any collection using redacted hashed fields can get access the raw stored version using the `alias` functionality on the API. Normally, these redacted fields will return `**********` however  if we change the request to `?alias[workaround]=redacted` we can instead retrieve the plain text value for the field. This can be avoided by removing permission to view the sensitive fields entirely from users or roles that should not be able to see them. This vulnerability is fixed in 10.11.0.</description>
+      <guid isPermaLink="false">CVE-2024-34708|2024-06-04T17:42:21.964Z</guid>
+      <pubDate>Mon, 13 May 2024 19:33:55 +0000</pubDate>
     </item>
     <item>
-      <title>CVE-2023-26492|2023-03-03T21:49:02.314Z -- directus -- directus
-</title>
-      <link>https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2023-26492</link>
-      <description>Directus is a real-time API and App dashboard for managing SQL database content. Directus is vulnerable to Server-Side Request Forgery (SSRF) when importing a file from a remote web server (POST to `/files/import`). An attacker can bypass the security controls by performing a DNS rebinding attack and view sensitive data from internal servers or perform a local port scan. An attacker can exploit this vulnerability to access highly sensitive internal server(s) and steal sensitive information. This issue was fixed in version 9.23.0.</description>
-      <guid isPermaLink="false">CVE-2023-26492|2023-03-03T21:49:02.314Z</guid>
-      <pubDate>Fri, 03 Mar 2023 21:49:02 +0000</pubDate>
-    </item>
-    <item>
-      <title>CVE-2023-27481|2023-03-07T18:20:52.855Z -- directus -- directus
-</title>
-      <link>https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2023-27481</link>
-      <description>Directus is a real-time API and App dashboard for managing SQL database content. In versions prior to 9.16.0 users with read access to the `password` field in `directus_users` can extract the argon2 password hashes by brute forcing the export functionality combined with a `_starts_with` filter. This allows the user to enumerate the password hashes. Accounts cannot be taken over unless the hashes can be reversed which is unlikely with current hardware. This problem has been patched by preventing any hashed/concealed field to be filtered against with the `_starts_with` or other string operator in version 9.16.0. Users are advised to upgrade. Users unable to upgrade may mitigate this issue by ensuring that no user has `read` access to the `password` field in `directus_users`. </description>
-      <guid isPermaLink="false">CVE-2023-27481|2023-03-07T18:20:52.855Z</guid>
-      <pubDate>Tue, 07 Mar 2023 18:20:52 +0000</pubDate>
-    </item>
-    <item>
-      <title>CVE-2023-27474|2023-03-06T16:43:54.836Z -- directus -- directus
-</title>
-      <link>https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2023-27474</link>
-      <description>Directus is a real-time API and App dashboard for managing SQL database content. Instances relying on an allow-listed reset URL are vulnerable to an HTML injection attack through the use of query parameters in the reset URL. An attacker could exploit this to email users urls to the servers domain but which may contain malicious code. The problem has been resolved and released under version 9.23.0. People relying on a custom password reset URL should upgrade to 9.23.0 or later, or remove the custom reset url from the configured allow list. Users are advised to upgrade. Users unable to upgrade may disable the custom reset URL allow list as a workaround.</description>
-      <guid isPermaLink="false">CVE-2023-27474|2023-03-06T16:43:54.836Z</guid>
-      <pubDate>Mon, 06 Mar 2023 16:43:54 +0000</pubDate>
-    </item>
-    <item>
-      <title>CVE-2023-45820|2023-10-19T18:38:18.856Z -- directus -- directus
-</title>
-      <link>https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2023-45820</link>
-      <description>Directus is a real-time API and App dashboard for managing SQL database content. In affected versions any Directus installation that has websockets enabled can be crashed if the websocket server receives an invalid frame. A malicious user could leverage this bug to crash Directus. This issue has been addressed in version 10.6.2. Users are advised to upgrade. Users unable to upgrade should avoid using websockets.</description>
-      <guid isPermaLink="false">CVE-2023-45820|2023-10-19T18:38:18.856Z</guid>
-      <pubDate>Thu, 19 Oct 2023 18:38:18 +0000</pubDate>
-    </item>
-    <item>
-      <title>CVE-2024-28239|2024-03-12T20:23:37.857Z -- directus -- directus
-</title>
-      <link>https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2024-28239</link>
-      <description>Directus is a real-time API and App dashboard for managing SQL database content. The authentication API has a `redirect` parameter that can be exploited as an open redirect vulnerability as the user tries to log in via the API URL. There's a redirect that is done after successful login via the Auth API GET request to `directus/auth/login/google?redirect=http://malicious-fishing-site.com`. While credentials don't seem to be passed to the attacker site, the user can be phished into clicking a legitimate directus site and be taken to a malicious site made to look like a an error message "Your password needs to be updated" to phish out the current password. Users who login via OAuth2 into Directus may be at risk. This issue has been addressed in version 10.10.0. Users are advised to upgrade. There are no known workarounds for this vulnerability.</description>
-      <guid isPermaLink="false">CVE-2024-28239|2024-03-12T20:23:37.857Z</guid>
-      <pubDate>Tue, 12 Mar 2024 20:23:37 +0000</pubDate>
-    </item>
-    <item>
-      <title>CVE-2024-28238|2024-03-12T20:24:28.321Z -- directus -- directus
-</title>
-      <link>https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2024-28238</link>
-      <description>Directus is a real-time API and App dashboard for managing SQL database content. When reaching the /files page, a JWT is passed via GET request. Inclusion of session tokens in URLs poses a security risk as URLs are often logged in various places (e.g., web server logs, browser history). Attackers gaining access to these logs may hijack active user sessions, leading to unauthorized access to sensitive information or actions on behalf of the user. This issue has been addressed in version 10.10.0. Users are advised to upgrade. There are no known workarounds for this vulnerability.</description>
-      <guid isPermaLink="false">CVE-2024-28238|2024-03-12T20:24:28.321Z</guid>
-      <pubDate>Tue, 12 Mar 2024 20:24:28 +0000</pubDate>
-    </item>
-    <item>
-      <title>CVE-2024-36128|2024-06-04T17:48:05.315Z -- directus -- directus
-</title>
-      <link>https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2024-36128</link>
-      <description>Directus is a real-time API and App dashboard for managing SQL database content. Prior to 10.11.2, providing a non-numeric length value to the random string generation utility will create a memory issue breaking the capability to generate random strings platform wide. This creates a denial of service situation where logged in sessions can no longer be refreshed as sessions depend on the capability to generate a random session ID. This vulnerability is fixed in 10.11.2.</description>
-      <guid isPermaLink="false">CVE-2024-36128|2024-06-04T17:48:05.315Z</guid>
-      <pubDate>Mon, 03 Jun 2024 14:59:45 +0000</pubDate>
-    </item>
-    <item>
-      <title>CVE-2024-27295|2024-03-01T15:37:09.617Z -- directus -- directus
-</title>
-      <link>https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2024-27295</link>
-      <description>Directus is a real-time API and App dashboard for managing SQL database content. The password reset mechanism of the Directus backend allows attackers to receive a password reset email of a victim user, specifically having it arrive at a similar email address as the victim with a one or more characters changed to use accents. This is due to the fact that by default MySQL/MariaDB are configured for accent-insensitive and case-insensitive comparisons. This vulnerability is fixed in version 10.8.3.
-
-</description>
-      <guid isPermaLink="false">CVE-2024-27295|2024-03-01T15:37:09.617Z</guid>
-      <pubDate>Fri, 01 Mar 2024 15:37:09 +0000</pubDate>
-    </item>
-    <item>
-      <title>CVE-2024-27296|2024-03-01T15:43:33.601Z -- directus -- directus
-</title>
-      <link>https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2024-27296</link>
-      <description>Directus is a real-time API and App dashboard for managing SQL database content. Prior to version 10.8.3, the exact Directus version number was being shipped in compiled JS bundles which are accessible without authentication. With this information a malicious attacker can trivially look for known vulnerabilities in Directus core or any of its shipped dependencies in that specific running version. The problem has been resolved in versions 10.8.3 and newer.</description>
-      <guid isPermaLink="false">CVE-2024-27296|2024-03-01T15:43:33.601Z</guid>
-      <pubDate>Fri, 01 Mar 2024 15:43:33 +0000</pubDate>
-    </item>
-    <item>
-      <title>CVE-2024-34709|2024-05-13T19:39:32.313Z -- directus -- directus
-</title>
+      <title>CVE-2024-34709|2024-05-13T19:39:32.313Z -- directus -- directus</title>
       <link>https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2024-34709</link>
       <description>Directus is a real-time API and App dashboard for managing SQL database content. Prior to 10.11.0, session tokens function like the other JWT tokens where they are not actually invalidated when logging out. The `directus_session` gets destroyed and the cookie gets deleted but if the cookie value is captured, it will still work for the entire expiry time which is set to 1 day by default. Making it effectively a long lived unrevokable stateless token instead of the stateful session token it was meant to be. This vulnerability is fixed in 10.11.0.</description>
       <guid isPermaLink="false">CVE-2024-34709|2024-05-13T19:39:32.313Z</guid>
       <pubDate>Mon, 13 May 2024 19:39:32 +0000</pubDate>
     </item>
     <item>
-      <title>CVE-2024-34708|2024-06-04T17:42:21.964Z -- directus -- directus
-</title>
-      <link>https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2024-34708</link>
-      <description>Directus is a real-time API and App dashboard for managing SQL database content. A user with permission to view any collection using redacted hashed fields can get access the raw stored version using the `alias` functionality on the API. Normally, these redacted fields will return `**********` however  if we change the request to `?alias[workaround]=redacted` we can instead retrieve the plain text value for the field. This can be avoided by removing permission to view the sensitive fields entirely from users or roles that should not be able to see them. This vulnerability is fixed in 10.11.0.</description>
-      <guid isPermaLink="false">CVE-2024-34708|2024-06-04T17:42:21.964Z</guid>
-      <pubDate>Mon, 13 May 2024 19:33:55 +0000</pubDate>
+      <title>CVE-2024-27296|2024-03-01T15:43:33.601Z -- directus -- directus</title>
+      <link>https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2024-27296</link>
+      <description>Directus is a real-time API and App dashboard for managing SQL database content. Prior to version 10.8.3, the exact Directus version number was being shipped in compiled JS bundles which are accessible without authentication. With this information a malicious attacker can trivially look for known vulnerabilities in Directus core or any of its shipped dependencies in that specific running version. The problem has been resolved in versions 10.8.3 and newer.</description>
+      <guid isPermaLink="false">CVE-2024-27296|2024-03-01T15:43:33.601Z</guid>
+      <pubDate>Fri, 01 Mar 2024 15:43:33 +0000</pubDate>
+    </item>
+    <item>
+      <title>CVE-2024-27295|2024-03-01T15:37:09.617Z -- directus -- directus</title>
+      <link>https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2024-27295</link>
+      <description>Directus is a real-time API and App dashboard for managing SQL database content. The password reset mechanism of the Directus backend allows attackers to receive a password reset email of a victim user, specifically having it arrive at a similar email address as the victim with a one or more characters changed to use accents. This is due to the fact that by default MySQL/MariaDB are configured for accent-insensitive and case-insensitive comparisons. This vulnerability is fixed in version 10.8.3.</description>
+      <guid isPermaLink="false">CVE-2024-27295|2024-03-01T15:37:09.617Z</guid>
+      <pubDate>Fri, 01 Mar 2024 15:37:09 +0000</pubDate>
+    </item>
+    <item>
+      <title>CVE-2024-36128|2024-06-04T17:48:05.315Z -- directus -- directus</title>
+      <link>https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2024-36128</link>
+      <description>Directus is a real-time API and App dashboard for managing SQL database content. Prior to 10.11.2, providing a non-numeric length value to the random string generation utility will create a memory issue breaking the capability to generate random strings platform wide. This creates a denial of service situation where logged in sessions can no longer be refreshed as sessions depend on the capability to generate a random session ID. This vulnerability is fixed in 10.11.2.</description>
+      <guid isPermaLink="false">CVE-2024-36128|2024-06-04T17:48:05.315Z</guid>
+      <pubDate>Mon, 03 Jun 2024 14:59:45 +0000</pubDate>
+    </item>
+    <item>
+      <title>CVE-2024-28238|2024-03-12T20:24:28.321Z -- directus -- directus</title>
+      <link>https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2024-28238</link>
+      <description>Directus is a real-time API and App dashboard for managing SQL database content. When reaching the /files page, a JWT is passed via GET request. Inclusion of session tokens in URLs poses a security risk as URLs are often logged in various places (e.g., web server logs, browser history). Attackers gaining access to these logs may hijack active user sessions, leading to unauthorized access to sensitive information or actions on behalf of the user. This issue has been addressed in version 10.10.0. Users are advised to upgrade. There are no known workarounds for this vulnerability.</description>
+      <guid isPermaLink="false">CVE-2024-28238|2024-03-12T20:24:28.321Z</guid>
+      <pubDate>Tue, 12 Mar 2024 20:24:28 +0000</pubDate>
+    </item>
+    <item>
+      <title>CVE-2024-28239|2024-03-12T20:23:37.857Z -- directus -- directus</title>
+      <link>https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2024-28239</link>
+      <description>Directus is a real-time API and App dashboard for managing SQL database content. The authentication API has a `redirect` parameter that can be exploited as an open redirect vulnerability as the user tries to log in via the API URL. There's a redirect that is done after successful login via the Auth API GET request to `directus/auth/login/google?redirect=http://malicious-fishing-site.com`. While credentials don't seem to be passed to the attacker site, the user can be phished into clicking a legitimate directus site and be taken to a malicious site made to look like a an error message "Your password needs to be updated" to phish out the current password. Users who login via OAuth2 into Directus may be at risk. This issue has been addressed in version 10.10.0. Users are advised to upgrade. There are no known workarounds for this vulnerability.</description>
+      <guid isPermaLink="false">CVE-2024-28239|2024-03-12T20:23:37.857Z</guid>
+      <pubDate>Tue, 12 Mar 2024 20:23:37 +0000</pubDate>
     </item>
   </channel>
 </rss>
