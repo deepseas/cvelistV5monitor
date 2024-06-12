@@ -6,14 +6,61 @@
     <description>The latest CVEs for bytecodealliance -- all products</description>
     <docs>http://www.rssboard.org/rss-specification</docs>
     <generator>python-feedgen</generator>
-    <lastBuildDate>Tue, 04 Jun 2024 17:29:25 +0000</lastBuildDate>
+    <lastBuildDate>Wed, 12 Jun 2024 11:24:20 +0000</lastBuildDate>
     <ttl>60</ttl>
     <item>
-      <title>CVE-2024-30266|2024-04-04T15:42:00.200Z -- bytecodealliance -- wasmtime
+      <title>CVE-2023-26489|2023-03-08T19:59:57.419Z -- bytecodealliance -- wasmtime
+</title>
+      <link>https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2023-26489</link>
+      <description>wasmtime is a fast and secure runtime for WebAssembly. In affected versions wasmtime's code generator, Cranelift, has a bug on x86_64 targets where address-mode computation mistakenly would calculate a 35-bit effective address instead of WebAssembly's defined 33-bit effective address. This bug means that, with default codegen settings, a wasm-controlled load/store operation could read/write addresses up to 35 bits away from the base of linear memory. Due to this bug, however, addresses up to `0xffffffff * 8 + 0x7ffffffc = 36507222004 = ~34G` bytes away from the base of linear memory are possible from guest code. This means that the virtual memory 6G away from the base of linear memory up to ~34G away can be read/written by a malicious module. A guest module can, without the knowledge of the embedder, read/write memory in this region. The memory may belong to other WebAssembly instances when using the pooling allocator, for example. Affected embedders are recommended to analyze preexisting wasm modules to see if they're affected by the incorrect codegen rules and possibly correlate that with an anomalous number of traps during historical execution to locate possibly suspicious modules. The specific bug in Cranelift's x86_64 backend is that a WebAssembly address which is left-shifted by a constant amount from 1 to 3 will get folded into x86_64's addressing modes which perform shifts. For example `(i32.load (i32.shl (local.get 0) (i32.const 3)))` loads from the WebAssembly address `$local0 &lt;&lt; 3`. When translated to Cranelift the `$local0 &lt;&lt; 3` computation, a 32-bit value, is zero-extended to a 64-bit value and then added to the base address of linear memory. Cranelift would generate an instruction of the form `movl (%base, %local0, 8), %dst` which calculates `%base + %local0 &lt;&lt; 3`. The bug here, however, is that the address computation happens with 64-bit values, where the `$local0 &lt;&lt; 3` computation was supposed to be truncated to a a 32-bit value. This means that `%local0`, which can use up to 32-bits for an address, gets 3 extra bits of address space to be accessible via this `movl` instruction. The fix in Cranelift is to remove the erroneous lowering rules in the backend which handle these zero-extended expression. The above example is then translated to `movl %local0, %temp; shl $3, %temp; movl (%base, %temp), %dst` which correctly truncates the intermediate computation of `%local0 &lt;&lt; 3` to 32-bits inside the `%temp` register which is then added to the `%base` value. Wasmtime version 4.0.1, 5.0.1, and 6.0.1 have been released and have all been patched to no longer contain the erroneous lowering rules. While updating Wasmtime is recommended, there are a number of possible workarounds that embedders can employ to mitigate this issue if updating is not possible. Note that none of these workarounds are on-by-default and require explicit configuration: 1. The `Config::static_memory_maximum_size(0)` option can be used to force all accesses to linear memory to be explicitly bounds-checked. This will perform a bounds check separately from the address-mode computation which correctly calculates the effective address of a load/store. Note that this can have a large impact on the execution performance of WebAssembly modules. 2. The `Config::static_memory_guard_size(1 &lt;&lt; 36)` option can be used to greatly increase the guard pages placed after linear memory. This will guarantee that memory accesses up-to-34G away are guaranteed to be semantically correct by reserving unmapped memory for the instance. Note that this reserves a very large amount of virtual memory per-instances and can greatly reduce the maximum number of concurrent instances being run. 3. If using a non-x86_64 host is possible, then that will also work around this bug. This bug does not affect Wasmtime's or Cranelift's AArch64 backend, for example.
+</description>
+      <guid isPermaLink="false">CVE-2023-26489|2023-03-08T19:59:57.419Z</guid>
+      <pubDate>Wed, 08 Mar 2023 19:59:57 +0000</pubDate>
+    </item>
+    <item>
+      <title>CVE-2023-27477|2023-03-09T00:00:00 -- bytecodealliance -- wasmtime
+</title>
+      <link>https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2023-27477</link>
+      <description>wasmtime is a fast and secure runtime for WebAssembly. Wasmtime's code generation backend, Cranelift, has a bug on x86_64 platforms for the WebAssembly `i8x16.select` instruction which will produce the wrong results when the same operand is provided to the instruction and some of the selected indices are greater than 16. There is an off-by-one error in the calculation of the mask to the `pshufb` instruction which causes incorrect results to be returned if lanes are selected from the second vector. This codegen bug has been fixed in Wasmtiem 6.0.1, 5.0.1, and 4.0.1. Users are recommended to upgrade to these updated versions. If upgrading is not an option for you at this time, you can avoid this miscompilation by disabling the Wasm simd proposal. Additionally the bug is only present on x86_64 hosts. Other platforms such as AArch64 and s390x are not affected.</description>
+      <guid isPermaLink="false">CVE-2023-27477|2023-03-09T00:00:00</guid>
+      <pubDate>Wed, 08 Mar 2023 00:00:00 +0000</pubDate>
+    </item>
+    <item>
+      <title>CVE-2023-41880|2023-09-15T19:43:41.850Z -- bytecodealliance -- wasmtime
+</title>
+      <link>https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2023-41880</link>
+      <description>Wasmtime is a standalone runtime for WebAssembly. Wasmtime versions from 10.0.0 to versions 10.02, 11.0.2, and 12.0.1 contain a miscompilation of the WebAssembly `i64x2.shr_s` instruction on x86_64 platforms when the shift amount is a constant value that is larger than 32. Only x86_64 is affected so all other targets are not affected by this. The miscompilation results in the instruction producing an incorrect result, namely the low 32-bits of the second lane of the vector are derived from the low 32-bits of the second lane of the input vector instead of the high 32-bits. The primary impact of this issue is that any WebAssembly program using the `i64x2.shr_s` with a constant shift amount larger than 32 may produce an incorrect result.
+
+This issue is not an escape from the WebAssembly sandbox. Execution of WebAssembly guest programs will still behave correctly with respect to memory sandboxing and isolation from the host. Wasmtime considers non-spec-compliant behavior as a security issue nonetheless.
+
+This issue was discovered through fuzzing of Wasmtime's code generator Cranelift.
+
+Wasmtime versions 10.0.2, 11.0.2, and 12.0.2 are all patched to no longer have this miscompilation. This issue only affects x86_64 hosts and the only workaround is to either scan for this pattern in wasm modules which is nontrivial or to disable the SIMD proposal for WebAssembly. Users prior to 10.0.0 are unaffected by this vulnerability.</description>
+      <guid isPermaLink="false">CVE-2023-41880|2023-09-15T19:43:41.850Z</guid>
+      <pubDate>Fri, 15 Sep 2023 19:43:41 +0000</pubDate>
+    </item>
+    <item>
+      <title>CVE-2023-30624|2023-04-27T16:56:49.971Z -- bytecodealliance -- wasmtime
+</title>
+      <link>https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2023-30624</link>
+      <description>Wasmtime is a standalone runtime for WebAssembly. Prior to versions 6.0.2, 7.0.1, and 8.0.1, Wasmtime's implementation of managing per-instance state, such as tables and memories, contains LLVM-level undefined behavior. This undefined behavior was found to cause runtime-level issues when compiled with LLVM 16 which causes some writes, which are critical for correctness, to be optimized away. Vulnerable versions of Wasmtime compiled with Rust 1.70, which is currently in beta, or later are known to have incorrectly compiled functions. Versions of Wasmtime compiled with the current Rust stable release, 1.69, and prior are not known at this time to have any issues, but can theoretically exhibit potential issues.
+
+The underlying problem is that Wasmtime's runtime state for an instance involves a Rust-defined structure called `Instance` which has a trailing `VMContext` structure after it. This `VMContext` structure has a runtime-defined layout that is unique per-module. This representation cannot be expressed with safe code in Rust so `unsafe` code is required to maintain this state. The code doing this, however, has methods which take `&amp;self` as an argument but modify data in the `VMContext` part of the allocation. This means that pointers derived from `&amp;self` are mutated. This is typically not allowed, except in the presence of `UnsafeCell`, in Rust. When compiled to LLVM these functions have `noalias readonly` parameters which means it's UB to write through the pointers.
+
+Wasmtime's internal representation and management of `VMContext` has been updated to use `&amp;mut self` methods where appropriate. Additionally verification tools for `unsafe` code in Rust, such as `cargo miri`, are planned to be executed on the `main` branch soon to fix any Rust-level issues that may be exploited in future compiler versions.
+
+Precomplied binaries available for Wasmtime from GitHub releases have been compiled with at most LLVM 15 so are not known to be vulnerable. As mentioned above, however, it's still recommended to update.
+
+Wasmtime version 6.0.2, 7.0.1, and 8.0.1 have been issued which contain the patch necessary to work correctly on LLVM 16 and have no known UB on LLVM 15 and earlier. If Wasmtime is compiled with Rust 1.69 and prior, which use LLVM 15, then there are no known issues. There is a theoretical possibility for undefined behavior to exploited, however, so it's recommended that users upgrade to a patched version of Wasmtime. Users using beta Rust (1.70 at this time) or nightly Rust (1.71 at this time) must update to a patched version to work correctly.</description>
+      <guid isPermaLink="false">CVE-2023-30624|2023-04-27T16:56:49.971Z</guid>
+      <pubDate>Thu, 27 Apr 2023 16:56:49 +0000</pubDate>
+    </item>
+    <item>
+      <title>CVE-2024-30266|2024-06-04T17:38:20.190Z -- bytecodealliance -- wasmtime
 </title>
       <link>https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2024-30266</link>
       <description>wasmtime is a runtime for WebAssembly. The 19.0.0 release of Wasmtime contains a regression introduced during its development which can lead to a guest WebAssembly module causing a panic in the host runtime. A valid WebAssembly module, when executed at runtime, may cause this panic. This vulnerability has been patched in version 19.0.1.</description>
-      <guid isPermaLink="false">CVE-2024-30266|2024-04-04T15:42:00.200Z</guid>
+      <guid isPermaLink="false">CVE-2024-30266|2024-06-04T17:38:20.190Z</guid>
       <pubDate>Thu, 04 Apr 2024 15:42:00 +0000</pubDate>
     </item>
   </channel>

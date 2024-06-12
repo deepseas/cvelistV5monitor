@@ -6,8 +6,35 @@
     <description>The latest CVEs for ipfs -- all products</description>
     <docs>http://www.rssboard.org/rss-specification</docs>
     <generator>python-feedgen</generator>
-    <lastBuildDate>Tue, 04 Jun 2024 17:29:35 +0000</lastBuildDate>
+    <lastBuildDate>Wed, 12 Jun 2024 11:24:29 +0000</lastBuildDate>
     <ttl>60</ttl>
+    <item>
+      <title>CVE-2023-23625|2023-02-09T20:57:22.072Z -- ipfs -- go-unixfs
+</title>
+      <link>https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2023-23625</link>
+      <description>go-unixfs is an implementation of a unix-like filesystem on top of an ipld merkledag. Trying to read malformed HAMT sharded directories can cause panics and virtual memory leaks. If you are reading untrusted user input, an attacker can then trigger a panic. This is caused by bogus `fanout` parameter in the HAMT directory nodes. Users are advised to upgrade to version 0.4.3 to resolve this issue. Users unable to upgrade should not feed untrusted user data to the decoding functions.
+</description>
+      <guid isPermaLink="false">CVE-2023-23625|2023-02-09T20:57:22.072Z</guid>
+      <pubDate>Thu, 09 Feb 2023 20:57:22 +0000</pubDate>
+    </item>
+    <item>
+      <title>CVE-2023-23626|2023-02-09T20:54:07.075Z -- ipfs -- go-bitfield
+</title>
+      <link>https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2023-23626</link>
+      <description>go-bitfield is a simple bitfield package for the go language aiming to be more performant that the standard library. When feeding untrusted user input into the size parameter of `NewBitfield` and `FromBytes` functions, an attacker can trigger `panic`s. This happen when the `size` is a not a multiple of `8` or is negative. There were already a note in the `NewBitfield` documentation, however known users of this package are subject to this issue. Users are advised to upgrade. Users unable to upgrade should ensure that `size` is a multiple of 8 before calling `NewBitfield` or `FromBytes`.
+</description>
+      <guid isPermaLink="false">CVE-2023-23626|2023-02-09T20:54:07.075Z</guid>
+      <pubDate>Thu, 09 Feb 2023 20:54:07 +0000</pubDate>
+    </item>
+    <item>
+      <title>CVE-2023-23631|2023-02-09T20:46:22.930Z -- ipfs -- go-unixfsnode
+</title>
+      <link>https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2023-23631</link>
+      <description>github.com/ipfs/go-unixfsnode is an ADL IPLD prime node that wraps go-codec-dagpb's implementation of protobuf to enable pathing. In versions priot to 1.5.2 trying to read malformed HAMT sharded directories can cause panics and virtual memory leaks.
+If you are reading untrusted user input, an attacker can then trigger a panic. This is caused by bogus fanout parameter in the HAMT directory nodes. Users are advised to upgrade. There are no known workarounds for this vulnerability.</description>
+      <guid isPermaLink="false">CVE-2023-23631|2023-02-09T20:46:22.930Z</guid>
+      <pubDate>Thu, 09 Feb 2023 20:46:22 +0000</pubDate>
+    </item>
     <item>
       <title>CVE-2023-25568|2023-05-10T00:00:00 -- ipfs -- boxo
 </title>

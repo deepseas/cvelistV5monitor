@@ -6,8 +6,33 @@
     <description>The latest CVEs for metabase -- metabase</description>
     <docs>http://www.rssboard.org/rss-specification</docs>
     <generator>python-feedgen</generator>
-    <lastBuildDate>Tue, 04 Jun 2024 17:29:42 +0000</lastBuildDate>
+    <lastBuildDate>Wed, 12 Jun 2024 11:24:38 +0000</lastBuildDate>
     <ttl>60</ttl>
+    <item>
+      <title>CVE-2023-32680|2023-05-18T22:55:30.636Z -- metabase -- metabase
+</title>
+      <link>https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2023-32680</link>
+      <description>Metabase is an open source business analytics engine. To edit SQL Snippets, Metabase should have required people to be in at least one group with native query editing permissions to a database–but affected versions of Metabase didn't enforce that requirement. This lack of enforcement meant that: Anyone–including people in sandboxed groups–could edit SQL snippets. They could edit snippets via the API or, in the application UI, when editing the metadata for a model based on a SQL question, and people in sandboxed groups could edit a SQL snippet used in a query that creates their sandbox. If the snippet contained logic that restricted which data that person could see, they could potentially edit that snippet and change their level of data access. The permissions model for SQL snippets has been fixed in Metabase versions 0.46.3, 0.45.4, 0.44.7, 1.46.3, 1.45.4, and 1.44.7. Users are advised to upgrade. Users unable to upgrade should ensure that SQL queries used to create sandboxes exclude SQL snippets.</description>
+      <guid isPermaLink="false">CVE-2023-32680|2023-05-18T22:55:30.636Z</guid>
+      <pubDate>Thu, 18 May 2023 22:55:30 +0000</pubDate>
+    </item>
+    <item>
+      <title>CVE-2023-37470|2023-08-04T15:12:43.188Z -- metabase -- metabase
+</title>
+      <link>https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2023-37470</link>
+      <description>Metabase is an open-source business intelligence and analytics platform. Prior to versions 0.43.7.3, 0.44.7.3, 0.45.4.3, 0.46.6.4, 1.43.7.3, 1.44.7.3, 1.45.4.3, and 1.46.6.4, a vulnerability could potentially allow remote code execution on one's Metabase server. The core issue is that one of the supported data warehouses (an embedded in-memory database H2), exposes a number of ways for a connection string to include code that is then executed by the process running the embedded database. Because Metabase allows users to connect to databases, this means that a user supplied string can be used to inject executable code. Metabase allows users to validate their connection string before adding a database (including on setup), and this validation API was the primary vector used as it can be called without validation. Versions 0.43.7.3, 0.44.7.3, 0.45.4.3, 0.46.6.4, 1.43.7.3, 1.44.7.3, 1.45.4.3, and 1.46.6.4 fix this issue by removing the ability of users to add H2 databases entirely. As a workaround, it is possible to block these vulnerabilities at the network level by blocking the endpoints `POST /api/database`, `PUT /api/database/:id`, and `POST /api/setup/validateuntil`. Those who use H2 as a file-based database should migrate to SQLite.</description>
+      <guid isPermaLink="false">CVE-2023-37470|2023-08-04T15:12:43.188Z</guid>
+      <pubDate>Fri, 04 Aug 2023 15:12:43 +0000</pubDate>
+    </item>
+    <item>
+      <title>CVE-2023-23628|2023-01-28T01:11:16.710Z -- metabase -- metabase
+</title>
+      <link>https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2023-23628</link>
+      <description>Metabase is an open source data analytics platform. Affected versions are subject to Exposure of Sensitive Information to an Unauthorized Actor. Sandboxed users shouldn't be able to view data about other Metabase users anywhere in the Metabase application. However, when a sandbox user views the settings for a dashboard subscription, and another user has added users to that subscription, the sandboxed user is able to view the list of recipients for that subscription. This issue is patched in versions 0.43.7.1, 1.43.7.1, 0.44.6.1, 1.44.6.1, 0.45.2.1, and 1.45.2.1. There are no workarounds.
+</description>
+      <guid isPermaLink="false">CVE-2023-23628|2023-01-28T01:11:16.710Z</guid>
+      <pubDate>Sat, 28 Jan 2023 01:11:16 +0000</pubDate>
+    </item>
     <item>
       <title>CVE-2023-23629|2023-01-28T01:23:33.300Z -- metabase -- metabase
 </title>

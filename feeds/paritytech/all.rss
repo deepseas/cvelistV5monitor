@@ -6,8 +6,26 @@
     <description>The latest CVEs for paritytech -- all products</description>
     <docs>http://www.rssboard.org/rss-specification</docs>
     <generator>python-feedgen</generator>
-    <lastBuildDate>Tue, 04 Jun 2024 17:29:38 +0000</lastBuildDate>
+    <lastBuildDate>Wed, 12 Jun 2024 11:24:32 +0000</lastBuildDate>
     <ttl>60</ttl>
+    <item>
+      <title>CVE-2023-28431|2023-03-22T20:11:43.772Z -- paritytech -- frontier
+</title>
+      <link>https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2023-28431</link>
+      <description>Frontier is an Ethereum compatibility layer for Substrate. Frontier's `modexp` precompile uses `num-bigint` crate under the hood. In the implementation prior to pull request 1017, the cases for modulus being even and modulus being odd are treated separately. Odd modulus uses the fast Montgomery multiplication, and even modulus uses the slow plain power algorithm. This gas cost discrepancy was not accounted for in the `modexp` precompile, leading to possible denial of service attacks.
+
+No fixes for `num-bigint` are currently available, and thus this issue is fixed in the short term by raising the gas costs for even modulus, and in the long term fixing it in `num-bigint` or switching to another modexp implementation. The short-term fix for Frontier is deployed at pull request 1017. There are no known workarounds aside from applying the fix.</description>
+      <guid isPermaLink="false">CVE-2023-28431|2023-03-22T20:11:43.772Z</guid>
+      <pubDate>Wed, 22 Mar 2023 20:11:43 +0000</pubDate>
+    </item>
+    <item>
+      <title>CVE-2023-34449|2023-06-14T20:11:15.570Z -- paritytech -- ink
+</title>
+      <link>https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2023-34449</link>
+      <description>ink! is an embedded domain specific language to write smart contracts in Rust for blockchains built on the Substrate framework. Starting in version 4.0.0 and prior to version 4.2.1, the return value when using delegate call mechanics, either through `CallBuilder::delegate` or `ink_env::invoke_contract_delegate`, is decoded incorrectly. This bug was related to the mechanics around decoding a call's return buffer, which was changed as part of pull request 1450. Since this feature was only released in ink! 4.0.0, no previous versions are affected. Users who have an ink! 4.x series contract should upgrade to 4.2.1 to receive a patch.</description>
+      <guid isPermaLink="false">CVE-2023-34449|2023-06-14T20:11:15.570Z</guid>
+      <pubDate>Wed, 14 Jun 2023 20:10:54 +0000</pubDate>
+    </item>
     <item>
       <title>CVE-2023-45130|2023-10-13T12:14:15.105Z -- paritytech -- frontier
 </title>

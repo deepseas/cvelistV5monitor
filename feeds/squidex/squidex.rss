@@ -1,0 +1,36 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<rss xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/" version="2.0">
+  <channel>
+    <title>CVE Feed for Squidex -- squidex</title>
+    <link>https://raw.githubusercontent.com/deepseas/cvelistV5monitor/main/feeds/squidex/squidex.rss</link>
+    <description>The latest CVEs for Squidex -- squidex</description>
+    <docs>http://www.rssboard.org/rss-specification</docs>
+    <generator>python-feedgen</generator>
+    <lastBuildDate>Wed, 12 Jun 2024 11:24:37 +0000</lastBuildDate>
+    <ttl>60</ttl>
+    <item>
+      <title>CVE-2023-46744|2023-11-07T17:22:25.951Z -- squidex -- squidex
+</title>
+      <link>https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2023-46744</link>
+      <description>Squidex is an open source headless CMS and content management hub. In affected versions a stored Cross-Site Scripting (XSS) vulnerability enables privilege escalation of authenticated users. The SVG element filtering mechanism intended to stop XSS attacks through uploaded SVG images, is insufficient resulting to stored XSS attacks. Squidex allows the CMS contributors to be granted the permission of uploading an SVG asset. When the asset is uploaded, a filtering mechanism is performed to validate that the SVG does not contain malicious code. The validation logic consists of traversing the HTML nodes in the DOM. In order for the validation to succeed, 2 conditions must be met: 1. No HTML tags included in a "blacklist" called "InvalidSvgElements" are present. This list only contains the element "script". and 2. No attributes of HTML tags begin with "on" (i.e. onerror, onclick) (line 65). If either of the 2 conditions is not satisfied, validation fails and the file/asset is not uploaded. However it is possible to bypass the above filtering mechanism and execute arbitrary JavaScript code by introducing other HTML elements such as an &lt;iframe&gt; element with a "src" attribute containing a "javascript:" value. Authenticated adversaries with the "assets.create" permission, can leverage this vulnerability to upload a malicious SVG as an asset, targeting any registered user that will attempt to open/view the asset through the Squidex CMS.</description>
+      <guid isPermaLink="false">CVE-2023-46744|2023-11-07T17:22:25.951Z</guid>
+      <pubDate>Tue, 07 Nov 2023 17:22:25 +0000</pubDate>
+    </item>
+    <item>
+      <title>CVE-2023-46252|2023-11-07T19:00:58.743Z -- squidex -- squidex
+</title>
+      <link>https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2023-46252</link>
+      <description>Squidex is an open source headless CMS and content management hub. Affected versions are missing origin verification in a postMessage handler which introduces a Cross-Site Scripting (XSS) vulnerability. The editor-sdk.js file defines three different class-like functions, which employ a global message event listener: SquidexSidebar, SquidexWidget, and SquidexFormField. The registered event listener takes some action based on the type of the received message. For example, when the SquidexFormField receives a message with the type valueChanged, the value property is updated. The SquidexFormField class is for example used in the editor-editorjs.html file, which can be accessed via the public wwwroot folder. It uses the onValueChanged method to register a callback function, which passes the value provided from the message event to the editor.render. Passing an attacker-controlled value to this function introduces a Cross-Site Scripting (XSS) vulnerability.</description>
+      <guid isPermaLink="false">CVE-2023-46252|2023-11-07T19:00:58.743Z</guid>
+      <pubDate>Tue, 07 Nov 2023 19:00:58 +0000</pubDate>
+    </item>
+    <item>
+      <title>CVE-2023-46253|2023-11-07T18:56:21.631Z -- squidex -- squidex
+</title>
+      <link>https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2023-46253</link>
+      <description>Squidex is an open source headless CMS and content management hub. Affected versions are subject to an arbitrary file write vulnerability in the backup restore feature which allows an authenticated attacker to gain remote code execution (RCE). Squidex allows users with the `squidex.admin.restore` permission to create and restore backups. Part of these backups are the assets uploaded to an App. For each asset, the backup zip archive contains a `.asset` file with the actual content of the asset as well as a related `AssetCreatedEventV2` event, which is stored in a JSON file. Amongst other things, the JSON file contains the event type (`AssetCreatedEventV2`), the ID of the asset (`46c05041-9588-4179-b5eb-ddfcd9463e1e`), its filename (`test.txt`), and its file version (`0`). When a backup with this event is restored, the `BackupAssets.ReadAssetAsync` method is responsible for re-creating the asset. For this purpose, it determines the name of the `.asset` file in the zip archive, reads its content, and stores the content in the filestore. When the asset is stored in the filestore via the UploadAsync method, the assetId and fileVersion are passed as arguments. These are further passed to the method GetFileName, which determines the filename where the asset should be stored. The assetId is inserted into the filename without any sanitization and an attacker with squidex.admin.restore privileges to run arbitrary operating system commands on the underlying server (RCE).</description>
+      <guid isPermaLink="false">CVE-2023-46253|2023-11-07T18:56:21.631Z</guid>
+      <pubDate>Tue, 07 Nov 2023 18:56:21 +0000</pubDate>
+    </item>
+  </channel>
+</rss>

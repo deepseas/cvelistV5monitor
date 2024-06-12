@@ -1,0 +1,62 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<rss xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/" version="2.0">
+  <channel>
+    <title>CVE Feed for Apache Software Foundation -- Apache bRPC</title>
+    <link>https://raw.githubusercontent.com/deepseas/cvelistV5monitor/main/feeds/apache%20software%20foundation/apache%20brpc.rss</link>
+    <description>The latest CVEs for Apache Software Foundation -- Apache bRPC</description>
+    <docs>http://www.rssboard.org/rss-specification</docs>
+    <generator>python-feedgen</generator>
+    <lastBuildDate>Wed, 12 Jun 2024 11:24:22 +0000</lastBuildDate>
+    <ttl>60</ttl>
+    <item>
+      <title>CVE-2023-45757|2023-10-16T08:01:41.036Z -- apache%20software%20foundation -- apache%20brpc
+</title>
+      <link>https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2023-45757</link>
+      <description>Security vulnerability in Apache bRPC &lt;=1.6.0 on all platforms allows attackers to inject XSS code to the builtin rpcz page.
+An attacker that can send http request to bRPC server with rpcz enabled can inject arbitrary XSS code to the builtin rpcz page.
+
+Solution (choose one of three):
+1. upgrade to bRPC &gt; 1.6.0, download link:  https://dist.apache.org/repos/dist/release/brpc/1.6.1/ 
+2. If you are using an old version of bRPC and hard to upgrade, you can apply this patch:  https://github.com/apache/brpc/pull/2411 
+3. disable rpcz feature</description>
+      <guid isPermaLink="false">CVE-2023-45757|2023-10-16T08:01:41.036Z</guid>
+      <pubDate>Mon, 16 Oct 2023 08:01:41 +0000</pubDate>
+    </item>
+    <item>
+      <title>CVE-2023-31039|2023-05-08T08:57:14.714Z -- apache%20software%20foundation -- apache%20brpc
+</title>
+      <link>https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2023-31039</link>
+      <description>Security vulnerability in Apache bRPC &lt;1.5.0 on all platforms allows attackers to execute arbitrary code via ServerOptions::pid_file.
+An attacker that can influence the ServerOptions pid_file parameter with which the bRPC server is started can execute arbitrary code with the permissions of the bRPC process.
+
+Solution:
+1. upgrade to bRPC &gt;= 1.5.0, download link:  https://dist.apache.org/repos/dist/release/brpc/1.5.0/ https://dist.apache.org/repos/dist/release/brpc/1.5.0/ 
+2. If you are using an old version of bRPC and hard to upgrade, you can apply this patch:  https://github.com/apache/brpc/pull/2218 https://github.com/apache/brpc/pull/2218 </description>
+      <guid isPermaLink="false">CVE-2023-31039|2023-05-08T08:57:14.714Z</guid>
+      <pubDate>Mon, 08 May 2023 08:57:14 +0000</pubDate>
+    </item>
+    <item>
+      <title>CVE-2024-23452|2024-02-08T09:00:04.809Z -- apache%20software%20foundation -- apache%20brpc
+</title>
+      <link>https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2024-23452</link>
+      <description>Request smuggling vulnerability in HTTP server in Apache bRPC 0.9.5~1.7.0 on all platforms allows attacker to smuggle request.
+
+Vulnerability Cause Description：
+
+The http_parser does not comply with the RFC-7230 HTTP 1.1 specification.
+
+Attack scenario:
+If a message is received with both a Transfer-Encoding and a Content-Length header field, such a message might indicate an attempt to perform request smuggling or response splitting.
+One particular attack scenario is that a bRPC made http server on the backend receiving requests in one persistent connection from frontend server that uses TE to parse request with the logic that 'chunk' is contained in the TE field. in that case an attacker can smuggle a request into the connection to the backend server. 
+
+Solution:
+You can choose one solution from below:
+1. Upgrade bRPC to version 1.8.0, which fixes this issue. Download link:  https://github.com/apache/brpc/releases/tag/1.8.0
+ 2. Apply this patch:  https://github.com/apache/brpc/pull/2518 
+
+</description>
+      <guid isPermaLink="false">CVE-2024-23452|2024-02-08T09:00:04.809Z</guid>
+      <pubDate>Thu, 08 Feb 2024 09:00:04 +0000</pubDate>
+    </item>
+  </channel>
+</rss>

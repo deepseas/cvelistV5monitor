@@ -61,9 +61,9 @@ def generate_feeds(cve_files):
     #   }
     # }
     feeds = {}
-    l = len(cve_files)
+    # l = len(cve_files)
     for i, cve_file in enumerate(cve_files):
-        print(f"{i+1}/{l}", cve_file)
+        # print(f"{i+1}/{l}", cve_file)
         with open(cve_file, "r") as f:
             cve = json.load(f)
         if cve["cveMetadata"]["state"] != "PUBLISHED":
@@ -82,9 +82,7 @@ def generate_feeds(cve_files):
             if product not in feeds[vendor]:
                 feeds[vendor][product] = {"feed": create_feed(orig_vendor, orig_product), "additions": 0}
             fg_all: FeedGenerator = feeds[vendor]["all"]["feed"]
-            all_additions = feeds[vendor]["all"]["additions"]
             fg_product: FeedGenerator = feeds[vendor][product]["feed"]
-            product_additions = feeds[vendor][product]["additions"]
             # id
             cve_id = cve["cveMetadata"]["cveId"]
             updated_date = cve["cveMetadata"].get("dateUpdated")
@@ -101,14 +99,15 @@ def generate_feeds(cve_files):
                 continue
             # add entry
             fe_all = fg_all.add_entry()
-            all_additions += 1
+            feeds[vendor]["all"]["additions"] += 1
             fe_product = fg_product.add_entry()
-            product_additions += 1
+            feeds[vendor][product]["additions"] += 1
             # title, link, description, updated, published
             entry_title = f"{entry_id} -- {vendor} -- {product}\n"
             entry_link = f"https://cve.mitre.org/cgi-bin/cvename.cgi?name={cve_id}"
             cve_descriptions = cve["containers"]["cna"].get("descriptions")
-            entry_description = "\n".join([desc["value"] for desc in cve_descriptions])
+            raw_entry_description = "\n".join([desc["value"] for desc in cve_descriptions])
+            entry_description = ''.join(c for c in raw_entry_description if valid_xml_char_ordinal(c))
             entry_updated = None
             entry_published = None
             cve_updated = cve["cveMetadata"].get("dateUpdated")
@@ -147,7 +146,11 @@ def generate_feeds(cve_files):
                 continue
             os.makedirs(os.path.join("feeds", vendor), exist_ok=True)
             rss_filename = f"feeds/{vendor}/{product}.rss"
-            feed.rss_file(rss_filename, pretty=True)
+            try:
+                feed.rss_file(rss_filename, pretty=True)
+            except Exception as e:
+                print(f"Error writing feed to {rss_filename}: {e}")
+                continue
 
 
 def update_manifest():
@@ -218,3 +221,13 @@ def normalize_name(name):
         return clean_name
     else:
         return None
+
+
+def valid_xml_char_ordinal(c):
+    codepoint = ord(c)
+    return (
+            0x20 <= codepoint <= 0xD7FF or
+            codepoint in (0x9, 0xA, 0xD) or
+            0xE000 <= codepoint <= 0xFFFD or
+            0x10000 <= codepoint <= 0x10FFFF
+    )

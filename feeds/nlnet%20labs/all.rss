@@ -6,8 +6,48 @@
     <description>The latest CVEs for NLnet Labs -- all products</description>
     <docs>http://www.rssboard.org/rss-specification</docs>
     <generator>python-feedgen</generator>
-    <lastBuildDate>Tue, 04 Jun 2024 17:29:30 +0000</lastBuildDate>
+    <lastBuildDate>Wed, 12 Jun 2024 11:24:25 +0000</lastBuildDate>
     <ttl>60</ttl>
+    <item>
+      <title>CVE-2023-0158|2023-01-17T00:00:00 -- nlnet%20labs -- krill
+</title>
+      <link>https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2023-0158</link>
+      <description>NLnet Labs Krill supports direct access to the RRDP repository content through its built-in web server at the "/rrdp" endpoint. Prior to 0.12.1 a direct query for any existing directory under "/rrdp/", rather than an RRDP file such as "/rrdp/notification.xml" as would be expected, causes Krill to crash. If the built-in "/rrdp" endpoint is exposed directly to the internet, then malicious remote parties can cause the publication server to crash. The repository content is not affected by this, but the availability of the server and repository can cause issues if this attack is persistent and is not mitigated.</description>
+      <guid isPermaLink="false">CVE-2023-0158|2023-01-17T00:00:00</guid>
+      <pubDate>Tue, 17 Jan 2023 00:00:00 +0000</pubDate>
+    </item>
+    <item>
+      <title>CVE-2023-39916|2023-09-13T14:24:08.907Z -- nlnet%20labs -- routinator
+</title>
+      <link>https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2023-39916</link>
+      <description>NLnet Labs’ Routinator 0.9.0 up to and including 0.12.1 contains a possible path traversal vulnerability in the optional, off-by-default keep-rrdp-responses feature that allows users to store the content of responses received for RRDP requests. The location of these stored responses is constructed from the URL of the request. Due to insufficient sanitation of the URL, it is possible for an attacker to craft a URL that results in the response being stored outside of the directory specified for it.</description>
+      <guid isPermaLink="false">CVE-2023-39916|2023-09-13T14:24:08.907Z</guid>
+      <pubDate>Wed, 13 Sep 2023 14:24:08 +0000</pubDate>
+    </item>
+    <item>
+      <title>CVE-2023-39915|2023-09-13T14:20:59.967Z -- nlnet%20labs -- routinator
+</title>
+      <link>https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2023-39915</link>
+      <description>NLnet Labs’ Routinator up to and including version 0.12.1 may crash when trying to parse certain malformed RPKI objects. This is due to insufficient input checking in the bcder library covered by CVE-2023-39914.</description>
+      <guid isPermaLink="false">CVE-2023-39915|2023-09-13T14:20:59.967Z</guid>
+      <pubDate>Wed, 13 Sep 2023 14:20:59 +0000</pubDate>
+    </item>
+    <item>
+      <title>CVE-2023-39914|2023-09-13T14:17:49.204Z -- nlnet%20labs -- bcder
+</title>
+      <link>https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2023-39914</link>
+      <description>NLnet Labs’ bcder library up to and including version 0.7.2 panics while decoding certain invalid input data rather than rejecting the data with an error. This can affect both the actual decoding stage as well as accessing content of types that utilized delayed decoding.</description>
+      <guid isPermaLink="false">CVE-2023-39914|2023-09-13T14:17:49.204Z</guid>
+      <pubDate>Wed, 13 Sep 2023 14:17:49 +0000</pubDate>
+    </item>
+    <item>
+      <title>CVE-2024-1931|2024-03-07T09:17:13.072Z -- nlnet%20labs -- unbound
+</title>
+      <link>https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2024-1931</link>
+      <description>NLnet Labs Unbound version 1.18.0 up to and including version 1.19.1 contain a vulnerability that can cause denial of service by a certain code path that can lead to an infinite loop. Unbound 1.18.0 introduced a feature that removes EDE records from responses with size higher than the client's advertised buffer size. Before removing all the EDE records however, it would try to see if trimming the extra text fields on those records would result in an acceptable size while still retaining the EDE codes. Due to an unchecked condition, the code that trims the text of the EDE records could loop indefinitely. This happens when Unbound would reply with attached EDE information on a positive reply and the client's buffer size is smaller than the needed space to include EDE records. The vulnerability can only be triggered when the 'ede: yes' option is used; non default configuration. From version 1.19.2 on, the code is fixed to avoid looping indefinitely.</description>
+      <guid isPermaLink="false">CVE-2024-1931|2024-03-07T09:17:13.072Z</guid>
+      <pubDate>Thu, 07 Mar 2024 09:17:13 +0000</pubDate>
+    </item>
     <item>
       <title>CVE-2024-1622|2024-02-26T13:35:51.909Z -- nlnet%20labs -- routinator
 </title>

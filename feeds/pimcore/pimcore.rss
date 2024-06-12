@@ -6,17 +6,119 @@
     <description>The latest CVEs for pimcore -- pimcore</description>
     <docs>http://www.rssboard.org/rss-specification</docs>
     <generator>python-feedgen</generator>
-    <lastBuildDate>Wed, 05 Jun 2024 23:21:44 +0000</lastBuildDate>
+    <lastBuildDate>Wed, 12 Jun 2024 11:24:23 +0000</lastBuildDate>
     <ttl>60</ttl>
     <item>
-      <title>CVE-2024-32871|2024-06-04T14:43:20.796Z -- pimcore -- pimcore</title>
-      <link>https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2024-32871</link>
-      <description>Pimcore is an Open Source Data &amp; Experience Management Platform. The Pimcore thumbnail generation can be used to flood the server with large files. By changing the file extension or scaling factor of the requested thumbnail, attackers can create files that are much larger in file size than the original. This vulnerability is fixed in 11.2.4.</description>
-      <guid isPermaLink="false">CVE-2024-32871|2024-06-04T14:43:20.796Z</guid>
-      <pubDate>Tue, 04 Jun 2024 14:43:20 +0000</pubDate>
+      <title>CVE-2023-28429|2023-03-20T14:54:21.856Z -- pimcore -- pimcore
+</title>
+      <link>https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2023-28429</link>
+      <description>Pimcore is an open source data and experience management platform. Versions prior to 10.5.19 have an unsecured tooltip field in DataObject class definition. This vulnerability has the potential to steal a user's cookie and gain unauthorized access to that user's account through the stolen cookie or redirect users to other malicious sites. Users should upgrade to version 10.5.19 or, as a workaround, apply the patch manually.</description>
+      <guid isPermaLink="false">CVE-2023-28429|2023-03-20T14:54:21.856Z</guid>
+      <pubDate>Mon, 20 Mar 2023 14:54:21 +0000</pubDate>
     </item>
     <item>
-      <title>CVE-2024-32871|2024-06-05T05:15:37.005Z -- pimcore -- pimcore</title>
+      <title>CVE-2023-28106|2023-03-16T16:31:20.723Z -- pimcore -- pimcore
+</title>
+      <link>https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2023-28106</link>
+      <description>Pimcore is an open source data and experience management platform. Prior to version 10.5.19, an attacker can use cross-site scripting to send a malicious script to an unsuspecting user. Users may upgrade to version 10.5.19 to receive a patch or, as a workaround, apply the patch manually.</description>
+      <guid isPermaLink="false">CVE-2023-28106|2023-03-16T16:31:20.723Z</guid>
+      <pubDate>Thu, 16 Mar 2023 16:31:20 +0000</pubDate>
+    </item>
+    <item>
+      <title>CVE-2023-28438|2023-03-22T20:46:33.646Z -- pimcore -- pimcore
+</title>
+      <link>https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2023-28438</link>
+      <description>Pimcore is an open source data and experience management platform. Prior to version 10.5.19, since a user with 'report' permission can already write arbitrary SQL queries and given the fact that this endpoint is using the GET method (no CSRF protection), an attacker can inject an arbitrary query by manipulating a user to click on a link. Users should upgrade to version 10.5.19 to receive a patch or, as a workaround, may apply the patch manually.</description>
+      <guid isPermaLink="false">CVE-2023-28438|2023-03-22T20:46:33.646Z</guid>
+      <pubDate>Wed, 22 Mar 2023 20:46:33 +0000</pubDate>
+    </item>
+    <item>
+      <title>CVE-2023-28108|2023-03-16T16:34:56.176Z -- pimcore -- pimcore
+</title>
+      <link>https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2023-28108</link>
+      <description>Pimcore is an open source data and experience management platform. Prior to version 10.5.19, quoting is not done properly in UUID DAO model. There is the theoretical possibility to inject custom SQL if the developer is using this methods with input data and not doing proper input validation in advance and so relies on the auto-quoting being done by the DAO class. Users should update to version 10.5.19 to receive a patch or, as a workaround, apply the patch manually.</description>
+      <guid isPermaLink="false">CVE-2023-28108|2023-03-16T16:34:56.176Z</guid>
+      <pubDate>Thu, 16 Mar 2023 16:34:56 +0000</pubDate>
+    </item>
+    <item>
+      <title>CVE-2023-38708|2023-08-04T00:12:33.137Z -- pimcore -- pimcore
+</title>
+      <link>https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2023-38708</link>
+      <description>Pimcore is an Open Source Data &amp; Experience Management Platform: PIM, MDM, CDP, DAM, DXP/CMS &amp; Digital Commerce. A path traversal vulnerability exists in the `AssetController::importServerFilesAction`, which allows an attacker to overwrite or modify sensitive files by manipulating the pimcore_log parameter.This can lead to potential denial of service---key file overwrite.
+The impact of this vulnerability allows attackers to: overwrite or modify sensitive files, potentially leading to unauthorized access, privilege escalation, or disclosure of confidential information. This could also cause a denial of service (DoS) if critical system files are overwritten or deleted.</description>
+      <guid isPermaLink="false">CVE-2023-38708|2023-08-04T00:12:33.137Z</guid>
+      <pubDate>Fri, 04 Aug 2023 00:12:33 +0000</pubDate>
+    </item>
+    <item>
+      <title>CVE-2023-47637|2023-11-15T19:13:03.428Z -- pimcore -- pimcore
+</title>
+      <link>https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2023-47637</link>
+      <description>Pimcore is an Open Source Data &amp; Experience Management Platform. In affected versions the `/admin/object/grid-proxy` endpoint calls `getFilterCondition()` on fields of classes to be filtered for, passing input from the request, and later executes the returned SQL.  One implementation of `getFilterCondition()` is in `Multiselect`, which does not normalize/escape/validate the passed value. Any backend user with very basic permissions can execute arbitrary SQL statements and thus alter any data or escalate their privileges to at least admin level. This vulnerability has been addressed in version 11.1.1. Users are advised to upgrade. There are no known workarounds for this vulnerability.
+</description>
+      <guid isPermaLink="false">CVE-2023-47637|2023-11-15T19:13:03.428Z</guid>
+      <pubDate>Wed, 15 Nov 2023 19:13:03 +0000</pubDate>
+    </item>
+    <item>
+      <title>CVE-2023-23937|2023-02-03T19:31:34.110Z -- pimcore -- pimcore
+</title>
+      <link>https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2023-23937</link>
+      <description>Pimcore is an Open Source Data &amp; Experience Management Platform: PIM, MDM, CDP, DAM, DXP/CMS &amp; Digital Commerce.
+The upload functionality for updating user profile does not properly validate the file content-type, allowing any authenticated user to bypass this security check by adding a valid signature (p.e. GIF89) and sending any invalid content-type. This could allow an authenticated attacker to upload HTML files with JS content that will be executed in the context of the domain. This issue has been patched in version 10.5.16. </description>
+      <guid isPermaLink="false">CVE-2023-23937|2023-02-03T19:31:34.110Z</guid>
+      <pubDate>Fri, 03 Feb 2023 19:31:34 +0000</pubDate>
+    </item>
+    <item>
+      <title>CVE-2023-30852|2023-04-27T16:44:28.113Z -- pimcore -- pimcore
+</title>
+      <link>https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2023-30852</link>
+      <description>Pimcore is an open source data and experience management platform. Prior to version 10.5.21, the `/admin/misc/script-proxy` API endpoint that is accessible by an authenticated administrator user is vulnerable to arbitrary JavaScript and CSS file read via the `scriptPath` and `scripts` parameters. The `scriptPath` parameter is not sanitized properly and is vulnerable to path traversal attack. Any JavaScript/CSS file from the application server can be read by specifying sufficient number of `../` patterns to go out from the application webroot followed by path of the folder where the file is located in the "scriptPath" parameter and the file name in the "scripts" parameter. The JavaScript file is successfully read only if the web application has read access to it. Users should update to version 10.5.21 to receive a patch or, as a workaround, apply the patch manual.</description>
+      <guid isPermaLink="false">CVE-2023-30852|2023-04-27T16:44:28.113Z</guid>
+      <pubDate>Thu, 27 Apr 2023 16:44:28 +0000</pubDate>
+    </item>
+    <item>
+      <title>CVE-2023-30848|2023-04-27T15:03:31.257Z -- pimcore -- pimcore
+</title>
+      <link>https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2023-30848</link>
+      <description>Pimcore is an open source data and experience management platform. Prior to version 10.5.21, the admin search find API has a SQL injection vulnerability. Users should upgrade to version 10.5.21 to receive a patch or, as a workaround, apply the patch manually.</description>
+      <guid isPermaLink="false">CVE-2023-30848|2023-04-27T15:03:31.257Z</guid>
+      <pubDate>Thu, 27 Apr 2023 15:03:31 +0000</pubDate>
+    </item>
+    <item>
+      <title>CVE-2023-30849|2023-04-27T15:58:16.161Z -- pimcore -- pimcore
+</title>
+      <link>https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2023-30849</link>
+      <description>Pimcore is an open source data and experience management platform. Prior to version 10.5.21, A SQL injection vulnerability exists in the translation export API. Users should update to version 10.5.21 to receive a patch or, as a workaround, or apply the patch manually.</description>
+      <guid isPermaLink="false">CVE-2023-30849|2023-04-27T15:58:16.161Z</guid>
+      <pubDate>Thu, 27 Apr 2023 15:58:16 +0000</pubDate>
+    </item>
+    <item>
+      <title>CVE-2023-30855|2023-05-08T17:59:14.178Z -- pimcore -- pimcore
+</title>
+      <link>https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2023-30855</link>
+      <description>Pimcore is an open source data and experience management platform. Versions of Pimcore prior to 10.5.18 are vulnerable to path traversal. The impact of this path traversal and arbitrary extension is limited to creation of arbitrary files and appending data to existing files. When combined with the SQL Injection, the exported data `RESTRICTED DIFFUSION 9 / 9` can be controlled and a webshell can be uploaded. Attackers can use that to execute arbitrary PHP code on the server with the permissions of the webserver. Users may upgrade to version 10.5.18 to receive a patch or, as a workaround, apply the patch manually.</description>
+      <guid isPermaLink="false">CVE-2023-30855|2023-05-08T17:59:14.178Z</guid>
+      <pubDate>Mon, 08 May 2023 17:59:14 +0000</pubDate>
+    </item>
+    <item>
+      <title>CVE-2023-30850|2023-04-27T16:13:12.233Z -- pimcore -- pimcore
+</title>
+      <link>https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2023-30850</link>
+      <description>Pimcore is an open source data and experience management platform. Prior to version 10.5.21, a SQL Injection vulnerability exists in the admin translations API. Users should update to version 10.5.21 to receive a patch or, as a workaround, or apply the patch manually.</description>
+      <guid isPermaLink="false">CVE-2023-30850|2023-04-27T16:13:12.233Z</guid>
+      <pubDate>Thu, 27 Apr 2023 16:13:12 +0000</pubDate>
+    </item>
+    <item>
+      <title>CVE-2024-29197|2024-03-26T15:10:41.792Z -- pimcore -- pimcore
+</title>
+      <link>https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2024-29197</link>
+      <description>Pimcore is an Open Source Data &amp; Experience Management Platform. Any call with the query argument `?pimcore_preview=true` allows to view unpublished sites. In previous versions of Pimcore, session information would propagate to previews, so only a logged in user could open a preview. This no longer applies. Previews are broad open to any user and with just the hint of a restricted link one could gain access to possible confident / unreleased information. This vulnerability is fixed in 11.2.2 and 11.1.6.1.
+</description>
+      <guid isPermaLink="false">CVE-2024-29197|2024-03-26T15:10:41.792Z</guid>
+      <pubDate>Tue, 26 Mar 2024 15:10:41 +0000</pubDate>
+    </item>
+    <item>
+      <title>CVE-2024-32871|2024-06-05T05:15:37.005Z -- pimcore -- pimcore
+</title>
       <link>https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2024-32871</link>
       <description>Pimcore is an Open Source Data &amp; Experience Management Platform. The Pimcore thumbnail generation can be used to flood the server with large files. By changing the file extension or scaling factor of the requested thumbnail, attackers can create files that are much larger in file size than the original. This vulnerability is fixed in 11.2.4.</description>
       <guid isPermaLink="false">CVE-2024-32871|2024-06-05T05:15:37.005Z</guid>

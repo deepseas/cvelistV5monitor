@@ -1,0 +1,32 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<rss xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/" version="2.0">
+  <channel>
+    <title>CVE Feed for Spring -- Spring For Apache Kafka</title>
+    <link>https://raw.githubusercontent.com/deepseas/cvelistV5monitor/main/feeds/spring/spring%20for%20apache%20kafka.rss</link>
+    <description>The latest CVEs for Spring -- Spring For Apache Kafka</description>
+    <docs>http://www.rssboard.org/rss-specification</docs>
+    <generator>python-feedgen</generator>
+    <lastBuildDate>Wed, 12 Jun 2024 11:24:34 +0000</lastBuildDate>
+    <ttl>60</ttl>
+    <item>
+      <title>CVE-2023-34040|2023-08-24T12:59:20.620Z -- spring -- spring%20for%20apache%20kafka
+</title>
+      <link>https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2023-34040</link>
+      <description>In Spring for Apache Kafka 3.0.9 and earlier and versions 2.9.10 and earlier, a possible deserialization attack vector existed, but only if unusual configuration was applied. An attacker would have to construct a malicious serialized object in one of the deserialization exception record headers.
+
+Specifically, an application is vulnerable when all of the following are true:
+
+  *  The user does not configure an ErrorHandlingDeserializer for the key and/or value of the record
+  *  The user explicitly sets container properties checkDeserExWhenKeyNull and/or checkDeserExWhenValueNull container properties to true.
+  *  The user allows untrusted sources to publish to a Kafka topic
+
+
+By default, these properties are false, and the container only attempts to deserialize the headers if an ErrorHandlingDeserializer is configured. The ErrorHandlingDeserializer prevents the vulnerability by removing any such malicious headers before processing the record.
+
+
+</description>
+      <guid isPermaLink="false">CVE-2023-34040|2023-08-24T12:59:20.620Z</guid>
+      <pubDate>Thu, 24 Aug 2023 12:59:20 +0000</pubDate>
+    </item>
+  </channel>
+</rss>

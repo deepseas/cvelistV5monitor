@@ -6,8 +6,80 @@
     <description>The latest CVEs for home-assistant -- core</description>
     <docs>http://www.rssboard.org/rss-specification</docs>
     <generator>python-feedgen</generator>
-    <lastBuildDate>Tue, 04 Jun 2024 17:29:34 +0000</lastBuildDate>
+    <lastBuildDate>Wed, 12 Jun 2024 11:24:28 +0000</lastBuildDate>
     <ttl>60</ttl>
+    <item>
+      <title>CVE-2023-27482|2023-05-17T00:00:00 -- home-assistant -- core
+</title>
+      <link>https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2023-27482</link>
+      <description>homeassistant is an open source home automation tool. A remotely exploitable vulnerability bypassing authentication for accessing the Supervisor API through Home Assistant has been discovered. This impacts all Home Assistant installation types that use the Supervisor 2023.01.1 or older. Installation types, like Home Assistant Container (for example Docker), or Home Assistant Core manually in a Python environment, are not affected. The issue has been mitigated and closed in Supervisor version 2023.03.1, which has been rolled out to all affected installations via the auto-update feature of the Supervisor. This rollout has been completed at the time of publication of this advisory. Home Assistant Core 2023.3.0 included mitigation for this vulnerability. Upgrading to at least that version is thus advised. In case one is not able to upgrade the Home Assistant Supervisor or the Home Assistant Core application at this time, it is advised to not expose your Home Assistant instance to the internet.</description>
+      <guid isPermaLink="false">CVE-2023-27482|2023-05-17T00:00:00</guid>
+      <pubDate>Wed, 08 Mar 2023 00:00:00 +0000</pubDate>
+    </item>
+    <item>
+      <title>CVE-2023-41897|2023-10-19T22:23:32.278Z -- home-assistant -- core
+</title>
+      <link>https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2023-41897</link>
+      <description>Home assistant is an open source home automation. Home Assistant server does not set any HTTP security headers, including the X-Frame-Options header, which specifies whether the web page is allowed to be framed. The omission of this and correlating headers facilitates covert clickjacking attacks and alternative exploit opportunities, such as the vector described in this security advisory. This fault incurs major risk, considering the ability to trick users into installing an external and malicious add-on with minimal user interaction, which would enable Remote Code Execution (RCE) within the Home Assistant application. This issue has been addressed in version 2023.9.0 and all users are advised to upgrade. There are no known workarounds for this vulnerability.</description>
+      <guid isPermaLink="false">CVE-2023-41897|2023-10-19T22:23:32.278Z</guid>
+      <pubDate>Thu, 19 Oct 2023 22:23:32 +0000</pubDate>
+    </item>
+    <item>
+      <title>CVE-2023-41896|2023-10-19T22:30:49.623Z -- home-assistant -- core
+</title>
+      <link>https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2023-41896</link>
+      <description>Home assistant is an open source home automation. Whilst auditing the frontend code to identify hidden parameters, Cure53 detected `auth_callback=1`, which is leveraged by the WebSocket authentication logic in tandem with the `state` parameter. The state parameter contains the `hassUrl`, which is subsequently utilized to establish a WebSocket connection. This behavior permits an attacker to create a malicious Home Assistant link with a modified state parameter that forces the frontend to connect to an alternative WebSocket backend. Henceforth, the attacker can spoof any WebSocket responses and trigger cross site scripting (XSS). Since the XSS is executed on the actual Home Assistant frontend domain, it can connect to the real Home Assistant backend, which essentially represents a comprehensive takeover scenario. Permitting the site to be iframed by other origins, as discussed in GHSA-935v-rmg9-44mw, renders this exploit substantially covert since a malicious website can obfuscate the compromise strategy in the background. However, even without this, the attacker can still send the `auth_callback` link directly to the victim user. To mitigate this issue, Cure53 advises modifying the WebSocket code’s authentication flow. An optimal implementation in this regard would not trust the `hassUrl` passed in by a GET parameter. Cure53 must stipulate the significant time required of the Cure53 consultants to identify an XSS vector, despite holding full control over the WebSocket responses. In many areas, data from the WebSocket was properly sanitized, which hinders post-exploitation. The audit team eventually detected the `js_url` for custom panels, though generally, the frontend exhibited reasonable security hardening. This issue has been addressed in Home Assistant Core version 2023.8.0 and in the npm package home-assistant-js-websocket in version 8.2.0. Users are advised to upgrade. There are no known workarounds for this vulnerability.</description>
+      <guid isPermaLink="false">CVE-2023-41896|2023-10-19T22:30:49.623Z</guid>
+      <pubDate>Thu, 19 Oct 2023 22:30:49 +0000</pubDate>
+    </item>
+    <item>
+      <title>CVE-2023-41893|2023-10-19T23:27:09.318Z -- home-assistant -- core
+</title>
+      <link>https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2023-41893</link>
+      <description>Home assistant is an open source home automation. The audit team’s analyses confirmed that the `redirect_uri` and `client_id` are alterable when logging in. Consequently, the code parameter utilized to fetch the `access_token` post-authentication will be sent to the URL specified in the aforementioned parameters. Since an arbitrary URL is permitted and `homeassistant.local` represents the preferred, default domain likely used and trusted by many users, an attacker could leverage this weakness to manipulate a user and retrieve account access. Notably, this attack strategy is plausible if the victim has exposed their Home Assistant to the Internet, since after acquiring the victim’s `access_token` the adversary would need to utilize it directly towards the instance to achieve any pertinent malicious actions. To achieve this compromise attempt, the attacker must send a link with a `redirect_uri` that they control to the victim’s own Home Assistant instance. In the eventuality the victim authenticates via said link, the attacker would obtain code sent to the specified URL in `redirect_uri`, which can then be leveraged to fetch an `access_token`. Pertinently, an attacker could increase the efficacy of this strategy by registering a near identical domain to `homeassistant.local`, which at first glance may appear legitimate and thereby obfuscate any malicious intentions. This issue has been addressed in version 2023.9.0 and all users are advised to upgrade. There are no known workarounds for this vulnerability.</description>
+      <guid isPermaLink="false">CVE-2023-41893|2023-10-19T23:27:09.318Z</guid>
+      <pubDate>Thu, 19 Oct 2023 23:27:09 +0000</pubDate>
+    </item>
+    <item>
+      <title>CVE-2023-41895|2023-10-19T22:37:23.942Z -- home-assistant -- core
+</title>
+      <link>https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2023-41895</link>
+      <description>Home assistant is an open source home automation. The Home Assistant login page allows users to use their local Home Assistant credentials and log in to another website that specifies the `redirect_uri` and `client_id` parameters. Although the `redirect_uri` validation typically ensures that it matches the `client_id` and the scheme represents either `http` or `https`, Home Assistant will fetch the `client_id` and check for `&lt;link rel="redirect_uri" href="..."&gt;` HTML tags on the page. These URLs are not subjected to the same scheme validation and thus allow for arbitrary JavaScript execution on the Home Assistant administration page via usage of `javascript:` scheme URIs. This Cross-site Scripting (XSS) vulnerability can be executed on the Home Assistant frontend domain, which may be used for a full takeover of the Home Assistant account and installation. This issue has been addressed in version 2023.9.0 and all users are advised to upgrade. There are no known workarounds for this vulnerability.</description>
+      <guid isPermaLink="false">CVE-2023-41895|2023-10-19T22:37:23.942Z</guid>
+      <pubDate>Thu, 19 Oct 2023 22:37:23 +0000</pubDate>
+    </item>
+    <item>
+      <title>CVE-2023-41899|2023-10-19T22:18:31.224Z -- home-assistant -- core
+</title>
+      <link>https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2023-41899</link>
+      <description>Home assistant is an open source home automation. In affected versions the `hassio.addon_stdin` is vulnerable to a partial Server-Side Request Forgery where an attacker capable of calling this service (e.g.: through GHSA-h2jp-7grc-9xpp) may be able to invoke any Supervisor REST API endpoints with a POST request. An attacker able to exploit will be able to control the data dictionary, including its addon and input key/values. This issue has been addressed in version 2023.9.0 and all users are advised to upgrade. There are no known workarounds for this vulnerability. This issue is also tracked as GitHub Security Lab (GHSL) Vulnerability Report: `GHSL-2023-162`.</description>
+      <guid isPermaLink="false">CVE-2023-41899|2023-10-19T22:18:31.224Z</guid>
+      <pubDate>Thu, 19 Oct 2023 22:18:31 +0000</pubDate>
+    </item>
+    <item>
+      <title>CVE-2023-41898|2023-10-19T22:08:40.783Z -- home-assistant -- core
+</title>
+      <link>https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2023-41898</link>
+      <description>Home assistant is an open source home automation. The Home Assistant Companion for Android app up to version 2023.8.2 is vulnerable to arbitrary URL loading in a WebView. This enables all sorts of attacks, including arbitrary JavaScript execution, limited native code execution, and credential theft. This issue has been patched in version 2023.9.2 and all users are advised to upgrade. There are no known workarounds for this vulnerability. This issue is also tracked as GitHub Security Lab (GHSL) Vulnerability Report: `GHSL-2023-142`.</description>
+      <guid isPermaLink="false">CVE-2023-41898|2023-10-19T22:08:40.783Z</guid>
+      <pubDate>Thu, 19 Oct 2023 22:08:40 +0000</pubDate>
+    </item>
+    <item>
+      <title>CVE-2023-41894|2023-10-19T23:23:17.909Z -- home-assistant -- core
+</title>
+      <link>https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2023-41894</link>
+      <description>Home assistant is an open source home automation. The assessment verified that webhooks available in the webhook component are triggerable via the `*.ui.nabu.casa` URL without authentication, even when the webhook is marked as Only accessible from the local network. This issue is facilitated by the SniTun proxy, which sets the source address to 127.0.0.1 on all requests sent to the public URL and forwarded to the local Home Assistant. This issue has been addressed in version 2023.9.0 and all users are advised to upgrade. There are no known workarounds for this vulnerability.</description>
+      <guid isPermaLink="false">CVE-2023-41894|2023-10-19T23:23:17.909Z</guid>
+      <pubDate>Thu, 19 Oct 2023 23:23:17 +0000</pubDate>
+    </item>
+    <item>
+      <title>CVE-2023-44385|2023-10-19T22:02:52.674Z -- home-assistant -- core
+</title>
+      <link>https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2023-44385</link>
+      <description>The Home Assistant Companion for iOS and macOS app up to version 2023.4 are vulnerable to Client-Side Request Forgery. Attackers may send malicious links/QRs to victims that, when visited, will make the victim to call arbitrary services in their Home Assistant installation. Combined with this security advisory, may result in full compromise and remote code execution (RCE). Version 2023.7 addresses this issue and all users are advised to upgrade. There are no known workarounds for this vulnerability. This issue is also tracked as GitHub Security Lab (GHSL) Vulnerability Report: GHSL-2023-161.</description>
+      <guid isPermaLink="false">CVE-2023-44385|2023-10-19T22:02:52.674Z</guid>
+      <pubDate>Thu, 19 Oct 2023 22:02:52 +0000</pubDate>
+    </item>
     <item>
       <title>CVE-2023-50715|2023-12-15T02:05:57.580Z -- home-assistant -- core
 </title>

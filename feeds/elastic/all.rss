@@ -6,8 +6,236 @@
     <description>The latest CVEs for Elastic -- all products</description>
     <docs>http://www.rssboard.org/rss-specification</docs>
     <generator>python-feedgen</generator>
-    <lastBuildDate>Tue, 04 Jun 2024 17:29:26 +0000</lastBuildDate>
+    <lastBuildDate>Wed, 12 Jun 2024 11:24:21 +0000</lastBuildDate>
     <ttl>60</ttl>
+    <item>
+      <title>CVE-2023-49922|2023-12-12T18:23:32.489Z -- elastic -- beats
+</title>
+      <link>https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2023-49922</link>
+      <description>An issue was discovered by Elastic whereby Beats and Elastic Agent would log a raw event in its own logs at the WARN or ERROR level if ingesting that event to Elasticsearch failed with any 4xx HTTP status code except 409 or 429. Depending on the nature of the event that Beats or Elastic Agent attempted to ingest, this could lead to the insertion of sensitive or private information in the Beats or Elastic Agent logs. Elastic has released 8.11.3 and 7.17.16 that prevents this issue by limiting these types of logs to DEBUG level logging, which is disabled by default.</description>
+      <guid isPermaLink="false">CVE-2023-49922|2023-12-12T18:23:32.489Z</guid>
+      <pubDate>Tue, 12 Dec 2023 18:23:20 +0000</pubDate>
+    </item>
+    <item>
+      <title>CVE-2023-49923|2023-12-12T17:53:42.091Z -- elastic -- enterprise%20search
+</title>
+      <link>https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2023-49923</link>
+      <description> An issue was discovered by Elastic whereby the Documents API of App Search logged the raw contents of indexed documents at INFO log level. Depending on the contents of such documents, this could lead to the insertion of sensitive or private information in the App Search logs. Elastic has released 8.11.2 and 7.17.16 that resolves this issue by changing the log level at which these are logged to DEBUG, which is disabled by default.</description>
+      <guid isPermaLink="false">CVE-2023-49923|2023-12-12T17:53:42.091Z</guid>
+      <pubDate>Tue, 12 Dec 2023 17:53:42 +0000</pubDate>
+    </item>
+    <item>
+      <title>CVE-2023-46671|2023-12-13T06:57:59.826Z -- elastic -- kibana
+</title>
+      <link>https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2023-46671</link>
+      <description>An issue was discovered by Elastic whereby sensitive information may be recorded in Kibana logs in the event of an error. Elastic has released Kibana 8.11.1 which resolves this issue. The error message recorded in the log may contain account credentials for the kibana_system user, API Keys, and credentials of Kibana end-users. The issue occurs infrequently, only if an error is returned from an Elasticsearch cluster, in cases where there is user interaction and an unhealthy cluster (for example, when returning circuit breaker or no shard exceptions).
+</description>
+      <guid isPermaLink="false">CVE-2023-46671|2023-12-13T06:57:59.826Z</guid>
+      <pubDate>Wed, 13 Dec 2023 06:57:59 +0000</pubDate>
+    </item>
+    <item>
+      <title>CVE-2023-46667|2023-10-26T00:59:36.713Z -- elastic -- fleet%20server
+</title>
+      <link>https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2023-46667</link>
+      <description>An issue was discovered in Fleet Server &gt;= v8.10.0 and &lt; v8.10.3 where Agent enrolment tokens are being inserted into the Fleet Server’s log file in plain text. These enrolment tokens could allow someone to enrol an agent into an agent policy, and potentially use that to retrieve other secrets in the policy including for Elasticsearch and third-party services. Alternatively a threat actor could potentially enrol agents to the clusters and send arbitrary events to Elasticsearch.</description>
+      <guid isPermaLink="false">CVE-2023-46667|2023-10-26T00:59:36.713Z</guid>
+      <pubDate>Thu, 26 Oct 2023 00:59:36 +0000</pubDate>
+    </item>
+    <item>
+      <title>CVE-2023-46666|2023-10-26T16:16:10.888Z -- elastic -- elastic%20sharepoint%20online%20python%20connector
+</title>
+      <link>https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2023-46666</link>
+      <description>An issue was discovered when using Document Level Security and the SPO "Limited Access" functionality in Elastic Sharepoint Online Python Connector. If a user is assigned limited access permissions to an item on a Sharepoint site then that user would have read permissions to all content on the Sharepoint site through Elasticsearch.</description>
+      <guid isPermaLink="false">CVE-2023-46666|2023-10-26T16:16:10.888Z</guid>
+      <pubDate>Thu, 26 Oct 2023 16:16:10 +0000</pubDate>
+    </item>
+    <item>
+      <title>CVE-2023-46675|2023-12-13T07:02:07.706Z -- elastic -- kibana
+</title>
+      <link>https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2023-46675</link>
+      <description>An issue was discovered by Elastic whereby sensitive information may be recorded in Kibana logs in the event of an error or in the event where debug level logging is enabled in Kibana. Elastic has released Kibana 8.11.2 which resolves this issue. The messages recorded in the log may contain Account credentials for the kibana_system user, API Keys, and credentials of Kibana end-users, Elastic Security package policy objects which can contain private keys, bearer token, and sessions of 3rd-party integrations and finally Authorization headers, client secrets, local file paths, and stack traces. The issue may occur in any Kibana instance running an affected version that could potentially receive an unexpected error when communicating to Elasticsearch causing it to include sensitive data into Kibana error logs. It could also occur under specific circumstances when debug level logging is enabled in Kibana. Note: It was found that the fix for ESA-2023-25 in Kibana 8.11.1 for a similar issue was incomplete.
+</description>
+      <guid isPermaLink="false">CVE-2023-46675|2023-12-13T07:02:07.706Z</guid>
+      <pubDate>Wed, 13 Dec 2023 07:02:07 +0000</pubDate>
+    </item>
+    <item>
+      <title>CVE-2023-46674|2023-12-05T17:21:59.184Z -- elastic -- elasticsearch-hadoop
+</title>
+      <link>https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2023-46674</link>
+      <description>An issue was identified that allowed the unsafe deserialization of java objects from hadoop or spark configuration properties that could have been modified by authenticated users. Elastic would like to thank Yakov Shafranovich, with Amazon Web Services for reporting this issue.
+</description>
+      <guid isPermaLink="false">CVE-2023-46674|2023-12-05T17:21:59.184Z</guid>
+      <pubDate>Tue, 05 Dec 2023 17:21:59 +0000</pubDate>
+    </item>
+    <item>
+      <title>CVE-2023-46673|2023-11-22T09:27:10.454Z -- elastic -- elasticsearch
+</title>
+      <link>https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2023-46673</link>
+      <description>It was identified that malformed scripts used in the script processor of an Ingest Pipeline could cause an Elasticsearch node to crash when calling the Simulate Pipeline API.
+</description>
+      <guid isPermaLink="false">CVE-2023-46673|2023-11-22T09:27:10.454Z</guid>
+      <pubDate>Wed, 22 Nov 2023 09:27:10 +0000</pubDate>
+    </item>
+    <item>
+      <title>CVE-2023-46672|2023-11-15T08:05:26.561Z -- elastic -- logstash
+</title>
+      <link>https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2023-46672</link>
+      <description>An issue was identified by Elastic whereby sensitive information is recorded in Logstash logs under specific circumstances.
+
+The prerequisites for the manifestation of this issue are:
+
+  *  Logstash  is configured to log in JSON format https://www.elastic.co/guide/en/logstash/current/running-logstash-command-line.html , which is not the default logging format.
+
+
+  *  Sensitive data is stored in the Logstash keystore and referenced as a variable in Logstash configuration.
+
+
+
+
+
+
+</description>
+      <guid isPermaLink="false">CVE-2023-46672|2023-11-15T08:05:26.561Z</guid>
+      <pubDate>Wed, 15 Nov 2023 08:05:26 +0000</pubDate>
+    </item>
+    <item>
+      <title>CVE-2023-46668|2023-10-25T23:59:13.485Z -- elastic -- endpoint
+</title>
+      <link>https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2023-46668</link>
+      <description>If Elastic Endpoint (v7.9.0 - v8.10.3) is configured to use a non-default option in which the logging level is explicitly set to debug, and when Elastic Agent is simultaneously configured to collect and send those logs to Elasticsearch, then Elastic Agent API keys can be viewed in Elasticsearch in plaintext. These API keys could be used to write arbitrary data and read Elastic Endpoint user artifacts.</description>
+      <guid isPermaLink="false">CVE-2023-46668|2023-10-25T23:59:13.485Z</guid>
+      <pubDate>Wed, 25 Oct 2023 23:59:13 +0000</pubDate>
+    </item>
+    <item>
+      <title>CVE-2023-31413|2023-05-04T00:00:00 -- elastic -- filebeat
+</title>
+      <link>https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2023-31413</link>
+      <description>Filebeat versions through 7.17.9 and 8.6.2 have a flaw in httpjson input that allows the http request Authorization or Proxy-Authorization header contents to be leaked in the logs when debug logging is enabled.</description>
+      <guid isPermaLink="false">CVE-2023-31413|2023-05-04T00:00:00</guid>
+      <pubDate>Thu, 04 May 2023 00:00:00 +0000</pubDate>
+    </item>
+    <item>
+      <title>CVE-2023-31418|2023-10-26T17:36:42.723Z -- elastic -- elasticsearch
+</title>
+      <link>https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2023-31418</link>
+      <description>An issue has been identified with how Elasticsearch handled incoming requests on the HTTP layer. An unauthenticated user could force an Elasticsearch node to exit with an OutOfMemory error by sending a moderate number of malformed HTTP requests. The issue was identified by Elastic Engineering and we have no indication that the issue is known or that it is being exploited in the wild.</description>
+      <guid isPermaLink="false">CVE-2023-31418|2023-10-26T17:36:42.723Z</guid>
+      <pubDate>Thu, 26 Oct 2023 17:36:42 +0000</pubDate>
+    </item>
+    <item>
+      <title>CVE-2023-31422|2023-10-26T01:43:54.868Z -- elastic -- kibana
+</title>
+      <link>https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2023-31422</link>
+      <description>An issue was discovered by Elastic whereby sensitive information is recorded in Kibana logs in the event of an error. The issue impacts only Kibana version 8.10.0 when logging in the JSON layout or when the pattern layout is configured to log the %meta pattern. Elastic has released Kibana 8.10.1 which resolves this issue. The error object recorded in the log contains request information, which can include sensitive data, such as authentication credentials, cookies, authorization headers, query params, request paths, and other metadata. Some examples of sensitive data which can be included in the logs are account credentials for kibana_system, kibana-metricbeat, or Kibana end-users.</description>
+      <guid isPermaLink="false">CVE-2023-31422|2023-10-26T01:43:54.868Z</guid>
+      <pubDate>Thu, 26 Oct 2023 01:43:54 +0000</pubDate>
+    </item>
+    <item>
+      <title>CVE-2023-31414|2023-05-04T00:00:00 -- elastic -- kibana
+</title>
+      <link>https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2023-31414</link>
+      <description>Kibana versions 8.0.0 through 8.7.0 contain an arbitrary code execution flaw. An attacker with write access to Kibana yaml or env configuration could add a specific payload that will attempt to execute JavaScript code. This could lead to the attacker executing arbitrary commands on the host system with permissions of the Kibana process.</description>
+      <guid isPermaLink="false">CVE-2023-31414|2023-05-04T00:00:00</guid>
+      <pubDate>Thu, 04 May 2023 00:00:00 +0000</pubDate>
+    </item>
+    <item>
+      <title>CVE-2023-31415|2023-05-04T00:00:00 -- elastic -- kibana
+</title>
+      <link>https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2023-31415</link>
+      <description>Kibana version 8.7.0 contains an arbitrary code execution flaw. An attacker with All privileges to the Uptime/Synthetics feature could send a request that will attempt to execute JavaScript code. This could lead to the attacker executing arbitrary commands on the host system with permissions of the Kibana process.</description>
+      <guid isPermaLink="false">CVE-2023-31415|2023-05-04T00:00:00</guid>
+      <pubDate>Thu, 04 May 2023 00:00:00 +0000</pubDate>
+    </item>
+    <item>
+      <title>CVE-2023-31419|2023-10-26T18:49:20.424Z -- elastic -- elasticsearch
+</title>
+      <link>https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2023-31419</link>
+      <description>A flaw was discovered in Elasticsearch, affecting the _search API that allowed a specially crafted query string to cause a Stack Overflow and ultimately a Denial of Service.
+
+
+
+
+</description>
+      <guid isPermaLink="false">CVE-2023-31419|2023-10-26T18:49:20.424Z</guid>
+      <pubDate>Thu, 26 Oct 2023 17:06:14 +0000</pubDate>
+    </item>
+    <item>
+      <title>CVE-2023-31416|2023-10-26T18:46:21.531Z -- elastic -- elastic%20cloud%20on%20kubernetes
+</title>
+      <link>https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2023-31416</link>
+      <description>Secret token configuration is never applied when using ECK &lt;2.8 with APM Server &gt;=8.0. This could lead to anonymous requests to an APM Server being accepted and the data ingested into this APM deployment.</description>
+      <guid isPermaLink="false">CVE-2023-31416|2023-10-26T18:46:21.531Z</guid>
+      <pubDate>Thu, 26 Oct 2023 18:46:21 +0000</pubDate>
+    </item>
+    <item>
+      <title>CVE-2023-31417|2023-10-26T17:47:37.065Z -- elastic -- elasticsearch
+</title>
+      <link>https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2023-31417</link>
+      <description>Elasticsearch generally filters out sensitive information and credentials before logging to the audit log. It was found that this filtering was not applied when requests to Elasticsearch use certain deprecated URIs for APIs. The impact of this flaw is that sensitive information such as passwords and tokens might be printed in cleartext in Elasticsearch audit logs. Note that audit logging is disabled by default and needs to be explicitly enabled and even when audit logging is enabled, request bodies that could contain sensitive information are not printed to the audit log unless explicitly configured.
+
+
+
+
+</description>
+      <guid isPermaLink="false">CVE-2023-31417|2023-10-26T17:47:37.065Z</guid>
+      <pubDate>Thu, 26 Oct 2023 17:47:37 +0000</pubDate>
+    </item>
+    <item>
+      <title>CVE-2023-31421|2023-10-26T03:10:52.684Z -- elastic -- beats
+</title>
+      <link>https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2023-31421</link>
+      <description>It was discovered that when acting as TLS clients, Beats, Elastic Agent, APM Server, and Fleet Server did not verify whether the server certificate is valid for the target IP address; however, certificate signature validation is still performed. More specifically, when the client is configured to connect to an IP address (instead of a hostname) it does not validate the server certificate's IP SAN values against that IP address and certificate validation fails, and therefore the connection is not blocked as expected.</description>
+      <guid isPermaLink="false">CVE-2023-31421|2023-10-26T03:10:52.684Z</guid>
+      <pubDate>Thu, 26 Oct 2023 03:10:52 +0000</pubDate>
+    </item>
+    <item>
+      <title>CVE-2023-6687|2023-12-12T18:28:06.423Z -- elastic -- elastic%20agent
+</title>
+      <link>https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2023-6687</link>
+      <description>An issue was discovered by Elastic whereby Elastic Agent would log a raw event in its own logs at the WARN or ERROR level if ingesting that event to Elasticsearch failed with any 4xx HTTP status code except 409 or 429. Depending on the nature of the event that Elastic Agent attempted to ingest, this could lead to the insertion of sensitive or private information in the Elastic Agent logs. Elastic has released 8.11.3 and 7.17.16 that prevents this issue by limiting these types of logs to DEBUG level logging, which is disabled by default.</description>
+      <guid isPermaLink="false">CVE-2023-6687|2023-12-12T18:28:06.423Z</guid>
+      <pubDate>Tue, 12 Dec 2023 18:28:06 +0000</pubDate>
+    </item>
+    <item>
+      <title>CVE-2024-23449|2024-03-29T11:12:49.067Z -- elastic -- elasticsearch
+</title>
+      <link>https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2024-23449</link>
+      <description>An uncaught exception in Elasticsearch &gt;= 8.4.0 and &lt; 8.11.1 occurs when an encrypted PDF is passed to an attachment processor through the REST API. The Elasticsearch ingest node that attempts to parse the PDF file will crash. This does not happen with password-protected PDF files or with unencrypted PDF files.</description>
+      <guid isPermaLink="false">CVE-2024-23449|2024-03-29T11:12:49.067Z</guid>
+      <pubDate>Fri, 29 Mar 2024 11:12:49 +0000</pubDate>
+    </item>
+    <item>
+      <title>CVE-2024-23448|2024-02-07T21:37:45.908Z -- elastic -- apm%20server
+</title>
+      <link>https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2024-23448</link>
+      <description>An issue was discovered whereby APM Server could log at ERROR level, a response from Elasticsearch indicating that indexing the document failed and that response would contain parts of the original document. Depending on the nature of the document that the APM Server attempted to ingest, this could lead to the insertion of sensitive or private information in the APM Server logs.</description>
+      <guid isPermaLink="false">CVE-2024-23448|2024-02-07T21:37:45.908Z</guid>
+      <pubDate>Wed, 07 Feb 2024 21:37:45 +0000</pubDate>
+    </item>
+    <item>
+      <title>CVE-2024-23447|2024-02-07T03:46:25.217Z -- elastic -- elastic%20network%20drive%20connector
+</title>
+      <link>https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2024-23447</link>
+      <description>An issue was discovered in the Windows Network Drive Connector when using Document Level Security to assign permissions to a file, with explicit allow write and deny read. Although the document is not accessible to the user in Network Drive it is visible in search applications to the user.</description>
+      <guid isPermaLink="false">CVE-2024-23447|2024-02-07T03:46:25.217Z</guid>
+      <pubDate>Wed, 07 Feb 2024 03:46:25 +0000</pubDate>
+    </item>
+    <item>
+      <title>CVE-2024-23451|2024-03-27T18:03:54.735Z -- elastic -- elasticsearch
+</title>
+      <link>https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2024-23451</link>
+      <description>Incorrect Authorization issue exists in the API key based security model for Remote Cluster Security, which is currently in Beta, in Elasticsearch 8.10.0 and before 8.13.0. This allows a malicious user with a valid API key for a remote cluster configured to use the new Remote Cluster Security to read arbitrary documents from any index on the remote cluster, and only if they use the Elasticsearch custom transport protocol to issue requests with the target index ID, the shard ID and the document ID. None of Elasticsearch REST API endpoints are affected by this issue.</description>
+      <guid isPermaLink="false">CVE-2024-23451|2024-03-27T18:03:54.735Z</guid>
+      <pubDate>Wed, 27 Mar 2024 18:03:25 +0000</pubDate>
+    </item>
+    <item>
+      <title>CVE-2024-23450|2024-03-27T17:03:48.290Z -- elastic -- elasticsearch
+</title>
+      <link>https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2024-23450</link>
+      <description>A flaw was discovered in Elasticsearch, where processing a document in a deeply nested pipeline on an ingest node could cause the Elasticsearch node to crash.</description>
+      <guid isPermaLink="false">CVE-2024-23450|2024-03-27T17:03:48.290Z</guid>
+      <pubDate>Wed, 27 Mar 2024 17:03:48 +0000</pubDate>
+    </item>
     <item>
       <title>CVE-2024-23446|2024-02-07T03:16:39.182Z -- elastic -- kibana
 </title>

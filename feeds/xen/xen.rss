@@ -6,8 +6,331 @@
     <description>The latest CVEs for Xen -- Xen</description>
     <docs>http://www.rssboard.org/rss-specification</docs>
     <generator>python-feedgen</generator>
-    <lastBuildDate>Tue, 04 Jun 2024 17:29:24 +0000</lastBuildDate>
+    <lastBuildDate>Wed, 12 Jun 2024 11:24:18 +0000</lastBuildDate>
     <ttl>60</ttl>
+    <item>
+      <title>CVE-2023-46837|2024-01-05T16:36:10.881Z -- xen -- xen
+</title>
+      <link>https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2023-46837</link>
+      <description>Arm provides multiple helpers to clean &amp; invalidate the cache
+for a given region.  This is, for instance, used when allocating
+guest memory to ensure any writes (such as the ones during scrubbing)
+have reached memory before handing over the page to a guest.
+
+Unfortunately, the arithmetics in the helpers can overflow and would
+then result to skip the cache cleaning/invalidation.  Therefore there
+is no guarantee when all the writes will reach the memory.
+
+This undefined behavior was meant to be addressed by XSA-437, but the
+approach was not sufficient.
+</description>
+      <guid isPermaLink="false">CVE-2023-46837|2024-01-05T16:36:10.881Z</guid>
+      <pubDate>Fri, 05 Jan 2024 16:36:10 +0000</pubDate>
+    </item>
+    <item>
+      <title>CVE-2023-46840|2024-03-20T10:40:18.050Z -- xen -- xen
+</title>
+      <link>https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2023-46840</link>
+      <description>Incorrect placement of a preprocessor directive in source code results
+in logic that doesn't operate as intended when support for HVM guests is
+compiled out of Xen.
+</description>
+      <guid isPermaLink="false">CVE-2023-46840|2024-03-20T10:40:18.050Z</guid>
+      <pubDate>Wed, 20 Mar 2024 10:40:18 +0000</pubDate>
+    </item>
+    <item>
+      <title>CVE-2023-46841|2024-06-04T17:22:15.607Z -- xen -- xen
+</title>
+      <link>https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2023-46841</link>
+      <description>Recent x86 CPUs offer functionality named Control-flow Enforcement
+Technology (CET).  A sub-feature of this are Shadow Stacks (CET-SS).
+CET-SS is a hardware feature designed to protect against Return Oriented
+Programming attacks. When enabled, traditional stacks holding both data
+and return addresses are accompanied by so called "shadow stacks",
+holding little more than return addresses.  Shadow stacks aren't
+writable by normal instructions, and upon function returns their
+contents are used to check for possible manipulation of a return address
+coming from the traditional stack.
+
+In particular certain memory accesses need intercepting by Xen.  In
+various cases the necessary emulation involves kind of replaying of
+the instruction.  Such replaying typically involves filling and then
+invoking of a stub.  Such a replayed instruction may raise an
+exceptions, which is expected and dealt with accordingly.
+
+Unfortunately the interaction of both of the above wasn't right:
+Recovery involves removal of a call frame from the (traditional) stack.
+The counterpart of this operation for the shadow stack was missing.
+</description>
+      <guid isPermaLink="false">CVE-2023-46841|2024-06-04T17:22:15.607Z</guid>
+      <pubDate>Wed, 20 Mar 2024 10:40:36 +0000</pubDate>
+    </item>
+    <item>
+      <title>CVE-2023-46836|2024-01-05T16:34:59.036Z -- xen -- xen
+</title>
+      <link>https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2023-46836</link>
+      <description>The fixes for XSA-422 (Branch Type Confusion) and XSA-434 (Speculative
+Return Stack Overflow) are not IRQ-safe.  It was believed that the
+mitigations always operated in contexts with IRQs disabled.
+
+However, the original XSA-254 fix for Meltdown (XPTI) deliberately left
+interrupts enabled on two entry paths; one unconditionally, and one
+conditionally on whether XPTI was active.
+
+As BTC/SRSO and Meltdown affect different CPU vendors, the mitigations
+are not active together by default.  Therefore, there is a race
+condition whereby a malicious PV guest can bypass BTC/SRSO protections
+and launch a BTC/SRSO attack against Xen.
+</description>
+      <guid isPermaLink="false">CVE-2023-46836|2024-01-05T16:34:59.036Z</guid>
+      <pubDate>Fri, 05 Jan 2024 16:34:59 +0000</pubDate>
+    </item>
+    <item>
+      <title>CVE-2023-46835|2024-01-05T16:34:49.531Z -- xen -- xen
+</title>
+      <link>https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2023-46835</link>
+      <description>The current setup of the quarantine page tables assumes that the
+quarantine domain (dom_io) has been initialized with an address width
+of DEFAULT_DOMAIN_ADDRESS_WIDTH (48) and hence 4 page table levels.
+
+However dom_io being a PV domain gets the AMD-Vi IOMMU page tables
+levels based on the maximum (hot pluggable) RAM address, and hence on
+systems with no RAM above the 512GB mark only 3 page-table levels are
+configured in the IOMMU.
+
+On systems without RAM above the 512GB boundary
+amd_iommu_quarantine_init() will setup page tables for the scratch
+page with 4 levels, while the IOMMU will be configured to use 3 levels
+only, resulting in the last page table directory (PDE) effectively
+becoming a page table entry (PTE), and hence a device in quarantine
+mode gaining write access to the page destined to be a PDE.
+
+Due to this page table level mismatch, the sink page the device gets
+read/write access to is no longer cleared between device assignment,
+possibly leading to data leaks.
+</description>
+      <guid isPermaLink="false">CVE-2023-46835|2024-01-05T16:34:49.531Z</guid>
+      <pubDate>Fri, 05 Jan 2024 16:34:49 +0000</pubDate>
+    </item>
+    <item>
+      <title>CVE-2023-46842|2024-06-04T17:22:13.355Z -- xen -- xen
+</title>
+      <link>https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2023-46842</link>
+      <description>Unlike 32-bit PV guests, HVM guests may switch freely between 64-bit and
+other modes.  This in particular means that they may set registers used
+to pass 32-bit-mode hypercall arguments to values outside of the range
+32-bit code would be able to set them to.
+
+When processing of hypercalls takes a considerable amount of time,
+the hypervisor may choose to invoke a hypercall continuation.  Doing so
+involves putting (perhaps updated) hypercall arguments in respective
+registers.  For guests not running in 64-bit mode this further involves
+a certain amount of translation of the values.
+
+Unfortunately internal sanity checking of these translated values
+assumes high halves of registers to always be clear when invoking a
+hypercall.  When this is found not to be the case, it triggers a
+consistency check in the hypervisor and causes a crash.
+</description>
+      <guid isPermaLink="false">CVE-2023-46842|2024-06-04T17:22:13.355Z</guid>
+      <pubDate>Thu, 16 May 2024 13:39:26 +0000</pubDate>
+    </item>
+    <item>
+      <title>CVE-2023-46839|2024-03-20T10:35:52.532Z -- xen -- xen
+</title>
+      <link>https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2023-46839</link>
+      <description>PCI devices can make use of a functionality called phantom functions,
+that when enabled allows the device to generate requests using the IDs
+of functions that are otherwise unpopulated.  This allows a device to
+extend the number of outstanding requests.
+
+Such phantom functions need an IOMMU context setup, but failure to
+setup the context is not fatal when the device is assigned.  Not
+failing device assignment when such failure happens can lead to the
+primary device being assigned to a guest, while some of the phantom
+functions are assigned to a different domain.
+</description>
+      <guid isPermaLink="false">CVE-2023-46839|2024-03-20T10:35:52.532Z</guid>
+      <pubDate>Wed, 20 Mar 2024 10:35:52 +0000</pubDate>
+    </item>
+    <item>
+      <title>CVE-2023-34325|2024-01-05T16:31:09.660Z -- xen -- xen
+</title>
+      <link>https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2023-34325</link>
+      <description>
+[This CNA information record relates to multiple CVEs; the
+text explains which aspects/vulnerabilities correspond to which CVE.]
+
+libfsimage contains parsing code for several filesystems, most of them based on
+grub-legacy code.  libfsimage is used by pygrub to inspect guest disks.
+
+Pygrub runs as the same user as the toolstack (root in a priviledged domain).
+
+At least one issue has been reported to the Xen Security Team that allows an
+attacker to trigger a stack buffer overflow in libfsimage.  After further
+analisys the Xen Security Team is no longer confident in the suitability of
+libfsimage when run against guest controlled input with super user priviledges.
+
+In order to not affect current deployments that rely on pygrub patches are
+provided in the resolution section of the advisory that allow running pygrub in
+deprivileged mode.
+
+CVE-2023-4949 refers to the original issue in the upstream grub
+project ("An attacker with local access to a system (either through a
+disk or external drive) can present a modified XFS partition to
+grub-legacy in such a way to exploit a memory corruption in grub’s XFS
+file system implementation.")  CVE-2023-34325 refers specifically to
+the vulnerabilities in Xen's copy of libfsimage, which is decended
+from a very old version of grub.
+</description>
+      <guid isPermaLink="false">CVE-2023-34325|2024-01-05T16:31:09.660Z</guid>
+      <pubDate>Fri, 05 Jan 2024 16:31:09 +0000</pubDate>
+    </item>
+    <item>
+      <title>CVE-2023-34328|2024-01-05T16:34:11.100Z -- xen -- xen
+</title>
+      <link>https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2023-34328</link>
+      <description>
+[This CNA information record relates to multiple CVEs; the
+text explains which aspects/vulnerabilities correspond to which CVE.]
+
+AMD CPUs since ~2014 have extensions to normal x86 debugging functionality.
+Xen supports guests using these extensions.
+
+Unfortunately there are errors in Xen's handling of the guest state, leading
+to denials of service.
+
+ 1) CVE-2023-34327 - An HVM vCPU can end up operating in the context of
+    a previous vCPUs debug mask state.
+
+ 2) CVE-2023-34328 - A PV vCPU can place a breakpoint over the live GDT.
+    This allows the PV vCPU to exploit XSA-156 / CVE-2015-8104 and lock
+    up the CPU entirely.
+</description>
+      <guid isPermaLink="false">CVE-2023-34328|2024-01-05T16:34:11.100Z</guid>
+      <pubDate>Fri, 05 Jan 2024 16:34:11 +0000</pubDate>
+    </item>
+    <item>
+      <title>CVE-2023-34323|2024-01-05T16:30:32.305Z -- xen -- xen
+</title>
+      <link>https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2023-34323</link>
+      <description>When a transaction is committed, C Xenstored will first check
+the quota is correct before attempting to commit any nodes.  It would
+be possible that accounting is temporarily negative if a node has
+been removed outside of the transaction.
+
+Unfortunately, some versions of C Xenstored are assuming that the
+quota cannot be negative and are using assert() to confirm it.  This
+will lead to C Xenstored crash when tools are built without -DNDEBUG
+(this is the default).
+</description>
+      <guid isPermaLink="false">CVE-2023-34323|2024-01-05T16:30:32.305Z</guid>
+      <pubDate>Fri, 05 Jan 2024 16:30:32 +0000</pubDate>
+    </item>
+    <item>
+      <title>CVE-2023-34322|2024-01-05T16:18:01.363Z -- xen -- xen
+</title>
+      <link>https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2023-34322</link>
+      <description>For migration as well as to work around kernels unaware of L1TF (see
+XSA-273), PV guests may be run in shadow paging mode.  Since Xen itself
+needs to be mapped when PV guests run, Xen and shadowed PV guests run
+directly the respective shadow page tables.  For 64-bit PV guests this
+means running on the shadow of the guest root page table.
+
+In the course of dealing with shortage of memory in the shadow pool
+associated with a domain, shadows of page tables may be torn down.  This
+tearing down may include the shadow root page table that the CPU in
+question is presently running on.  While a precaution exists to
+supposedly prevent the tearing down of the underlying live page table,
+the time window covered by that precaution isn't large enough.
+</description>
+      <guid isPermaLink="false">CVE-2023-34322|2024-01-05T16:18:01.363Z</guid>
+      <pubDate>Fri, 05 Jan 2024 16:18:01 +0000</pubDate>
+    </item>
+    <item>
+      <title>CVE-2023-34321|2024-01-05T16:17:17.379Z -- xen -- xen
+</title>
+      <link>https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2023-34321</link>
+      <description>Arm provides multiple helpers to clean &amp; invalidate the cache
+for a given region.  This is, for instance, used when allocating
+guest memory to ensure any writes (such as the ones during scrubbing)
+have reached memory before handing over the page to a guest.
+
+Unfortunately, the arithmetics in the helpers can overflow and would
+then result to skip the cache cleaning/invalidation.  Therefore there
+is no guarantee when all the writes will reach the memory.
+</description>
+      <guid isPermaLink="false">CVE-2023-34321|2024-01-05T16:17:17.379Z</guid>
+      <pubDate>Fri, 05 Jan 2024 16:17:17 +0000</pubDate>
+    </item>
+    <item>
+      <title>CVE-2023-34320|2023-12-08T20:54:06.993Z -- xen -- xen
+</title>
+      <link>https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2023-34320</link>
+      <description>Cortex-A77 cores (r0p0 and r1p0) are affected by erratum 1508412
+where software, under certain circumstances, could deadlock a core
+due to the execution of either a load to device or non-cacheable memory,
+and either a store exclusive or register read of the Physical
+Address Register (PAR_EL1) in close proximity.
+</description>
+      <guid isPermaLink="false">CVE-2023-34320|2023-12-08T20:54:06.993Z</guid>
+      <pubDate>Fri, 08 Dec 2023 20:54:06 +0000</pubDate>
+    </item>
+    <item>
+      <title>CVE-2023-34327|2024-01-05T16:34:10.958Z -- xen -- xen
+</title>
+      <link>https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2023-34327</link>
+      <description>
+[This CNA information record relates to multiple CVEs; the
+text explains which aspects/vulnerabilities correspond to which CVE.]
+
+AMD CPUs since ~2014 have extensions to normal x86 debugging functionality.
+Xen supports guests using these extensions.
+
+Unfortunately there are errors in Xen's handling of the guest state, leading
+to denials of service.
+
+ 1) CVE-2023-34327 - An HVM vCPU can end up operating in the context of
+    a previous vCPUs debug mask state.
+
+ 2) CVE-2023-34328 - A PV vCPU can place a breakpoint over the live GDT.
+    This allows the PV vCPU to exploit XSA-156 / CVE-2015-8104 and lock
+    up the CPU entirely.
+</description>
+      <guid isPermaLink="false">CVE-2023-34327|2024-01-05T16:34:10.958Z</guid>
+      <pubDate>Fri, 05 Jan 2024 16:34:10 +0000</pubDate>
+    </item>
+    <item>
+      <title>CVE-2023-34326|2024-01-05T16:30:57.225Z -- xen -- xen
+</title>
+      <link>https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2023-34326</link>
+      <description>The caching invalidation guidelines from the AMD-Vi specification (48882—Rev
+3.07-PUB—Oct 2022) is incorrect on some hardware, as devices will malfunction
+(see stale DMA mappings) if some fields of the DTE are updated but the IOMMU
+TLB is not flushed.
+
+Such stale DMA mappings can point to memory ranges not owned by the guest, thus
+allowing access to unindented memory regions.
+</description>
+      <guid isPermaLink="false">CVE-2023-34326|2024-01-05T16:30:57.225Z</guid>
+      <pubDate>Fri, 05 Jan 2024 16:30:57 +0000</pubDate>
+    </item>
+    <item>
+      <title>CVE-2024-31142|2024-06-04T17:36:07.065Z -- xen -- xen
+</title>
+      <link>https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2024-31142</link>
+      <description>Because of a logical error in XSA-407 (Branch Type Confusion), the
+mitigation is not applied properly when it is intended to be used.
+XSA-434 (Speculative Return Stack Overflow) uses the same
+infrastructure, so is equally impacted.
+
+For more details, see:
+  https://xenbits.xen.org/xsa/advisory-407.html
+  https://xenbits.xen.org/xsa/advisory-434.html
+</description>
+      <guid isPermaLink="false">CVE-2024-31142|2024-06-04T17:36:07.065Z</guid>
+      <pubDate>Thu, 16 May 2024 13:39:42 +0000</pubDate>
+    </item>
     <item>
       <title>CVE-2024-2193|2024-03-15T21:25:07.075Z -- xen -- xen
 </title>

@@ -6,8 +6,65 @@
     <description>The latest CVEs for hhyo -- Archery</description>
     <docs>http://www.rssboard.org/rss-specification</docs>
     <generator>python-feedgen</generator>
-    <lastBuildDate>Tue, 04 Jun 2024 17:29:37 +0000</lastBuildDate>
+    <lastBuildDate>Wed, 12 Jun 2024 11:24:32 +0000</lastBuildDate>
     <ttl>60</ttl>
+    <item>
+      <title>CVE-2023-30556|2023-04-18T22:35:38.243Z -- hhyo -- archery
+</title>
+      <link>https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2023-30556</link>
+      <description>Archery is an open source SQL audit platform. The Archery project contains multiple SQL injection vulnerabilities, that may allow an attacker to query the connected databases. Affected versions are subject to SQL injection in the `optimize_sqltuningadvisor` method of `sql_optimize.py`. User input coming from the `db_name` parameter value in `sql_optimize.py` is passed to the `sqltuningadvisor` method in `oracle.py`for execution. To mitigate escape the variables accepted via user input when used in `sql_optimize.py`. Users may also use prepared statements when dealing with SQL as a mitigation for this issue. This issue is also indexed as `GHSL-2022-107`.</description>
+      <guid isPermaLink="false">CVE-2023-30556|2023-04-18T22:35:38.243Z</guid>
+      <pubDate>Tue, 18 Apr 2023 22:35:38 +0000</pubDate>
+    </item>
+    <item>
+      <title>CVE-2023-30557|2023-04-18T22:35:40.169Z -- hhyo -- archery
+</title>
+      <link>https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2023-30557</link>
+      <description>Archery is an open source SQL audit platform. The Archery project contains multiple SQL injection vulnerabilities, that may allow an attacker to query the connected databases. Affected versions are subject to SQL injection in the `data_dictionary.py` `table_info`. User input coming from the `db_name` in and the `tb_name` parameter values in the `sql/data_dictionary.py` `table_info` endpoint is passed to the following methods in the given SQL engine implementations, which concatenate user input unsafely into a SQL query and afterwards pass it to the `query` method of each database engine for execution.The methods are `get_table_meta_data ` in `sql/engines/mssql.py` which passes unsafe user input to the `sql/engines/mssql.py` `query` method, `get_table_desc_data` in `sql/engines/mssql.py`which passes unsafe user input to the `sql/engines/mssql.py` `query`, `get_table_index_data` in `sql/engines/mssql.py`which passes unsafe user input to the `sql/engines/mssql.py` `query` method, `get_table_meta_data` in `sql/engines/oracle.py`which concatenates input which is passed to execution on the database in the `sql/engines/oracle.py` `query` method, `get_table_desc_data` in `sql/engines/oracle.py`which concatenates input which is passed to execution on the database in the `sql/engines/oracle.py` `query` method, and `get_table_index_data` in `sql/engines/oracle.py` which concatenates input which is passed to execution on the database in the `sql/engines/oracle.py` `query` method. Each of these issues may be mitigated by escaping user input or by using prepared statements when executing SQL queries. This issue is also indexed as `GHSL-2022-106`.</description>
+      <guid isPermaLink="false">CVE-2023-30557|2023-04-18T22:35:40.169Z</guid>
+      <pubDate>Tue, 18 Apr 2023 22:35:40 +0000</pubDate>
+    </item>
+    <item>
+      <title>CVE-2023-30605|2023-04-18T22:35:43.842Z -- hhyo -- archery
+</title>
+      <link>https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2023-30605</link>
+      <description>Archery is an open source SQL audit platform. The Archery project contains multiple SQL injection vulnerabilities, that may allow an attacker to query the connected databases. User input coming from the `variable_name` and `variable_value` parameter value in the `sql/instance.py` `param_edit` endpoint is passed to a set of methods in given SQL engine implementations, which concatenate user input unsafely into a SQL query and afterwards pass it to the `query` method of each database engine for execution. The affected methods are: `set_variable` in `sql/engines/goinception.py` which concatenates input which is passed to execution on the database in the `sql/engines/goinception.py`, `get_variables` in `sql/engines/goinception.py`  which concatenates input which is passed to execution on the database in the `sql/engines/goinception.py`, `set_variable` in `sql/engines/mysql.py`  which concatenates input which is passed to execution on the database in the `sql/engines/mysql.py` `query`, and `get_variables` in `sql/engines/mysql.py`which concatenates input which is passed to execution on the database in the `sql/engines/mysql.py` `query`. Each of these issues may be mitigated by escaping user input or by using prepared statements when executing SQL queries. This advisory is also indexed as `GHSL-2022-104`.</description>
+      <guid isPermaLink="false">CVE-2023-30605|2023-04-18T22:35:43.842Z</guid>
+      <pubDate>Tue, 18 Apr 2023 22:35:43 +0000</pubDate>
+    </item>
+    <item>
+      <title>CVE-2023-30552|2023-04-18T22:35:30.098Z -- hhyo -- archery
+</title>
+      <link>https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2023-30552</link>
+      <description>Archery is an open source SQL audit platform. The Archery project contains multiple SQL injection vulnerabilities, that may allow an attacker to query the connected databases. Affected versions are subject to SQL injection in the `sql/instance.py` endpoint's `describe` method. In several cases, user input coming from the `tb_name` parameter value,  the `db_name` parameter value or the `schema_name` value in the `sql/instance.py` `describe` endpoint is passed to the `describe_table` methods in given SQL engine implementations, which concatenate user input unsafely into a SQL query and afterwards pass it to the `query` method of each database engine for execution. Please take into account that in some cases all three parameter values are concatenated, in other only one or two of them. The affected methods are: `describe_table` in `sql/engines/clickhouse.py`which concatenates input which is passed to execution on the database in the  `query` method in `sql/engines/clickhouse.py`, `describe_table` in `sql/engines/mssql.py` which concatenates input which is passed to execution on the database in the `query` methods in `sql/engines/mssql.py`, `describe_table` in `sql/engines/mysql.py`which concatenates input which is passed to execution on the database in the `query` method in `sql/engines/mysql.py`, `describe_table` in `sql/engines/oracle.py` which concatenates input which is passed to execution on the database in the `query` methods in `sql/engines/oracle.py`, `describe_table` in `sql/engines/pgsql.py`which concatenates input which is passed to execution on the database in the `query` methods in `sql/engines/pgsql.py`, `describe_table` in `sql/engines/phoenix.py` which concatenates input which is passed to execution on the database in the  `query` method in `sql/engines/phoenix.py`. Each of these issues may be mitigated by escaping user input or by using prepared statements when executing SQL queries. This issue is also indexed as `GHSL-2022-101`.
+</description>
+      <guid isPermaLink="false">CVE-2023-30552|2023-04-18T22:35:30.098Z</guid>
+      <pubDate>Tue, 18 Apr 2023 22:35:30 +0000</pubDate>
+    </item>
+    <item>
+      <title>CVE-2023-30553|2023-04-18T22:35:32.851Z -- hhyo -- archery
+</title>
+      <link>https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2023-30553</link>
+      <description>Archery is an open source SQL audit platform. The Archery project contains multiple SQL injection vulnerabilities, that may allow an attacker to query the connected databases. Affected versions are subject to multiple SQL injections in the `sql_api/api_workflow.py` endpoint `ExecuteCheck`. User input coming from the `db_name` parameter value and the `full_sql` parameter value in the `api_workflow.py` `ExecuteCheck` endpoint is passed to the methods that follow in given SQL engine implementations, which concatenate user input unsafely into a SQL query and afterwards pass it to the `query` method of each database engine for execution. The affected methods are `execute_check` in `sql/engines/clickhouse.py` which concatenates input which is passed to execution on the database in the `sql/engines/clickhouse.py` `query` method, `execute_check` in `sql/engines/goinception.py`which concatenates input which is passed to execution on the database in the `sql/engines/goinception.py` `query` method, `execute_check` in `sql/engines/oracle.py`which passes unsafe user input into the `object_name_check` method in `sql/engines/oracle.py` which in turn is passed to execution on the database in the `sql/engines/oracle.py` `query` method. Each of these issues may be mitigated by escaping user input or by using prepared statements when executing SQL queries. This issue is also indexed as `GHSL-2022-102`.</description>
+      <guid isPermaLink="false">CVE-2023-30553|2023-04-18T22:35:32.851Z</guid>
+      <pubDate>Tue, 18 Apr 2023 22:35:32 +0000</pubDate>
+    </item>
+    <item>
+      <title>CVE-2023-30554|2023-04-18T22:35:34.829Z -- hhyo -- archery
+</title>
+      <link>https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2023-30554</link>
+      <description>Archery is an open source SQL audit platform. The Archery project contains multiple SQL injection vulnerabilities, that may allow an attacker to query the connected databases. Affected versions are subject to SQL injection in the `sql_api/api_workflow.py` endpoint `ExecuteCheck` which passes unfiltered input to the `explain_check` method in `sql/engines/oracle.py`. User input coming from the `db_name` parameter value in the `api_workflow.py` `ExecuteCheck` endpoint is passed through the `oracle.py` `execute_check` method and to the `explain_check` method for execution. Each of these issues may be mitigated by escaping user input or by using prepared statements when executing SQL queries. This issue is also indexed as `GHSL-2022-103`.</description>
+      <guid isPermaLink="false">CVE-2023-30554|2023-04-18T22:35:34.829Z</guid>
+      <pubDate>Tue, 18 Apr 2023 22:35:34 +0000</pubDate>
+    </item>
+    <item>
+      <title>CVE-2023-30558|2023-04-18T22:35:41.962Z -- hhyo -- archery
+</title>
+      <link>https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2023-30558</link>
+      <description>Archery is an open source SQL audit platform. The Archery project contains multiple SQL injection vulnerabilities, that may allow an attacker to query the connected databases. User input coming from the `db_name` in the `sql/data_dictionary.py` `table_list` endpoint is passed to the methods that follow in a given SQL engine implementations, which concatenate user input unsafely into a SQL query and afterwards pass it to the `query` method of each database engine for execution. The affected methods are `get_group_tables_by_db` in `sql/engines/mssql.py`which passes unsafe user input to `sql/engines/mssql.py`, and `get_group_tables_by_db` in `sql/engines/oracle.py`which concatenates input which is passed to execution on the database in the `sql/engines/oracle.py` `query` method. Each of these issues may be mitigated by escaping user input or by using prepared statements when executing SQL queries. This issue is also indexed as `GHSL-2022-105`.</description>
+      <guid isPermaLink="false">CVE-2023-30558|2023-04-18T22:35:41.962Z</guid>
+      <pubDate>Tue, 18 Apr 2023 22:35:41 +0000</pubDate>
+    </item>
     <item>
       <title>CVE-2023-30555|2023-04-18T22:35:36.523Z -- hhyo -- archery
 </title>

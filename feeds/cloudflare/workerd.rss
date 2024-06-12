@@ -1,0 +1,28 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<rss xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/" version="2.0">
+  <channel>
+    <title>CVE Feed for Cloudflare -- workerd</title>
+    <link>https://raw.githubusercontent.com/deepseas/cvelistV5monitor/main/feeds/cloudflare/workerd.rss</link>
+    <description>The latest CVEs for Cloudflare -- workerd</description>
+    <docs>http://www.rssboard.org/rss-specification</docs>
+    <generator>python-feedgen</generator>
+    <lastBuildDate>Wed, 12 Jun 2024 11:24:26 +0000</lastBuildDate>
+    <ttl>60</ttl>
+    <item>
+      <title>CVE-2023-2512|2023-05-12T10:10:21.870Z -- cloudflare -- workerd
+</title>
+      <link>https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2023-2512</link>
+      <description>Prior to version v1.20230419.0, the FormData API implementation was subject to an integer overflow. If a FormData instance contained more than 2^31 elements, the forEach() method could end up reading from the wrong location in memory while iterating over elements. This would most likely lead to a segmentation fault, but could theoretically allow arbitrary undefined behavior.
+
+
+In order for the bug to be exploitable, the process would need to be able to allocate 160GB of RAM. Due to this, the bug was never exploitable on the Cloudflare Workers platform, but could theoretically be exploitable on deployments of workerd running on machines with a huge amount of memory. Moreover, in order to be remotely exploited, an attacker would have to upload a single form-encoded HTTP request of at least tens of gigabytes in size. The application code would then have to use request.formData() to parse the request and formData.forEach() to iterate over this data. Due to these limitations, the exploitation likelihood was considered Low.
+
+A fix that addresses this vulnerability has been released in version v1.20230419.0 and users are encouraged to update to the latest version available.
+
+
+</description>
+      <guid isPermaLink="false">CVE-2023-2512|2023-05-12T10:10:21.870Z</guid>
+      <pubDate>Fri, 12 May 2023 10:09:06 +0000</pubDate>
+    </item>
+  </channel>
+</rss>

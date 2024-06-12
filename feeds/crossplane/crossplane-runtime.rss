@@ -1,0 +1,20 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<rss xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/" version="2.0">
+  <channel>
+    <title>CVE Feed for crossplane -- crossplane-runtime</title>
+    <link>https://raw.githubusercontent.com/deepseas/cvelistV5monitor/main/feeds/crossplane/crossplane-runtime.rss</link>
+    <description>The latest CVEs for crossplane -- crossplane-runtime</description>
+    <docs>http://www.rssboard.org/rss-specification</docs>
+    <generator>python-feedgen</generator>
+    <lastBuildDate>Wed, 12 Jun 2024 11:24:41 +0000</lastBuildDate>
+    <ttl>60</ttl>
+    <item>
+      <title>CVE-2023-27483|2023-03-09T20:18:31.955Z -- crossplane -- crossplane-runtime
+</title>
+      <link>https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2023-27483</link>
+      <description>crossplane-runtime is a set of go libraries used to build Kubernetes controllers in Crossplane and its related stacks. An out of memory panic vulnerability has been discovered in affected versions. Applications that use the `Paved` type's `SetValue` method with user provided input without proper validation might use excessive amounts of memory and cause an out of memory panic. In the fieldpath package, the Paved.SetValue method sets a value on the Paved object according to the provided path, without any validation. This allows setting values in slices at any provided index, which grows the target array up to the requested index, the index is currently capped at max uint32 (4294967295) given how indexes are parsed,  but that is still an unnecessarily large value. If callers are not validating paths' indexes on their own, which most probably are not going to do, given that the input is parsed directly in the SetValue method, this could allow users to consume arbitrary amounts of memory. Applications that do not use the `Paved` type's `SetValue` method are not affected. This issue has been addressed in versions 0.16.1 and 0.19.2. Users are advised to upgrade. Users unable to upgrade can parse and validate the path before passing it to the `SetValue` method of the `Paved` type, constraining the index size as deemed appropriate.</description>
+      <guid isPermaLink="false">CVE-2023-27483|2023-03-09T20:18:31.955Z</guid>
+      <pubDate>Thu, 09 Mar 2023 20:18:31 +0000</pubDate>
+    </item>
+  </channel>
+</rss>

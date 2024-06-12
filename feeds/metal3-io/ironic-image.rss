@@ -6,8 +6,16 @@
     <description>The latest CVEs for metal3-io -- ironic-image</description>
     <docs>http://www.rssboard.org/rss-specification</docs>
     <generator>python-feedgen</generator>
-    <lastBuildDate>Tue, 04 Jun 2024 17:29:25 +0000</lastBuildDate>
+    <lastBuildDate>Wed, 12 Jun 2024 11:24:20 +0000</lastBuildDate>
     <ttl>60</ttl>
+    <item>
+      <title>CVE-2023-40585|2023-08-25T20:31:50.639Z -- metal3-io -- ironic-image
+</title>
+      <link>https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2023-40585</link>
+      <description>ironic-image is a container image to run OpenStack Ironic as part of Metal³. Prior to version capm3-v1.4.3, if Ironic is not deployed with TLS and it does not have API and Conductor split into separate services, access to the API is not protected by any authentication. Ironic API is also listening in host network. In case the node is not behind a firewall, the API could be accessed by anyone via network without authentication. By default, Ironic API in Metal3 is protected by TLS and basic authentication, so this vulnerability requires operator to configure API without TLS for it to be vulnerable. TLS and authentication however should not be coupled as they are in versions prior to capm3-v1.4.3. A patch exists in versions capm3-v1.4.3 and newer. Some workarounds are available. Either configure TLS for Ironic API (`deploy.sh -t ...`, `IRONIC_TLS_SETUP=true`) or split Ironic API and Conductor via configuration change (old implementation, not recommended). With both workarounds, services are configured with httpd front-end, which has proper authentication configuration in place.</description>
+      <guid isPermaLink="false">CVE-2023-40585|2023-08-25T20:31:50.639Z</guid>
+      <pubDate>Fri, 25 Aug 2023 20:31:50 +0000</pubDate>
+    </item>
     <item>
       <title>CVE-2024-31463|2024-04-17T15:21:49.384Z -- metal3-io -- ironic-image
 </title>

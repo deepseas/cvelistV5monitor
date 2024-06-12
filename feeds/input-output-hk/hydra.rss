@@ -6,8 +6,38 @@
     <description>The latest CVEs for input-output-hk -- hydra</description>
     <docs>http://www.rssboard.org/rss-specification</docs>
     <generator>python-feedgen</generator>
-    <lastBuildDate>Tue, 04 Jun 2024 17:29:43 +0000</lastBuildDate>
+    <lastBuildDate>Wed, 12 Jun 2024 11:24:41 +0000</lastBuildDate>
     <ttl>60</ttl>
+    <item>
+      <title>CVE-2023-38701|2023-10-04T18:48:52.709Z -- input-output-hk -- hydra
+</title>
+      <link>https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2023-38701</link>
+      <description>Hydra is the layer-two scalability solution for Cardano. Users of the Hydra head protocol send the UTxOs they wish to commit into the Hydra head first to the `commit` validator, where they remain until they are either collected into the `head` validator or the protocol initialisation is aborted and the value in the committed UTxOs is returned to the users who committed them. Prior to version 0.12.0, the `commit` validator contains a flawed check when the `ViaAbort` redeemer is used, which allows any user to spend any UTxO which is at the validator arbitrarily, meaning an attacker can steal the funds that users are trying to commit into the head validator. The intended behavior is that the funds must be returned to the user which committed the funds and can only be performed by a participant of the head. The `initial` validator also is similarly affected as the same flawed check is performed for the `ViaAbort` redeemer. Due to this issue, an attacker can steal any funds that user's try to commit into a Hydra head. Also, an attacker can prevent any Hydra head from being successfully opened. It does not allow an attacker to take funds which have been successfully collected into and currently reside in the `head` validator. Version 0.12.0 contains a fix for this issue.</description>
+      <guid isPermaLink="false">CVE-2023-38701|2023-10-04T18:48:52.709Z</guid>
+      <pubDate>Wed, 04 Oct 2023 18:48:52 +0000</pubDate>
+    </item>
+    <item>
+      <title>CVE-2023-42448|2023-10-04T18:57:52.752Z -- input-output-hk -- hydra
+</title>
+      <link>https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2023-42448</link>
+      <description>Hydra is the layer-two scalability solution for Cardano. Prior to version 0.13.0, the specification states that the contestation period in the datum of the UTxO at the head validator must stay unchanged as the state progresses from Open to Closed (Close transaction), but no such check appears to be performed in the `checkClose` function of the head validator. This would allow a malicious participant to modify the contestation deadline of the head to either allow them to fanout the head without giving another participant the chance to contest, or prevent any participant from ever redistributing the funds locked in the head via a fan-out. Version 0.13.0 contains a patch for this issue.</description>
+      <guid isPermaLink="false">CVE-2023-42448|2023-10-04T18:57:52.752Z</guid>
+      <pubDate>Wed, 04 Oct 2023 18:57:52 +0000</pubDate>
+    </item>
+    <item>
+      <title>CVE-2023-42449|2023-10-04T19:06:50.436Z -- input-output-hk -- hydra
+</title>
+      <link>https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2023-42449</link>
+      <description>Hydra is the two-layer scalability solution for Cardano. Prior to version 0.13.0, it is possible for a malicious head initializer to extract one or more PTs for the head they are initializing due to incorrect data validation logic in the head token minting policy which then results in an flawed check for burning the head ST in the `initial` validator. This is possible because it is not checked in `HeadTokens.hs` that the datums of the outputs at the `initial` validator are equal to the real head ID, and it is also not checked in the `off-chain code`.
+
+During the `Initial` state of the protocol, if the malicious initializer removes a PT from the Hydra scripts it becomes impossible for any other participant to reclaim any funds they have attempted to commit into the head, as to do so the Abort transaction must burn all the PTs for the head, but they cannot burn the PT which the attacker controls and so cannot satisfy this requirement. That means the initializer can lock the other participants committed funds forever or until they choose to return the PT (ransom).
+
+The malicious initializer can also use the PT to spoof that they have committed a particular TxO when progressing the head into the `Open` state. For example, they could say they committed a TxO residing at their address containing 100 ADA, but in fact this 100 ADA was not moved into the head, and thus in order for an other participant to perform the fanout they will be forced to pay the attacker the 100 ADA out of their own funds, as the fanout transaction must pay all the committed TxOs (even though the attacker did not really commit that TxO). They can do this by placing the PT in a UTxO with a well-formed `Commit` datum with whatever contents they like, then use this UTxO in the `collectCom` transaction. There may be other possible ways to abuse having control of a PT.
+
+Version 0.13.0 fixes this issue.</description>
+      <guid isPermaLink="false">CVE-2023-42449|2023-10-04T19:06:50.436Z</guid>
+      <pubDate>Wed, 04 Oct 2023 19:06:50 +0000</pubDate>
+    </item>
     <item>
       <title>CVE-2023-42806|2023-09-21T16:45:34.742Z -- input-output-hk -- hydra
 </title>

@@ -6,10 +6,26 @@
     <description>The latest CVEs for gocd -- all products</description>
     <docs>http://www.rssboard.org/rss-specification</docs>
     <generator>python-feedgen</generator>
-    <lastBuildDate>Tue, 04 Jun 2024 17:29:31 +0000</lastBuildDate>
+    <lastBuildDate>Wed, 12 Jun 2024 11:24:26 +0000</lastBuildDate>
     <ttl>60</ttl>
     <item>
-      <title>CVE-2024-28866|2024-05-13T13:53:30.719Z -- gocd -- gocd
+      <title>CVE-2023-28629|2023-03-27T20:36:27.329Z -- gocd -- gocd
+</title>
+      <link>https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2023-28629</link>
+      <description>GoCD is an open source continuous delivery server. GoCD versions before 23.1.0 are vulnerable to a stored XSS vulnerability, where pipeline configuration with a malicious pipeline label configuration can affect browser display of pipeline runs generated from that configuration. An attacker that has permissions to configure GoCD pipelines could include JavaScript elements within the label template, causing a XSS vulnerability to be triggered for any users viewing the Value Stream Map or Job Details for runs of the affected pipeline, potentially allowing them to perform arbitrary actions within the victim's browser context rather than their own. This issue has been fixed in GoCD 23.1.0. Users are advised to upgrade. There are no known workarounds for this vulnerability.</description>
+      <guid isPermaLink="false">CVE-2023-28629|2023-03-27T20:36:27.329Z</guid>
+      <pubDate>Mon, 27 Mar 2023 20:36:27 +0000</pubDate>
+    </item>
+    <item>
+      <title>CVE-2023-28630|2023-03-27T20:33:48.775Z -- gocd -- gocd
+</title>
+      <link>https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2023-28630</link>
+      <description>GoCD is an open source continuous delivery server. In GoCD versions from 20.5.0 and below 23.1.0, if the server environment is not correctly configured by administrators to provide access to the relevant PostgreSQL or MySQL backup tools, the credentials for database access may be unintentionally leaked to admin alerts on the GoCD user interface. The vulnerability is triggered only if the GoCD server host is misconfigured to have backups enabled, but does not have access to the `pg_dump` or `mysqldump` utility tools to backup the configured database type (PostgreSQL or MySQL respectively). In such cases, failure to launch the expected backup utility reports the shell environment used to attempt to launch in the server admin alert, which includes the plaintext database password supplied to the configured tool. This vulnerability does not affect backups of the default on-disk H2 database that GoCD is configured to use. This issue has been addressed and fixed in GoCD 23.1.0. Users are advised to upgrade. Users unable to upgrade may disable backups, or administrators should ensure that the required `pg_dump` (PostgreSQL) or `mysqldump` (MySQL) binaries are available on the GoCD server when backups are triggered.</description>
+      <guid isPermaLink="false">CVE-2023-28630|2023-03-27T20:33:48.775Z</guid>
+      <pubDate>Mon, 27 Mar 2023 20:33:48 +0000</pubDate>
+    </item>
+    <item>
+      <title>CVE-2024-28866|2024-06-04T18:03:33.107Z -- gocd -- gocd
 </title>
       <link>https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2024-28866</link>
       <description>GoCD is a continuous delivery server. GoCD versions from 19.4.0 to 23.5.0 (inclusive) are potentially vulnerable to a reflected cross-site scripting vulnerability on the loading page displayed while GoCD is starting, via abuse of a `redirect_to` query parameter with inadequate validation.
@@ -17,7 +33,7 @@
 Attackers could theoretically abuse the query parameter to steal session tokens or other values from the user's browser. In practice exploiting this to perform privileged actions is likely rather difficult to exploit because the target user would need to be triggered to open an attacker-crafted link in the period where the server is starting up (but not completely started), requiring chaining with a separate denial-of-service vulnerability. Additionally, GoCD server restarts invalidate earlier session tokens (i.e GoCD does not support persistent sessions), so a stolen session token would be unusable once the server has completed restart, and executed XSS would be done within a logged-out context.
 
 The issue is fixed in GoCD 24.1.0. As a workaround, it is technically possible in earlier GoCD versions to override the loading page with an earlier version which is not vulnerable, by starting GoCD with the Java system property override as either `-Dloading.page.resource.path=/loading_pages/default.loading.page.html` (simpler early version of loading page without GoCD introduction) or `-Dloading.page.resource.path=/does_not_exist.html` (to display a simple message with no interactivity).</description>
-      <guid isPermaLink="false">CVE-2024-28866|2024-05-13T13:53:30.719Z</guid>
+      <guid isPermaLink="false">CVE-2024-28866|2024-06-04T18:03:33.107Z</guid>
       <pubDate>Mon, 13 May 2024 13:53:30 +0000</pubDate>
     </item>
   </channel>

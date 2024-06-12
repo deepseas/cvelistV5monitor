@@ -1,0 +1,28 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<rss xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/" version="2.0">
+  <channel>
+    <title>CVE Feed for jupyterhub -- jupyter-server-proxy</title>
+    <link>https://raw.githubusercontent.com/deepseas/cvelistV5monitor/main/feeds/jupyterhub/jupyter-server-proxy.rss</link>
+    <description>The latest CVEs for jupyterhub -- jupyter-server-proxy</description>
+    <docs>http://www.rssboard.org/rss-specification</docs>
+    <generator>python-feedgen</generator>
+    <lastBuildDate>Wed, 12 Jun 2024 11:24:19 +0000</lastBuildDate>
+    <ttl>60</ttl>
+    <item>
+      <title>CVE-2024-28179|2024-03-20T19:54:38.247Z -- jupyterhub -- jupyter-server-proxy
+</title>
+      <link>https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2024-28179</link>
+      <description>Jupyter Server Proxy allows users to run arbitrary external processes alongside their Jupyter notebook servers and provides authenticated web access. Prior to versions 3.2.3 and 4.1.1, Jupyter Server Proxy did not check user authentication appropriately when proxying websockets, allowing unauthenticated access to anyone who had network access to the Jupyter server endpoint. This vulnerability can allow unauthenticated remote access to any websocket endpoint set up to be accessible via Jupyter Server Proxy. In many cases, this leads to remote unauthenticated arbitrary code execution, due to how affected instances use websockets. The websocket endpoints exposed by `jupyter_server` itself is not affected. Projects that do not rely on websockets are also not affected. Versions 3.2.3 and 4.1.1 contain a fix for this issue.</description>
+      <guid isPermaLink="false">CVE-2024-28179|2024-03-20T19:54:38.247Z</guid>
+      <pubDate>Wed, 20 Mar 2024 19:54:38 +0000</pubDate>
+    </item>
+    <item>
+      <title>CVE-2024-35225|2024-06-11T21:45:57.596Z -- jupyterhub -- jupyter-server-proxy
+</title>
+      <link>https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2024-35225</link>
+      <description>Jupyter Server Proxy allows users to run arbitrary external processes alongside their notebook server and provide authenticated web access to them. Versions of 3.x prior to 3.2.4 and 4.x prior to 4.2.0 have a reflected cross-site scripting (XSS) issue. The `/proxy` endpoint accepts a `host` path segment in the format `/proxy/&lt;host&gt;`. When this endpoint is called with an invalid `host` value, `jupyter-server-proxy` replies with a response that includes the value of `host`, without sanitization [2]. A third-party actor can leverage this by sending a phishing link with an invalid `host` value containing custom JavaScript to a user. When the user clicks this phishing link, the browser renders the response of `GET /proxy/&lt;host&gt;`, which runs the custom JavaScript contained in `host` set by the actor. As any arbitrary JavaScript can be run after the user clicks on a phishing link, this issue permits extensive access to the user's JupyterLab instance for an actor. Patches are included in versions 4.2.0 and 3.2.4. As a workaround, server operators who are unable to upgrade can disable the `jupyter-server-proxy` extension.</description>
+      <guid isPermaLink="false">CVE-2024-35225|2024-06-11T21:45:57.596Z</guid>
+      <pubDate>Tue, 11 Jun 2024 21:45:57 +0000</pubDate>
+    </item>
+  </channel>
+</rss>

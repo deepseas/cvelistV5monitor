@@ -1,0 +1,62 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<rss xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/" version="2.0">
+  <channel>
+    <title>CVE Feed for xwiki -- xwiki-commons</title>
+    <link>https://raw.githubusercontent.com/deepseas/cvelistV5monitor/main/feeds/xwiki/xwiki-commons.rss</link>
+    <description>The latest CVEs for xwiki -- xwiki-commons</description>
+    <docs>http://www.rssboard.org/rss-specification</docs>
+    <generator>python-feedgen</generator>
+    <lastBuildDate>Wed, 12 Jun 2024 11:24:19 +0000</lastBuildDate>
+    <ttl>60</ttl>
+    <item>
+      <title>CVE-2023-29528|2023-04-20T17:08:50.083Z -- xwiki -- xwiki-commons
+</title>
+      <link>https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2023-29528</link>
+      <description>XWiki Commons are technical libraries common to several other top level XWiki projects. The "restricted" mode of the HTML cleaner in XWiki, introduced in version 4.2-milestone-1 and massively improved in version 14.6-rc-1, allowed the injection of arbitrary HTML code and thus cross-site scripting via invalid HTML comments. As a consequence, any code relying on this "restricted" mode for security is vulnerable to JavaScript injection ("cross-site scripting"/XSS). When a privileged user with programming rights visits such a comment in XWiki, the malicious JavaScript code is executed in the context of the user session. This allows server-side code execution with programming rights, impacting the confidentiality, integrity and availability of the XWiki instance. This problem has been patched in XWiki 14.10, HTML comments are now removed in restricted mode and a check has been introduced that ensures that comments don't start with `&gt;`. There are no known workarounds apart from upgrading to a version including the fix.
+</description>
+      <guid isPermaLink="false">CVE-2023-29528|2023-04-20T17:08:50.083Z</guid>
+      <pubDate>Thu, 20 Apr 2023 17:08:50 +0000</pubDate>
+    </item>
+    <item>
+      <title>CVE-2023-29201|2023-04-15T14:24:59.250Z -- xwiki -- xwiki-commons
+</title>
+      <link>https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2023-29201</link>
+      <description>XWiki Commons are technical libraries common to several other top level XWiki projects. The "restricted" mode of the HTML cleaner in XWiki, introduced in version 4.2-milestone-1, only escaped `&lt;script&gt;` and `&lt;style&gt;`-tags but neither attributes that can be used to inject scripts nor other dangerous HTML tags like `&lt;iframe&gt;`. As a consequence, any code relying on this "restricted" mode for security is vulnerable to JavaScript injection ("cross-site scripting"/XSS). When a privileged user with programming rights visits such a comment in XWiki, the malicious JavaScript code is executed in the context of the user session. This allows server-side code execution with programming rights, impacting the confidentiality, integrity and availability of the XWiki instance. This problem has been patched in XWiki 14.6 RC1 with the introduction of a filter with allowed HTML elements and attributes that is enabled in restricted mode. There are no known workarounds apart from upgrading to a version including the fix.</description>
+      <guid isPermaLink="false">CVE-2023-29201|2023-04-15T14:24:59.250Z</guid>
+      <pubDate>Sat, 15 Apr 2023 14:24:59 +0000</pubDate>
+    </item>
+    <item>
+      <title>CVE-2023-26055|2023-03-02T18:48:16.053Z -- xwiki -- xwiki-commons
+</title>
+      <link>https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2023-26055</link>
+      <description>XWiki Commons are technical libraries common to several other top level XWiki projects. Starting in version 3.1-milestone-1, any user can edit their own profile and inject code, which is going to be executed with programming right. The same vulnerability can also be exploited in all other places where short text properties are displayed, e.g., in apps created using Apps Within Minutes that use a short text field. The problem has been patched on versions 13.10.9, 14.4.4, 14.7RC1.
+</description>
+      <guid isPermaLink="false">CVE-2023-26055|2023-03-02T18:48:16.053Z</guid>
+      <pubDate>Thu, 02 Mar 2023 18:48:16 +0000</pubDate>
+    </item>
+    <item>
+      <title>CVE-2023-36471|2023-06-29T19:44:27.211Z -- xwiki -- xwiki-commons
+</title>
+      <link>https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2023-36471</link>
+      <description>Xwiki commons is the common modules used by other XWiki top level projects. The HTML sanitizer that is included in XWiki since version 14.6RC1 allowed form and input HTML tags. In the context of XWiki, this allows an attacker without script right to either create forms that can be used for phishing attacks or also in the context of a sheet, the attacker could add an input like `{{html}}&lt;input type="hidden" name="content" value="{{groovy}}println(&amp;quot;Hello from Groovy!&amp;quot;)" /&gt;{{/html}}` that would allow remote code execution when it is submitted by an admin (the sheet is rendered as part of the edit form). The attacker would need to ensure that the edit form looks plausible, though, which can be non-trivial as without script right the attacker cannot display the regular content of the document. This has been patched in XWiki 14.10.6 and 15.2RC1 by removing the central form-related tags from the list of allowed tags. Users are advised to upgrade. As a workaround an admin can manually disallow the tags by adding `form, input, select, textarea, button` to the configuration option `xml.htmlElementSanitizer.forbidTags` in the `xwiki.properties` configuration file.</description>
+      <guid isPermaLink="false">CVE-2023-36471|2023-06-29T19:44:27.211Z</guid>
+      <pubDate>Thu, 29 Jun 2023 19:44:27 +0000</pubDate>
+    </item>
+    <item>
+      <title>CVE-2023-31126|2023-05-09T12:53:59.691Z -- xwiki -- xwiki-commons
+</title>
+      <link>https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2023-31126</link>
+      <description>`org.xwiki.commons:xwiki-commons-xml` is an XML library used by the open-source wiki platform XWiki. The HTML sanitizer, introduced in version 14.6-rc-1, allows the injection of arbitrary HTML code and thus cross-site scripting via invalid data attributes. This vulnerability does not affect restricted cleaning in HTMLCleaner as there attributes are cleaned and thus characters like `/` and `&gt;` are removed in all attribute names. This problem has been patched in XWiki 14.10.4 and 15.0 RC1 by making sure that data attributes only contain allowed characters. There are no known workarounds apart from upgrading to a version including the fix.</description>
+      <guid isPermaLink="false">CVE-2023-31126|2023-05-09T12:53:59.691Z</guid>
+      <pubDate>Tue, 09 May 2023 12:53:59 +0000</pubDate>
+    </item>
+    <item>
+      <title>CVE-2024-31996|2024-06-04T17:36:19.539Z -- xwiki -- xwiki-commons
+</title>
+      <link>https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2024-31996</link>
+      <description>XWiki Platform is a generic wiki platform. Starting in version 3.0.1 and prior to versions 4.10.19, 15.5.4, and 15.10-rc-1, the HTML escaping of escaping tool that is used in XWiki doesn't escape `{`, which, when used in certain places, allows XWiki syntax injection and thereby remote code execution. The vulnerability has been fixed in XWiki 14.10.19, 15.5.5, and 15.9 RC1. Apart from upgrading, there is no generic workaround. However, replacing `$escapetool.html` by `$escapetool.xml` in XWiki documents fixes the vulnerability. In a standard XWiki installation, the maintainers are only aware of the document `Panels.PanelLayoutUpdate` that exposes this vulnerability, patching this document is thus a workaround. Any extension could expose this vulnerability and might thus require patching, too.</description>
+      <guid isPermaLink="false">CVE-2024-31996|2024-06-04T17:36:19.539Z</guid>
+      <pubDate>Wed, 10 Apr 2024 20:46:19 +0000</pubDate>
+    </item>
+  </channel>
+</rss>

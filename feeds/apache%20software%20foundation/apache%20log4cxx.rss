@@ -1,0 +1,84 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<rss xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/" version="2.0">
+  <channel>
+    <title>CVE Feed for Apache Software Foundation -- Apache Log4cxx</title>
+    <link>https://raw.githubusercontent.com/deepseas/cvelistV5monitor/main/feeds/apache%20software%20foundation/apache%20log4cxx.rss</link>
+    <description>The latest CVEs for Apache Software Foundation -- Apache Log4cxx</description>
+    <docs>http://www.rssboard.org/rss-specification</docs>
+    <generator>python-feedgen</generator>
+    <lastBuildDate>Wed, 12 Jun 2024 11:24:30 +0000</lastBuildDate>
+    <ttl>60</ttl>
+    <item>
+      <title>CVE-2023-31038|2023-05-08T08:54:10.234Z -- apache%20software%20foundation -- apache%20log4cxx
+</title>
+      <link>https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2023-31038</link>
+      <description>SQL injection in Log4cxx when using the ODBC appender to send log messages to a database.  No fields sent to the database were properly escaped for SQL injection.  This has been the case since at least version 0.9.0(released 2003-08-06)
+
+
+
+
+Note that Log4cxx is a C++ framework, so only C++ applications are affected.
+
+Before version 1.1.0, the ODBC appender was automatically part of Log4cxx if the library was found when compiling the library.  As of version 1.1.0, this must be both explicitly enabled in order to be compiled in.
+
+
+
+
+Three preconditions must be met for this vulnerability to be possible:
+
+1. Log4cxx compiled with ODBC support(before version 1.1.0, this was auto-detected at compile time)
+
+2. ODBCAppender enabled for logging messages to, generally done via a config file
+
+3. User input is logged at some point. If your application does not have user input, it is unlikely to be affected.
+
+
+
+
+
+Users are recommended to upgrade to version 1.1.0 which properly binds the parameters to the SQL statement, or migrate to the new DBAppender class which supports an ODBC connection in addition to other databases. 
+Note that this fix does require a configuration file update, as the old configuration files will not configure properly.  An example is shown below, and more information may be found in the Log4cxx documentation on the ODBCAppender.
+
+
+
+
+
+Example of old configuration snippet:
+
+&lt;appender name="SqlODBCAppender" class="ODBCAppender"&gt;
+
+    &lt;param name="sql" value="INSERT INTO logs (message) VALUES ('%m')" /&gt;
+
+    ... other params here ...
+
+&lt;/appender&gt;
+
+
+
+
+The migrated configuration snippet with new ColumnMapping parameters:
+
+
+&lt;appender name="SqlODBCAppender" class="ODBCAppender"&gt;
+
+
+
+
+    &lt;param name="sql" value="INSERT INTO logs (message) VALUES (?)" /&gt;
+
+    &lt;param name="ColumnMapping" value="message"/&gt;
+    ... other params here ...
+
+
+&lt;/appender&gt;
+
+
+
+
+
+</description>
+      <guid isPermaLink="false">CVE-2023-31038|2023-05-08T08:54:10.234Z</guid>
+      <pubDate>Mon, 08 May 2023 08:54:10 +0000</pubDate>
+    </item>
+  </channel>
+</rss>

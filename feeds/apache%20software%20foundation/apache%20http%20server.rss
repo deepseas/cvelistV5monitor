@@ -1,0 +1,122 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<rss xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/" version="2.0">
+  <channel>
+    <title>CVE Feed for Apache Software Foundation -- Apache HTTP Server</title>
+    <link>https://raw.githubusercontent.com/deepseas/cvelistV5monitor/main/feeds/apache%20software%20foundation/apache%20http%20server.rss</link>
+    <description>The latest CVEs for Apache Software Foundation -- Apache HTTP Server</description>
+    <docs>http://www.rssboard.org/rss-specification</docs>
+    <generator>python-feedgen</generator>
+    <lastBuildDate>Wed, 12 Jun 2024 11:24:21 +0000</lastBuildDate>
+    <ttl>60</ttl>
+    <item>
+      <title>CVE-2023-38709|2024-04-04T19:19:35.467Z -- apache%20software%20foundation -- apache%20http%20server
+</title>
+      <link>https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2023-38709</link>
+      <description>Faulty input validation in the core of Apache allows malicious or exploitable backend/content generators to split HTTP responses.
+
+This issue affects Apache HTTP Server: through 2.4.58.
+</description>
+      <guid isPermaLink="false">CVE-2023-38709|2024-04-04T19:19:35.467Z</guid>
+      <pubDate>Thu, 04 Apr 2024 19:19:35 +0000</pubDate>
+    </item>
+    <item>
+      <title>CVE-2023-43622|2023-10-23T06:50:51.555Z -- apache%20software%20foundation -- apache%20http%20server
+</title>
+      <link>https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2023-43622</link>
+      <description>An attacker, opening a HTTP/2 connection with an initial window size of 0, was able to block handling of that connection indefinitely in Apache HTTP Server. This could be used to exhaust worker resources in the server, similar to the well known "slow loris" attack pattern.
+This has been fixed in version 2.4.58, so that such connection are terminated properly after the configured connection timeout.
+
+This issue affects Apache HTTP Server: from 2.4.55 through 2.4.57.
+
+Users are recommended to upgrade to version 2.4.58, which fixes the issue.
+
+</description>
+      <guid isPermaLink="false">CVE-2023-43622|2023-10-23T06:50:51.555Z</guid>
+      <pubDate>Mon, 23 Oct 2023 06:50:51 +0000</pubDate>
+    </item>
+    <item>
+      <title>CVE-2023-27522|2023-03-07T15:09:30.122Z -- apache%20software%20foundation -- apache%20http%20server
+</title>
+      <link>https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2023-27522</link>
+      <description>HTTP Response Smuggling vulnerability in Apache HTTP Server via mod_proxy_uwsgi. This issue affects Apache HTTP Server: from 2.4.30 through 2.4.55.
+
+Special characters in the origin response header can truncate/split the response forwarded to the client.
+
+
+</description>
+      <guid isPermaLink="false">CVE-2023-27522|2023-03-07T15:09:30.122Z</guid>
+      <pubDate>Tue, 07 Mar 2023 15:09:30 +0000</pubDate>
+    </item>
+    <item>
+      <title>CVE-2023-45802|2023-10-23T06:50:23.991Z -- apache%20software%20foundation -- apache%20http%20server
+</title>
+      <link>https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2023-45802</link>
+      <description>When a HTTP/2 stream was reset (RST frame) by a client, there was a time window were the request's memory resources were not reclaimed immediately. Instead, de-allocation was deferred to connection close. A client could send new requests and resets, keeping the connection busy and open and causing the memory footprint to keep on growing. On connection close, all resources were reclaimed, but the process might run out of memory before that.
+
+This was found by the reporter during testing of CVE-2023-44487 (HTTP/2 Rapid Reset Exploit) with their own test client. During "normal" HTTP/2 use, the probability to hit this bug is very low. The kept memory would not become noticeable before the connection closes or times out.
+
+Users are recommended to upgrade to version 2.4.58, which fixes the issue.
+</description>
+      <guid isPermaLink="false">CVE-2023-45802|2023-10-23T06:50:23.991Z</guid>
+      <pubDate>Mon, 23 Oct 2023 06:50:23 +0000</pubDate>
+    </item>
+    <item>
+      <title>CVE-2023-31122|2023-10-23T06:51:59.705Z -- apache%20software%20foundation -- apache%20http%20server
+</title>
+      <link>https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2023-31122</link>
+      <description>Out-of-bounds Read vulnerability in mod_macro of Apache HTTP Server.This issue affects Apache HTTP Server: through 2.4.57.
+
+</description>
+      <guid isPermaLink="false">CVE-2023-31122|2023-10-23T06:51:59.705Z</guid>
+      <pubDate>Mon, 23 Oct 2023 06:51:59 +0000</pubDate>
+    </item>
+    <item>
+      <title>CVE-2023-25690|2023-03-07T15:09:03.080Z -- apache%20software%20foundation -- apache%20http%20server
+</title>
+      <link>https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2023-25690</link>
+      <description>Some mod_proxy configurations on Apache HTTP Server versions 2.4.0 through 2.4.55 allow a HTTP Request Smuggling attack.
+
+
+
+
+Configurations are affected when mod_proxy is enabled along with some form of RewriteRule
+ or ProxyPassMatch in which a non-specific pattern matches
+ some portion of the user-supplied request-target (URL) data and is then
+ re-inserted into the proxied request-target using variable 
+substitution. For example, something like:
+
+
+
+
+RewriteEngine on
+RewriteRule "^/here/(.*)" "http://example.com:8080/elsewhere?$1"; [P]
+ProxyPassReverse /here/ http://example.com:8080/
+
+
+Request splitting/smuggling could result in bypass of access controls in the proxy server, proxying unintended URLs to existing origin servers, and cache poisoning. Users are recommended to update to at least version 2.4.56 of Apache HTTP Server.
+
+
+</description>
+      <guid isPermaLink="false">CVE-2023-25690|2023-03-07T15:09:03.080Z</guid>
+      <pubDate>Tue, 07 Mar 2023 15:09:03 +0000</pubDate>
+    </item>
+    <item>
+      <title>CVE-2024-27316|2024-04-04T19:21:41.984Z -- apache%20software%20foundation -- apache%20http%20server
+</title>
+      <link>https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2024-27316</link>
+      <description>HTTP/2 incoming headers exceeding the limit are temporarily buffered in nghttp2 in order to generate an informative HTTP 413 response. If a client does not stop sending headers, this leads to memory exhaustion.</description>
+      <guid isPermaLink="false">CVE-2024-27316|2024-04-04T19:21:41.984Z</guid>
+      <pubDate>Thu, 04 Apr 2024 19:21:41 +0000</pubDate>
+    </item>
+    <item>
+      <title>CVE-2024-24795|2024-04-04T19:20:48.803Z -- apache%20software%20foundation -- apache%20http%20server
+</title>
+      <link>https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2024-24795</link>
+      <description>HTTP Response splitting in multiple modules in Apache HTTP Server allows an attacker that can inject malicious response headers into backend applications to cause an HTTP desynchronization attack.
+
+Users are recommended to upgrade to version 2.4.59, which fixes this issue.</description>
+      <guid isPermaLink="false">CVE-2024-24795|2024-04-04T19:20:48.803Z</guid>
+      <pubDate>Thu, 04 Apr 2024 19:20:48 +0000</pubDate>
+    </item>
+  </channel>
+</rss>

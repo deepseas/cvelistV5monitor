@@ -1,0 +1,28 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<rss xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/" version="2.0">
+  <channel>
+    <title>CVE Feed for pallets -- flask</title>
+    <link>https://raw.githubusercontent.com/deepseas/cvelistV5monitor/main/feeds/pallets/flask.rss</link>
+    <description>The latest CVEs for pallets -- flask</description>
+    <docs>http://www.rssboard.org/rss-specification</docs>
+    <generator>python-feedgen</generator>
+    <lastBuildDate>Wed, 12 Jun 2024 11:24:32 +0000</lastBuildDate>
+    <ttl>60</ttl>
+    <item>
+      <title>CVE-2023-30861|2023-05-02T17:04:22.197Z -- pallets -- flask
+</title>
+      <link>https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2023-30861</link>
+      <description>Flask is a lightweight WSGI web application framework. When all of the following conditions are met, a response containing data intended for one client may be cached and subsequently sent by the proxy to other clients. If the proxy also caches `Set-Cookie` headers, it may send one client's `session` cookie to other clients. The severity depends on the application's use of the session and the proxy's behavior regarding cookies. The risk depends on all these conditions being met.
+
+1. The application must be hosted behind a caching proxy that does not strip cookies or ignore responses with cookies.
+2. The application sets `session.permanent = True`
+3. The application does not access or modify the session at any point during a request.
+4. `SESSION_REFRESH_EACH_REQUEST` enabled (the default).
+5. The application does not set a `Cache-Control` header to indicate that a page is private or should not be cached.
+
+This happens because vulnerable versions of Flask only set the `Vary: Cookie` header when the session is accessed or modified, not when it is refreshed (re-sent to update the expiration) without being accessed or modified. This issue has been fixed in versions 2.3.2 and 2.2.5.</description>
+      <guid isPermaLink="false">CVE-2023-30861|2023-05-02T17:04:22.197Z</guid>
+      <pubDate>Tue, 02 May 2023 17:04:22 +0000</pubDate>
+    </item>
+  </channel>
+</rss>

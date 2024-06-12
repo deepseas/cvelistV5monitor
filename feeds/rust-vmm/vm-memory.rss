@@ -1,0 +1,21 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<rss xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/" version="2.0">
+  <channel>
+    <title>CVE Feed for rust-vmm -- vm-memory</title>
+    <link>https://raw.githubusercontent.com/deepseas/cvelistV5monitor/main/feeds/rust-vmm/vm-memory.rss</link>
+    <description>The latest CVEs for rust-vmm -- vm-memory</description>
+    <docs>http://www.rssboard.org/rss-specification</docs>
+    <generator>python-feedgen</generator>
+    <lastBuildDate>Wed, 12 Jun 2024 11:24:35 +0000</lastBuildDate>
+    <ttl>60</ttl>
+    <item>
+      <title>CVE-2023-41051|2023-09-01T18:22:53.404Z -- rust-vmm -- vm-memory
+</title>
+      <link>https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2023-41051</link>
+      <description>In a typical Virtual Machine Monitor (VMM) there are several components, such as boot loader, virtual device drivers, virtio backend drivers and vhost drivers, that need to access the VM physical memory. The vm-memory rust crate provides a set of traits to decouple VM memory consumers from VM memory providers. An issue was discovered in the default implementations of the `VolatileMemory::{get_atomic_ref, aligned_as_ref, aligned_as_mut, get_ref, get_array_ref}` trait functions, which allows out-of-bounds memory access if the `VolatileMemory::get_slice` function returns a `VolatileSlice` whose length is less than the function’s `count` argument. No implementations of `get_slice` provided in `vm_memory` are affected. Users of custom `VolatileMemory` implementations may be impacted if the custom implementation does not adhere to `get_slice`'s documentation. The issue started in version 0.1.0 but was fixed in version 0.12.2 by inserting a check that verifies that the `VolatileSlice` returned by `get_slice` is of the correct length. Users are advised to upgrade. There are no known workarounds for this issue.
+</description>
+      <guid isPermaLink="false">CVE-2023-41051|2023-09-01T18:22:53.404Z</guid>
+      <pubDate>Fri, 01 Sep 2023 18:22:53 +0000</pubDate>
+    </item>
+  </channel>
+</rss>

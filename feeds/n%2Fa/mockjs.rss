@@ -1,0 +1,20 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<rss xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/" version="2.0">
+  <channel>
+    <title>CVE Feed for n/a -- mockjs</title>
+    <link>https://raw.githubusercontent.com/deepseas/cvelistV5monitor/main/feeds/n%2Fa/mockjs.rss</link>
+    <description>The latest CVEs for n/a -- mockjs</description>
+    <docs>http://www.rssboard.org/rss-specification</docs>
+    <generator>python-feedgen</generator>
+    <lastBuildDate>Wed, 12 Jun 2024 11:24:43 +0000</lastBuildDate>
+    <ttl>60</ttl>
+    <item>
+      <title>CVE-2023-26158|2023-12-08T05:00:01.350Z -- n%2Fa -- mockjs
+</title>
+      <link>https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2023-26158</link>
+      <description>All versions of the package mockjs are vulnerable to Prototype Pollution via the Util.extend function due to missing check if the attribute resolves to the object prototype. By adding or modifying attributes of an object prototype, it is possible to create attributes that exist on every object, or replace critical attributes with malicious ones. This can be problematic if the software depends on existence or non-existence of certain attributes, or uses pre-defined attributes of object prototype (such as hasOwnProperty, toString or valueOf).&#13;&#13;User controlled inputs inside the extend() method of the Mock.Handler, Mock.Random, Mock.RE.Handler or Mock.Util, will allow an attacker to exploit this vulnerability.&#13;&#13; Workaround&#13;&#13;By using a denylist of dangerous attributes, this weakness can be eliminated.&#13;&#13;Add the following line in the Util.extend function:&#13;&#13;js&#13;js if (["__proto__", "constructor", "prototype"].includes(name)) continue&#13;&#13;&#13;js&#13;// src/mock/handler.js&#13;Util.extend = function extend() {&#13;        var target = arguments[0] || {},&#13;            i = 1,&#13;            length = arguments.length,&#13;            options, name, src, copy, clone&#13;&#13;        if (length === 1) {&#13;            target = this&#13;            i = 0&#13;        }&#13;&#13;        for (; i &lt; length; i++) {&#13;            options = arguments[i]&#13;            if (!options) continue&#13;&#13;            for (name in options) {&#13;            if (["__proto__", "constructor", "prototype"].includes(name)) continue&#13;                src = target[name]&#13;                copy = options[name]&#13;&#13;                if (target === copy) continue&#13;                if (copy === undefined) continue&#13;&#13;                if (Util.isArray(copy) || Util.isObject(copy)) {&#13;                    if (Util.isArray(copy)) clone = src &amp;&amp; Util.isArray(src) ? src : []&#13;                    if (Util.isObject(copy)) clone = src &amp;&amp; Util.isObject(src) ? src : {}&#13;&#13;                    target[name] = Util.extend(clone, copy)&#13;                } else {&#13;                    target[name] = copy&#13;                }&#13;            }&#13;        }&#13;&#13;        return target&#13;    }&#13;</description>
+      <guid isPermaLink="false">CVE-2023-26158|2023-12-08T05:00:01.350Z</guid>
+      <pubDate>Fri, 08 Dec 2023 05:00:01 +0000</pubDate>
+    </item>
+  </channel>
+</rss>

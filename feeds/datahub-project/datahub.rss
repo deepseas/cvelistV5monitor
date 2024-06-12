@@ -6,8 +6,80 @@
     <description>The latest CVEs for datahub-project -- datahub</description>
     <docs>http://www.rssboard.org/rss-specification</docs>
     <generator>python-feedgen</generator>
-    <lastBuildDate>Tue, 04 Jun 2024 17:29:28 +0000</lastBuildDate>
+    <lastBuildDate>Wed, 12 Jun 2024 11:24:24 +0000</lastBuildDate>
     <ttl>60</ttl>
+    <item>
+      <title>CVE-2023-47640|2023-11-14T20:55:02.080Z -- datahub-project -- datahub
+</title>
+      <link>https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2023-47640</link>
+      <description>DataHub is an open-source metadata platform. The HMAC signature for DataHub Frontend sessions was being signed using a SHA-1 HMAC with the frontend secret key. SHA1 with a 10 byte key can be brute forced using sufficient resources (i.e. state level actors with large computational capabilities). DataHub Frontend was utilizing the Play LegacyCookiesModule with default settings which utilizes a SHA1 HMAC for signing. This is compounded by using a shorter key length than recommended by default for the signing key for the randomized secret value. An authenticated attacker (or attacker who has otherwise obtained a session token) could crack the signing key for DataHub and obtain escalated privileges by generating a privileged session cookie. Due to key length being a part of the risk, deployments should update to the latest helm chart and rotate their session signing secret. All deployments using the default helm chart configurations for generating the Play secret key used for signing are affected by this vulnerability. Version 0.11.1 resolves this vulnerability. All users are advised to upgrade. There are no known workarounds for this vulnerability.</description>
+      <guid isPermaLink="false">CVE-2023-47640|2023-11-14T20:55:02.080Z</guid>
+      <pubDate>Tue, 14 Nov 2023 20:55:02 +0000</pubDate>
+    </item>
+    <item>
+      <title>CVE-2023-47629|2023-11-14T00:32:12.079Z -- datahub-project -- datahub
+</title>
+      <link>https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2023-47629</link>
+      <description>DataHub is an open-source metadata platform. In affected versions sign-up through an invite link does not properly restrict users from signing up as privileged accounts. If a user is given an email sign-up link they can potentially create an admin account given certain preconditions. If the default datahub user has been removed, then the user can sign up for an account that leverages the default policies giving admin privileges to the datahub user. All DataHub instances prior to the patch that have removed the datahub user, but not the default policies applying to that user are affected. Users are advised to update to version 0.12.1 which addresses the issue. There are no known workarounds for this vulnerability.</description>
+      <guid isPermaLink="false">CVE-2023-47629|2023-11-14T00:32:12.079Z</guid>
+      <pubDate>Tue, 14 Nov 2023 00:32:12 +0000</pubDate>
+    </item>
+    <item>
+      <title>CVE-2023-47628|2023-11-14T00:33:12.602Z -- datahub-project -- datahub
+</title>
+      <link>https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2023-47628</link>
+      <description>DataHub is an open-source metadata platform. DataHub Frontend's sessions are configured using Play Framework's default settings for stateless session which do not set an expiration time for a cookie. Due to this, if a session cookie were ever leaked, it would be valid forever. DataHub uses a stateless session cookie that is not invalidated on logout, it is just removed from the browser forcing the user to login again. However, if an attacker extracted a cookie from an authenticated user it would continue to be valid as there is no validation on a time window the session token is valid for due to a combination of the usage of LegacyCookiesModule from Play Framework and using default settings which do not set an expiration time. All DataHub instances prior to the patch that have removed the datahub user, but not the default policies applying to that user are affected. Users are advised to update to version 0.12.1 which addresses the issue. There are no known workarounds for this vulnerability.</description>
+      <guid isPermaLink="false">CVE-2023-47628|2023-11-14T00:33:12.602Z</guid>
+      <pubDate>Tue, 14 Nov 2023 00:33:12 +0000</pubDate>
+    </item>
+    <item>
+      <title>CVE-2023-25559|2023-02-10T22:03:05.646Z -- datahub-project -- datahub
+</title>
+      <link>https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2023-25559</link>
+      <description>DataHub is an open-source metadata platform. When not using authentication for the metadata service, which is the default configuration, the Metadata service (GMS) will use the X-DataHub-Actor HTTP header to infer the user the frontend is sending the request on behalf of. When the backends retrieves the header, its name is retrieved in a case-insensitive way. This case differential can be abused by an attacker to smuggle an X-DataHub-Actor header with different casing  (eg: X-DATAHUB-ACTOR). This issue may lead to an authorization bypass by allowing any user to impersonate the system user account and perform any actions on its behalf. This vulnerability was discovered and reported by the GitHub Security lab and is tracked as GHSL-2022-079.</description>
+      <guid isPermaLink="false">CVE-2023-25559|2023-02-10T22:03:05.646Z</guid>
+      <pubDate>Fri, 10 Feb 2023 22:03:05 +0000</pubDate>
+    </item>
+    <item>
+      <title>CVE-2023-25562|2023-02-10T22:03:00.889Z -- datahub-project -- datahub
+</title>
+      <link>https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2023-25562</link>
+      <description>DataHub is an open-source metadata platform. In versions of DataHub prior to 0.8.45 Session cookies are only cleared on new sign-in events and not on logout events. Any authentication checks using the `AuthUtils.hasValidSessionCookie()` method could be bypassed by using a cookie from a logged out session, as a result any logged out session cookie may be accepted as valid and therefore lead to an authentication bypass to the system. Users are advised to upgrade. There are no known workarounds for this issue. This vulnerability was discovered and reported by the GitHub Security lab and is tracked as GHSL-2022-083.</description>
+      <guid isPermaLink="false">CVE-2023-25562|2023-02-10T22:03:00.889Z</guid>
+      <pubDate>Fri, 10 Feb 2023 22:03:00 +0000</pubDate>
+    </item>
+    <item>
+      <title>CVE-2023-25558|2023-02-10T22:03:07.330Z -- datahub-project -- datahub
+</title>
+      <link>https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2023-25558</link>
+      <description>DataHub is an open-source metadata platform. When the DataHub frontend is configured to authenticate via SSO, it will leverage the pac4j library. The processing of the `id_token` is done in an unsafe manner which is not properly accounted for by the DataHub frontend. Specifically, if any of the id_token claims value start with the {#sb64} prefix, pac4j considers the value to be a serialized Java object and will deserialize it. This issue may lead to Remote Code Execution (RCE) in the worst case. Although a `RestrictedObjectInputStream` is in place, that puts some restriction on what classes can be deserialized, it still allows a broad range of java packages and potentially exploitable with different gadget chains. Users are advised to upgrade. There are no known workarounds. This vulnerability was discovered and reported by the GitHub Security lab and is tracked as GHSL-2022-086.</description>
+      <guid isPermaLink="false">CVE-2023-25558|2023-02-10T22:03:07.330Z</guid>
+      <pubDate>Fri, 10 Feb 2023 22:03:07 +0000</pubDate>
+    </item>
+    <item>
+      <title>CVE-2023-25557|2023-02-10T22:03:09.214Z -- datahub-project -- datahub
+</title>
+      <link>https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2023-25557</link>
+      <description>DataHub is an open-source metadata platform. The DataHub frontend acts as a proxy able to forward any REST or GraphQL requests to the backend. The goal of this proxy is to perform authentication if needed and forward HTTP requests to the DataHub Metadata Store (GMS). It has been discovered that the proxy does not adequately construct the URL when forwarding data to GMS, allowing external users to reroute requests from the DataHub Frontend to any arbitrary hosts. As a result attackers may be able to reroute a request from originating from the frontend proxy to any other server and return the result. This vulnerability was discovered and reported by the GitHub Security lab and is tracked as GHSL-2022-076.</description>
+      <guid isPermaLink="false">CVE-2023-25557|2023-02-10T22:03:09.214Z</guid>
+      <pubDate>Fri, 10 Feb 2023 22:03:09 +0000</pubDate>
+    </item>
+    <item>
+      <title>CVE-2023-25561|2023-02-10T22:03:02.527Z -- datahub-project -- datahub
+</title>
+      <link>https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2023-25561</link>
+      <description>DataHub is an open-source metadata platform. In the event a system is using Java Authentication and Authorization Service (JAAS) authentication and that system is given a configuration which contains an error, the authentication for the system will fail open and allow an attacker to login using any username and password. The reason for this is that while an error is thrown in the `authenticateJaasUser` method it is swallowed without propagating the error. As a result of this issue unauthenticated users may gain access to the system. Users are advised to upgrade. There are no known workarounds for this issue. This vulnerability was discovered and reported by the GitHub Security lab and is tracked as GHSL-2022-081.</description>
+      <guid isPermaLink="false">CVE-2023-25561|2023-02-10T22:03:02.527Z</guid>
+      <pubDate>Fri, 10 Feb 2023 22:03:02 +0000</pubDate>
+    </item>
+    <item>
+      <title>CVE-2023-25560|2023-02-10T22:03:03.926Z -- datahub-project -- datahub
+</title>
+      <link>https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2023-25560</link>
+      <description>DataHub is an open-source metadata platform. The AuthServiceClient which is responsible for creation of new accounts, verifying credentials, resetting them or requesting access tokens, crafts multiple JSON strings using format strings with user-controlled data. This means that an attacker may be able to augment these JSON strings to be sent to the backend and that can potentially be abused by including new or colliding values. This issue may lead to an authentication bypass and the creation of system accounts, which effectively can lead to full system compromise. Users are advised to upgrade. There are no known workarounds for this vulnerability. This vulnerability was discovered and reported by the GitHub Security lab and is tracked as GHSL-2022-080.</description>
+      <guid isPermaLink="false">CVE-2023-25560|2023-02-10T22:03:03.926Z</guid>
+      <pubDate>Fri, 10 Feb 2023 22:03:03 +0000</pubDate>
+    </item>
     <item>
       <title>CVE-2024-22409|2024-01-16T22:16:48.690Z -- datahub-project -- datahub
 </title>

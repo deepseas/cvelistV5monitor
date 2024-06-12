@@ -6,21 +6,127 @@
     <description>The latest CVEs for RIOT-OS -- all products</description>
     <docs>http://www.rssboard.org/rss-specification</docs>
     <generator>python-feedgen</generator>
-    <lastBuildDate>Thu, 06 Jun 2024 23:23:27 +0000</lastBuildDate>
+    <lastBuildDate>Wed, 12 Jun 2024 11:24:20 +0000</lastBuildDate>
     <ttl>60</ttl>
     <item>
-      <title>CVE-2024-31225|2024-05-01T06:13:58.610Z -- riot-os -- riot</title>
+      <title>CVE-2023-33974|2023-05-30T16:50:06.211Z -- riot-os -- riot
+</title>
+      <link>https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2023-33974</link>
+      <description>RIOT-OS, an operating system for Internet of Things (IoT) devices, contains a network stack with the ability to process 6LoWPAN frames. In versions 2023.01 and prior, an attacker can send multiple crafted frames to the device to trigger a race condition. The race condition invalidates assumptions about the program state and leads to an invalid memory access resulting in denial of service. This issue is patched in pull request 19679. There are no known workarounds.</description>
+      <guid isPermaLink="false">CVE-2023-33974|2023-05-30T16:50:06.211Z</guid>
+      <pubDate>Tue, 30 May 2023 16:50:06 +0000</pubDate>
+    </item>
+    <item>
+      <title>CVE-2023-33975|2023-05-30T17:08:41.903Z -- riot-os -- riot
+</title>
+      <link>https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2023-33975</link>
+      <description>RIOT-OS, an operating system for Internet of Things (IoT) devices, contains a network stack with the ability to process 6LoWPAN frames. In version 2023.01 and prior, an attacker can send a crafted frame to the device resulting in an out of bounds write in the packet buffer. The overflow can be used to corrupt other packets and the allocator metadata. Corrupting a pointer will easily lead to denial of service. While carefully manipulating the allocator metadata gives an attacker the possibility to write data to arbitrary locations and thus execute arbitrary code. This issue is fixed in pull request 19680. As a workaround, disable support for fragmented IP datagrams.</description>
+      <guid isPermaLink="false">CVE-2023-33975|2023-05-30T17:08:41.903Z</guid>
+      <pubDate>Tue, 30 May 2023 17:08:41 +0000</pubDate>
+    </item>
+    <item>
+      <title>CVE-2023-33973|2023-05-30T16:18:04.163Z -- riot-os -- riot
+</title>
+      <link>https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2023-33973</link>
+      <description>RIOT-OS, an operating system for Internet of Things (IoT) devices, contains a network stack with the ability to process 6LoWPAN frames. In versions 2023.01 and prior, an attacker can send a crafted frame which is forwarded by the device. During encoding of the packet a NULL pointer dereference occurs. This crashes the device leading to denial of service. A patch is available at pull request 19678. There are no known workarounds.</description>
+      <guid isPermaLink="false">CVE-2023-33973|2023-05-30T16:18:04.163Z</guid>
+      <pubDate>Tue, 30 May 2023 16:18:04 +0000</pubDate>
+    </item>
+    <item>
+      <title>CVE-2023-24826|2023-05-30T16:07:45.208Z -- riot-os -- riot
+</title>
+      <link>https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2023-24826</link>
+      <description>RIOT-OS, an operating system for Internet of Things (IoT) devices, contains a network stack with the ability to process 6LoWPAN frames. Prior to version 2023.04, an attacker can send crafted frames to the device to trigger the usage of an uninitialized object leading to denial of service. This issue is fixed in version 2023.04. As a workaround, disable fragment forwarding or SFR.</description>
+      <guid isPermaLink="false">CVE-2023-24826|2023-05-30T16:07:45.208Z</guid>
+      <pubDate>Tue, 30 May 2023 16:07:45 +0000</pubDate>
+    </item>
+    <item>
+      <title>CVE-2023-24821|2023-04-24T15:11:47.374Z -- riot-os -- riot
+</title>
+      <link>https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2023-24821</link>
+      <description>RIOT-OS, an operating system that supports Internet of Things devices, contains a network stack with the ability to process 6LoWPAN frames. Prior to version 2022.10, an attacker can send a crafted frame to the device resulting in a large out of bounds write beyond the packet buffer. The write will create a hard fault exception after reaching the last page of RAM. The hard fault is not handled and the system will be stuck until reset, thus the impact is denial of service. Version 2022.10 fixes this issue. As a workaround, disable support for fragmented IP datagrams or apply the patches manually.</description>
+      <guid isPermaLink="false">CVE-2023-24821|2023-04-24T15:11:47.374Z</guid>
+      <pubDate>Mon, 24 Apr 2023 15:11:47 +0000</pubDate>
+    </item>
+    <item>
+      <title>CVE-2023-24817|2023-05-30T15:50:54.247Z -- riot-os -- riot
+</title>
+      <link>https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2023-24817</link>
+      <description>RIOT-OS, an operating system for Internet of Things (IoT) devices, contains a network stack with the ability to process 6LoWPAN frames. Prior to version 2023.04, an attacker can send a crafted frame to the device resulting in an integer underflow and out of bounds access in the packet buffer. Triggering the access at the right time will corrupt other packets or the allocator metadata. Corrupting a pointer will lead to denial of service. This issue is fixed in version 2023.04. As a workaround, disable SRH in the network stack.</description>
+      <guid isPermaLink="false">CVE-2023-24817|2023-05-30T15:50:54.247Z</guid>
+      <pubDate>Tue, 30 May 2023 15:50:54 +0000</pubDate>
+    </item>
+    <item>
+      <title>CVE-2023-24820|2023-04-24T14:59:43.562Z -- riot-os -- riot
+</title>
+      <link>https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2023-24820</link>
+      <description>RIOT-OS, an operating system that supports Internet of Things devices, contains a network stack with the ability to process 6LoWPAN frames. An attacker can send a crafted frame to the device resulting in a large out of bounds write beyond the packet buffer. The write will create a hard fault exception after reaching the last page of RAM. The hard fault is not handled and the system will be stuck until reset. Thus the impact is denial of service. Version 2022.10 fixes this issue. As a workaround, apply the patch manually.</description>
+      <guid isPermaLink="false">CVE-2023-24820|2023-04-24T14:59:43.562Z</guid>
+      <pubDate>Mon, 24 Apr 2023 14:59:43 +0000</pubDate>
+    </item>
+    <item>
+      <title>CVE-2023-24819|2023-04-24T14:42:44.016Z -- riot-os -- riot
+</title>
+      <link>https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2023-24819</link>
+      <description>RIOT-OS, an operating system that supports Internet of Things devices, contains a network stack with the ability to process 6LoWPAN frames. Prior to version 2022.10, an attacker can send a crafted frame to the device resulting in an out of bounds write in the packet buffer. The overflow can be used to corrupt other packets and the allocator metadata. Corrupting a pointer will easily lead to denial of service. While carefully manipulating the allocator metadata gives an attacker the possibility to write data to arbitrary locations and thus execute arbitrary code. Version 2022.10 fixes this issue. As a workaround, disable support for fragmented IP datagrams or apply the patches manually.</description>
+      <guid isPermaLink="false">CVE-2023-24819|2023-04-24T14:42:44.016Z</guid>
+      <pubDate>Mon, 24 Apr 2023 14:42:44 +0000</pubDate>
+    </item>
+    <item>
+      <title>CVE-2023-24823|2023-04-24T15:27:55.864Z -- riot-os -- riot
+</title>
+      <link>https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2023-24823</link>
+      <description>RIOT-OS, an operating system that supports Internet of Things devices, contains a network stack with the ability to process 6LoWPAN frames. Prior to version 2022.10, an attacker can send a crafted frame to the device resulting in a type confusion between IPv6 extension headers and a UDP header. This occurs while encoding a 6LoWPAN IPHC header. The type confusion manifests in an out of bounds write in the packet buffer. The overflow can be used to corrupt other packets and the allocator metadata. Corrupting a pointer will easily lead to denial of service. While carefully manipulating the allocator metadata gives an attacker the possibility to write data to arbitrary locations and thus execute arbitrary code. Version 2022.10 fixes this issue. As a workaround, apply the patches manually.</description>
+      <guid isPermaLink="false">CVE-2023-24823|2023-04-24T15:27:55.864Z</guid>
+      <pubDate>Mon, 24 Apr 2023 15:27:55 +0000</pubDate>
+    </item>
+    <item>
+      <title>CVE-2023-24822|2023-04-24T15:24:26.836Z -- riot-os -- riot
+</title>
+      <link>https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2023-24822</link>
+      <description>RIOT-OS, an operating system that supports Internet of Things devices, contains a network stack with the ability to process 6LoWPAN frames. Prior to version 2022.10, an attacker can send a crafted frame to the device resulting in a NULL pointer dereference while encoding a 6LoWPAN IPHC header. The NULL pointer dereference causes a hard fault exception, leading to denial of service. Version 2022.10 fixes this issue. As a workaround, apply the patches manually.</description>
+      <guid isPermaLink="false">CVE-2023-24822|2023-04-24T15:24:26.836Z</guid>
+      <pubDate>Mon, 24 Apr 2023 15:24:26 +0000</pubDate>
+    </item>
+    <item>
+      <title>CVE-2023-24818|2023-04-24T14:23:44.280Z -- riot-os -- riot
+</title>
+      <link>https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2023-24818</link>
+      <description>RIOT-OS, an operating system that supports Internet of Things devices, contains a network stack with the ability to process 6LoWPAN frames. Prior to version 2022.10, an attacker can send a crafted frame to the device resulting in a NULL pointer dereference. During forwarding of a fragment an uninitialized entry in the reassembly buffer is used. The NULL pointer dereference triggers a hard fault exception resulting in denial of service. Version 2022.10 fixes this issue. As a workaround, disable support for fragmented IP datagrams or apply the patches manually.</description>
+      <guid isPermaLink="false">CVE-2023-24818|2023-04-24T14:23:44.280Z</guid>
+      <pubDate>Mon, 24 Apr 2023 14:23:44 +0000</pubDate>
+    </item>
+    <item>
+      <title>CVE-2023-24825|2023-05-30T15:54:49.930Z -- riot-os -- riot
+</title>
+      <link>https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2023-24825</link>
+      <description>RIOT-OS, an operating system for Internet of Things (IoT) devices, contains a network stack with the ability to process 6LoWPAN frames. Prior to version 2023.04, an attacker can send a crafted frame to the device to trigger a NULL pointer dereference leading to denial of service. This issue is fixed in version 2023.04. There are no known workarounds.</description>
+      <guid isPermaLink="false">CVE-2023-24825|2023-05-30T15:54:49.930Z</guid>
+      <pubDate>Tue, 30 May 2023 15:54:49 +0000</pubDate>
+    </item>
+    <item>
+      <title>CVE-2024-32018|2024-05-01T06:14:03.199Z -- riot-os -- riot
+</title>
+      <link>https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2024-32018</link>
+      <description>RIOT is a real-time multi-threading operating system that supports a range of devices that are typically 8-bit, 16-bit and 32-bit microcontrollers. Most codebases define assertion macros which compile to a no-op on non-debug builds. If assertions are the only line of defense against untrusted input, the software may be exposed to attacks that leverage the lack of proper input checks. In detail, in the `nimble_scanlist_update()` function below, `len` is checked in an assertion and subsequently used in a call to `memcpy()`. If an attacker is able to provide a larger `len` value while assertions are compiled-out, they can write past the end of the fixed-length `e-&gt;ad` buffer. If the unchecked input above is attacker-controlled and crosses a security boundary, the impact of the buffer overflow vulnerability could range from denial of service to arbitrary code execution. This issue has not yet been patched. Users are advised to add manual `len` checking.</description>
+      <guid isPermaLink="false">CVE-2024-32018|2024-05-01T06:14:03.199Z</guid>
+      <pubDate>Wed, 01 May 2024 06:14:03 +0000</pubDate>
+    </item>
+    <item>
+      <title>CVE-2024-32017|2024-05-01T06:14:01.531Z -- riot-os -- riot
+</title>
+      <link>https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2024-32017</link>
+      <description>RIOT is a real-time multi-threading operating system that supports a range of devices that are typically 8-bit, 16-bit and 32-bit microcontrollers. The size check in the `gcoap_dns_server_proxy_get()` function contains a small typo that may lead to a buffer overflow in the subsequent `strcpy()`. In detail, the length of the `_uri` string is checked instead of the length of the `_proxy` string. The `_gcoap_forward_proxy_copy_options()` function does not implement an explicit size check before copying data to the `cep-&gt;req_etag` buffer that is `COAP_ETAG_LENGTH_MAX` bytes long. If an attacker can craft input so that `optlen` becomes larger than `COAP_ETAG_LENGTH_MAX`, they can cause a buffer overflow. If the input above is attacker-controlled and crosses a security boundary, the impact of the buffer overflow vulnerabilities could range from denial of service to arbitrary code execution. This issue has yet to be patched. Users are advised to add manual bounds checking.</description>
+      <guid isPermaLink="false">CVE-2024-32017|2024-05-01T06:14:01.531Z</guid>
+      <pubDate>Wed, 01 May 2024 06:14:01 +0000</pubDate>
+    </item>
+    <item>
+      <title>CVE-2024-31225|2024-05-01T06:13:58.610Z -- riot-os -- riot
+</title>
       <link>https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2024-31225</link>
       <description>RIOT is a real-time multi-threading operating system that supports a range of devices that are typically 8-bit, 16-bit and 32-bit microcontrollers. The `_on_rd_init()` function does not implement a size check before copying data to the `_result_buf` static buffer. If an attacker can craft a long enough payload, they could cause a buffer overflow. If the unchecked input above is attacker-controlled and crosses a security boundary, the impact of the buffer overflow vulnerability could range from denial of service to arbitrary code execution. This issue has yet to be patched. Users are advised to add manual bounds checking.</description>
       <guid isPermaLink="false">CVE-2024-31225|2024-05-01T06:13:58.610Z</guid>
       <pubDate>Wed, 01 May 2024 06:13:58 +0000</pubDate>
-    </item>
-    <item>
-      <title>CVE-2024-32018|2024-06-06T17:12:59.262Z -- riot-os -- riot</title>
-      <link>https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2024-32018</link>
-      <description>RIOT is a real-time multi-threading operating system that supports a range of devices that are typically 8-bit, 16-bit and 32-bit microcontrollers. Most codebases define assertion macros which compile to a no-op on non-debug builds. If assertions are the only line of defense against untrusted input, the software may be exposed to attacks that leverage the lack of proper input checks. In detail, in the `nimble_scanlist_update()` function below, `len` is checked in an assertion and subsequently used in a call to `memcpy()`. If an attacker is able to provide a larger `len` value while assertions are compiled-out, they can write past the end of the fixed-length `e-&gt;ad` buffer. If the unchecked input above is attacker-controlled and crosses a security boundary, the impact of the buffer overflow vulnerability could range from denial of service to arbitrary code execution. This issue has not yet been patched. Users are advised to add manual `len` checking.</description>
-      <guid isPermaLink="false">CVE-2024-32018|2024-06-06T17:12:59.262Z</guid>
-      <pubDate>Wed, 01 May 2024 06:14:03 +0000</pubDate>
     </item>
   </channel>
 </rss>

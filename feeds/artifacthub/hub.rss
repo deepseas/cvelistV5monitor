@@ -6,8 +6,24 @@
     <description>The latest CVEs for artifacthub -- hub</description>
     <docs>http://www.rssboard.org/rss-specification</docs>
     <generator>python-feedgen</generator>
-    <lastBuildDate>Tue, 04 Jun 2024 17:29:38 +0000</lastBuildDate>
+    <lastBuildDate>Wed, 12 Jun 2024 11:24:32 +0000</lastBuildDate>
     <ttl>60</ttl>
+    <item>
+      <title>CVE-2023-45821|2023-10-19T20:53:34.802Z -- artifacthub -- hub
+</title>
+      <link>https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2023-45821</link>
+      <description>Artifact Hub is a web-based application that enables finding, installing, and publishing packages and configurations for CNCF projects. During a security audit of Artifact Hub's code base a security researcher identified a bug in which the `registryIsDockerHub` function was only checking that the registry domain had the `docker.io` suffix. Artifact Hub allows providing some Docker credentials that are used to increase the rate limit applied when interacting with the Docker Hub registry API to read publicly available content. Due to the incorrect check described above, it'd be possible to hijack those credentials by purchasing a domain which ends with `docker.io` and deploying a fake OCI registry on it. &lt;https://artifacthub.io/&gt; uses some credentials that only have permissions to read public content available in the Docker Hub. However, even though credentials for private repositories (disabled on `artifacthub.io`) are handled in a different way, other Artifact Hub deployments could have been using them for a different purpose. This issue has been resolved in version `1.16.0`. Users are advised to upgrade. There are no known workarounds for this vulnerability.</description>
+      <guid isPermaLink="false">CVE-2023-45821|2023-10-19T20:53:34.802Z</guid>
+      <pubDate>Thu, 19 Oct 2023 20:53:34 +0000</pubDate>
+    </item>
+    <item>
+      <title>CVE-2023-45823|2023-10-19T20:53:40.382Z -- artifacthub -- hub
+</title>
+      <link>https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2023-45823</link>
+      <description>Artifact Hub is a web-based application that enables finding, installing, and publishing packages and configurations for CNCF projects. During a security audit of Artifact Hub's code base a security researcher identified a bug in which by using symbolic links in certain kinds of repositories loaded into Artifact Hub, it was possible to read internal files. Artifact Hub indexes content from a variety of sources, including git repositories. When processing git based repositories, Artifact Hub clones the repository and, depending on the artifact kind, reads some files from it. During this process, in some cases, no validation was done to check if the file was a symbolic link. This made possible to read arbitrary files in the system, potentially leaking sensitive information. This issue has been resolved in version `1.16.0`. Users are advised to upgrade. There are no known workarounds for this vulnerability.</description>
+      <guid isPermaLink="false">CVE-2023-45823|2023-10-19T20:53:40.382Z</guid>
+      <pubDate>Thu, 19 Oct 2023 20:53:40 +0000</pubDate>
+    </item>
     <item>
       <title>CVE-2023-45822|2023-10-19T20:53:36.298Z -- artifacthub -- hub
 </title>

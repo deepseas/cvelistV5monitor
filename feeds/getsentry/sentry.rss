@@ -6,20 +6,65 @@
     <description>The latest CVEs for getsentry -- sentry</description>
     <docs>http://www.rssboard.org/rss-specification</docs>
     <generator>python-feedgen</generator>
-    <lastBuildDate>Thu, 06 Jun 2024 23:23:27 +0000</lastBuildDate>
+    <lastBuildDate>Wed, 12 Jun 2024 11:24:19 +0000</lastBuildDate>
     <ttl>60</ttl>
     <item>
-      <title>CVE-2024-35196|2024-06-06T18:04:18.333Z -- getsentry -- sentry</title>
-      <link>https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2024-35196</link>
-      <description>Sentry is a developer-first error tracking and performance monitoring platform. Sentry's Slack integration incorrectly records the incoming request body in logs. This request data can contain sensitive information, including the deprecated Slack verification token. With this verification token, it is possible under specific configurations, an attacker can forge requests and act as the Slack integration. The request body is leaked in log entries matching `event == "slack.*" &amp;&amp; name == "sentry.integrations.slack" &amp;&amp; request_data == *`. The deprecated slack verification token, will be found in the `request_data.token` key. **SaaS users** do not need to take any action. **Self-hosted users** should upgrade to version 24.5.0 or higher, rotate their Slack verification token, and use the Slack Signing Secret instead of the verification token. For users only using the `slack.signing-secret` in their self-hosted configuration, the legacy verification token is not used to verify the webhook payload. It is ignored. Users unable to upgrade should either set the `slack.signing-secret` instead of `slack.verification-token`. The signing secret is Slack's recommended way of authenticating webhooks. By having `slack.singing-secret` set, Sentry self-hosted will no longer use the verification token for authentication of the webhooks, regardless of whether `slack.verification-token` is set or not. Alternatively if the self-hosted instance is unable to be upgraded or re-configured to use the `slack.signing-secret`, the logging configuration can be adjusted to not generate logs from the integration. The default logging configuration can be found in `src/sentry/conf/server.py`. **Services should be restarted once the configuration change is saved.**</description>
-      <guid isPermaLink="false">CVE-2024-35196|2024-06-06T18:04:18.333Z</guid>
-      <pubDate>Fri, 31 May 2024 17:25:55 +0000</pubDate>
+      <title>CVE-2023-39531|2023-08-09T16:09:34.265Z -- getsentry -- sentry
+</title>
+      <link>https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2023-39531</link>
+      <description>Sentry is an error tracking and performance monitoring platform. Starting in version 10.0.0 and prior to version 23.7.2, an attacker with sufficient client-side exploits could retrieve a valid access token for another user during the OAuth token exchange due to incorrect credential validation. The client ID must be known and the API application must have already been authorized on the targeted user account. Sentry SaaS customers do not need to take any action. Self-hosted installations should upgrade to version 23.7.2 or higher. There are no direct workarounds, but users should review applications authorized on their account and remove any that are no longer needed.
+
+</description>
+      <guid isPermaLink="false">CVE-2023-39531|2023-08-09T16:09:34.265Z</guid>
+      <pubDate>Wed, 09 Aug 2023 16:09:34 +0000</pubDate>
     </item>
     <item>
-      <title>CVE-2024-35196|2024-05-31T17:26:07.151Z -- getsentry -- sentry</title>
+      <title>CVE-2023-39349|2023-08-07T18:27:12.396Z -- getsentry -- sentry
+</title>
+      <link>https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2023-39349</link>
+      <description>Sentry is an error tracking and performance monitoring platform. Starting in version 22.1.0 and prior to version 23.7.2, an attacker with access to a token with few or no scopes can query `/api/0/api-tokens/` for a list of all tokens created by a user, including tokens with greater scopes, and use those tokens in other requests. There is no evidence that the issue was exploited on `sentry.io`. For self-hosted users, it is advised to rotate user auth tokens. A fix is available in version 23.7.2 of `sentry` and `self-hosted`. There are no known workarounds.</description>
+      <guid isPermaLink="false">CVE-2023-39349|2023-08-07T18:27:12.396Z</guid>
+      <pubDate>Mon, 07 Aug 2023 18:27:12 +0000</pubDate>
+    </item>
+    <item>
+      <title>CVE-2023-36826|2023-07-25T18:50:42.350Z -- getsentry -- sentry
+</title>
+      <link>https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2023-36826</link>
+      <description>Sentry is an error tracking and performance monitoring platform. Starting in version 8.21.0 and prior to version 23.5.2, an authenticated user can download a debug or artifact bundle from arbitrary organizations and projects with a known bundle ID. The user does not need to be a member of the organization or have permissions on the project. A patch was issued in version 23.5.2 to ensure authorization checks are properly scoped on requests to retrieve debug or artifact bundles. Authenticated users who do not have the necessary permissions on the particular project are no longer able to download them. Sentry SaaS users do not need to take any action. Self-Hosted Sentry users should upgrade to version 23.5.2 or higher.</description>
+      <guid isPermaLink="false">CVE-2023-36826|2023-07-25T18:50:42.350Z</guid>
+      <pubDate>Tue, 25 Jul 2023 18:50:42 +0000</pubDate>
+    </item>
+    <item>
+      <title>CVE-2023-36829|2023-07-06T22:08:58.922Z -- getsentry -- sentry
+</title>
+      <link>https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2023-36829</link>
+      <description>Sentry is an error tracking and performance monitoring platform. Starting in version 23.6.0 and prior to version 23.6.2, the Sentry API incorrectly returns the `access-control-allow-credentials: true` HTTP header if the `Origin` request header ends with the `system.base-hostname` option of Sentry installation. This only affects installations that have `system.base-hostname` option explicitly set, as it is empty by default. Impact is limited since recent versions of major browsers have cross-site cookie blocking enabled by default. However, this flaw could allow other multi-step attacks. The patch has been released in Sentry 23.6.2.</description>
+      <guid isPermaLink="false">CVE-2023-36829|2023-07-06T22:08:58.922Z</guid>
+      <pubDate>Thu, 06 Jul 2023 22:08:58 +0000</pubDate>
+    </item>
+    <item>
+      <title>CVE-2024-32474|2024-06-04T17:51:26.370Z -- getsentry -- sentry
+</title>
+      <link>https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2024-32474</link>
+      <description>Sentry is an error tracking and performance monitoring platform. Prior to 24.4.1, when authenticating as a superuser to Sentry with a username and password, the password is leaked as cleartext in logs under the _event_: `auth-index.validate_superuser`. An attacker with access to the log data could use these leaked credentials to login to the Sentry system as superuser. Self-hosted users on affected versions should upgrade to 24.4.1 or later. Users can configure the logging level to exclude logs of the `INFO` level and only generate logs for levels at `WARNING` or more.</description>
+      <guid isPermaLink="false">CVE-2024-32474|2024-06-04T17:51:26.370Z</guid>
+      <pubDate>Thu, 18 Apr 2024 19:50:44 +0000</pubDate>
+    </item>
+    <item>
+      <title>CVE-2024-24829|2024-02-08T23:44:07.676Z -- getsentry -- sentry
+</title>
+      <link>https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2024-24829</link>
+      <description>Sentry is an error tracking and performance monitoring platform. Sentry’s integration platform provides a way for external services to interact with Sentry. One of such integrations, the Phabricator integration (maintained by Sentry) with version &lt;=24.1.1 contains a constrained SSRF vulnerability. An attacker could make Sentry send POST HTTP requests to arbitrary URLs (including internal IP addresses) by providing an unsanitized input to the Phabricator integration. However, the body payload is constrained to a specific format. If an attacker has access to a Sentry instance, this allows them to: 1. interact with internal network; 2. scan local/remote ports. This issue has been fixed in Sentry self-hosted release 24.1.2, and has already been mitigated on sentry.io on February 8. Users are advised to upgrade. There are no known workarounds for this vulnerability.</description>
+      <guid isPermaLink="false">CVE-2024-24829|2024-02-08T23:44:07.676Z</guid>
+      <pubDate>Thu, 08 Feb 2024 23:44:07 +0000</pubDate>
+    </item>
+    <item>
+      <title>CVE-2024-35196|2024-06-06T18:04:18.333Z -- getsentry -- sentry
+</title>
       <link>https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2024-35196</link>
-      <description>Sentry is a developer-first error tracking and performance monitoring platform. Sentry's Slack integration incorrectly records the incoming request body in logs. This request data can contain sensitive information, including the deprecated Slack verification token. With this verification token, it is possible under specific configurations, an attacker can forge requests and act as the Slack integration. The request body is leaked in log entries matching `event == "slack.*" &amp;&amp; name == "sentry.integrations.slack" &amp;&amp; request_data == *`. The deprecated slack verification token, will be found in the `request_data.token` key. **SaaS users** do not need to take any action. **Self-hosted users** should upgrade to version 24.5.0 or higher, rotate their Slack verification token, and use the Slack Signing Secret instead of the verification token. For users only using the `slack.signing-secret` in their self-hosted configuration, the legacy verification token is not used to verify the webhook payload. It is ignored. Users unable to upgrade should either set the `slack.signing-secret` instead of `slack.verification-token`. The signing secret is Slack's recommended way of authenticating webhooks. By having `slack.singing-secret` set, Sentry self-hosted will no longer use the verification token for authentication of the webhooks, regardless of whether `slack.verification-token` is set or not. Alternatively if the self-hosted instance is unable to be upgraded or re-configured to use the `slack.signing-secret`, the logging configuration can be adjusted to not generate logs from the integration. The default logging configuration can be found in `src/sentry/conf/server.py`. **Services should be restarted once the configuration change is saved.**</description>
-      <guid isPermaLink="false">CVE-2024-35196|2024-05-31T17:26:07.151Z</guid>
+      <description>Sentry is a developer-first error tracking and performance monitoring platform. Sentry's Slack integration incorrectly records the incoming request body in logs. This request data can contain sensitive information, including the deprecated Slack verification token. With this verification token, it is possible under specific configurations, an attacker can forge requests and act as the Slack integration. The request body is leaked in log entries matching `event == "slack.*" &amp;&amp; name == "sentry.integrations.slack" &amp;&amp; request_data == *`. The deprecated slack verification token, will be found in the `request_data.token` key. **SaaS users** do not need to take any action. **Self-hosted users** should upgrade to version 24.5.0 or higher, rotate their Slack verification token, and use the Slack Signing Secret instead of the verification token. For users only using the `slack.signing-secret` in their self-hosted configuration, the legacy verification token is not used to verify the webhook payload. It is ignored. Users unable to upgrade should either set the `slack.signing-secret` instead of `slack.verification-token`. The signing secret is Slack's recommended way of authenticating webhooks. By having `slack.singing-secret` set, Sentry self-hosted will no longer use the verification token for authentication of the webhooks, regardless of whether `slack.verification-token` is set or not. Alternatively if the self-hosted instance is unable to be upgraded or re-configured to use the `slack.signing-secret`, the logging configuration can be adjusted to not generate logs from the integration. The default logging configuration can be found in `src/sentry/conf/server.py`. **Services should be restarted once the configuration change is saved.**
+</description>
+      <guid isPermaLink="false">CVE-2024-35196|2024-06-06T18:04:18.333Z</guid>
       <pubDate>Fri, 31 May 2024 17:25:55 +0000</pubDate>
     </item>
   </channel>

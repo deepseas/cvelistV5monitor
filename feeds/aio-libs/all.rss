@@ -6,14 +6,94 @@
     <description>The latest CVEs for aio-libs -- all products</description>
     <docs>http://www.rssboard.org/rss-specification</docs>
     <generator>python-feedgen</generator>
-    <lastBuildDate>Tue, 04 Jun 2024 17:29:25 +0000</lastBuildDate>
+    <lastBuildDate>Wed, 12 Jun 2024 11:24:20 +0000</lastBuildDate>
     <ttl>60</ttl>
     <item>
-      <title>CVE-2024-30251|2024-05-02T13:55:06.135Z -- aio-libs -- aiohttp
+      <title>CVE-2023-49081|2024-01-29T14:10:37.384Z -- aio-libs -- aiohttp
+</title>
+      <link>https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2023-49081</link>
+      <description>aiohttp is an asynchronous HTTP client/server framework for asyncio and Python. Improper validation made it possible for an attacker to modify the HTTP request (e.g. to insert a new header) or create a new HTTP request if the attacker controls the HTTP version. The vulnerability only occurs if the attacker can control the HTTP version of the request. This issue has been patched in version 3.9.0.</description>
+      <guid isPermaLink="false">CVE-2023-49081|2024-01-29T14:10:37.384Z</guid>
+      <pubDate>Thu, 30 Nov 2023 06:56:26 +0000</pubDate>
+    </item>
+    <item>
+      <title>CVE-2023-49082|2024-01-29T14:11:02.945Z -- aio-libs -- aiohttp
+</title>
+      <link>https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2023-49082</link>
+      <description>aiohttp is an asynchronous HTTP client/server framework for asyncio and Python. Improper validation makes it possible for an attacker to modify the HTTP request (e.g. insert a new header) or even create a new HTTP request if the attacker controls the HTTP method. The vulnerability occurs only if the attacker can control the HTTP method (GET, POST etc.) of the request. If the attacker can control the HTTP version of the request it will be able to modify the request (request smuggling). This issue has been patched in version 3.9.0.</description>
+      <guid isPermaLink="false">CVE-2023-49082|2024-01-29T14:11:02.945Z</guid>
+      <pubDate>Wed, 29 Nov 2023 20:07:29 +0000</pubDate>
+    </item>
+    <item>
+      <title>CVE-2023-47627|2023-11-14T20:48:48.076Z -- aio-libs -- aiohttp
+</title>
+      <link>https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2023-47627</link>
+      <description>aiohttp is an asynchronous HTTP client/server framework for asyncio and Python. The HTTP parser in AIOHTTP has numerous problems with header parsing, which could lead to request smuggling. This parser is only used when AIOHTTP_NO_EXTENSIONS is enabled (or not using a prebuilt wheel). These bugs have been addressed in commit `d5c12ba89` which has been included in release version 3.8.6. Users are advised to upgrade. There are no known workarounds for these issues.</description>
+      <guid isPermaLink="false">CVE-2023-47627|2023-11-14T20:48:48.076Z</guid>
+      <pubDate>Tue, 14 Nov 2023 20:48:48 +0000</pubDate>
+    </item>
+    <item>
+      <title>CVE-2023-47641|2023-11-14T20:44:08.989Z -- aio-libs -- aiohttp
+</title>
+      <link>https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2023-47641</link>
+      <description>aiohttp is an asynchronous HTTP client/server framework for asyncio and Python. Affected versions of aiohttp have a security vulnerability regarding the inconsistent interpretation of the http protocol. HTTP/1.1 is a persistent protocol, if both Content-Length(CL) and Transfer-Encoding(TE) header values are present it can lead to incorrect interpretation of two entities that parse the HTTP and we can poison other sockets with this incorrect interpretation. A possible Proof-of-Concept (POC) would be a configuration with a reverse proxy(frontend) that accepts both CL and TE headers and aiohttp as backend. As aiohttp parses anything with chunked, we can pass a chunked123 as TE, the frontend entity will ignore this header and will parse Content-Length. The impact of this vulnerability is that it is possible to bypass any proxy rule, poisoning sockets to other users like passing Authentication Headers, also if it is present an Open Redirect an attacker could combine it to redirect random users to another website and log the request. This vulnerability has been addressed in release 3.8.0 of aiohttp. Users are advised to upgrade. There are no known workarounds for this vulnerability.</description>
+      <guid isPermaLink="false">CVE-2023-47641|2023-11-14T20:44:08.989Z</guid>
+      <pubDate>Tue, 14 Nov 2023 20:44:08 +0000</pubDate>
+    </item>
+    <item>
+      <title>CVE-2023-37276|2023-07-19T19:39:19.240Z -- aio-libs -- aiohttp
+</title>
+      <link>https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2023-37276</link>
+      <description>aiohttp is an asynchronous HTTP client/server framework for asyncio and Python. aiohttp v3.8.4 and earlier are bundled with llhttp v6.0.6. Vulnerable code is used by aiohttp for its HTTP request parser when available which is the default case when installing from a wheel. This vulnerability only affects users of aiohttp as an HTTP server (ie `aiohttp.Application`), you are not affected by this vulnerability if you are using aiohttp as an HTTP client library (ie `aiohttp.ClientSession`). Sending a crafted HTTP request will cause the server to misinterpret one of the HTTP header values leading to HTTP request smuggling. This issue has been addressed in version 3.8.5. Users are advised to upgrade. Users unable to upgrade can reinstall aiohttp using `AIOHTTP_NO_EXTENSIONS=1` as an environment variable to disable the llhttp HTTP request parser implementation. The pure Python implementation isn't vulnerable.</description>
+      <guid isPermaLink="false">CVE-2023-37276|2023-07-19T19:39:19.240Z</guid>
+      <pubDate>Wed, 19 Jul 2023 19:39:19 +0000</pubDate>
+    </item>
+    <item>
+      <title>CVE-2024-27305|2024-03-12T20:29:54.592Z -- aio-libs -- aiosmtpd
+</title>
+      <link>https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2024-27305</link>
+      <description>aiosmtpd is a reimplementation of the Python stdlib smtpd.py based on asyncio. aiosmtpd is vulnerable to inbound SMTP smuggling. SMTP smuggling is a novel vulnerability based on not so novel interpretation differences of the SMTP protocol. By exploiting SMTP smuggling, an attacker may send smuggle/spoof e-mails with fake sender addresses, allowing advanced phishing attacks. This issue is also existed in other SMTP software like Postfix. With the right SMTP server constellation, an attacker can send spoofed e-mails to inbound/receiving aiosmtpd instances. This issue has been addressed in version 1.4.5. Users are advised to upgrade. There are no known workarounds for this vulnerability.</description>
+      <guid isPermaLink="false">CVE-2024-27305|2024-03-12T20:29:54.592Z</guid>
+      <pubDate>Tue, 12 Mar 2024 20:29:54 +0000</pubDate>
+    </item>
+    <item>
+      <title>CVE-2024-27306|2024-06-04T17:46:31.150Z -- aio-libs -- aiohttp
+</title>
+      <link>https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2024-27306</link>
+      <description>aiohttp is an asynchronous HTTP client/server framework for asyncio and Python. A XSS vulnerability exists on index pages for static file handling. This vulnerability is fixed in 3.9.4. We have always recommended using a reverse proxy server (e.g. nginx) for serving static files. Users following the recommendation are unaffected. Other users can disable `show_index` if unable to upgrade.</description>
+      <guid isPermaLink="false">CVE-2024-27306|2024-06-04T17:46:31.150Z</guid>
+      <pubDate>Thu, 18 Apr 2024 14:23:25 +0000</pubDate>
+    </item>
+    <item>
+      <title>CVE-2024-23829|2024-01-29T22:41:35.032Z -- aio-libs -- aiohttp
+</title>
+      <link>https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2024-23829</link>
+      <description>aiohttp is an asynchronous HTTP client/server framework for asyncio and Python. Security-sensitive parts of the Python HTTP parser retained minor differences in allowable character sets, that must trigger error handling to robustly match frame boundaries of proxies in order to protect against injection of additional requests. Additionally, validation could trigger exceptions that were not handled consistently with processing of other malformed input.  Being more lenient than internet standards require could, depending on deployment environment, assist in request smuggling. The unhandled exception could cause excessive resource consumption on the application server and/or its logging facilities. This vulnerability exists due to an incomplete fix for CVE-2023-47627. Version 3.9.2 fixes this vulnerability.</description>
+      <guid isPermaLink="false">CVE-2024-23829|2024-01-29T22:41:35.032Z</guid>
+      <pubDate>Mon, 29 Jan 2024 22:41:35 +0000</pubDate>
+    </item>
+    <item>
+      <title>CVE-2024-23334|2024-01-29T22:41:39.584Z -- aio-libs -- aiohttp
+</title>
+      <link>https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2024-23334</link>
+      <description>aiohttp is an asynchronous HTTP client/server framework for asyncio and Python. When using aiohttp as a web server and configuring static routes, it is necessary to specify the root path for static files. Additionally, the option 'follow_symlinks' can be used to determine whether to follow symbolic links outside the static root directory. When 'follow_symlinks' is set to True, there is no validation to check if reading a file is within the root directory. This can lead to directory traversal vulnerabilities, resulting in unauthorized access to arbitrary files on the system, even when symlinks are not present.  Disabling follow_symlinks and using a reverse proxy are encouraged mitigations.  Version 3.9.2 fixes this issue.</description>
+      <guid isPermaLink="false">CVE-2024-23334|2024-01-29T22:41:39.584Z</guid>
+      <pubDate>Mon, 29 Jan 2024 22:41:39 +0000</pubDate>
+    </item>
+    <item>
+      <title>CVE-2024-34083|2024-06-04T17:42:19.001Z -- aio-libs -- aiosmtpd
+</title>
+      <link>https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2024-34083</link>
+      <description>aiosmptd is  a reimplementation of the Python stdlib smtpd.py based on asyncio. Prior to version 1.4.6, servers based on aiosmtpd accept extra unencrypted commands after STARTTLS, treating them as if they came from inside the encrypted connection. This could be exploited by a man-in-the-middle attack. Version 1.4.6 contains a patch for the issue.</description>
+      <guid isPermaLink="false">CVE-2024-34083|2024-06-04T17:42:19.001Z</guid>
+      <pubDate>Sat, 18 May 2024 18:12:19 +0000</pubDate>
+    </item>
+    <item>
+      <title>CVE-2024-30251|2024-06-04T17:38:32.295Z -- aio-libs -- aiohttp
 </title>
       <link>https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2024-30251</link>
       <description>aiohttp is an asynchronous HTTP client/server framework for asyncio and Python. In affected versions an attacker can send a specially crafted POST (multipart/form-data) request. When the aiohttp server processes it, the server will enter an infinite loop and be unable to process any further requests. An attacker can stop the application from serving requests after sending a single request. This issue has been addressed in version 3.9.4. Users are advised to upgrade. Users unable to upgrade may manually apply a patch to their systems. Please see the linked GHSA for instructions.</description>
-      <guid isPermaLink="false">CVE-2024-30251|2024-05-02T13:55:06.135Z</guid>
+      <guid isPermaLink="false">CVE-2024-30251|2024-06-04T17:38:32.295Z</guid>
       <pubDate>Thu, 02 May 2024 13:55:06 +0000</pubDate>
     </item>
   </channel>

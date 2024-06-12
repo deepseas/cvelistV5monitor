@@ -6,8 +6,62 @@
     <description>The latest CVEs for parse-community -- parse-server</description>
     <docs>http://www.rssboard.org/rss-specification</docs>
     <generator>python-feedgen</generator>
-    <lastBuildDate>Tue, 04 Jun 2024 17:29:27 +0000</lastBuildDate>
+    <lastBuildDate>Wed, 12 Jun 2024 11:24:22 +0000</lastBuildDate>
     <ttl>60</ttl>
+    <item>
+      <title>CVE-2023-22474|2023-02-03T19:57:09.413Z -- parse-community -- parse-server
+</title>
+      <link>https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2023-22474</link>
+      <description>Parse Server is an open source backend that can be deployed to any infrastructure that can run Node.js. Parse Server uses the request header `x-forwarded-for` to determine the client IP address. If Parse Server doesn't run behind a proxy server, then a client can set this header and Parse Server will trust the value of the header. The incorrect client IP address will be used by various features in Parse Server. This allows to circumvent the security mechanism of the Parse Server option `masterKeyIps` by setting an allowed IP address as the `x-forwarded-for` header value. This issue has been patched in version 5.4.1. The mechanism to determine the client IP address has been rewritten. The correct IP address determination now requires to set the Parse Server option `trustProxy`. </description>
+      <guid isPermaLink="false">CVE-2023-22474|2023-02-03T19:57:09.413Z</guid>
+      <pubDate>Fri, 03 Feb 2023 19:57:09 +0000</pubDate>
+    </item>
+    <item>
+      <title>CVE-2023-32689|2023-05-30T17:27:18.120Z -- parse-community -- parse-server
+</title>
+      <link>https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2023-32689</link>
+      <description>Parse Server is an open source backend that can be deployed to any infrastructure that can run Node.js. Versions prior to 5.4.4 and 6.1.1 are vulnerable to a phishing attack vulnerability that involves a user uploading malicious files. A malicious user could upload an HTML file to Parse Server via its public API. That HTML file would then be accessible at the internet domain at which Parse Server is hosted. The URL of the the uploaded HTML could be shared for phishing attacks. The HTML page may seem legitimate because it is served under the internet domain where Parse Server is hosted, which may be the same as a company's official website domain.
+
+An additional security issue arises when the Parse JavaScript SDK is used. The SDK stores sessions in the internet browser's local storage, which usually restricts data access depending on the internet domain. A malicious HTML file could contain a script that retrieves the user's session token from local storage and then share it with the attacker.
+
+The fix included in versions 5.4.4 and 6.1.1 adds a new Parse Server option `fileUpload.fileExtensions` to restrict file upload on Parse Server by file extension. It is recommended to restrict file upload for HTML file extensions, which this fix disables by default. If an app requires upload of files with HTML file extensions, the option can be set to `['.*']` or another custom value to override the default.</description>
+      <guid isPermaLink="false">CVE-2023-32689|2023-05-30T17:27:18.120Z</guid>
+      <pubDate>Tue, 30 May 2023 17:27:18 +0000</pubDate>
+    </item>
+    <item>
+      <title>CVE-2023-36475|2023-06-28T22:32:10.081Z -- parse-community -- parse-server
+</title>
+      <link>https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2023-36475</link>
+      <description>Parse Server is an open source backend that can be deployed to any infrastructure that can run Node.js. Prior to versions 5.5.2 and 6.2.1, an attacker can use a prototype pollution sink to trigger a remote code execution through the MongoDB BSON parser. A patch is available in versions 5.5.2 and 6.2.1.</description>
+      <guid isPermaLink="false">CVE-2023-36475|2023-06-28T22:32:10.081Z</guid>
+      <pubDate>Wed, 28 Jun 2023 22:32:10 +0000</pubDate>
+    </item>
+    <item>
+      <title>CVE-2023-46119|2023-10-25T00:03:55.774Z -- parse-community -- parse-server
+</title>
+      <link>https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2023-46119</link>
+      <description>Parse Server is an open source backend that can be deployed to any infrastructure that can run Node.js. Parse Server crashes when uploading a file without extension. This vulnerability has been patched in versions 5.5.6 and 6.3.1.
+
+</description>
+      <guid isPermaLink="false">CVE-2023-46119|2023-10-25T00:03:55.774Z</guid>
+      <pubDate>Wed, 25 Oct 2023 00:03:55 +0000</pubDate>
+    </item>
+    <item>
+      <title>CVE-2023-41058|2023-09-04T22:39:55.276Z -- parse-community -- parse-server
+</title>
+      <link>https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2023-41058</link>
+      <description>Parse Server is an open source backend server. In affected versions the Parse Cloud trigger `beforeFind` is not invoked in certain conditions of `Parse.Query`. This can pose a vulnerability for deployments where the `beforeFind` trigger is used as a security layer to modify the incoming query. The vulnerability has been fixed by refactoring the internal query pipeline for a more concise code structure and implementing a patch to ensure the `beforeFind` trigger is invoked. This fix was introduced in commit `be4c7e23c6` and has been included in releases 6.2.2 and 5.5.5. Users are advised to upgrade. Users unable to upgrade should make use of parse server's security layers to manage access levels with Class-Level Permissions and Object-Level Access Control that should be used instead of custom security layers in Cloud Code triggers.</description>
+      <guid isPermaLink="false">CVE-2023-41058|2023-09-04T22:39:55.276Z</guid>
+      <pubDate>Mon, 04 Sep 2023 22:39:55 +0000</pubDate>
+    </item>
+    <item>
+      <title>CVE-2024-29027|2024-03-19T18:57:24.782Z -- parse-community -- parse-server
+</title>
+      <link>https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2024-29027</link>
+      <description>Parse Server is an open source backend that can be deployed to any infrastructure that can run Node.js. Prior to versions 6.5.5 and 7.0.0-alpha.29, calling an invalid Parse Server Cloud Function name or Cloud Job name crashes the server and may allow for code injection, internal store manipulation or remote code execution. The patch in versions 6.5.5 and 7.0.0-alpha.29 added string sanitation for Cloud Function name and Cloud Job name. As a workaround, sanitize the Cloud Function name and Cloud Job name before it reaches Parse Server.</description>
+      <guid isPermaLink="false">CVE-2024-29027|2024-03-19T18:57:24.782Z</guid>
+      <pubDate>Tue, 19 Mar 2024 18:57:24 +0000</pubDate>
+    </item>
     <item>
       <title>CVE-2024-27298|2024-03-01T17:48:52.919Z -- parse-community -- parse-server
 </title>

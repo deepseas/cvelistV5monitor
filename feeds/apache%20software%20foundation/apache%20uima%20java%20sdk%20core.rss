@@ -1,0 +1,57 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<rss xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/" version="2.0">
+  <channel>
+    <title>CVE Feed for Apache Software Foundation -- Apache UIMA Java SDK Core</title>
+    <link>https://raw.githubusercontent.com/deepseas/cvelistV5monitor/main/feeds/apache%20software%20foundation/apache%20uima%20java%20sdk%20core.rss</link>
+    <description>The latest CVEs for Apache Software Foundation -- Apache UIMA Java SDK Core</description>
+    <docs>http://www.rssboard.org/rss-specification</docs>
+    <generator>python-feedgen</generator>
+    <lastBuildDate>Wed, 12 Jun 2024 11:24:46 +0000</lastBuildDate>
+    <ttl>60</ttl>
+    <item>
+      <title>CVE-2023-39913|2023-11-08T08:04:23.911Z -- apache%20software%20foundation -- apache%20uima%20java%20sdk%20core
+</title>
+      <link>https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2023-39913</link>
+      <description>Deserialization of Untrusted Data, Improper Input Validation vulnerability in Apache UIMA Java SDK, Apache UIMA Java SDK, Apache UIMA Java SDK, Apache UIMA Java SDK.This issue affects Apache UIMA Java SDK: before 3.5.0.
+
+Users are recommended to upgrade to version 3.5.0, which fixes the issue.
+
+There are several locations in the code where serialized Java objects are deserialized without verifying the data. This affects in particular:
+  *  the deserialization of a Java-serialized CAS, but also other binary CAS formats that include TSI information using the CasIOUtils class;
+  *  the CAS Editor Eclipse plugin which uses the the CasIOUtils class to load data;
+  *  the deserialization of a Java-serialized CAS of the Vinci Analysis Engine service which can receive using Java-serialized CAS objects over network connections;
+  *  the CasAnnotationViewerApplet and the CasTreeViewerApplet;
+  *  the checkpointing feature of the CPE module.
+
+Note that the UIMA framework by default does not start any remotely accessible services (i.e. Vinci) that would be vulnerable to this issue. A user or developer would need to make an active choice to start such a service. However, users or developers may use the CasIOUtils in their own applications and services to parse serialized CAS data. They are affected by this issue unless they ensure that the data passed to CasIOUtils is not a serialized Java object.
+
+When using Vinci or using CasIOUtils in own services/applications, the unrestricted deserialization of Java-serialized CAS files may allow arbitrary (remote) code execution.
+
+As a remedy, it is possible to set up a global or context-specific ObjectInputFilter (cf.  https://openjdk.org/jeps/290  and  https://openjdk.org/jeps/415 ) if running UIMA on a Java version that supports it. 
+
+Note that Java 1.8 does not support the ObjectInputFilter, so there is no remedy when running on this out-of-support platform. An upgrade to a recent Java version is strongly recommended if you need to secure an UIMA version that is affected by this issue.
+
+To mitigate the issue on a Java 9+ platform, you can configure a filter pattern through the "jdk.serialFilter" system property using a semicolon as a separator:
+
+To allow deserializing Java-serialized binary CASes, add the classes:
+  *  org.apache.uima.cas.impl.CASCompleteSerializer
+  *  org.apache.uima.cas.impl.CASMgrSerializer
+  *  org.apache.uima.cas.impl.CASSerializer
+  *  java.lang.String
+
+To allow deserializing CPE Checkpoint data, add the following classes (and any custom classes your application uses to store its checkpoints):
+  *  org.apache.uima.collection.impl.cpm.CheckpointData
+  *  org.apache.uima.util.ProcessTrace
+  *  org.apache.uima.util.impl.ProcessTrace_impl
+  *  org.apache.uima.collection.base_cpm.SynchPoint
+
+Make sure to use "!*" as the final component to the filter pattern to disallow deserialization of any classes not listed in the pattern.
+
+Apache UIMA 3.5.0 uses tightly scoped ObjectInputFilters when reading Java-serialized data depending on the type of data being expected. Configuring a global filter is not necessary with this version.
+
+</description>
+      <guid isPermaLink="false">CVE-2023-39913|2023-11-08T08:04:23.911Z</guid>
+      <pubDate>Wed, 08 Nov 2023 08:04:23 +0000</pubDate>
+    </item>
+  </channel>
+</rss>

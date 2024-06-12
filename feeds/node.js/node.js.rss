@@ -6,8 +6,240 @@
     <description>The latest CVEs for Node.js -- Node.js</description>
     <docs>http://www.rssboard.org/rss-specification</docs>
     <generator>python-feedgen</generator>
-    <lastBuildDate>Tue, 04 Jun 2024 17:29:24 +0000</lastBuildDate>
+    <lastBuildDate>Wed, 12 Jun 2024 11:24:19 +0000</lastBuildDate>
     <ttl>60</ttl>
+    <item>
+      <title>CVE-2023-38552|2023-10-18T03:55:18.483Z -- node.js -- node.js
+</title>
+      <link>https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2023-38552</link>
+      <description>When the Node.js policy feature checks the integrity of a resource against a trusted manifest, the application can intercept the operation and return a forged checksum to the node's policy implementation, thus effectively disabling the integrity check.
+Impacts:
+This vulnerability affects all users using the experimental policy mechanism in all active release lines: 18.x and, 20.x.
+Please note that at the time this CVE was issued, the policy mechanism is an experimental feature of Node.js.</description>
+      <guid isPermaLink="false">CVE-2023-38552|2023-10-18T03:55:18.483Z</guid>
+      <pubDate>Wed, 18 Oct 2023 03:55:18 +0000</pubDate>
+    </item>
+    <item>
+      <title>CVE-2023-39331|2023-11-08T01:01:38.613Z -- node.js -- node.js
+</title>
+      <link>https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2023-39331</link>
+      <description>A previously disclosed vulnerability (CVE-2023-30584) was patched insufficiently in commit 205f1e6. The new path traversal vulnerability arises because the implementation does not protect itself against the application overwriting built-in utility functions with user-defined implementations.
+
+Please note that at the time this CVE was issued, the permission model is an experimental feature of Node.js.</description>
+      <guid isPermaLink="false">CVE-2023-39331|2023-11-08T01:01:38.613Z</guid>
+      <pubDate>Wed, 18 Oct 2023 03:55:18 +0000</pubDate>
+    </item>
+    <item>
+      <title>CVE-2023-39332|2023-11-03T18:13:19.935Z -- node.js -- node.js
+</title>
+      <link>https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2023-39332</link>
+      <description>Various `node:fs` functions allow specifying paths as either strings or `Uint8Array` objects. In Node.js environments, the `Buffer` class extends the `Uint8Array` class. Node.js prevents path traversal through strings (see CVE-2023-30584) and `Buffer` objects (see CVE-2023-32004), but not through non-`Buffer` `Uint8Array` objects.&#13;
+&#13;
+This is distinct from CVE-2023-32004 which only referred to `Buffer` objects. However, the vulnerability follows the same pattern using `Uint8Array` instead of `Buffer`.&#13;
+&#13;
+Please note that at the time this CVE was issued, the permission model is an experimental feature of Node.js.</description>
+      <guid isPermaLink="false">CVE-2023-39332|2023-11-03T18:13:19.935Z</guid>
+      <pubDate>Wed, 18 Oct 2023 03:55:18 +0000</pubDate>
+    </item>
+    <item>
+      <title>CVE-2023-32005|2023-09-12T01:36:55.851Z -- node.js -- node.js
+</title>
+      <link>https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2023-32005</link>
+      <description>A vulnerability has been identified in Node.js version 20, affecting users of the experimental permission model when the --allow-fs-read flag is used with a non-* argument.
+
+This flaw arises from an inadequate permission model that fails to restrict file stats through the `fs.statfs` API. As a result, malicious actors can retrieve stats from files that they do not have explicit read access to.
+
+This vulnerability affects all users using the experimental permission model in Node.js 20.
+
+Please note that at the time this CVE was issued, the permission model is an experimental feature of Node.js.</description>
+      <guid isPermaLink="false">CVE-2023-32005|2023-09-12T01:36:55.851Z</guid>
+      <pubDate>Tue, 12 Sep 2023 01:36:55 +0000</pubDate>
+    </item>
+    <item>
+      <title>CVE-2023-32004|2023-08-15T15:10:19.152Z -- node.js -- node.js
+</title>
+      <link>https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2023-32004</link>
+      <description>A vulnerability has been discovered in Node.js version 20, specifically within the experimental permission model. This flaw relates to improper handling of Buffers in file system APIs causing a traversal path to bypass when verifying file permissions.
+
+This vulnerability affects all users using the experimental permission model in Node.js 20.
+
+Please note that at the time this CVE was issued, the permission model is an experimental feature of Node.js.</description>
+      <guid isPermaLink="false">CVE-2023-32004|2023-08-15T15:10:19.152Z</guid>
+      <pubDate>Tue, 15 Aug 2023 15:10:19 +0000</pubDate>
+    </item>
+    <item>
+      <title>CVE-2023-32003|2023-08-15T15:10:29.363Z -- node.js -- node.js
+</title>
+      <link>https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2023-32003</link>
+      <description>`fs.mkdtemp()` and `fs.mkdtempSync()` can be used to bypass the permission model check using a path traversal attack. This flaw arises from a missing check in the fs.mkdtemp() API and the impact is a malicious actor could create an arbitrary directory.
+
+This vulnerability affects all users using the experimental permission model in Node.js 20.
+
+Please note that at the time this CVE was issued, the permission model is an experimental feature of Node.js.</description>
+      <guid isPermaLink="false">CVE-2023-32003|2023-08-15T15:10:29.363Z</guid>
+      <pubDate>Tue, 15 Aug 2023 15:10:29 +0000</pubDate>
+    </item>
+    <item>
+      <title>CVE-2023-32002|2023-08-21T16:52:42.147Z -- node.js -- node.js
+</title>
+      <link>https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2023-32002</link>
+      <description>The use of `Module._load()` can bypass the policy mechanism and require modules outside of the policy.json definition for a given module.
+
+This vulnerability affects all users using the experimental policy mechanism in all active release lines: 16.x, 18.x and, 20.x.
+
+Please note that at the time this CVE was issued, the policy is an experimental feature of Node.js.</description>
+      <guid isPermaLink="false">CVE-2023-32002|2023-08-21T16:52:42.147Z</guid>
+      <pubDate>Mon, 21 Aug 2023 16:52:42 +0000</pubDate>
+    </item>
+    <item>
+      <title>CVE-2023-32559|2023-08-24T01:23:29.038Z -- node.js -- node.js
+</title>
+      <link>https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2023-32559</link>
+      <description>A privilege escalation vulnerability exists in the experimental policy mechanism in all active release lines: 16.x, 18.x and, 20.x. The use of the deprecated API `process.binding()` can bypass the policy mechanism by requiring internal modules and eventually take advantage of `process.binding('spawn_sync')` run arbitrary code, outside of the limits defined in a `policy.json` file. Please note that at the time this CVE was issued, the policy is an experimental feature of Node.js.</description>
+      <guid isPermaLink="false">CVE-2023-32559|2023-08-24T01:23:29.038Z</guid>
+      <pubDate>Thu, 24 Aug 2023 01:23:29 +0000</pubDate>
+    </item>
+    <item>
+      <title>CVE-2023-32558|2023-09-12T01:36:55.861Z -- node.js -- node.js
+</title>
+      <link>https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2023-32558</link>
+      <description>The use of the deprecated API `process.binding()` can bypass the permission model through path traversal. 
+
+This vulnerability affects all users using the experimental permission model in Node.js 20.x.
+
+Please note that at the time this CVE was issued, the permission model is an experimental feature of Node.js.</description>
+      <guid isPermaLink="false">CVE-2023-32558|2023-09-12T01:36:55.861Z</guid>
+      <pubDate>Tue, 12 Sep 2023 01:36:55 +0000</pubDate>
+    </item>
+    <item>
+      <title>CVE-2023-32006|2023-08-15T15:10:09.447Z -- node.js -- node.js
+</title>
+      <link>https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2023-32006</link>
+      <description>The use of `module.constructor.createRequire()` can bypass the policy mechanism and require modules outside of the policy.json definition for a given module.
+
+This vulnerability affects all users using the experimental policy mechanism in all active release lines: 16.x, 18.x, and, 20.x.
+
+Please note that at the time this CVE was issued, the policy is an experimental feature of Node.js.</description>
+      <guid isPermaLink="false">CVE-2023-32006|2023-08-15T15:10:09.447Z</guid>
+      <pubDate>Tue, 15 Aug 2023 15:10:09 +0000</pubDate>
+    </item>
+    <item>
+      <title>CVE-2023-30585|2023-11-28T01:23:08.734Z -- node.js -- node.js
+</title>
+      <link>https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2023-30585</link>
+      <description>A vulnerability has been identified in the Node.js (.msi version) installation process, specifically affecting Windows users who install Node.js using the .msi installer. This vulnerability emerges during the repair operation, where the "msiexec.exe" process, running under the NT AUTHORITY\SYSTEM context, attempts to read the %USERPROFILE% environment variable from the current user's registry.
+
+The issue arises when the path referenced by the %USERPROFILE% environment variable does not exist. In such cases, the "msiexec.exe" process attempts to create the specified path in an unsafe manner, potentially leading to the creation of arbitrary folders in arbitrary locations.
+
+The severity of this vulnerability is heightened by the fact that the %USERPROFILE% environment variable in the Windows registry can be modified by standard (or "non-privileged") users. Consequently, unprivileged actors, including malicious entities or trojans, can manipulate the environment variable key to deceive the privileged "msiexec.exe" process. This manipulation can result in the creation of folders in unintended and potentially malicious locations.
+
+It is important to note that this vulnerability is specific to Windows users who install Node.js using the .msi installer. Users who opt for other installation methods are not affected by this particular issue.</description>
+      <guid isPermaLink="false">CVE-2023-30585|2023-11-28T01:23:08.734Z</guid>
+      <pubDate>Tue, 28 Nov 2023 01:23:08 +0000</pubDate>
+    </item>
+    <item>
+      <title>CVE-2023-30588|2023-11-28T19:15:19.430Z -- node.js -- node.js
+</title>
+      <link>https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2023-30588</link>
+      <description>When an invalid public key is used to create an x509 certificate using the crypto.X509Certificate() API a non-expect termination occurs making it susceptible to DoS attacks when the attacker could force interruptions of application processing, as the process terminates when accessing public key info of provided certificates from user code. The current context of the users will be gone, and that will cause a DoS scenario. This vulnerability affects all active Node.js versions v16, v18, and, v20.</description>
+      <guid isPermaLink="false">CVE-2023-30588|2023-11-28T19:15:19.430Z</guid>
+      <pubDate>Tue, 28 Nov 2023 19:15:19 +0000</pubDate>
+    </item>
+    <item>
+      <title>CVE-2023-30590|2023-11-28T19:15:19.447Z -- node.js -- node.js
+</title>
+      <link>https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2023-30590</link>
+      <description>The generateKeys() API function returned from crypto.createDiffieHellman() only generates missing (or outdated) keys, that is, it only generates a private key if none has been set yet, but the function is also needed to compute the corresponding public key after calling setPrivateKey(). However, the documentation says this API call: "Generates private and public Diffie-Hellman key values".
+
+The documented behavior is very different from the actual behavior, and this difference could easily lead to security issues in applications that use these APIs as the DiffieHellman may be used as the basis for application-level security, implications are consequently broad.</description>
+      <guid isPermaLink="false">CVE-2023-30590|2023-11-28T19:15:19.447Z</guid>
+      <pubDate>Tue, 28 Nov 2023 19:15:19 +0000</pubDate>
+    </item>
+    <item>
+      <title>CVE-2023-30581|2023-11-22T23:28:30.768Z -- node.js -- node.js
+</title>
+      <link>https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2023-30581</link>
+      <description>The use of __proto__ in process.mainModule.__proto__.require() can bypass the policy mechanism and require modules outside of the policy.json definition. This vulnerability affects all users using the experimental policy mechanism in all active release lines: v16, v18 and, v20.
+
+Please note that at the time this CVE was issued, the policy is an experimental feature of Node.js</description>
+      <guid isPermaLink="false">CVE-2023-30581|2023-11-22T23:28:30.768Z</guid>
+      <pubDate>Wed, 22 Nov 2023 23:28:30 +0000</pubDate>
+    </item>
+    <item>
+      <title>CVE-2024-22019|2024-06-04T17:52:49.946Z -- node.js -- node.js
+</title>
+      <link>https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2024-22019</link>
+      <description>A vulnerability in Node.js HTTP servers allows an attacker to send a specially crafted HTTP request with chunked encoding, leading to resource exhaustion and denial of service (DoS). The server reads an unbounded number of bytes from a single connection, exploiting the lack of limitations on chunk extension bytes. The issue can cause CPU and network bandwidth exhaustion, bypassing standard safeguards like timeouts and body size limits.</description>
+      <guid isPermaLink="false">CVE-2024-22019|2024-06-04T17:52:49.946Z</guid>
+      <pubDate>Tue, 20 Feb 2024 01:31:08 +0000</pubDate>
+    </item>
+    <item>
+      <title>CVE-2024-22025|2024-03-19T04:32:34.211Z -- node.js -- node.js
+</title>
+      <link>https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2024-22025</link>
+      <description>A vulnerability in Node.js has been identified, allowing for a Denial of Service (DoS) attack through resource exhaustion when using the fetch() function to retrieve content from an untrusted URL.
+The vulnerability stems from the fact that the fetch() function in Node.js always decodes Brotli, making it possible for an attacker to cause resource exhaustion when fetching content from an untrusted URL.
+An attacker controlling the URL passed into fetch() can exploit this vulnerability to exhaust memory, potentially leading to process termination, depending on the system configuration.</description>
+      <guid isPermaLink="false">CVE-2024-22025|2024-03-19T04:32:34.211Z</guid>
+      <pubDate>Tue, 19 Mar 2024 04:32:34 +0000</pubDate>
+    </item>
+    <item>
+      <title>CVE-2024-22017|2024-03-19T04:32:34.137Z -- node.js -- node.js
+</title>
+      <link>https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2024-22017</link>
+      <description>setuid() does not affect libuv's internal io_uring operations if initialized before the call to setuid().
+This allows the process to perform privileged operations despite presumably having dropped such privileges through a call to setuid().
+This vulnerability affects all users using version greater or equal than Node.js 18.18.0, Node.js 20.4.0 and Node.js 21.</description>
+      <guid isPermaLink="false">CVE-2024-22017|2024-03-19T04:32:34.137Z</guid>
+      <pubDate>Tue, 19 Mar 2024 04:32:34 +0000</pubDate>
+    </item>
+    <item>
+      <title>CVE-2024-21896|2024-02-20T01:31:08.176Z -- node.js -- node.js
+</title>
+      <link>https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2024-21896</link>
+      <description>The permission model protects itself against path traversal attacks by calling path.resolve() on any paths given by the user. If the path is to be treated as a Buffer, the implementation uses Buffer.from() to obtain a Buffer from the result of path.resolve(). By monkey-patching Buffer internals, namely, Buffer.prototype.utf8Write, the application can modify the result of path.resolve(), which leads to a path traversal vulnerability.
+This vulnerability affects all users using the experimental permission model in Node.js 20 and Node.js 21.
+Please note that at the time this CVE was issued, the permission model is an experimental feature of Node.js.</description>
+      <guid isPermaLink="false">CVE-2024-21896|2024-02-20T01:31:08.176Z</guid>
+      <pubDate>Tue, 20 Feb 2024 01:31:08 +0000</pubDate>
+    </item>
+    <item>
+      <title>CVE-2024-21891|2024-06-04T17:38:01.954Z -- node.js -- node.js
+</title>
+      <link>https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2024-21891</link>
+      <description>Node.js depends on multiple built-in utility functions to normalize paths provided to node:fs functions, which can be overwitten with user-defined implementations leading to filesystem permission model bypass through path traversal attack.
+This vulnerability affects all users using the experimental permission model in Node.js 20 and Node.js 21.
+Please note that at the time this CVE was issued, the permission model is an experimental feature of Node.js.</description>
+      <guid isPermaLink="false">CVE-2024-21891|2024-06-04T17:38:01.954Z</guid>
+      <pubDate>Tue, 20 Feb 2024 01:31:08 +0000</pubDate>
+    </item>
+    <item>
+      <title>CVE-2024-21890|2024-06-04T17:37:54.097Z -- node.js -- node.js
+</title>
+      <link>https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2024-21890</link>
+      <description>The Node.js Permission Model does not clarify in the documentation that wildcards should be only used as the last character of a file path. For example:
+```
+ --allow-fs-read=/home/node/.ssh/*.pub
+```
+
+will ignore `pub` and give access to everything after `.ssh/`.
+
+This misleading documentation affects all users using the experimental permission model in Node.js 20 and Node.js 21.
+
+Please note that at the time this CVE was issued, the permission model is an experimental feature of Node.js.</description>
+      <guid isPermaLink="false">CVE-2024-21890|2024-06-04T17:37:54.097Z</guid>
+      <pubDate>Tue, 20 Feb 2024 01:31:08 +0000</pubDate>
+    </item>
+    <item>
+      <title>CVE-2024-21892|2024-02-20T01:31:08.073Z -- node.js -- node.js
+</title>
+      <link>https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2024-21892</link>
+      <description>On Linux, Node.js ignores certain environment variables if those may have been set by an unprivileged user while the process is running with elevated privileges with the only exception of CAP_NET_BIND_SERVICE.
+Due to a bug in the implementation of this exception, Node.js incorrectly applies this exception even when certain other capabilities have been set.
+This allows unprivileged users to inject code that inherits the process's elevated privileges.</description>
+      <guid isPermaLink="false">CVE-2024-21892|2024-02-20T01:31:08.073Z</guid>
+      <pubDate>Tue, 20 Feb 2024 01:31:08 +0000</pubDate>
+    </item>
     <item>
       <title>CVE-2024-3566|2024-04-10T15:26:52.009Z -- node.js -- node.js
 </title>

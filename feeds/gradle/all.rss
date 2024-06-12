@@ -6,8 +6,103 @@
     <description>The latest CVEs for gradle -- all products</description>
     <docs>http://www.rssboard.org/rss-specification</docs>
     <generator>python-feedgen</generator>
-    <lastBuildDate>Tue, 04 Jun 2024 17:29:34 +0000</lastBuildDate>
+    <lastBuildDate>Wed, 12 Jun 2024 11:24:29 +0000</lastBuildDate>
     <ttl>60</ttl>
+    <item>
+      <title>CVE-2023-26053|2023-03-02T03:11:31.488Z -- gradle -- gradle
+</title>
+      <link>https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2023-26053</link>
+      <description>Gradle is a build tool with a focus on build automation and support for multi-language development. This is a collision attack on long IDs (64bits) for PGP keys. Users of dependency verification in Gradle are vulnerable if they use long IDs for PGP keys in a `trusted-key` or `pgp` element in their dependency verification metadata file. The fix is to fail dependency verification if anything but a fingerprint is used in a trust element in dependency verification metadata. The problem is fixed in Gradle 8.0 and above. The problem is also patched in Gradle 6.9.4 and 7.6.1. As a workaround, use only full fingerprint IDs for `trusted-key` or `pgp` element in the metadata is a protection against this issue.</description>
+      <guid isPermaLink="false">CVE-2023-26053|2023-03-02T03:11:31.488Z</guid>
+      <pubDate>Thu, 02 Mar 2023 03:11:31 +0000</pubDate>
+    </item>
+    <item>
+      <title>CVE-2023-42445|2023-10-06T13:52:02.982Z -- gradle -- gradle
+</title>
+      <link>https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2023-42445</link>
+      <description>Gradle is a build tool with a focus on build automation and support for multi-language development. In some cases, when Gradle parses XML files, resolving XML external entities is not disabled. Combined with an Out Of Band XXE attack (OOB-XXE), just parsing XML can lead to exfiltration of local text files to a remote server. Gradle parses XML files for several purposes. Most of the time, Gradle parses XML files it generated or were already present locally. Only Ivy XML descriptors and Maven POM files can be fetched from remote repositories and parsed by Gradle. In Gradle 7.6.3 and 8.4, resolving XML external entities has been disabled for all use cases to protect against this vulnerability. Gradle will now refuse to parse XML files that have XML external entities.
+</description>
+      <guid isPermaLink="false">CVE-2023-42445|2023-10-06T13:52:02.982Z</guid>
+      <pubDate>Fri, 06 Oct 2023 13:52:02 +0000</pubDate>
+    </item>
+    <item>
+      <title>CVE-2023-30853|2023-04-28T15:10:18.046Z -- gradle -- gradle-build-action
+</title>
+      <link>https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2023-30853</link>
+      <description>Gradle Build Action allows users to execute a Gradle Build in their GitHub Actions workflow. A vulnerability impacts GitHub workflows using the Gradle Build Action prior to version 2.4.2 that have executed the Gradle Build Tool with the configuration cache enabled, potentially exposing secrets configured for the repository.
+
+Secrets configured for GitHub Actions are normally passed to the Gradle Build Tool via environment variables. Due to the way that the Gradle Build Tool records these environment variables, they may be persisted into an entry in the GitHub Actions cache. This data stored in the GitHub Actions cache can be read by a GitHub Actions workflow running in an untrusted context, such as that running for a Pull Request submitted by a developer via a repository fork.
+
+This vulnerability was discovered internally through code review, and we have not seen any evidence of it being exploited in the wild. However, in addition to upgrading the Gradle Build Action, affected users should delete any potentially vulnerable cache entries and may choose to rotate any potentially affected secrets.
+
+Gradle Build Action v2.4.2 and newer no longer saves this sensitive data for later use, preventing ongoing leakage of secrets via the GitHub Actions Cache.
+
+While upgrading to the latest version of the Gradle Build Action will prevent leakage of secrets going forward, additional actions may be required due to current or previous GitHub Actions Cache entries containing this information.
+
+Current cache entries will remain vulnerable until they are forcibly deleted or they expire naturally after 7 days of not being used. Potentially vulnerable entries can be easily identified in the GitHub UI by searching for a cache entry with key matching `configuration-cache-*`. The maintainers recommend that users of the Gradle Build Action inspect their list of cache entries and manually delete any that match this pattern.
+
+While maintainers have not seen any evidence of this vulnerability being exploited, they recommend cycling any repository secrets if you cannot be certain that these have not been compromised. Compromise could occur if a user runs a GitHub Actions workflow for a pull request attempting to exploit this data. 
+Warning signs to look for in a pull request include:
+- Making changes to GitHub Actions workflow files in a way that may attempt to read/extract data from the Gradle User Home or `&lt;project-root&gt;/.gradle` directories.
+- Making changes to Gradle build files or other executable files that may be invoked by a GitHub Actions workflow, in a way that may attempt to read/extract information from these locations.
+
+Some workarounds to limit the impact of this vulnerability are available:
+- If the Gradle project does not opt-in to using the configuration cache, then it is not vulnerable. 
+- If the Gradle project does opt-in to using the configuration-cache by default, then the `--no-configuration-cache` command-line argument can be used to disable this feature in a GitHub Actions workflow.
+
+In any case, we recommend that users carefully inspect any pull request before approving the execution of GitHub Actions workflows. It may be prudent to require approval for all PRs from external contributors.</description>
+      <guid isPermaLink="false">CVE-2023-30853|2023-04-28T15:10:18.046Z</guid>
+      <pubDate>Fri, 28 Apr 2023 15:10:18 +0000</pubDate>
+    </item>
+    <item>
+      <title>CVE-2023-44387|2023-10-05T17:51:15.407Z -- gradle -- gradle
+</title>
+      <link>https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2023-44387</link>
+      <description>Gradle is a build tool with a focus on build automation and support for multi-language development. When copying or archiving symlinked files, Gradle resolves them but applies the permissions of the symlink itself instead of the permissions of the linked file to the resulting file. This leads to files having too much permissions given that symlinks usually are world readable and writeable. While it is unlikely this results in a direct vulnerability for the impacted build, it may open up attack vectors depending on where build artifacts end up being copied to or un-archived. In versions 7.6.3, 8.4 and above, Gradle will now properly use the permissions of the file pointed at by the symlink to set permissions of the copied or archived file.</description>
+      <guid isPermaLink="false">CVE-2023-44387|2023-10-05T17:51:15.407Z</guid>
+      <pubDate>Thu, 05 Oct 2023 17:51:15 +0000</pubDate>
+    </item>
+    <item>
+      <title>CVE-2023-35947|2023-06-30T20:18:06.263Z -- gradle -- gradle
+</title>
+      <link>https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2023-35947</link>
+      <description>Gradle is a build tool with a focus on build automation and support for multi-language development. In affected versions when unpacking Tar archives, Gradle did not check that files could be written outside of the unpack location. This could lead to important files being overwritten anywhere the Gradle process has write permissions. For a build reading Tar entries from a Tar archive, this issue could allow Gradle to disclose information from sensitive files through an arbitrary file read. To exploit this behavior, an attacker needs to either control the source of an archive already used by the build or modify the build to interact with a malicious archive. It is unlikely that this would go unnoticed. A fix has been released in Gradle 7.6.2 and 8.2 to protect against this vulnerability. Starting from these versions, Gradle will refuse to handle Tar archives which contain path traversal elements in a Tar entry name. Users are advised to upgrade. There are no known workarounds for this vulnerability.
+
+
+
+### Impact
+
+This is a path traversal vulnerability when Gradle deals with Tar archives, often referenced as TarSlip, a variant of ZipSlip.
+
+* When unpacking Tar archives, Gradle did not check that files could be written outside of the unpack location. This could lead to important files being overwritten anywhere the Gradle process has write permissions.
+* For a build reading Tar entries from a Tar archive, this issue could allow Gradle to disclose information from sensitive files through an arbitrary file read.
+
+To exploit this behavior, an attacker needs to either control the source of an archive already used by the build or modify the build to interact with a malicious archive. It is unlikely that this would go unnoticed.
+
+Gradle uses Tar archives for its [Build Cache](https://docs.gradle.org/current/userguide/build_cache.html). These archives are safe when created by Gradle. But if an attacker had control of a remote build cache server, they could inject malicious build cache entries that leverage this vulnerability. This attack vector could also be exploited if a man-in-the-middle can be performed between the remote cache and the build.
+
+### Patches
+
+A fix has been released in Gradle 7.6.2 and 8.2 to protect against this vulnerability. Starting from these versions, Gradle will refuse to handle Tar archives which contain path traversal elements in a Tar entry name.
+
+It is recommended that users upgrade to a patched version.
+
+### Workarounds
+
+There is no workaround.
+
+* If your build deals with Tar archives that you do not fully trust, you need to inspect them to confirm they do not attempt to leverage this vulnerability.
+* If you use the Gradle remote build cache, make sure only trusted parties have write access to it and that connections to the remote cache are properly secured.
+
+### References
+
+* [CWE-22: Improper Limitation of a Pathname to a Restricted Directory ('Path Traversal')](https://cwe.mitre.org/data/definitions/22.html)
+* [Gradle Build Cache](https://docs.gradle.org/current/userguide/build_cache.html)
+* [ZipSlip](https://security.snyk.io/research/zip-slip-vulnerability)
+</description>
+      <guid isPermaLink="false">CVE-2023-35947|2023-06-30T20:18:06.263Z</guid>
+      <pubDate>Fri, 30 Jun 2023 20:18:06 +0000</pubDate>
+    </item>
     <item>
       <title>CVE-2023-35946|2023-06-30T20:21:17.219Z -- gradle -- gradle
 </title>

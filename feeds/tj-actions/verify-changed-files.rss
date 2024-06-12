@@ -1,0 +1,22 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<rss xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/" version="2.0">
+  <channel>
+    <title>CVE Feed for tj-actions -- verify-changed-files</title>
+    <link>https://raw.githubusercontent.com/deepseas/cvelistV5monitor/main/feeds/tj-actions/verify-changed-files.rss</link>
+    <description>The latest CVEs for tj-actions -- verify-changed-files</description>
+    <docs>http://www.rssboard.org/rss-specification</docs>
+    <generator>python-feedgen</generator>
+    <lastBuildDate>Wed, 12 Jun 2024 11:24:38 +0000</lastBuildDate>
+    <ttl>60</ttl>
+    <item>
+      <title>CVE-2023-52137|2023-12-29T17:08:49.356Z -- tj-actions -- verify-changed-files
+</title>
+      <link>https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2023-52137</link>
+      <description>The [`tj-actions/verify-changed-files`](https://github.com/tj-actions/verify-changed-files) action allows for command injection in changed filenames, allowing an attacker to execute arbitrary code and potentially leak secrets. The [`verify-changed-files`](https://github.com/tj-actions/verify-changed-files) workflow returns the list of files changed within a workflow execution. This could potentially allow filenames that contain special characters such as `;` which can be used by an attacker to take over the [GitHub Runner](https://docs.github.com/en/actions/using-github-hosted-runners/about-github-hosted-runners) if the output value is used in a raw fashion (thus being directly replaced before execution) inside a `run` block. By running custom commands, an attacker may be able to steal secrets such as `GITHUB_TOKEN` if triggered on other events than `pull_request`.
+
+This has been patched in versions [17](https://github.com/tj-actions/verify-changed-files/releases/tag/v17) and [17.0.0](https://github.com/tj-actions/verify-changed-files/releases/tag/v17.0.0) by enabling `safe_output` by default and returning filename paths escaping special characters for bash environments.</description>
+      <guid isPermaLink="false">CVE-2023-52137|2023-12-29T17:08:49.356Z</guid>
+      <pubDate>Fri, 29 Dec 2023 17:08:49 +0000</pubDate>
+    </item>
+  </channel>
+</rss>

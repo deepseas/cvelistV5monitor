@@ -1,0 +1,33 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<rss xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/" version="2.0">
+  <channel>
+    <title>CVE Feed for Internet Computer -- Candid</title>
+    <link>https://raw.githubusercontent.com/deepseas/cvelistV5monitor/main/feeds/internet%20computer/candid.rss</link>
+    <description>The latest CVEs for Internet Computer -- Candid</description>
+    <docs>http://www.rssboard.org/rss-specification</docs>
+    <generator>python-feedgen</generator>
+    <lastBuildDate>Wed, 12 Jun 2024 11:24:27 +0000</lastBuildDate>
+    <ttl>60</ttl>
+    <item>
+      <title>CVE-2023-6245|2023-12-08T14:26:09.331Z -- internet%20computer -- candid
+</title>
+      <link>https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2023-6245</link>
+      <description>The Candid library causes a Denial of Service while 
+parsing a specially crafted payload with 'empty' data type. For example,
+ if the payload is `record { * ; empty }` and the canister interface expects `record { * }` then the Rust candid decoder treats empty as an extra field required by the type.  The problem with the type empty is that the candid Rust library wrongly categorizes empty as a recoverable error when skipping the field and thus causing an infinite decoding loop.
+
+
+Canisters using affected versions of candid
+ are exposed to denial of service by causing the decoding to run 
+indefinitely until the canister traps due to reaching maximum 
+instruction limit per execution round. Repeated exposure to the payload 
+will result in degraded performance of the canister. Note: Canisters written in Motoko are unaffected.
+
+
+
+</description>
+      <guid isPermaLink="false">CVE-2023-6245|2023-12-08T14:26:09.331Z</guid>
+      <pubDate>Fri, 08 Dec 2023 14:26:09 +0000</pubDate>
+    </item>
+  </channel>
+</rss>
