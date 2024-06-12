@@ -16,6 +16,7 @@ def create_feed(orig_vendor, orig_product="all") -> FeedGenerator:
     fg = FeedGenerator()
     rss_filename = f"feeds/{vendor}/{product}.rss"
     if os.path.isfile(rss_filename):
+        print(f"Loading existing feed {rss_filename}")
         fd = feedparser.parse(rss_filename)
         fg.title(fd.feed.title)
         fg.link(href=fd.feed.link)
@@ -214,7 +215,7 @@ def update_manifest():
 
 
 def normalize_name(name):
-    if name is None:
+    if name is None or name == "n/a":
         return None
     clean_name = urllib.parse.quote(name.lower().strip(), safe="")[:250]
     if clean_name:
