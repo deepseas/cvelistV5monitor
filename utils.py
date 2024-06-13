@@ -105,7 +105,7 @@ def generate_feeds(cve_files):
             feeds[vendor][product]["additions"] += 1
             # title, link, description, updated, published
             entry_title = f"{entry_id} -- {vendor} -- {product}\n"
-            entry_link = f"https://cve.mitre.org/cgi-bin/cvename.cgi?name={cve_id}"
+            entry_link = f"https://www.cve.org/CVERecord?id={cve_id}"
             cve_descriptions = cve["containers"]["cna"].get("descriptions")
             raw_entry_description = "\n".join([desc["value"] for desc in cve_descriptions])
             entry_description = ''.join(c for c in raw_entry_description if valid_xml_char_ordinal(c))
