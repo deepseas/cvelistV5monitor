@@ -6,60 +6,21 @@
     <description>The latest CVEs for OpenPrinting -- all products</description>
     <docs>http://www.rssboard.org/rss-specification</docs>
     <generator>python-feedgen</generator>
-    <lastBuildDate>Wed, 12 Jun 2024 11:24:19 +0000</lastBuildDate>
+    <lastBuildDate>Fri, 14 Jun 2024 04:23:29 +0000</lastBuildDate>
     <ttl>60</ttl>
     <item>
-      <title>CVE-2023-4504|2023-09-23T15:02:59.759Z -- openprinting -- cups
+      <title>CVE-2024-35235|2024-06-11T14:13:23.771Z -- openprinting -- cups
 </title>
-      <link>https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2023-4504</link>
-      <description>Due to failure in validating the length provided by an attacker-crafted PPD PostScript document, CUPS and libppd are susceptible to a heap-based buffer overflow and possibly code execution. This issue has been fixed in CUPS version 2.4.7, released in September of 2023.
-</description>
-      <guid isPermaLink="false">CVE-2023-4504|2023-09-23T15:02:59.759Z</guid>
-      <pubDate>Thu, 21 Sep 2023 22:47:41 +0000</pubDate>
-    </item>
-    <item>
-      <title>CVE-2023-32324|2023-06-01T16:04:10.994Z -- openprinting -- cups
-</title>
-      <link>https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2023-32324</link>
-      <description>OpenPrinting CUPS is an open source printing system. In versions 2.4.2 and prior, a heap buffer overflow vulnerability would allow a remote attacker to launch a denial of service (DoS) attack. A buffer overflow vulnerability in the function `format_log_line` could allow remote attackers to cause a DoS on the affected system. Exploitation of the vulnerability can be triggered when the configuration file `cupsd.conf` sets the value of `loglevel `to `DEBUG`. No known patches or workarounds exist at time of publication.</description>
-      <guid isPermaLink="false">CVE-2023-32324|2023-06-01T16:04:10.994Z</guid>
-      <pubDate>Thu, 01 Jun 2023 16:04:10 +0000</pubDate>
-    </item>
-    <item>
-      <title>CVE-2023-24805|2023-05-17T17:33:41.714Z -- openprinting -- cups-filters
-</title>
-      <link>https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2023-24805</link>
-      <description>cups-filters contains backends, filters, and other software required to get the cups printing service working on operating systems other than macos. If you use the Backend Error Handler (beh) to create an accessible network printer, this security vulnerability can cause remote code execution. `beh.c` contains the line `retval = system(cmdline) &gt;&gt; 8;` which calls the `system` command with the operand `cmdline`. `cmdline` contains multiple user controlled, unsanitized values. As a result an attacker with network access to the hosted print server can exploit this vulnerability to inject system commands which are executed in the context of the running server. This issue has been addressed in commit `8f2740357` and is expected to be bundled in the next release. Users are advised to upgrade when possible and to restrict access to network printers in the meantime.</description>
-      <guid isPermaLink="false">CVE-2023-24805|2023-05-17T17:33:41.714Z</guid>
-      <pubDate>Wed, 17 May 2023 17:33:41 +0000</pubDate>
-    </item>
-    <item>
-      <title>CVE-2023-34241|2023-06-22T22:39:32.400Z -- openprinting -- cups
-</title>
-      <link>https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2023-34241</link>
-      <description>OpenPrinting CUPS is a standards-based, open source printing system for Linux and other Unix-like operating systems. Starting in version 2.0.0 and prior to version 2.4.6, CUPS logs data of free memory to the logging service AFTER the connection has been closed, when it should have logged the data right before. This is a use-after-free bug that impacts the entire cupsd process.
-
-The exact cause of this issue is the function `httpClose(con-&gt;http)` being called in `scheduler/client.c`. The problem is that httpClose always, provided its argument is not null, frees the pointer at the end of the call, only for cupsdLogClient to pass the pointer to httpGetHostname. This issue happens in function `cupsdAcceptClient` if LogLevel is warn or higher and in two scenarios: there is a double-lookup for the IP Address (HostNameLookups Double is set in `cupsd.conf`) which fails to resolve, or if CUPS is compiled with TCP wrappers and the connection is refused by rules from `/etc/hosts.allow` and `/etc/hosts.deny`.
-
-Version 2.4.6 has a patch for this issue.</description>
-      <guid isPermaLink="false">CVE-2023-34241|2023-06-22T22:39:32.400Z</guid>
-      <pubDate>Thu, 22 Jun 2023 22:39:32 +0000</pubDate>
-    </item>
-    <item>
-      <title>CVE-2023-34095|2023-06-14T16:58:50.887Z -- openprinting -- cpdb-libs
-</title>
-      <link>https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2023-34095</link>
-      <description>cpdb-libs provides frontend and backend libraries for the Common Printing Dialog Backends (CPDB) project. In versions 1.0 through 2.0b4, cpdb-libs is vulnerable to buffer overflows via improper use of `scanf(3)`. cpdb-libs uses the `fscanf()` and `scanf()` functions to parse command lines and configuration files, dropping the read string components into fixed-length buffers, but does not limit the length of the strings to be read by `fscanf()` and `scanf()` causing buffer overflows when a string is longer than 1023 characters. A patch for this issue is available at commit f181bd1f14757c2ae0f17cc76dc20421a40f30b7. As all buffers have a length of 1024 characters, the patch limits the maximum string length to be read to 1023 by replacing all occurrences of `%s` with `%1023s` in all calls of the `fscanf()` and `scanf()` functions.
-</description>
-      <guid isPermaLink="false">CVE-2023-34095|2023-06-14T16:58:50.887Z</guid>
-      <pubDate>Wed, 14 Jun 2023 16:58:50 +0000</pubDate>
-    </item>
-    <item>
-      <title>CVE-2024-35235|2024-06-11T17:04:30.352Z -- openprinting -- cups
-</title>
-      <link>https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2024-35235</link>
+      <link>https://www.cve.org/CVERecord?id=CVE-2024-35235</link>
       <description>OpenPrinting CUPS is an open source printing system for Linux and other Unix-like operating systems. In versions 2.4.8 and earlier, when starting the cupsd server with a Listen configuration item pointing to a symbolic link, the cupsd process can be caused to perform an arbitrary chmod of the provided argument, providing world-writable access to the target. Given that cupsd is often running as root, this can result in the change of permission of any user or system files to be world writable. Given the aforementioned Ubuntu AppArmor context, on such systems this vulnerability is limited to those files modifiable by the cupsd process. In that specific case it was found to be possible to turn the configuration of the Listen argument into full control over the cupsd.conf and cups-files.conf configuration files. By later setting the User and Group arguments in cups-files.conf, and printing with a printer configured by PPD with a `FoomaticRIPCommandLine` argument, arbitrary user and group (not root) command execution could be achieved, which can further be used on Ubuntu systems to achieve full root command execution. Commit ff1f8a623e090dee8a8aadf12a6a4b25efac143d contains a patch for the issue.
 </description>
+      <guid isPermaLink="false">CVE-2024-35235|2024-06-11T14:13:23.771Z</guid>
+      <pubDate>Tue, 11 Jun 2024 14:13:23 +0000</pubDate>
+    </item>
+    <item>
+      <title>CVE-2024-35235|2024-06-11T17:04:30.352Z -- openprinting -- cups</title>
+      <link>https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2024-35235</link>
+      <description>OpenPrinting CUPS is an open source printing system for Linux and other Unix-like operating systems. In versions 2.4.8 and earlier, when starting the cupsd server with a Listen configuration item pointing to a symbolic link, the cupsd process can be caused to perform an arbitrary chmod of the provided argument, providing world-writable access to the target. Given that cupsd is often running as root, this can result in the change of permission of any user or system files to be world writable. Given the aforementioned Ubuntu AppArmor context, on such systems this vulnerability is limited to those files modifiable by the cupsd process. In that specific case it was found to be possible to turn the configuration of the Listen argument into full control over the cupsd.conf and cups-files.conf configuration files. By later setting the User and Group arguments in cups-files.conf, and printing with a printer configured by PPD with a `FoomaticRIPCommandLine` argument, arbitrary user and group (not root) command execution could be achieved, which can further be used on Ubuntu systems to achieve full root command execution. Commit ff1f8a623e090dee8a8aadf12a6a4b25efac143d contains a patch for the issue.</description>
       <guid isPermaLink="false">CVE-2024-35235|2024-06-11T17:04:30.352Z</guid>
       <pubDate>Tue, 11 Jun 2024 14:13:23 +0000</pubDate>
     </item>
