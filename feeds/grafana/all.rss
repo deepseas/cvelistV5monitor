@@ -6,11 +6,84 @@
     <description>The latest CVEs for Grafana -- all products</description>
     <docs>http://www.rssboard.org/rss-specification</docs>
     <generator>python-feedgen</generator>
-    <lastBuildDate>Wed, 12 Jun 2024 11:24:25 +0000</lastBuildDate>
+    <lastBuildDate>Tue, 18 Jun 2024 10:22:58 +0000</lastBuildDate>
     <ttl>60</ttl>
     <item>
-      <title>CVE-2023-5123|2024-02-14T16:45:44.616Z -- grafana -- grafana-json-datasource
+      <title>CVE-2023-5123|2024-06-18T09:26:49.158Z -- grafana -- grafana-json-datasource
 </title>
+      <link>https://www.cve.org/CVERecord?id=CVE-2023-5123</link>
+      <description>The JSON datasource plugin ( https://grafana.com/grafana/plugins/marcusolsson-json-datasource/ ) is a Grafana Labs maintained plugin for Grafana that allows for retrieving and processing JSON data from a remote endpoint (including a specific sub-path) configured by an administrator. Due to inadequate sanitization of the dashboard-supplied path parameter, it was possible to include path traversal characters (../) in the path parameter and send requests to paths on the configured endpoint outside the configured sub-path. 
+
+
+
+
+
+    
+    
+            
+
+
+
+
+
+
+    
+    
+            This means that if the datasource was configured by an administrator to point at some sub-path of a domain (e.g.  https://example.com/api/some_safe_api/ ), it was possible for an editor to create a dashboard referencing the datasource which issues queries containing path traversal characters, which would in turn cause the datasource to instead query arbitrary subpaths on the configured domain (e.g.  https://example.com/api/admin_api/) .
+
+In the rare case that this plugin is configured by an administrator to point back at the Grafana instance itself, this vulnerability becomes considerably more severe, as an administrator browsing a maliciously configured panel could be compelled to make requests to Grafana administrative API endpoints with their credentials, resulting in the potential for privilege escalation, hence the high score for this vulnerability.</description>
+      <guid isPermaLink="false">CVE-2023-5123|2024-06-18T09:26:49.158Z</guid>
+      <pubDate>Wed, 14 Feb 2024 15:06:11 +0000</pubDate>
+    </item>
+    <item>
+      <title>CVE-2024-1313|2024-06-10T20:46:07.773Z -- grafana -- grafana</title>
+      <link>https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2024-1313</link>
+      <description>It is possible for a user in a different organization from the owner of a snapshot to bypass authorization and delete a snapshot by issuing a DELETE request to /api/snapshots/ using its view key. This functionality is intended to only be available to individuals with the permission to write/edit to the snapshot in question, but due to a bug in the authorization logic, deletion requests issued by an unprivileged user in a different organization than the snapshot owner are treated as authorized.
+
+Grafana Labs would like to thank Ravid Mazon and Jay Chen of Palo 
+Alto Research for discovering and disclosing this vulnerability.
+
+This issue affects Grafana: from 9.5.0 before 9.5.18, from 10.0.0 before 10.0.13, from 10.1.0 before 10.1.9, from 10.2.0 before 10.2.6, from 10.3.0 before 10.3.5.</description>
+      <guid isPermaLink="false">CVE-2024-1313|2024-06-10T20:46:07.773Z</guid>
+      <pubDate>Tue, 26 Mar 2024 17:24:25 +0000</pubDate>
+    </item>
+    <item>
+      <title>CVE-2024-1442|2024-03-07T17:45:43.993Z -- grafana -- grafana</title>
+      <link>https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2024-1442</link>
+      <description>A user with the permissions to create a data source can use Grafana API to create a data source with UID set to *.
+Doing this will grant the user access to read, query, edit and delete all data sources within the organization.</description>
+      <guid isPermaLink="false">CVE-2024-1442|2024-03-07T17:45:43.993Z</guid>
+      <pubDate>Thu, 07 Mar 2024 17:45:43 +0000</pubDate>
+    </item>
+    <item>
+      <title>CVE-2024-5526|2024-06-05T13:49:42.734Z -- grafana -- oncall</title>
+      <link>https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2024-5526</link>
+      <description>Grafana OnCall is an easy-to-use on-call management tool that will help reduce toil in on-call management through simpler workflows and interfaces that are tailored specifically for engineers.
+
+Grafana OnCall, from version 1.1.37 before 1.5.2 are vulnerable to a Server Side Request Forgery (SSRF) vulnerability in the webhook functionallity. 
+
+This issue was fixed in version 1.5.2</description>
+      <guid isPermaLink="false">CVE-2024-5526|2024-06-05T13:49:42.734Z</guid>
+      <pubDate>Wed, 05 Jun 2024 11:21:06 +0000</pubDate>
+    </item>
+    <item>
+      <title>CVE-2023-6152|2024-02-13T21:38:01.404Z -- grafana -- grafana</title>
+      <link>https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2023-6152</link>
+      <description>A user changing their email after signing up and verifying it can change it without verification in profile settings.
+
+The configuration option "verify_email_enabled" will only validate email only on sign up.</description>
+      <guid isPermaLink="false">CVE-2023-6152|2024-02-13T21:38:01.404Z</guid>
+      <pubDate>Tue, 13 Feb 2024 21:38:01 +0000</pubDate>
+    </item>
+    <item>
+      <title>CVE-2023-5122|2024-06-04T17:28:44.777Z -- grafana -- grafana-csv-datasource</title>
+      <link>https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2023-5122</link>
+      <description>Grafana is an open-source platform for monitoring and observability. The CSV datasource plugin is a Grafana Labs maintained plugin for Grafana that allows for retrieving and processing CSV data from a remote endpoint configured by an administrator. If this plugin was configured to send requests to a bare host with no path (e.g.  https://www.example.com/ https://www.example.com/` ), requests to an endpoint other than the one configured by the administrator could be triggered by a specially crafted request from any user, resulting in an SSRF vector. AV:N/AC:L/PR:L/UI:N/S:C/C:L/I:N/A:N https://nvd.nist.gov/vuln-metrics/cvss/v3-calculator</description>
+      <guid isPermaLink="false">CVE-2023-5122|2024-06-04T17:28:44.777Z</guid>
+      <pubDate>Wed, 14 Feb 2024 15:06:12 +0000</pubDate>
+    </item>
+    <item>
+      <title>CVE-2023-5123|2024-02-14T16:45:44.616Z -- grafana -- grafana-json-datasource</title>
       <link>https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2023-5123</link>
       <description>The JSON datasource plugin ( https://grafana.com/grafana/plugins/marcusolsson-json-datasource/ https://grafana.com/grafana/plugins/marcusolsson-json-datasource/ ) is a Grafana Labs maintained plugin for Grafana that allows for retrieving and processing JSON data from a remote endpoint (including a specific sub-path) configured by an administrator. Due to inadequate sanitization of the dashboard-supplied path parameter, it was possible to include path traversal characters (../) in the path parameter and send requests to paths on the configured endpoint outside the configured sub-path. 
 
@@ -31,263 +104,9 @@
     
             This means that if the datasource was configured by an administrator to point at some sub-path of a domain (e.g.  https://example.com/api/some_safe_api/ https://example.com/api/some_safe_api/ ), it was possible for an editor to create a dashboard referencing the datasource which issues queries containing path traversal characters, which would in turn cause the datasource to instead query arbitrary subpaths on the configured domain (e.g.  https://example.com/api/admin_api/) https://example.com/api/admin_api/) .
 
-In the rare case that this plugin is configured by an administrator to point back at the Grafana instance itself, this vulnerability becomes considerably more severe, as an administrator browsing a maliciously configured panel could be compelled to make requests to Grafana administrative API endpoints with their credentials, resulting in the potential for privilege escalation, hence the high score for this vulnerability.
-</description>
+In the rare case that this plugin is configured by an administrator to point back at the Grafana instance itself, this vulnerability becomes considerably more severe, as an administrator browsing a maliciously configured panel could be compelled to make requests to Grafana administrative API endpoints with their credentials, resulting in the potential for privilege escalation, hence the high score for this vulnerability.</description>
       <guid isPermaLink="false">CVE-2023-5123|2024-02-14T16:45:44.616Z</guid>
       <pubDate>Wed, 14 Feb 2024 15:06:11 +0000</pubDate>
-    </item>
-    <item>
-      <title>CVE-2023-5122|2024-06-04T17:28:44.777Z -- grafana -- grafana-csv-datasource
-</title>
-      <link>https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2023-5122</link>
-      <description>Grafana is an open-source platform for monitoring and observability. The CSV datasource plugin is a Grafana Labs maintained plugin for Grafana that allows for retrieving and processing CSV data from a remote endpoint configured by an administrator. If this plugin was configured to send requests to a bare host with no path (e.g.  https://www.example.com/ https://www.example.com/` ), requests to an endpoint other than the one configured by the administrator could be triggered by a specially crafted request from any user, resulting in an SSRF vector. AV:N/AC:L/PR:L/UI:N/S:C/C:L/I:N/A:N https://nvd.nist.gov/vuln-metrics/cvss/v3-calculator 
-</description>
-      <guid isPermaLink="false">CVE-2023-5122|2024-06-04T17:28:44.777Z</guid>
-      <pubDate>Wed, 14 Feb 2024 15:06:12 +0000</pubDate>
-    </item>
-    <item>
-      <title>CVE-2023-1410|2023-04-04T10:16:07.471Z -- grafana -- grafana
-</title>
-      <link>https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2023-1410</link>
-      <description>Grafana is an open-source platform for monitoring and observability. 
-
-Grafana had a stored XSS vulnerability in the Graphite FunctionDescription tooltip. 
-
-The stored XSS vulnerability was possible due the value of the Function Description was not properly sanitized.
-
-An attacker needs to have control over the Graphite data source in order to manipulate a function description and a Grafana admin needs to configure the data source, later a Grafana user needs to select a tampered function and hover over the description. 
-
-  Users may upgrade to version 8.5.22, 9.2.15 and 9.3.11 to receive a fix. 
-
-
-
-
-
-
-
-
-
-
-</description>
-      <guid isPermaLink="false">CVE-2023-1410|2023-04-04T10:16:07.471Z</guid>
-      <pubDate>Thu, 23 Mar 2023 07:48:56 +0000</pubDate>
-    </item>
-    <item>
-      <title>CVE-2023-1387|2023-04-26T13:47:16.914Z -- grafana -- grafana
-</title>
-      <link>https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2023-1387</link>
-      <description>Grafana is an open-source platform for monitoring and observability. 
-
-Starting with the 9.1 branch, Grafana introduced the ability to search for a JWT in the URL query parameter auth_token and use it as the authentication token. 
-
-By enabling the "url_login" configuration option (disabled by default), a JWT might be sent to data sources. If an attacker has access to the data source, the leaked token could be used to authenticate to Grafana.
-
-</description>
-      <guid isPermaLink="false">CVE-2023-1387|2023-04-26T13:47:16.914Z</guid>
-      <pubDate>Wed, 26 Apr 2023 13:47:16 +0000</pubDate>
-    </item>
-    <item>
-      <title>CVE-2023-0507|2023-04-04T09:48:34.868Z -- grafana -- grafana
-</title>
-      <link>https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2023-0507</link>
-      <description>Grafana is an open-source platform for monitoring and observability. 
-
-Starting with the 8.1 branch, Grafana had a stored XSS vulnerability affecting the core plugin GeoMap. 
-
-The stored XSS vulnerability was possible due to map attributions weren't properly sanitized and allowed arbitrary JavaScript to be executed in the context of the currently authorized user of the Grafana instance. 
-
-An attacker needs to have the Editor role in order to change a panel to include a map attribution containing JavaScript. 
-
-This means that vertical privilege escalation is possible, where a user with Editor role can change to a known password for a user having Admin role if the user with Admin role executes malicious JavaScript viewing a dashboard. 
-
-Users may upgrade to version 8.5.21, 9.2.13 and 9.3.8 to receive a fix. 
-
-</description>
-      <guid isPermaLink="false">CVE-2023-0507|2023-04-04T09:48:34.868Z</guid>
-      <pubDate>Wed, 01 Mar 2023 15:35:55 +0000</pubDate>
-    </item>
-    <item>
-      <title>CVE-2023-0594|2023-04-04T10:15:49.096Z -- grafana -- grafana
-</title>
-      <link>https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2023-0594</link>
-      <description>Grafana is an open-source platform for monitoring and observability. 
-
-Starting with the 7.0 branch, Grafana had a stored XSS vulnerability in the trace view visualization. 
-
-The stored XSS vulnerability was possible due the value of a span's attributes/resources were not properly sanitized and this will be rendered when the span's attributes/resources are expanded.
-
-An attacker needs to have the Editor role in order to change the value of a trace view visualization to contain JavaScript. 
-
-This means that vertical privilege escalation is possible, where a user with Editor role can change to a known password for a user having Admin role if the user with Admin role executes malicious JavaScript viewing a dashboard. 
-
-Users may upgrade to version 8.5.21, 9.2.13 and 9.3.8 to receive a fix. 
-
-</description>
-      <guid isPermaLink="false">CVE-2023-0594|2023-04-04T10:15:49.096Z</guid>
-      <pubDate>Wed, 01 Mar 2023 15:36:43 +0000</pubDate>
-    </item>
-    <item>
-      <title>CVE-2023-4457|2023-10-16T09:45:46.131Z -- grafana -- google-sheets-datasource
-</title>
-      <link>https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2023-4457</link>
-      <description>Grafana is an open-source platform for monitoring and observability.
-
-The Google Sheets data source plugin for Grafana, versions 0.9.0 to 1.2.2 are vulnerable to an information disclosure vulnerability.
-
-The plugin did not properly sanitize error messages, making it potentially expose the Google Sheet API-key that is configured for the data source.
-
-This vulnerability was fixed in version 1.2.2.
-
-</description>
-      <guid isPermaLink="false">CVE-2023-4457|2023-10-16T09:45:46.131Z</guid>
-      <pubDate>Mon, 16 Oct 2023 09:45:46 +0000</pubDate>
-    </item>
-    <item>
-      <title>CVE-2023-4399|2023-10-17T07:09:03.015Z -- grafana -- grafana%20enterprise
-</title>
-      <link>https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2023-4399</link>
-      <description>Grafana is an open-source platform for monitoring and observability. 
-
-In Grafana Enterprise, Request security is a deny list that allows admins to configure Grafana in a way so that the instance doesn’t call specific hosts.
-
-However, the restriction can be bypassed used punycode encoding of the characters in the request address.
-
-</description>
-      <guid isPermaLink="false">CVE-2023-4399|2023-10-17T07:09:03.015Z</guid>
-      <pubDate>Tue, 17 Oct 2023 07:09:03 +0000</pubDate>
-    </item>
-    <item>
-      <title>CVE-2023-4822|2023-10-17T09:45:17.371Z -- grafana -- grafana%20enterprise
-</title>
-      <link>https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2023-4822</link>
-      <description>Grafana is an open-source platform for monitoring and observability. The vulnerability impacts Grafana instances with several organizations, and allows a user with Organization Admin permissions in one organization to change the permissions associated with Organization Viewer, Organization Editor and Organization Admin roles in all organizations.
-
-It also allows an Organization Admin to assign or revoke any permissions that they have to any user globally.
-
-This means that any Organization Admin can elevate their own permissions in any organization that they are already a member of, or elevate or restrict the permissions of any other user.
-
-The vulnerability does not allow a user to become a member of an organization that they are not already a member of, or to add any other users to an organization that the current user is not a member of.
-
-</description>
-      <guid isPermaLink="false">CVE-2023-4822|2023-10-17T09:45:17.371Z</guid>
-      <pubDate>Mon, 16 Oct 2023 08:45:59 +0000</pubDate>
-    </item>
-    <item>
-      <title>CVE-2023-22462|2023-03-02T00:06:59.876Z -- grafana -- grafana
-</title>
-      <link>https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2023-22462</link>
-      <description>Grafana is an open-source platform for monitoring and observability. On 2023-01-01 during an internal audit of Grafana, a member of the security team found a stored XSS vulnerability affecting the core plugin "Text". The stored XSS vulnerability requires several user interactions in order to be fully exploited. The vulnerability was possible due to React's render cycle that will pass though the unsanitized HTML code, but in the next cycle the HTML is cleaned up and saved in Grafana's database. An attacker needs to have the Editor role in order to change a Text panel to include JavaScript. Another user needs to edit the same Text panel, and click on "Markdown" or "HTML" for the code to be executed. This means that vertical privilege escalation is possible, where a user with Editor role can change to a known password for a user having Admin role if the user with Admin role executes malicious JavaScript viewing a dashboard. This issue has been patched in versions 9.2.10 and 9.3.4.</description>
-      <guid isPermaLink="false">CVE-2023-22462|2023-03-02T00:06:59.876Z</guid>
-      <pubDate>Thu, 02 Mar 2023 00:06:59 +0000</pubDate>
-    </item>
-    <item>
-      <title>CVE-2023-3010|2024-06-04T17:17:33.636Z -- grafana -- worldmap-panel
-</title>
-      <link>https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2023-3010</link>
-      <description>Grafana is an open-source platform for monitoring and observability. 
-
-The WorldMap panel plugin, versions before 1.0.4 contains a DOM XSS vulnerability.
-
-</description>
-      <guid isPermaLink="false">CVE-2023-3010|2024-06-04T17:17:33.636Z</guid>
-      <pubDate>Wed, 25 Oct 2023 08:09:48 +0000</pubDate>
-    </item>
-    <item>
-      <title>CVE-2023-3128|2023-07-06T08:24:09.716Z -- grafana -- grafana
-</title>
-      <link>https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2023-3128</link>
-      <description>Grafana is validating Azure AD accounts based on the email claim. 
-
-On Azure AD, the profile email field is not unique and can be easily modified. 
-
-This leads to account takeover and authentication bypass when Azure AD OAuth is configured with a multi-tenant app. 
-
-</description>
-      <guid isPermaLink="false">CVE-2023-3128|2023-07-06T08:24:09.716Z</guid>
-      <pubDate>Thu, 22 Jun 2023 20:14:00 +0000</pubDate>
-    </item>
-    <item>
-      <title>CVE-2023-6152|2024-02-13T21:38:01.404Z -- grafana -- grafana
-</title>
-      <link>https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2023-6152</link>
-      <description>A user changing their email after signing up and verifying it can change it without verification in profile settings.
-
-The configuration option "verify_email_enabled" will only validate email only on sign up.
-
-</description>
-      <guid isPermaLink="false">CVE-2023-6152|2024-02-13T21:38:01.404Z</guid>
-      <pubDate>Tue, 13 Feb 2024 21:38:01 +0000</pubDate>
-    </item>
-    <item>
-      <title>CVE-2023-2183|2023-06-06T18:04:26.485Z -- grafana -- grafana
-</title>
-      <link>https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2023-2183</link>
-      <description>Grafana is an open-source platform for monitoring and observability. 
-
-The option to send a test alert is not available from the user panel UI for users having the Viewer role. It is still possible for a user with the Viewer role to send a test alert using the API as the API does not check access to this function.
-
-This might enable malicious users to abuse the functionality by sending multiple alert messages to e-mail and Slack, spamming users, prepare Phishing attack or block SMTP server.
-
-Users may upgrade to version 9.5.3, 9.4.12, 9.3.15, 9.2.19 and 8.5.26 to receive a fix.
-
-</description>
-      <guid isPermaLink="false">CVE-2023-2183|2023-06-06T18:04:26.485Z</guid>
-      <pubDate>Tue, 06 Jun 2023 18:04:26 +0000</pubDate>
-    </item>
-    <item>
-      <title>CVE-2023-2801|2023-06-06T18:03:32.459Z -- grafana -- grafana
-</title>
-      <link>https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2023-2801</link>
-      <description>Grafana is an open-source platform for monitoring and observability. 
-
-Using public dashboards users can query multiple distinct data sources using mixed queries. However such query has a possibility of crashing a Grafana instance.
-
-The only feature that uses mixed queries at the moment is public dashboards, but it's also possible to cause this by calling the query API directly.
-
-This might enable malicious users to crash Grafana instances through that endpoint.
-
-Users may upgrade to version 9.4.12 and 9.5.3 to receive a fix.
-
-</description>
-      <guid isPermaLink="false">CVE-2023-2801|2023-06-06T18:03:32.459Z</guid>
-      <pubDate>Tue, 06 Jun 2023 18:03:32 +0000</pubDate>
-    </item>
-    <item>
-      <title>CVE-2024-5526|2024-06-05T13:49:42.734Z -- grafana -- oncall
-</title>
-      <link>https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2024-5526</link>
-      <description>Grafana OnCall is an easy-to-use on-call management tool that will help reduce toil in on-call management through simpler workflows and interfaces that are tailored specifically for engineers.
-
-Grafana OnCall, from version 1.1.37 before 1.5.2 are vulnerable to a Server Side Request Forgery (SSRF) vulnerability in the webhook functionallity. 
-
-This issue was fixed in version 1.5.2</description>
-      <guid isPermaLink="false">CVE-2024-5526|2024-06-05T13:49:42.734Z</guid>
-      <pubDate>Wed, 05 Jun 2024 11:21:06 +0000</pubDate>
-    </item>
-    <item>
-      <title>CVE-2024-1442|2024-03-07T17:45:43.993Z -- grafana -- grafana
-</title>
-      <link>https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2024-1442</link>
-      <description> A user with the permissions to create a data source can use Grafana API to create a data source with UID set to *.
-Doing this will grant the user access to read, query, edit and delete all data sources within the organization.
-</description>
-      <guid isPermaLink="false">CVE-2024-1442|2024-03-07T17:45:43.993Z</guid>
-      <pubDate>Thu, 07 Mar 2024 17:45:43 +0000</pubDate>
-    </item>
-    <item>
-      <title>CVE-2024-1313|2024-06-10T20:46:07.773Z -- grafana -- grafana
-</title>
-      <link>https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2024-1313</link>
-      <description>It is possible for a user in a different organization from the owner of a snapshot to bypass authorization and delete a snapshot by issuing a DELETE request to /api/snapshots/&lt;key&gt; using its view key. This functionality is intended to only be available to individuals with the permission to write/edit to the snapshot in question, but due to a bug in the authorization logic, deletion requests issued by an unprivileged user in a different organization than the snapshot owner are treated as authorized.
-
-Grafana Labs would like to thank Ravid Mazon and Jay Chen of Palo 
-Alto Research for discovering and disclosing this vulnerability.
-
-This issue affects Grafana: from 9.5.0 before 9.5.18, from 10.0.0 before 10.0.13, from 10.1.0 before 10.1.9, from 10.2.0 before 10.2.6, from 10.3.0 before 10.3.5.
-
-</description>
-      <guid isPermaLink="false">CVE-2024-1313|2024-06-10T20:46:07.773Z</guid>
-      <pubDate>Tue, 26 Mar 2024 17:24:25 +0000</pubDate>
     </item>
   </channel>
 </rss>

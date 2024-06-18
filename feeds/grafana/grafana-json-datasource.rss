@@ -6,11 +6,37 @@
     <description>The latest CVEs for Grafana -- grafana-json-datasource</description>
     <docs>http://www.rssboard.org/rss-specification</docs>
     <generator>python-feedgen</generator>
-    <lastBuildDate>Wed, 12 Jun 2024 11:24:53 +0000</lastBuildDate>
+    <lastBuildDate>Tue, 18 Jun 2024 10:22:58 +0000</lastBuildDate>
     <ttl>60</ttl>
     <item>
-      <title>CVE-2023-5123|2024-02-14T16:45:44.616Z -- grafana -- grafana-json-datasource
+      <title>CVE-2023-5123|2024-06-18T09:26:49.158Z -- grafana -- grafana-json-datasource
 </title>
+      <link>https://www.cve.org/CVERecord?id=CVE-2023-5123</link>
+      <description>The JSON datasource plugin ( https://grafana.com/grafana/plugins/marcusolsson-json-datasource/ ) is a Grafana Labs maintained plugin for Grafana that allows for retrieving and processing JSON data from a remote endpoint (including a specific sub-path) configured by an administrator. Due to inadequate sanitization of the dashboard-supplied path parameter, it was possible to include path traversal characters (../) in the path parameter and send requests to paths on the configured endpoint outside the configured sub-path. 
+
+
+
+
+
+    
+    
+            
+
+
+
+
+
+
+    
+    
+            This means that if the datasource was configured by an administrator to point at some sub-path of a domain (e.g.  https://example.com/api/some_safe_api/ ), it was possible for an editor to create a dashboard referencing the datasource which issues queries containing path traversal characters, which would in turn cause the datasource to instead query arbitrary subpaths on the configured domain (e.g.  https://example.com/api/admin_api/) .
+
+In the rare case that this plugin is configured by an administrator to point back at the Grafana instance itself, this vulnerability becomes considerably more severe, as an administrator browsing a maliciously configured panel could be compelled to make requests to Grafana administrative API endpoints with their credentials, resulting in the potential for privilege escalation, hence the high score for this vulnerability.</description>
+      <guid isPermaLink="false">CVE-2023-5123|2024-06-18T09:26:49.158Z</guid>
+      <pubDate>Wed, 14 Feb 2024 15:06:11 +0000</pubDate>
+    </item>
+    <item>
+      <title>CVE-2023-5123|2024-02-14T16:45:44.616Z -- grafana -- grafana-json-datasource</title>
       <link>https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2023-5123</link>
       <description>The JSON datasource plugin ( https://grafana.com/grafana/plugins/marcusolsson-json-datasource/ https://grafana.com/grafana/plugins/marcusolsson-json-datasource/ ) is a Grafana Labs maintained plugin for Grafana that allows for retrieving and processing JSON data from a remote endpoint (including a specific sub-path) configured by an administrator. Due to inadequate sanitization of the dashboard-supplied path parameter, it was possible to include path traversal characters (../) in the path parameter and send requests to paths on the configured endpoint outside the configured sub-path. 
 
@@ -31,8 +57,7 @@
     
             This means that if the datasource was configured by an administrator to point at some sub-path of a domain (e.g.  https://example.com/api/some_safe_api/ https://example.com/api/some_safe_api/ ), it was possible for an editor to create a dashboard referencing the datasource which issues queries containing path traversal characters, which would in turn cause the datasource to instead query arbitrary subpaths on the configured domain (e.g.  https://example.com/api/admin_api/) https://example.com/api/admin_api/) .
 
-In the rare case that this plugin is configured by an administrator to point back at the Grafana instance itself, this vulnerability becomes considerably more severe, as an administrator browsing a maliciously configured panel could be compelled to make requests to Grafana administrative API endpoints with their credentials, resulting in the potential for privilege escalation, hence the high score for this vulnerability.
-</description>
+In the rare case that this plugin is configured by an administrator to point back at the Grafana instance itself, this vulnerability becomes considerably more severe, as an administrator browsing a maliciously configured panel could be compelled to make requests to Grafana administrative API endpoints with their credentials, resulting in the potential for privilege escalation, hence the high score for this vulnerability.</description>
       <guid isPermaLink="false">CVE-2023-5123|2024-02-14T16:45:44.616Z</guid>
       <pubDate>Wed, 14 Feb 2024 15:06:11 +0000</pubDate>
     </item>
