@@ -6,22 +6,22 @@
     <description>The latest CVEs for parisneo -- parisneo/lollms</description>
     <docs>http://www.rssboard.org/rss-specification</docs>
     <generator>python-feedgen</generator>
-    <lastBuildDate>Sat, 22 Jun 2024 17:20:56 +0000</lastBuildDate>
+    <lastBuildDate>Mon, 24 Jun 2024 04:23:29 +0000</lastBuildDate>
     <ttl>60</ttl>
     <item>
-      <title>CVE-2024-5443|2024-06-22T16:12:32.499Z -- parisneo -- parisneo%2Flollms
+      <title>CVE-2024-4499|2024-06-24T03:06:46.088Z -- parisneo -- parisneo%2Flollms
 </title>
-      <link>https://www.cve.org/CVERecord?id=CVE-2024-5443</link>
-      <description>CVE-2024-4320 describes a vulnerability in the parisneo/lollms software, specifically within the `ExtensionBuilder().build_extension()` function. The vulnerability arises from the `/mount_extension` endpoint, where a path traversal issue allows attackers to navigate beyond the intended directory structure. This is facilitated by the `data.category` and `data.folder` parameters accepting empty strings (`""`), which, due to inadequate input sanitization, can lead to the construction of a `package_path` that points to the root directory. Consequently, if an attacker can create a `config.yaml` file in a controllable path, this path can be appended to the `extensions` list and trigger the execution of `__init__.py` in the current directory, leading to remote code execution. The vulnerability affects versions up to 5.9.0, and has been addressed in version 9.8.</description>
-      <guid isPermaLink="false">CVE-2024-5443|2024-06-22T16:12:32.499Z</guid>
-      <pubDate>Sat, 22 Jun 2024 16:12:32 +0000</pubDate>
+      <link>https://www.cve.org/CVERecord?id=CVE-2024-4499</link>
+      <description>A Cross-Site Request Forgery (CSRF) vulnerability exists in the XTTS server of parisneo/lollms version 9.6 due to a lax CORS policy. The vulnerability allows attackers to perform unauthorized actions by tricking a user into visiting a malicious webpage, which can then trigger arbitrary LoLLMS-XTTS API requests. This issue can lead to the reading and writing of audio files and, when combined with other vulnerabilities, could allow for the reading of arbitrary files on the system and writing files outside the permitted audio file location.</description>
+      <guid isPermaLink="false">CVE-2024-4499|2024-06-24T03:06:46.088Z</guid>
+      <pubDate>Mon, 24 Jun 2024 03:06:46 +0000</pubDate>
     </item>
     <item>
-      <title>CVE-2024-3429|2024-06-10T18:18:56.838Z -- parisneo -- parisneo%2Flollms</title>
-      <link>https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2024-3429</link>
-      <description>A path traversal vulnerability exists in the parisneo/lollms application, specifically within the `sanitize_path_from_endpoint` and `sanitize_path` functions in `lollms_core\lollms\security.py`. This vulnerability allows for arbitrary file reading when the application is running on Windows. The issue arises due to insufficient sanitization of user-supplied input, enabling attackers to bypass the path traversal protection mechanisms by crafting malicious input. Successful exploitation could lead to unauthorized access to sensitive files, information disclosure, and potentially a denial of service (DoS) condition by including numerous large or resource-intensive files. This vulnerability affects the latest version prior to 9.6.</description>
-      <guid isPermaLink="false">CVE-2024-3429|2024-06-10T18:18:56.838Z</guid>
-      <pubDate>Thu, 06 Jun 2024 18:44:55 +0000</pubDate>
+      <title>CVE-2024-4881|2024-06-06T20:03:35.700Z -- parisneo -- parisneo%2Flollms</title>
+      <link>https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2024-4881</link>
+      <description>A path traversal vulnerability exists in the parisneo/lollms application, affecting version 9.4.0 and potentially earlier versions, but fixed in version 5.9.0. The vulnerability arises due to improper validation of file paths between Windows and Linux environments, allowing attackers to traverse beyond the intended directory and read any file on the Windows system. Specifically, the application fails to adequately sanitize file paths containing backslashes (`\`), which can be exploited to access the root directory and read, or even delete, sensitive files. This issue was discovered in the context of the `/user_infos` endpoint, where a crafted request using backslashes to reference a file (e.g., `\windows\win.ini`) could result in unauthorized file access. The impact of this vulnerability includes the potential for attackers to access sensitive information such as environment variables, database files, and configuration files, which could lead to further compromise of the system.</description>
+      <guid isPermaLink="false">CVE-2024-4881|2024-06-06T20:03:35.700Z</guid>
+      <pubDate>Thu, 06 Jun 2024 18:17:13 +0000</pubDate>
     </item>
     <item>
       <title>CVE-2024-4078|2024-05-16T09:03:49.562Z -- parisneo -- parisneo%2Flollms</title>
@@ -31,11 +31,18 @@
       <pubDate>Thu, 16 May 2024 09:03:49 +0000</pubDate>
     </item>
     <item>
-      <title>CVE-2024-4881|2024-06-06T20:03:35.700Z -- parisneo -- parisneo%2Flollms</title>
-      <link>https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2024-4881</link>
-      <description>A path traversal vulnerability exists in the parisneo/lollms application, affecting version 9.4.0 and potentially earlier versions, but fixed in version 5.9.0. The vulnerability arises due to improper validation of file paths between Windows and Linux environments, allowing attackers to traverse beyond the intended directory and read any file on the Windows system. Specifically, the application fails to adequately sanitize file paths containing backslashes (`\`), which can be exploited to access the root directory and read, or even delete, sensitive files. This issue was discovered in the context of the `/user_infos` endpoint, where a crafted request using backslashes to reference a file (e.g., `\windows\win.ini`) could result in unauthorized file access. The impact of this vulnerability includes the potential for attackers to access sensitive information such as environment variables, database files, and configuration files, which could lead to further compromise of the system.</description>
-      <guid isPermaLink="false">CVE-2024-4881|2024-06-06T20:03:35.700Z</guid>
-      <pubDate>Thu, 06 Jun 2024 18:17:13 +0000</pubDate>
+      <title>CVE-2024-3429|2024-06-10T18:18:56.838Z -- parisneo -- parisneo%2Flollms</title>
+      <link>https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2024-3429</link>
+      <description>A path traversal vulnerability exists in the parisneo/lollms application, specifically within the `sanitize_path_from_endpoint` and `sanitize_path` functions in `lollms_core\lollms\security.py`. This vulnerability allows for arbitrary file reading when the application is running on Windows. The issue arises due to insufficient sanitization of user-supplied input, enabling attackers to bypass the path traversal protection mechanisms by crafting malicious input. Successful exploitation could lead to unauthorized access to sensitive files, information disclosure, and potentially a denial of service (DoS) condition by including numerous large or resource-intensive files. This vulnerability affects the latest version prior to 9.6.</description>
+      <guid isPermaLink="false">CVE-2024-3429|2024-06-10T18:18:56.838Z</guid>
+      <pubDate>Thu, 06 Jun 2024 18:44:55 +0000</pubDate>
+    </item>
+    <item>
+      <title>CVE-2024-5443|2024-06-22T16:12:32.499Z -- parisneo -- parisneo%2Flollms</title>
+      <link>https://www.cve.org/CVERecord?id=CVE-2024-5443</link>
+      <description>CVE-2024-4320 describes a vulnerability in the parisneo/lollms software, specifically within the `ExtensionBuilder().build_extension()` function. The vulnerability arises from the `/mount_extension` endpoint, where a path traversal issue allows attackers to navigate beyond the intended directory structure. This is facilitated by the `data.category` and `data.folder` parameters accepting empty strings (`""`), which, due to inadequate input sanitization, can lead to the construction of a `package_path` that points to the root directory. Consequently, if an attacker can create a `config.yaml` file in a controllable path, this path can be appended to the `extensions` list and trigger the execution of `__init__.py` in the current directory, leading to remote code execution. The vulnerability affects versions up to 5.9.0, and has been addressed in version 9.8.</description>
+      <guid isPermaLink="false">CVE-2024-5443|2024-06-22T16:12:32.499Z</guid>
+      <pubDate>Sat, 22 Jun 2024 16:12:32 +0000</pubDate>
     </item>
   </channel>
 </rss>
