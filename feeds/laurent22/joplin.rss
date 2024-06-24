@@ -6,29 +6,30 @@
     <description>The latest CVEs for laurent22 -- joplin</description>
     <docs>http://www.rssboard.org/rss-specification</docs>
     <generator>python-feedgen</generator>
-    <lastBuildDate>Sat, 22 Jun 2024 17:20:57 +0000</lastBuildDate>
+    <lastBuildDate>Mon, 24 Jun 2024 15:22:48 +0000</lastBuildDate>
     <ttl>60</ttl>
     <item>
-      <title>CVE-2023-45673|2024-06-22T16:33:49.672Z -- laurent22 -- joplin
+      <title>CVE-2023-38506|2024-06-24T14:03:04.363Z -- laurent22 -- joplin
 </title>
-      <link>https://www.cve.org/CVERecord?id=CVE-2023-45673</link>
-      <description>Joplin is a free, open source note taking and to-do application. A remote code execution (RCE) vulnerability in affected versions allows clicking on a link in a PDF in an untrusted note to execute arbitrary shell commands. Clicking links in PDFs allows for arbitrary code execution because Joplin desktop: 1. has not disabled top redirection for note viewer iframes, and 2. and has node integration enabled. This is a remote code execution vulnerability that impacts anyone who attaches untrusted PDFs to notes and has the icon enabled. This issue has been addressed in version 2.13.3. Users are advised to upgrade. There are no known workarounds for this vulnerability.</description>
-      <guid isPermaLink="false">CVE-2023-45673|2024-06-22T16:33:49.672Z</guid>
-      <pubDate>Fri, 21 Jun 2024 19:38:22 +0000</pubDate>
+      <link>https://www.cve.org/CVERecord?id=CVE-2023-38506</link>
+      <description>Joplin is a free, open source note taking and to-do application. A Cross-site Scripting (XSS) vulnerability allows pasting untrusted data into the rich text editor to execute arbitrary code. HTML pasted into the rich text editor is not sanitized (or not sanitized properly). As such, the `onload` attribute of pasted images can execute arbitrary code. Because the TinyMCE editor frame does not use the `sandbox` attribute, such scripts can access NodeJS's `require` through the `top` variable. From this, an attacker can run arbitrary commands. This issue has been addressed in version 2.12.10 and users are advised to upgrade. There are no known workarounds for this vulnerability.</description>
+      <guid isPermaLink="false">CVE-2023-38506|2024-06-24T14:03:04.363Z</guid>
+      <pubDate>Fri, 21 Jun 2024 19:43:24 +0000</pubDate>
     </item>
     <item>
-      <title>CVE-2023-39517|2024-06-21T19:41:48.945Z -- laurent22 -- joplin</title>
+      <title>CVE-2023-39517|2024-06-24T14:08:38.720Z -- laurent22 -- joplin
+</title>
       <link>https://www.cve.org/CVERecord?id=CVE-2023-39517</link>
-      <description>Joplin is a free, open source note taking and to-do application. A Cross site scripting (XSS) vulnerability in affected versions allows clicking on an untrusted image link to execute arbitrary shell commands. The HTML sanitizer (`packages/renderer/htmlUtils.ts::sanitizeHtml`) preserves `&lt;map&gt;` `&lt;area /&gt;` links. However, unlike `&lt;a&gt;` links, the `target` and `href` attributes are not removed. Additionally, because the note preview pane isn't sandboxed to prevent top navigation, links with `target` set to `_top` can replace the toplevel electron page. Because any toplevel electron page, with Joplin's setup, has access to `require` and can require node libraries, a malicious replacement toplevel page can import `child_process` and execute arbitrary shell commands. This issue has been fixed in commit 7c52c3e9a81a52ef1b42a951f9deb9d378d59b0f which is included in release version 2.12.8. Users are advised to upgrade. There are no known workarounds for this vulnerability.</description>
-      <guid isPermaLink="false">CVE-2023-39517|2024-06-21T19:41:48.945Z</guid>
+      <description>Joplin is a free, open source note taking and to-do application. A Cross site scripting (XSS) vulnerability in affected versions allows clicking on an untrusted image link to execute arbitrary shell commands. The HTML sanitizer (`packages/renderer/htmlUtils.ts::sanitizeHtml`) preserves `&lt;map&gt;` `&lt;area&gt;` links. However, unlike `&lt;a&gt;` links, the `target` and `href` attributes are not removed. Additionally, because the note preview pane isn't sandboxed to prevent top navigation, links with `target` set to `_top` can replace the toplevel electron page. Because any toplevel electron page, with Joplin's setup, has access to `require` and can require node libraries, a malicious replacement toplevel page can import `child_process` and execute arbitrary shell commands. This issue has been fixed in commit 7c52c3e9a81a52ef1b42a951f9deb9d378d59b0f which is included in release version 2.12.8. Users are advised to upgrade. There are no known workarounds for this vulnerability.</description>
+      <guid isPermaLink="false">CVE-2023-39517|2024-06-24T14:08:38.720Z</guid>
       <pubDate>Fri, 21 Jun 2024 19:41:48 +0000</pubDate>
     </item>
     <item>
-      <title>CVE-2023-37898|2024-06-21T19:45:19.982Z -- laurent22 -- joplin</title>
-      <link>https://www.cve.org/CVERecord?id=CVE-2023-37898</link>
-      <description>Joplin is a free, open source note taking and to-do application. A Cross-site Scripting (XSS) vulnerability allows an untrusted note opened in safe mode to execute arbitrary code. `packages/renderer/MarkupToHtml.ts` renders note content in safe mode by surrounding it with &lt;pre&gt; and &lt;/pre&gt;, without escaping any interior HTML tags. Thus, an attacker can create a note that closes the opening &lt;pre&gt; tag, then includes HTML that runs JavaScript. Because the rendered markdown iframe has the same origin as the toplevel document and is not sandboxed, any scripts running in the preview iframe can access the top variable and, thus, access the toplevel NodeJS `require` function. `require` can then be used to import modules like fs or child_process and run arbitrary commands. This issue has been addressed in version 2.12.9 and all users are advised to upgrade. There are no known workarounds for this vulnerability.</description>
-      <guid isPermaLink="false">CVE-2023-37898|2024-06-21T19:45:19.982Z</guid>
-      <pubDate>Fri, 21 Jun 2024 19:45:19 +0000</pubDate>
+      <title>CVE-2023-45673|2024-06-21T19:38:22.764Z -- laurent22 -- joplin</title>
+      <link>https://www.cve.org/CVERecord?id=CVE-2023-45673</link>
+      <description>Joplin is a free, open source note taking and to-do application. A remote code execution (RCE) vulnerability in affected versions allows clicking on a link in a PDF in an untrusted note to execute arbitrary shell commands. Clicking links in PDFs allows for arbitrary code execution because Joplin desktop: 1. has not disabled top redirection for note viewer iframes, and 2. and has node integration enabled. This is a remote code execution vulnerability that impacts anyone who attaches untrusted PDFs to notes and has the icon enabled. This issue has been addressed in version 2.13.3. Users are advised to upgrade. There are no known workarounds for this vulnerability.</description>
+      <guid isPermaLink="false">CVE-2023-45673|2024-06-21T19:38:22.764Z</guid>
+      <pubDate>Fri, 21 Jun 2024 19:38:22 +0000</pubDate>
     </item>
     <item>
       <title>CVE-2023-38506|2024-06-21T19:43:24.161Z -- laurent22 -- joplin</title>
@@ -38,10 +39,24 @@
       <pubDate>Fri, 21 Jun 2024 19:43:24 +0000</pubDate>
     </item>
     <item>
-      <title>CVE-2023-45673|2024-06-21T19:38:22.764Z -- laurent22 -- joplin</title>
+      <title>CVE-2023-37898|2024-06-21T19:45:19.982Z -- laurent22 -- joplin</title>
+      <link>https://www.cve.org/CVERecord?id=CVE-2023-37898</link>
+      <description>Joplin is a free, open source note taking and to-do application. A Cross-site Scripting (XSS) vulnerability allows an untrusted note opened in safe mode to execute arbitrary code. `packages/renderer/MarkupToHtml.ts` renders note content in safe mode by surrounding it with &lt;pre&gt; and &lt;/pre&gt;, without escaping any interior HTML tags. Thus, an attacker can create a note that closes the opening &lt;pre&gt; tag, then includes HTML that runs JavaScript. Because the rendered markdown iframe has the same origin as the toplevel document and is not sandboxed, any scripts running in the preview iframe can access the top variable and, thus, access the toplevel NodeJS `require` function. `require` can then be used to import modules like fs or child_process and run arbitrary commands. This issue has been addressed in version 2.12.9 and all users are advised to upgrade. There are no known workarounds for this vulnerability.</description>
+      <guid isPermaLink="false">CVE-2023-37898|2024-06-21T19:45:19.982Z</guid>
+      <pubDate>Fri, 21 Jun 2024 19:45:19 +0000</pubDate>
+    </item>
+    <item>
+      <title>CVE-2023-39517|2024-06-21T19:41:48.945Z -- laurent22 -- joplin</title>
+      <link>https://www.cve.org/CVERecord?id=CVE-2023-39517</link>
+      <description>Joplin is a free, open source note taking and to-do application. A Cross site scripting (XSS) vulnerability in affected versions allows clicking on an untrusted image link to execute arbitrary shell commands. The HTML sanitizer (`packages/renderer/htmlUtils.ts::sanitizeHtml`) preserves `&lt;map&gt;` `&lt;area /&gt;` links. However, unlike `&lt;a&gt;` links, the `target` and `href` attributes are not removed. Additionally, because the note preview pane isn't sandboxed to prevent top navigation, links with `target` set to `_top` can replace the toplevel electron page. Because any toplevel electron page, with Joplin's setup, has access to `require` and can require node libraries, a malicious replacement toplevel page can import `child_process` and execute arbitrary shell commands. This issue has been fixed in commit 7c52c3e9a81a52ef1b42a951f9deb9d378d59b0f which is included in release version 2.12.8. Users are advised to upgrade. There are no known workarounds for this vulnerability.</description>
+      <guid isPermaLink="false">CVE-2023-39517|2024-06-21T19:41:48.945Z</guid>
+      <pubDate>Fri, 21 Jun 2024 19:41:48 +0000</pubDate>
+    </item>
+    <item>
+      <title>CVE-2023-45673|2024-06-22T16:33:49.672Z -- laurent22 -- joplin</title>
       <link>https://www.cve.org/CVERecord?id=CVE-2023-45673</link>
       <description>Joplin is a free, open source note taking and to-do application. A remote code execution (RCE) vulnerability in affected versions allows clicking on a link in a PDF in an untrusted note to execute arbitrary shell commands. Clicking links in PDFs allows for arbitrary code execution because Joplin desktop: 1. has not disabled top redirection for note viewer iframes, and 2. and has node integration enabled. This is a remote code execution vulnerability that impacts anyone who attaches untrusted PDFs to notes and has the icon enabled. This issue has been addressed in version 2.13.3. Users are advised to upgrade. There are no known workarounds for this vulnerability.</description>
-      <guid isPermaLink="false">CVE-2023-45673|2024-06-21T19:38:22.764Z</guid>
+      <guid isPermaLink="false">CVE-2023-45673|2024-06-22T16:33:49.672Z</guid>
       <pubDate>Fri, 21 Jun 2024 19:38:22 +0000</pubDate>
     </item>
   </channel>
