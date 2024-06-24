@@ -6,282 +6,40 @@
     <description>The latest CVEs for OpenSSL -- OpenSSL</description>
     <docs>http://www.rssboard.org/rss-specification</docs>
     <generator>python-feedgen</generator>
-    <lastBuildDate>Fri, 21 Jun 2024 23:20:40 +0000</lastBuildDate>
+    <lastBuildDate>Mon, 24 Jun 2024 16:23:40 +0000</lastBuildDate>
     <ttl>60</ttl>
     <item>
-      <title>CVE-2022-0778|2024-06-21T19:07:01.186352 -- openssl -- openssl
-</title>
-      <link>https://www.cve.org/CVERecord?id=CVE-2022-0778</link>
-      <description>The BN_mod_sqrt() function, which computes a modular square root, contains a bug that can cause it to loop forever for non-prime moduli. Internally this function is used when parsing certificates that contain elliptic curve public keys in compressed form or explicit elliptic curve parameters with a base point encoded in compressed form. It is possible to trigger the infinite loop by crafting a certificate that has invalid explicit curve parameters. Since certificate parsing happens prior to verification of the certificate signature, any process that parses an externally supplied certificate may thus be subject to a denial of service attack. The infinite loop can also be reached when parsing crafted private keys as they can contain explicit elliptic curve parameters. Thus vulnerable situations include: - TLS clients consuming server certificates - TLS servers consuming client certificates - Hosting providers taking certificates or private keys from customers - Certificate authorities parsing certification requests from subscribers - Anything else which parses ASN.1 elliptic curve parameters Also any other applications that use the BN_mod_sqrt() where the attacker can control the parameter values are vulnerable to this DoS issue. In the OpenSSL 1.0.2 version the public key is not parsed during initial parsing of the certificate which makes it slightly harder to trigger the infinite loop. However any operation which requires the public key from the certificate will trigger the infinite loop. In particular the attacker can use a self-signed certificate to trigger the loop during verification of the certificate signature. This issue affects OpenSSL versions 1.0.2, 1.1.1 and 3.0. It was addressed in the releases of 1.1.1n and 3.0.2 on the 15th March 2022. Fixed in OpenSSL 3.0.2 (Affected 3.0.0,3.0.1). Fixed in OpenSSL 1.1.1n (Affected 1.1.1-1.1.1m). Fixed in OpenSSL 1.0.2zd (Affected 1.0.2-1.0.2zc).</description>
-      <guid isPermaLink="false">CVE-2022-0778|2024-06-21T19:07:01.186352</guid>
-      <pubDate>Tue, 15 Mar 2022 00:00:00 +0000</pubDate>
-    </item>
-    <item>
-      <title>CVE-2019-1547|2024-06-21T19:06:30.909094 -- openssl -- openssl
-</title>
-      <link>https://www.cve.org/CVERecord?id=CVE-2019-1547</link>
-      <description>Normally in OpenSSL EC groups always have a co-factor present and this is used in side channel resistant code paths. However, in some cases, it is possible to construct a group using explicit parameters (instead of using a named curve). In those cases it is possible that such a group does not have the cofactor present. This can occur even where all the parameters match a known named curve. If such a curve is used then OpenSSL falls back to non-side channel resistant code paths which may result in full key recovery during an ECDSA signature operation. In order to be vulnerable an attacker would have to have the ability to time the creation of a large number of signatures where explicit parameters with no co-factor present are in use by an application using libcrypto. For the avoidance of doubt libssl is not vulnerable because explicit parameters are never used. Fixed in OpenSSL 1.1.1d (Affected 1.1.1-1.1.1c). Fixed in OpenSSL 1.1.0l (Affected 1.1.0-1.1.0k). Fixed in OpenSSL 1.0.2t (Affected 1.0.2-1.0.2s).</description>
-      <guid isPermaLink="false">CVE-2019-1547|2024-06-21T19:06:30.909094</guid>
-      <pubDate>Tue, 10 Sep 2019 00:00:00 +0000</pubDate>
-    </item>
-    <item>
-      <title>CVE-2021-3711|2024-06-21T19:07:59.573968 -- openssl -- openssl
-</title>
-      <link>https://www.cve.org/CVERecord?id=CVE-2021-3711</link>
-      <description>In order to decrypt SM2 encrypted data an application is expected to call the API function EVP_PKEY_decrypt(). Typically an application will call this function twice. The first time, on entry, the "out" parameter can be NULL and, on exit, the "outlen" parameter is populated with the buffer size required to hold the decrypted plaintext. The application can then allocate a sufficiently sized buffer and call EVP_PKEY_decrypt() again, but this time passing a non-NULL value for the "out" parameter. A bug in the implementation of the SM2 decryption code means that the calculation of the buffer size required to hold the plaintext returned by the first call to EVP_PKEY_decrypt() can be smaller than the actual size required by the second call. This can lead to a buffer overflow when EVP_PKEY_decrypt() is called by the application a second time with a buffer that is too small. A malicious attacker who is able present SM2 content for decryption to an application could cause attacker chosen data to overflow the buffer by up to a maximum of 62 bytes altering the contents of other data held after the buffer, possibly changing application behaviour or causing the application to crash. The location of the buffer is application dependent but is typically heap allocated. Fixed in OpenSSL 1.1.1l (Affected 1.1.1-1.1.1k).</description>
-      <guid isPermaLink="false">CVE-2021-3711|2024-06-21T19:07:59.573968</guid>
-      <pubDate>Tue, 24 Aug 2021 00:00:00 +0000</pubDate>
-    </item>
-    <item>
-      <title>CVE-2022-2097|2024-06-21T19:07:25.963480 -- openssl -- openssl
-</title>
-      <link>https://www.cve.org/CVERecord?id=CVE-2022-2097</link>
-      <description>AES OCB mode for 32-bit x86 platforms using the AES-NI assembly optimised implementation will not encrypt the entirety of the data under some circumstances. This could reveal sixteen bytes of data that was preexisting in the memory that wasn't written. In the special case of "in place" encryption, sixteen bytes of the plaintext would be revealed. Since OpenSSL does not support OCB based cipher suites for TLS and DTLS, they are both unaffected. Fixed in OpenSSL 3.0.5 (Affected 3.0.0-3.0.4). Fixed in OpenSSL 1.1.1q (Affected 1.1.1-1.1.1p).</description>
-      <guid isPermaLink="false">CVE-2022-2097|2024-06-21T19:07:25.963480</guid>
-      <pubDate>Tue, 05 Jul 2022 00:00:00 +0000</pubDate>
-    </item>
-    <item>
-      <title>CVE-2021-3449|2024-06-21T19:05:57.096577 -- openssl -- openssl
-</title>
-      <link>https://www.cve.org/CVERecord?id=CVE-2021-3449</link>
-      <description>An OpenSSL TLS server may crash if sent a maliciously crafted renegotiation ClientHello message from a client. If a TLSv1.2 renegotiation ClientHello omits the signature_algorithms extension (where it was present in the initial ClientHello), but includes a signature_algorithms_cert extension then a NULL pointer dereference will result, leading to a crash and a denial of service attack. A server is only vulnerable if it has TLSv1.2 and renegotiation enabled (which is the default configuration). OpenSSL TLS clients are not impacted by this issue. All OpenSSL 1.1.1 versions are affected by this issue. Users of these versions should upgrade to OpenSSL 1.1.1k. OpenSSL 1.0.2 is not impacted by this issue. Fixed in OpenSSL 1.1.1k (Affected 1.1.1-1.1.1j).</description>
-      <guid isPermaLink="false">CVE-2021-3449|2024-06-21T19:05:57.096577</guid>
-      <pubDate>Thu, 25 Mar 2021 00:00:00 +0000</pubDate>
-    </item>
-    <item>
-      <title>CVE-2023-0215|2023-02-24T14:43:53.180Z -- openssl -- openssl
-</title>
-      <link>https://www.cve.org/CVERecord?id=CVE-2023-0215</link>
-      <description>The public API function BIO_new_NDEF is a helper function used for streaming
-ASN.1 data via a BIO. It is primarily used internally to OpenSSL to support the
-SMIME, CMS and PKCS7 streaming capabilities, but may also be called directly by
-end user applications.
-
-The function receives a BIO from the caller, prepends a new BIO_f_asn1 filter
-BIO onto the front of it to form a BIO chain, and then returns the new head of
-the BIO chain to the caller. Under certain conditions, for example if a CMS
-recipient public key is invalid, the new filter BIO is freed and the function
-returns a NULL result indicating a failure. However, in this case, the BIO chain
-is not properly cleaned up and the BIO passed by the caller still retains
-internal pointers to the previously freed filter BIO. If the caller then goes on
-to call BIO_pop() on the BIO then a use-after-free will occur. This will most
-likely result in a crash.
-
-
-
-This scenario occurs directly in the internal function B64_write_ASN1() which
-may cause BIO_new_NDEF() to be called and will subsequently call BIO_pop() on
-the BIO. This internal function is in turn called by the public API functions
-PEM_write_bio_ASN1_stream, PEM_write_bio_CMS_stream, PEM_write_bio_PKCS7_stream,
-SMIME_write_ASN1, SMIME_write_CMS and SMIME_write_PKCS7.
-
-Other public API functions that may be impacted by this include
-i2d_ASN1_bio_stream, BIO_new_CMS, BIO_new_PKCS7, i2d_CMS_bio_stream and
-i2d_PKCS7_bio_stream.
-
-The OpenSSL cms and smime command line applications are similarly affected.
-
-
-
-</description>
-      <guid isPermaLink="false">CVE-2023-0215|2023-02-24T14:43:53.180Z</guid>
-      <pubDate>Wed, 08 Feb 2023 19:03:28 +0000</pubDate>
-    </item>
-    <item>
-      <title>CVE-2021-23841|2024-06-21T19:07:57.206585 -- openssl -- openssl
-</title>
-      <link>https://www.cve.org/CVERecord?id=CVE-2021-23841</link>
-      <description>The OpenSSL public API function X509_issuer_and_serial_hash() attempts to create a unique hash value based on the issuer and serial number data contained within an X509 certificate. However it fails to correctly handle any errors that may occur while parsing the issuer field (which might occur if the issuer field is maliciously constructed). This may subsequently result in a NULL pointer deref and a crash leading to a potential denial of service attack. The function X509_issuer_and_serial_hash() is never directly called by OpenSSL itself so applications are only vulnerable if they use this function directly and they use it on certificates that may have been obtained from untrusted sources. OpenSSL versions 1.1.1i and below are affected by this issue. Users of these versions should upgrade to OpenSSL 1.1.1j. OpenSSL versions 1.0.2x and below are affected by this issue. However OpenSSL 1.0.2 is out of support and no longer receiving public updates. Premium support customers of OpenSSL 1.0.2 should upgrade to 1.0.2y. Other users should upgrade to 1.1.1j. Fixed in OpenSSL 1.1.1j (Affected 1.1.1-1.1.1i). Fixed in OpenSSL 1.0.2y (Affected 1.0.2-1.0.2x).</description>
-      <guid isPermaLink="false">CVE-2021-23841|2024-06-21T19:07:57.206585</guid>
-      <pubDate>Tue, 16 Feb 2021 00:00:00 +0000</pubDate>
-    </item>
-    <item>
-      <title>CVE-2023-3817|2023-07-31T15:34:13.627Z -- openssl -- openssl
-</title>
-      <link>https://www.cve.org/CVERecord?id=CVE-2023-3817</link>
-      <description>Issue summary: Checking excessively long DH keys or parameters may be very slow.
-
-Impact summary: Applications that use the functions DH_check(), DH_check_ex()
-or EVP_PKEY_param_check() to check a DH key or DH parameters may experience long
-delays. Where the key or parameters that are being checked have been obtained
-from an untrusted source this may lead to a Denial of Service.
-
-The function DH_check() performs various checks on DH parameters. After fixing
-CVE-2023-3446 it was discovered that a large q parameter value can also trigger
-an overly long computation during some of these checks. A correct q value,
-if present, cannot be larger than the modulus p parameter, thus it is
-unnecessary to perform these checks if q is larger than p.
-
-An application that calls DH_check() and supplies a key or parameters obtained
-from an untrusted source could be vulnerable to a Denial of Service attack.
-
-The function DH_check() is itself called by a number of other OpenSSL functions.
-An application calling any of those other functions may similarly be affected.
-The other functions affected by this are DH_check_ex() and
-EVP_PKEY_param_check().
-
-Also vulnerable are the OpenSSL dhparam and pkeyparam command line applications
-when using the "-check" option.
-
-The OpenSSL SSL/TLS implementation is not affected by this issue.
-
-The OpenSSL 3.0 and 3.1 FIPS providers are not affected by this issue.</description>
-      <guid isPermaLink="false">CVE-2023-3817|2023-07-31T15:34:13.627Z</guid>
-      <pubDate>Mon, 31 Jul 2023 15:34:13 +0000</pubDate>
-    </item>
-    <item>
-      <title>CVE-2023-0464|2023-03-22T16:36:47.383Z -- openssl -- openssl
-</title>
-      <link>https://www.cve.org/CVERecord?id=CVE-2023-0464</link>
-      <description>A security vulnerability has been identified in all supported versions
-
-of OpenSSL related to the verification of X.509 certificate chains
-that include policy constraints.  Attackers may be able to exploit this
-vulnerability by creating a malicious certificate chain that triggers
-exponential use of computational resources, leading to a denial-of-service
-(DoS) attack on affected systems.
-
-Policy processing is disabled by default but can be enabled by passing
-the `-policy' argument to the command line utilities or by calling the
-`X509_VERIFY_PARAM_set1_policies()' function.</description>
-      <guid isPermaLink="false">CVE-2023-0464|2023-03-22T16:36:47.383Z</guid>
-      <pubDate>Wed, 22 Mar 2023 16:36:47 +0000</pubDate>
-    </item>
-    <item>
-      <title>CVE-2021-23840|2024-06-21T19:07:42.484657 -- openssl -- openssl
-</title>
-      <link>https://www.cve.org/CVERecord?id=CVE-2021-23840</link>
-      <description>Calls to EVP_CipherUpdate, EVP_EncryptUpdate and EVP_DecryptUpdate may overflow the output length argument in some cases where the input length is close to the maximum permissable length for an integer on the platform. In such cases the return value from the function call will be 1 (indicating success), but the output length value will be negative. This could cause applications to behave incorrectly or crash. OpenSSL versions 1.1.1i and below are affected by this issue. Users of these versions should upgrade to OpenSSL 1.1.1j. OpenSSL versions 1.0.2x and below are affected by this issue. However OpenSSL 1.0.2 is out of support and no longer receiving public updates. Premium support customers of OpenSSL 1.0.2 should upgrade to 1.0.2y. Other users should upgrade to 1.1.1j. Fixed in OpenSSL 1.1.1j (Affected 1.1.1-1.1.1i). Fixed in OpenSSL 1.0.2y (Affected 1.0.2-1.0.2x).</description>
-      <guid isPermaLink="false">CVE-2021-23840|2024-06-21T19:07:42.484657</guid>
-      <pubDate>Tue, 16 Feb 2021 00:00:00 +0000</pubDate>
-    </item>
-    <item>
-      <title>CVE-2020-1971|2024-06-21T19:06:11.147749 -- openssl -- openssl
-</title>
-      <link>https://www.cve.org/CVERecord?id=CVE-2020-1971</link>
-      <description>The X.509 GeneralName type is a generic type for representing different types of names. One of those name types is known as EDIPartyName. OpenSSL provides a function GENERAL_NAME_cmp which compares different instances of a GENERAL_NAME to see if they are equal or not. This function behaves incorrectly when both GENERAL_NAMEs contain an EDIPARTYNAME. A NULL pointer dereference and a crash may occur leading to a possible denial of service attack. OpenSSL itself uses the GENERAL_NAME_cmp function for two purposes: 1) Comparing CRL distribution point names between an available CRL and a CRL distribution point embedded in an X509 certificate 2) When verifying that a timestamp response token signer matches the timestamp authority name (exposed via the API functions TS_RESP_verify_response and TS_RESP_verify_token) If an attacker can control both items being compared then that attacker could trigger a crash. For example if the attacker can trick a client or server into checking a malicious certificate against a malicious CRL then this may occur. Note that some applications automatically download CRLs based on a URL embedded in a certificate. This checking happens prior to the signatures on the certificate and CRL being verified. OpenSSL's s_server, s_client and verify tools have support for the "-crl_download" option which implements automatic CRL downloading and this attack has been demonstrated to work against those tools. Note that an unrelated bug means that affected versions of OpenSSL cannot parse or construct correct encodings of EDIPARTYNAME. However it is possible to construct a malformed EDIPARTYNAME that OpenSSL's parser will accept and hence trigger this attack. All OpenSSL 1.1.1 and 1.0.2 versions are affected by this issue. Other OpenSSL releases are out of support and have not been checked. Fixed in OpenSSL 1.1.1i (Affected 1.1.1-1.1.1h). Fixed in OpenSSL 1.0.2x (Affected 1.0.2-1.0.2w).</description>
-      <guid isPermaLink="false">CVE-2020-1971|2024-06-21T19:06:11.147749</guid>
-      <pubDate>Tue, 08 Dec 2020 00:00:00 +0000</pubDate>
-    </item>
-    <item>
-      <title>CVE-2021-3712|2024-06-21T19:07:21.902973 -- openssl -- openssl
-</title>
-      <link>https://www.cve.org/CVERecord?id=CVE-2021-3712</link>
-      <description>ASN.1 strings are represented internally within OpenSSL as an ASN1_STRING structure which contains a buffer holding the string data and a field holding the buffer length. This contrasts with normal C strings which are repesented as a buffer for the string data which is terminated with a NUL (0) byte. Although not a strict requirement, ASN.1 strings that are parsed using OpenSSL's own "d2i" functions (and other similar parsing functions) as well as any string whose value has been set with the ASN1_STRING_set() function will additionally NUL terminate the byte array in the ASN1_STRING structure. However, it is possible for applications to directly construct valid ASN1_STRING structures which do not NUL terminate the byte array by directly setting the "data" and "length" fields in the ASN1_STRING array. This can also happen by using the ASN1_STRING_set0() function. Numerous OpenSSL functions that print ASN.1 data have been found to assume that the ASN1_STRING byte array will be NUL terminated, even though this is not guaranteed for strings that have been directly constructed. Where an application requests an ASN.1 structure to be printed, and where that ASN.1 structure contains ASN1_STRINGs that have been directly constructed by the application without NUL terminating the "data" field, then a read buffer overrun can occur. The same thing can also occur during name constraints processing of certificates (for example if a certificate has been directly constructed by the application instead of loading it via the OpenSSL parsing functions, and the certificate contains non NUL terminated ASN1_STRING structures). It can also occur in the X509_get1_email(), X509_REQ_get1_email() and X509_get1_ocsp() functions. If a malicious actor can cause an application to directly construct an ASN1_STRING and then process it through one of the affected OpenSSL functions then this issue could be hit. This might result in a crash (causing a Denial of Service attack). It could also result in the disclosure of private memory contents (such as private keys, or sensitive plaintext). Fixed in OpenSSL 1.1.1l (Affected 1.1.1-1.1.1k). Fixed in OpenSSL 1.0.2za (Affected 1.0.2-1.0.2y).</description>
-      <guid isPermaLink="false">CVE-2021-3712|2024-06-21T19:07:21.902973</guid>
-      <pubDate>Tue, 24 Aug 2021 00:00:00 +0000</pubDate>
-    </item>
-    <item>
-      <title>CVE-2021-23839|2024-06-21T19:06:04.879792 -- openssl -- openssl
-</title>
-      <link>https://www.cve.org/CVERecord?id=CVE-2021-23839</link>
-      <description>OpenSSL 1.0.2 supports SSLv2. If a client attempts to negotiate SSLv2 with a server that is configured to support both SSLv2 and more recent SSL and TLS versions then a check is made for a version rollback attack when unpadding an RSA signature. Clients that support SSL or TLS versions greater than SSLv2 are supposed to use a special form of padding. A server that supports greater than SSLv2 is supposed to reject connection attempts from a client where this special form of padding is present, because this indicates that a version rollback has occurred (i.e. both client and server support greater than SSLv2, and yet this is the version that is being requested). The implementation of this padding check inverted the logic so that the connection attempt is accepted if the padding is present, and rejected if it is absent. This means that such as server will accept a connection if a version rollback attack has occurred. Further the server will erroneously reject a connection if a normal SSLv2 connection attempt is made. Only OpenSSL 1.0.2 servers from version 1.0.2s to 1.0.2x are affected by this issue. In order to be vulnerable a 1.0.2 server must: 1) have configured SSLv2 support at compile time (this is off by default), 2) have configured SSLv2 support at runtime (this is off by default), 3) have configured SSLv2 ciphersuites (these are not in the default ciphersuite list) OpenSSL 1.1.1 does not have SSLv2 support and therefore is not vulnerable to this issue. The underlying error is in the implementation of the RSA_padding_check_SSLv23() function. This also affects the RSA_SSLV23_PADDING padding mode used by various other functions. Although 1.1.1 does not support SSLv2 the RSA_padding_check_SSLv23() function still exists, as does the RSA_SSLV23_PADDING padding mode. Applications that directly call that function or use that padding mode will encounter this issue. However since there is no support for the SSLv2 protocol in 1.1.1 this is considered a bug and not a security issue in that version. OpenSSL 1.0.2 is out of support and no longer receiving public updates. Premium support customers of OpenSSL 1.0.2 should upgrade to 1.0.2y. Other users should upgrade to 1.1.1j. Fixed in OpenSSL 1.0.2y (Affected 1.0.2s-1.0.2x).</description>
-      <guid isPermaLink="false">CVE-2021-23839|2024-06-21T19:06:04.879792</guid>
-      <pubDate>Tue, 16 Feb 2021 00:00:00 +0000</pubDate>
-    </item>
-    <item>
-      <title>CVE-2021-4160|2024-06-21T19:07:06.907595 -- openssl -- openssl
+      <title>CVE-2021-4160|2024-06-24T15:29:25.029Z -- openssl -- openssl
 </title>
       <link>https://www.cve.org/CVERecord?id=CVE-2021-4160</link>
       <description>There is a carry propagation bug in the MIPS32 and MIPS64 squaring procedure. Many EC algorithms are affected, including some of the TLS 1.3 default curves. Impact was not analyzed in detail, because the pre-requisites for attack are considered unlikely and include reusing private keys. Analysis suggests that attacks against RSA and DSA as a result of this defect would be very difficult to perform and are not believed likely. Attacks against DH are considered just feasible (although very difficult) because most of the work necessary to deduce information about a private key may be performed offline. The amount of resources required for such an attack would be significant. However, for an attack on TLS to be meaningful, the server would have to share the DH private key among multiple clients, which is no longer an option since CVE-2016-0701. This issue affects OpenSSL versions 1.0.2, 1.1.1 and 3.0.0. It was addressed in the releases of 1.1.1m and 3.0.1 on the 15th of December 2021. For the 1.0.2 release it is addressed in git commit 6fc1aaaf3 that is available to premium support customers only. It will be made available in 1.0.2zc when it is released. The issue only affects OpenSSL on MIPS platforms. Fixed in OpenSSL 3.0.1 (Affected 3.0.0). Fixed in OpenSSL 1.1.1m (Affected 1.1.1-1.1.1l). Fixed in OpenSSL 1.0.2zc-dev (Affected 1.0.2-1.0.2zb).</description>
-      <guid isPermaLink="false">CVE-2021-4160|2024-06-21T19:07:06.907595</guid>
+      <guid isPermaLink="false">CVE-2021-4160|2024-06-24T15:29:25.029Z</guid>
       <pubDate>Fri, 28 Jan 2022 00:00:00 +0000</pubDate>
     </item>
     <item>
-      <title>CVE-2023-6129|2024-01-15T11:13:29.926Z -- openssl -- openssl</title>
-      <link>https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2023-6129</link>
-      <description>Issue summary: The POLY1305 MAC (message authentication code) implementation
-contains a bug that might corrupt the internal state of applications running
-on PowerPC CPU based platforms if the CPU provides vector instructions.
+      <title>CVE-2024-2511|2024-06-04T17:30:50.015Z -- openssl -- openssl</title>
+      <link>https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2024-2511</link>
+      <description>Issue summary: Some non-default TLS server configurations can cause unbounded
+memory growth when processing TLSv1.3 sessions
 
-Impact summary: If an attacker can influence whether the POLY1305 MAC
-algorithm is used, the application state might be corrupted with various
-application dependent consequences.
+Impact summary: An attacker may exploit certain server configurations to trigger
+unbounded memory growth that would lead to a Denial of Service
 
-The POLY1305 MAC (message authentication code) implementation in OpenSSL for
-PowerPC CPUs restores the contents of vector registers in a different order
-than they are saved. Thus the contents of some of these vector registers
-are corrupted when returning to the caller. The vulnerable code is used only
-on newer PowerPC processors supporting the PowerISA 2.07 instructions.
+This problem can occur in TLSv1.3 if the non-default SSL_OP_NO_TICKET option is
+being used (but not if early_data support is also configured and the default
+anti-replay protection is in use). In this case, under certain conditions, the
+session cache can get into an incorrect state and it will fail to flush properly
+as it fills. The session cache will continue to grow in an unbounded manner. A
+malicious client could deliberately create the scenario for this failure to
+force a Denial of Service. It may also happen by accident in normal operation.
 
-The consequences of this kind of internal application state corruption can
-be various - from no consequences, if the calling application does not
-depend on the contents of non-volatile XMM registers at all, to the worst
-consequences, where the attacker could get complete control of the application
-process. However unless the compiler uses the vector registers for storing
-pointers, the most likely consequence, if any, would be an incorrect result
-of some application dependent calculations or a crash leading to a denial of
-service.
+This issue only affects TLS servers supporting TLSv1.3. It does not affect TLS
+clients.
 
-The POLY1305 MAC algorithm is most frequently used as part of the
-CHACHA20-POLY1305 AEAD (authenticated encryption with associated data)
-algorithm. The most common usage of this AEAD cipher is with TLS protocol
-versions 1.2 and 1.3. If this cipher is enabled on the server a malicious
-client can influence whether this AEAD cipher is used. This implies that
-TLS server applications using OpenSSL can be potentially impacted. However
-we are currently not aware of any concrete application that would be affected
-by this issue therefore we consider this a Low severity security issue.</description>
-      <guid isPermaLink="false">CVE-2023-6129|2024-01-15T11:13:29.926Z</guid>
-      <pubDate>Tue, 09 Jan 2024 16:36:58 +0000</pubDate>
-    </item>
-    <item>
-      <title>CVE-2023-6237|2024-04-25T06:27:26.990Z -- openssl -- openssl</title>
-      <link>https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2023-6237</link>
-      <description>Issue summary: Checking excessively long invalid RSA public keys may take
-a long time.
-
-Impact summary: Applications that use the function EVP_PKEY_public_check()
-to check RSA public keys may experience long delays. Where the key that
-is being checked has been obtained from an untrusted source this may lead
-to a Denial of Service.
-
-When function EVP_PKEY_public_check() is called on RSA public keys,
-a computation is done to confirm that the RSA modulus, n, is composite.
-For valid RSA keys, n is a product of two or more large primes and this
-computation completes quickly. However, if n is an overly large prime,
-then this computation would take a long time.
-
-An application that calls EVP_PKEY_public_check() and supplies an RSA key
-obtained from an untrusted source could be vulnerable to a Denial of Service
-attack.
-
-The function EVP_PKEY_public_check() is not called from other OpenSSL
-functions however it is called from the OpenSSL pkey command line
-application. For that reason that application is also vulnerable if used
-with the '-pubin' and '-check' options on untrusted data.
-
-The OpenSSL SSL/TLS implementation is not affected by this issue.
-
-The OpenSSL 3.0 and 3.1 FIPS providers are affected by this issue.</description>
-      <guid isPermaLink="false">CVE-2023-6237|2024-04-25T06:27:26.990Z</guid>
-      <pubDate>Thu, 25 Apr 2024 06:27:26 +0000</pubDate>
-    </item>
-    <item>
-      <title>CVE-2024-0727|2024-01-26T08:57:19.579Z -- openssl -- openssl</title>
-      <link>https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2024-0727</link>
-      <description>Issue summary: Processing a maliciously formatted PKCS12 file may lead OpenSSL
-to crash leading to a potential Denial of Service attack
-
-Impact summary: Applications loading files in the PKCS12 format from untrusted
-sources might terminate abruptly.
-
-A file in PKCS12 format can contain certificates and keys and may come from an
-untrusted source. The PKCS12 specification allows certain fields to be NULL, but
-OpenSSL does not correctly check for this case. This can lead to a NULL pointer
-dereference that results in OpenSSL crashing. If an application processes PKCS12
-files from an untrusted source using the OpenSSL APIs then that application will
-be vulnerable to this issue.
-
-OpenSSL APIs that are vulnerable to this are: PKCS12_parse(),
-PKCS12_unpack_p7data(), PKCS12_unpack_p7encdata(), PKCS12_unpack_authsafes()
-and PKCS12_newpass().
-
-We have also fixed a similar issue in SMIME_write_PKCS7(). However since this
-function is related to writing data we do not consider it security significant.
-
-The FIPS modules in 3.2, 3.1 and 3.0 are not affected by this issue.</description>
-      <guid isPermaLink="false">CVE-2024-0727|2024-01-26T08:57:19.579Z</guid>
-      <pubDate>Fri, 26 Jan 2024 08:57:19 +0000</pubDate>
+The FIPS modules in 3.2, 3.1 and 3.0 are not affected by this issue. OpenSSL
+1.0.2 is also not affected by this issue.</description>
+      <guid isPermaLink="false">CVE-2024-2511|2024-06-04T17:30:50.015Z</guid>
+      <pubDate>Mon, 08 Apr 2024 13:51:12 +0000</pubDate>
     </item>
     <item>
       <title>CVE-2024-4603|2024-05-16T15:21:20.050Z -- openssl -- openssl</title>
@@ -321,29 +79,100 @@ The OpenSSL 3.0 and 3.1 FIPS providers are affected by this issue.</description>
       <pubDate>Thu, 16 May 2024 15:21:20 +0000</pubDate>
     </item>
     <item>
-      <title>CVE-2024-2511|2024-06-04T17:30:50.015Z -- openssl -- openssl</title>
-      <link>https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2024-2511</link>
-      <description>Issue summary: Some non-default TLS server configurations can cause unbounded
-memory growth when processing TLSv1.3 sessions
+      <title>CVE-2024-0727|2024-01-26T08:57:19.579Z -- openssl -- openssl</title>
+      <link>https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2024-0727</link>
+      <description>Issue summary: Processing a maliciously formatted PKCS12 file may lead OpenSSL
+to crash leading to a potential Denial of Service attack
 
-Impact summary: An attacker may exploit certain server configurations to trigger
-unbounded memory growth that would lead to a Denial of Service
+Impact summary: Applications loading files in the PKCS12 format from untrusted
+sources might terminate abruptly.
 
-This problem can occur in TLSv1.3 if the non-default SSL_OP_NO_TICKET option is
-being used (but not if early_data support is also configured and the default
-anti-replay protection is in use). In this case, under certain conditions, the
-session cache can get into an incorrect state and it will fail to flush properly
-as it fills. The session cache will continue to grow in an unbounded manner. A
-malicious client could deliberately create the scenario for this failure to
-force a Denial of Service. It may also happen by accident in normal operation.
+A file in PKCS12 format can contain certificates and keys and may come from an
+untrusted source. The PKCS12 specification allows certain fields to be NULL, but
+OpenSSL does not correctly check for this case. This can lead to a NULL pointer
+dereference that results in OpenSSL crashing. If an application processes PKCS12
+files from an untrusted source using the OpenSSL APIs then that application will
+be vulnerable to this issue.
 
-This issue only affects TLS servers supporting TLSv1.3. It does not affect TLS
-clients.
+OpenSSL APIs that are vulnerable to this are: PKCS12_parse(),
+PKCS12_unpack_p7data(), PKCS12_unpack_p7encdata(), PKCS12_unpack_authsafes()
+and PKCS12_newpass().
 
-The FIPS modules in 3.2, 3.1 and 3.0 are not affected by this issue. OpenSSL
-1.0.2 is also not affected by this issue.</description>
-      <guid isPermaLink="false">CVE-2024-2511|2024-06-04T17:30:50.015Z</guid>
-      <pubDate>Mon, 08 Apr 2024 13:51:12 +0000</pubDate>
+We have also fixed a similar issue in SMIME_write_PKCS7(). However since this
+function is related to writing data we do not consider it security significant.
+
+The FIPS modules in 3.2, 3.1 and 3.0 are not affected by this issue.</description>
+      <guid isPermaLink="false">CVE-2024-0727|2024-01-26T08:57:19.579Z</guid>
+      <pubDate>Fri, 26 Jan 2024 08:57:19 +0000</pubDate>
+    </item>
+    <item>
+      <title>CVE-2023-6237|2024-04-25T06:27:26.990Z -- openssl -- openssl</title>
+      <link>https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2023-6237</link>
+      <description>Issue summary: Checking excessively long invalid RSA public keys may take
+a long time.
+
+Impact summary: Applications that use the function EVP_PKEY_public_check()
+to check RSA public keys may experience long delays. Where the key that
+is being checked has been obtained from an untrusted source this may lead
+to a Denial of Service.
+
+When function EVP_PKEY_public_check() is called on RSA public keys,
+a computation is done to confirm that the RSA modulus, n, is composite.
+For valid RSA keys, n is a product of two or more large primes and this
+computation completes quickly. However, if n is an overly large prime,
+then this computation would take a long time.
+
+An application that calls EVP_PKEY_public_check() and supplies an RSA key
+obtained from an untrusted source could be vulnerable to a Denial of Service
+attack.
+
+The function EVP_PKEY_public_check() is not called from other OpenSSL
+functions however it is called from the OpenSSL pkey command line
+application. For that reason that application is also vulnerable if used
+with the '-pubin' and '-check' options on untrusted data.
+
+The OpenSSL SSL/TLS implementation is not affected by this issue.
+
+The OpenSSL 3.0 and 3.1 FIPS providers are affected by this issue.</description>
+      <guid isPermaLink="false">CVE-2023-6237|2024-04-25T06:27:26.990Z</guid>
+      <pubDate>Thu, 25 Apr 2024 06:27:26 +0000</pubDate>
+    </item>
+    <item>
+      <title>CVE-2023-6129|2024-01-15T11:13:29.926Z -- openssl -- openssl</title>
+      <link>https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2023-6129</link>
+      <description>Issue summary: The POLY1305 MAC (message authentication code) implementation
+contains a bug that might corrupt the internal state of applications running
+on PowerPC CPU based platforms if the CPU provides vector instructions.
+
+Impact summary: If an attacker can influence whether the POLY1305 MAC
+algorithm is used, the application state might be corrupted with various
+application dependent consequences.
+
+The POLY1305 MAC (message authentication code) implementation in OpenSSL for
+PowerPC CPUs restores the contents of vector registers in a different order
+than they are saved. Thus the contents of some of these vector registers
+are corrupted when returning to the caller. The vulnerable code is used only
+on newer PowerPC processors supporting the PowerISA 2.07 instructions.
+
+The consequences of this kind of internal application state corruption can
+be various - from no consequences, if the calling application does not
+depend on the contents of non-volatile XMM registers at all, to the worst
+consequences, where the attacker could get complete control of the application
+process. However unless the compiler uses the vector registers for storing
+pointers, the most likely consequence, if any, would be an incorrect result
+of some application dependent calculations or a crash leading to a denial of
+service.
+
+The POLY1305 MAC algorithm is most frequently used as part of the
+CHACHA20-POLY1305 AEAD (authenticated encryption with associated data)
+algorithm. The most common usage of this AEAD cipher is with TLS protocol
+versions 1.2 and 1.3. If this cipher is enabled on the server a malicious
+client can influence whether this AEAD cipher is used. This implies that
+TLS server applications using OpenSSL can be potentially impacted. However
+we are currently not aware of any concrete application that would be affected
+by this issue therefore we consider this a Low severity security issue.</description>
+      <guid isPermaLink="false">CVE-2023-6129|2024-01-15T11:13:29.926Z</guid>
+      <pubDate>Tue, 09 Jan 2024 16:36:58 +0000</pubDate>
     </item>
   </channel>
 </rss>
