@@ -6,71 +6,87 @@
     <description>The latest CVEs for gaizhenbiao -- gaizhenbiao/chuanhuchatgpt</description>
     <docs>http://www.rssboard.org/rss-specification</docs>
     <generator>python-feedgen</generator>
-    <lastBuildDate>Wed, 12 Jun 2024 11:24:18 +0000</lastBuildDate>
+    <lastBuildDate>Thu, 27 Jun 2024 19:20:00 +0000</lastBuildDate>
     <ttl>60</ttl>
     <item>
-      <title>CVE-2024-5124|2024-06-07T17:02:41.010Z -- gaizhenbiao -- gaizhenbiao%2Fchuanhuchatgpt
+      <title>CVE-2024-5822|2024-06-27T18:44:48.521Z -- gaizhenbiao -- gaizhenbiao%2Fchuanhuchatgpt
 </title>
-      <link>https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2024-5124</link>
-      <description>A timing attack vulnerability exists in the gaizhenbiao/chuanhuchatgpt repository, specifically within the password comparison logic. The vulnerability is present in version 20240310 of the software, where passwords are compared using the '=' operator in Python. This method of comparison allows an attacker to guess passwords based on the timing of each character's comparison. The issue arises from the code segment that checks a password for a particular username, which can lead to the exposure of sensitive information to an unauthorized actor. An attacker exploiting this vulnerability could potentially guess user passwords, compromising the security of the system.</description>
-      <guid isPermaLink="false">CVE-2024-5124|2024-06-07T17:02:41.010Z</guid>
-      <pubDate>Thu, 06 Jun 2024 18:54:13 +0000</pubDate>
+      <link>https://www.cve.org/CVERecord?id=CVE-2024-5822</link>
+      <description>A Server-Side Request Forgery (SSRF) vulnerability exists in the upload processing interface of gaizhenbiao/ChuanhuChatGPT versions &lt;= ChuanhuChatGPT-20240410-git.zip. This vulnerability allows attackers to send crafted requests from the vulnerable server to internal or external resources, potentially bypassing security controls and accessing sensitive data.</description>
+      <guid isPermaLink="false">CVE-2024-5822|2024-06-27T18:44:48.521Z</guid>
+      <pubDate>Thu, 27 Jun 2024 18:44:48 +0000</pubDate>
     </item>
     <item>
-      <title>CVE-2024-5278|2024-06-07T17:04:16.938Z -- gaizhenbiao -- gaizhenbiao%2Fchuanhuchatgpt
+      <title>CVE-2024-6038|2024-06-27T18:41:45.405Z -- gaizhenbiao -- gaizhenbiao%2Fchuanhuchatgpt
 </title>
-      <link>https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2024-5278</link>
-      <description>gaizhenbiao/chuanhuchatgpt is vulnerable to an unrestricted file upload vulnerability due to insufficient validation of uploaded file types in its `/upload` endpoint. Specifically, the `handle_file_upload` function does not sanitize or validate the file extension or content type of uploaded files, allowing attackers to upload files with arbitrary extensions, including HTML files containing XSS payloads and Python files. This vulnerability, present in the latest version as of 20240310, could lead to stored XSS attacks and potentially result in remote code execution (RCE) on the server hosting the application.</description>
-      <guid isPermaLink="false">CVE-2024-5278|2024-06-07T17:04:16.938Z</guid>
-      <pubDate>Thu, 06 Jun 2024 18:44:51 +0000</pubDate>
+      <link>https://www.cve.org/CVERecord?id=CVE-2024-6038</link>
+      <description>A Regular Expression Denial of Service (ReDoS) vulnerability exists in the latest version of gaizhenbiao/chuanhuchatgpt. The vulnerability is located in the filter_history function within the utils.py module. This function takes a user-provided keyword and attempts to match it against chat history filenames using a regular expression search. Due to the lack of sanitization or validation of the keyword parameter, an attacker can inject a specially crafted regular expression, leading to a denial of service condition. This can cause severe degradation of service performance and potential system unavailability.</description>
+      <guid isPermaLink="false">CVE-2024-6038|2024-06-27T18:41:45.405Z</guid>
+      <pubDate>Thu, 27 Jun 2024 18:41:45 +0000</pubDate>
     </item>
     <item>
-      <title>CVE-2024-4321|2024-06-04T17:54:04.247Z -- gaizhenbiao -- gaizhenbiao%2Fchuanhuchatgpt
+      <title>CVE-2024-6090|2024-06-27T18:40:51.125Z -- gaizhenbiao -- gaizhenbiao%2Fchuanhuchatgpt
 </title>
-      <link>https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2024-4321</link>
-      <description>A Local File Inclusion (LFI) vulnerability exists in the gaizhenbiao/chuanhuchatgpt application, specifically within the functionality for uploading chat history. The vulnerability arises due to improper input validation when handling file paths during the chat history upload process. An attacker can exploit this vulnerability by intercepting requests and manipulating the 'name' parameter to specify arbitrary file paths. This allows the attacker to read sensitive files on the server, leading to information leakage, including API keys and private information. The issue affects version 20240310 of the application.</description>
-      <guid isPermaLink="false">CVE-2024-4321|2024-06-04T17:54:04.247Z</guid>
-      <pubDate>Thu, 16 May 2024 09:03:46 +0000</pubDate>
+      <link>https://www.cve.org/CVERecord?id=CVE-2024-6090</link>
+      <description>A path traversal vulnerability exists in gaizhenbiao/chuanhuchatgpt version 20240410, allowing any user to delete other users' chat histories. This vulnerability can also be exploited to delete any files ending in `.json` on the target system, leading to a denial of service as users are unable to authenticate.</description>
+      <guid isPermaLink="false">CVE-2024-6090|2024-06-27T18:40:51.125Z</guid>
+      <pubDate>Thu, 27 Jun 2024 18:40:51 +0000</pubDate>
     </item>
     <item>
-      <title>CVE-2024-4520|2024-06-04T19:40:44.543Z -- gaizhenbiao -- gaizhenbiao%2Fchuanhuchatgpt
-</title>
-      <link>https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2024-4520</link>
-      <description>An improper access control vulnerability exists in the gaizhenbiao/chuanhuchatgpt application, specifically in version 20240410. This vulnerability allows any user on the server to access the chat history of any other user without requiring any form of interaction between the users. Exploitation of this vulnerability could lead to data breaches, including the exposure of sensitive personal details, financial data, or confidential conversations. Additionally, it could facilitate identity theft and manipulation or fraud through the unauthorized access to users' chat histories. This issue is due to insufficient access control mechanisms in the application's handling of chat history data.</description>
-      <guid isPermaLink="false">CVE-2024-4520|2024-06-04T19:40:44.543Z</guid>
-      <pubDate>Tue, 04 Jun 2024 19:40:44 +0000</pubDate>
+      <title>CVE-2024-2217|2024-04-16T11:10:32.139Z -- gaizhenbiao -- gaizhenbiao%2Fchuanhuchatgpt</title>
+      <link>https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2024-2217</link>
+      <description>gaizhenbiao/chuanhuchatgpt is vulnerable to improper access control, allowing unauthorized access to the `config.json` file. This vulnerability is present in both authenticated and unauthenticated versions of the application, enabling attackers to obtain sensitive information such as API keys (`openai_api_key`, `google_palm_api_key`, `xmchat_api_key`, etc.), configuration details, and user credentials. The issue stems from the application's handling of HTTP requests for the `config.json` file, which does not properly restrict access based on user authentication.</description>
+      <guid isPermaLink="false">CVE-2024-2217|2024-04-16T11:10:32.139Z</guid>
+      <pubDate>Wed, 10 Apr 2024 17:08:02 +0000</pubDate>
     </item>
     <item>
-      <title>CVE-2024-3402|2024-06-07T17:04:36.891Z -- gaizhenbiao -- gaizhenbiao%2Fchuanhuchatgpt
-</title>
-      <link>https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2024-3402</link>
-      <description>A stored Cross-Site Scripting (XSS) vulnerability existed in version (20240121) of gaizhenbiao/chuanhuchatgpt due to inadequate sanitization and validation of model output data. Despite user-input validation efforts, the application fails to properly sanitize or validate the output from the model, allowing for the injection and execution of malicious JavaScript code within the context of a user's browser. This vulnerability can lead to the execution of arbitrary JavaScript code in the context of other users' browsers, potentially resulting in the hijacking of victims' browsers.</description>
-      <guid isPermaLink="false">CVE-2024-3402|2024-06-07T17:04:36.891Z</guid>
-      <pubDate>Thu, 06 Jun 2024 18:24:03 +0000</pubDate>
-    </item>
-    <item>
-      <title>CVE-2024-3234|2024-06-07T12:46:31.783Z -- gaizhenbiao -- gaizhenbiao%2Fchuanhuchatgpt
-</title>
-      <link>https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2024-3234</link>
-      <description>The gaizhenbiao/chuanhuchatgpt application is vulnerable to a path traversal attack due to its use of an outdated gradio component. The application is designed to restrict user access to resources within the `web_assets` folder. However, the outdated version of gradio it employs is susceptible to path traversal, as identified in CVE-2023-51449. This vulnerability allows unauthorized users to bypass the intended restrictions and access sensitive files, such as `config.json`, which contains API keys. The issue affects the latest version of chuanhuchatgpt prior to the fixed version released on 20240305.</description>
-      <guid isPermaLink="false">CVE-2024-3234|2024-06-07T12:46:31.783Z</guid>
-      <pubDate>Thu, 06 Jun 2024 18:20:45 +0000</pubDate>
-    </item>
-    <item>
-      <title>CVE-2024-3404|2024-06-06T19:42:28.486Z -- gaizhenbiao -- gaizhenbiao%2Fchuanhuchatgpt
-</title>
+      <title>CVE-2024-3404|2024-06-06T19:42:28.486Z -- gaizhenbiao -- gaizhenbiao%2Fchuanhuchatgpt</title>
       <link>https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2024-3404</link>
       <description>In gaizhenbiao/chuanhuchatgpt, specifically the version tagged as 20240121, there exists a vulnerability due to improper access control mechanisms. This flaw allows an authenticated attacker to bypass intended access restrictions and read the `history` files of other users, potentially leading to unauthorized access to sensitive information. The vulnerability is present in the application's handling of access control for the `history` path, where no adequate mechanism is in place to prevent an authenticated user from accessing another user's chat history files. This issue poses a significant risk as it could allow attackers to obtain sensitive information from the chat history of other users.</description>
       <guid isPermaLink="false">CVE-2024-3404|2024-06-06T19:42:28.486Z</guid>
       <pubDate>Thu, 06 Jun 2024 18:45:12 +0000</pubDate>
     </item>
     <item>
-      <title>CVE-2024-2217|2024-04-16T11:10:32.139Z -- gaizhenbiao -- gaizhenbiao%2Fchuanhuchatgpt
-</title>
-      <link>https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2024-2217</link>
-      <description>gaizhenbiao/chuanhuchatgpt is vulnerable to improper access control, allowing unauthorized access to the `config.json` file. This vulnerability is present in both authenticated and unauthenticated versions of the application, enabling attackers to obtain sensitive information such as API keys (`openai_api_key`, `google_palm_api_key`, `xmchat_api_key`, etc.), configuration details, and user credentials. The issue stems from the application's handling of HTTP requests for the `config.json` file, which does not properly restrict access based on user authentication.</description>
-      <guid isPermaLink="false">CVE-2024-2217|2024-04-16T11:10:32.139Z</guid>
-      <pubDate>Wed, 10 Apr 2024 17:08:02 +0000</pubDate>
+      <title>CVE-2024-3234|2024-06-07T12:46:31.783Z -- gaizhenbiao -- gaizhenbiao%2Fchuanhuchatgpt</title>
+      <link>https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2024-3234</link>
+      <description>The gaizhenbiao/chuanhuchatgpt application is vulnerable to a path traversal attack due to its use of an outdated gradio component. The application is designed to restrict user access to resources within the `web_assets` folder. However, the outdated version of gradio it employs is susceptible to path traversal, as identified in CVE-2023-51449. This vulnerability allows unauthorized users to bypass the intended restrictions and access sensitive files, such as `config.json`, which contains API keys. The issue affects the latest version of chuanhuchatgpt prior to the fixed version released on 20240305.</description>
+      <guid isPermaLink="false">CVE-2024-3234|2024-06-07T12:46:31.783Z</guid>
+      <pubDate>Thu, 06 Jun 2024 18:20:45 +0000</pubDate>
+    </item>
+    <item>
+      <title>CVE-2024-3402|2024-06-07T17:04:36.891Z -- gaizhenbiao -- gaizhenbiao%2Fchuanhuchatgpt</title>
+      <link>https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2024-3402</link>
+      <description>A stored Cross-Site Scripting (XSS) vulnerability existed in version (20240121) of gaizhenbiao/chuanhuchatgpt due to inadequate sanitization and validation of model output data. Despite user-input validation efforts, the application fails to properly sanitize or validate the output from the model, allowing for the injection and execution of malicious JavaScript code within the context of a user's browser. This vulnerability can lead to the execution of arbitrary JavaScript code in the context of other users' browsers, potentially resulting in the hijacking of victims' browsers.</description>
+      <guid isPermaLink="false">CVE-2024-3402|2024-06-07T17:04:36.891Z</guid>
+      <pubDate>Thu, 06 Jun 2024 18:24:03 +0000</pubDate>
+    </item>
+    <item>
+      <title>CVE-2024-4520|2024-06-04T19:40:44.543Z -- gaizhenbiao -- gaizhenbiao%2Fchuanhuchatgpt</title>
+      <link>https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2024-4520</link>
+      <description>An improper access control vulnerability exists in the gaizhenbiao/chuanhuchatgpt application, specifically in version 20240410. This vulnerability allows any user on the server to access the chat history of any other user without requiring any form of interaction between the users. Exploitation of this vulnerability could lead to data breaches, including the exposure of sensitive personal details, financial data, or confidential conversations. Additionally, it could facilitate identity theft and manipulation or fraud through the unauthorized access to users' chat histories. This issue is due to insufficient access control mechanisms in the application's handling of chat history data.</description>
+      <guid isPermaLink="false">CVE-2024-4520|2024-06-04T19:40:44.543Z</guid>
+      <pubDate>Tue, 04 Jun 2024 19:40:44 +0000</pubDate>
+    </item>
+    <item>
+      <title>CVE-2024-4321|2024-06-04T17:54:04.247Z -- gaizhenbiao -- gaizhenbiao%2Fchuanhuchatgpt</title>
+      <link>https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2024-4321</link>
+      <description>A Local File Inclusion (LFI) vulnerability exists in the gaizhenbiao/chuanhuchatgpt application, specifically within the functionality for uploading chat history. The vulnerability arises due to improper input validation when handling file paths during the chat history upload process. An attacker can exploit this vulnerability by intercepting requests and manipulating the 'name' parameter to specify arbitrary file paths. This allows the attacker to read sensitive files on the server, leading to information leakage, including API keys and private information. The issue affects version 20240310 of the application.</description>
+      <guid isPermaLink="false">CVE-2024-4321|2024-06-04T17:54:04.247Z</guid>
+      <pubDate>Thu, 16 May 2024 09:03:46 +0000</pubDate>
+    </item>
+    <item>
+      <title>CVE-2024-5278|2024-06-07T17:04:16.938Z -- gaizhenbiao -- gaizhenbiao%2Fchuanhuchatgpt</title>
+      <link>https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2024-5278</link>
+      <description>gaizhenbiao/chuanhuchatgpt is vulnerable to an unrestricted file upload vulnerability due to insufficient validation of uploaded file types in its `/upload` endpoint. Specifically, the `handle_file_upload` function does not sanitize or validate the file extension or content type of uploaded files, allowing attackers to upload files with arbitrary extensions, including HTML files containing XSS payloads and Python files. This vulnerability, present in the latest version as of 20240310, could lead to stored XSS attacks and potentially result in remote code execution (RCE) on the server hosting the application.</description>
+      <guid isPermaLink="false">CVE-2024-5278|2024-06-07T17:04:16.938Z</guid>
+      <pubDate>Thu, 06 Jun 2024 18:44:51 +0000</pubDate>
+    </item>
+    <item>
+      <title>CVE-2024-5124|2024-06-07T17:02:41.010Z -- gaizhenbiao -- gaizhenbiao%2Fchuanhuchatgpt</title>
+      <link>https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2024-5124</link>
+      <description>A timing attack vulnerability exists in the gaizhenbiao/chuanhuchatgpt repository, specifically within the password comparison logic. The vulnerability is present in version 20240310 of the software, where passwords are compared using the '=' operator in Python. This method of comparison allows an attacker to guess passwords based on the timing of each character's comparison. The issue arises from the code segment that checks a password for a particular username, which can lead to the exposure of sensitive information to an unauthorized actor. An attacker exploiting this vulnerability could potentially guess user passwords, compromising the security of the system.</description>
+      <guid isPermaLink="false">CVE-2024-5124|2024-06-07T17:02:41.010Z</guid>
+      <pubDate>Thu, 06 Jun 2024 18:54:13 +0000</pubDate>
     </item>
   </channel>
 </rss>
