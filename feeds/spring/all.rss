@@ -6,210 +6,44 @@
     <description>The latest CVEs for Spring -- all products</description>
     <docs>http://www.rssboard.org/rss-specification</docs>
     <generator>python-feedgen</generator>
-    <lastBuildDate>Wed, 12 Jun 2024 11:24:23 +0000</lastBuildDate>
+    <lastBuildDate>Thu, 27 Jun 2024 22:22:00 +0000</lastBuildDate>
     <ttl>60</ttl>
     <item>
-      <title>CVE-2023-34036|2023-07-17T10:00:43.245Z -- spring -- spring%20hateoas
+      <title>CVE-2024-22262|2024-06-27T21:24:27.845Z -- spring -- spring%20framework
 </title>
-      <link>https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2023-34036</link>
-      <description>
-Reactive web applications that use Spring HATEOAS to produce hypermedia-based responses might be exposed to malicious forwarded headers if they are not behind a trusted proxy that ensures correctness of such headers, or if they don't have anything else in place to handle (and possibly discard) forwarded headers either in WebFlux or at the level of the underlying HTTP server.
-
-For the application to be affected, it needs to satisfy the following requirements:
-
-  *  It needs to use the reactive web stack (Spring WebFlux) and Spring HATEOAS to create links in hypermedia-based responses.
-  *  The application infrastructure does not guard against clients submitting (X-)Forwarded… headers.
-
-
-
-
-
-</description>
-      <guid isPermaLink="false">CVE-2023-34036|2023-07-17T10:00:43.245Z</guid>
-      <pubDate>Mon, 17 Jul 2023 10:00:43 +0000</pubDate>
-    </item>
-    <item>
-      <title>CVE-2023-34040|2023-08-24T12:59:20.620Z -- spring -- spring%20for%20apache%20kafka
-</title>
-      <link>https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2023-34040</link>
-      <description>In Spring for Apache Kafka 3.0.9 and earlier and versions 2.9.10 and earlier, a possible deserialization attack vector existed, but only if unusual configuration was applied. An attacker would have to construct a malicious serialized object in one of the deserialization exception record headers.
-
-Specifically, an application is vulnerable when all of the following are true:
-
-  *  The user does not configure an ErrorHandlingDeserializer for the key and/or value of the record
-  *  The user explicitly sets container properties checkDeserExWhenKeyNull and/or checkDeserExWhenValueNull container properties to true.
-  *  The user allows untrusted sources to publish to a Kafka topic
-
-
-By default, these properties are false, and the container only attempts to deserialize the headers if an ErrorHandlingDeserializer is configured. The ErrorHandlingDeserializer prevents the vulnerability by removing any such malicious headers before processing the record.
-
-
-</description>
-      <guid isPermaLink="false">CVE-2023-34040|2023-08-24T12:59:20.620Z</guid>
-      <pubDate>Thu, 24 Aug 2023 12:59:20 +0000</pubDate>
-    </item>
-    <item>
-      <title>CVE-2023-34047|2023-09-20T09:09:12.648Z -- spring -- spring%20for%20graphql
-</title>
-      <link>https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2023-34047</link>
-      <description>A batch loader function in Spring for GraphQL versions 1.1.0 - 1.1.5 and 1.2.0 - 1.2.2 may be exposed to GraphQL context with values, including security context values, from a different session. An application is vulnerable if it provides a DataLoaderOptions instance when registering batch loader functions through DefaultBatchLoaderRegistry.
-</description>
-      <guid isPermaLink="false">CVE-2023-34047|2023-09-20T09:09:12.648Z</guid>
-      <pubDate>Wed, 20 Sep 2023 09:09:12 +0000</pubDate>
-    </item>
-    <item>
-      <title>CVE-2023-34050|2023-10-19T07:11:35.038Z -- spring -- spring%20amqp
-</title>
-      <link>https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2023-34050</link>
-      <description>
-
-
-
-
-
-
-
-
-
-In spring AMQP versions 1.0.0 to
-2.4.16 and 3.0.0 to 3.0.9 , allowed list patterns for deserializable class
-names were added to Spring AMQP, allowing users to lock down deserialization of
-data in messages from untrusted sources; however by default, when no allowed
-list was provided, all classes could be deserialized.
-
-
-
-Specifically, an application is
-vulnerable if
-
-
-
-
-   *  the
-     SimpleMessageConverter or SerializerMessageConverter is used
-
-   *  the user
-     does not configure allowed list patterns
-
-   *  untrusted
-     message originators gain permissions to write messages to the RabbitMQ
-     broker to send malicious content
-
-
-
-
-
-
-
-
-
-</description>
-      <guid isPermaLink="false">CVE-2023-34050|2023-10-19T07:11:35.038Z</guid>
-      <pubDate>Thu, 19 Oct 2023 07:11:35 +0000</pubDate>
-    </item>
-    <item>
-      <title>CVE-2023-34053|2023-11-28T08:10:37.217Z -- spring -- spring%20framework
-</title>
-      <link>https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2023-34053</link>
-      <description>In Spring Framework versions 6.0.0 - 6.0.13, it is possible for a user to provide specially crafted HTTP requests that may cause a denial-of-service (DoS) condition.
-
-Specifically, an application is vulnerable when all of the following are true:
-
-  *  the application uses Spring MVC or Spring WebFlux
-  *  io.micrometer:micrometer-core is on the classpath
-  *  an ObservationRegistry is configured in the application to record observations
-
-
-Typically, Spring Boot applications need the org.springframework.boot:spring-boot-actuator dependency to meet all conditions.
-
-
-</description>
-      <guid isPermaLink="false">CVE-2023-34053|2023-11-28T08:10:37.217Z</guid>
-      <pubDate>Tue, 28 Nov 2023 08:10:37 +0000</pubDate>
-    </item>
-    <item>
-      <title>CVE-2023-34055|2023-11-28T08:27:25.132Z -- spring -- spring%20boot
-</title>
-      <link>https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2023-34055</link>
-      <description>In Spring Boot versions 2.7.0 - 2.7.17, 3.0.0-3.0.12 and 3.1.0-3.1.5, it is possible for a user to provide specially crafted HTTP requests that may cause a denial-of-service (DoS) condition.
-
-Specifically, an application is vulnerable when all of the following are true:
-
-  *  the application uses Spring MVC or Spring WebFlux
-  *  org.springframework.boot:spring-boot-actuator is on the classpath
-
-
-
-</description>
-      <guid isPermaLink="false">CVE-2023-34055|2023-11-28T08:27:25.132Z</guid>
-      <pubDate>Tue, 28 Nov 2023 08:27:25 +0000</pubDate>
-    </item>
-    <item>
-      <title>CVE-2023-34054|2023-11-28T08:16:57.848Z -- spring -- reactor%20netty
-</title>
-      <link>https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2023-34054</link>
-      <description>
-In Reactor Netty HTTP Server, versions 1.1.x prior to 1.1.13 and versions 1.0.x prior to 1.0.39, it is possible for a user to provide specially crafted HTTP requests that may cause a denial-of-service (DoS) condition.
-
-Specifically, an application is vulnerable if Reactor Netty HTTP Server built-in integration with Micrometer is enabled.
-
-
-
-
-</description>
-      <guid isPermaLink="false">CVE-2023-34054|2023-11-28T08:16:57.848Z</guid>
-      <pubDate>Tue, 28 Nov 2023 08:16:14 +0000</pubDate>
-    </item>
-    <item>
-      <title>CVE-2024-22262|2024-04-16T05:54:12.786Z -- spring -- spring%20framework
-</title>
-      <link>https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2024-22262</link>
+      <link>https://www.cve.org/CVERecord?id=CVE-2024-22262</link>
       <description>Applications that use UriComponentsBuilder to parse an externally provided URL (e.g. through a query parameter) AND perform validation checks on the host of the parsed URL may be vulnerable to a  open redirect https://cwe.mitre.org/data/definitions/601.html  attack or to a SSRF attack if the URL is used after passing validation checks.
 
 This is the same as  CVE-2024-22259 https://spring.io/security/cve-2024-22259  and  CVE-2024-22243 https://spring.io/security/cve-2024-22243 , but with different input.
 
 </description>
-      <guid isPermaLink="false">CVE-2024-22262|2024-04-16T05:54:12.786Z</guid>
+      <guid isPermaLink="false">CVE-2024-22262|2024-06-27T21:24:27.845Z</guid>
       <pubDate>Tue, 16 Apr 2024 05:54:12 +0000</pubDate>
     </item>
     <item>
-      <title>CVE-2024-22258|2024-03-20T03:58:15.047Z -- spring -- spring
-</title>
-      <link>https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2024-22258</link>
-      <description>Spring Authorization Server versions 1.0.0 - 1.0.5, 1.1.0 - 1.1.5, 1.2.0 - 1.2.2 and older unsupported versions are susceptible to a PKCE Downgrade Attack for Confidential Clients.
-
-Specifically, an application is vulnerable when a Confidential Client uses PKCE for the Authorization Code Grant.
-
-An application is not vulnerable when a Public Client uses PKCE for the Authorization Code Grant.
-
-</description>
-      <guid isPermaLink="false">CVE-2024-22258|2024-03-20T03:58:15.047Z</guid>
-      <pubDate>Wed, 20 Mar 2024 03:58:13 +0000</pubDate>
+      <title>CVE-2024-22236|2024-01-31T06:54:51.091Z -- spring -- spring%20cloud%20contract</title>
+      <link>https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2024-22236</link>
+      <description>In Spring Cloud Contract, versions 4.1.x prior to 4.1.1, versions 4.0.x prior to 4.0.5, and versions 3.1.x prior to 3.1.10, test execution is vulnerable to local information disclosure via temporary directory created with unsafe permissions through the shaded com.google.guava:guava dependency in the org.springframework.cloud:spring-cloud-contract-shade dependency.</description>
+      <guid isPermaLink="false">CVE-2024-22236|2024-01-31T06:54:51.091Z</guid>
+      <pubDate>Wed, 31 Jan 2024 06:54:51 +0000</pubDate>
     </item>
     <item>
-      <title>CVE-2024-22243|2024-02-23T05:03:54.426Z -- spring -- spring%20framework
-</title>
-      <link>https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2024-22243</link>
-      <description>Applications that use UriComponentsBuilder to parse an externally provided URL (e.g. through a query parameter) AND perform validation checks on the host of the parsed URL may be vulnerable to a  open redirect https://cwe.mitre.org/data/definitions/601.html  attack or to a SSRF attack if the URL is used after passing validation checks.
-</description>
-      <guid isPermaLink="false">CVE-2024-22243|2024-02-23T05:03:54.426Z</guid>
-      <pubDate>Fri, 23 Feb 2024 05:03:54 +0000</pubDate>
+      <title>CVE-2024-22233|2024-01-22T12:16:19.595Z -- spring -- spring%20framework</title>
+      <link>https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2024-22233</link>
+      <description>In Spring Framework versions 6.0.15 and 6.1.2, it is possible for a user to provide specially crafted HTTP requests that may cause a denial-of-service (DoS) condition.
+
+Specifically, an application is vulnerable when all of the following are true:
+
+  *  the application uses Spring MVC
+  *  Spring Security 6.1.6+ or 6.2.1+ is on the classpath
+
+
+Typically, Spring Boot applications need the org.springframework.boot:spring-boot-starter-web and org.springframework.boot:spring-boot-starter-security dependencies to meet all conditions.</description>
+      <guid isPermaLink="false">CVE-2024-22233|2024-01-22T12:16:19.595Z</guid>
+      <pubDate>Mon, 22 Jan 2024 12:16:15 +0000</pubDate>
     </item>
     <item>
-      <title>CVE-2024-22259|2024-03-16T04:40:08.680Z -- spring -- spring%20framework
-</title>
-      <link>https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2024-22259</link>
-      <description>Applications that use UriComponentsBuilder in Spring Framework to parse an externally provided URL (e.g. through a query parameter) AND perform validation checks on the host of the parsed URL may be vulnerable to a  open redirect https://cwe.mitre.org/data/definitions/601.html  attack or to a SSRF attack if the URL is used after passing validation checks.
-
-This is the same as  CVE-2024-22243 https://spring.io/security/cve-2024-22243 , but with different input.
-
-</description>
-      <guid isPermaLink="false">CVE-2024-22259|2024-03-16T04:40:08.680Z</guid>
-      <pubDate>Sat, 16 Mar 2024 04:40:08 +0000</pubDate>
-    </item>
-    <item>
-      <title>CVE-2024-22234|2024-02-20T07:02:50.873Z -- spring -- spring%20security
-</title>
+      <title>CVE-2024-22234|2024-02-20T07:02:50.873Z -- spring -- spring%20security</title>
       <link>https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2024-22234</link>
       <description>In Spring Security, versions 6.1.x prior to 6.1.7 and versions 6.2.x prior to 6.2.2, an application is vulnerable to broken access control when it directly uses the AuthenticationTrustResolver.isFullyAuthenticated(Authentication) method.
 
@@ -222,46 +56,45 @@ An application is not vulnerable if any of the following is true:
 
   *  The application does not use AuthenticationTrustResolver.isFullyAuthenticated(Authentication) directly.
   *  The application does not pass null to AuthenticationTrustResolver.isFullyAuthenticated
-  *  The application only uses isFullyAuthenticated via  Method Security https://docs.spring.io/spring-security/reference/servlet/authorization/method-security.html  or  HTTP Request Security https://docs.spring.io/spring-security/reference/servlet/authorization/authorize-http-requests.html 
-
-
-
-</description>
+  *  The application only uses isFullyAuthenticated via  Method Security https://docs.spring.io/spring-security/reference/servlet/authorization/method-security.html  or  HTTP Request Security https://docs.spring.io/spring-security/reference/servlet/authorization/authorize-http-requests.html</description>
       <guid isPermaLink="false">CVE-2024-22234|2024-02-20T07:02:50.873Z</guid>
       <pubDate>Tue, 20 Feb 2024 07:02:50 +0000</pubDate>
     </item>
     <item>
-      <title>CVE-2024-22233|2024-01-22T12:16:19.595Z -- spring -- spring%20framework
-</title>
-      <link>https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2024-22233</link>
-      <description>In Spring Framework versions 6.0.15 and 6.1.2, it is possible for a user to provide specially crafted HTTP requests that may cause a denial-of-service (DoS) condition.
+      <title>CVE-2024-22259|2024-03-16T04:40:08.680Z -- spring -- spring%20framework</title>
+      <link>https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2024-22259</link>
+      <description>Applications that use UriComponentsBuilder in Spring Framework to parse an externally provided URL (e.g. through a query parameter) AND perform validation checks on the host of the parsed URL may be vulnerable to a  open redirect https://cwe.mitre.org/data/definitions/601.html  attack or to a SSRF attack if the URL is used after passing validation checks.
 
-Specifically, an application is vulnerable when all of the following are true:
-
-  *  the application uses Spring MVC
-  *  Spring Security 6.1.6+ or 6.2.1+ is on the classpath
-
-
-Typically, Spring Boot applications need the org.springframework.boot:spring-boot-starter-web and org.springframework.boot:spring-boot-starter-security dependencies to meet all conditions.
-
-
-</description>
-      <guid isPermaLink="false">CVE-2024-22233|2024-01-22T12:16:19.595Z</guid>
-      <pubDate>Mon, 22 Jan 2024 12:16:15 +0000</pubDate>
+This is the same as  CVE-2024-22243 https://spring.io/security/cve-2024-22243 , but with different input.</description>
+      <guid isPermaLink="false">CVE-2024-22259|2024-03-16T04:40:08.680Z</guid>
+      <pubDate>Sat, 16 Mar 2024 04:40:08 +0000</pubDate>
     </item>
     <item>
-      <title>CVE-2024-22236|2024-01-31T06:54:51.091Z -- spring -- spring%20cloud%20contract
-</title>
-      <link>https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2024-22236</link>
-      <description>In Spring Cloud Contract, versions 4.1.x prior to 4.1.1, versions 4.0.x prior to 4.0.5, and versions 3.1.x prior to 3.1.10, test execution is vulnerable to local information disclosure via temporary directory created with unsafe permissions through the shaded com.google.guava:guava dependency in the org.springframework.cloud:spring-cloud-contract-shade dependency.
+      <title>CVE-2024-22243|2024-02-23T05:03:54.426Z -- spring -- spring%20framework</title>
+      <link>https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2024-22243</link>
+      <description>Applications that use UriComponentsBuilder to parse an externally provided URL (e.g. through a query parameter) AND perform validation checks on the host of the parsed URL may be vulnerable to a  open redirect https://cwe.mitre.org/data/definitions/601.html  attack or to a SSRF attack if the URL is used after passing validation checks.</description>
+      <guid isPermaLink="false">CVE-2024-22243|2024-02-23T05:03:54.426Z</guid>
+      <pubDate>Fri, 23 Feb 2024 05:03:54 +0000</pubDate>
+    </item>
+    <item>
+      <title>CVE-2024-22258|2024-03-20T03:58:15.047Z -- spring -- spring</title>
+      <link>https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2024-22258</link>
+      <description>Spring Authorization Server versions 1.0.0 - 1.0.5, 1.1.0 - 1.1.5, 1.2.0 - 1.2.2 and older unsupported versions are susceptible to a PKCE Downgrade Attack for Confidential Clients.
 
+Specifically, an application is vulnerable when a Confidential Client uses PKCE for the Authorization Code Grant.
 
+An application is not vulnerable when a Public Client uses PKCE for the Authorization Code Grant.</description>
+      <guid isPermaLink="false">CVE-2024-22258|2024-03-20T03:58:15.047Z</guid>
+      <pubDate>Wed, 20 Mar 2024 03:58:13 +0000</pubDate>
+    </item>
+    <item>
+      <title>CVE-2024-22262|2024-04-16T05:54:12.786Z -- spring -- spring%20framework</title>
+      <link>https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2024-22262</link>
+      <description>Applications that use UriComponentsBuilder to parse an externally provided URL (e.g. through a query parameter) AND perform validation checks on the host of the parsed URL may be vulnerable to a  open redirect https://cwe.mitre.org/data/definitions/601.html  attack or to a SSRF attack if the URL is used after passing validation checks.
 
-
-
-</description>
-      <guid isPermaLink="false">CVE-2024-22236|2024-01-31T06:54:51.091Z</guid>
-      <pubDate>Wed, 31 Jan 2024 06:54:51 +0000</pubDate>
+This is the same as  CVE-2024-22259 https://spring.io/security/cve-2024-22259  and  CVE-2024-22243 https://spring.io/security/cve-2024-22243 , but with different input.</description>
+      <guid isPermaLink="false">CVE-2024-22262|2024-04-16T05:54:12.786Z</guid>
+      <pubDate>Tue, 16 Apr 2024 05:54:12 +0000</pubDate>
     </item>
   </channel>
 </rss>
