@@ -6,24 +6,24 @@
     <description>The latest CVEs for ethyca -- all products</description>
     <docs>http://www.rssboard.org/rss-specification</docs>
     <generator>python-feedgen</generator>
-    <lastBuildDate>Tue, 02 Jul 2024 20:23:05 +0000</lastBuildDate>
+    <lastBuildDate>Tue, 02 Jul 2024 21:21:05 +0000</lastBuildDate>
     <ttl>60</ttl>
     <item>
-      <title>CVE-2024-38537|2024-07-02T19:50:10.275Z -- ethyca -- fides
+      <title>CVE-2024-38537|2024-07-02T20:11:44.703Z -- ethyca -- fides
 </title>
       <link>https://www.cve.org/CVERecord?id=CVE-2024-38537</link>
       <description>Fides is an open-source privacy engineering platform. `fides.js`, a client-side script used to interact with the consent management features of Fides, used the `polyfill.io` domain in a very limited edge case, when it detected a legacy browser such as IE11 that did not support the fetch standard. Therefore it was possible for users of legacy, pre-2017 browsers who navigate to a page serving `fides.js` to download and execute malicious scripts from the `polyfill.io` domain when the domain was compromised and serving malware. No exploitation of `fides.js` via `polyfill.io` has been identified as of time of publication.
 
 The vulnerability has been patched in Fides version `2.39.1`. Users are advised to upgrade to this version or later to secure their systems against this threat. On Thursday, June 27, 2024, Cloudflare and Namecheap intervened at a domain level to ensure `polyfill.io` and its subdomains could not resolve to the compromised service, rendering this vulnerability unexploitable. Prior to the domain level intervention, there were no server-side workarounds and the confidentiality, integrity, and availability impacts of this vulnerability were high. Clients could ensure they were not affected by using a modern browser that supported the fetch standard.</description>
-      <guid isPermaLink="false">CVE-2024-38537|2024-07-02T19:50:10.275Z</guid>
+      <guid isPermaLink="false">CVE-2024-38537|2024-07-02T20:11:44.703Z</guid>
       <pubDate>Tue, 02 Jul 2024 19:50:10 +0000</pubDate>
     </item>
     <item>
-      <title>CVE-2024-34715|2024-06-04T17:42:17.727Z -- ethyca -- fides</title>
-      <link>https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2024-34715</link>
-      <description>Fides is an open-source privacy engineering platform. The Fides webserver requires a connection to a hosted PostgreSQL database for persistent storage of application data. If the password used by the webserver for this database connection includes special characters such as `@` and `$`, webserver startup fails and the part of the password following the special character is exposed in webserver error logs. This is caused by improper escaping of the SQLAlchemy password string. As a result users are subject to a partial exposure of hosted database password in webserver logs. The vulnerability has been patched in Fides version `2.37.0`. Users are advised to upgrade to this version or later to secure their systems against this threat. There are no known workarounds for this vulnerability.</description>
-      <guid isPermaLink="false">CVE-2024-34715|2024-06-04T17:42:17.727Z</guid>
-      <pubDate>Wed, 29 May 2024 16:35:46 +0000</pubDate>
+      <title>CVE-2024-35189|2024-06-12T20:38:18.435Z -- ethyca -- fides</title>
+      <link>https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2024-35189</link>
+      <description>Fides is an open-source privacy engineering platform. The Fides webserver has a number of endpoints that retrieve `ConnectionConfiguration` records and their associated `secrets` which _can_ contain sensitive data (e.g. passwords, private keys, etc.). These `secrets` are stored encrypted at rest (in the application database), and the associated endpoints are not meant to expose that sensitive data in plaintext to API clients, as it could be compromising. Fides's developers have available to them a Pydantic field-attribute (`sensitive`) that they can annotate as `True` to indicate that a given secret field should not be exposed via the API. The application has an internal function that uses `sensitive` annotations to mask the sensitive fields with a `"**********"` placeholder value. This vulnerability is due to a bug in that function, which prevented `sensitive` API model fields that were _nested_ below the root-level of a `secrets` object from being masked appropriately. Only the `BigQuery` connection configuration secrets meets these criteria: the secrets schema has a nested sensitive `keyfile_creds.private_key` property that is exposed in plaintext via the APIs. Connection types other than `BigQuery` with sensitive fields at the root-level that are not nested are properly masked with the placeholder and are not affected by this vulnerability. This vulnerability has been patched in Fides version 2.37.0. Users are advised to upgrade to this version or later to secure their systems against this threat. Users are also advised to rotate any Google Cloud secrets used for BigQuery integrations in their Fides deployments. There are no known workarounds for this vulnerability.</description>
+      <guid isPermaLink="false">CVE-2024-35189|2024-06-12T20:38:18.435Z</guid>
+      <pubDate>Thu, 30 May 2024 19:47:43 +0000</pubDate>
     </item>
     <item>
       <title>CVE-2024-35189|2024-05-30T19:47:43.080Z -- ethyca -- fides</title>
@@ -33,11 +33,20 @@ The vulnerability has been patched in Fides version `2.39.1`. Users are advised 
       <pubDate>Thu, 30 May 2024 19:47:43 +0000</pubDate>
     </item>
     <item>
-      <title>CVE-2024-35189|2024-06-12T20:38:18.435Z -- ethyca -- fides</title>
-      <link>https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2024-35189</link>
-      <description>Fides is an open-source privacy engineering platform. The Fides webserver has a number of endpoints that retrieve `ConnectionConfiguration` records and their associated `secrets` which _can_ contain sensitive data (e.g. passwords, private keys, etc.). These `secrets` are stored encrypted at rest (in the application database), and the associated endpoints are not meant to expose that sensitive data in plaintext to API clients, as it could be compromising. Fides's developers have available to them a Pydantic field-attribute (`sensitive`) that they can annotate as `True` to indicate that a given secret field should not be exposed via the API. The application has an internal function that uses `sensitive` annotations to mask the sensitive fields with a `"**********"` placeholder value. This vulnerability is due to a bug in that function, which prevented `sensitive` API model fields that were _nested_ below the root-level of a `secrets` object from being masked appropriately. Only the `BigQuery` connection configuration secrets meets these criteria: the secrets schema has a nested sensitive `keyfile_creds.private_key` property that is exposed in plaintext via the APIs. Connection types other than `BigQuery` with sensitive fields at the root-level that are not nested are properly masked with the placeholder and are not affected by this vulnerability. This vulnerability has been patched in Fides version 2.37.0. Users are advised to upgrade to this version or later to secure their systems against this threat. Users are also advised to rotate any Google Cloud secrets used for BigQuery integrations in their Fides deployments. There are no known workarounds for this vulnerability.</description>
-      <guid isPermaLink="false">CVE-2024-35189|2024-06-12T20:38:18.435Z</guid>
-      <pubDate>Thu, 30 May 2024 19:47:43 +0000</pubDate>
+      <title>CVE-2024-34715|2024-06-04T17:42:17.727Z -- ethyca -- fides</title>
+      <link>https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2024-34715</link>
+      <description>Fides is an open-source privacy engineering platform. The Fides webserver requires a connection to a hosted PostgreSQL database for persistent storage of application data. If the password used by the webserver for this database connection includes special characters such as `@` and `$`, webserver startup fails and the part of the password following the special character is exposed in webserver error logs. This is caused by improper escaping of the SQLAlchemy password string. As a result users are subject to a partial exposure of hosted database password in webserver logs. The vulnerability has been patched in Fides version `2.37.0`. Users are advised to upgrade to this version or later to secure their systems against this threat. There are no known workarounds for this vulnerability.</description>
+      <guid isPermaLink="false">CVE-2024-34715|2024-06-04T17:42:17.727Z</guid>
+      <pubDate>Wed, 29 May 2024 16:35:46 +0000</pubDate>
+    </item>
+    <item>
+      <title>CVE-2024-38537|2024-07-02T19:50:10.275Z -- ethyca -- fides</title>
+      <link>https://www.cve.org/CVERecord?id=CVE-2024-38537</link>
+      <description>Fides is an open-source privacy engineering platform. `fides.js`, a client-side script used to interact with the consent management features of Fides, used the `polyfill.io` domain in a very limited edge case, when it detected a legacy browser such as IE11 that did not support the fetch standard. Therefore it was possible for users of legacy, pre-2017 browsers who navigate to a page serving `fides.js` to download and execute malicious scripts from the `polyfill.io` domain when the domain was compromised and serving malware. No exploitation of `fides.js` via `polyfill.io` has been identified as of time of publication.
+
+The vulnerability has been patched in Fides version `2.39.1`. Users are advised to upgrade to this version or later to secure their systems against this threat. On Thursday, June 27, 2024, Cloudflare and Namecheap intervened at a domain level to ensure `polyfill.io` and its subdomains could not resolve to the compromised service, rendering this vulnerability unexploitable. Prior to the domain level intervention, there were no server-side workarounds and the confidentiality, integrity, and availability impacts of this vulnerability were high. Clients could ensure they were not affected by using a modern browser that supported the fetch standard.</description>
+      <guid isPermaLink="false">CVE-2024-38537|2024-07-02T19:50:10.275Z</guid>
+      <pubDate>Tue, 02 Jul 2024 19:50:10 +0000</pubDate>
     </item>
   </channel>
 </rss>
