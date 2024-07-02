@@ -6,42 +6,18 @@
     <description>The latest CVEs for yt-dlp -- yt-dlp</description>
     <docs>http://www.rssboard.org/rss-specification</docs>
     <generator>python-feedgen</generator>
-    <lastBuildDate>Wed, 12 Jun 2024 11:24:24 +0000</lastBuildDate>
+    <lastBuildDate>Tue, 02 Jul 2024 14:21:27 +0000</lastBuildDate>
     <ttl>60</ttl>
     <item>
-      <title>CVE-2023-46121|2023-11-14T23:31:55.145Z -- yt-dlp -- yt-dlp
+      <title>CVE-2024-38519|2024-07-02T13:47:36.399Z -- yt-dlp -- yt-dlp
 </title>
-      <link>https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2023-46121</link>
-      <description>yt-dlp is a youtube-dl fork with additional features and fixes. The Generic Extractor in yt-dlp is vulnerable to an attacker setting an arbitrary proxy for a request to an arbitrary url, allowing the attacker to MITM the request made from yt-dlp's HTTP session. This could lead to cookie exfiltration in some cases. Version 2023.11.14 removed the ability to smuggle `http_headers` to the Generic extractor, as well as other extractors that use the same pattern. Users are advised to upgrade. Users unable to upgrade should disable the Ggneric extractor (or only pass trusted sites with trusted content) and ake caution when using `--no-check-certificate`.</description>
-      <guid isPermaLink="false">CVE-2023-46121|2023-11-14T23:31:55.145Z</guid>
-      <pubDate>Tue, 14 Nov 2023 23:31:55 +0000</pubDate>
+      <link>https://www.cve.org/CVERecord?id=CVE-2024-38519</link>
+      <description>`yt-dlp` is a command-line audio/video downloader. Prior to version 2024.07.01, `yt-dlp` does not limit the extensions of downloaded files, which could lead to aribitrary filenames being created in the download folder (and path traversal on Windows). Since `yt-dlp` also reads config from the working directory (and on Windows executables will be executed from the yt-dlp directory) this could lead to arbitrary code being executed. `yt-dlp` version 2024.07.01 fixes this issue by whitelisting the allowed extensions. This might mean some very uncommon extensions might not get downloaded, however it will also limit the possible exploitation surface. In addition to upgrading, have `.%(ext)s` at the end of the output template and make sure the user trusts the websites that they are downloading from. Also, make sure to never download to a directory within PATH or other sensitive locations like one's user directory, `system32`, or other binaries locations. For users who are not able to upgrade, keep the default output template (`-o "%(title)s [%(id)s].%(ext)s`); make sure the extension of the media to download is a common video/audio/sub/... one; try to avoid the generic extractor; and/or use `--ignore-config --config-location ...` to not load config from common locations.</description>
+      <guid isPermaLink="false">CVE-2024-38519|2024-07-02T13:47:36.399Z</guid>
+      <pubDate>Tue, 02 Jul 2024 13:47:36 +0000</pubDate>
     </item>
     <item>
-      <title>CVE-2023-40581|2023-09-25T18:54:00.204Z -- yt-dlp -- yt-dlp
-</title>
-      <link>https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2023-40581</link>
-      <description>yt-dlp is a youtube-dl fork with additional features and fixes. yt-dlp allows the user to provide shell command lines to be executed at various stages in its download steps through the `--exec` flag. This flag allows output template expansion in its argument, so that metadata values may be used in the shell commands. The metadata fields can be combined with the `%q` conversion, which is intended to quote/escape these values so they can be safely passed to the shell. However, the escaping used for `cmd` (the shell used by Python's `subprocess` on Windows) does not properly escape special characters, which can allow for remote code execution if `--exec` is used directly with maliciously crafted remote data. This vulnerability only impacts `yt-dlp` on Windows, and the vulnerability is present regardless of whether `yt-dlp` is run from `cmd` or from `PowerShell`. Support for output template expansion in `--exec`, along with this vulnerable behavior, was added to `yt-dlp` in version 2021.04.11. yt-dlp version 2023.09.24 fixes this issue by properly escaping each special character. `\n` will be replaced by `\r` as no way of escaping it has been found. It is recommended to upgrade yt-dlp to version 2023.09.24 as soon as possible. Also, always be careful when using --exec, because while this specific vulnerability has been patched, using unvalidated input in shell commands is inherently dangerous. For Windows users who are not able to upgrade: 1. Avoid using any output template expansion in --exec other than {} (filepath). 2. If expansion in --exec is needed, verify the fields you are using do not contain ", | or &amp;. 3. Instead of using --exec, write the info json and load the fields from it instead.
-</description>
-      <guid isPermaLink="false">CVE-2023-40581|2023-09-25T18:54:00.204Z</guid>
-      <pubDate>Mon, 25 Sep 2023 18:54:00 +0000</pubDate>
-    </item>
-    <item>
-      <title>CVE-2023-35934|2023-07-06T19:50:07.476Z -- yt-dlp -- yt-dlp
-</title>
-      <link>https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2023-35934</link>
-      <description>yt-dlp is a command-line program to download videos from video sites. During file downloads, yt-dlp or the external downloaders that yt-dlp employs may leak cookies on HTTP redirects to a different host, or leak them when the host for download fragments differs from their parent manifest's host. This vulnerable behavior is present in yt-dlp prior to 2023.07.06 and nightly 2023.07.06.185519. All native and external downloaders are affected, except for `curl` and `httpie` (version 3.1.0 or later).
-
-At the file download stage, all cookies are passed by yt-dlp to the file downloader as a `Cookie` header, thereby losing their scope. This also occurs in yt-dlp's info JSON output, which may be used by external tools. As a result, the downloader or external tool may indiscriminately send cookies with requests to domains or paths for which the cookies are not scoped.
-
-yt-dlp version 2023.07.06 and nightly 2023.07.06.185519 fix this issue by removing the `Cookie` header upon HTTP redirects; having native downloaders calculate the `Cookie` header from the cookiejar, utilizing external downloaders' built-in support for cookies instead of passing them as header arguments, disabling HTTP redirectiong if the external downloader does not have proper cookie support, processing cookies passed as HTTP headers to limit their scope, and having a separate field for cookies in the info dict storing more information about scoping
-
-Some workarounds are available for those who are unable to upgrade. Avoid using cookies and user authentication methods. While extractors may set custom cookies, these usually do not contain sensitive information. Alternatively, avoid using `--load-info-json`. Or, if authentication is a must: verify the integrity of download links from unknown sources in browser (including redirects) before passing them to yt-dlp; use `curl` as external downloader, since it is not impacted; and/or avoid fragmented formats such as HLS/m3u8, DASH/mpd and ISM.</description>
-      <guid isPermaLink="false">CVE-2023-35934|2023-07-06T19:50:07.476Z</guid>
-      <pubDate>Thu, 06 Jul 2023 19:39:49 +0000</pubDate>
-    </item>
-    <item>
-      <title>CVE-2024-22423|2024-06-04T17:52:45.637Z -- yt-dlp -- yt-dlp
-</title>
+      <title>CVE-2024-22423|2024-06-04T17:52:45.637Z -- yt-dlp -- yt-dlp</title>
       <link>https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2024-22423</link>
       <description>yt-dlp is a youtube-dl fork with additional features and fixes. The patch that addressed CVE-2023-40581 attempted to prevent RCE when using `--exec` with `%q` by replacing double quotes with two double quotes. However, this escaping is not sufficient, and still allows expansion of environment variables. Support for output template expansion in `--exec`, along with this vulnerable behavior, was added to `yt-dlp` in version 2021.04.11. yt-dlp version 2024.04.09 fixes this issue by properly escaping `%`. It replaces them with `%%cd:~,%`, a variable that expands to nothing, leaving only the leading percent. It is recommended to upgrade yt-dlp to version 2024.04.09 as soon as possible. Also, always be careful when using `--exec`, because while this specific vulnerability has been patched, using unvalidated input in shell commands is inherently dangerous. For Windows users who are not able to upgrade, avoid using any output template expansion in `--exec` other than `{}` (filepath); if expansion in `--exec` is needed, verify the fields you are using do not contain `"`, `|` or `&amp;`; and/or instead of using `--exec`, write the info json and load the fields from it instead.</description>
       <guid isPermaLink="false">CVE-2024-22423|2024-06-04T17:52:45.637Z</guid>
