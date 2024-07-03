@@ -6,40 +6,29 @@
     <description>The latest CVEs for apollographql -- router</description>
     <docs>http://www.rssboard.org/rss-specification</docs>
     <generator>python-feedgen</generator>
-    <lastBuildDate>Wed, 12 Jun 2024 11:24:23 +0000</lastBuildDate>
+    <lastBuildDate>Wed, 03 Jul 2024 21:21:36 +0000</lastBuildDate>
     <ttl>60</ttl>
     <item>
-      <title>CVE-2023-41317|2023-09-05T18:31:43.185Z -- apollographql -- router
+      <title>CVE-2024-32971|2024-07-03T20:56:05.085Z -- apollographql -- router
 </title>
-      <link>https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2023-41317</link>
-      <description>The Apollo Router is a configurable, high-performance graph router written in Rust to run a federated supergraph that uses Apollo Federation 2. Affected versions are subject to a Denial-of-Service (DoS) type vulnerability which causes the Router to panic and terminate when GraphQL Subscriptions are enabled.  It can be triggered when **all of the following conditions are met**: 1. Running Apollo Router v1.28.0, v1.28.1 or v1.29.0 ("impacted versions"); **and** 2. The Supergraph schema provided to the Router (either via Apollo Uplink or explicitly via other configuration) **has a `subscription` type** with root-fields defined; **and** 3. The YAML configuration provided to the Router **has subscriptions enabled** (they are _disabled_ by default), either by setting `enabled: true` _or_ by setting a valid `mode` within the `subscriptions` object (as seen in [subscriptions' documentation](https://www.apollographql.com/docs/router/executing-operations/subscription-support/#router-setup)); **and** 4. An [anonymous](https://spec.graphql.org/draft/#sec-Anonymous-Operation-Definitions) (i.e., un-named) `subscription` operation (e.g., `subscription { ... }`) is received by the Router If **all four** of these criteria are met, the impacted versions will panic and terminate.  There is no data-privacy risk or sensitive-information exposure aspect to this vulnerability. This is fixed in Apollo Router v1.29.1. Users are advised to upgrade. Updating to v1.29.1 should be a clear and simple upgrade path for those running impacted versions.  However, if Subscriptions are **not** necessary for your Graph – but are enabled via configuration — then disabling subscriptions is another option to mitigate the risk.</description>
-      <guid isPermaLink="false">CVE-2023-41317|2023-09-05T18:31:43.185Z</guid>
-      <pubDate>Tue, 05 Sep 2023 18:31:43 +0000</pubDate>
+      <link>https://www.cve.org/CVERecord?id=CVE-2024-32971</link>
+      <description>Apollo Router is a configurable, graph router written in Rust to run a federated supergraph that uses Apollo Federation 2. The affected versions of Apollo Router contain a bug that in limited circumstances, could lead to unexpected operations being executed which can result in unintended data or effects. This only affects Router instances configured to use distributed query plan caching. The root cause of this defect is a bug in Apollo Router’s cache retrieval logic: When this defect is present and distributed query planning caching is enabled, asking the Router to execute an operation (whether it is a query, a mutation, or a subscription) may result in an unexpected variation of that operation being executed or the generation of unexpected errors. The issue stems from inadvertently executing a modified version of a previously executed operation, whose query plan is stored in the underlying cache (specifically, Redis). Depending on the type of the operation, the result may vary. For a query, results may be fetched that don’t match what was requested (e.g., rather than running `fetchUsers(type: ENTERPRISE)` the Router may run `fetchUsers(type: TRIAL)`. For a mutation, this may result in incorrect mutations being sent to underlying subgraph servers (e.g., rather than sending `deleteUser(id: 10)` to a subgraph, the Router may run `deleteUser(id: 12)`. Users who are using distributed query plan caching, are advised to either upgrade to version 1.45.1 or above or downgrade to version 1.43.2 of the Apollo Router. Apollo Router versions 1.44.0 or 1.45.0 are not recommended for use and have been withdrawn. Users unable to upgrade can disable distributed query plan caching to mitigate this issue.</description>
+      <guid isPermaLink="false">CVE-2024-32971|2024-07-03T20:56:05.085Z</guid>
+      <pubDate>Thu, 02 May 2024 06:43:27 +0000</pubDate>
     </item>
     <item>
-      <title>CVE-2023-45812|2023-10-18T21:29:32.731Z -- apollographql -- router
-</title>
-      <link>https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2023-45812</link>
-      <description>The Apollo Router is a configurable, high-performance graph router written in Rust to run a federated supergraph that uses Apollo Federation. Affected versions are subject to a Denial-of-Service (DoS) type vulnerability which causes the Router to panic and terminate when a multi-part response is sent. When users send queries to the router that uses the `@defer` or Subscriptions, the Router will panic. To be vulnerable, users of Router must have a coprocessor with `coprocessor.supergraph.response` configured in their `router.yaml` and also to support either `@defer` or Subscriptions. Apollo Router version 1.33.0 has a fix for this vulnerability which was introduced in PR #4014. Users are advised to upgrade. Users unable to upgrade should avoid using the coprocessor supergraph response or disable defer and subscriptions support and continue to use the coprocessor supergraph response.</description>
-      <guid isPermaLink="false">CVE-2023-45812|2023-10-18T21:29:32.731Z</guid>
-      <pubDate>Wed, 18 Oct 2023 21:29:32 +0000</pubDate>
-    </item>
-    <item>
-      <title>CVE-2024-28101|2024-03-06T21:07:36.476Z -- apollographql -- router
-</title>
-      <link>https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2024-28101</link>
-      <description>The Apollo Router is a graph router written in Rust to run a federated supergraph that uses Apollo Federation. Versions 0.9.5 until 1.40.2 are subject to a Denial-of-Service (DoS) type vulnerability. When receiving compressed HTTP payloads, affected versions of the Router evaluate the `limits.http_max_request_bytes` configuration option after the entirety of the compressed payload is decompressed. If affected versions of the Router receive highly compressed payloads, this could result in significant memory consumption while the compressed payload is expanded. Router version 1.40.2 has a fix for the vulnerability. Those who are unable to upgrade may be able to implement mitigations at proxies or load balancers positioned in front of their Router fleet (e.g. Nginx, HAProxy, or cloud-native WAF services) by creating limits on HTTP body upload size. 
-</description>
-      <guid isPermaLink="false">CVE-2024-28101|2024-03-06T21:07:36.476Z</guid>
-      <pubDate>Wed, 06 Mar 2024 21:07:36 +0000</pubDate>
-    </item>
-    <item>
-      <title>CVE-2024-32971|2024-05-02T06:43:27.646Z -- apollographql -- router
-</title>
+      <title>CVE-2024-32971|2024-05-02T06:43:27.646Z -- apollographql -- router</title>
       <link>https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2024-32971</link>
       <description>Apollo Router is a configurable, graph router written in Rust to run a federated supergraph that uses Apollo Federation 2. The affected versions of Apollo Router contain a bug that in limited circumstances, could lead to unexpected operations being executed which can result in unintended data or effects. This only affects Router instances configured to use distributed query plan caching. The root cause of this defect is a bug in Apollo Router’s cache retrieval logic: When this defect is present and distributed query planning caching is enabled, asking the Router to execute an operation (whether it is a query, a mutation, or a subscription) may result in an unexpected variation of that operation being executed or the generation of unexpected errors. The issue stems from inadvertently executing a modified version of a previously executed operation, whose query plan is stored in the underlying cache (specifically, Redis). Depending on the type of the operation, the result may vary. For a query, results may be fetched that don’t match what was requested (e.g., rather than running `fetchUsers(type: ENTERPRISE)` the Router may run `fetchUsers(type: TRIAL)`. For a mutation, this may result in incorrect mutations being sent to underlying subgraph servers (e.g., rather than sending `deleteUser(id: 10)` to a subgraph, the Router may run `deleteUser(id: 12)`. Users who are using distributed query plan caching, are advised to either upgrade to version 1.45.1 or above or downgrade to version 1.43.2 of the Apollo Router. Apollo Router versions 1.44.0 or 1.45.0 are not recommended for use and have been withdrawn. Users unable to upgrade can disable distributed query plan caching to mitigate this issue.</description>
       <guid isPermaLink="false">CVE-2024-32971|2024-05-02T06:43:27.646Z</guid>
       <pubDate>Thu, 02 May 2024 06:43:27 +0000</pubDate>
+    </item>
+    <item>
+      <title>CVE-2024-28101|2024-03-06T21:07:36.476Z -- apollographql -- router</title>
+      <link>https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2024-28101</link>
+      <description>The Apollo Router is a graph router written in Rust to run a federated supergraph that uses Apollo Federation. Versions 0.9.5 until 1.40.2 are subject to a Denial-of-Service (DoS) type vulnerability. When receiving compressed HTTP payloads, affected versions of the Router evaluate the `limits.http_max_request_bytes` configuration option after the entirety of the compressed payload is decompressed. If affected versions of the Router receive highly compressed payloads, this could result in significant memory consumption while the compressed payload is expanded. Router version 1.40.2 has a fix for the vulnerability. Those who are unable to upgrade may be able to implement mitigations at proxies or load balancers positioned in front of their Router fleet (e.g. Nginx, HAProxy, or cloud-native WAF services) by creating limits on HTTP body upload size.</description>
+      <guid isPermaLink="false">CVE-2024-28101|2024-03-06T21:07:36.476Z</guid>
+      <pubDate>Wed, 06 Mar 2024 21:07:36 +0000</pubDate>
     </item>
   </channel>
 </rss>
