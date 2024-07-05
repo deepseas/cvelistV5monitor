@@ -6,29 +6,20 @@
     <description>The latest CVEs for metal3-io -- all products</description>
     <docs>http://www.rssboard.org/rss-specification</docs>
     <generator>python-feedgen</generator>
-    <lastBuildDate>Wed, 12 Jun 2024 11:24:20 +0000</lastBuildDate>
+    <lastBuildDate>Fri, 05 Jul 2024 18:24:07 +0000</lastBuildDate>
     <ttl>60</ttl>
     <item>
-      <title>CVE-2023-30841|2023-04-26T18:24:04.479Z -- metal3-io -- baremetal-operator
+      <title>CVE-2024-31463|2024-07-05T17:22:59.080Z -- metal3-io -- ironic-image
 </title>
-      <link>https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2023-30841</link>
-      <description>Baremetal Operator (BMO) is a bare metal host provisioning integration for Kubernetes. Prior to version 0.3.0, ironic and ironic-inspector deployed within Baremetal Operator using the included `deploy.sh` store their `.htpasswd` files as ConfigMaps instead of Secrets. This causes the plain-text username and hashed password to be readable by anyone having a cluster-wide read-access to the management cluster, or access to the management cluster's Etcd storage. This issue is patched in baremetal-operator PR#1241, and is included in BMO release 0.3.0 onwards. As a workaround, users may modify the kustomizations and redeploy the BMO, or recreate the required ConfigMaps as Secrets per instructions in baremetal-operator PR#1241.</description>
-      <guid isPermaLink="false">CVE-2023-30841|2023-04-26T18:24:04.479Z</guid>
-      <pubDate>Wed, 26 Apr 2023 18:24:04 +0000</pubDate>
-    </item>
-    <item>
-      <title>CVE-2023-40585|2023-08-25T20:31:50.639Z -- metal3-io -- ironic-image
-</title>
-      <link>https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2023-40585</link>
-      <description>ironic-image is a container image to run OpenStack Ironic as part of Metal³. Prior to version capm3-v1.4.3, if Ironic is not deployed with TLS and it does not have API and Conductor split into separate services, access to the API is not protected by any authentication. Ironic API is also listening in host network. In case the node is not behind a firewall, the API could be accessed by anyone via network without authentication. By default, Ironic API in Metal3 is protected by TLS and basic authentication, so this vulnerability requires operator to configure API without TLS for it to be vulnerable. TLS and authentication however should not be coupled as they are in versions prior to capm3-v1.4.3. A patch exists in versions capm3-v1.4.3 and newer. Some workarounds are available. Either configure TLS for Ironic API (`deploy.sh -t ...`, `IRONIC_TLS_SETUP=true`) or split Ironic API and Conductor via configuration change (old implementation, not recommended). With both workarounds, services are configured with httpd front-end, which has proper authentication configuration in place.</description>
-      <guid isPermaLink="false">CVE-2023-40585|2023-08-25T20:31:50.639Z</guid>
-      <pubDate>Fri, 25 Aug 2023 20:31:50 +0000</pubDate>
-    </item>
-    <item>
-      <title>CVE-2024-31463|2024-04-17T15:21:49.384Z -- metal3-io -- ironic-image
-</title>
-      <link>https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2024-31463</link>
+      <link>https://www.cve.org/CVERecord?id=CVE-2024-31463</link>
       <description>Ironic-image is an OpenStack Ironic deployment packaged and configured by Metal3. When the reverse proxy mode is enabled by the `IRONIC_REVERSE_PROXY_SETUP` variable set to `true`, 1) HTTP basic credentials are validated on the HTTPD side in a separate container, not in the Ironic service itself and 2) Ironic listens in host network on a private port 6388 on localhost by default. As a result, when the reverse proxy mode is used, any Pod or local Unix user on the control plane Node can access the Ironic API on the private port without authentication. A similar problem affects Ironic Inspector (`INSPECTOR_REVERSE_PROXY_SETUP` set to `true`), although the attack potential is smaller there. This issue affects operators deploying ironic-image in the reverse proxy mode, which is the recommended mode when TLS is used (also recommended), with the `IRONIC_PRIVATE_PORT` variable unset or set to a numeric value. In this case, an attacker with enough privileges to launch a pod on the control plane with host networking can access Ironic API and use it to modify bare-metal machine, e.g. provision them with a new image or change their BIOS settings. This vulnerability is fixed in 24.1.1. </description>
+      <guid isPermaLink="false">CVE-2024-31463|2024-07-05T17:22:59.080Z</guid>
+      <pubDate>Wed, 17 Apr 2024 15:21:49 +0000</pubDate>
+    </item>
+    <item>
+      <title>CVE-2024-31463|2024-04-17T15:21:49.384Z -- metal3-io -- ironic-image</title>
+      <link>https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2024-31463</link>
+      <description>Ironic-image is an OpenStack Ironic deployment packaged and configured by Metal3. When the reverse proxy mode is enabled by the `IRONIC_REVERSE_PROXY_SETUP` variable set to `true`, 1) HTTP basic credentials are validated on the HTTPD side in a separate container, not in the Ironic service itself and 2) Ironic listens in host network on a private port 6388 on localhost by default. As a result, when the reverse proxy mode is used, any Pod or local Unix user on the control plane Node can access the Ironic API on the private port without authentication. A similar problem affects Ironic Inspector (`INSPECTOR_REVERSE_PROXY_SETUP` set to `true`), although the attack potential is smaller there. This issue affects operators deploying ironic-image in the reverse proxy mode, which is the recommended mode when TLS is used (also recommended), with the `IRONIC_PRIVATE_PORT` variable unset or set to a numeric value. In this case, an attacker with enough privileges to launch a pod on the control plane with host networking can access Ironic API and use it to modify bare-metal machine, e.g. provision them with a new image or change their BIOS settings. This vulnerability is fixed in 24.1.1.</description>
       <guid isPermaLink="false">CVE-2024-31463|2024-04-17T15:21:49.384Z</guid>
       <pubDate>Wed, 17 Apr 2024 15:21:49 +0000</pubDate>
     </item>

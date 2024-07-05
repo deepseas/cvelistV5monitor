@@ -6,231 +6,21 @@
     <description>The latest CVEs for lunary-ai -- lunary-ai/lunary</description>
     <docs>http://www.rssboard.org/rss-specification</docs>
     <generator>python-feedgen</generator>
-    <lastBuildDate>Wed, 03 Jul 2024 18:23:53 +0000</lastBuildDate>
+    <lastBuildDate>Fri, 05 Jul 2024 18:24:06 +0000</lastBuildDate>
     <ttl>60</ttl>
     <item>
-      <title>CVE-2024-1643|2024-07-03T18:01:58.461Z -- lunary-ai -- lunary-ai%2Flunary
+      <title>CVE-2024-1740|2024-07-05T17:22:40.467Z -- lunary-ai -- lunary-ai%2Flunary
 </title>
-      <link>https://www.cve.org/CVERecord?id=CVE-2024-1643</link>
-      <description>By knowing an organization's ID, an attacker can join the organization without permission and gain the ability to read and modify all data within that organization. This vulnerability allows unauthorized access and modification of sensitive information, posing a significant security risk. The flaw is due to insufficient verification of user permissions when joining an organization.</description>
-      <guid isPermaLink="false">CVE-2024-1643|2024-07-03T18:01:58.461Z</guid>
-      <pubDate>Wed, 10 Apr 2024 17:07:57 +0000</pubDate>
-    </item>
-    <item>
-      <title>CVE-2024-6086|2024-06-27T19:52:27.988Z -- lunary-ai -- lunary-ai%2Flunary</title>
-      <link>https://www.cve.org/CVERecord?id=CVE-2024-6086</link>
-      <description>In version 1.2.7 of lunary-ai/lunary, any authenticated user, regardless of their role, can change the name of an organization due to improper access control. The function checkAccess() is not implemented, allowing users with the lowest privileges, such as the 'Prompt Editor' role, to modify organization attributes without proper authorization.</description>
-      <guid isPermaLink="false">CVE-2024-6086|2024-06-27T19:52:27.988Z</guid>
-      <pubDate>Thu, 27 Jun 2024 18:46:15 +0000</pubDate>
-    </item>
-    <item>
-      <title>CVE-2024-5714|2024-06-27T19:42:47.279Z -- lunary-ai -- lunary-ai%2Flunary</title>
-      <link>https://www.cve.org/CVERecord?id=CVE-2024-5714</link>
-      <description>In lunary-ai/lunary version 1.2.4, an improper access control vulnerability allows members with team management permissions to manipulate project identifiers in requests, enabling them to invite users to projects in other organizations, change members to projects in other organizations with escalated privileges, and change members from other organizations to their own or other projects, also with escalated privileges. This vulnerability is due to the backend's failure to validate project identifiers against the current user's organization ID and projects belonging to it, as well as a misconfiguration in attribute naming (`org_id` should be `orgId`) that prevents proper user organization validation. As a result, attackers can cause inconsistencies on the platform for affected users and organizations, including unauthorized privilege escalation. The issue is present in the backend API endpoints for user invitation and modification, specifically in the handling of project IDs in requests.</description>
-      <guid isPermaLink="false">CVE-2024-5714|2024-06-27T19:42:47.279Z</guid>
-      <pubDate>Thu, 27 Jun 2024 18:42:29 +0000</pubDate>
-    </item>
-    <item>
-      <title>CVE-2024-5128|2024-06-06T20:06:37.831Z -- lunary-ai -- lunary-ai%2Flunary</title>
-      <link>https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2024-5128</link>
-      <description>An Insecure Direct Object Reference (IDOR) vulnerability was identified in lunary-ai/lunary, affecting versions up to and including 1.2.2. This vulnerability allows unauthorized users to view, update, or delete any dataset_prompt or dataset_prompt_variation within any dataset or project. The issue stems from improper access control checks in the dataset management endpoints, where direct references to object IDs are not adequately secured against unauthorized access. This vulnerability was fixed in version 1.2.25.</description>
-      <guid isPermaLink="false">CVE-2024-5128|2024-06-06T20:06:37.831Z</guid>
-      <pubDate>Thu, 06 Jun 2024 18:08:23 +0000</pubDate>
-    </item>
-    <item>
-      <title>CVE-2024-5277|2024-06-06T17:46:06.653Z -- lunary-ai -- lunary-ai%2Flunary</title>
-      <link>https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2024-5277</link>
-      <description>In lunary-ai/lunary version 1.2.4, a vulnerability exists in the password recovery mechanism where the reset password token is not invalidated after use. This allows an attacker who compromises the recovery token to repeatedly change the password of a victim's account. The issue lies in the backend's handling of the reset password process, where the token, once used, is not discarded or invalidated, enabling its reuse. This vulnerability could lead to unauthorized account access if an attacker obtains the recovery token.</description>
-      <guid isPermaLink="false">CVE-2024-5277|2024-06-06T17:46:06.653Z</guid>
-      <pubDate>Thu, 06 Jun 2024 17:46:06 +0000</pubDate>
-    </item>
-    <item>
-      <title>CVE-2024-5133|2024-06-07T12:41:12.898Z -- lunary-ai -- lunary-ai%2Flunary</title>
-      <link>https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2024-5133</link>
-      <description>In lunary-ai/lunary version 1.2.4, an account takeover vulnerability exists due to the exposure of password recovery tokens in API responses. Specifically, when a user initiates the password reset process, the recovery token is included in the response of the `GET /v1/users/me/org` endpoint, which lists all users in a team. This allows any authenticated user to capture the recovery token of another user and subsequently change that user's password without consent, effectively taking over the account. The issue lies in the inclusion of the `recovery_token` attribute in the users object returned by the API.</description>
-      <guid isPermaLink="false">CVE-2024-5133|2024-06-07T12:41:12.898Z</guid>
-      <pubDate>Thu, 06 Jun 2024 18:21:53 +0000</pubDate>
-    </item>
-    <item>
-      <title>CVE-2024-5328|2024-06-06T20:53:51.234Z -- lunary-ai -- lunary-ai%2Flunary</title>
-      <link>https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2024-5328</link>
-      <description>A Server-Side Request Forgery (SSRF) vulnerability exists in the lunary-ai/lunary application, specifically within the endpoint '/auth/saml/tto/download-idp-xml'. The vulnerability arises due to the application's failure to validate user-supplied URLs before using them in server-side requests. An attacker can exploit this vulnerability by sending a specially crafted request to the affected endpoint, allowing them to make unauthorized requests to internal or external resources. This could lead to the disclosure of sensitive information, service disruption, or further attacks against the network infrastructure. The issue affects the latest version of the application as of the report.</description>
-      <guid isPermaLink="false">CVE-2024-5328|2024-06-06T20:53:51.234Z</guid>
-      <pubDate>Thu, 06 Jun 2024 18:53:58 +0000</pubDate>
-    </item>
-    <item>
-      <title>CVE-2024-5129|2024-06-07T15:13:22.112Z -- lunary-ai -- lunary-ai%2Flunary</title>
-      <link>https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2024-5129</link>
-      <description>A Privilege Escalation Vulnerability exists in lunary-ai/lunary version 1.2.2, where any user can delete any datasets due to missing authorization checks. The vulnerability is present in the dataset deletion functionality, where the application fails to verify if the user requesting the deletion has the appropriate permissions. This allows unauthorized users to send a DELETE request to the server and delete any dataset by specifying its ID. The issue is located in the datasets.delete function within the datasets index file.</description>
-      <guid isPermaLink="false">CVE-2024-5129|2024-06-07T15:13:22.112Z</guid>
-      <pubDate>Thu, 06 Jun 2024 18:28:21 +0000</pubDate>
-    </item>
-    <item>
-      <title>CVE-2024-5248|2024-06-07T15:07:10.120Z -- lunary-ai -- lunary-ai%2Flunary</title>
-      <link>https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2024-5248</link>
-      <description>In lunary-ai/lunary version 1.2.5, an improper access control vulnerability exists due to a missing permission check in the `GET /v1/users/me/org` endpoint. The platform's role definitions restrict the `Prompt Editor` role to prompt management and project viewing/listing capabilities, explicitly excluding access to user information. However, the endpoint fails to enforce this restriction, allowing users with the `Prompt Editor` role to access the full list of users in the organization. This vulnerability allows unauthorized access to sensitive user information, violating the intended access controls.</description>
-      <guid isPermaLink="false">CVE-2024-5248|2024-06-07T15:07:10.120Z</guid>
-      <pubDate>Thu, 06 Jun 2024 18:49:25 +0000</pubDate>
-    </item>
-    <item>
-      <title>CVE-2024-5478|2024-06-07T19:05:40.386Z -- lunary-ai -- lunary-ai%2Flunary</title>
-      <link>https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2024-5478</link>
-      <description>A Cross-site Scripting (XSS) vulnerability exists in the SAML metadata endpoint `/auth/saml/${org?.id}/metadata` of lunary-ai/lunary version 1.2.7. The vulnerability arises due to the application's failure to escape or validate the `orgId` parameter supplied by the user before incorporating it into the generated response. Specifically, the endpoint generates XML responses for SAML metadata, where the `orgId` parameter is directly embedded into the XML structure without proper sanitization or validation. This flaw allows an attacker to inject arbitrary JavaScript code into the generated SAML metadata page, leading to potential theft of user cookies or authentication tokens.</description>
-      <guid isPermaLink="false">CVE-2024-5478|2024-06-07T19:05:40.386Z</guid>
-      <pubDate>Thu, 06 Jun 2024 18:20:05 +0000</pubDate>
-    </item>
-    <item>
-      <title>CVE-2024-5389|2024-06-10T12:46:16.911Z -- lunary-ai -- lunary-ai%2Flunary</title>
-      <link>https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2024-5389</link>
-      <description>In lunary-ai/lunary version 1.2.13, an insufficient granularity of access control vulnerability allows users to create, update, get, and delete prompt variations for datasets not owned by their organization. This issue arises due to the application not properly validating the ownership of dataset prompts and their variations against the organization or project of the requesting user. As a result, unauthorized modifications to dataset prompts can occur, leading to altered or removed dataset prompts without proper authorization. This vulnerability impacts the integrity and consistency of dataset information, potentially affecting the results of experiments.</description>
-      <guid isPermaLink="false">CVE-2024-5389|2024-06-10T12:46:16.911Z</guid>
-      <pubDate>Sun, 09 Jun 2024 22:22:38 +0000</pubDate>
-    </item>
-    <item>
-      <title>CVE-2024-5130|2024-06-06T19:37:08.959Z -- lunary-ai -- lunary-ai%2Flunary</title>
-      <link>https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2024-5130</link>
-      <description>An Incorrect Authorization vulnerability exists in lunary-ai/lunary versions up to and including 1.2.2, which allows unauthenticated users to delete any dataset. The vulnerability is due to the lack of proper authorization checks in the dataset deletion endpoint. Specifically, the endpoint does not verify if the provided project ID belongs to the current user, thereby allowing any dataset to be deleted without proper authentication. This issue was fixed in version 1.2.8.</description>
-      <guid isPermaLink="false">CVE-2024-5130|2024-06-06T19:37:08.959Z</guid>
-      <pubDate>Thu, 06 Jun 2024 18:43:30 +0000</pubDate>
-    </item>
-    <item>
-      <title>CVE-2024-5126|2024-06-07T17:07:52.117Z -- lunary-ai -- lunary-ai%2Flunary</title>
-      <link>https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2024-5126</link>
-      <description>An improper access control vulnerability exists in the lunary-ai/lunary repository, specifically within the versions.patch functionality for updating prompts. Affected versions include 1.2.2 up to but not including 1.2.25. The vulnerability allows unauthorized users to update prompt details due to insufficient access control checks. This issue was addressed and fixed in version 1.2.25.</description>
-      <guid isPermaLink="false">CVE-2024-5126|2024-06-07T17:07:52.117Z</guid>
-      <pubDate>Thu, 06 Jun 2024 18:11:28 +0000</pubDate>
-    </item>
-    <item>
-      <title>CVE-2024-5127|2024-06-06T20:24:47.639Z -- lunary-ai -- lunary-ai%2Flunary</title>
-      <link>https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2024-5127</link>
-      <description>In lunary-ai/lunary versions 1.2.2 through 1.2.25, an improper access control vulnerability allows users on the Free plan to invite other members and assign them any role, including those intended for Paid and Enterprise plans only. This issue arises due to insufficient backend validation of roles and permissions, enabling unauthorized users to join a project and potentially exploit roles and permissions not intended for their use. The vulnerability specifically affects the Team feature, where the backend fails to validate whether a user has paid for a plan before allowing them to send invite links with any role assigned. This could lead to unauthorized access and manipulation of project settings or data.</description>
-      <guid isPermaLink="false">CVE-2024-5127|2024-06-06T20:24:47.639Z</guid>
-      <pubDate>Thu, 06 Jun 2024 17:26:35 +0000</pubDate>
-    </item>
-    <item>
-      <title>CVE-2024-5131|2024-06-07T19:28:05.525Z -- lunary-ai -- lunary-ai%2Flunary</title>
-      <link>https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2024-5131</link>
-      <description>An Improper Access Control vulnerability exists in the lunary-ai/lunary repository, affecting versions up to and including 1.2.2. The vulnerability allows unauthorized users to view any prompts in any projects by supplying a specific prompt ID to an endpoint that does not adequately verify the ownership of the prompt ID. This issue was fixed in version 1.2.25.</description>
-      <guid isPermaLink="false">CVE-2024-5131|2024-06-07T19:28:05.525Z</guid>
-      <pubDate>Thu, 06 Jun 2024 18:31:16 +0000</pubDate>
-    </item>
-    <item>
-      <title>CVE-2024-1741|2024-04-16T11:10:32.533Z -- lunary-ai -- lunary-ai%2Flunary</title>
-      <link>https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2024-1741</link>
-      <description>lunary-ai/lunary version 1.0.1 is vulnerable to improper authorization, allowing removed members to read, create, modify, and delete prompt templates using an old authorization token. Despite being removed from an organization, these members can still perform operations on prompt templates by sending HTTP requests with their previously captured authorization token. This issue exposes organizations to unauthorized access and manipulation of sensitive template data.</description>
-      <guid isPermaLink="false">CVE-2024-1741|2024-04-16T11:10:32.533Z</guid>
-      <pubDate>Wed, 10 Apr 2024 17:08:04 +0000</pubDate>
-    </item>
-    <item>
-      <title>CVE-2024-1625|2024-06-06T13:12:36.469Z -- lunary-ai -- lunary-ai%2Flunary</title>
-      <link>https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2024-1625</link>
-      <description>An Insecure Direct Object Reference (IDOR) vulnerability exists in the lunary-ai/lunary application version 0.3.0, allowing unauthorized deletion of any organization's project. The vulnerability is due to insufficient authorization checks in the project deletion endpoint, where the endpoint fails to verify if the project ID provided in the request belongs to the requesting user's organization. As a result, an attacker can delete projects belonging to any organization by sending a crafted DELETE request with the target project's ID. This issue affects the project deletion functionality implemented in the projects.delete route.</description>
-      <guid isPermaLink="false">CVE-2024-1625|2024-06-06T13:12:36.469Z</guid>
-      <pubDate>Wed, 10 Apr 2024 17:07:55 +0000</pubDate>
-    </item>
-    <item>
-      <title>CVE-2024-1740|2024-04-16T11:10:33.024Z -- lunary-ai -- lunary-ai%2Flunary</title>
-      <link>https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2024-1740</link>
+      <link>https://www.cve.org/CVERecord?id=CVE-2024-1740</link>
       <description>In lunary-ai/lunary version 1.0.1, a vulnerability exists where a user removed from an organization can still read, create, modify, and delete logs by re-using an old authorization token. The lunary web application communicates with the server using an 'Authorization' token in the browser, which does not properly invalidate upon the user's removal from the organization. This allows the removed user to perform unauthorized actions on logs and access project and external user details without valid permissions.</description>
-      <guid isPermaLink="false">CVE-2024-1740|2024-04-16T11:10:33.024Z</guid>
+      <guid isPermaLink="false">CVE-2024-1740|2024-07-05T17:22:40.467Z</guid>
       <pubDate>Wed, 10 Apr 2024 17:08:04 +0000</pubDate>
     </item>
     <item>
-      <title>CVE-2024-1643|2024-04-16T11:10:28.384Z -- lunary-ai -- lunary-ai%2Flunary</title>
-      <link>https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2024-1643</link>
-      <description>By knowing an organization's ID, an attacker can join the organization without permission and gain the ability to read and modify all data within that organization. This vulnerability allows unauthorized access and modification of sensitive information, posing a significant security risk. The flaw is due to insufficient verification of user permissions when joining an organization.</description>
-      <guid isPermaLink="false">CVE-2024-1643|2024-04-16T11:10:28.384Z</guid>
-      <pubDate>Wed, 10 Apr 2024 17:07:57 +0000</pubDate>
-    </item>
-    <item>
-      <title>CVE-2024-1738|2024-06-04T17:59:48.911Z -- lunary-ai -- lunary-ai%2Flunary</title>
-      <link>https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2024-1738</link>
-      <description>An incorrect authorization vulnerability exists in the lunary-ai/lunary repository, specifically within the evaluations.get route in the evaluations API endpoint. This vulnerability allows unauthorized users to retrieve the results of any organization's evaluation by simply knowing the evaluation ID, due to the lack of project ID verification in the SQL query. As a result, attackers can gain access to potentially private data contained within the evaluation results.</description>
-      <guid isPermaLink="false">CVE-2024-1738|2024-06-04T17:59:48.911Z</guid>
-      <pubDate>Tue, 16 Apr 2024 00:00:14 +0000</pubDate>
-    </item>
-    <item>
-      <title>CVE-2024-1626|2024-06-04T17:59:43.150Z -- lunary-ai -- lunary-ai%2Flunary</title>
-      <link>https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2024-1626</link>
-      <description>An Insecure Direct Object Reference (IDOR) vulnerability exists in the lunary-ai/lunary repository, version 0.3.0, within the project update endpoint. The vulnerability allows authenticated users to modify the name of any project within the system without proper authorization checks, by directly referencing the project's ID in the PATCH request to the '/v1/projects/:projectId' endpoint. This issue arises because the endpoint does not verify if the provided project ID belongs to the currently authenticated user, enabling unauthorized modifications across different organizational projects.</description>
-      <guid isPermaLink="false">CVE-2024-1626|2024-06-04T17:59:43.150Z</guid>
-      <pubDate>Tue, 16 Apr 2024 00:00:14 +0000</pubDate>
-    </item>
-    <item>
-      <title>CVE-2024-1666|2024-04-16T11:10:47.172Z -- lunary-ai -- lunary-ai%2Flunary</title>
-      <link>https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2024-1666</link>
-      <description>In lunary-ai/lunary version 1.0.0, an authorization flaw exists that allows unauthorized radar creation. The vulnerability stems from the lack of server-side checks to verify if a user is on a free account during the radar creation process, which is only enforced in the web UI. As a result, attackers can bypass the intended account upgrade requirement by directly sending crafted requests to the server, enabling the creation of an unlimited number of radars without payment.</description>
-      <guid isPermaLink="false">CVE-2024-1666|2024-04-16T11:10:47.172Z</guid>
-      <pubDate>Tue, 16 Apr 2024 00:00:13 +0000</pubDate>
-    </item>
-    <item>
-      <title>CVE-2024-1739|2024-06-04T17:59:27.270Z -- lunary-ai -- lunary-ai%2Flunary</title>
-      <link>https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2024-1739</link>
-      <description>lunary-ai/lunary is vulnerable to an authentication issue due to improper validation of email addresses during the signup process. Specifically, the server fails to treat email addresses as case insensitive, allowing the creation of multiple accounts with the same email address by varying the case of the email characters. For example, accounts for 'abc@gmail.com' and 'Abc@gmail.com' can both be created, leading to potential impersonation and confusion among users.</description>
-      <guid isPermaLink="false">CVE-2024-1739|2024-06-04T17:59:27.270Z</guid>
-      <pubDate>Tue, 16 Apr 2024 00:00:15 +0000</pubDate>
-    </item>
-    <item>
-      <title>CVE-2024-1902|2024-04-16T11:10:33.420Z -- lunary-ai -- lunary-ai%2Flunary</title>
-      <link>https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2024-1902</link>
-      <description>lunary-ai/lunary is vulnerable to a session reuse attack, allowing a removed user to change the organization name without proper authorization. The vulnerability stems from the lack of validation to check if a user is still part of an organization before allowing them to make changes. An attacker can exploit this by using an old authorization token to send a PATCH request, modifying the organization's name even after being removed from the organization. This issue is due to incorrect synchronization and affects the orgs.patch route.</description>
-      <guid isPermaLink="false">CVE-2024-1902|2024-04-16T11:10:33.420Z</guid>
-      <pubDate>Wed, 10 Apr 2024 17:08:05 +0000</pubDate>
-    </item>
-    <item>
-      <title>CVE-2024-4148|2024-06-04T17:56:23.508Z -- lunary-ai -- lunary-ai%2Flunary</title>
-      <link>https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2024-4148</link>
-      <description>A Regular Expression Denial of Service (ReDoS) vulnerability exists in the lunary-ai/lunary application, version 1.2.10. An attacker can exploit this vulnerability by maliciously manipulating regular expressions, which can significantly impact the response time of the application and potentially render it completely non-functional. Specifically, the vulnerability can be triggered by sending a specially crafted request to the application, leading to a denial of service where the application crashes.</description>
-      <guid isPermaLink="false">CVE-2024-4148|2024-06-04T17:56:23.508Z</guid>
-      <pubDate>Sat, 01 Jun 2024 15:54:36 +0000</pubDate>
-    </item>
-    <item>
-      <title>CVE-2024-4154|2024-06-04T17:55:31.538Z -- lunary-ai -- lunary-ai%2Flunary</title>
-      <link>https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2024-4154</link>
-      <description>In lunary-ai/lunary version 1.2.2, an incorrect synchronization vulnerability allows unprivileged users to rename projects they do not have access to. Specifically, an unprivileged user can send a PATCH request to the project's endpoint with a new name for a project, despite not having the necessary permissions or being assigned to the project. This issue allows for unauthorized modification of project names, potentially leading to confusion or unauthorized access to project resources.</description>
-      <guid isPermaLink="false">CVE-2024-4154|2024-06-04T17:55:31.538Z</guid>
-      <pubDate>Tue, 21 May 2024 17:57:28 +0000</pubDate>
-    </item>
-    <item>
-      <title>CVE-2024-4146|2024-06-08T19:41:25.437Z -- lunary-ai -- lunary-ai%2Flunary</title>
-      <link>https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2024-4146</link>
-      <description>In lunary-ai/lunary version v1.2.13, an improper authorization vulnerability exists that allows unauthorized users to access and manipulate projects within an organization they should not have access to. Specifically, the vulnerability is located in the `checkProjectAccess` method within the authorization middleware, which fails to adequately verify if a user has the correct permissions to access a specific project. Instead, it only checks if the user is part of the organization owning the project, overlooking the necessary check against the `account_project` table for explicit project access rights. This flaw enables attackers to gain complete control over all resources within a project, including the ability to create, update, read, and delete any resource, compromising the privacy and security of sensitive information.</description>
-      <guid isPermaLink="false">CVE-2024-4146|2024-06-08T19:41:25.437Z</guid>
-      <pubDate>Sat, 08 Jun 2024 19:41:25 +0000</pubDate>
-    </item>
-    <item>
-      <title>CVE-2024-4151|2024-06-04T17:53:09.488Z -- lunary-ai -- lunary-ai%2Flunary</title>
-      <link>https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2024-4151</link>
-      <description>An Improper Access Control vulnerability exists in lunary-ai/lunary version 1.2.2, where users can view and update any prompts in any projects due to insufficient access control checks in the handling of PATCH and GET requests for template versions. This vulnerability allows unauthorized users to manipulate or access sensitive project data, potentially leading to data integrity and confidentiality issues.</description>
-      <guid isPermaLink="false">CVE-2024-4151|2024-06-04T17:53:09.488Z</guid>
-      <pubDate>Mon, 20 May 2024 14:14:53 +0000</pubDate>
-    </item>
-    <item>
-      <title>CVE-2024-3761|2024-06-06T19:41:51.786Z -- lunary-ai -- lunary-ai%2Flunary</title>
-      <link>https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2024-3761</link>
-      <description>In lunary-ai/lunary version 1.2.2, the DELETE endpoint located at `packages/backend/src/api/v1/datasets` is vulnerable to unauthorized dataset deletion due to missing authorization and authentication mechanisms. This vulnerability allows any user, even those without a valid token, to delete a dataset by sending a DELETE request to the endpoint. The issue was fixed in version 1.2.8. The impact of this vulnerability is significant as it permits unauthorized users to delete datasets, potentially leading to data loss or disruption of service.</description>
-      <guid isPermaLink="false">CVE-2024-3761|2024-06-06T19:41:51.786Z</guid>
-      <pubDate>Mon, 20 May 2024 08:38:06 +0000</pubDate>
-    </item>
-    <item>
-      <title>CVE-2024-3504|2024-06-06T18:38:23.400Z -- lunary-ai -- lunary-ai%2Flunary</title>
-      <link>https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2024-3504</link>
-      <description>An improper access control vulnerability exists in lunary-ai/lunary versions up to and including 1.2.2, where an admin can update any organization user to the organization owner. This vulnerability allows the elevated user to delete projects within the organization. The issue is resolved in version 1.2.7.</description>
-      <guid isPermaLink="false">CVE-2024-3504|2024-06-06T18:38:23.400Z</guid>
-      <pubDate>Thu, 06 Jun 2024 17:53:40 +0000</pubDate>
-    </item>
-    <item>
-      <title>CVE-2024-5714|2024-06-27T18:42:29.236Z -- lunary-ai -- lunary-ai%2Flunary</title>
-      <link>https://www.cve.org/CVERecord?id=CVE-2024-5714</link>
-      <description>In lunary-ai/lunary version 1.2.4, an improper access control vulnerability allows members with team management permissions to manipulate project identifiers in requests, enabling them to invite users to projects in other organizations, change members to projects in other organizations with escalated privileges, and change members from other organizations to their own or other projects, also with escalated privileges. This vulnerability is due to the backend's failure to validate project identifiers against the current user's organization ID and projects belonging to it, as well as a misconfiguration in attribute naming (`org_id` should be `orgId`) that prevents proper user organization validation. As a result, attackers can cause inconsistencies on the platform for affected users and organizations, including unauthorized privilege escalation. The issue is present in the backend API endpoints for user invitation and modification, specifically in the handling of project IDs in requests.</description>
-      <guid isPermaLink="false">CVE-2024-5714|2024-06-27T18:42:29.236Z</guid>
-      <pubDate>Thu, 27 Jun 2024 18:42:29 +0000</pubDate>
-    </item>
-    <item>
-      <title>CVE-2024-5755|2024-06-27T18:45:48.607Z -- lunary-ai -- lunary-ai%2Flunary</title>
+      <title>CVE-2024-5755|2024-06-28T15:07:07.776Z -- lunary-ai -- lunary-ai%2Flunary</title>
       <link>https://www.cve.org/CVERecord?id=CVE-2024-5755</link>
       <description>In lunary-ai/lunary versions &lt;=v1.2.11, an attacker can bypass email validation by using a dot character ('.') in the email address. This allows the creation of multiple accounts with essentially the same email address (e.g., 'attacker123@gmail.com' and 'attacker.123@gmail.com'), leading to incorrect synchronization and potential security issues.</description>
-      <guid isPermaLink="false">CVE-2024-5755|2024-06-27T18:45:48.607Z</guid>
+      <guid isPermaLink="false">CVE-2024-5755|2024-06-28T15:07:07.776Z</guid>
       <pubDate>Thu, 27 Jun 2024 18:45:48 +0000</pubDate>
     </item>
     <item>
@@ -241,11 +31,228 @@
       <pubDate>Thu, 27 Jun 2024 18:46:15 +0000</pubDate>
     </item>
     <item>
-      <title>CVE-2024-5755|2024-06-28T15:07:07.776Z -- lunary-ai -- lunary-ai%2Flunary</title>
+      <title>CVE-2024-5755|2024-06-27T18:45:48.607Z -- lunary-ai -- lunary-ai%2Flunary</title>
       <link>https://www.cve.org/CVERecord?id=CVE-2024-5755</link>
       <description>In lunary-ai/lunary versions &lt;=v1.2.11, an attacker can bypass email validation by using a dot character ('.') in the email address. This allows the creation of multiple accounts with essentially the same email address (e.g., 'attacker123@gmail.com' and 'attacker.123@gmail.com'), leading to incorrect synchronization and potential security issues.</description>
-      <guid isPermaLink="false">CVE-2024-5755|2024-06-28T15:07:07.776Z</guid>
+      <guid isPermaLink="false">CVE-2024-5755|2024-06-27T18:45:48.607Z</guid>
       <pubDate>Thu, 27 Jun 2024 18:45:48 +0000</pubDate>
+    </item>
+    <item>
+      <title>CVE-2024-5714|2024-06-27T18:42:29.236Z -- lunary-ai -- lunary-ai%2Flunary</title>
+      <link>https://www.cve.org/CVERecord?id=CVE-2024-5714</link>
+      <description>In lunary-ai/lunary version 1.2.4, an improper access control vulnerability allows members with team management permissions to manipulate project identifiers in requests, enabling them to invite users to projects in other organizations, change members to projects in other organizations with escalated privileges, and change members from other organizations to their own or other projects, also with escalated privileges. This vulnerability is due to the backend's failure to validate project identifiers against the current user's organization ID and projects belonging to it, as well as a misconfiguration in attribute naming (`org_id` should be `orgId`) that prevents proper user organization validation. As a result, attackers can cause inconsistencies on the platform for affected users and organizations, including unauthorized privilege escalation. The issue is present in the backend API endpoints for user invitation and modification, specifically in the handling of project IDs in requests.</description>
+      <guid isPermaLink="false">CVE-2024-5714|2024-06-27T18:42:29.236Z</guid>
+      <pubDate>Thu, 27 Jun 2024 18:42:29 +0000</pubDate>
+    </item>
+    <item>
+      <title>CVE-2024-3504|2024-06-06T18:38:23.400Z -- lunary-ai -- lunary-ai%2Flunary</title>
+      <link>https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2024-3504</link>
+      <description>An improper access control vulnerability exists in lunary-ai/lunary versions up to and including 1.2.2, where an admin can update any organization user to the organization owner. This vulnerability allows the elevated user to delete projects within the organization. The issue is resolved in version 1.2.7.</description>
+      <guid isPermaLink="false">CVE-2024-3504|2024-06-06T18:38:23.400Z</guid>
+      <pubDate>Thu, 06 Jun 2024 17:53:40 +0000</pubDate>
+    </item>
+    <item>
+      <title>CVE-2024-3761|2024-06-06T19:41:51.786Z -- lunary-ai -- lunary-ai%2Flunary</title>
+      <link>https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2024-3761</link>
+      <description>In lunary-ai/lunary version 1.2.2, the DELETE endpoint located at `packages/backend/src/api/v1/datasets` is vulnerable to unauthorized dataset deletion due to missing authorization and authentication mechanisms. This vulnerability allows any user, even those without a valid token, to delete a dataset by sending a DELETE request to the endpoint. The issue was fixed in version 1.2.8. The impact of this vulnerability is significant as it permits unauthorized users to delete datasets, potentially leading to data loss or disruption of service.</description>
+      <guid isPermaLink="false">CVE-2024-3761|2024-06-06T19:41:51.786Z</guid>
+      <pubDate>Mon, 20 May 2024 08:38:06 +0000</pubDate>
+    </item>
+    <item>
+      <title>CVE-2024-4151|2024-06-04T17:53:09.488Z -- lunary-ai -- lunary-ai%2Flunary</title>
+      <link>https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2024-4151</link>
+      <description>An Improper Access Control vulnerability exists in lunary-ai/lunary version 1.2.2, where users can view and update any prompts in any projects due to insufficient access control checks in the handling of PATCH and GET requests for template versions. This vulnerability allows unauthorized users to manipulate or access sensitive project data, potentially leading to data integrity and confidentiality issues.</description>
+      <guid isPermaLink="false">CVE-2024-4151|2024-06-04T17:53:09.488Z</guid>
+      <pubDate>Mon, 20 May 2024 14:14:53 +0000</pubDate>
+    </item>
+    <item>
+      <title>CVE-2024-4146|2024-06-08T19:41:25.437Z -- lunary-ai -- lunary-ai%2Flunary</title>
+      <link>https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2024-4146</link>
+      <description>In lunary-ai/lunary version v1.2.13, an improper authorization vulnerability exists that allows unauthorized users to access and manipulate projects within an organization they should not have access to. Specifically, the vulnerability is located in the `checkProjectAccess` method within the authorization middleware, which fails to adequately verify if a user has the correct permissions to access a specific project. Instead, it only checks if the user is part of the organization owning the project, overlooking the necessary check against the `account_project` table for explicit project access rights. This flaw enables attackers to gain complete control over all resources within a project, including the ability to create, update, read, and delete any resource, compromising the privacy and security of sensitive information.</description>
+      <guid isPermaLink="false">CVE-2024-4146|2024-06-08T19:41:25.437Z</guid>
+      <pubDate>Sat, 08 Jun 2024 19:41:25 +0000</pubDate>
+    </item>
+    <item>
+      <title>CVE-2024-4154|2024-06-04T17:55:31.538Z -- lunary-ai -- lunary-ai%2Flunary</title>
+      <link>https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2024-4154</link>
+      <description>In lunary-ai/lunary version 1.2.2, an incorrect synchronization vulnerability allows unprivileged users to rename projects they do not have access to. Specifically, an unprivileged user can send a PATCH request to the project's endpoint with a new name for a project, despite not having the necessary permissions or being assigned to the project. This issue allows for unauthorized modification of project names, potentially leading to confusion or unauthorized access to project resources.</description>
+      <guid isPermaLink="false">CVE-2024-4154|2024-06-04T17:55:31.538Z</guid>
+      <pubDate>Tue, 21 May 2024 17:57:28 +0000</pubDate>
+    </item>
+    <item>
+      <title>CVE-2024-4148|2024-06-04T17:56:23.508Z -- lunary-ai -- lunary-ai%2Flunary</title>
+      <link>https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2024-4148</link>
+      <description>A Regular Expression Denial of Service (ReDoS) vulnerability exists in the lunary-ai/lunary application, version 1.2.10. An attacker can exploit this vulnerability by maliciously manipulating regular expressions, which can significantly impact the response time of the application and potentially render it completely non-functional. Specifically, the vulnerability can be triggered by sending a specially crafted request to the application, leading to a denial of service where the application crashes.</description>
+      <guid isPermaLink="false">CVE-2024-4148|2024-06-04T17:56:23.508Z</guid>
+      <pubDate>Sat, 01 Jun 2024 15:54:36 +0000</pubDate>
+    </item>
+    <item>
+      <title>CVE-2024-1902|2024-04-16T11:10:33.420Z -- lunary-ai -- lunary-ai%2Flunary</title>
+      <link>https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2024-1902</link>
+      <description>lunary-ai/lunary is vulnerable to a session reuse attack, allowing a removed user to change the organization name without proper authorization. The vulnerability stems from the lack of validation to check if a user is still part of an organization before allowing them to make changes. An attacker can exploit this by using an old authorization token to send a PATCH request, modifying the organization's name even after being removed from the organization. This issue is due to incorrect synchronization and affects the orgs.patch route.</description>
+      <guid isPermaLink="false">CVE-2024-1902|2024-04-16T11:10:33.420Z</guid>
+      <pubDate>Wed, 10 Apr 2024 17:08:05 +0000</pubDate>
+    </item>
+    <item>
+      <title>CVE-2024-1739|2024-06-04T17:59:27.270Z -- lunary-ai -- lunary-ai%2Flunary</title>
+      <link>https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2024-1739</link>
+      <description>lunary-ai/lunary is vulnerable to an authentication issue due to improper validation of email addresses during the signup process. Specifically, the server fails to treat email addresses as case insensitive, allowing the creation of multiple accounts with the same email address by varying the case of the email characters. For example, accounts for 'abc@gmail.com' and 'Abc@gmail.com' can both be created, leading to potential impersonation and confusion among users.</description>
+      <guid isPermaLink="false">CVE-2024-1739|2024-06-04T17:59:27.270Z</guid>
+      <pubDate>Tue, 16 Apr 2024 00:00:15 +0000</pubDate>
+    </item>
+    <item>
+      <title>CVE-2024-1666|2024-04-16T11:10:47.172Z -- lunary-ai -- lunary-ai%2Flunary</title>
+      <link>https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2024-1666</link>
+      <description>In lunary-ai/lunary version 1.0.0, an authorization flaw exists that allows unauthorized radar creation. The vulnerability stems from the lack of server-side checks to verify if a user is on a free account during the radar creation process, which is only enforced in the web UI. As a result, attackers can bypass the intended account upgrade requirement by directly sending crafted requests to the server, enabling the creation of an unlimited number of radars without payment.</description>
+      <guid isPermaLink="false">CVE-2024-1666|2024-04-16T11:10:47.172Z</guid>
+      <pubDate>Tue, 16 Apr 2024 00:00:13 +0000</pubDate>
+    </item>
+    <item>
+      <title>CVE-2024-1626|2024-06-04T17:59:43.150Z -- lunary-ai -- lunary-ai%2Flunary</title>
+      <link>https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2024-1626</link>
+      <description>An Insecure Direct Object Reference (IDOR) vulnerability exists in the lunary-ai/lunary repository, version 0.3.0, within the project update endpoint. The vulnerability allows authenticated users to modify the name of any project within the system without proper authorization checks, by directly referencing the project's ID in the PATCH request to the '/v1/projects/:projectId' endpoint. This issue arises because the endpoint does not verify if the provided project ID belongs to the currently authenticated user, enabling unauthorized modifications across different organizational projects.</description>
+      <guid isPermaLink="false">CVE-2024-1626|2024-06-04T17:59:43.150Z</guid>
+      <pubDate>Tue, 16 Apr 2024 00:00:14 +0000</pubDate>
+    </item>
+    <item>
+      <title>CVE-2024-1738|2024-06-04T17:59:48.911Z -- lunary-ai -- lunary-ai%2Flunary</title>
+      <link>https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2024-1738</link>
+      <description>An incorrect authorization vulnerability exists in the lunary-ai/lunary repository, specifically within the evaluations.get route in the evaluations API endpoint. This vulnerability allows unauthorized users to retrieve the results of any organization's evaluation by simply knowing the evaluation ID, due to the lack of project ID verification in the SQL query. As a result, attackers can gain access to potentially private data contained within the evaluation results.</description>
+      <guid isPermaLink="false">CVE-2024-1738|2024-06-04T17:59:48.911Z</guid>
+      <pubDate>Tue, 16 Apr 2024 00:00:14 +0000</pubDate>
+    </item>
+    <item>
+      <title>CVE-2024-1643|2024-04-16T11:10:28.384Z -- lunary-ai -- lunary-ai%2Flunary</title>
+      <link>https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2024-1643</link>
+      <description>By knowing an organization's ID, an attacker can join the organization without permission and gain the ability to read and modify all data within that organization. This vulnerability allows unauthorized access and modification of sensitive information, posing a significant security risk. The flaw is due to insufficient verification of user permissions when joining an organization.</description>
+      <guid isPermaLink="false">CVE-2024-1643|2024-04-16T11:10:28.384Z</guid>
+      <pubDate>Wed, 10 Apr 2024 17:07:57 +0000</pubDate>
+    </item>
+    <item>
+      <title>CVE-2024-1740|2024-04-16T11:10:33.024Z -- lunary-ai -- lunary-ai%2Flunary</title>
+      <link>https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2024-1740</link>
+      <description>In lunary-ai/lunary version 1.0.1, a vulnerability exists where a user removed from an organization can still read, create, modify, and delete logs by re-using an old authorization token. The lunary web application communicates with the server using an 'Authorization' token in the browser, which does not properly invalidate upon the user's removal from the organization. This allows the removed user to perform unauthorized actions on logs and access project and external user details without valid permissions.</description>
+      <guid isPermaLink="false">CVE-2024-1740|2024-04-16T11:10:33.024Z</guid>
+      <pubDate>Wed, 10 Apr 2024 17:08:04 +0000</pubDate>
+    </item>
+    <item>
+      <title>CVE-2024-1625|2024-06-06T13:12:36.469Z -- lunary-ai -- lunary-ai%2Flunary</title>
+      <link>https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2024-1625</link>
+      <description>An Insecure Direct Object Reference (IDOR) vulnerability exists in the lunary-ai/lunary application version 0.3.0, allowing unauthorized deletion of any organization's project. The vulnerability is due to insufficient authorization checks in the project deletion endpoint, where the endpoint fails to verify if the project ID provided in the request belongs to the requesting user's organization. As a result, an attacker can delete projects belonging to any organization by sending a crafted DELETE request with the target project's ID. This issue affects the project deletion functionality implemented in the projects.delete route.</description>
+      <guid isPermaLink="false">CVE-2024-1625|2024-06-06T13:12:36.469Z</guid>
+      <pubDate>Wed, 10 Apr 2024 17:07:55 +0000</pubDate>
+    </item>
+    <item>
+      <title>CVE-2024-1741|2024-04-16T11:10:32.533Z -- lunary-ai -- lunary-ai%2Flunary</title>
+      <link>https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2024-1741</link>
+      <description>lunary-ai/lunary version 1.0.1 is vulnerable to improper authorization, allowing removed members to read, create, modify, and delete prompt templates using an old authorization token. Despite being removed from an organization, these members can still perform operations on prompt templates by sending HTTP requests with their previously captured authorization token. This issue exposes organizations to unauthorized access and manipulation of sensitive template data.</description>
+      <guid isPermaLink="false">CVE-2024-1741|2024-04-16T11:10:32.533Z</guid>
+      <pubDate>Wed, 10 Apr 2024 17:08:04 +0000</pubDate>
+    </item>
+    <item>
+      <title>CVE-2024-5131|2024-06-07T19:28:05.525Z -- lunary-ai -- lunary-ai%2Flunary</title>
+      <link>https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2024-5131</link>
+      <description>An Improper Access Control vulnerability exists in the lunary-ai/lunary repository, affecting versions up to and including 1.2.2. The vulnerability allows unauthorized users to view any prompts in any projects by supplying a specific prompt ID to an endpoint that does not adequately verify the ownership of the prompt ID. This issue was fixed in version 1.2.25.</description>
+      <guid isPermaLink="false">CVE-2024-5131|2024-06-07T19:28:05.525Z</guid>
+      <pubDate>Thu, 06 Jun 2024 18:31:16 +0000</pubDate>
+    </item>
+    <item>
+      <title>CVE-2024-5127|2024-06-06T20:24:47.639Z -- lunary-ai -- lunary-ai%2Flunary</title>
+      <link>https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2024-5127</link>
+      <description>In lunary-ai/lunary versions 1.2.2 through 1.2.25, an improper access control vulnerability allows users on the Free plan to invite other members and assign them any role, including those intended for Paid and Enterprise plans only. This issue arises due to insufficient backend validation of roles and permissions, enabling unauthorized users to join a project and potentially exploit roles and permissions not intended for their use. The vulnerability specifically affects the Team feature, where the backend fails to validate whether a user has paid for a plan before allowing them to send invite links with any role assigned. This could lead to unauthorized access and manipulation of project settings or data.</description>
+      <guid isPermaLink="false">CVE-2024-5127|2024-06-06T20:24:47.639Z</guid>
+      <pubDate>Thu, 06 Jun 2024 17:26:35 +0000</pubDate>
+    </item>
+    <item>
+      <title>CVE-2024-5126|2024-06-07T17:07:52.117Z -- lunary-ai -- lunary-ai%2Flunary</title>
+      <link>https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2024-5126</link>
+      <description>An improper access control vulnerability exists in the lunary-ai/lunary repository, specifically within the versions.patch functionality for updating prompts. Affected versions include 1.2.2 up to but not including 1.2.25. The vulnerability allows unauthorized users to update prompt details due to insufficient access control checks. This issue was addressed and fixed in version 1.2.25.</description>
+      <guid isPermaLink="false">CVE-2024-5126|2024-06-07T17:07:52.117Z</guid>
+      <pubDate>Thu, 06 Jun 2024 18:11:28 +0000</pubDate>
+    </item>
+    <item>
+      <title>CVE-2024-5130|2024-06-06T19:37:08.959Z -- lunary-ai -- lunary-ai%2Flunary</title>
+      <link>https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2024-5130</link>
+      <description>An Incorrect Authorization vulnerability exists in lunary-ai/lunary versions up to and including 1.2.2, which allows unauthenticated users to delete any dataset. The vulnerability is due to the lack of proper authorization checks in the dataset deletion endpoint. Specifically, the endpoint does not verify if the provided project ID belongs to the current user, thereby allowing any dataset to be deleted without proper authentication. This issue was fixed in version 1.2.8.</description>
+      <guid isPermaLink="false">CVE-2024-5130|2024-06-06T19:37:08.959Z</guid>
+      <pubDate>Thu, 06 Jun 2024 18:43:30 +0000</pubDate>
+    </item>
+    <item>
+      <title>CVE-2024-5389|2024-06-10T12:46:16.911Z -- lunary-ai -- lunary-ai%2Flunary</title>
+      <link>https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2024-5389</link>
+      <description>In lunary-ai/lunary version 1.2.13, an insufficient granularity of access control vulnerability allows users to create, update, get, and delete prompt variations for datasets not owned by their organization. This issue arises due to the application not properly validating the ownership of dataset prompts and their variations against the organization or project of the requesting user. As a result, unauthorized modifications to dataset prompts can occur, leading to altered or removed dataset prompts without proper authorization. This vulnerability impacts the integrity and consistency of dataset information, potentially affecting the results of experiments.</description>
+      <guid isPermaLink="false">CVE-2024-5389|2024-06-10T12:46:16.911Z</guid>
+      <pubDate>Sun, 09 Jun 2024 22:22:38 +0000</pubDate>
+    </item>
+    <item>
+      <title>CVE-2024-5478|2024-06-07T19:05:40.386Z -- lunary-ai -- lunary-ai%2Flunary</title>
+      <link>https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2024-5478</link>
+      <description>A Cross-site Scripting (XSS) vulnerability exists in the SAML metadata endpoint `/auth/saml/${org?.id}/metadata` of lunary-ai/lunary version 1.2.7. The vulnerability arises due to the application's failure to escape or validate the `orgId` parameter supplied by the user before incorporating it into the generated response. Specifically, the endpoint generates XML responses for SAML metadata, where the `orgId` parameter is directly embedded into the XML structure without proper sanitization or validation. This flaw allows an attacker to inject arbitrary JavaScript code into the generated SAML metadata page, leading to potential theft of user cookies or authentication tokens.</description>
+      <guid isPermaLink="false">CVE-2024-5478|2024-06-07T19:05:40.386Z</guid>
+      <pubDate>Thu, 06 Jun 2024 18:20:05 +0000</pubDate>
+    </item>
+    <item>
+      <title>CVE-2024-5248|2024-06-07T15:07:10.120Z -- lunary-ai -- lunary-ai%2Flunary</title>
+      <link>https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2024-5248</link>
+      <description>In lunary-ai/lunary version 1.2.5, an improper access control vulnerability exists due to a missing permission check in the `GET /v1/users/me/org` endpoint. The platform's role definitions restrict the `Prompt Editor` role to prompt management and project viewing/listing capabilities, explicitly excluding access to user information. However, the endpoint fails to enforce this restriction, allowing users with the `Prompt Editor` role to access the full list of users in the organization. This vulnerability allows unauthorized access to sensitive user information, violating the intended access controls.</description>
+      <guid isPermaLink="false">CVE-2024-5248|2024-06-07T15:07:10.120Z</guid>
+      <pubDate>Thu, 06 Jun 2024 18:49:25 +0000</pubDate>
+    </item>
+    <item>
+      <title>CVE-2024-5129|2024-06-07T15:13:22.112Z -- lunary-ai -- lunary-ai%2Flunary</title>
+      <link>https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2024-5129</link>
+      <description>A Privilege Escalation Vulnerability exists in lunary-ai/lunary version 1.2.2, where any user can delete any datasets due to missing authorization checks. The vulnerability is present in the dataset deletion functionality, where the application fails to verify if the user requesting the deletion has the appropriate permissions. This allows unauthorized users to send a DELETE request to the server and delete any dataset by specifying its ID. The issue is located in the datasets.delete function within the datasets index file.</description>
+      <guid isPermaLink="false">CVE-2024-5129|2024-06-07T15:13:22.112Z</guid>
+      <pubDate>Thu, 06 Jun 2024 18:28:21 +0000</pubDate>
+    </item>
+    <item>
+      <title>CVE-2024-5328|2024-06-06T20:53:51.234Z -- lunary-ai -- lunary-ai%2Flunary</title>
+      <link>https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2024-5328</link>
+      <description>A Server-Side Request Forgery (SSRF) vulnerability exists in the lunary-ai/lunary application, specifically within the endpoint '/auth/saml/tto/download-idp-xml'. The vulnerability arises due to the application's failure to validate user-supplied URLs before using them in server-side requests. An attacker can exploit this vulnerability by sending a specially crafted request to the affected endpoint, allowing them to make unauthorized requests to internal or external resources. This could lead to the disclosure of sensitive information, service disruption, or further attacks against the network infrastructure. The issue affects the latest version of the application as of the report.</description>
+      <guid isPermaLink="false">CVE-2024-5328|2024-06-06T20:53:51.234Z</guid>
+      <pubDate>Thu, 06 Jun 2024 18:53:58 +0000</pubDate>
+    </item>
+    <item>
+      <title>CVE-2024-5133|2024-06-07T12:41:12.898Z -- lunary-ai -- lunary-ai%2Flunary</title>
+      <link>https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2024-5133</link>
+      <description>In lunary-ai/lunary version 1.2.4, an account takeover vulnerability exists due to the exposure of password recovery tokens in API responses. Specifically, when a user initiates the password reset process, the recovery token is included in the response of the `GET /v1/users/me/org` endpoint, which lists all users in a team. This allows any authenticated user to capture the recovery token of another user and subsequently change that user's password without consent, effectively taking over the account. The issue lies in the inclusion of the `recovery_token` attribute in the users object returned by the API.</description>
+      <guid isPermaLink="false">CVE-2024-5133|2024-06-07T12:41:12.898Z</guid>
+      <pubDate>Thu, 06 Jun 2024 18:21:53 +0000</pubDate>
+    </item>
+    <item>
+      <title>CVE-2024-5277|2024-06-06T17:46:06.653Z -- lunary-ai -- lunary-ai%2Flunary</title>
+      <link>https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2024-5277</link>
+      <description>In lunary-ai/lunary version 1.2.4, a vulnerability exists in the password recovery mechanism where the reset password token is not invalidated after use. This allows an attacker who compromises the recovery token to repeatedly change the password of a victim's account. The issue lies in the backend's handling of the reset password process, where the token, once used, is not discarded or invalidated, enabling its reuse. This vulnerability could lead to unauthorized account access if an attacker obtains the recovery token.</description>
+      <guid isPermaLink="false">CVE-2024-5277|2024-06-06T17:46:06.653Z</guid>
+      <pubDate>Thu, 06 Jun 2024 17:46:06 +0000</pubDate>
+    </item>
+    <item>
+      <title>CVE-2024-5128|2024-06-06T20:06:37.831Z -- lunary-ai -- lunary-ai%2Flunary</title>
+      <link>https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2024-5128</link>
+      <description>An Insecure Direct Object Reference (IDOR) vulnerability was identified in lunary-ai/lunary, affecting versions up to and including 1.2.2. This vulnerability allows unauthorized users to view, update, or delete any dataset_prompt or dataset_prompt_variation within any dataset or project. The issue stems from improper access control checks in the dataset management endpoints, where direct references to object IDs are not adequately secured against unauthorized access. This vulnerability was fixed in version 1.2.25.</description>
+      <guid isPermaLink="false">CVE-2024-5128|2024-06-06T20:06:37.831Z</guid>
+      <pubDate>Thu, 06 Jun 2024 18:08:23 +0000</pubDate>
+    </item>
+    <item>
+      <title>CVE-2024-5714|2024-06-27T19:42:47.279Z -- lunary-ai -- lunary-ai%2Flunary</title>
+      <link>https://www.cve.org/CVERecord?id=CVE-2024-5714</link>
+      <description>In lunary-ai/lunary version 1.2.4, an improper access control vulnerability allows members with team management permissions to manipulate project identifiers in requests, enabling them to invite users to projects in other organizations, change members to projects in other organizations with escalated privileges, and change members from other organizations to their own or other projects, also with escalated privileges. This vulnerability is due to the backend's failure to validate project identifiers against the current user's organization ID and projects belonging to it, as well as a misconfiguration in attribute naming (`org_id` should be `orgId`) that prevents proper user organization validation. As a result, attackers can cause inconsistencies on the platform for affected users and organizations, including unauthorized privilege escalation. The issue is present in the backend API endpoints for user invitation and modification, specifically in the handling of project IDs in requests.</description>
+      <guid isPermaLink="false">CVE-2024-5714|2024-06-27T19:42:47.279Z</guid>
+      <pubDate>Thu, 27 Jun 2024 18:42:29 +0000</pubDate>
+    </item>
+    <item>
+      <title>CVE-2024-6086|2024-06-27T19:52:27.988Z -- lunary-ai -- lunary-ai%2Flunary</title>
+      <link>https://www.cve.org/CVERecord?id=CVE-2024-6086</link>
+      <description>In version 1.2.7 of lunary-ai/lunary, any authenticated user, regardless of their role, can change the name of an organization due to improper access control. The function checkAccess() is not implemented, allowing users with the lowest privileges, such as the 'Prompt Editor' role, to modify organization attributes without proper authorization.</description>
+      <guid isPermaLink="false">CVE-2024-6086|2024-06-27T19:52:27.988Z</guid>
+      <pubDate>Thu, 27 Jun 2024 18:46:15 +0000</pubDate>
+    </item>
+    <item>
+      <title>CVE-2024-1643|2024-07-03T18:01:58.461Z -- lunary-ai -- lunary-ai%2Flunary</title>
+      <link>https://www.cve.org/CVERecord?id=CVE-2024-1643</link>
+      <description>By knowing an organization's ID, an attacker can join the organization without permission and gain the ability to read and modify all data within that organization. This vulnerability allows unauthorized access and modification of sensitive information, posing a significant security risk. The flaw is due to insufficient verification of user permissions when joining an organization.</description>
+      <guid isPermaLink="false">CVE-2024-1643|2024-07-03T18:01:58.461Z</guid>
+      <pubDate>Wed, 10 Apr 2024 17:07:57 +0000</pubDate>
     </item>
   </channel>
 </rss>

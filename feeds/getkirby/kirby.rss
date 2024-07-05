@@ -6,85 +6,22 @@
     <description>The latest CVEs for getkirby -- kirby</description>
     <docs>http://www.rssboard.org/rss-specification</docs>
     <generator>python-feedgen</generator>
-    <lastBuildDate>Wed, 12 Jun 2024 11:24:22 +0000</lastBuildDate>
+    <lastBuildDate>Fri, 05 Jul 2024 18:24:07 +0000</lastBuildDate>
     <ttl>60</ttl>
     <item>
-      <title>CVE-2023-38490|2023-07-27T15:44:49.436Z -- getkirby -- kirby
+      <title>CVE-2024-27087|2024-07-05T17:22:00.531Z -- getkirby -- kirby
 </title>
-      <link>https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2023-38490</link>
-      <description>Kirby is a content management system. A vulnerability in versions prior to 3.5.8.3, 3.6.6.3, 3.7.5.2, 3.8.4.1, and 3.9.6 only affects Kirby sites that use the `Xml` data handler (e.g. `Data::decode($string, 'xml')`) or the `Xml::parse()` method in site or plugin code. The Kirby core does not use any of the affected methods.
-
-XML External Entities (XXE) is a little used feature in the XML markup language that allows to include data from external files in an XML structure. If the name of the external file can be controlled by an attacker, this becomes a vulnerability that can be abused for various system impacts like the disclosure of internal or confidential data that is stored on the server (arbitrary file disclosure) or to perform network requests on behalf of the server (server-side request forgery, SSRF).
-
-Kirby's `Xml::parse()` method used PHP's `LIBXML_NOENT` constant, which enabled the processing of XML external entities during the parsing operation. The `Xml::parse()` method is used in the `Xml` data handler (e.g. `Data::decode($string, 'xml')`). Both the vulnerable method and the data handler are not used in the Kirby core. However they may be used in site or plugin code, e.g. to parse RSS feeds or other XML files. If those files are of an external origin (e.g. uploaded by a user or retrieved from an external URL), attackers may be able to include an external entity in the XML file that will then be processed in the parsing process. Kirby sites that don't use XML parsing in site or plugin code are *not* affected.
-
-The problem has been patched in Kirby 3.5.8.3, 3.6.6.3, 3.7.5.2, 3.8.4.1, and 3.9.6. In all of the mentioned releases, the maintainers have removed the `LIBXML_NOENT` constant as processing of external entities is out of scope of the parsing logic. This protects all uses of the method against the described vulnerability.</description>
-      <guid isPermaLink="false">CVE-2023-38490|2023-07-27T15:44:49.436Z</guid>
-      <pubDate>Thu, 27 Jul 2023 14:46:49 +0000</pubDate>
-    </item>
-    <item>
-      <title>CVE-2023-38491|2023-07-27T15:44:17.158Z -- getkirby -- kirby
-</title>
-      <link>https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2023-38491</link>
-      <description>Kirby is a content management system. A vulnerability in versions prior to 3.5.8.3, 3.6.6.3, 3.7.5.2, 3.8.4.1, and 3.9.6 affects all Kirby sites that might have potential attackers in the group of authenticated Panel users or that allow external visitors to upload an arbitrary file to the content folder. Kirby sites are not affected if they don't allow file uploads for untrusted users or visitors or if the file extensions of uploaded files are limited to a fixed safe list. The attack requires user interaction by another user or visitor and cannot be automated.
-
-An editor with write access to the Kirby Panel could upload a file with an unknown file extension like `.xyz` that contains HTML code including harmful content like `&lt;script&gt;` tags. The direct link to that file could be sent to other users or visitors of the site. If the victim opened that link in a browser where they are logged in to Kirby and the file had not been opened by anyone since the upload, Kirby would not be able to send the correct MIME content type, instead falling back to `text/html`. The browser would then run the script, which could for example trigger requests to Kirby's API with the permissions of the victim.
-
-The issue was caused by the underlying `Kirby\Http\Response::file()` method, which didn't have an explicit fallback if the MIME type could not be determined from the file extension. If you use this method in site or plugin code, these uses may be affected by the same vulnerability.
-
-The problem has been patched in Kirby 3.5.8.3, 3.6.6.3, 3.7.5.2, 3.8.4.1, and 3.9.6. In all of the mentioned releases, the maintainers have fixed the affected method to use a fallback MIME type of `text/plain` and set the `X-Content-Type-Options: nosniff` header if the MIME type of the file is unknown.</description>
-      <guid isPermaLink="false">CVE-2023-38491|2023-07-27T15:44:17.158Z</guid>
-      <pubDate>Thu, 27 Jul 2023 15:30:49 +0000</pubDate>
-    </item>
-    <item>
-      <title>CVE-2023-38488|2023-07-27T15:45:13.153Z -- getkirby -- kirby
-</title>
-      <link>https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2023-38488</link>
-      <description>Kirby is a content management system. A vulnerability in versions prior to 3.5.8.3, 3.6.6.3, 3.7.5.2, 3.8.4.1, and 3.9.6 affects all Kirby sites that might have potential attackers in the group of authenticated Panel users or that allow external visitors to update a Kirby content file (e.g. via a contact or comment form). Kirby sites are *not* affected if they don't allow write access for untrusted users or visitors.
-
-A field injection in a content storage implementation is a type of vulnerability that allows attackers with content write access to overwrite content fields that the site developer didn't intend to be modified. In a Kirby site this can be used to alter site content, break site behavior or inject malicious data or code. The exact security risk depends on the field type and usage.
-
-Kirby stores content of the site, of pages, files and users in text files by default. The text files use Kirby's KirbyData format where each field is separated by newlines and a line with four dashes (`----`). When reading a KirbyData file, the affected code first removed the Unicode BOM sequence from the file contents and afterwards split the content into fields by the field separator.
-
-When writing to a KirbyData file, field separators in field data are escaped to prevent user input from interfering with the field structure. However this escaping could be tricked by including a Unicode BOM sequence in a field separator (e.g. `--\xEF\xBB\xBF--`). When writing, this was not detected as a separator, but because the BOM was removed during reading, it could be abused by attackers to inject other field data into content files.
-
-Because each field can only be defined once per content file, this vulnerability only affects fields in the content file that were defined above the vulnerable user-writable field or not at all. Fields that are defined below the vulnerable field override the injected field content and were therefore already protected.
-
-The problem has been patched in Kirby 3.5.8.3, 3.6.6.3, 3.7.5.2, 3.8.4.1, and 3.9.6. In all of the mentioned releases, the maintainers have fixed the affected code to only remove the Unicode BOM sequence at the beginning of the file. This fixes this vulnerability both for newly written as well as for existing content files.</description>
-      <guid isPermaLink="false">CVE-2023-38488|2023-07-27T15:45:13.153Z</guid>
-      <pubDate>Thu, 27 Jul 2023 14:31:00 +0000</pubDate>
-    </item>
-    <item>
-      <title>CVE-2023-38492|2023-07-27T15:43:55.533Z -- getkirby -- kirby
-</title>
-      <link>https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2023-38492</link>
-      <description>Kirby is a content management system. A vulnerability in versions prior to 3.5.8.3, 3.6.6.3, 3.7.5.2, 3.8.4.1, and 3.9.6 affects all Kirby sites with user accounts (unless Kirby's API and Panel are disabled in the config). The real-world impact of this vulnerability is limited, however we still recommend to update to one of the patch releases because they also fix more severe vulnerabilities.
-
-Kirby's authentication endpoint did not limit the password length. This allowed attackers to provide a password with a length up to the server's maximum request body length. Validating that password against the user's actual password requires hashing the provided password, which requires more CPU and memory resources (and therefore processing time) the longer the provided password gets. This could be abused by an attacker to cause the website to become unresponsive or unavailable. Because Kirby comes with a built-in brute force protection, the impact of this vulnerability is limited to 10 failed logins from each IP address and 10 failed logins for each existing user per hour.
-
-The problem has been patched in Kirby 3.5.8.3, 3.6.6.3, 3.7.5.2, 3.8.4.1, and 3.9.6. In all of the mentioned releases, the maintainers have added password length limits in the affected code so that passwords longer than 1000 bytes are immediately blocked, both when setting a password and when logging in.</description>
-      <guid isPermaLink="false">CVE-2023-38492|2023-07-27T15:43:55.533Z</guid>
-      <pubDate>Thu, 27 Jul 2023 15:43:55 +0000</pubDate>
-    </item>
-    <item>
-      <title>CVE-2023-38489|2023-07-27T15:46:54.264Z -- getkirby -- kirby
-</title>
-      <link>https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2023-38489</link>
-      <description>Kirby is a content management system. A vulnerability in versions prior to 3.5.8.3, 3.6.6.3, 3.7.5.2, 3.8.4.1, and 3.9.6 affects all Kirby sites with user accounts (unless Kirby's API and Panel are disabled in the config). It can only be abused if a Kirby user is logged in on a device or browser that is shared with potentially untrusted users or if an attacker already maliciously used a previous password to log in to a Kirby site as the affected user.
-
-Insufficient Session Expiration is when a web site permits an attacker to reuse old session credentials or session IDs for authorization. In the variation described in this advisory, it allows attackers to stay logged in to a Kirby site on another device even if the logged in user has since changed their password. Kirby did not invalidate user sessions that were created with a password that was since changed by the user or by a site admin. If a user changed their password to lock out an attacker who was already in possession of the previous password or of a login session on another device or browser, the attacker would not be reliably prevented from accessing the Kirby site as the affected user.
-
-The problem has been patched in Kirby 3.5.8.3, 3.6.6.3, 3.7.5.2, 3.8.4.1, and 3.9.6. In all of the mentioned releases, the maintainers have updated the authentication implementation to keep track of the hashed password in each active session. If the password changed since the login, the session is invalidated. To enforce this fix even if the vulnerability was previously abused, all users are logged out from the Kirby site after updating to one of the patched releases.</description>
-      <guid isPermaLink="false">CVE-2023-38489|2023-07-27T15:46:54.264Z</guid>
-      <pubDate>Thu, 27 Jul 2023 14:36:46 +0000</pubDate>
-    </item>
-    <item>
-      <title>CVE-2024-27087|2024-02-26T16:44:31.105Z -- getkirby -- kirby
-</title>
-      <link>https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2024-27087</link>
+      <link>https://www.cve.org/CVERecord?id=CVE-2024-27087</link>
       <description>Kirby is a content management system. The new link field introduced in Kirby 4 allows several different link types that each validate the entered link to the relevant URL format. It also includes a "Custom" link type for advanced use cases that don't fit any of the pre-defined link formats.  As the "Custom" link type is meant to be flexible, it also allows the javascript: URL scheme. In some use cases this can be intended, but it can also be misused by attackers to execute arbitrary JavaScript code when a user or visitor clicks on a link that is generated from the contents of the link field. This vulnerability is patched in 4.1.1.
 
 </description>
+      <guid isPermaLink="false">CVE-2024-27087|2024-07-05T17:22:00.531Z</guid>
+      <pubDate>Mon, 26 Feb 2024 16:44:31 +0000</pubDate>
+    </item>
+    <item>
+      <title>CVE-2024-27087|2024-02-26T16:44:31.105Z -- getkirby -- kirby</title>
+      <link>https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2024-27087</link>
+      <description>Kirby is a content management system. The new link field introduced in Kirby 4 allows several different link types that each validate the entered link to the relevant URL format. It also includes a "Custom" link type for advanced use cases that don't fit any of the pre-defined link formats.  As the "Custom" link type is meant to be flexible, it also allows the javascript: URL scheme. In some use cases this can be intended, but it can also be misused by attackers to execute arbitrary JavaScript code when a user or visitor clicks on a link that is generated from the contents of the link field. This vulnerability is patched in 4.1.1.</description>
       <guid isPermaLink="false">CVE-2024-27087|2024-02-26T16:44:31.105Z</guid>
       <pubDate>Mon, 26 Feb 2024 16:44:31 +0000</pubDate>
     </item>
