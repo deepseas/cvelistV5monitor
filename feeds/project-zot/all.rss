@@ -1,0 +1,21 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<rss xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/" version="2.0">
+  <channel>
+    <title>CVE Feed for project-zot -- all</title>
+    <link>https://raw.githubusercontent.com/deepseas/cvelistV5monitor/main/feeds/project-zot/all.rss</link>
+    <description>The latest CVEs for project-zot -- all products</description>
+    <docs>http://www.rssboard.org/rss-specification</docs>
+    <generator>python-feedgen</generator>
+    <lastBuildDate>Tue, 09 Jul 2024 19:19:34 +0000</lastBuildDate>
+    <ttl>60</ttl>
+    <item>
+      <title>CVE-2024-39897|2024-07-09T18:48:24.335Z -- project-zot -- zot
+</title>
+      <link>https://www.cve.org/CVERecord?id=CVE-2024-39897</link>
+      <description>zot is an OCI image registry. Prior to 2.1.0, the cache driver `GetBlob()` allows read access to any blob without access control check. If a Zot `accessControl` policy allows users read access to some repositories but restricts read access to other repositories and `dedupe` is enabled (it is enabled by default), then an attacker who knows the name of an image and the digest of a blob (that they do not have read access to), they may maliciously read it via a second repository they do have read access to. 
+ This attack is possible because [`ImageStore.CheckBlob()` calls `checkCacheBlob()`](https://github.com/project-zot/zot/blob/v2.1.0-rc2/pkg/storage/imagestore/imagestore.go#L1158-L1159) to find the blob a global cache by searching for the digest. If it is found, it is copied to the user requested repository with `copyBlob()`. The attack may be mitigated by configuring "dedupe": false in the "storage" settings. The vulnerability is fixed in 2.1.0.</description>
+      <guid isPermaLink="false">CVE-2024-39897|2024-07-09T18:48:24.335Z</guid>
+      <pubDate>Tue, 09 Jul 2024 18:48:24 +0000</pubDate>
+    </item>
+  </channel>
+</rss>

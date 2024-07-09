@@ -6,7 +6,7 @@
     <description>The latest CVEs for curl -- curl</description>
     <docs>http://www.rssboard.org/rss-specification</docs>
     <generator>python-feedgen</generator>
-    <lastBuildDate>Tue, 09 Jul 2024 18:24:05 +0000</lastBuildDate>
+    <lastBuildDate>Tue, 09 Jul 2024 19:19:34 +0000</lastBuildDate>
     <ttl>60</ttl>
     <item>
       <title>CVE-2023-38545|2023-10-18T03:52:00.816Z -- curl -- curl
@@ -60,25 +60,12 @@ program using libcurl. And if using the correct file format of course.
       <pubDate>Wed, 18 Oct 2023 03:51:31 +0000</pubDate>
     </item>
     <item>
-      <title>CVE-2024-2379|2024-03-27T07:56:41.158Z -- curl -- curl</title>
-      <link>https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2024-2379</link>
-      <description>libcurl skips the certificate verification for a QUIC connection under certain conditions, when built to use wolfSSL. If told to use an unknown/bad cipher or curve, the error path accidentally skips the verification and returns OK, thus ignoring any certificate problems.</description>
-      <guid isPermaLink="false">CVE-2024-2379|2024-03-27T07:56:41.158Z</guid>
-      <pubDate>Wed, 27 Mar 2024 07:56:41 +0000</pubDate>
-    </item>
-    <item>
-      <title>CVE-2024-2466|2024-03-27T07:58:24.520Z -- curl -- curl</title>
-      <link>https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2024-2466</link>
-      <description>libcurl did not check the server certificate of TLS connections done to a host specified as an IP address, when built to use mbedTLS.  libcurl would wrongly avoid using the set hostname function when the specified hostname was given as an IP address, therefore completely skipping the certificate check. This affects all uses of TLS protocols (HTTPS, FTPS, IMAPS, POPS3, SMTPS, etc).</description>
-      <guid isPermaLink="false">CVE-2024-2466|2024-03-27T07:58:24.520Z</guid>
-      <pubDate>Wed, 27 Mar 2024 07:58:24 +0000</pubDate>
-    </item>
-    <item>
-      <title>CVE-2024-2398|2024-06-04T17:30:40.286Z -- curl -- curl</title>
-      <link>https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2024-2398</link>
-      <description>When an application tells libcurl it wants to allow HTTP/2 server push, and the amount of received headers for the push surpasses the maximum allowed limit (1000), libcurl aborts the server push. When aborting, libcurl inadvertently does not free all the previously allocated headers and instead leaks the memory.  Further, this error condition fails silently and is therefore not easily detected by an application.</description>
-      <guid isPermaLink="false">CVE-2024-2398|2024-06-04T17:30:40.286Z</guid>
-      <pubDate>Wed, 27 Mar 2024 07:55:48 +0000</pubDate>
+      <title>CVE-2024-0853|2024-02-03T13:35:25.863Z -- curl -- curl</title>
+      <link>https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2024-0853</link>
+      <description>curl inadvertently kept the SSL session ID for connections in its cache even when the verify status (*OCSP stapling*) test failed. A subsequent transfer to
+the same hostname could then succeed if the session ID cache was still fresh, which then skipped the verify status check.</description>
+      <guid isPermaLink="false">CVE-2024-0853|2024-02-03T13:35:25.863Z</guid>
+      <pubDate>Sat, 03 Feb 2024 13:35:25 +0000</pubDate>
     </item>
     <item>
       <title>CVE-2024-2004|2024-03-27T07:54:27.157Z -- curl -- curl</title>
@@ -88,12 +75,25 @@ program using libcurl. And if using the correct file format of course.
       <pubDate>Wed, 27 Mar 2024 07:54:27 +0000</pubDate>
     </item>
     <item>
-      <title>CVE-2024-0853|2024-02-03T13:35:25.863Z -- curl -- curl</title>
-      <link>https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2024-0853</link>
-      <description>curl inadvertently kept the SSL session ID for connections in its cache even when the verify status (*OCSP stapling*) test failed. A subsequent transfer to
-the same hostname could then succeed if the session ID cache was still fresh, which then skipped the verify status check.</description>
-      <guid isPermaLink="false">CVE-2024-0853|2024-02-03T13:35:25.863Z</guid>
-      <pubDate>Sat, 03 Feb 2024 13:35:25 +0000</pubDate>
+      <title>CVE-2024-2398|2024-06-04T17:30:40.286Z -- curl -- curl</title>
+      <link>https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2024-2398</link>
+      <description>When an application tells libcurl it wants to allow HTTP/2 server push, and the amount of received headers for the push surpasses the maximum allowed limit (1000), libcurl aborts the server push. When aborting, libcurl inadvertently does not free all the previously allocated headers and instead leaks the memory.  Further, this error condition fails silently and is therefore not easily detected by an application.</description>
+      <guid isPermaLink="false">CVE-2024-2398|2024-06-04T17:30:40.286Z</guid>
+      <pubDate>Wed, 27 Mar 2024 07:55:48 +0000</pubDate>
+    </item>
+    <item>
+      <title>CVE-2024-2466|2024-03-27T07:58:24.520Z -- curl -- curl</title>
+      <link>https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2024-2466</link>
+      <description>libcurl did not check the server certificate of TLS connections done to a host specified as an IP address, when built to use mbedTLS.  libcurl would wrongly avoid using the set hostname function when the specified hostname was given as an IP address, therefore completely skipping the certificate check. This affects all uses of TLS protocols (HTTPS, FTPS, IMAPS, POPS3, SMTPS, etc).</description>
+      <guid isPermaLink="false">CVE-2024-2466|2024-03-27T07:58:24.520Z</guid>
+      <pubDate>Wed, 27 Mar 2024 07:58:24 +0000</pubDate>
+    </item>
+    <item>
+      <title>CVE-2024-2379|2024-03-27T07:56:41.158Z -- curl -- curl</title>
+      <link>https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2024-2379</link>
+      <description>libcurl skips the certificate verification for a QUIC connection under certain conditions, when built to use wolfSSL. If told to use an unknown/bad cipher or curve, the error path accidentally skips the verification and returns OK, thus ignoring any certificate problems.</description>
+      <guid isPermaLink="false">CVE-2024-2379|2024-03-27T07:56:41.158Z</guid>
+      <pubDate>Wed, 27 Mar 2024 07:56:41 +0000</pubDate>
     </item>
   </channel>
 </rss>
