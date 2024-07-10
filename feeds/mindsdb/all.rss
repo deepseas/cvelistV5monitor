@@ -6,52 +6,18 @@
     <description>The latest CVEs for mindsdb -- all products</description>
     <docs>http://www.rssboard.org/rss-specification</docs>
     <generator>python-feedgen</generator>
-    <lastBuildDate>Wed, 12 Jun 2024 11:24:18 +0000</lastBuildDate>
+    <lastBuildDate>Wed, 10 Jul 2024 17:21:45 +0000</lastBuildDate>
     <ttl>60</ttl>
     <item>
-      <title>CVE-2023-38699|2023-08-04T17:53:30.604Z -- mindsdb -- mindsdb
+      <title>CVE-2024-3575|2024-07-10T16:33:19.947Z -- mindsdb -- mindsdb%2Fmindsdb
 </title>
-      <link>https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2023-38699</link>
-      <description>MindsDB's AI Virtual Database allows developers to connect any AI/ML model to any datasource. Prior to version 23.7.4.0, a call to requests with `verify=False` disables SSL certificate checks. This rule enforces always verifying SSL certificates for methods in the Requests library. In version 23.7.4.0, certificates are validated by default, which is the desired behavior.</description>
-      <guid isPermaLink="false">CVE-2023-38699|2023-08-04T17:53:30.604Z</guid>
-      <pubDate>Fri, 04 Aug 2023 17:53:30 +0000</pubDate>
+      <link>https://www.cve.org/CVERecord?id=CVE-2024-3575</link>
+      <description>Cross-site Scripting (XSS) - Stored in mindsdb/mindsdb</description>
+      <guid isPermaLink="false">CVE-2024-3575|2024-07-10T16:33:19.947Z</guid>
+      <pubDate>Tue, 16 Apr 2024 00:00:13 +0000</pubDate>
     </item>
     <item>
-      <title>CVE-2023-49795|2023-12-11T20:38:42.859Z -- mindsdb -- mindsdb
-</title>
-      <link>https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2023-49795</link>
-      <description>MindsDB connects artificial intelligence models to real time data. Versions prior to 23.11.4.1 contain a server-side request forgery vulnerability in `file.py`. This can lead to limited information disclosure. Users should use MindsDB's `staging` branch or v23.11.4.1, which contain a fix for the issue.
-</description>
-      <guid isPermaLink="false">CVE-2023-49795|2023-12-11T20:38:42.859Z</guid>
-      <pubDate>Mon, 11 Dec 2023 19:01:00 +0000</pubDate>
-    </item>
-    <item>
-      <title>CVE-2023-49796|2023-12-11T20:38:25.330Z -- mindsdb -- mindsdb
-</title>
-      <link>https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2023-49796</link>
-      <description>MindsDB connects artificial intelligence models to real time data. Versions prior to 23.11.4.1 contain a limited file write vulnerability in `file.py` Users should use MindsDB's `staging` branch or v23.11.4.1, which contain a fix for the issue.</description>
-      <guid isPermaLink="false">CVE-2023-49796|2023-12-11T20:38:25.330Z</guid>
-      <pubDate>Mon, 11 Dec 2023 20:38:25 +0000</pubDate>
-    </item>
-    <item>
-      <title>CVE-2023-30620|2023-04-21T20:11:26.129Z -- mindsdb -- mindsdb
-</title>
-      <link>https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2023-30620</link>
-      <description>mindsdb is a Machine Learning platform to help developers build AI solutions. In affected versions an unsafe extraction is being performed using `tarfile.extractall()` from a remotely retrieved tarball. Which may lead to the writing of the extracted files to an unintended location. Sometimes, the vulnerability is called a TarSlip or a ZipSlip variant. An attacker may leverage this vulnerability to overwrite any local file which the server process has access to. There is no risk of file exposure with this vulnerability. This issue has been addressed in release `23.2.1.0 `. Users are advised to upgrade. There are no known workarounds for this vulnerability.</description>
-      <guid isPermaLink="false">CVE-2023-30620|2023-04-21T20:11:26.129Z</guid>
-      <pubDate>Fri, 21 Apr 2023 20:11:26 +0000</pubDate>
-    </item>
-    <item>
-      <title>CVE-2023-50731|2023-12-22T20:43:18.036Z -- mindsdb -- mindsdb
-</title>
-      <link>https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2023-50731</link>
-      <description>MindsDB is a SQL Server for artificial intelligence. Prior to version 23.11.4.1, the `put` method in `mindsdb/mindsdb/api/http/namespaces/file.py` does not validate the user-controlled name value, which is used in a temporary file name, which is afterwards opened for writing on lines 122-125, which leads to path injection. Later in the method, the temporary directory is deleted on line 151, but since we can write outside of the directory using the path injection vulnerability, the potentially dangerous file is not deleted. Arbitrary file contents can be written due to `f.write(chunk)` on line 125. Mindsdb does check later on line 149 in the `save_file` method in `file-controller.py` which calls the `_handle_source` method in `file_handler.py` if a file is of one of the types `csv`, `json`, `parquet`, `xls`, or `xlsx`. However, since the check happens after the file has already been written, the files will still exist (and will not be removed due to the path injection described earlier), just the `_handle_source` method will return an error. The same user-controlled source source is used also in another path injection sink on line 138. This leads to another path injection, which allows an attacker to delete any `zip` or `tar.gz` files on the server.</description>
-      <guid isPermaLink="false">CVE-2023-50731|2023-12-22T20:43:18.036Z</guid>
-      <pubDate>Fri, 22 Dec 2023 20:43:18 +0000</pubDate>
-    </item>
-    <item>
-      <title>CVE-2024-3575|2024-04-16T11:10:43.917Z -- mindsdb -- mindsdb%2Fmindsdb
-</title>
+      <title>CVE-2024-3575|2024-04-16T11:10:43.917Z -- mindsdb -- mindsdb%2Fmindsdb</title>
       <link>https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2024-3575</link>
       <description>Cross-site Scripting (XSS) - Stored in mindsdb/mindsdb</description>
       <guid isPermaLink="false">CVE-2024-3575|2024-04-16T11:10:43.917Z</guid>
