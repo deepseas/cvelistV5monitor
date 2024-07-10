@@ -6,14 +6,14 @@
     <description>The latest CVEs for electron-userland -- all products</description>
     <docs>http://www.rssboard.org/rss-specification</docs>
     <generator>python-feedgen</generator>
-    <lastBuildDate>Tue, 09 Jul 2024 18:24:06 +0000</lastBuildDate>
+    <lastBuildDate>Wed, 10 Jul 2024 15:23:12 +0000</lastBuildDate>
     <ttl>60</ttl>
     <item>
-      <title>CVE-2024-39698|2024-07-09T17:50:28.169Z -- electron-userland -- electron-builder
+      <title>CVE-2024-39698|2024-07-10T14:41:06.824Z -- electron-userland -- electron-builder
 </title>
       <link>https://www.cve.org/CVERecord?id=CVE-2024-39698</link>
       <description>electron-updater allows for automatic updates for Electron apps. The file `packages/electron-updater/src/windowsExecutableCodeSignatureVerifier.ts` implements the signature validation routine for Electron applications on Windows. Because of the surrounding shell, a first pass by `cmd.exe` expands any environment variable found in command-line above. This creates a situation where `verifySignature()` can be tricked into validating the certificate of a different file than the one that was just downloaded. If the step is successful, the malicious update will be executed even if its signature is invalid. This attack assumes a compromised update manifest (server compromise, Man-in-the-Middle attack if fetched over HTTP, Cross-Site Scripting to point the application to a malicious updater server, etc.). The patch is available starting from 6.3.0-alpha.6.</description>
-      <guid isPermaLink="false">CVE-2024-39698|2024-07-09T17:50:28.169Z</guid>
+      <guid isPermaLink="false">CVE-2024-39698|2024-07-10T14:41:06.824Z</guid>
       <pubDate>Tue, 09 Jul 2024 17:50:28 +0000</pubDate>
     </item>
     <item>
@@ -22,6 +22,13 @@
       <description>electron-builder is a solution to package and build a ready for distribution Electron, Proton Native app for macOS, Windows and Linux. A vulnerability that only affects eletron-builder prior to 24.13.2 in Windows, the NSIS installer makes a system call to open cmd.exe via NSExec in the `.nsh` installer script. NSExec by default searches the current directory of where the installer is located before searching `PATH`. This means that if an attacker can place a malicious executable file named cmd.exe in the same folder as the installer, the installer will run the malicious file. Version 24.13.2 fixes this issue. No known workaround exists. The code executes at the installer-level before the app is present on the system, so there's no way to check if it exists in a current installer.</description>
       <guid isPermaLink="false">CVE-2024-27303|2024-03-06T18:35:37.973Z</guid>
       <pubDate>Wed, 06 Mar 2024 18:35:37 +0000</pubDate>
+    </item>
+    <item>
+      <title>CVE-2024-39698|2024-07-09T17:50:28.169Z -- electron-userland -- electron-builder</title>
+      <link>https://www.cve.org/CVERecord?id=CVE-2024-39698</link>
+      <description>electron-updater allows for automatic updates for Electron apps. The file `packages/electron-updater/src/windowsExecutableCodeSignatureVerifier.ts` implements the signature validation routine for Electron applications on Windows. Because of the surrounding shell, a first pass by `cmd.exe` expands any environment variable found in command-line above. This creates a situation where `verifySignature()` can be tricked into validating the certificate of a different file than the one that was just downloaded. If the step is successful, the malicious update will be executed even if its signature is invalid. This attack assumes a compromised update manifest (server compromise, Man-in-the-Middle attack if fetched over HTTP, Cross-Site Scripting to point the application to a malicious updater server, etc.). The patch is available starting from 6.3.0-alpha.6.</description>
+      <guid isPermaLink="false">CVE-2024-39698|2024-07-09T17:50:28.169Z</guid>
+      <pubDate>Tue, 09 Jul 2024 17:50:28 +0000</pubDate>
     </item>
   </channel>
 </rss>
