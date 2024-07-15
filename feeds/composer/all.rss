@@ -6,20 +6,42 @@
     <description>The latest CVEs for composer -- all products</description>
     <docs>http://www.rssboard.org/rss-specification</docs>
     <generator>python-feedgen</generator>
-    <lastBuildDate>Wed, 12 Jun 2024 11:24:19 +0000</lastBuildDate>
+    <lastBuildDate>Mon, 15 Jul 2024 21:21:40 +0000</lastBuildDate>
     <ttl>60</ttl>
     <item>
-      <title>CVE-2023-43655|2023-09-29T19:33:32.183Z -- composer -- composer
+      <title>CVE-2024-35242|2024-07-15T20:44:10.241Z -- composer -- composer
 </title>
-      <link>https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2023-43655</link>
-      <description>Composer is a dependency manager for PHP. Users publishing a composer.phar to a public web-accessible server where the composer.phar can be executed as a php file may be subject to a remote code execution vulnerability if PHP also has `register_argc_argv` enabled in php.ini. Versions 2.6.4, 2.2.22 and 1.10.27 patch this vulnerability. Users are advised to upgrade. Users unable to upgrade should make sure `register_argc_argv` is disabled in php.ini, and avoid publishing composer.phar to the web as this is not best practice.
+      <link>https://www.cve.org/CVERecord?id=CVE-2024-35242</link>
+      <description>Composer is a dependency manager for PHP. On the 2.x branch prior to versions 2.2.24 and 2.7.7, the `composer install` command running inside a git/hg repository which has specially crafted branch names can lead to command injection. This requires cloning untrusted repositories. Patches are available in version 2.2.24 for 2.2 LTS or 2.7.7 for mainline. As a workaround, avoid cloning potentially compromised repositories.
 </description>
-      <guid isPermaLink="false">CVE-2023-43655|2023-09-29T19:33:32.183Z</guid>
-      <pubDate>Fri, 29 Sep 2023 19:33:32 +0000</pubDate>
+      <guid isPermaLink="false">CVE-2024-35242|2024-07-15T20:44:10.241Z</guid>
+      <pubDate>Mon, 10 Jun 2024 21:23:44 +0000</pubDate>
     </item>
     <item>
-      <title>CVE-2024-24821|2024-02-08T23:54:04.058Z -- composer -- composer
+      <title>CVE-2024-35241|2024-07-15T20:43:01.084Z -- composer -- composer
 </title>
+      <link>https://www.cve.org/CVERecord?id=CVE-2024-35241</link>
+      <description>Composer is a dependency manager for PHP. On the 2.x branch prior to versions 2.2.24 and 2.7.7, the `status`, `reinstall` and `remove` commands with packages installed from source via git containing specially crafted branch names in the repository can be used to execute code. Patches for this issue are available in version 2.2.24 for 2.2 LTS or 2.7.7 for mainline. As a workaround, avoid installing dependencies via git by using `--prefer-dist` or the `preferred-install: dist` config setting.
+</description>
+      <guid isPermaLink="false">CVE-2024-35241|2024-07-15T20:43:01.084Z</guid>
+      <pubDate>Mon, 10 Jun 2024 21:19:47 +0000</pubDate>
+    </item>
+    <item>
+      <title>CVE-2024-35242|2024-06-10T21:23:44.040Z -- composer -- composer</title>
+      <link>https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2024-35242</link>
+      <description>Composer is a dependency manager for PHP. On the 2.x branch prior to versions 2.2.24 and 2.7.7, the `composer install` command running inside a git/hg repository which has specially crafted branch names can lead to command injection. This requires cloning untrusted repositories. Patches are available in version 2.2.24 for 2.2 LTS or 2.7.7 for mainline. As a workaround, avoid cloning potentially compromised repositories.</description>
+      <guid isPermaLink="false">CVE-2024-35242|2024-06-10T21:23:44.040Z</guid>
+      <pubDate>Mon, 10 Jun 2024 21:23:44 +0000</pubDate>
+    </item>
+    <item>
+      <title>CVE-2024-35241|2024-06-10T21:19:47.123Z -- composer -- composer</title>
+      <link>https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2024-35241</link>
+      <description>Composer is a dependency manager for PHP. On the 2.x branch prior to versions 2.2.24 and 2.7.7, the `status`, `reinstall` and `remove` commands with packages installed from source via git containing specially crafted branch names in the repository can be used to execute code. Patches for this issue are available in version 2.2.24 for 2.2 LTS or 2.7.7 for mainline. As a workaround, avoid installing dependencies via git by using `--prefer-dist` or the `preferred-install: dist` config setting.</description>
+      <guid isPermaLink="false">CVE-2024-35241|2024-06-10T21:19:47.123Z</guid>
+      <pubDate>Mon, 10 Jun 2024 21:19:47 +0000</pubDate>
+    </item>
+    <item>
+      <title>CVE-2024-24821|2024-02-08T23:54:04.058Z -- composer -- composer</title>
       <link>https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2024-24821</link>
       <description>Composer is a dependency Manager for the PHP language. In affected versions several files within the local working directory are included during the invocation of Composer and in the context of the executing user. As such, under certain conditions arbitrary code execution may lead to local privilege escalation, provide lateral user movement or malicious code execution when Composer is invoked within a directory with tampered files. All Composer CLI commands are affected, including composer.phar's self-update. The following scenarios are of high risk: Composer being run with sudo, Pipelines which may execute Composer on untrusted projects, Shared environments with developers who run Composer individually on the same project. This vulnerability has been addressed in versions 2.7.0 and 2.2.23. It is advised that the patched versions are applied at the earliest convenience. Where not possible, the following should be addressed: Remove all sudo composer privileges for all users to mitigate root privilege escalation, and avoid running Composer within an untrusted directory, or if needed, verify that the contents of `vendor/composer/InstalledVersions.php` and `vendor/composer/installed.php` do not include untrusted code.  A reset can also be done on these files by the following:```sh
 rm vendor/composer/installed.php vendor/composer/InstalledVersions.php
@@ -27,24 +49,6 @@ composer install --no-scripts --no-plugins
 ```</description>
       <guid isPermaLink="false">CVE-2024-24821|2024-02-08T23:54:04.058Z</guid>
       <pubDate>Thu, 08 Feb 2024 23:54:04 +0000</pubDate>
-    </item>
-    <item>
-      <title>CVE-2024-35241|2024-06-10T21:19:47.123Z -- composer -- composer
-</title>
-      <link>https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2024-35241</link>
-      <description>Composer is a dependency manager for PHP. On the 2.x branch prior to versions 2.2.24 and 2.7.7, the `status`, `reinstall` and `remove` commands with packages installed from source via git containing specially crafted branch names in the repository can be used to execute code. Patches for this issue are available in version 2.2.24 for 2.2 LTS or 2.7.7 for mainline. As a workaround, avoid installing dependencies via git by using `--prefer-dist` or the `preferred-install: dist` config setting.
-</description>
-      <guid isPermaLink="false">CVE-2024-35241|2024-06-10T21:19:47.123Z</guid>
-      <pubDate>Mon, 10 Jun 2024 21:19:47 +0000</pubDate>
-    </item>
-    <item>
-      <title>CVE-2024-35242|2024-06-10T21:23:44.040Z -- composer -- composer
-</title>
-      <link>https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2024-35242</link>
-      <description>Composer is a dependency manager for PHP. On the 2.x branch prior to versions 2.2.24 and 2.7.7, the `composer install` command running inside a git/hg repository which has specially crafted branch names can lead to command injection. This requires cloning untrusted repositories. Patches are available in version 2.2.24 for 2.2 LTS or 2.7.7 for mainline. As a workaround, avoid cloning potentially compromised repositories.
-</description>
-      <guid isPermaLink="false">CVE-2024-35242|2024-06-10T21:23:44.040Z</guid>
-      <pubDate>Mon, 10 Jun 2024 21:23:44 +0000</pubDate>
     </item>
   </channel>
 </rss>
