@@ -6,140 +6,78 @@
     <description>The latest CVEs for vantage6 -- all products</description>
     <docs>http://www.rssboard.org/rss-specification</docs>
     <generator>python-feedgen</generator>
-    <lastBuildDate>Wed, 12 Jun 2024 11:24:20 +0000</lastBuildDate>
+    <lastBuildDate>Tue, 16 Jul 2024 19:19:33 +0000</lastBuildDate>
     <ttl>60</ttl>
     <item>
-      <title>CVE-2023-28635|2023-10-11T19:21:23.678Z -- vantage6 -- vantage6
+      <title>CVE-2024-23823|2024-07-16T18:18:35.796Z -- vantage6 -- vantage6
 </title>
-      <link>https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2023-28635</link>
-      <description>vantage6 is privacy preserving federated learning infrastructure. Prior to version 4.0.0, malicious users may try to get access to resources they are not allowed to see, by creating resources with integers as names. One example where this is a risk, is when users define which users are allowed to run algorithms on their node. This may be defined by username or user id. Now, for example, if user id 13 is allowed to run tasks, and an attacker creates a username with username '13', they would be wrongly allowed to run an algorithm. There may also be other places in the code where such a mixup of resource ID or name leads to issues. Version 4.0.0 contains a patch for this issue. The best solution is to check when resources are created or modified, that the resource name always starts with a character.</description>
-      <guid isPermaLink="false">CVE-2023-28635|2023-10-11T19:21:23.678Z</guid>
-      <pubDate>Wed, 11 Oct 2023 19:21:23 +0000</pubDate>
-    </item>
-    <item>
-      <title>CVE-2023-22738|2023-03-01T20:22:13.113Z -- vantage6 -- vantage6
-</title>
-      <link>https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2023-22738</link>
-      <description>vantage6 is a privacy preserving federated learning infrastructure for secure insight exchange. Assigning existing users to a different organizations is currently possible. It may lead to unintended access: if a user from organization A is accidentally assigned to organization B, they will retain their permissions and therefore might be able to access stuff they should not be allowed to access. This issue is patched in version 3.8.0.</description>
-      <guid isPermaLink="false">CVE-2023-22738|2023-03-01T20:22:13.113Z</guid>
-      <pubDate>Wed, 01 Mar 2023 20:22:13 +0000</pubDate>
-    </item>
-    <item>
-      <title>CVE-2023-47631|2023-11-14T21:04:20.522Z -- vantage6 -- vantage6
-</title>
-      <link>https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2023-47631</link>
-      <description>vantage6 is a framework to manage and deploy privacy enhancing technologies like Federated Learning (FL) and Multi-Party Computation (MPC). In affected versions a node does not check if an image is allowed to run if a `parent_id` is set. A malicious party that breaches the server may modify it to set a fake `parent_id` and send a task of a non-whitelisted algorithm. The node will then execute it because the `parent_id` that is set prevents checks from being run. This impacts all servers that are breached by an expert user. This vulnerability has been patched in version 4.1.2. All users are advised to upgrade. There are no known workarounds for this vulnerability.
-</description>
-      <guid isPermaLink="false">CVE-2023-47631|2023-11-14T21:04:20.522Z</guid>
-      <pubDate>Tue, 14 Nov 2023 21:04:20 +0000</pubDate>
-    </item>
-    <item>
-      <title>CVE-2023-23930|2023-10-11T18:50:53.413Z -- vantage6 -- vantage6
-</title>
-      <link>https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2023-23930</link>
-      <description>vantage6 is privacy preserving federated learning infrastructure. Versions prior to 4.0.0 use pickle, which has known security issue, as a default serialization module but that has known security issues. All users of vantage6 that post tasks with the default serialization are affected. Version 4.0.0 contains a patch. Users may specify JSON serialization as a workaround.</description>
-      <guid isPermaLink="false">CVE-2023-23930|2023-10-11T18:50:53.413Z</guid>
-      <pubDate>Wed, 11 Oct 2023 17:39:23 +0000</pubDate>
-    </item>
-    <item>
-      <title>CVE-2023-23929|2023-03-03T23:37:50.748Z -- vantage6 -- vantage6
-</title>
-      <link>https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2023-23929</link>
-      <description>vantage6 is a privacy preserving federated learning infrastructure for secure insight exchange. Currently, the refresh token is valid indefinitely. The refresh token should get a validity of 24-48 hours. A fix was released in version 3.8.0.
-</description>
-      <guid isPermaLink="false">CVE-2023-23929|2023-03-03T23:37:50.748Z</guid>
-      <pubDate>Fri, 03 Mar 2023 23:37:50 +0000</pubDate>
-    </item>
-    <item>
-      <title>CVE-2023-41881|2023-10-11T19:30:43.808Z -- vantage6 -- vantage6
-</title>
-      <link>https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2023-41881</link>
-      <description>vantage6 is privacy preserving federated learning infrastructure. When a collaboration is deleted, the linked resources (such as tasks from that collaboration) should be deleted. This is partly to manage data properly, but also to prevent a potential (but unlikely) side-effect that affects versions prior to 4.0.0, where if a collaboration with id=10 is deleted, and subsequently a new collaboration is created with id=10, the authenticated users in that collaboration could potentially see results of the deleted collaboration in some cases. Version 4.0.0 contains a patch for this issue. There are no known workarounds.</description>
-      <guid isPermaLink="false">CVE-2023-41881|2023-10-11T19:30:43.808Z</guid>
-      <pubDate>Wed, 11 Oct 2023 19:30:43 +0000</pubDate>
-    </item>
-    <item>
-      <title>CVE-2023-41882|2023-10-11T19:48:44.606Z -- vantage6 -- vantage6
-</title>
-      <link>https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2023-41882</link>
-      <description>vantage6 is privacy preserving federated learning infrastructure. The endpoint /api/collaboration/{id}/task is used to collect all tasks from a certain collaboration. To get such tasks, a user should have permission to view the collaboration and to view the tasks in it. However, prior to version 4.0.0, it is only checked if the user has permission to view the collaboration. Version 4.0.0 contains a patch. There are no known workarounds.</description>
-      <guid isPermaLink="false">CVE-2023-41882|2023-10-11T19:48:44.606Z</guid>
-      <pubDate>Wed, 11 Oct 2023 19:48:44 +0000</pubDate>
-    </item>
-    <item>
-      <title>CVE-2024-22193|2024-01-30T15:50:09.928Z -- vantage6 -- vantage6
-</title>
-      <link>https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2024-22193</link>
-      <description>The vantage6 technology enables to manage and deploy privacy enhancing technologies like Federated Learning (FL) and Multi-Party Computation (MPC). There are no checks on whether the input is encrypted if a task is created in an encrypted collaboration. Therefore, a user may accidentally create a task with sensitive input data that will then be stored unencrypted in a database.  Users should ensure they set the encryption setting correctly.  This vulnerability is patched in 4.2.0.</description>
-      <guid isPermaLink="false">CVE-2024-22193|2024-01-30T15:50:09.928Z</guid>
-      <pubDate>Tue, 30 Jan 2024 15:50:09 +0000</pubDate>
-    </item>
-    <item>
-      <title>CVE-2024-22200|2024-01-30T15:56:43.527Z -- vantage6 -- vantage6-ui
-</title>
-      <link>https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2024-22200</link>
-      <description>vantage6-UI is the User Interface for vantage6. The docker image used to run the UI leaks the nginx version. To mitigate the vulnerability, users can run the UI as an angular application.  This vulnerability was patched in 4.2.0.
-</description>
-      <guid isPermaLink="false">CVE-2024-22200|2024-01-30T15:56:43.527Z</guid>
-      <pubDate>Tue, 30 Jan 2024 15:56:43 +0000</pubDate>
-    </item>
-    <item>
-      <title>CVE-2024-32969|2024-06-04T17:50:23.345Z -- vantage6 -- vantage6
-</title>
-      <link>https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2024-32969</link>
-      <description>vantage6 is an open-source infrastructure for privacy preserving analysis. Collaboration administrators can add extra organizations to their collaboration that can extend their influence. For example, organizations that they include can then create new users for which they know the passwords, and use that to read task results of other collaborations that that organization is involved in.  This is only relatively trusted users - with access to manage a collaboration - are able to do this, which reduces the impact. This vulnerability was patched in version 4.5.0rc3.
-</description>
-      <guid isPermaLink="false">CVE-2024-32969|2024-06-04T17:50:23.345Z</guid>
-      <pubDate>Thu, 23 May 2024 08:22:57 +0000</pubDate>
-    </item>
-    <item>
-      <title>CVE-2024-23823|2024-03-14T18:47:50.328Z -- vantage6 -- vantage6
-</title>
-      <link>https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2024-23823</link>
+      <link>https://www.cve.org/CVERecord?id=CVE-2024-23823</link>
       <description>vantage6 is an open source framework built to enable, manage and deploy privacy enhancing technologies like Federated Learning and Multi-Party Computation. The vantage6 server has no restrictions on CORS settings. It should be possible for people to set the allowed origins of the server.  The impact is limited because v6 does not use session cookies. This issue has been addressed in commit `70bb4e1d8` and is expected to ship in subsequent releases. Users are advised to upgrade as soon as a new release is available. There are no known workarounds for this vulnerability.</description>
-      <guid isPermaLink="false">CVE-2024-23823|2024-03-14T18:47:50.328Z</guid>
+      <guid isPermaLink="false">CVE-2024-23823|2024-07-16T18:18:35.796Z</guid>
       <pubDate>Thu, 14 Mar 2024 18:47:50 +0000</pubDate>
     </item>
     <item>
-      <title>CVE-2024-24562|2024-06-04T17:43:20.387Z -- vantage6 -- vantage6-ui
-</title>
-      <link>https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2024-24562</link>
-      <description>vantage6-UI is the official user interface for the vantage6 server. In affected versions a number of security headers are not set. This issue has been addressed in commit `68dfa6614` which is expected to be included in future releases. Users are advised to upgrade when a new release is made. While an upgrade path is not available users may modify the docker image build to insert the headers into nginx.
-</description>
-      <guid isPermaLink="false">CVE-2024-24562|2024-06-04T17:43:20.387Z</guid>
-      <pubDate>Thu, 14 Mar 2024 18:52:31 +0000</pubDate>
+      <title>CVE-2024-21671|2024-01-30T15:43:06.789Z -- vantage6 -- vantage6</title>
+      <link>https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2024-21671</link>
+      <description>The vantage6 technology enables to manage and deploy privacy enhancing technologies like Federated Learning (FL) and Multi-Party Computation (MPC).  It is possible to find out usernames from the response time of login requests. This could aid attackers in credential attacks.  Version 4.2.0 patches this vulnerability.</description>
+      <guid isPermaLink="false">CVE-2024-21671|2024-01-30T15:43:06.789Z</guid>
+      <pubDate>Tue, 30 Jan 2024 15:43:06 +0000</pubDate>
     </item>
     <item>
-      <title>CVE-2024-24770|2024-06-04T17:43:03.585Z -- vantage6 -- vantage6
-</title>
-      <link>https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2024-24770</link>
-      <description>vantage6 is an open source framework built to enable, manage and deploy privacy enhancing technologies like Federated Learning and Multi-Party Computation. Much like GHSA-45gq-q4xh-cp53, it is possible to find which usernames exist in vantage6 by calling the API routes `/recover/lost` and `/2fa/lost`. These routes send emails to users if they have lost their password or MFA token. This issue has been addressed in commit `aecfd6d0e` and is expected to ship in subsequent releases. Users are advised to upgrade as soon as a new release is available. There are no known workarounds for this vulnerability.</description>
-      <guid isPermaLink="false">CVE-2024-24770|2024-06-04T17:43:03.585Z</guid>
-      <pubDate>Thu, 14 Mar 2024 18:47:46 +0000</pubDate>
-    </item>
-    <item>
-      <title>CVE-2024-21653|2024-01-30T15:39:30.554Z -- vantage6 -- vantage6
-</title>
-      <link>https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2024-21653</link>
-      <description>The vantage6 technology enables to manage and deploy privacy enhancing technologies like Federated Learning (FL) and Multi-Party Computation (MPC).  Nodes and servers get a ssh config by default that permits root login with password authentication. In a proper deployment, the SSH service is not exposed so there is no risk, but not all deployments are ideal. The default should therefore be less permissive.  The vulnerability can be mitigated by removing the ssh part from the docker file and rebuilding the docker image.  Version 4.2.0 patches the vulnerability.</description>
-      <guid isPermaLink="false">CVE-2024-21653|2024-01-30T15:39:30.554Z</guid>
-      <pubDate>Tue, 30 Jan 2024 15:39:30 +0000</pubDate>
-    </item>
-    <item>
-      <title>CVE-2024-21649|2024-01-30T15:34:49.560Z -- vantage6 -- vantage6
-</title>
+      <title>CVE-2024-21649|2024-01-30T15:34:49.560Z -- vantage6 -- vantage6</title>
       <link>https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2024-21649</link>
       <description>The vantage6 technology enables to manage and deploy privacy enhancing technologies like Federated Learning (FL) and Multi-Party Computation (MPC). Prior to 4.2.0, authenticated users could inject code into algorithm environment variables, resulting in remote code execution.  This vulnerability is patched in 4.2.0.</description>
       <guid isPermaLink="false">CVE-2024-21649|2024-01-30T15:34:49.560Z</guid>
       <pubDate>Tue, 30 Jan 2024 15:33:03 +0000</pubDate>
     </item>
     <item>
-      <title>CVE-2024-21671|2024-01-30T15:43:06.789Z -- vantage6 -- vantage6
-</title>
-      <link>https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2024-21671</link>
-      <description>The vantage6 technology enables to manage and deploy privacy enhancing technologies like Federated Learning (FL) and Multi-Party Computation (MPC).  It is possible to find out usernames from the response time of login requests. This could aid attackers in credential attacks.  Version 4.2.0 patches this vulnerability.</description>
-      <guid isPermaLink="false">CVE-2024-21671|2024-01-30T15:43:06.789Z</guid>
-      <pubDate>Tue, 30 Jan 2024 15:43:06 +0000</pubDate>
+      <title>CVE-2024-21653|2024-01-30T15:39:30.554Z -- vantage6 -- vantage6</title>
+      <link>https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2024-21653</link>
+      <description>The vantage6 technology enables to manage and deploy privacy enhancing technologies like Federated Learning (FL) and Multi-Party Computation (MPC).  Nodes and servers get a ssh config by default that permits root login with password authentication. In a proper deployment, the SSH service is not exposed so there is no risk, but not all deployments are ideal. The default should therefore be less permissive.  The vulnerability can be mitigated by removing the ssh part from the docker file and rebuilding the docker image.  Version 4.2.0 patches the vulnerability.</description>
+      <guid isPermaLink="false">CVE-2024-21653|2024-01-30T15:39:30.554Z</guid>
+      <pubDate>Tue, 30 Jan 2024 15:39:30 +0000</pubDate>
+    </item>
+    <item>
+      <title>CVE-2024-24770|2024-06-04T17:43:03.585Z -- vantage6 -- vantage6</title>
+      <link>https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2024-24770</link>
+      <description>vantage6 is an open source framework built to enable, manage and deploy privacy enhancing technologies like Federated Learning and Multi-Party Computation. Much like GHSA-45gq-q4xh-cp53, it is possible to find which usernames exist in vantage6 by calling the API routes `/recover/lost` and `/2fa/lost`. These routes send emails to users if they have lost their password or MFA token. This issue has been addressed in commit `aecfd6d0e` and is expected to ship in subsequent releases. Users are advised to upgrade as soon as a new release is available. There are no known workarounds for this vulnerability.</description>
+      <guid isPermaLink="false">CVE-2024-24770|2024-06-04T17:43:03.585Z</guid>
+      <pubDate>Thu, 14 Mar 2024 18:47:46 +0000</pubDate>
+    </item>
+    <item>
+      <title>CVE-2024-24562|2024-06-04T17:43:20.387Z -- vantage6 -- vantage6-ui</title>
+      <link>https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2024-24562</link>
+      <description>vantage6-UI is the official user interface for the vantage6 server. In affected versions a number of security headers are not set. This issue has been addressed in commit `68dfa6614` which is expected to be included in future releases. Users are advised to upgrade when a new release is made. While an upgrade path is not available users may modify the docker image build to insert the headers into nginx.</description>
+      <guid isPermaLink="false">CVE-2024-24562|2024-06-04T17:43:20.387Z</guid>
+      <pubDate>Thu, 14 Mar 2024 18:52:31 +0000</pubDate>
+    </item>
+    <item>
+      <title>CVE-2024-23823|2024-03-14T18:47:50.328Z -- vantage6 -- vantage6</title>
+      <link>https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2024-23823</link>
+      <description>vantage6 is an open source framework built to enable, manage and deploy privacy enhancing technologies like Federated Learning and Multi-Party Computation. The vantage6 server has no restrictions on CORS settings. It should be possible for people to set the allowed origins of the server.  The impact is limited because v6 does not use session cookies. This issue has been addressed in commit `70bb4e1d8` and is expected to ship in subsequent releases. Users are advised to upgrade as soon as a new release is available. There are no known workarounds for this vulnerability.</description>
+      <guid isPermaLink="false">CVE-2024-23823|2024-03-14T18:47:50.328Z</guid>
+      <pubDate>Thu, 14 Mar 2024 18:47:50 +0000</pubDate>
+    </item>
+    <item>
+      <title>CVE-2024-32969|2024-06-04T17:50:23.345Z -- vantage6 -- vantage6</title>
+      <link>https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2024-32969</link>
+      <description>vantage6 is an open-source infrastructure for privacy preserving analysis. Collaboration administrators can add extra organizations to their collaboration that can extend their influence. For example, organizations that they include can then create new users for which they know the passwords, and use that to read task results of other collaborations that that organization is involved in.  This is only relatively trusted users - with access to manage a collaboration - are able to do this, which reduces the impact. This vulnerability was patched in version 4.5.0rc3.</description>
+      <guid isPermaLink="false">CVE-2024-32969|2024-06-04T17:50:23.345Z</guid>
+      <pubDate>Thu, 23 May 2024 08:22:57 +0000</pubDate>
+    </item>
+    <item>
+      <title>CVE-2024-22200|2024-01-30T15:56:43.527Z -- vantage6 -- vantage6-ui</title>
+      <link>https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2024-22200</link>
+      <description>vantage6-UI is the User Interface for vantage6. The docker image used to run the UI leaks the nginx version. To mitigate the vulnerability, users can run the UI as an angular application.  This vulnerability was patched in 4.2.0.</description>
+      <guid isPermaLink="false">CVE-2024-22200|2024-01-30T15:56:43.527Z</guid>
+      <pubDate>Tue, 30 Jan 2024 15:56:43 +0000</pubDate>
+    </item>
+    <item>
+      <title>CVE-2024-22193|2024-01-30T15:50:09.928Z -- vantage6 -- vantage6</title>
+      <link>https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2024-22193</link>
+      <description>The vantage6 technology enables to manage and deploy privacy enhancing technologies like Federated Learning (FL) and Multi-Party Computation (MPC). There are no checks on whether the input is encrypted if a task is created in an encrypted collaboration. Therefore, a user may accidentally create a task with sensitive input data that will then be stored unencrypted in a database.  Users should ensure they set the encryption setting correctly.  This vulnerability is patched in 4.2.0.</description>
+      <guid isPermaLink="false">CVE-2024-22193|2024-01-30T15:50:09.928Z</guid>
+      <pubDate>Tue, 30 Jan 2024 15:50:09 +0000</pubDate>
     </item>
   </channel>
 </rss>

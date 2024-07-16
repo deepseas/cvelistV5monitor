@@ -6,45 +6,18 @@
     <description>The latest CVEs for c-ares -- all products</description>
     <docs>http://www.rssboard.org/rss-specification</docs>
     <generator>python-feedgen</generator>
-    <lastBuildDate>Wed, 12 Jun 2024 11:24:19 +0000</lastBuildDate>
+    <lastBuildDate>Tue, 16 Jul 2024 19:19:30 +0000</lastBuildDate>
     <ttl>60</ttl>
     <item>
-      <title>CVE-2023-32067|2023-05-25T22:49:55.860Z -- c-ares -- c-ares
+      <title>CVE-2023-32067|2024-07-16T18:42:36.162Z -- c-ares -- c-ares
 </title>
-      <link>https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2023-32067</link>
+      <link>https://www.cve.org/CVERecord?id=CVE-2023-32067</link>
       <description>c-ares is an asynchronous resolver library. c-ares is vulnerable to denial of service. If a target resolver sends a query, the attacker forges a malformed UDP packet with a length of 0 and returns them to the target resolver. The target resolver erroneously interprets the 0 length as a graceful shutdown of the connection. This issue has been patched in version 1.19.1.</description>
-      <guid isPermaLink="false">CVE-2023-32067|2023-05-25T22:49:55.860Z</guid>
+      <guid isPermaLink="false">CVE-2023-32067|2024-07-16T18:42:36.162Z</guid>
       <pubDate>Thu, 25 May 2023 22:49:55 +0000</pubDate>
     </item>
     <item>
-      <title>CVE-2023-31130|2023-05-25T21:45:42.645Z -- c-ares -- c-ares
-</title>
-      <link>https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2023-31130</link>
-      <description>c-ares is an asynchronous resolver library. ares_inet_net_pton() is vulnerable to a buffer underflow for certain ipv6 addresses, in particular "0::00:00:00/2" was found to cause an issue.  C-ares only uses this function internally for configuration purposes which would require an administrator to configure such an address via ares_set_sortlist(). However, users may externally use ares_inet_net_pton() for other purposes and thus be vulnerable to more severe issues. This issue has been fixed in 1.19.1.
-</description>
-      <guid isPermaLink="false">CVE-2023-31130|2023-05-25T21:45:42.645Z</guid>
-      <pubDate>Thu, 25 May 2023 21:45:42 +0000</pubDate>
-    </item>
-    <item>
-      <title>CVE-2023-31147|2023-05-25T21:55:47.585Z -- c-ares -- c-ares
-</title>
-      <link>https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2023-31147</link>
-      <description>c-ares is an asynchronous resolver library. When /dev/urandom or RtlGenRandom() are unavailable, c-ares uses rand() to generate random numbers used for DNS query ids. This is not a CSPRNG, and it is also not seeded by srand() so will generate predictable output. Input from the random number generator is fed into a non-compilant RC4 implementation and may not be as strong as the original RC4 implementation. No attempt is made to look for modern OS-provided CSPRNGs like arc4random() that is widely available. This issue has been fixed in version 1.19.1.</description>
-      <guid isPermaLink="false">CVE-2023-31147|2023-05-25T21:55:47.585Z</guid>
-      <pubDate>Thu, 25 May 2023 21:55:47 +0000</pubDate>
-    </item>
-    <item>
-      <title>CVE-2023-31124|2023-05-25T21:09:31.881Z -- c-ares -- c-ares
-</title>
-      <link>https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2023-31124</link>
-      <description>c-ares is an asynchronous resolver library. When cross-compiling c-ares and using the autotools build system, CARES_RANDOM_FILE will not be set, as seen when cross compiling aarch64 android.  This will downgrade to using rand() as a fallback which could allow an attacker to take advantage of the lack of entropy by not using a CSPRNG. This issue was patched in version 1.19.1.
-</description>
-      <guid isPermaLink="false">CVE-2023-31124|2023-05-25T21:09:31.881Z</guid>
-      <pubDate>Thu, 25 May 2023 21:09:31 +0000</pubDate>
-    </item>
-    <item>
-      <title>CVE-2024-25629|2024-06-04T17:35:14.331Z -- c-ares -- c-ares
-</title>
+      <title>CVE-2024-25629|2024-06-04T17:35:14.331Z -- c-ares -- c-ares</title>
       <link>https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2024-25629</link>
       <description>c-ares is a C library for asynchronous DNS requests. `ares__read_line()` is used to parse local configuration files such as `/etc/resolv.conf`, `/etc/nsswitch.conf`, the `HOSTALIASES` file, and if using a c-ares version prior to 1.27.0, the `/etc/hosts` file. If any of these configuration files has an embedded `NULL` character as the first character in a new line, it can lead to attempting to read memory prior to the start of the given buffer which may result in a crash. This issue is fixed in c-ares 1.27.0. No known workarounds exist.</description>
       <guid isPermaLink="false">CVE-2024-25629|2024-06-04T17:35:14.331Z</guid>
