@@ -6,63 +6,44 @@
     <description>The latest CVEs for silverstripe -- all products</description>
     <docs>http://www.rssboard.org/rss-specification</docs>
     <generator>python-feedgen</generator>
-    <lastBuildDate>Wed, 12 Jun 2024 11:24:30 +0000</lastBuildDate>
+    <lastBuildDate>Wed, 17 Jul 2024 20:22:24 +0000</lastBuildDate>
     <ttl>60</ttl>
     <item>
-      <title>CVE-2023-28104|2023-03-16T15:25:30.551Z -- silverstripe -- silverstripe-graphql
+      <title>CVE-2024-32981|2024-07-17T19:36:00.563Z -- silverstripe -- silverstripe-framework
 </title>
-      <link>https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2023-28104</link>
-      <description>`silverstripe/graphql` serves Silverstripe data as GraphQL representations. In versions 4.2.2 and 4.1.1, an attacker could use a specially crafted graphql query to execute a denial of service attack against a website which has a publicly exposed graphql endpoint. This mostly affects websites with particularly large/complex graphql schemas. Users should upgrade to `silverstripe/graphql` 4.2.3 or 4.1.2 to remedy the vulnerability.</description>
-      <guid isPermaLink="false">CVE-2023-28104|2023-03-16T15:25:30.551Z</guid>
-      <pubDate>Thu, 16 Mar 2023 15:25:30 +0000</pubDate>
+      <link>https://www.cve.org/CVERecord?id=CVE-2024-32981</link>
+      <description>Silverstripe framework is the PHP framework forming the base for the Silverstripe CMS. In affected versions a bad actor with access to edit content in the CMS could add send a specifically crafted encoded payload to the server, which could be used to inject a JavaScript payload on the front end of the site. The payload would be sanitised on the client-side, but server-side sanitisation doesn't catch it. The server-side sanitisation logic has been updated to sanitise against this type of attack in version 5.2.16. All users are advised to upgrade. There are no known workarounds for this vulnerability.</description>
+      <guid isPermaLink="false">CVE-2024-32981|2024-07-17T19:36:00.563Z</guid>
+      <pubDate>Wed, 17 Jul 2024 19:36:00 +0000</pubDate>
     </item>
     <item>
-      <title>CVE-2023-49783|2024-01-23T13:54:51.301Z -- silverstripe -- silverstripe-admin
+      <title>CVE-2024-29885|2024-07-17T19:35:58.914Z -- silverstripe -- silverstripe-reports
 </title>
-      <link>https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2023-49783</link>
-      <description>Silverstripe Admin provides a basic management interface for the Silverstripe Framework. In versions on the 1.x branch prior to 1.13.19 and on the 2.x branch prior to 2.1.8, users who don't have edit or delete permissions for records exposed in a `ModelAdmin` can still edit or delete records using the CSV import form, provided they have create permissions. The likelihood of a user having create permissions but not having edit or delete permissions is low, but it is possible. Note that this doesn't affect any `ModelAdmin` which has had the import form disabled via the `showImportForm` public property. Versions 1.13.19 and 2.1.8 contain a patch for the issue. Those who have a custom implementation of `BulkLoader` should update their implementations to respect permissions when the return value of `getCheckPermissions()` is true. Those who use any `BulkLoader` in their own project logic, or maintain a module which uses it, should consider passing `true` to `setCheckPermissions()` if the data is provided by users.</description>
-      <guid isPermaLink="false">CVE-2023-49783|2024-01-23T13:54:51.301Z</guid>
-      <pubDate>Tue, 23 Jan 2024 13:54:51 +0000</pubDate>
+      <link>https://www.cve.org/CVERecord?id=CVE-2024-29885</link>
+      <description>silverstripe/reports is an API for creating backend reports in the Silverstripe Framework. In affected versions reports can be accessed by their direct URL by any user who has access to view the reports admin section, even if the `canView()` method for that report returns `false`. This issue has been addressed in version 5.2.3. All users are advised to upgrade. There are no known workarounds for this vulnerability.</description>
+      <guid isPermaLink="false">CVE-2024-29885|2024-07-17T19:35:58.914Z</guid>
+      <pubDate>Wed, 17 Jul 2024 19:35:58 +0000</pubDate>
     </item>
     <item>
-      <title>CVE-2023-48714|2024-01-23T13:49:27.350Z -- silverstripe -- silverstripe-framework
-</title>
-      <link>https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2023-48714</link>
-      <description>Silverstripe Framework is the framework that forms the base of the Silverstripe content management system. Prior to versions 4.13.39 and 5.1.11, if a user should not be able to see a record, but that record can be added to a `GridField` using the `GridFieldAddExistingAutocompleter` component, the record's title can be accessed by that user. Versions 4.13.39 and 5.1.11 contain a fix for this issue.</description>
-      <guid isPermaLink="false">CVE-2023-48714|2024-01-23T13:49:27.350Z</guid>
-      <pubDate>Tue, 23 Jan 2024 13:49:27 +0000</pubDate>
-    </item>
-    <item>
-      <title>CVE-2023-22729|2023-04-26T14:00:29.716Z -- silverstripe -- silverstripe-framework
-</title>
-      <link>https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2023-22729</link>
-      <description>Silverstripe Framework is the Model-View-Controller framework that powers the Silverstripe content management system. Prior to version 4.12.15, an attacker can display a link to a third party website on a login screen by convincing a legitimate content author to follow a specially crafted link. Users should upgrade to Silverstripe Framework 4.12.15 or above to address the issue.</description>
-      <guid isPermaLink="false">CVE-2023-22729|2023-04-26T14:00:29.716Z</guid>
-      <pubDate>Wed, 26 Apr 2023 14:00:29 +0000</pubDate>
-    </item>
-    <item>
-      <title>CVE-2023-22728|2023-04-26T13:57:03.733Z -- silverstripe -- silverstripe-framework
-</title>
-      <link>https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2023-22728</link>
-      <description>Silverstripe Framework is the Model-View-Controller framework that powers the Silverstripe content management system. Prior to version 4.12.15, the GridField print view incorrectly validates the permission of DataObjects potentially allowing a content author to view records they are not authorised to access. Users should upgrade to Silverstripe Framework 4.12.15 or above to address the issue.</description>
-      <guid isPermaLink="false">CVE-2023-22728|2023-04-26T13:57:03.733Z</guid>
-      <pubDate>Wed, 26 Apr 2023 13:57:03 +0000</pubDate>
-    </item>
-    <item>
-      <title>CVE-2023-44401|2024-01-23T13:08:34.055Z -- silverstripe -- silverstripe-graphql
-</title>
+      <title>CVE-2023-44401|2024-01-23T13:08:34.055Z -- silverstripe -- silverstripe-graphql</title>
       <link>https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2023-44401</link>
       <description>The Silverstripe CMS GraphQL Server serves Silverstripe data as GraphQL representations. In versions 4.0.0 prior to 4.3.7 and 5.0.0 prior to 5.1.3, `canView` permission checks are bypassed for ORM data in paginated GraphQL query results where the total number of records is greater than the number of records per page. Note that this also affects GraphQL queries which have a limit applied, even if the query isn’t paginated per se. This has been fixed in versions 4.3.7 and 5.1.3 by ensuring no new records are pulled in from the database after performing `canView` permission checks for each page of results. This may result in some pages in the query results having less than the maximum number of records per page even when there are more pages of results. This behavior is consistent with how pagination works in other areas of Silverstripe CMS, such as in `GridField`, and is a result of having to perform permission checks in PHP rather than in the database directly. One may disable these permission checks by disabling the `CanViewPermission` plugin.</description>
       <guid isPermaLink="false">CVE-2023-44401|2024-01-23T13:08:34.055Z</guid>
       <pubDate>Tue, 23 Jan 2024 13:08:34 +0000</pubDate>
     </item>
     <item>
-      <title>CVE-2023-40180|2023-10-16T18:43:50.879Z -- silverstripe -- silverstripe-graphql
-</title>
-      <link>https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2023-40180</link>
-      <description> silverstripe-graphql is a package which serves Silverstripe data in GraphQL representations. An attacker could use a recursive graphql query to execute a Distributed Denial of Service attack (DDOS attack) against a website. This mostly affects websites with publicly exposed graphql schemas. If your Silverstripe CMS project does not expose a public facing graphql schema, a user account is required to trigger the DDOS attack. If your site is hosted behind a content delivery network (CDN), such as Imperva or CloudFlare, this may further mitigate the risk. This issue has been addressed in versions 3.8.2, 4.1.3, 4.2.5, 4.3.4, and 5.0.3. Users are advised to upgrade. There are no known workarounds for this vulnerability.</description>
-      <guid isPermaLink="false">CVE-2023-40180|2023-10-16T18:43:50.879Z</guid>
-      <pubDate>Mon, 16 Oct 2023 18:05:14 +0000</pubDate>
+      <title>CVE-2023-48714|2024-01-23T13:49:27.350Z -- silverstripe -- silverstripe-framework</title>
+      <link>https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2023-48714</link>
+      <description>Silverstripe Framework is the framework that forms the base of the Silverstripe content management system. Prior to versions 4.13.39 and 5.1.11, if a user should not be able to see a record, but that record can be added to a `GridField` using the `GridFieldAddExistingAutocompleter` component, the record's title can be accessed by that user. Versions 4.13.39 and 5.1.11 contain a fix for this issue.</description>
+      <guid isPermaLink="false">CVE-2023-48714|2024-01-23T13:49:27.350Z</guid>
+      <pubDate>Tue, 23 Jan 2024 13:49:27 +0000</pubDate>
+    </item>
+    <item>
+      <title>CVE-2023-49783|2024-01-23T13:54:51.301Z -- silverstripe -- silverstripe-admin</title>
+      <link>https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2023-49783</link>
+      <description>Silverstripe Admin provides a basic management interface for the Silverstripe Framework. In versions on the 1.x branch prior to 1.13.19 and on the 2.x branch prior to 2.1.8, users who don't have edit or delete permissions for records exposed in a `ModelAdmin` can still edit or delete records using the CSV import form, provided they have create permissions. The likelihood of a user having create permissions but not having edit or delete permissions is low, but it is possible. Note that this doesn't affect any `ModelAdmin` which has had the import form disabled via the `showImportForm` public property. Versions 1.13.19 and 2.1.8 contain a patch for the issue. Those who have a custom implementation of `BulkLoader` should update their implementations to respect permissions when the return value of `getCheckPermissions()` is true. Those who use any `BulkLoader` in their own project logic, or maintain a module which uses it, should consider passing `true` to `setCheckPermissions()` if the data is provided by users.</description>
+      <guid isPermaLink="false">CVE-2023-49783|2024-01-23T13:54:51.301Z</guid>
+      <pubDate>Tue, 23 Jan 2024 13:54:51 +0000</pubDate>
     </item>
   </channel>
 </rss>
