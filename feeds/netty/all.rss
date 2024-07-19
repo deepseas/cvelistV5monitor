@@ -6,22 +6,15 @@
     <description>The latest CVEs for netty -- all products</description>
     <docs>http://www.rssboard.org/rss-specification</docs>
     <generator>python-feedgen</generator>
-    <lastBuildDate>Tue, 16 Jul 2024 23:23:43 +0000</lastBuildDate>
+    <lastBuildDate>Fri, 19 Jul 2024 22:22:50 +0000</lastBuildDate>
     <ttl>60</ttl>
     <item>
-      <title>CVE-2023-34462|2024-07-16T18:36:18.892Z -- netty -- netty
+      <title>CVE-2024-29025|2024-07-19T21:08:16.746Z -- netty -- netty
 </title>
-      <link>https://www.cve.org/CVERecord?id=CVE-2023-34462</link>
-      <description>Netty is an asynchronous event-driven network application framework for rapid development of maintainable high performance protocol servers &amp; clients. The `SniHandler` can allocate up to 16MB of heap for each channel during the TLS handshake. When the handler or the channel does not have an idle timeout, it can be used to make a TCP server using the `SniHandler` to allocate 16MB of heap. The `SniHandler` class is a handler that waits for the TLS handshake to configure a `SslHandler` according to the indicated server name by the `ClientHello` record. For this matter it allocates a `ByteBuf` using the value defined in the `ClientHello` record. Normally the value of the packet should be smaller than the handshake packet but there are not checks done here and the way the code is written, it is possible to craft a packet that makes the `SslClientHelloHandler`. This vulnerability has been fixed in version 4.1.94.Final.</description>
-      <guid isPermaLink="false">CVE-2023-34462|2024-07-16T18:36:18.892Z</guid>
-      <pubDate>Thu, 22 Jun 2023 23:00:12 +0000</pubDate>
-    </item>
-    <item>
-      <title>CVE-2024-36121|2024-06-04T21:13:33.656Z -- netty -- netty-incubator-codec-ohttp</title>
-      <link>https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2024-36121</link>
-      <description>netty-incubator-codec-ohttp is the OHTTP implementation for netty. BoringSSLAEADContext keeps track of how many OHTTP responses have been sent and uses this sequence number to calculate the appropriate nonce to use with the encryption algorithm. Unfortunately, two separate errors combine which would allow an attacker to cause the sequence number to overflow and thus the nonce to repeat.</description>
-      <guid isPermaLink="false">CVE-2024-36121|2024-06-04T21:13:33.656Z</guid>
-      <pubDate>Tue, 04 Jun 2024 21:13:33 +0000</pubDate>
+      <link>https://www.cve.org/CVERecord?id=CVE-2024-29025</link>
+      <description>Netty is an asynchronous event-driven network application framework for rapid development of maintainable high performance protocol servers &amp; clients. The `HttpPostRequestDecoder` can be tricked to accumulate data. While the decoder can store items on the disk if configured so, there are no limits to the number of fields the form can have, an attacher can send a chunked post consisting of many small fields that will be accumulated in the `bodyListHttpData` list. The decoder cumulates bytes in the `undecodedChunk` buffer until it can decode a field, this field can cumulate data without limits. This vulnerability is fixed in 4.1.108.Final.</description>
+      <guid isPermaLink="false">CVE-2024-29025|2024-07-19T21:08:16.746Z</guid>
+      <pubDate>Mon, 25 Mar 2024 20:09:35 +0000</pubDate>
     </item>
     <item>
       <title>CVE-2024-29025|2024-03-25T20:09:35.156Z -- netty -- netty</title>
@@ -29,6 +22,13 @@
       <description>Netty is an asynchronous event-driven network application framework for rapid development of maintainable high performance protocol servers &amp; clients. The `HttpPostRequestDecoder` can be tricked to accumulate data. While the decoder can store items on the disk if configured so, there are no limits to the number of fields the form can have, an attacher can send a chunked post consisting of many small fields that will be accumulated in the `bodyListHttpData` list. The decoder cumulates bytes in the `undecodedChunk` buffer until it can decode a field, this field can cumulate data without limits. This vulnerability is fixed in 4.1.108.Final.</description>
       <guid isPermaLink="false">CVE-2024-29025|2024-03-25T20:09:35.156Z</guid>
       <pubDate>Mon, 25 Mar 2024 20:09:35 +0000</pubDate>
+    </item>
+    <item>
+      <title>CVE-2024-36121|2024-06-04T21:13:33.656Z -- netty -- netty-incubator-codec-ohttp</title>
+      <link>https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2024-36121</link>
+      <description>netty-incubator-codec-ohttp is the OHTTP implementation for netty. BoringSSLAEADContext keeps track of how many OHTTP responses have been sent and uses this sequence number to calculate the appropriate nonce to use with the encryption algorithm. Unfortunately, two separate errors combine which would allow an attacker to cause the sequence number to overflow and thus the nonce to repeat.</description>
+      <guid isPermaLink="false">CVE-2024-36121|2024-06-04T21:13:33.656Z</guid>
+      <pubDate>Tue, 04 Jun 2024 21:13:33 +0000</pubDate>
     </item>
   </channel>
 </rss>
