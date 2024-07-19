@@ -6,63 +6,43 @@
     <description>The latest CVEs for mailcow -- mailcow-dockerized</description>
     <docs>http://www.rssboard.org/rss-specification</docs>
     <generator>python-feedgen</generator>
-    <lastBuildDate>Wed, 12 Jun 2024 11:24:20 +0000</lastBuildDate>
+    <lastBuildDate>Fri, 19 Jul 2024 18:24:05 +0000</lastBuildDate>
     <ttl>60</ttl>
     <item>
-      <title>CVE-2023-49077|2023-11-30T07:14:04.580Z -- mailcow -- mailcow-dockerized
+      <title>CVE-2024-31204|2024-07-19T17:50:57.732Z -- mailcow -- mailcow-dockerized
 </title>
-      <link>https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2023-49077</link>
-      <description>Mailcow: dockerized is an open source groupware/email suite based on docker. A Cross-Site Scripting (XSS) vulnerability has been identified within the Quarantine UI of the system. This vulnerability poses a significant threat to administrators who utilize the Quarantine feature. An attacker can send a carefully crafted email containing malicious JavaScript code. This issue has been patched in version 2023-11.</description>
-      <guid isPermaLink="false">CVE-2023-49077|2023-11-30T07:14:04.580Z</guid>
-      <pubDate>Thu, 30 Nov 2023 07:14:04 +0000</pubDate>
+      <link>https://www.cve.org/CVERecord?id=CVE-2024-31204</link>
+      <description>mailcow: dockerized is an open source groupware/email suite based on docker. A security vulnerability has been identified in mailcow affecting versions prior to 2024-04. This vulnerability resides in the exception handling mechanism, specifically when not operating in DEV_MODE. The system saves exception details into a session array without proper sanitization or encoding. These details are later rendered into HTML and executed in a JavaScript block within the user's browser, without adequate escaping of HTML entities. This flaw allows for Cross-Site Scripting (XSS) attacks, where attackers can inject malicious scripts into the admin panel by triggering exceptions with controlled input. The exploitation method involves using any function that might throw an exception with user-controllable argument. This issue can lead to session hijacking and unauthorized administrative actions, posing a significant security risk. Version 2024-04 contains a fix for the issue.</description>
+      <guid isPermaLink="false">CVE-2024-31204|2024-07-19T17:50:57.732Z</guid>
+      <pubDate>Thu, 04 Apr 2024 20:37:45 +0000</pubDate>
     </item>
     <item>
-      <title>CVE-2023-26490|2023-03-03T23:37:03.105Z -- mailcow -- mailcow-dockerized
-</title>
-      <link>https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2023-26490</link>
-      <description>mailcow is a dockerized email package, with multiple containers linked in one bridged network. The Sync Job feature - which can be made available to standard users by assigning them the necessary permission - suffers from a shell command injection. A malicious user can abuse this vulnerability to obtain shell access to the Docker container running dovecot. The imapsync Perl script implements all the necessary functionality for this feature, including the XOAUTH2 authentication mechanism. This code path creates a shell command to call openssl. However, since different parts of the specified user password are included without any validation, one can simply execute additional shell commands. Notably, the default ACL for a newly-created mailcow account does not include the necessary permission. The Issue has been fixed within the 2023-03 Update (March 3rd 2023). As a temporary workaround the Syncjob ACL can be removed from all mailbox users, preventing from creating or changing existing Syncjobs.</description>
-      <guid isPermaLink="false">CVE-2023-26490|2023-03-03T23:37:03.105Z</guid>
-      <pubDate>Fri, 03 Mar 2023 23:37:03 +0000</pubDate>
+      <title>CVE-2024-31204|2024-04-04T20:37:45.155Z -- mailcow -- mailcow-dockerized</title>
+      <link>https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2024-31204</link>
+      <description>mailcow: dockerized is an open source groupware/email suite based on docker. A security vulnerability has been identified in mailcow affecting versions prior to 2024-04. This vulnerability resides in the exception handling mechanism, specifically when not operating in DEV_MODE. The system saves exception details into a session array without proper sanitization or encoding. These details are later rendered into HTML and executed in a JavaScript block within the user's browser, without adequate escaping of HTML entities. This flaw allows for Cross-Site Scripting (XSS) attacks, where attackers can inject malicious scripts into the admin panel by triggering exceptions with controlled input. The exploitation method involves using any function that might throw an exception with user-controllable argument. This issue can lead to session hijacking and unauthorized administrative actions, posing a significant security risk. Version 2024-04 contains a fix for the issue.</description>
+      <guid isPermaLink="false">CVE-2024-31204|2024-04-04T20:37:45.155Z</guid>
+      <pubDate>Thu, 04 Apr 2024 20:37:45 +0000</pubDate>
     </item>
     <item>
-      <title>CVE-2023-34108|2023-06-07T17:16:54.206Z -- mailcow -- mailcow-dockerized
-</title>
-      <link>https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2023-34108</link>
-      <description>mailcow is a mail server suite based on Dovecot, Postfix and other open source software, that provides a modern web UI for user/server administration. A vulnerability has been discovered in mailcow which allows an attacker to manipulate internal Dovecot variables by using specially crafted passwords during the authentication process. The issue arises from the behavior of the `passwd-verify.lua` script, which is responsible for verifying user passwords during login attempts. Upon a successful login, the script returns a response in the format of "password=&lt;valid-password&gt;", indicating the successful authentication. By crafting a password with additional key-value pairs appended to it, an attacker can manipulate the returned string and influence the internal behavior of Dovecot. For example, using the password "123 mail_crypt_save_version=0" would cause the `passwd-verify.lua` script to return the string "password=123 mail_crypt_save_version=0". Consequently, Dovecot will interpret this string and set the internal variables accordingly, leading to unintended consequences. This vulnerability can be exploited by an authenticated attacker who has the ability to set their own password. Successful exploitation of this vulnerability could result in unauthorized access to user accounts, bypassing security controls, or other malicious activities. This issue has been patched in version `2023-05a`. Users are advised to upgrade. There are no known workarounds for this vulnerability.</description>
-      <guid isPermaLink="false">CVE-2023-34108|2023-06-07T17:16:54.206Z</guid>
-      <pubDate>Wed, 07 Jun 2023 17:16:54 +0000</pubDate>
-    </item>
-    <item>
-      <title>CVE-2024-23824|2024-02-02T15:18:55.300Z -- mailcow -- mailcow-dockerized
-</title>
-      <link>https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2024-23824</link>
-      <description>mailcow is a dockerized email package, with multiple containers linked in one bridged network. The application is vulnerable to pixel flood attack, once the payload has been successfully uploaded in the logo the application goes slow and doesn't respond in the admin page. It is tested on the versions 2023-12a and prior and patched in version 2024-01.</description>
-      <guid isPermaLink="false">CVE-2024-23824|2024-02-02T15:18:55.300Z</guid>
-      <pubDate>Fri, 02 Feb 2024 15:18:55 +0000</pubDate>
-    </item>
-    <item>
-      <title>CVE-2024-24760|2024-02-02T15:28:22.086Z -- mailcow -- mailcow-dockerized
-</title>
-      <link>https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2024-24760</link>
-      <description>mailcow is a dockerized email package, with multiple containers linked in one bridged network. A security vulnerability has been identified in mailcow affecting versions &lt; 2024-01c. This vulnerability potentially allows attackers on the same subnet to connect to exposed ports of a Docker container, even when the port is bound to 127.0.0.1. The vulnerability has been addressed by implementing additional iptables/nftables rules. These rules drop packets for Docker containers on ports 3306, 6379, 8983, and 12345, where the input interface is not `br-mailcow` and the output interface is `br-mailcow`.</description>
-      <guid isPermaLink="false">CVE-2024-24760|2024-02-02T15:28:22.086Z</guid>
-      <pubDate>Fri, 02 Feb 2024 15:28:22 +0000</pubDate>
-    </item>
-    <item>
-      <title>CVE-2024-30270|2024-06-04T17:38:21.058Z -- mailcow -- mailcow-dockerized
-</title>
+      <title>CVE-2024-30270|2024-06-04T17:38:21.058Z -- mailcow -- mailcow-dockerized</title>
       <link>https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2024-30270</link>
       <description>mailcow: dockerized is an open source groupware/email suite based on docker. A security vulnerability has been identified in mailcow affecting versions prior to 2024-04. This vulnerability is a combination of path traversal and arbitrary code execution, specifically targeting the `rspamd_maps()` function. It allows authenticated admin users to overwrite any file writable by the www-data user by exploiting improper path validation. The exploit chain can lead to the execution of arbitrary commands on the server. Version 2024-04 contains a patch for the issue.</description>
       <guid isPermaLink="false">CVE-2024-30270|2024-06-04T17:38:21.058Z</guid>
       <pubDate>Thu, 04 Apr 2024 20:27:40 +0000</pubDate>
     </item>
     <item>
-      <title>CVE-2024-31204|2024-04-04T20:37:45.155Z -- mailcow -- mailcow-dockerized
-</title>
-      <link>https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2024-31204</link>
-      <description>mailcow: dockerized is an open source groupware/email suite based on docker. A security vulnerability has been identified in mailcow affecting versions prior to 2024-04. This vulnerability resides in the exception handling mechanism, specifically when not operating in DEV_MODE. The system saves exception details into a session array without proper sanitization or encoding. These details are later rendered into HTML and executed in a JavaScript block within the user's browser, without adequate escaping of HTML entities. This flaw allows for Cross-Site Scripting (XSS) attacks, where attackers can inject malicious scripts into the admin panel by triggering exceptions with controlled input. The exploitation method involves using any function that might throw an exception with user-controllable argument. This issue can lead to session hijacking and unauthorized administrative actions, posing a significant security risk. Version 2024-04 contains a fix for the issue.</description>
-      <guid isPermaLink="false">CVE-2024-31204|2024-04-04T20:37:45.155Z</guid>
-      <pubDate>Thu, 04 Apr 2024 20:37:45 +0000</pubDate>
+      <title>CVE-2024-24760|2024-02-02T15:28:22.086Z -- mailcow -- mailcow-dockerized</title>
+      <link>https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2024-24760</link>
+      <description>mailcow is a dockerized email package, with multiple containers linked in one bridged network. A security vulnerability has been identified in mailcow affecting versions &lt; 2024-01c. This vulnerability potentially allows attackers on the same subnet to connect to exposed ports of a Docker container, even when the port is bound to 127.0.0.1. The vulnerability has been addressed by implementing additional iptables/nftables rules. These rules drop packets for Docker containers on ports 3306, 6379, 8983, and 12345, where the input interface is not `br-mailcow` and the output interface is `br-mailcow`.</description>
+      <guid isPermaLink="false">CVE-2024-24760|2024-02-02T15:28:22.086Z</guid>
+      <pubDate>Fri, 02 Feb 2024 15:28:22 +0000</pubDate>
+    </item>
+    <item>
+      <title>CVE-2024-23824|2024-02-02T15:18:55.300Z -- mailcow -- mailcow-dockerized</title>
+      <link>https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2024-23824</link>
+      <description>mailcow is a dockerized email package, with multiple containers linked in one bridged network. The application is vulnerable to pixel flood attack, once the payload has been successfully uploaded in the logo the application goes slow and doesn't respond in the admin page. It is tested on the versions 2023-12a and prior and patched in version 2024-01.</description>
+      <guid isPermaLink="false">CVE-2024-23824|2024-02-02T15:18:55.300Z</guid>
+      <pubDate>Fri, 02 Feb 2024 15:18:55 +0000</pubDate>
     </item>
   </channel>
 </rss>
