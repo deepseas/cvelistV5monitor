@@ -6,11 +6,28 @@
     <description>The latest CVEs for Apache Software Foundation -- Apache Arrow Rust Object Store</description>
     <docs>http://www.rssboard.org/rss-specification</docs>
     <generator>python-feedgen</generator>
-    <lastBuildDate>Tue, 23 Jul 2024 17:21:59 +0000</lastBuildDate>
+    <lastBuildDate>Tue, 23 Jul 2024 18:24:18 +0000</lastBuildDate>
     <ttl>60</ttl>
     <item>
-      <title>CVE-2024-41178|2024-07-23T16:50:10.093Z -- apache%20software%20foundation -- apache%20arrow%20rust%20object%20store
+      <title>CVE-2024-41178|2024-07-23T17:07:59.561Z -- apache%20software%20foundation -- apache%20arrow%20rust%20object%20store
 </title>
+      <link>https://www.cve.org/CVERecord?id=CVE-2024-41178</link>
+      <description>Exposure of temporary credentials in logs in Apache Arrow Rust Object Store (`object_store` crate), version 0.10.1 and earlier on all platforms using AWS WebIdentityTokens. 
+
+On certain error conditions, the logs may contain the OIDC token passed to  AssumeRoleWithWebIdentity https://docs.aws.amazon.com/STS/latest/APIReference/API_AssumeRoleWithWebIdentity.html . This allows someone with access to the logs to impersonate that identity, including performing their own calls to AssumeRoleWithWebIdentity, until the OIDC token expires. Typically OIDC tokens are valid for up to an hour, although this will vary depending on the issuer.
+
+Users are recommended to use a different AWS authentication mechanism, disable logging or upgrade to version 0.10.2, which fixes this issue.
+
+Details:
+
+When using AWS WebIdentityTokens with the object_store crate, in the event of a failure and automatic retry, the underlying reqwest error, including the full URL with the credentials, potentially in the parameters, is written to the logs. 
+
+Thanks to Paul Hatcherian for reporting this vulnerability</description>
+      <guid isPermaLink="false">CVE-2024-41178|2024-07-23T17:07:59.561Z</guid>
+      <pubDate>Tue, 23 Jul 2024 16:50:10 +0000</pubDate>
+    </item>
+    <item>
+      <title>CVE-2024-41178|2024-07-23T16:50:10.093Z -- apache%20software%20foundation -- apache%20arrow%20rust%20object%20store</title>
       <link>https://www.cve.org/CVERecord?id=CVE-2024-41178</link>
       <description>Exposure of temporary credentials in logs in Apache Arrow Rust Object Store, version 0.10.1 and earlier on all platforms using AWS WebIdentityTokens. 
 
