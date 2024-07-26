@@ -6,30 +6,22 @@
     <description>The latest CVEs for openobserve -- openobserve</description>
     <docs>http://www.rssboard.org/rss-specification</docs>
     <generator>python-feedgen</generator>
-    <lastBuildDate>Thu, 25 Jul 2024 21:21:15 +0000</lastBuildDate>
+    <lastBuildDate>Fri, 26 Jul 2024 14:21:58 +0000</lastBuildDate>
     <ttl>60</ttl>
     <item>
-      <title>CVE-2024-41809|2024-07-25T20:22:14.726Z -- openobserve -- openobserve
+      <title>CVE-2024-41809|2024-07-26T13:57:22.859Z -- openobserve -- openobserve
 </title>
       <link>https://www.cve.org/CVERecord?id=CVE-2024-41809</link>
       <description>OpenObserve is an open-source observability platform. Starting in version 0.4.4 and prior to version 0.10.0, OpenObserve contains a cross-site scripting vulnerability in line 32 of `openobserve/web/src/views/MemberSubscription.vue`. Version 0.10.0 sanitizes incoming html.</description>
-      <guid isPermaLink="false">CVE-2024-41809|2024-07-25T20:22:14.726Z</guid>
+      <guid isPermaLink="false">CVE-2024-41809|2024-07-26T13:57:22.859Z</guid>
       <pubDate>Thu, 25 Jul 2024 20:22:14 +0000</pubDate>
     </item>
     <item>
-      <title>CVE-2024-41808|2024-07-25T20:10:04.248Z -- openobserve -- openobserve
-</title>
-      <link>https://www.cve.org/CVERecord?id=CVE-2024-41808</link>
-      <description>The OpenObserve open-source observability platform provides the ability to filter logs in a dashboard by the values uploaded in a given log. However, all versions of the platform through 0.9.1 do not sanitize user input in the filter selection menu, which may result in complete account takeover. It has been noted that the front-end uses `DOMPurify` or Vue templating to escape cross-site scripting (XSS) extensively, however certain areas of the front end lack this XSS protection. When combining the missing protection with the insecure authentication handling that the front-end uses, a malicious user may be able to take over any victim's account provided they meet the exploitation steps. As of time of publication, no patched version is available.</description>
-      <guid isPermaLink="false">CVE-2024-41808|2024-07-25T20:10:04.248Z</guid>
-      <pubDate>Thu, 25 Jul 2024 20:10:04 +0000</pubDate>
-    </item>
-    <item>
-      <title>CVE-2024-24830|2024-02-08T23:09:16.222Z -- openobserve -- openobserve</title>
-      <link>https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2024-24830</link>
-      <description>OpenObserve is a observability platform built specifically for logs, metrics, traces, analytics, designed to work at petabyte scale. A vulnerability has been identified in the "/api/{org_id}/users" endpoint. This vulnerability allows any authenticated regular user ('member') to add new users with elevated privileges, including the 'root' role, to an organization. This issue circumvents the intended security controls for role assignments. The vulnerability resides in the user creation process, where the payload does not validate the user roles. A regular user can manipulate the payload to assign root-level privileges. This vulnerability leads to Unauthorized Privilege Escalation and significantly compromises the application's role-based access control system. It allows unauthorized control over application resources and poses a risk to data security. All users, particularly those in administrative roles, are impacted. This issue has been addressed in release version 0.8.0. Users are advised to upgrade. There are no known workarounds for this vulnerability.</description>
-      <guid isPermaLink="false">CVE-2024-24830|2024-02-08T23:09:16.222Z</guid>
-      <pubDate>Thu, 08 Feb 2024 23:09:16 +0000</pubDate>
+      <title>CVE-2024-25106|2024-07-05T17:20:52.520Z -- openobserve -- openobserve</title>
+      <link>https://www.cve.org/CVERecord?id=CVE-2024-25106</link>
+      <description>OpenObserve is a observability platform built specifically for logs, metrics, traces, analytics, designed to work at petabyte scale. A critical vulnerability has been identified in the "/api/{org_id}/users/{email_id}" endpoint. This vulnerability allows any authenticated user within an organization to remove any other user from that same organization, irrespective of their respective roles. This includes the ability to remove users with "Admin" and "Root" roles. By enabling any organizational member to unilaterally alter the user base, it opens the door to unauthorized access and can cause considerable disruptions in operations. The core of the vulnerability lies in the `remove_user_from_org` function in the user management system. This function is designed to allow organizational users to remove members from their organization. The function does not check if the user initiating the request has the appropriate administrative privileges to remove a user. Any user who is part of the organization, irrespective of their role, can remove any other user, including those with higher privileges. This vulnerability is categorized as an Authorization issue leading to Unauthorized User Removal. The impact is severe, as it compromises the integrity of user management within organizations. By exploiting this vulnerability, any user within an organization, without the need for administrative privileges, can remove critical users, including "Admins" and "Root" users. This could result in unauthorized system access, administrative lockout, or operational disruptions. Given that user accounts are typically created by "Admins" or "Root" users, this vulnerability can be exploited by any user who has been granted access to an organization, thereby posing a critical risk to the security and operational stability of the application. This issue has been addressed in release version 0.8.0. Users are advised to upgrade.</description>
+      <guid isPermaLink="false">CVE-2024-25106|2024-07-05T17:20:52.520Z</guid>
+      <pubDate>Thu, 08 Feb 2024 23:05:46 +0000</pubDate>
     </item>
     <item>
       <title>CVE-2024-25106|2024-02-08T23:05:46.143Z -- openobserve -- openobserve</title>
@@ -39,11 +31,25 @@
       <pubDate>Thu, 08 Feb 2024 23:05:46 +0000</pubDate>
     </item>
     <item>
-      <title>CVE-2024-25106|2024-07-05T17:20:52.520Z -- openobserve -- openobserve</title>
-      <link>https://www.cve.org/CVERecord?id=CVE-2024-25106</link>
-      <description>OpenObserve is a observability platform built specifically for logs, metrics, traces, analytics, designed to work at petabyte scale. A critical vulnerability has been identified in the "/api/{org_id}/users/{email_id}" endpoint. This vulnerability allows any authenticated user within an organization to remove any other user from that same organization, irrespective of their respective roles. This includes the ability to remove users with "Admin" and "Root" roles. By enabling any organizational member to unilaterally alter the user base, it opens the door to unauthorized access and can cause considerable disruptions in operations. The core of the vulnerability lies in the `remove_user_from_org` function in the user management system. This function is designed to allow organizational users to remove members from their organization. The function does not check if the user initiating the request has the appropriate administrative privileges to remove a user. Any user who is part of the organization, irrespective of their role, can remove any other user, including those with higher privileges. This vulnerability is categorized as an Authorization issue leading to Unauthorized User Removal. The impact is severe, as it compromises the integrity of user management within organizations. By exploiting this vulnerability, any user within an organization, without the need for administrative privileges, can remove critical users, including "Admins" and "Root" users. This could result in unauthorized system access, administrative lockout, or operational disruptions. Given that user accounts are typically created by "Admins" or "Root" users, this vulnerability can be exploited by any user who has been granted access to an organization, thereby posing a critical risk to the security and operational stability of the application. This issue has been addressed in release version 0.8.0. Users are advised to upgrade.</description>
-      <guid isPermaLink="false">CVE-2024-25106|2024-07-05T17:20:52.520Z</guid>
-      <pubDate>Thu, 08 Feb 2024 23:05:46 +0000</pubDate>
+      <title>CVE-2024-24830|2024-02-08T23:09:16.222Z -- openobserve -- openobserve</title>
+      <link>https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2024-24830</link>
+      <description>OpenObserve is a observability platform built specifically for logs, metrics, traces, analytics, designed to work at petabyte scale. A vulnerability has been identified in the "/api/{org_id}/users" endpoint. This vulnerability allows any authenticated regular user ('member') to add new users with elevated privileges, including the 'root' role, to an organization. This issue circumvents the intended security controls for role assignments. The vulnerability resides in the user creation process, where the payload does not validate the user roles. A regular user can manipulate the payload to assign root-level privileges. This vulnerability leads to Unauthorized Privilege Escalation and significantly compromises the application's role-based access control system. It allows unauthorized control over application resources and poses a risk to data security. All users, particularly those in administrative roles, are impacted. This issue has been addressed in release version 0.8.0. Users are advised to upgrade. There are no known workarounds for this vulnerability.</description>
+      <guid isPermaLink="false">CVE-2024-24830|2024-02-08T23:09:16.222Z</guid>
+      <pubDate>Thu, 08 Feb 2024 23:09:16 +0000</pubDate>
+    </item>
+    <item>
+      <title>CVE-2024-41808|2024-07-25T20:10:04.248Z -- openobserve -- openobserve</title>
+      <link>https://www.cve.org/CVERecord?id=CVE-2024-41808</link>
+      <description>The OpenObserve open-source observability platform provides the ability to filter logs in a dashboard by the values uploaded in a given log. However, all versions of the platform through 0.9.1 do not sanitize user input in the filter selection menu, which may result in complete account takeover. It has been noted that the front-end uses `DOMPurify` or Vue templating to escape cross-site scripting (XSS) extensively, however certain areas of the front end lack this XSS protection. When combining the missing protection with the insecure authentication handling that the front-end uses, a malicious user may be able to take over any victim's account provided they meet the exploitation steps. As of time of publication, no patched version is available.</description>
+      <guid isPermaLink="false">CVE-2024-41808|2024-07-25T20:10:04.248Z</guid>
+      <pubDate>Thu, 25 Jul 2024 20:10:04 +0000</pubDate>
+    </item>
+    <item>
+      <title>CVE-2024-41809|2024-07-25T20:22:14.726Z -- openobserve -- openobserve</title>
+      <link>https://www.cve.org/CVERecord?id=CVE-2024-41809</link>
+      <description>OpenObserve is an open-source observability platform. Starting in version 0.4.4 and prior to version 0.10.0, OpenObserve contains a cross-site scripting vulnerability in line 32 of `openobserve/web/src/views/MemberSubscription.vue`. Version 0.10.0 sanitizes incoming html.</description>
+      <guid isPermaLink="false">CVE-2024-41809|2024-07-25T20:22:14.726Z</guid>
+      <pubDate>Thu, 25 Jul 2024 20:22:14 +0000</pubDate>
     </item>
   </channel>
 </rss>
