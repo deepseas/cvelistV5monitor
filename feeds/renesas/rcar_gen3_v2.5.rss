@@ -6,10 +6,10 @@
     <description>The latest CVEs for Renesas -- rcar_gen3_v2.5</description>
     <docs>http://www.rssboard.org/rss-specification</docs>
     <generator>python-feedgen</generator>
-    <lastBuildDate>Fri, 26 Jul 2024 16:24:13 +0000</lastBuildDate>
+    <lastBuildDate>Thu, 01 Aug 2024 19:19:24 +0000</lastBuildDate>
     <ttl>60</ttl>
     <item>
-      <title>CVE-2024-1633|2024-07-26T15:26:06.442Z -- renesas -- rcar_gen3_v2.5
+      <title>CVE-2024-1633|2024-08-01T18:48:20.650Z -- renesas -- rcar_gen3_v2.5
 </title>
       <link>https://www.cve.org/CVERecord?id=CVE-2024-1633</link>
       <description>During the secure boot, bl2 (the second stage of
@@ -19,46 +19,52 @@ certificate. Because of the way of reading from the image, which base on 32-bi
 
  Affected git version from c2f286820471ed276c57e603762bd831873e5a17 until (not 
 </description>
-      <guid isPermaLink="false">CVE-2024-1633|2024-07-26T15:26:06.442Z</guid>
+      <guid isPermaLink="false">CVE-2024-1633|2024-08-01T18:48:20.650Z</guid>
       <pubDate>Mon, 19 Feb 2024 16:42:29 +0000</pubDate>
     </item>
     <item>
-      <title>CVE-2024-6563|2024-07-10T16:32:55.399Z -- renesas -- rcar_gen3_v2.5</title>
-      <link>https://www.cve.org/CVERecord?id=CVE-2024-6563</link>
-      <description>Buffer Copy without Checking Size of Input ('Classic Buffer Overflow') vulnerability in Renesas arm-trusted-firmware allows Local Execution of Code. This vulnerability is associated with program files  https://github.Com/renesas-rcar/arm-trusted-firmware/blob/rcar_gen3_v2.5/drivers/renesas/common/io/i... https://github.Com/renesas-rcar/arm-trusted-firmware/blob/rcar_gen3_v2.5/drivers/renesas/common/io/io_rcar.C .
+      <title>CVE-2024-6287|2024-07-19T20:55:54.602Z -- renesas -- rcar_gen3_v2.5</title>
+      <link>https://www.cve.org/CVERecord?id=CVE-2024-6287</link>
+      <description>Incorrect Calculation vulnerability in Renesas arm-trusted-firmware allows Local Execution of Code.
 
 
-
-
-In line 313 "addr_loaded_cnt" is checked not to be "CHECK_IMAGE_AREA_CNT" (5) or larger, this check does not halt the function. Immediately after (line 317) there will be an overflow in the buffer and the value of "dst" will be written to the area immediately after the buffer, which is "addr_loaded_cnt". This will allow an attacker to freely control the value of "addr_loaded_cnt" and thus control the destination of the write immediately after (line 318). The write in line 318 will then be fully controlled by said attacker, with whichever address and whichever value ("len") they desire.</description>
-      <guid isPermaLink="false">CVE-2024-6563|2024-07-10T16:32:55.399Z</guid>
-      <pubDate>Mon, 08 Jul 2024 15:09:51 +0000</pubDate>
+When checking whether a new image invades/overlaps with a previously loaded image the code neglects to consider a few cases. that could An attacker to bypass memory range restriction and overwrite an already loaded image partly or completely, which could result in code execution and bypass of secure boot.</description>
+      <guid isPermaLink="false">CVE-2024-6287|2024-07-19T20:55:54.602Z</guid>
+      <pubDate>Mon, 24 Jun 2024 15:37:15 +0000</pubDate>
     </item>
     <item>
-      <title>CVE-2024-6563|2024-07-08T15:13:27.519Z -- renesas -- rcar_gen3_v2.5</title>
-      <link>https://www.cve.org/CVERecord?id=CVE-2024-6563</link>
-      <description>Buffer Copy without Checking Size of Input ('Classic Buffer Overflow') vulnerability in Renesas arm-trusted-firmware allows Local Execution of Code. This vulnerability is associated with program files  https://github.Com/renesas-rcar/arm-trusted-firmware/blob/rcar_gen3_v2.5/drivers/renesas/common/io/i... https://github.Com/renesas-rcar/arm-trusted-firmware/blob/rcar_gen3_v2.5/drivers/renesas/common/io/io_rcar.C .
-
-
-
-
-In line 313 "addr_loaded_cnt" is checked not to be "CHECK_IMAGE_AREA_CNT" (5) or larger, this check does not halt the function. Immediately after (line 317) there will be an overflow in the buffer and the value of "dst" will be written to the area immediately after the buffer, which is "addr_loaded_cnt". This will allow an attacker to freely control the value of "addr_loaded_cnt" and thus control the destination of the write immediately after (line 318). The write in line 318 will then be fully controlled by said attacker, with whichever address and whichever value ("len") they desire.</description>
-      <guid isPermaLink="false">CVE-2024-6563|2024-07-08T15:13:27.519Z</guid>
-      <pubDate>Mon, 08 Jul 2024 15:09:51 +0000</pubDate>
-    </item>
-    <item>
-      <title>CVE-2024-6564|2024-07-08T15:20:00.212Z -- renesas -- rcar_gen3_v2.5</title>
+      <title>CVE-2024-6564|2024-07-09T15:17:54.446Z -- renesas -- rcar_gen3_v2.5</title>
       <link>https://www.cve.org/CVERecord?id=CVE-2024-6564</link>
       <description>Buffer overflow in "rcar_dev_init"  due to using due to using untrusted data (rcar_image_number) as a loop counter before verifying it against RCAR_MAX_BL3X_IMAGE. This could lead to a full bypass of secure boot.</description>
-      <guid isPermaLink="false">CVE-2024-6564|2024-07-08T15:20:00.212Z</guid>
+      <guid isPermaLink="false">CVE-2024-6564|2024-07-09T15:17:54.446Z</guid>
       <pubDate>Mon, 08 Jul 2024 15:18:17 +0000</pubDate>
     </item>
     <item>
-      <title>CVE-2024-6285|2024-06-24T20:18:19.015Z -- renesas -- rcar_gen3_v2.5</title>
+      <title>CVE-2024-6287|2024-07-04T14:43:09.532Z -- renesas -- rcar_gen3_v2.5</title>
+      <link>https://www.cve.org/CVERecord?id=CVE-2024-6287</link>
+      <description>Incorrect Calculation vulnerability in Renesas arm-trusted-firmware allows Local Execution of Code.
+
+
+When checking whether a new image invades/overlaps with a previously loaded image the code neglects to consider a few cases. that could An attacker to bypass memory range restriction and overwrite an already loaded image partly or completely, which could result in code execution and bypass of secure boot.</description>
+      <guid isPermaLink="false">CVE-2024-6287|2024-07-04T14:43:09.532Z</guid>
+      <pubDate>Mon, 24 Jun 2024 15:37:15 +0000</pubDate>
+    </item>
+    <item>
+      <title>CVE-2024-6287|2024-06-24T15:37:15.953Z -- renesas -- rcar_gen3_v2.5</title>
+      <link>https://www.cve.org/CVERecord?id=CVE-2024-6287</link>
+      <description>Incorrect Calculation vulnerability in Renesas arm-trusted-firmware allows Local Execution of Code.
+
+
+When checking whether a new image invades/overlaps with a previously loaded image the code neglects to consider a few cases. that could An attacker to bypass memory range restriction and overwrite an already loaded image partly or completely, which could result in code execution and bypass of secure boot.</description>
+      <guid isPermaLink="false">CVE-2024-6287|2024-06-24T15:37:15.953Z</guid>
+      <pubDate>Mon, 24 Jun 2024 15:37:15 +0000</pubDate>
+    </item>
+    <item>
+      <title>CVE-2024-6285|2024-06-24T15:32:13.776Z -- renesas -- rcar_gen3_v2.5</title>
       <link>https://www.cve.org/CVERecord?id=CVE-2024-6285</link>
       <description>Integer Underflow (Wrap or Wraparound) vulnerability in Renesas arm-trusted-firmware.
 An integer underflow in image range check calculations could lead to bypassing address restrictions and loading of images to unallowed addresses.</description>
-      <guid isPermaLink="false">CVE-2024-6285|2024-06-24T20:18:19.015Z</guid>
+      <guid isPermaLink="false">CVE-2024-6285|2024-06-24T15:32:13.776Z</guid>
       <pubDate>Mon, 24 Jun 2024 15:32:13 +0000</pubDate>
     </item>
     <item>
@@ -74,49 +80,55 @@ certificate. Because of the way of reading from the image, which base on 32-bi
       <pubDate>Mon, 19 Feb 2024 16:42:29 +0000</pubDate>
     </item>
     <item>
-      <title>CVE-2024-6285|2024-06-24T15:32:13.776Z -- renesas -- rcar_gen3_v2.5</title>
+      <title>CVE-2024-6285|2024-06-24T20:18:19.015Z -- renesas -- rcar_gen3_v2.5</title>
       <link>https://www.cve.org/CVERecord?id=CVE-2024-6285</link>
       <description>Integer Underflow (Wrap or Wraparound) vulnerability in Renesas arm-trusted-firmware.
 An integer underflow in image range check calculations could lead to bypassing address restrictions and loading of images to unallowed addresses.</description>
-      <guid isPermaLink="false">CVE-2024-6285|2024-06-24T15:32:13.776Z</guid>
+      <guid isPermaLink="false">CVE-2024-6285|2024-06-24T20:18:19.015Z</guid>
       <pubDate>Mon, 24 Jun 2024 15:32:13 +0000</pubDate>
     </item>
     <item>
-      <title>CVE-2024-6287|2024-06-24T15:37:15.953Z -- renesas -- rcar_gen3_v2.5</title>
-      <link>https://www.cve.org/CVERecord?id=CVE-2024-6287</link>
-      <description>Incorrect Calculation vulnerability in Renesas arm-trusted-firmware allows Local Execution of Code.
-
-
-When checking whether a new image invades/overlaps with a previously loaded image the code neglects to consider a few cases. that could An attacker to bypass memory range restriction and overwrite an already loaded image partly or completely, which could result in code execution and bypass of secure boot.</description>
-      <guid isPermaLink="false">CVE-2024-6287|2024-06-24T15:37:15.953Z</guid>
-      <pubDate>Mon, 24 Jun 2024 15:37:15 +0000</pubDate>
-    </item>
-    <item>
-      <title>CVE-2024-6287|2024-07-04T14:43:09.532Z -- renesas -- rcar_gen3_v2.5</title>
-      <link>https://www.cve.org/CVERecord?id=CVE-2024-6287</link>
-      <description>Incorrect Calculation vulnerability in Renesas arm-trusted-firmware allows Local Execution of Code.
-
-
-When checking whether a new image invades/overlaps with a previously loaded image the code neglects to consider a few cases. that could An attacker to bypass memory range restriction and overwrite an already loaded image partly or completely, which could result in code execution and bypass of secure boot.</description>
-      <guid isPermaLink="false">CVE-2024-6287|2024-07-04T14:43:09.532Z</guid>
-      <pubDate>Mon, 24 Jun 2024 15:37:15 +0000</pubDate>
-    </item>
-    <item>
-      <title>CVE-2024-6564|2024-07-09T15:17:54.446Z -- renesas -- rcar_gen3_v2.5</title>
+      <title>CVE-2024-6564|2024-07-08T15:20:00.212Z -- renesas -- rcar_gen3_v2.5</title>
       <link>https://www.cve.org/CVERecord?id=CVE-2024-6564</link>
       <description>Buffer overflow in "rcar_dev_init"  due to using due to using untrusted data (rcar_image_number) as a loop counter before verifying it against RCAR_MAX_BL3X_IMAGE. This could lead to a full bypass of secure boot.</description>
-      <guid isPermaLink="false">CVE-2024-6564|2024-07-09T15:17:54.446Z</guid>
+      <guid isPermaLink="false">CVE-2024-6564|2024-07-08T15:20:00.212Z</guid>
       <pubDate>Mon, 08 Jul 2024 15:18:17 +0000</pubDate>
     </item>
     <item>
-      <title>CVE-2024-6287|2024-07-19T20:55:54.602Z -- renesas -- rcar_gen3_v2.5</title>
-      <link>https://www.cve.org/CVERecord?id=CVE-2024-6287</link>
-      <description>Incorrect Calculation vulnerability in Renesas arm-trusted-firmware allows Local Execution of Code.
+      <title>CVE-2024-6563|2024-07-08T15:13:27.519Z -- renesas -- rcar_gen3_v2.5</title>
+      <link>https://www.cve.org/CVERecord?id=CVE-2024-6563</link>
+      <description>Buffer Copy without Checking Size of Input ('Classic Buffer Overflow') vulnerability in Renesas arm-trusted-firmware allows Local Execution of Code. This vulnerability is associated with program files  https://github.Com/renesas-rcar/arm-trusted-firmware/blob/rcar_gen3_v2.5/drivers/renesas/common/io/i... https://github.Com/renesas-rcar/arm-trusted-firmware/blob/rcar_gen3_v2.5/drivers/renesas/common/io/io_rcar.C .
 
 
-When checking whether a new image invades/overlaps with a previously loaded image the code neglects to consider a few cases. that could An attacker to bypass memory range restriction and overwrite an already loaded image partly or completely, which could result in code execution and bypass of secure boot.</description>
-      <guid isPermaLink="false">CVE-2024-6287|2024-07-19T20:55:54.602Z</guid>
-      <pubDate>Mon, 24 Jun 2024 15:37:15 +0000</pubDate>
+
+
+In line 313 "addr_loaded_cnt" is checked not to be "CHECK_IMAGE_AREA_CNT" (5) or larger, this check does not halt the function. Immediately after (line 317) there will be an overflow in the buffer and the value of "dst" will be written to the area immediately after the buffer, which is "addr_loaded_cnt". This will allow an attacker to freely control the value of "addr_loaded_cnt" and thus control the destination of the write immediately after (line 318). The write in line 318 will then be fully controlled by said attacker, with whichever address and whichever value ("len") they desire.</description>
+      <guid isPermaLink="false">CVE-2024-6563|2024-07-08T15:13:27.519Z</guid>
+      <pubDate>Mon, 08 Jul 2024 15:09:51 +0000</pubDate>
+    </item>
+    <item>
+      <title>CVE-2024-6563|2024-07-10T16:32:55.399Z -- renesas -- rcar_gen3_v2.5</title>
+      <link>https://www.cve.org/CVERecord?id=CVE-2024-6563</link>
+      <description>Buffer Copy without Checking Size of Input ('Classic Buffer Overflow') vulnerability in Renesas arm-trusted-firmware allows Local Execution of Code. This vulnerability is associated with program files  https://github.Com/renesas-rcar/arm-trusted-firmware/blob/rcar_gen3_v2.5/drivers/renesas/common/io/i... https://github.Com/renesas-rcar/arm-trusted-firmware/blob/rcar_gen3_v2.5/drivers/renesas/common/io/io_rcar.C .
+
+
+
+
+In line 313 "addr_loaded_cnt" is checked not to be "CHECK_IMAGE_AREA_CNT" (5) or larger, this check does not halt the function. Immediately after (line 317) there will be an overflow in the buffer and the value of "dst" will be written to the area immediately after the buffer, which is "addr_loaded_cnt". This will allow an attacker to freely control the value of "addr_loaded_cnt" and thus control the destination of the write immediately after (line 318). The write in line 318 will then be fully controlled by said attacker, with whichever address and whichever value ("len") they desire.</description>
+      <guid isPermaLink="false">CVE-2024-6563|2024-07-10T16:32:55.399Z</guid>
+      <pubDate>Mon, 08 Jul 2024 15:09:51 +0000</pubDate>
+    </item>
+    <item>
+      <title>CVE-2024-1633|2024-07-26T15:26:06.442Z -- renesas -- rcar_gen3_v2.5</title>
+      <link>https://www.cve.org/CVERecord?id=CVE-2024-1633</link>
+      <description>During the secure boot, bl2 (the second stage of
+the bootloader) loops over images defined in the table “bl2_mem_params_descs”.
+For each image, the bl2 reads the image length and destination from the image’s
+certificate. Because of the way of reading from the image, which base on 32-bit unsigned integer value, it can result to an integer overflow. An attacker can bypass memory range restriction and write data out of buffer bounds, which could result in bypass of secure boot.
+
+ Affected git version from c2f286820471ed276c57e603762bd831873e5a17 until (not</description>
+      <guid isPermaLink="false">CVE-2024-1633|2024-07-26T15:26:06.442Z</guid>
+      <pubDate>Mon, 19 Feb 2024 16:42:29 +0000</pubDate>
     </item>
   </channel>
 </rss>
