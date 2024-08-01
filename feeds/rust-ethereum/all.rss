@@ -6,14 +6,14 @@
     <description>The latest CVEs for rust-ethereum -- all products</description>
     <docs>http://www.rssboard.org/rss-specification</docs>
     <generator>python-feedgen</generator>
-    <lastBuildDate>Wed, 12 Jun 2024 11:24:20 +0000</lastBuildDate>
+    <lastBuildDate>Thu, 01 Aug 2024 23:22:50 +0000</lastBuildDate>
     <ttl>60</ttl>
     <item>
-      <title>CVE-2024-21629|2024-01-02T21:26:12.680Z -- rust-ethereum -- evm
+      <title>CVE-2024-21629|2024-08-01T22:27:36.116Z -- rust-ethereum -- evm
 </title>
-      <link>https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2024-21629</link>
+      <link>https://www.cve.org/CVERecord?id=CVE-2024-21629</link>
       <description>Rust EVM is an Ethereum Virtual Machine interpreter. In `rust-evm`, a feature called `record_external_operation` was introduced, allowing library users to record custom gas changes. This feature can have some bogus interactions with the call stack. In particular, during finalization of a `CREATE` or `CREATE2`, in the case that the substack execution happens successfully, `rust-evm` will first commit the substate, and then call `record_external_operation(Write(out_code.len()))`. If `record_external_operation` later fails, this error is returned to the parent call stack, instead of `Succeeded`. Yet, the substate commitment already happened. This causes smart contracts able to commit state changes, when the parent caller contract receives zero address (which usually indicates that the execution has failed). This issue only impacts library users with custom `record_external_operation` that returns errors. The issue is patched in release 0.41.1. No known workarounds are available.</description>
-      <guid isPermaLink="false">CVE-2024-21629|2024-01-02T21:26:12.680Z</guid>
+      <guid isPermaLink="false">CVE-2024-21629|2024-08-01T22:27:36.116Z</guid>
       <pubDate>Tue, 02 Jan 2024 21:26:12 +0000</pubDate>
     </item>
   </channel>

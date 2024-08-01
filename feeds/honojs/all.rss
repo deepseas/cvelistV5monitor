@@ -6,41 +6,31 @@
     <description>The latest CVEs for honojs -- all products</description>
     <docs>http://www.rssboard.org/rss-specification</docs>
     <generator>python-feedgen</generator>
-    <lastBuildDate>Wed, 12 Jun 2024 11:24:22 +0000</lastBuildDate>
+    <lastBuildDate>Thu, 01 Aug 2024 23:22:49 +0000</lastBuildDate>
     <ttl>60</ttl>
     <item>
-      <title>CVE-2023-50710|2023-12-14T17:22:26.836Z -- honojs -- hono
+      <title>CVE-2024-23340|2024-08-01T22:59:32.309Z -- honojs -- node-server
 </title>
-      <link>https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2023-50710</link>
-      <description>Hono is a web framework written in TypeScript. Prior to version 3.11.7, clients may override named path parameter values from previous requests if the application is using TrieRouter. So, there is a risk that a privileged user may use unintended parameters when deleting REST API resources. TrieRouter is used either explicitly or when the application matches a pattern that is not supported by the default RegExpRouter. Version 3.11.7 includes the change to fix this issue. As a workaround, avoid using TrieRouter directly.</description>
-      <guid isPermaLink="false">CVE-2023-50710|2023-12-14T17:22:26.836Z</guid>
-      <pubDate>Thu, 14 Dec 2023 17:22:26 +0000</pubDate>
+      <link>https://www.cve.org/CVERecord?id=CVE-2024-23340</link>
+      <description>@hono/node-server is an adapter that allows users to run Hono applications on Node.js. Since v1.3.0, @hono/node-server has used its own Request object with `url` behavior that is unexpected. In the standard API, if the URL contains `..`, here called "double dots", the URL string returned by Request will be in the resolved path. However, the `url` in @hono/node-server's Request as does not resolve double dots, so `http://localhost/static/.. /foo.txt` is returned. This causes vulnerabilities when using `serveStatic`. Modern web browsers and a latest `curl` command resolve double dots on the client side, so this issue doesn't affect those using either of those tools. However, problems may occur if accessed by a client that does not resolve them. Version 1.4.1 includes the change to fix this issue. As a workaround, don't use `serveStatic`.
+
+</description>
+      <guid isPermaLink="false">CVE-2024-23340|2024-08-01T22:59:32.309Z</guid>
+      <pubDate>Mon, 22 Jan 2024 23:00:34 +0000</pubDate>
     </item>
     <item>
-      <title>CVE-2024-32652|2024-06-04T17:52:02.191Z -- honojs -- node-server
-</title>
-      <link>https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2024-32652</link>
-      <description>The adapter @hono/node-server allows you to run your Hono application on Node.js. Prior to 1.10.1, the application hangs when receiving a Host header with a value that `@hono/node-server` can't handle well. Invalid values are those that cannot be parsed by the `URL` as a hostname such as an empty string, slashes `/`, and other strings. The version 1.10.1 includes the fix for this issue.</description>
-      <guid isPermaLink="false">CVE-2024-32652|2024-06-04T17:52:02.191Z</guid>
-      <pubDate>Fri, 19 Apr 2024 18:29:42 +0000</pubDate>
-    </item>
-    <item>
-      <title>CVE-2024-32869|2024-06-04T17:51:58.986Z -- honojs -- hono
-</title>
+      <title>CVE-2024-32869|2024-06-04T17:51:58.986Z -- honojs -- hono</title>
       <link>https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2024-32869</link>
       <description>Hono is a Web application framework that provides support for any JavaScript runtime. Prior to version 4.2.7, when using serveStatic with deno, it is possible to traverse the directory where `main.ts` is located. This can result in retrieval of unexpected files. Version 4.2.7 contains a patch for the issue.</description>
       <guid isPermaLink="false">CVE-2024-32869|2024-06-04T17:51:58.986Z</guid>
       <pubDate>Tue, 23 Apr 2024 20:20:44 +0000</pubDate>
     </item>
     <item>
-      <title>CVE-2024-23340|2024-01-22T23:00:34.510Z -- honojs -- node-server
-</title>
-      <link>https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2024-23340</link>
-      <description>@hono/node-server is an adapter that allows users to run Hono applications on Node.js. Since v1.3.0, @hono/node-server has used its own Request object with `url` behavior that is unexpected. In the standard API, if the URL contains `..`, here called "double dots", the URL string returned by Request will be in the resolved path. However, the `url` in @hono/node-server's Request as does not resolve double dots, so `http://localhost/static/.. /foo.txt` is returned. This causes vulnerabilities when using `serveStatic`. Modern web browsers and a latest `curl` command resolve double dots on the client side, so this issue doesn't affect those using either of those tools. However, problems may occur if accessed by a client that does not resolve them. Version 1.4.1 includes the change to fix this issue. As a workaround, don't use `serveStatic`.
-
-</description>
-      <guid isPermaLink="false">CVE-2024-23340|2024-01-22T23:00:34.510Z</guid>
-      <pubDate>Mon, 22 Jan 2024 23:00:34 +0000</pubDate>
+      <title>CVE-2024-32652|2024-06-04T17:52:02.191Z -- honojs -- node-server</title>
+      <link>https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2024-32652</link>
+      <description>The adapter @hono/node-server allows you to run your Hono application on Node.js. Prior to 1.10.1, the application hangs when receiving a Host header with a value that `@hono/node-server` can't handle well. Invalid values are those that cannot be parsed by the `URL` as a hostname such as an empty string, slashes `/`, and other strings. The version 1.10.1 includes the fix for this issue.</description>
+      <guid isPermaLink="false">CVE-2024-32652|2024-06-04T17:52:02.191Z</guid>
+      <pubDate>Fri, 19 Apr 2024 18:29:42 +0000</pubDate>
     </item>
   </channel>
 </rss>

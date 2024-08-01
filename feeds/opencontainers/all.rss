@@ -6,33 +6,14 @@
     <description>The latest CVEs for opencontainers -- all products</description>
     <docs>http://www.rssboard.org/rss-specification</docs>
     <generator>python-feedgen</generator>
-    <lastBuildDate>Wed, 12 Jun 2024 11:24:20 +0000</lastBuildDate>
+    <lastBuildDate>Thu, 01 Aug 2024 23:22:47 +0000</lastBuildDate>
     <ttl>60</ttl>
     <item>
-      <title>CVE-2023-28642|2023-03-29T18:15:48.957Z -- opencontainers -- runc
+      <title>CVE-2024-21626|2024-08-01T22:27:35.731Z -- opencontainers -- runc
 </title>
-      <link>https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2023-28642</link>
-      <description>runc is a CLI tool for spawning and running containers according to the OCI specification. It was found that AppArmor can be bypassed when `/proc` inside the container is symlinked with a specific mount configuration. This issue has been fixed in runc version 1.1.5, by prohibiting symlinked `/proc`. See PR #3785 for details. users are advised to upgrade. Users unable to upgrade should avoid using an untrusted container image.
-
-</description>
-      <guid isPermaLink="false">CVE-2023-28642|2023-03-29T18:15:48.957Z</guid>
-      <pubDate>Wed, 29 Mar 2023 18:15:48 +0000</pubDate>
-    </item>
-    <item>
-      <title>CVE-2023-25809|2023-03-29T18:22:56.875Z -- opencontainers -- runc
-</title>
-      <link>https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2023-25809</link>
-      <description>runc is a CLI tool for spawning and running containers according to the OCI specification. In affected versions it was found that rootless runc makes `/sys/fs/cgroup` writable in following conditons: 1. when runc is executed inside the user namespace, and the `config.json` does not specify the cgroup namespace to be unshared (e.g.., `(docker|podman|nerdctl) run --cgroupns=host`, with Rootless Docker/Podman/nerdctl) or 2. when runc is executed outside the user namespace, and `/sys` is mounted with `rbind, ro` (e.g., `runc spec --rootless`; this condition is very rare). A container may gain the write access to user-owned cgroup hierarchy `/sys/fs/cgroup/user.slice/...` on the host . Other users's cgroup hierarchies are not affected. Users are advised to upgrade to version 1.1.5. Users unable to upgrade may unshare the cgroup namespace (`(docker|podman|nerdctl) run --cgroupns=private)`. This is the default behavior of Docker/Podman/nerdctl on cgroup v2 hosts. or add `/sys/fs/cgroup` to `maskedPaths`.
-</description>
-      <guid isPermaLink="false">CVE-2023-25809|2023-03-29T18:22:56.875Z</guid>
-      <pubDate>Wed, 29 Mar 2023 18:22:56 +0000</pubDate>
-    </item>
-    <item>
-      <title>CVE-2024-21626|2024-01-31T21:31:14.391Z -- opencontainers -- runc
-</title>
-      <link>https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2024-21626</link>
+      <link>https://www.cve.org/CVERecord?id=CVE-2024-21626</link>
       <description>runc is a CLI tool for spawning and running containers on Linux according to the OCI specification. In runc 1.1.11 and earlier, due to an internal file descriptor leak, an attacker could cause a newly-spawned container process (from runc exec) to have a working directory in the host filesystem namespace, allowing for a container escape by giving access to the host filesystem ("attack 2"). The same attack could be used by a malicious image to allow a container process to gain access to the host filesystem through runc run ("attack 1"). Variants of attacks 1 and 2 could be also be used to overwrite semi-arbitrary host binaries, allowing for complete container escapes ("attack 3a" and "attack 3b"). runc 1.1.12 includes patches for this issue. </description>
-      <guid isPermaLink="false">CVE-2024-21626|2024-01-31T21:31:14.391Z</guid>
+      <guid isPermaLink="false">CVE-2024-21626|2024-08-01T22:27:35.731Z</guid>
       <pubDate>Wed, 31 Jan 2024 21:31:14 +0000</pubDate>
     </item>
   </channel>
