@@ -6,16 +6,8 @@
     <description>The latest CVEs for curl -- curl</description>
     <docs>http://www.rssboard.org/rss-specification</docs>
     <generator>python-feedgen</generator>
-    <lastBuildDate>Thu, 01 Aug 2024 19:19:24 +0000</lastBuildDate>
+    <lastBuildDate>Thu, 01 Aug 2024 20:23:03 +0000</lastBuildDate>
     <ttl>60</ttl>
-    <item>
-      <title>CVE-2024-2004|2024-08-01T18:56:22.517Z -- curl -- curl
-</title>
-      <link>https://www.cve.org/CVERecord?id=CVE-2024-2004</link>
-      <description>When a protocol selection parameter option disables all protocols without adding any then the default set of protocols would remain in the allowed set due to an error in the logic for removing protocols. The below command would perform a request to curl.se with a plaintext protocol which has been explicitly disabled.      curl --proto -all,-http http://curl.se  The flaw is only present if the set of selected protocols disables the entire set of available protocols, in itself a command with no practical use and therefore unlikely to be encountered in real situations. The curl security team has thus assessed this to be low severity bug.</description>
-      <guid isPermaLink="false">CVE-2024-2004|2024-08-01T18:56:22.517Z</guid>
-      <pubDate>Wed, 27 Mar 2024 07:54:27 +0000</pubDate>
-    </item>
     <item>
       <title>CVE-2024-0853|2024-08-01T18:18:19.012Z -- curl -- curl
 </title>
@@ -26,7 +18,31 @@ the same hostname could then succeed if the session ID cache was still fresh, wh
       <pubDate>Sat, 03 Feb 2024 13:35:25 +0000</pubDate>
     </item>
     <item>
-      <title>CVE-2024-7264|2024-07-31T08:08:14.585Z -- curl -- curl</title>
+      <title>CVE-2024-2379|2024-08-01T19:11:53.464Z -- curl -- curl
+</title>
+      <link>https://www.cve.org/CVERecord?id=CVE-2024-2379</link>
+      <description>libcurl skips the certificate verification for a QUIC connection under certain conditions, when built to use wolfSSL. If told to use an unknown/bad cipher or curve, the error path accidentally skips the verification and returns OK, thus ignoring any certificate problems.</description>
+      <guid isPermaLink="false">CVE-2024-2379|2024-08-01T19:11:53.464Z</guid>
+      <pubDate>Wed, 27 Mar 2024 07:56:41 +0000</pubDate>
+    </item>
+    <item>
+      <title>CVE-2024-2398|2024-08-01T19:11:53.566Z -- curl -- curl
+</title>
+      <link>https://www.cve.org/CVERecord?id=CVE-2024-2398</link>
+      <description>When an application tells libcurl it wants to allow HTTP/2 server push, and the amount of received headers for the push surpasses the maximum allowed limit (1000), libcurl aborts the server push. When aborting, libcurl inadvertently does not free all the previously allocated headers and instead leaks the memory.  Further, this error condition fails silently and is therefore not easily detected by an application.</description>
+      <guid isPermaLink="false">CVE-2024-2398|2024-08-01T19:11:53.566Z</guid>
+      <pubDate>Wed, 27 Mar 2024 07:55:48 +0000</pubDate>
+    </item>
+    <item>
+      <title>CVE-2024-2466|2024-08-01T19:11:53.487Z -- curl -- curl
+</title>
+      <link>https://www.cve.org/CVERecord?id=CVE-2024-2466</link>
+      <description>libcurl did not check the server certificate of TLS connections done to a host specified as an IP address, when built to use mbedTLS.  libcurl would wrongly avoid using the set hostname function when the specified hostname was given as an IP address, therefore completely skipping the certificate check. This affects all uses of TLS protocols (HTTPS, FTPS, IMAPS, POPS3, SMTPS, etc).</description>
+      <guid isPermaLink="false">CVE-2024-2466|2024-08-01T19:11:53.487Z</guid>
+      <pubDate>Wed, 27 Mar 2024 07:58:24 +0000</pubDate>
+    </item>
+    <item>
+      <title>CVE-2024-7264|2024-08-01T13:50:09.754Z -- curl -- curl</title>
       <link>https://www.cve.org/CVERecord?id=CVE-2024-7264</link>
       <description>libcurl's ASN1 parser code has the `GTime2str()` function, used for parsing an
 ASN.1 Generalized Time field. If given an syntactically incorrect field, the
@@ -37,65 +53,15 @@ a `strlen()` getting performed on a pointer to a heap buffer area that is not
 This flaw most likely leads to a crash, but can also lead to heap contents
 getting returned to the application when
 [CURLINFO_CERTINFO](https://curl.se/libcurl/c/CURLINFO_CERTINFO.html) is used.</description>
-      <guid isPermaLink="false">CVE-2024-7264|2024-07-31T08:08:14.585Z</guid>
+      <guid isPermaLink="false">CVE-2024-7264|2024-08-01T13:50:09.754Z</guid>
       <pubDate>Wed, 31 Jul 2024 08:08:14 +0000</pubDate>
     </item>
     <item>
-      <title>CVE-2024-6197|2024-07-24T18:44:18.885Z -- curl -- curl</title>
-      <link>https://www.cve.org/CVERecord?id=CVE-2024-6197</link>
-      <description>libcurl's ASN1 parser has this utf8asn1str() function used for parsing an ASN.1 UTF-8 string. Itcan detect an invalid field and return error. Unfortunately, when doing so it also invokes `free()` on a 4 byte localstack buffer.  Most modern malloc implementations detect this error and immediately abort. Some however accept the input pointer and add that memory to its list of available chunks. This leads to the overwriting of nearby stack memory. The content of the overwrite is decided by the `free()` implementation; likely to be memory pointers and a set of flags.  The most likely outcome of exploting this flaw is a crash, although it cannot be ruled out that more serious results can be had in special circumstances.</description>
-      <guid isPermaLink="false">CVE-2024-6197|2024-07-24T18:44:18.885Z</guid>
-      <pubDate>Wed, 24 Jul 2024 07:29:50 +0000</pubDate>
-    </item>
-    <item>
-      <title>CVE-2024-6197|2024-07-24T07:29:50.003Z -- curl -- curl</title>
-      <link>https://www.cve.org/CVERecord?id=CVE-2024-6197</link>
-      <description>libcurl's ASN1 parser has this utf8asn1str() function used for parsing an ASN.1 UTF-8 string. Itcan detect an invalid field and return error. Unfortunately, when doing so it also invokes `free()` on a 4 byte localstack buffer.  Most modern malloc implementations detect this error and immediately abort. Some however accept the input pointer and add that memory to its list of available chunks. This leads to the overwriting of nearby stack memory. The content of the overwrite is decided by the `free()` implementation; likely to be memory pointers and a set of flags.  The most likely outcome of exploting this flaw is a crash, although it cannot be ruled out that more serious results can be had in special circumstances.</description>
-      <guid isPermaLink="false">CVE-2024-6197|2024-07-24T07:29:50.003Z</guid>
-      <pubDate>Wed, 24 Jul 2024 07:29:50 +0000</pubDate>
-    </item>
-    <item>
-      <title>CVE-2024-6874|2024-07-24T07:36:26.887Z -- curl -- curl</title>
-      <link>https://www.cve.org/CVERecord?id=CVE-2024-6874</link>
-      <description>libcurl's URL API function
-[curl_url_get()](https://curl.se/libcurl/c/curl_url_get.html) offers punycode
-conversions, to and from IDN. Asking to convert a name that is exactly 256
-bytes, libcurl ends up reading outside of a stack based buffer when built to
-use the *macidn* IDN backend. The conversion function then fills up the
-provided buffer exactly - but does not null terminate the string.
-
-This flaw can lead to stack contents accidently getting returned as part of
-the converted string.</description>
-      <guid isPermaLink="false">CVE-2024-6874|2024-07-24T07:36:26.887Z</guid>
-      <pubDate>Wed, 24 Jul 2024 07:36:26 +0000</pubDate>
-    </item>
-    <item>
-      <title>CVE-2024-2379|2024-03-27T07:56:41.158Z -- curl -- curl</title>
-      <link>https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2024-2379</link>
-      <description>libcurl skips the certificate verification for a QUIC connection under certain conditions, when built to use wolfSSL. If told to use an unknown/bad cipher or curve, the error path accidentally skips the verification and returns OK, thus ignoring any certificate problems.</description>
-      <guid isPermaLink="false">CVE-2024-2379|2024-03-27T07:56:41.158Z</guid>
-      <pubDate>Wed, 27 Mar 2024 07:56:41 +0000</pubDate>
-    </item>
-    <item>
-      <title>CVE-2024-2466|2024-03-27T07:58:24.520Z -- curl -- curl</title>
-      <link>https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2024-2466</link>
-      <description>libcurl did not check the server certificate of TLS connections done to a host specified as an IP address, when built to use mbedTLS.  libcurl would wrongly avoid using the set hostname function when the specified hostname was given as an IP address, therefore completely skipping the certificate check. This affects all uses of TLS protocols (HTTPS, FTPS, IMAPS, POPS3, SMTPS, etc).</description>
-      <guid isPermaLink="false">CVE-2024-2466|2024-03-27T07:58:24.520Z</guid>
-      <pubDate>Wed, 27 Mar 2024 07:58:24 +0000</pubDate>
-    </item>
-    <item>
-      <title>CVE-2024-2398|2024-06-04T17:30:40.286Z -- curl -- curl</title>
-      <link>https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2024-2398</link>
+      <title>CVE-2024-2398|2024-03-27T07:55:48.524Z -- curl -- curl</title>
+      <link>https://www.cve.org/CVERecord?id=CVE-2024-2398</link>
       <description>When an application tells libcurl it wants to allow HTTP/2 server push, and the amount of received headers for the push surpasses the maximum allowed limit (1000), libcurl aborts the server push. When aborting, libcurl inadvertently does not free all the previously allocated headers and instead leaks the memory.  Further, this error condition fails silently and is therefore not easily detected by an application.</description>
-      <guid isPermaLink="false">CVE-2024-2398|2024-06-04T17:30:40.286Z</guid>
+      <guid isPermaLink="false">CVE-2024-2398|2024-03-27T07:55:48.524Z</guid>
       <pubDate>Wed, 27 Mar 2024 07:55:48 +0000</pubDate>
-    </item>
-    <item>
-      <title>CVE-2024-2004|2024-03-27T07:54:27.157Z -- curl -- curl</title>
-      <link>https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2024-2004</link>
-      <description>When a protocol selection parameter option disables all protocols without adding any then the default set of protocols would remain in the allowed set due to an error in the logic for removing protocols. The below command would perform a request to curl.se with a plaintext protocol which has been explicitly disabled.      curl --proto -all,-http http://curl.se  The flaw is only present if the set of selected protocols disables the entire set of available protocols, in itself a command with no practical use and therefore unlikely to be encountered in real situations. The curl security team has thus assessed this to be low severity bug.</description>
-      <guid isPermaLink="false">CVE-2024-2004|2024-03-27T07:54:27.157Z</guid>
-      <pubDate>Wed, 27 Mar 2024 07:54:27 +0000</pubDate>
     </item>
     <item>
       <title>CVE-2024-6874|2024-07-24T16:25:51.575Z -- curl -- curl</title>
@@ -113,14 +79,64 @@ the converted string.</description>
       <pubDate>Wed, 24 Jul 2024 07:36:26 +0000</pubDate>
     </item>
     <item>
-      <title>CVE-2024-2398|2024-03-27T07:55:48.524Z -- curl -- curl</title>
-      <link>https://www.cve.org/CVERecord?id=CVE-2024-2398</link>
+      <title>CVE-2024-2004|2024-03-27T07:54:27.157Z -- curl -- curl</title>
+      <link>https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2024-2004</link>
+      <description>When a protocol selection parameter option disables all protocols without adding any then the default set of protocols would remain in the allowed set due to an error in the logic for removing protocols. The below command would perform a request to curl.se with a plaintext protocol which has been explicitly disabled.      curl --proto -all,-http http://curl.se  The flaw is only present if the set of selected protocols disables the entire set of available protocols, in itself a command with no practical use and therefore unlikely to be encountered in real situations. The curl security team has thus assessed this to be low severity bug.</description>
+      <guid isPermaLink="false">CVE-2024-2004|2024-03-27T07:54:27.157Z</guid>
+      <pubDate>Wed, 27 Mar 2024 07:54:27 +0000</pubDate>
+    </item>
+    <item>
+      <title>CVE-2024-2398|2024-06-04T17:30:40.286Z -- curl -- curl</title>
+      <link>https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2024-2398</link>
       <description>When an application tells libcurl it wants to allow HTTP/2 server push, and the amount of received headers for the push surpasses the maximum allowed limit (1000), libcurl aborts the server push. When aborting, libcurl inadvertently does not free all the previously allocated headers and instead leaks the memory.  Further, this error condition fails silently and is therefore not easily detected by an application.</description>
-      <guid isPermaLink="false">CVE-2024-2398|2024-03-27T07:55:48.524Z</guid>
+      <guid isPermaLink="false">CVE-2024-2398|2024-06-04T17:30:40.286Z</guid>
       <pubDate>Wed, 27 Mar 2024 07:55:48 +0000</pubDate>
     </item>
     <item>
-      <title>CVE-2024-7264|2024-08-01T13:50:09.754Z -- curl -- curl</title>
+      <title>CVE-2024-2466|2024-03-27T07:58:24.520Z -- curl -- curl</title>
+      <link>https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2024-2466</link>
+      <description>libcurl did not check the server certificate of TLS connections done to a host specified as an IP address, when built to use mbedTLS.  libcurl would wrongly avoid using the set hostname function when the specified hostname was given as an IP address, therefore completely skipping the certificate check. This affects all uses of TLS protocols (HTTPS, FTPS, IMAPS, POPS3, SMTPS, etc).</description>
+      <guid isPermaLink="false">CVE-2024-2466|2024-03-27T07:58:24.520Z</guid>
+      <pubDate>Wed, 27 Mar 2024 07:58:24 +0000</pubDate>
+    </item>
+    <item>
+      <title>CVE-2024-2379|2024-03-27T07:56:41.158Z -- curl -- curl</title>
+      <link>https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2024-2379</link>
+      <description>libcurl skips the certificate verification for a QUIC connection under certain conditions, when built to use wolfSSL. If told to use an unknown/bad cipher or curve, the error path accidentally skips the verification and returns OK, thus ignoring any certificate problems.</description>
+      <guid isPermaLink="false">CVE-2024-2379|2024-03-27T07:56:41.158Z</guid>
+      <pubDate>Wed, 27 Mar 2024 07:56:41 +0000</pubDate>
+    </item>
+    <item>
+      <title>CVE-2024-6874|2024-07-24T07:36:26.887Z -- curl -- curl</title>
+      <link>https://www.cve.org/CVERecord?id=CVE-2024-6874</link>
+      <description>libcurl's URL API function
+[curl_url_get()](https://curl.se/libcurl/c/curl_url_get.html) offers punycode
+conversions, to and from IDN. Asking to convert a name that is exactly 256
+bytes, libcurl ends up reading outside of a stack based buffer when built to
+use the *macidn* IDN backend. The conversion function then fills up the
+provided buffer exactly - but does not null terminate the string.
+
+This flaw can lead to stack contents accidently getting returned as part of
+the converted string.</description>
+      <guid isPermaLink="false">CVE-2024-6874|2024-07-24T07:36:26.887Z</guid>
+      <pubDate>Wed, 24 Jul 2024 07:36:26 +0000</pubDate>
+    </item>
+    <item>
+      <title>CVE-2024-6197|2024-07-24T07:29:50.003Z -- curl -- curl</title>
+      <link>https://www.cve.org/CVERecord?id=CVE-2024-6197</link>
+      <description>libcurl's ASN1 parser has this utf8asn1str() function used for parsing an ASN.1 UTF-8 string. Itcan detect an invalid field and return error. Unfortunately, when doing so it also invokes `free()` on a 4 byte localstack buffer.  Most modern malloc implementations detect this error and immediately abort. Some however accept the input pointer and add that memory to its list of available chunks. This leads to the overwriting of nearby stack memory. The content of the overwrite is decided by the `free()` implementation; likely to be memory pointers and a set of flags.  The most likely outcome of exploting this flaw is a crash, although it cannot be ruled out that more serious results can be had in special circumstances.</description>
+      <guid isPermaLink="false">CVE-2024-6197|2024-07-24T07:29:50.003Z</guid>
+      <pubDate>Wed, 24 Jul 2024 07:29:50 +0000</pubDate>
+    </item>
+    <item>
+      <title>CVE-2024-6197|2024-07-24T18:44:18.885Z -- curl -- curl</title>
+      <link>https://www.cve.org/CVERecord?id=CVE-2024-6197</link>
+      <description>libcurl's ASN1 parser has this utf8asn1str() function used for parsing an ASN.1 UTF-8 string. Itcan detect an invalid field and return error. Unfortunately, when doing so it also invokes `free()` on a 4 byte localstack buffer.  Most modern malloc implementations detect this error and immediately abort. Some however accept the input pointer and add that memory to its list of available chunks. This leads to the overwriting of nearby stack memory. The content of the overwrite is decided by the `free()` implementation; likely to be memory pointers and a set of flags.  The most likely outcome of exploting this flaw is a crash, although it cannot be ruled out that more serious results can be had in special circumstances.</description>
+      <guid isPermaLink="false">CVE-2024-6197|2024-07-24T18:44:18.885Z</guid>
+      <pubDate>Wed, 24 Jul 2024 07:29:50 +0000</pubDate>
+    </item>
+    <item>
+      <title>CVE-2024-7264|2024-07-31T08:08:14.585Z -- curl -- curl</title>
       <link>https://www.cve.org/CVERecord?id=CVE-2024-7264</link>
       <description>libcurl's ASN1 parser code has the `GTime2str()` function, used for parsing an
 ASN.1 Generalized Time field. If given an syntactically incorrect field, the
@@ -131,8 +147,15 @@ a `strlen()` getting performed on a pointer to a heap buffer area that is not
 This flaw most likely leads to a crash, but can also lead to heap contents
 getting returned to the application when
 [CURLINFO_CERTINFO](https://curl.se/libcurl/c/CURLINFO_CERTINFO.html) is used.</description>
-      <guid isPermaLink="false">CVE-2024-7264|2024-08-01T13:50:09.754Z</guid>
+      <guid isPermaLink="false">CVE-2024-7264|2024-07-31T08:08:14.585Z</guid>
       <pubDate>Wed, 31 Jul 2024 08:08:14 +0000</pubDate>
+    </item>
+    <item>
+      <title>CVE-2024-2004|2024-08-01T18:56:22.517Z -- curl -- curl</title>
+      <link>https://www.cve.org/CVERecord?id=CVE-2024-2004</link>
+      <description>When a protocol selection parameter option disables all protocols without adding any then the default set of protocols would remain in the allowed set due to an error in the logic for removing protocols. The below command would perform a request to curl.se with a plaintext protocol which has been explicitly disabled.      curl --proto -all,-http http://curl.se  The flaw is only present if the set of selected protocols disables the entire set of available protocols, in itself a command with no practical use and therefore unlikely to be encountered in real situations. The curl security team has thus assessed this to be low severity bug.</description>
+      <guid isPermaLink="false">CVE-2024-2004|2024-08-01T18:56:22.517Z</guid>
+      <pubDate>Wed, 27 Mar 2024 07:54:27 +0000</pubDate>
     </item>
   </channel>
 </rss>

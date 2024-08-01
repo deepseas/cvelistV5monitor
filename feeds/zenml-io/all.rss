@@ -6,120 +6,67 @@
     <description>The latest CVEs for zenml-io -- all products</description>
     <docs>http://www.rssboard.org/rss-specification</docs>
     <generator>python-feedgen</generator>
-    <lastBuildDate>Thu, 01 Aug 2024 19:19:21 +0000</lastBuildDate>
+    <lastBuildDate>Thu, 01 Aug 2024 20:22:59 +0000</lastBuildDate>
     <ttl>60</ttl>
     <item>
-      <title>CVE-2024-2032|2024-08-01T18:56:22.635Z -- zenml-io -- zenml-io%2Fzenml
+      <title>CVE-2024-2083|2024-08-01T19:03:38.832Z -- zenml-io -- zenml-io%2Fzenml
 </title>
-      <link>https://www.cve.org/CVERecord?id=CVE-2024-2032</link>
-      <description>A race condition vulnerability exists in zenml-io/zenml versions up to and including 0.55.3, which allows for the creation of multiple users with the same username when requests are sent in parallel. This issue was fixed in version 0.55.5. The vulnerability arises due to insufficient handling of concurrent user creation requests, leading to data inconsistencies and potential authentication problems. Specifically, concurrent processes may overwrite or corrupt user data, complicating user identification and posing security risks. This issue is particularly concerning for APIs that rely on usernames as input parameters, such as PUT /api/v1/users/test_race, where it could lead to further complications.</description>
-      <guid isPermaLink="false">CVE-2024-2032|2024-08-01T18:56:22.635Z</guid>
-      <pubDate>Thu, 06 Jun 2024 18:49:18 +0000</pubDate>
-    </item>
-    <item>
-      <title>CVE-2024-2035|2024-08-01T18:56:22.835Z -- zenml-io -- zenml-io%2Fzenml
-</title>
-      <link>https://www.cve.org/CVERecord?id=CVE-2024-2035</link>
-      <description>An improper authorization vulnerability exists in the zenml-io/zenml repository, specifically within the API PUT /api/v1/users/id endpoint. This vulnerability allows any authenticated user to modify the information of other users, including changing the `active` status of user accounts to false, effectively deactivating them. This issue affects version 0.55.3 and was fixed in version 0.56.2. The impact of this vulnerability is significant as it allows for the deactivation of admin accounts, potentially disrupting the functionality and security of the application.</description>
-      <guid isPermaLink="false">CVE-2024-2035|2024-08-01T18:56:22.835Z</guid>
-      <pubDate>Thu, 06 Jun 2024 18:25:00 +0000</pubDate>
-    </item>
-    <item>
-      <title>CVE-2024-2213|2024-07-26T19:36:34.840Z -- zenml-io -- zenml-io%2Fzenml</title>
-      <link>https://www.cve.org/CVERecord?id=CVE-2024-2213</link>
-      <description>An issue was discovered in zenml-io/zenml versions up to and including 0.55.4. Due to improper authentication mechanisms, an attacker with access to an active user session can change the account password without needing to know the current password. This vulnerability allows for unauthorized account takeover by bypassing the standard password change verification process. The issue was fixed in version 0.56.3.</description>
-      <guid isPermaLink="false">CVE-2024-2213|2024-07-26T19:36:34.840Z</guid>
-      <pubDate>Thu, 06 Jun 2024 18:19:26 +0000</pubDate>
-    </item>
-    <item>
-      <title>CVE-2024-2035|2024-07-26T19:36:31.079Z -- zenml-io -- zenml-io%2Fzenml</title>
-      <link>https://www.cve.org/CVERecord?id=CVE-2024-2035</link>
-      <description>An improper authorization vulnerability exists in the zenml-io/zenml repository, specifically within the API PUT /api/v1/users/id endpoint. This vulnerability allows any authenticated user to modify the information of other users, including changing the `active` status of user accounts to false, effectively deactivating them. This issue affects version 0.55.3 and was fixed in version 0.56.2. The impact of this vulnerability is significant as it allows for the deactivation of admin accounts, potentially disrupting the functionality and security of the application.</description>
-      <guid isPermaLink="false">CVE-2024-2035|2024-07-26T19:36:31.079Z</guid>
-      <pubDate>Thu, 06 Jun 2024 18:25:00 +0000</pubDate>
-    </item>
-    <item>
-      <title>CVE-2024-2260|2024-07-03T21:04:22.816Z -- zenml-io -- zenml-io%2Fzenml</title>
-      <link>https://www.cve.org/CVERecord?id=CVE-2024-2260</link>
-      <description>A session fixation vulnerability exists in the zenml-io/zenml application, where JWT tokens used for user authentication are not invalidated upon logout. This flaw allows an attacker to bypass authentication mechanisms by reusing a victim's JWT token.</description>
-      <guid isPermaLink="false">CVE-2024-2260|2024-07-03T21:04:22.816Z</guid>
-      <pubDate>Tue, 16 Apr 2024 00:00:14 +0000</pubDate>
-    </item>
-    <item>
-      <title>CVE-2024-5062|2024-06-30T15:14:25.313Z -- zenml-io -- zenml-io%2Fzenml</title>
-      <link>https://www.cve.org/CVERecord?id=CVE-2024-5062</link>
-      <description>A reflected Cross-Site Scripting (XSS) vulnerability was identified in zenml-io/zenml version 0.57.1. The vulnerability exists due to improper neutralization of input during web page generation, specifically within the survey redirect parameter. This flaw allows an attacker to redirect users to a specified URL after completing a survey, without proper validation of the 'redirect' parameter. Consequently, an attacker can execute arbitrary JavaScript code in the context of the user's browser session. This vulnerability could be exploited to steal cookies, potentially leading to account takeover.</description>
-      <guid isPermaLink="false">CVE-2024-5062|2024-06-30T15:14:25.313Z</guid>
-      <pubDate>Sun, 30 Jun 2024 15:14:25 +0000</pubDate>
-    </item>
-    <item>
-      <title>CVE-2024-4460|2024-06-24T06:58:10.591Z -- zenml-io -- zenml-io%2Fzenml</title>
-      <link>https://www.cve.org/CVERecord?id=CVE-2024-4460</link>
-      <description>A denial of service (DoS) vulnerability exists in zenml-io/zenml version 0.56.3 due to improper handling of line feed (`\n`) characters in component names. When a low-privileged user adds a component through the API endpoint `api/v1/workspaces/default/components` with a name containing a `\n` character, it leads to uncontrolled resource consumption. This vulnerability results in the inability of users to add new components in certain categories (e.g., 'Image Builder') and to register new stacks through the UI, thereby degrading the user experience and potentially rendering the ZenML Dashboard unusable. The issue does not affect component addition through the Web UI, as `\n` characters are properly escaped in that context. The vulnerability was tested on ZenML running in Docker, and it was observed in both Firefox and Chrome browsers.</description>
-      <guid isPermaLink="false">CVE-2024-4460|2024-06-24T06:58:10.591Z</guid>
-      <pubDate>Mon, 24 Jun 2024 06:58:10 +0000</pubDate>
-    </item>
-    <item>
-      <title>CVE-2024-2083|2024-04-16T11:10:47.009Z -- zenml-io -- zenml-io%2Fzenml</title>
-      <link>https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2024-2083</link>
+      <link>https://www.cve.org/CVERecord?id=CVE-2024-2083</link>
       <description>A directory traversal vulnerability exists in the zenml-io/zenml repository, specifically within the /api/v1/steps endpoint. Attackers can exploit this vulnerability by manipulating the 'logs' URI path in the request to fetch arbitrary file content, bypassing intended access restrictions. The vulnerability arises due to the lack of validation for directory traversal patterns, allowing attackers to access files outside of the restricted directory.</description>
-      <guid isPermaLink="false">CVE-2024-2083|2024-04-16T11:10:47.009Z</guid>
+      <guid isPermaLink="false">CVE-2024-2083|2024-08-01T19:03:38.832Z</guid>
       <pubDate>Tue, 16 Apr 2024 00:00:15 +0000</pubDate>
     </item>
     <item>
-      <title>CVE-2024-2260|2024-04-16T11:10:45.359Z -- zenml-io -- zenml-io%2Fzenml</title>
-      <link>https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2024-2260</link>
-      <description>A session fixation vulnerability exists in the zenml-io/zenml application, where JWT tokens used for user authentication are not invalidated upon logout. This flaw allows an attacker to bypass authentication mechanisms by reusing a victim's JWT token.</description>
-      <guid isPermaLink="false">CVE-2024-2260|2024-04-16T11:10:45.359Z</guid>
-      <pubDate>Tue, 16 Apr 2024 00:00:14 +0000</pubDate>
-    </item>
-    <item>
-      <title>CVE-2024-2035|2024-06-07T12:37:11.076Z -- zenml-io -- zenml-io%2Fzenml</title>
-      <link>https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2024-2035</link>
-      <description>An improper authorization vulnerability exists in the zenml-io/zenml repository, specifically within the API PUT /api/v1/users/id endpoint. This vulnerability allows any authenticated user to modify the information of other users, including changing the `active` status of user accounts to false, effectively deactivating them. This issue affects version 0.55.3 and was fixed in version 0.56.2. The impact of this vulnerability is significant as it allows for the deactivation of admin accounts, potentially disrupting the functionality and security of the application.</description>
-      <guid isPermaLink="false">CVE-2024-2035|2024-06-07T12:37:11.076Z</guid>
-      <pubDate>Thu, 06 Jun 2024 18:25:00 +0000</pubDate>
-    </item>
-    <item>
-      <title>CVE-2024-2171|2024-06-06T18:22:31.301Z -- zenml-io -- zenml-io%2Fzenml</title>
-      <link>https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2024-2171</link>
-      <description>A stored Cross-Site Scripting (XSS) vulnerability was identified in the zenml-io/zenml repository, specifically within the 'logo_url' field. By injecting malicious payloads into this field, an attacker could send harmful messages to other users, potentially compromising their accounts. The vulnerability affects version 0.55.3 and was fixed in version 0.56.2. The impact of exploiting this vulnerability could lead to user account compromise.</description>
-      <guid isPermaLink="false">CVE-2024-2171|2024-06-06T18:22:31.301Z</guid>
-      <pubDate>Thu, 06 Jun 2024 18:22:31 +0000</pubDate>
-    </item>
-    <item>
-      <title>CVE-2024-2032|2024-06-07T18:37:49.337Z -- zenml-io -- zenml-io%2Fzenml</title>
-      <link>https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2024-2032</link>
-      <description>A race condition vulnerability exists in zenml-io/zenml versions up to and including 0.55.3, which allows for the creation of multiple users with the same username when requests are sent in parallel. This issue was fixed in version 0.55.5. The vulnerability arises due to insufficient handling of concurrent user creation requests, leading to data inconsistencies and potential authentication problems. Specifically, concurrent processes may overwrite or corrupt user data, complicating user identification and posing security risks. This issue is particularly concerning for APIs that rely on usernames as input parameters, such as PUT /api/v1/users/test_race, where it could lead to further complications.</description>
-      <guid isPermaLink="false">CVE-2024-2032|2024-06-07T18:37:49.337Z</guid>
-      <pubDate>Thu, 06 Jun 2024 18:49:18 +0000</pubDate>
-    </item>
-    <item>
-      <title>CVE-2024-2383|2024-06-07T19:39:30.275Z -- zenml-io -- zenml-io%2Fzenml</title>
-      <link>https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2024-2383</link>
-      <description>A clickjacking vulnerability exists in zenml-io/zenml versions up to and including 0.55.5 due to the application's failure to set appropriate X-Frame-Options or Content-Security-Policy HTTP headers. This vulnerability allows an attacker to embed the application UI within an iframe on a malicious page, potentially leading to unauthorized actions by tricking users into interacting with the interface under the attacker's control. The issue was addressed in version 0.56.3.</description>
-      <guid isPermaLink="false">CVE-2024-2383|2024-06-07T19:39:30.275Z</guid>
-      <pubDate>Thu, 06 Jun 2024 18:18:29 +0000</pubDate>
-    </item>
-    <item>
-      <title>CVE-2024-2213|2024-06-07T12:49:58.358Z -- zenml-io -- zenml-io%2Fzenml</title>
-      <link>https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2024-2213</link>
+      <title>CVE-2024-2213|2024-08-01T19:03:39.114Z -- zenml-io -- zenml-io%2Fzenml
+</title>
+      <link>https://www.cve.org/CVERecord?id=CVE-2024-2213</link>
       <description>An issue was discovered in zenml-io/zenml versions up to and including 0.55.4. Due to improper authentication mechanisms, an attacker with access to an active user session can change the account password without needing to know the current password. This vulnerability allows for unauthorized account takeover by bypassing the standard password change verification process. The issue was fixed in version 0.56.3.</description>
-      <guid isPermaLink="false">CVE-2024-2213|2024-06-07T12:49:58.358Z</guid>
+      <guid isPermaLink="false">CVE-2024-2213|2024-08-01T19:03:39.114Z</guid>
       <pubDate>Thu, 06 Jun 2024 18:19:26 +0000</pubDate>
     </item>
     <item>
-      <title>CVE-2024-4680|2024-06-08T19:38:31.250Z -- zenml-io -- zenml-io%2Fzenml</title>
-      <link>https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2024-4680</link>
-      <description>A vulnerability in zenml-io/zenml version 0.56.3 allows attackers to reuse old session credentials or session IDs due to insufficient session expiration. Specifically, the session does not expire after a password change, enabling an attacker to maintain access to a compromised account without the victim's ability to revoke this access. This issue was observed in a self-hosted ZenML deployment via Docker, where after changing the password from one browser, the session remained active and usable in another browser without requiring re-authentication.</description>
-      <guid isPermaLink="false">CVE-2024-4680|2024-06-08T19:38:31.250Z</guid>
-      <pubDate>Sat, 08 Jun 2024 19:38:31 +0000</pubDate>
+      <title>CVE-2024-2260|2024-08-01T19:03:39.351Z -- zenml-io -- zenml-io%2Fzenml
+</title>
+      <link>https://www.cve.org/CVERecord?id=CVE-2024-2260</link>
+      <description>A session fixation vulnerability exists in the zenml-io/zenml application, where JWT tokens used for user authentication are not invalidated upon logout. This flaw allows an attacker to bypass authentication mechanisms by reusing a victim's JWT token.</description>
+      <guid isPermaLink="false">CVE-2024-2260|2024-08-01T19:03:39.351Z</guid>
+      <pubDate>Tue, 16 Apr 2024 00:00:14 +0000</pubDate>
     </item>
     <item>
-      <title>CVE-2024-4460|2024-06-26T19:41:22.588Z -- zenml-io -- zenml-io%2Fzenml</title>
+      <title>CVE-2024-2383|2024-08-01T19:11:53.449Z -- zenml-io -- zenml-io%2Fzenml
+</title>
+      <link>https://www.cve.org/CVERecord?id=CVE-2024-2383</link>
+      <description>A clickjacking vulnerability exists in zenml-io/zenml versions up to and including 0.55.5 due to the application's failure to set appropriate X-Frame-Options or Content-Security-Policy HTTP headers. This vulnerability allows an attacker to embed the application UI within an iframe on a malicious page, potentially leading to unauthorized actions by tricking users into interacting with the interface under the attacker's control. The issue was addressed in version 0.56.3.</description>
+      <guid isPermaLink="false">CVE-2024-2383|2024-08-01T19:11:53.449Z</guid>
+      <pubDate>Thu, 06 Jun 2024 18:18:29 +0000</pubDate>
+    </item>
+    <item>
+      <title>CVE-2024-2171|2024-08-01T19:03:38.961Z -- zenml-io -- zenml-io%2Fzenml
+</title>
+      <link>https://www.cve.org/CVERecord?id=CVE-2024-2171</link>
+      <description>A stored Cross-Site Scripting (XSS) vulnerability was identified in the zenml-io/zenml repository, specifically within the 'logo_url' field. By injecting malicious payloads into this field, an attacker could send harmful messages to other users, potentially compromising their accounts. The vulnerability affects version 0.55.3 and was fixed in version 0.56.2. The impact of exploiting this vulnerability could lead to user account compromise.</description>
+      <guid isPermaLink="false">CVE-2024-2171|2024-08-01T19:03:38.961Z</guid>
+      <pubDate>Thu, 06 Jun 2024 18:22:31 +0000</pubDate>
+    </item>
+    <item>
+      <title>CVE-2024-5062|2024-07-30T19:49:38.322Z -- zenml-io -- zenml-io%2Fzenml</title>
+      <link>https://www.cve.org/CVERecord?id=CVE-2024-5062</link>
+      <description>A reflected Cross-Site Scripting (XSS) vulnerability was identified in zenml-io/zenml version 0.57.1. The vulnerability exists due to improper neutralization of input during web page generation, specifically within the survey redirect parameter. This flaw allows an attacker to redirect users to a specified URL after completing a survey, without proper validation of the 'redirect' parameter. Consequently, an attacker can execute arbitrary JavaScript code in the context of the user's browser session. This vulnerability could be exploited to steal cookies, potentially leading to account takeover.</description>
+      <guid isPermaLink="false">CVE-2024-5062|2024-07-30T19:49:38.322Z</guid>
+      <pubDate>Sun, 30 Jun 2024 15:14:25 +0000</pubDate>
+    </item>
+    <item>
+      <title>CVE-2024-2083|2024-07-26T15:31:16.877Z -- zenml-io -- zenml-io%2Fzenml</title>
+      <link>https://www.cve.org/CVERecord?id=CVE-2024-2083</link>
+      <description>A directory traversal vulnerability exists in the zenml-io/zenml repository, specifically within the /api/v1/steps endpoint. Attackers can exploit this vulnerability by manipulating the 'logs' URI path in the request to fetch arbitrary file content, bypassing intended access restrictions. The vulnerability arises due to the lack of validation for directory traversal patterns, allowing attackers to access files outside of the restricted directory.</description>
+      <guid isPermaLink="false">CVE-2024-2083|2024-07-26T15:31:16.877Z</guid>
+      <pubDate>Tue, 16 Apr 2024 00:00:15 +0000</pubDate>
+    </item>
+    <item>
+      <title>CVE-2024-4460|2024-07-02T19:45:51.676Z -- zenml-io -- zenml-io%2Fzenml</title>
       <link>https://www.cve.org/CVERecord?id=CVE-2024-4460</link>
       <description>A denial of service (DoS) vulnerability exists in zenml-io/zenml version 0.56.3 due to improper handling of line feed (`\n`) characters in component names. When a low-privileged user adds a component through the API endpoint `api/v1/workspaces/default/components` with a name containing a `\n` character, it leads to uncontrolled resource consumption. This vulnerability results in the inability of users to add new components in certain categories (e.g., 'Image Builder') and to register new stacks through the UI, thereby degrading the user experience and potentially rendering the ZenML Dashboard unusable. The issue does not affect component addition through the Web UI, as `\n` characters are properly escaped in that context. The vulnerability was tested on ZenML running in Docker, and it was observed in both Firefox and Chrome browsers.</description>
-      <guid isPermaLink="false">CVE-2024-4460|2024-06-26T19:41:22.588Z</guid>
+      <guid isPermaLink="false">CVE-2024-4460|2024-07-02T19:45:51.676Z</guid>
       <pubDate>Mon, 24 Jun 2024 06:58:10 +0000</pubDate>
     </item>
     <item>
@@ -130,25 +77,116 @@
       <pubDate>Sat, 08 Jun 2024 19:38:31 +0000</pubDate>
     </item>
     <item>
-      <title>CVE-2024-4460|2024-07-02T19:45:51.676Z -- zenml-io -- zenml-io%2Fzenml</title>
+      <title>CVE-2024-4460|2024-06-26T19:41:22.588Z -- zenml-io -- zenml-io%2Fzenml</title>
       <link>https://www.cve.org/CVERecord?id=CVE-2024-4460</link>
       <description>A denial of service (DoS) vulnerability exists in zenml-io/zenml version 0.56.3 due to improper handling of line feed (`\n`) characters in component names. When a low-privileged user adds a component through the API endpoint `api/v1/workspaces/default/components` with a name containing a `\n` character, it leads to uncontrolled resource consumption. This vulnerability results in the inability of users to add new components in certain categories (e.g., 'Image Builder') and to register new stacks through the UI, thereby degrading the user experience and potentially rendering the ZenML Dashboard unusable. The issue does not affect component addition through the Web UI, as `\n` characters are properly escaped in that context. The vulnerability was tested on ZenML running in Docker, and it was observed in both Firefox and Chrome browsers.</description>
-      <guid isPermaLink="false">CVE-2024-4460|2024-07-02T19:45:51.676Z</guid>
+      <guid isPermaLink="false">CVE-2024-4460|2024-06-26T19:41:22.588Z</guid>
       <pubDate>Mon, 24 Jun 2024 06:58:10 +0000</pubDate>
     </item>
     <item>
-      <title>CVE-2024-2083|2024-07-26T15:31:16.877Z -- zenml-io -- zenml-io%2Fzenml</title>
-      <link>https://www.cve.org/CVERecord?id=CVE-2024-2083</link>
+      <title>CVE-2024-4680|2024-06-08T19:38:31.250Z -- zenml-io -- zenml-io%2Fzenml</title>
+      <link>https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2024-4680</link>
+      <description>A vulnerability in zenml-io/zenml version 0.56.3 allows attackers to reuse old session credentials or session IDs due to insufficient session expiration. Specifically, the session does not expire after a password change, enabling an attacker to maintain access to a compromised account without the victim's ability to revoke this access. This issue was observed in a self-hosted ZenML deployment via Docker, where after changing the password from one browser, the session remained active and usable in another browser without requiring re-authentication.</description>
+      <guid isPermaLink="false">CVE-2024-4680|2024-06-08T19:38:31.250Z</guid>
+      <pubDate>Sat, 08 Jun 2024 19:38:31 +0000</pubDate>
+    </item>
+    <item>
+      <title>CVE-2024-2213|2024-06-07T12:49:58.358Z -- zenml-io -- zenml-io%2Fzenml</title>
+      <link>https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2024-2213</link>
+      <description>An issue was discovered in zenml-io/zenml versions up to and including 0.55.4. Due to improper authentication mechanisms, an attacker with access to an active user session can change the account password without needing to know the current password. This vulnerability allows for unauthorized account takeover by bypassing the standard password change verification process. The issue was fixed in version 0.56.3.</description>
+      <guid isPermaLink="false">CVE-2024-2213|2024-06-07T12:49:58.358Z</guid>
+      <pubDate>Thu, 06 Jun 2024 18:19:26 +0000</pubDate>
+    </item>
+    <item>
+      <title>CVE-2024-2383|2024-06-07T19:39:30.275Z -- zenml-io -- zenml-io%2Fzenml</title>
+      <link>https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2024-2383</link>
+      <description>A clickjacking vulnerability exists in zenml-io/zenml versions up to and including 0.55.5 due to the application's failure to set appropriate X-Frame-Options or Content-Security-Policy HTTP headers. This vulnerability allows an attacker to embed the application UI within an iframe on a malicious page, potentially leading to unauthorized actions by tricking users into interacting with the interface under the attacker's control. The issue was addressed in version 0.56.3.</description>
+      <guid isPermaLink="false">CVE-2024-2383|2024-06-07T19:39:30.275Z</guid>
+      <pubDate>Thu, 06 Jun 2024 18:18:29 +0000</pubDate>
+    </item>
+    <item>
+      <title>CVE-2024-2032|2024-06-07T18:37:49.337Z -- zenml-io -- zenml-io%2Fzenml</title>
+      <link>https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2024-2032</link>
+      <description>A race condition vulnerability exists in zenml-io/zenml versions up to and including 0.55.3, which allows for the creation of multiple users with the same username when requests are sent in parallel. This issue was fixed in version 0.55.5. The vulnerability arises due to insufficient handling of concurrent user creation requests, leading to data inconsistencies and potential authentication problems. Specifically, concurrent processes may overwrite or corrupt user data, complicating user identification and posing security risks. This issue is particularly concerning for APIs that rely on usernames as input parameters, such as PUT /api/v1/users/test_race, where it could lead to further complications.</description>
+      <guid isPermaLink="false">CVE-2024-2032|2024-06-07T18:37:49.337Z</guid>
+      <pubDate>Thu, 06 Jun 2024 18:49:18 +0000</pubDate>
+    </item>
+    <item>
+      <title>CVE-2024-2171|2024-06-06T18:22:31.301Z -- zenml-io -- zenml-io%2Fzenml</title>
+      <link>https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2024-2171</link>
+      <description>A stored Cross-Site Scripting (XSS) vulnerability was identified in the zenml-io/zenml repository, specifically within the 'logo_url' field. By injecting malicious payloads into this field, an attacker could send harmful messages to other users, potentially compromising their accounts. The vulnerability affects version 0.55.3 and was fixed in version 0.56.2. The impact of exploiting this vulnerability could lead to user account compromise.</description>
+      <guid isPermaLink="false">CVE-2024-2171|2024-06-06T18:22:31.301Z</guid>
+      <pubDate>Thu, 06 Jun 2024 18:22:31 +0000</pubDate>
+    </item>
+    <item>
+      <title>CVE-2024-2035|2024-06-07T12:37:11.076Z -- zenml-io -- zenml-io%2Fzenml</title>
+      <link>https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2024-2035</link>
+      <description>An improper authorization vulnerability exists in the zenml-io/zenml repository, specifically within the API PUT /api/v1/users/id endpoint. This vulnerability allows any authenticated user to modify the information of other users, including changing the `active` status of user accounts to false, effectively deactivating them. This issue affects version 0.55.3 and was fixed in version 0.56.2. The impact of this vulnerability is significant as it allows for the deactivation of admin accounts, potentially disrupting the functionality and security of the application.</description>
+      <guid isPermaLink="false">CVE-2024-2035|2024-06-07T12:37:11.076Z</guid>
+      <pubDate>Thu, 06 Jun 2024 18:25:00 +0000</pubDate>
+    </item>
+    <item>
+      <title>CVE-2024-2260|2024-04-16T11:10:45.359Z -- zenml-io -- zenml-io%2Fzenml</title>
+      <link>https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2024-2260</link>
+      <description>A session fixation vulnerability exists in the zenml-io/zenml application, where JWT tokens used for user authentication are not invalidated upon logout. This flaw allows an attacker to bypass authentication mechanisms by reusing a victim's JWT token.</description>
+      <guid isPermaLink="false">CVE-2024-2260|2024-04-16T11:10:45.359Z</guid>
+      <pubDate>Tue, 16 Apr 2024 00:00:14 +0000</pubDate>
+    </item>
+    <item>
+      <title>CVE-2024-2083|2024-04-16T11:10:47.009Z -- zenml-io -- zenml-io%2Fzenml</title>
+      <link>https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2024-2083</link>
       <description>A directory traversal vulnerability exists in the zenml-io/zenml repository, specifically within the /api/v1/steps endpoint. Attackers can exploit this vulnerability by manipulating the 'logs' URI path in the request to fetch arbitrary file content, bypassing intended access restrictions. The vulnerability arises due to the lack of validation for directory traversal patterns, allowing attackers to access files outside of the restricted directory.</description>
-      <guid isPermaLink="false">CVE-2024-2083|2024-07-26T15:31:16.877Z</guid>
+      <guid isPermaLink="false">CVE-2024-2083|2024-04-16T11:10:47.009Z</guid>
       <pubDate>Tue, 16 Apr 2024 00:00:15 +0000</pubDate>
     </item>
     <item>
-      <title>CVE-2024-5062|2024-07-30T19:49:38.322Z -- zenml-io -- zenml-io%2Fzenml</title>
+      <title>CVE-2024-4460|2024-06-24T06:58:10.591Z -- zenml-io -- zenml-io%2Fzenml</title>
+      <link>https://www.cve.org/CVERecord?id=CVE-2024-4460</link>
+      <description>A denial of service (DoS) vulnerability exists in zenml-io/zenml version 0.56.3 due to improper handling of line feed (`\n`) characters in component names. When a low-privileged user adds a component through the API endpoint `api/v1/workspaces/default/components` with a name containing a `\n` character, it leads to uncontrolled resource consumption. This vulnerability results in the inability of users to add new components in certain categories (e.g., 'Image Builder') and to register new stacks through the UI, thereby degrading the user experience and potentially rendering the ZenML Dashboard unusable. The issue does not affect component addition through the Web UI, as `\n` characters are properly escaped in that context. The vulnerability was tested on ZenML running in Docker, and it was observed in both Firefox and Chrome browsers.</description>
+      <guid isPermaLink="false">CVE-2024-4460|2024-06-24T06:58:10.591Z</guid>
+      <pubDate>Mon, 24 Jun 2024 06:58:10 +0000</pubDate>
+    </item>
+    <item>
+      <title>CVE-2024-5062|2024-06-30T15:14:25.313Z -- zenml-io -- zenml-io%2Fzenml</title>
       <link>https://www.cve.org/CVERecord?id=CVE-2024-5062</link>
       <description>A reflected Cross-Site Scripting (XSS) vulnerability was identified in zenml-io/zenml version 0.57.1. The vulnerability exists due to improper neutralization of input during web page generation, specifically within the survey redirect parameter. This flaw allows an attacker to redirect users to a specified URL after completing a survey, without proper validation of the 'redirect' parameter. Consequently, an attacker can execute arbitrary JavaScript code in the context of the user's browser session. This vulnerability could be exploited to steal cookies, potentially leading to account takeover.</description>
-      <guid isPermaLink="false">CVE-2024-5062|2024-07-30T19:49:38.322Z</guid>
+      <guid isPermaLink="false">CVE-2024-5062|2024-06-30T15:14:25.313Z</guid>
       <pubDate>Sun, 30 Jun 2024 15:14:25 +0000</pubDate>
+    </item>
+    <item>
+      <title>CVE-2024-2260|2024-07-03T21:04:22.816Z -- zenml-io -- zenml-io%2Fzenml</title>
+      <link>https://www.cve.org/CVERecord?id=CVE-2024-2260</link>
+      <description>A session fixation vulnerability exists in the zenml-io/zenml application, where JWT tokens used for user authentication are not invalidated upon logout. This flaw allows an attacker to bypass authentication mechanisms by reusing a victim's JWT token.</description>
+      <guid isPermaLink="false">CVE-2024-2260|2024-07-03T21:04:22.816Z</guid>
+      <pubDate>Tue, 16 Apr 2024 00:00:14 +0000</pubDate>
+    </item>
+    <item>
+      <title>CVE-2024-2035|2024-07-26T19:36:31.079Z -- zenml-io -- zenml-io%2Fzenml</title>
+      <link>https://www.cve.org/CVERecord?id=CVE-2024-2035</link>
+      <description>An improper authorization vulnerability exists in the zenml-io/zenml repository, specifically within the API PUT /api/v1/users/id endpoint. This vulnerability allows any authenticated user to modify the information of other users, including changing the `active` status of user accounts to false, effectively deactivating them. This issue affects version 0.55.3 and was fixed in version 0.56.2. The impact of this vulnerability is significant as it allows for the deactivation of admin accounts, potentially disrupting the functionality and security of the application.</description>
+      <guid isPermaLink="false">CVE-2024-2035|2024-07-26T19:36:31.079Z</guid>
+      <pubDate>Thu, 06 Jun 2024 18:25:00 +0000</pubDate>
+    </item>
+    <item>
+      <title>CVE-2024-2213|2024-07-26T19:36:34.840Z -- zenml-io -- zenml-io%2Fzenml</title>
+      <link>https://www.cve.org/CVERecord?id=CVE-2024-2213</link>
+      <description>An issue was discovered in zenml-io/zenml versions up to and including 0.55.4. Due to improper authentication mechanisms, an attacker with access to an active user session can change the account password without needing to know the current password. This vulnerability allows for unauthorized account takeover by bypassing the standard password change verification process. The issue was fixed in version 0.56.3.</description>
+      <guid isPermaLink="false">CVE-2024-2213|2024-07-26T19:36:34.840Z</guid>
+      <pubDate>Thu, 06 Jun 2024 18:19:26 +0000</pubDate>
+    </item>
+    <item>
+      <title>CVE-2024-2035|2024-08-01T18:56:22.835Z -- zenml-io -- zenml-io%2Fzenml</title>
+      <link>https://www.cve.org/CVERecord?id=CVE-2024-2035</link>
+      <description>An improper authorization vulnerability exists in the zenml-io/zenml repository, specifically within the API PUT /api/v1/users/id endpoint. This vulnerability allows any authenticated user to modify the information of other users, including changing the `active` status of user accounts to false, effectively deactivating them. This issue affects version 0.55.3 and was fixed in version 0.56.2. The impact of this vulnerability is significant as it allows for the deactivation of admin accounts, potentially disrupting the functionality and security of the application.</description>
+      <guid isPermaLink="false">CVE-2024-2035|2024-08-01T18:56:22.835Z</guid>
+      <pubDate>Thu, 06 Jun 2024 18:25:00 +0000</pubDate>
+    </item>
+    <item>
+      <title>CVE-2024-2032|2024-08-01T18:56:22.635Z -- zenml-io -- zenml-io%2Fzenml</title>
+      <link>https://www.cve.org/CVERecord?id=CVE-2024-2032</link>
+      <description>A race condition vulnerability exists in zenml-io/zenml versions up to and including 0.55.3, which allows for the creation of multiple users with the same username when requests are sent in parallel. This issue was fixed in version 0.55.5. The vulnerability arises due to insufficient handling of concurrent user creation requests, leading to data inconsistencies and potential authentication problems. Specifically, concurrent processes may overwrite or corrupt user data, complicating user identification and posing security risks. This issue is particularly concerning for APIs that rely on usernames as input parameters, such as PUT /api/v1/users/test_race, where it could lead to further complications.</description>
+      <guid isPermaLink="false">CVE-2024-2032|2024-08-01T18:56:22.635Z</guid>
+      <pubDate>Thu, 06 Jun 2024 18:49:18 +0000</pubDate>
     </item>
   </channel>
 </rss>
