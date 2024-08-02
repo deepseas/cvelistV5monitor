@@ -6,15 +6,15 @@
     <description>The latest CVEs for project-zot -- zot</description>
     <docs>http://www.rssboard.org/rss-specification</docs>
     <generator>python-feedgen</generator>
-    <lastBuildDate>Wed, 10 Jul 2024 21:21:10 +0000</lastBuildDate>
+    <lastBuildDate>Fri, 02 Aug 2024 05:23:13 +0000</lastBuildDate>
     <ttl>60</ttl>
     <item>
-      <title>CVE-2024-39897|2024-07-10T20:35:52.715Z -- project-zot -- zot
+      <title>CVE-2024-39897|2024-08-02T04:33:11.364Z -- project-zot -- zot
 </title>
       <link>https://www.cve.org/CVERecord?id=CVE-2024-39897</link>
       <description>zot is an OCI image registry. Prior to 2.1.0, the cache driver `GetBlob()` allows read access to any blob without access control check. If a Zot `accessControl` policy allows users read access to some repositories but restricts read access to other repositories and `dedupe` is enabled (it is enabled by default), then an attacker who knows the name of an image and the digest of a blob (that they do not have read access to), they may maliciously read it via a second repository they do have read access to. 
  This attack is possible because [`ImageStore.CheckBlob()` calls `checkCacheBlob()`](https://github.com/project-zot/zot/blob/v2.1.0-rc2/pkg/storage/imagestore/imagestore.go#L1158-L1159) to find the blob a global cache by searching for the digest. If it is found, it is copied to the user requested repository with `copyBlob()`. The attack may be mitigated by configuring "dedupe": false in the "storage" settings. The vulnerability is fixed in 2.1.0.</description>
-      <guid isPermaLink="false">CVE-2024-39897|2024-07-10T20:35:52.715Z</guid>
+      <guid isPermaLink="false">CVE-2024-39897|2024-08-02T04:33:11.364Z</guid>
       <pubDate>Tue, 09 Jul 2024 18:48:24 +0000</pubDate>
     </item>
     <item>
@@ -23,6 +23,14 @@
       <description>zot is an OCI image registry. Prior to 2.1.0, the cache driver `GetBlob()` allows read access to any blob without access control check. If a Zot `accessControl` policy allows users read access to some repositories but restricts read access to other repositories and `dedupe` is enabled (it is enabled by default), then an attacker who knows the name of an image and the digest of a blob (that they do not have read access to), they may maliciously read it via a second repository they do have read access to. 
  This attack is possible because [`ImageStore.CheckBlob()` calls `checkCacheBlob()`](https://github.com/project-zot/zot/blob/v2.1.0-rc2/pkg/storage/imagestore/imagestore.go#L1158-L1159) to find the blob a global cache by searching for the digest. If it is found, it is copied to the user requested repository with `copyBlob()`. The attack may be mitigated by configuring "dedupe": false in the "storage" settings. The vulnerability is fixed in 2.1.0.</description>
       <guid isPermaLink="false">CVE-2024-39897|2024-07-09T18:48:24.335Z</guid>
+      <pubDate>Tue, 09 Jul 2024 18:48:24 +0000</pubDate>
+    </item>
+    <item>
+      <title>CVE-2024-39897|2024-07-10T20:35:52.715Z -- project-zot -- zot</title>
+      <link>https://www.cve.org/CVERecord?id=CVE-2024-39897</link>
+      <description>zot is an OCI image registry. Prior to 2.1.0, the cache driver `GetBlob()` allows read access to any blob without access control check. If a Zot `accessControl` policy allows users read access to some repositories but restricts read access to other repositories and `dedupe` is enabled (it is enabled by default), then an attacker who knows the name of an image and the digest of a blob (that they do not have read access to), they may maliciously read it via a second repository they do have read access to. 
+ This attack is possible because [`ImageStore.CheckBlob()` calls `checkCacheBlob()`](https://github.com/project-zot/zot/blob/v2.1.0-rc2/pkg/storage/imagestore/imagestore.go#L1158-L1159) to find the blob a global cache by searching for the digest. If it is found, it is copied to the user requested repository with `copyBlob()`. The attack may be mitigated by configuring "dedupe": false in the "storage" settings. The vulnerability is fixed in 2.1.0.</description>
+      <guid isPermaLink="false">CVE-2024-39897|2024-07-10T20:35:52.715Z</guid>
       <pubDate>Tue, 09 Jul 2024 18:48:24 +0000</pubDate>
     </item>
   </channel>

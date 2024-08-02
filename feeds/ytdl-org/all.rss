@@ -6,11 +6,23 @@
     <description>The latest CVEs for ytdl-org -- all products</description>
     <docs>http://www.rssboard.org/rss-specification</docs>
     <generator>python-feedgen</generator>
-    <lastBuildDate>Wed, 24 Jul 2024 19:19:22 +0000</lastBuildDate>
+    <lastBuildDate>Fri, 02 Aug 2024 05:23:13 +0000</lastBuildDate>
     <ttl>60</ttl>
     <item>
-      <title>CVE-2024-38519|2024-07-24T18:21:58.650Z -- ytdl-org -- youtube-dl
+      <title>CVE-2024-38519|2024-08-02T04:12:25.618Z -- ytdl-org -- youtube-dl
 </title>
+      <link>https://www.cve.org/CVERecord?id=CVE-2024-38519</link>
+      <description>`yt-dlp` and `youtube-dl` are command-line audio/video downloaders. Prior to the fixed versions, `yt-dlp` and `youtube-dl` do not limit the extensions of downloaded files, which could lead to arbitrary filenames being created in the download folder (and path traversal on Windows). Since `yt-dlp` and `youtube-dl` also read config from the working directory (and on Windows executables will be executed from the `yt-dlp` or `youtube-dl` directory), this could lead to arbitrary code being executed.
+
+
+
+
+`yt-dlp` version 2024.07.01 fixes this issue by whitelisting the allowed extensions. `youtube-dl` fixes this issue in commit `d42a222` on the `master` branch and in nightly builds tagged 2024-07-03 or later. This might mean some very uncommon extensions might not get downloaded, however it will also limit the possible exploitation surface. In addition to upgrading, have `.%(ext)s` at the end of the output template and make sure the user trusts the websites that they are downloading from. Also, make sure to never download to a directory within PATH or other sensitive locations like one's user directory, `system32`, or other binaries locations. For users who are not able to upgrade, keep the default output template (`-o "%(title)s [%(id)s].%(ext)s`); make sure the extension of the media to download is a common video/audio/sub/... one; try to avoid the generic extractor; and/or use `--ignore-config --config-location ...` to not load config from common locations.</description>
+      <guid isPermaLink="false">CVE-2024-38519|2024-08-02T04:12:25.618Z</guid>
+      <pubDate>Tue, 02 Jul 2024 13:47:36 +0000</pubDate>
+    </item>
+    <item>
+      <title>CVE-2024-38519|2024-07-24T18:21:58.650Z -- ytdl-org -- youtube-dl</title>
       <link>https://www.cve.org/CVERecord?id=CVE-2024-38519</link>
       <description>`yt-dlp` and `youtube-dl` are command-line audio/video downloaders. Prior to the fixed versions, `yt-dlp` and `youtube-dl` do not limit the extensions of downloaded files, which could lead to arbitrary filenames being created in the download folder (and path traversal on Windows). Since `yt-dlp` and `youtube-dl` also read config from the working directory (and on Windows executables will be executed from the `yt-dlp` or `youtube-dl` directory), this could lead to arbitrary code being executed.
 
