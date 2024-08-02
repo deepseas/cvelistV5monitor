@@ -6,7 +6,7 @@
     <description>The latest CVEs for Go standard library -- html/template</description>
     <docs>http://www.rssboard.org/rss-specification</docs>
     <generator>python-feedgen</generator>
-    <lastBuildDate>Fri, 02 Aug 2024 12:26:10 +0000</lastBuildDate>
+    <lastBuildDate>Fri, 02 Aug 2024 13:24:00 +0000</lastBuildDate>
     <ttl>60</ttl>
     <item>
       <title>CVE-2023-24540|2024-08-02T11:03:17.767Z -- go%20standard%20library -- html%2Ftemplate
@@ -17,20 +17,20 @@
       <pubDate>Thu, 11 May 2023 15:29:31 +0000</pubDate>
     </item>
     <item>
-      <title>CVE-2023-24538|2024-08-02T11:03:17.754Z -- go%20standard%20library -- html%2Ftemplate
-</title>
-      <link>https://www.cve.org/CVERecord?id=CVE-2023-24538</link>
-      <description>Templates do not properly consider backticks (`) as Javascript string delimiters, and do not escape them as expected. Backticks are used, since ES6, for JS template literals. If a template contains a Go template action within a Javascript template literal, the contents of the action can be used to terminate the literal, injecting arbitrary Javascript code into the Go template. As ES6 template literals are rather complex, and themselves can do string interpolation, the decision was made to simply disallow Go template actions from being used inside of them (e.g. "var a = {{.}}"), since there is no obviously safe way to allow this behavior. This takes the same approach as github.com/google/safehtml. With fix, Template.Parse returns an Error when it encounters templates like this, with an ErrorCode of value 12. This ErrorCode is currently unexported, but will be exported in the release of Go 1.21. Users who rely on the previous behavior can re-enable it using the GODEBUG flag jstmpllitinterp=1, with the caveat that backticks will now be escaped. This should be used with caution.</description>
-      <guid isPermaLink="false">CVE-2023-24538|2024-08-02T11:03:17.754Z</guid>
-      <pubDate>Thu, 06 Apr 2023 15:50:48 +0000</pubDate>
-    </item>
-    <item>
       <title>CVE-2023-24539|2024-08-02T11:03:17.753Z -- go%20standard%20library -- html%2Ftemplate
 </title>
       <link>https://www.cve.org/CVERecord?id=CVE-2023-24539</link>
       <description>Angle brackets (&lt;&gt;) are not considered dangerous characters when inserted into CSS contexts. Templates containing multiple actions separated by a '/' character can result in unexpectedly closing the CSS context and allowing for injection of unexpected HTML, if executed with untrusted input.</description>
       <guid isPermaLink="false">CVE-2023-24539|2024-08-02T11:03:17.753Z</guid>
       <pubDate>Thu, 11 May 2023 15:29:38 +0000</pubDate>
+    </item>
+    <item>
+      <title>CVE-2023-24538|2024-08-02T11:03:17.754Z -- go%20standard%20library -- html%2Ftemplate
+</title>
+      <link>https://www.cve.org/CVERecord?id=CVE-2023-24538</link>
+      <description>Templates do not properly consider backticks (`) as Javascript string delimiters, and do not escape them as expected. Backticks are used, since ES6, for JS template literals. If a template contains a Go template action within a Javascript template literal, the contents of the action can be used to terminate the literal, injecting arbitrary Javascript code into the Go template. As ES6 template literals are rather complex, and themselves can do string interpolation, the decision was made to simply disallow Go template actions from being used inside of them (e.g. "var a = {{.}}"), since there is no obviously safe way to allow this behavior. This takes the same approach as github.com/google/safehtml. With fix, Template.Parse returns an Error when it encounters templates like this, with an ErrorCode of value 12. This ErrorCode is currently unexported, but will be exported in the release of Go 1.21. Users who rely on the previous behavior can re-enable it using the GODEBUG flag jstmpllitinterp=1, with the caveat that backticks will now be escaped. This should be used with caution.</description>
+      <guid isPermaLink="false">CVE-2023-24538|2024-08-02T11:03:17.754Z</guid>
+      <pubDate>Thu, 06 Apr 2023 15:50:48 +0000</pubDate>
     </item>
     <item>
       <title>CVE-2024-24785|2024-06-04T17:43:02.716Z -- go%20standard%20library -- html%2Ftemplate</title>

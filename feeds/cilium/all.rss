@@ -6,70 +6,76 @@
     <description>The latest CVEs for cilium -- all products</description>
     <docs>http://www.rssboard.org/rss-specification</docs>
     <generator>python-feedgen</generator>
-    <lastBuildDate>Fri, 02 Aug 2024 04:24:25 +0000</lastBuildDate>
+    <lastBuildDate>Fri, 02 Aug 2024 13:24:01 +0000</lastBuildDate>
     <ttl>60</ttl>
     <item>
-      <title>CVE-2024-37307|2024-08-02T03:50:55.958Z -- cilium -- cilium
+      <title>CVE-2023-28114|2024-08-02T12:30:24.278Z -- cilium -- cilium-cli
 </title>
-      <link>https://www.cve.org/CVERecord?id=CVE-2024-37307</link>
-      <description>Cilium is a networking, observability, and security solution with an eBPF-based dataplane. Starting in version 1.13.0 and prior to versions 1.13.7, 1.14.12, and 1.15.6, the output of `cilium-bugtool` can contain sensitive data when the tool is run (with the `--envoy-dump` flag set) against Cilium deployments with the Envoy proxy enabled. Users of the TLS inspection, Ingress with TLS termination, Gateway API with TLS termination, and Kafka network policies with API key filtering features are affected. The sensitive data includes the CA certificate, certificate chain, and private key used by Cilium HTTP Network Policies, and when using Ingress/Gateway API and the API keys used in Kafka-related network policy. `cilium-bugtool` is a debugging tool that is typically invoked manually and does not run during the normal operation of a Cilium cluster. This issue has been patched in Cilium v1.15.6, v1.14.12, and v1.13.17. There is no workaround to this issue.</description>
-      <guid isPermaLink="false">CVE-2024-37307|2024-08-02T03:50:55.958Z</guid>
-      <pubDate>Thu, 13 Jun 2024 16:09:22 +0000</pubDate>
+      <link>https://www.cve.org/CVERecord?id=CVE-2023-28114</link>
+      <description>`cilium-cli` is the command line interface to install, manage, and troubleshoot Kubernetes clusters running Cilium. Prior to version 0.13.2,`cilium-cli`, when used to configure cluster mesh functionality, can remove the enforcement of user permissions on the `etcd` store used to mirror local cluster information to remote clusters. Users who have set up cluster meshes using the Cilium Helm chart are not affected by this issue.
+
+Due to an incorrect mount point specification, the settings specified by the `initContainer` that configures `etcd` users and their permissions are overwritten when using `cilium-cli` to configure a cluster mesh. An attacker who has already gained access to a valid key and certificate for an `etcd` cluster compromised in this manner could then modify state in that `etcd` cluster.
+
+This issue is patched in `cilium-cli` 0.13.2. As a workaround, one may use Cilium's Helm charts to create their cluster.</description>
+      <guid isPermaLink="false">CVE-2023-28114|2024-08-02T12:30:24.278Z</guid>
+      <pubDate>Wed, 22 Mar 2023 18:30:16 +0000</pubDate>
     </item>
     <item>
-      <title>CVE-2024-28860|2024-07-17T17:10:17.414Z -- cilium -- cilium</title>
-      <link>https://www.cve.org/CVERecord?id=CVE-2024-28860</link>
-      <description>Cilium is a networking, observability, and security solution with an eBPF-based dataplane. Users of IPsec transparent encryption in Cilium may be vulnerable to cryptographic attacks that render the transparent encryption ineffective. In particular, Cilium is vulnerable to chosen plaintext, key recovery, replay attacks by a man-in-the-middle attacker. These attacks are possible due to an ESP sequence number collision when multiple nodes are configured with the same key. Fixed versions of Cilium use unique keys for each IPsec tunnel established between nodes, resolving all of the above attacks. This vulnerability is fixed in 1.13.13, 1.14.9, and 1.15.3.</description>
-      <guid isPermaLink="false">CVE-2024-28860|2024-07-17T17:10:17.414Z</guid>
-      <pubDate>Wed, 27 Mar 2024 18:34:23 +0000</pubDate>
+      <title>CVE-2023-27595|2024-08-02T12:16:36.027Z -- cilium -- cilium
+</title>
+      <link>https://www.cve.org/CVERecord?id=CVE-2023-27595</link>
+      <description>Cilium is a networking, observability, and security solution with an eBPF-based dataplane. In version 1.13.0, when Cilium is started, there is a short period when Cilium eBPF programs are not attached to the host. During this period, the host does not implement any of Cilium's featureset. This can cause disruption to newly established connections during this period due to the lack of Load Balancing, or can cause Network Policy bypass due to the lack of Network Policy enforcement during the window. This vulnerability impacts any Cilium-managed endpoints on the node (such as Kubernetes Pods), as well as the host network namespace (including Host Firewall). This vulnerability is fixed in Cilium 1.13.1 or later. Cilium releases 1.12.x, 1.11.x, and earlier are not affected. There are no known workarounds.</description>
+      <guid isPermaLink="false">CVE-2023-27595|2024-08-02T12:16:36.027Z</guid>
+      <pubDate>Fri, 17 Mar 2023 21:12:00 +0000</pubDate>
     </item>
     <item>
-      <title>CVE-2024-37307|2024-06-13T16:09:22.378Z -- cilium -- cilium</title>
-      <link>https://www.cve.org/CVERecord?id=CVE-2024-37307</link>
-      <description>Cilium is a networking, observability, and security solution with an eBPF-based dataplane. Starting in version 1.13.0 and prior to versions 1.13.7, 1.14.12, and 1.15.6, the output of `cilium-bugtool` can contain sensitive data when the tool is run (with the `--envoy-dump` flag set) against Cilium deployments with the Envoy proxy enabled. Users of the TLS inspection, Ingress with TLS termination, Gateway API with TLS termination, and Kafka network policies with API key filtering features are affected. The sensitive data includes the CA certificate, certificate chain, and private key used by Cilium HTTP Network Policies, and when using Ingress/Gateway API and the API keys used in Kafka-related network policy. `cilium-bugtool` is a debugging tool that is typically invoked manually and does not run during the normal operation of a Cilium cluster. This issue has been patched in Cilium v1.15.6, v1.14.12, and v1.13.17. There is no workaround to this issue.</description>
-      <guid isPermaLink="false">CVE-2024-37307|2024-06-13T16:09:22.378Z</guid>
-      <pubDate>Thu, 13 Jun 2024 16:09:22 +0000</pubDate>
+      <title>CVE-2023-27594|2024-08-02T12:16:35.954Z -- cilium -- cilium
+</title>
+      <link>https://www.cve.org/CVERecord?id=CVE-2023-27594</link>
+      <description>Cilium is a networking, observability, and security solution with an eBPF-based dataplane. Prior to versions 1.11.15, 1.12.8, and 1.13.1, under specific conditions, Cilium may misattribute the source IP address of traffic to a cluster, identifying external traffic as coming from the host on which Cilium is running. As a consequence, network policies for that cluster might be bypassed, depending on the specific network policies enabled.
+
+This issue only manifests when Cilium is routing IPv6 traffic and NodePorts are used to route traffic to pods. IPv6 and endpoint routes are both disabled by default.
+
+The problem has been fixed and is available on versions 1.11.15, 1.12.8, and 1.13.1. As a workaround, disable IPv6 routing.</description>
+      <guid isPermaLink="false">CVE-2023-27594|2024-08-02T12:16:35.954Z</guid>
+      <pubDate>Fri, 17 Mar 2023 19:56:43 +0000</pubDate>
     </item>
     <item>
-      <title>CVE-2024-25631|2024-02-20T18:08:56.946Z -- cilium -- cilium</title>
-      <link>https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2024-25631</link>
-      <description>Cilium is a networking, observability, and security solution with an eBPF-based dataplane. For Cilium users who have enabled an external kvstore and Wireguard transparent encryption, traffic between pods in the affected cluster is not encrypted. This issue affects Cilium v1.14 before v1.14.7 and has been patched in Cilium v1.14.7. There is no workaround to this issue.</description>
-      <guid isPermaLink="false">CVE-2024-25631|2024-02-20T18:08:56.946Z</guid>
-      <pubDate>Tue, 20 Feb 2024 18:08:56 +0000</pubDate>
+      <title>CVE-2023-27593|2024-08-02T12:16:35.919Z -- cilium -- cilium
+</title>
+      <link>https://www.cve.org/CVERecord?id=CVE-2023-27593</link>
+      <description>Cilium is a networking, observability, and security solution with an eBPF-based dataplane. Prior to versions 1.11.15, 1.12.8, and 1.13.1, an attacker with access to a Cilium agent pod can write to `/opt/cni/bin` due to a `hostPath` mount of that directory in the agent pod. By replacing the CNI binary with their own malicious binary and waiting for the creation of a new pod on the node, the attacker can gain access to the underlying node.
+
+The issue has been fixed and the fix is available on versions 1.11.15, 1.12.8, and 1.13.1. Some workarounds are available. Kubernetes RBAC should be used to deny users and service accounts `exec` access to Cilium agent pods. In cases where a user requires `exec` access to Cilium agent pods, but should not have access to the underlying node, no workaround is possible.</description>
+      <guid isPermaLink="false">CVE-2023-27593|2024-08-02T12:16:35.919Z</guid>
+      <pubDate>Fri, 17 Mar 2023 19:51:16 +0000</pubDate>
     </item>
     <item>
-      <title>CVE-2024-25630|2024-02-20T17:53:16.685Z -- cilium -- cilium</title>
-      <link>https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2024-25630</link>
-      <description>Cilium is a networking, observability, and security solution with an eBPF-based dataplane. For Cilium users who are using CRDs to store Cilium state (the default configuration) and Wireguard transparent encryption, traffic to/from the Ingress and health endpoints is not encrypted. This issue affects Cilium v1.14 before v1.14.7 and has been patched in Cilium v1.14.7. There is no workaround to this issue.</description>
-      <guid isPermaLink="false">CVE-2024-25630|2024-02-20T17:53:16.685Z</guid>
-      <pubDate>Tue, 20 Feb 2024 17:53:16 +0000</pubDate>
-    </item>
-    <item>
-      <title>CVE-2024-28860|2024-03-27T18:34:23.105Z -- cilium -- cilium</title>
-      <link>https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2024-28860</link>
-      <description>Cilium is a networking, observability, and security solution with an eBPF-based dataplane. Users of IPsec transparent encryption in Cilium may be vulnerable to cryptographic attacks that render the transparent encryption ineffective. In particular, Cilium is vulnerable to chosen plaintext, key recovery, replay attacks by a man-in-the-middle attacker. These attacks are possible due to an ESP sequence number collision when multiple nodes are configured with the same key. Fixed versions of Cilium use unique keys for each IPsec tunnel established between nodes, resolving all of the above attacks. This vulnerability is fixed in 1.13.13, 1.14.9, and 1.15.3.</description>
-      <guid isPermaLink="false">CVE-2024-28860|2024-03-27T18:34:23.105Z</guid>
-      <pubDate>Wed, 27 Mar 2024 18:34:23 +0000</pubDate>
-    </item>
-    <item>
-      <title>CVE-2024-28250|2024-06-04T18:03:15.198Z -- cilium -- cilium</title>
-      <link>https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2024-28250</link>
-      <description>Cilium is a networking, observability, and security solution with an eBPF-based dataplane. Starting in version 1.14.0 and prior to versions 1.14.8 and 1.15.2, In Cilium clusters with WireGuard enabled and traffic matching Layer 7 policies Wireguard-eligible traffic that is sent between a node's Envoy proxy and pods on other nodes is sent unencrypted and Wireguard-eligible traffic that is sent between a node's DNS proxy and pods on other nodes is sent unencrypted. This issue has been resolved in Cilium 1.14.8 and 1.15.2 in in native routing mode (`routingMode=native`) and in Cilium 1.14.4 in tunneling mode (`routingMode=tunnel`). Not that in tunneling mode, `encryption.wireguard.encapsulate` must be set to `true`. There is no known workaround for this issue.</description>
-      <guid isPermaLink="false">CVE-2024-28250|2024-06-04T18:03:15.198Z</guid>
-      <pubDate>Mon, 18 Mar 2024 21:42:21 +0000</pubDate>
-    </item>
-    <item>
-      <title>CVE-2024-28249|2024-06-04T18:03:57.880Z -- cilium -- cilium</title>
-      <link>https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2024-28249</link>
+      <title>CVE-2024-28249|2024-08-02T00:48:49.660Z -- cilium -- cilium</title>
+      <link>https://www.cve.org/CVERecord?id=CVE-2024-28249</link>
       <description>Cilium is a networking, observability, and security solution with an eBPF-based dataplane. Prior to versions 1.13.13, 1.14.8, and 1.15.2, in Cilium clusters with IPsec enabled and traffic matching Layer 7 policies, IPsec-eligible traffic between a node's Envoy proxy and pods on other nodes is sent unencrypted and IPsec-eligible traffic between a node's DNS proxy and pods on other nodes is sent unencrypted. This issue has been resolved in Cilium 1.15.2, 1.14.8, and 1.13.13. There is no known workaround for this issue.</description>
-      <guid isPermaLink="false">CVE-2024-28249|2024-06-04T18:03:57.880Z</guid>
+      <guid isPermaLink="false">CVE-2024-28249|2024-08-02T00:48:49.660Z</guid>
       <pubDate>Mon, 18 Mar 2024 21:36:10 +0000</pubDate>
     </item>
     <item>
-      <title>CVE-2024-28248|2024-06-04T18:04:02.014Z -- cilium -- cilium</title>
-      <link>https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2024-28248</link>
+      <title>CVE-2024-28860|2024-08-02T00:56:58.123Z -- cilium -- cilium</title>
+      <link>https://www.cve.org/CVERecord?id=CVE-2024-28860</link>
+      <description>Cilium is a networking, observability, and security solution with an eBPF-based dataplane. Users of IPsec transparent encryption in Cilium may be vulnerable to cryptographic attacks that render the transparent encryption ineffective. In particular, Cilium is vulnerable to chosen plaintext, key recovery, replay attacks by a man-in-the-middle attacker. These attacks are possible due to an ESP sequence number collision when multiple nodes are configured with the same key. Fixed versions of Cilium use unique keys for each IPsec tunnel established between nodes, resolving all of the above attacks. This vulnerability is fixed in 1.13.13, 1.14.9, and 1.15.3.</description>
+      <guid isPermaLink="false">CVE-2024-28860|2024-08-02T00:56:58.123Z</guid>
+      <pubDate>Wed, 27 Mar 2024 18:34:23 +0000</pubDate>
+    </item>
+    <item>
+      <title>CVE-2024-28250|2024-08-02T00:48:49.605Z -- cilium -- cilium</title>
+      <link>https://www.cve.org/CVERecord?id=CVE-2024-28250</link>
+      <description>Cilium is a networking, observability, and security solution with an eBPF-based dataplane. Starting in version 1.14.0 and prior to versions 1.14.8 and 1.15.2, In Cilium clusters with WireGuard enabled and traffic matching Layer 7 policies Wireguard-eligible traffic that is sent between a node's Envoy proxy and pods on other nodes is sent unencrypted and Wireguard-eligible traffic that is sent between a node's DNS proxy and pods on other nodes is sent unencrypted. This issue has been resolved in Cilium 1.14.8 and 1.15.2 in in native routing mode (`routingMode=native`) and in Cilium 1.14.4 in tunneling mode (`routingMode=tunnel`). Not that in tunneling mode, `encryption.wireguard.encapsulate` must be set to `true`. There is no known workaround for this issue.</description>
+      <guid isPermaLink="false">CVE-2024-28250|2024-08-02T00:48:49.605Z</guid>
+      <pubDate>Mon, 18 Mar 2024 21:42:21 +0000</pubDate>
+    </item>
+    <item>
+      <title>CVE-2024-28248|2024-08-02T00:48:49.593Z -- cilium -- cilium</title>
+      <link>https://www.cve.org/CVERecord?id=CVE-2024-28248</link>
       <description>Cilium is a networking, observability, and security solution with an eBPF-based dataplane. Starting in version 1.13.9 and prior to versions 1.13.13, 1.14.8, and 1.15.2, Cilium's HTTP policies are not consistently applied to all traffic in the scope of the policies, leading to HTTP traffic being incorrectly and intermittently forwarded when it should be dropped. This issue has been patched in Cilium 1.15.2, 1.14.8, and 1.13.13. There are no known workarounds for this issue.</description>
-      <guid isPermaLink="false">CVE-2024-28248|2024-06-04T18:04:02.014Z</guid>
+      <guid isPermaLink="false">CVE-2024-28248|2024-08-02T00:48:49.593Z</guid>
       <pubDate>Mon, 18 Mar 2024 21:31:51 +0000</pubDate>
     </item>
     <item>
@@ -80,32 +86,67 @@
       <pubDate>Tue, 20 Feb 2024 17:53:16 +0000</pubDate>
     </item>
     <item>
-      <title>CVE-2024-28248|2024-08-02T00:48:49.593Z -- cilium -- cilium</title>
-      <link>https://www.cve.org/CVERecord?id=CVE-2024-28248</link>
+      <title>CVE-2024-28248|2024-06-04T18:04:02.014Z -- cilium -- cilium</title>
+      <link>https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2024-28248</link>
       <description>Cilium is a networking, observability, and security solution with an eBPF-based dataplane. Starting in version 1.13.9 and prior to versions 1.13.13, 1.14.8, and 1.15.2, Cilium's HTTP policies are not consistently applied to all traffic in the scope of the policies, leading to HTTP traffic being incorrectly and intermittently forwarded when it should be dropped. This issue has been patched in Cilium 1.15.2, 1.14.8, and 1.13.13. There are no known workarounds for this issue.</description>
-      <guid isPermaLink="false">CVE-2024-28248|2024-08-02T00:48:49.593Z</guid>
+      <guid isPermaLink="false">CVE-2024-28248|2024-06-04T18:04:02.014Z</guid>
       <pubDate>Mon, 18 Mar 2024 21:31:51 +0000</pubDate>
     </item>
     <item>
-      <title>CVE-2024-28250|2024-08-02T00:48:49.605Z -- cilium -- cilium</title>
-      <link>https://www.cve.org/CVERecord?id=CVE-2024-28250</link>
+      <title>CVE-2024-28249|2024-06-04T18:03:57.880Z -- cilium -- cilium</title>
+      <link>https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2024-28249</link>
+      <description>Cilium is a networking, observability, and security solution with an eBPF-based dataplane. Prior to versions 1.13.13, 1.14.8, and 1.15.2, in Cilium clusters with IPsec enabled and traffic matching Layer 7 policies, IPsec-eligible traffic between a node's Envoy proxy and pods on other nodes is sent unencrypted and IPsec-eligible traffic between a node's DNS proxy and pods on other nodes is sent unencrypted. This issue has been resolved in Cilium 1.15.2, 1.14.8, and 1.13.13. There is no known workaround for this issue.</description>
+      <guid isPermaLink="false">CVE-2024-28249|2024-06-04T18:03:57.880Z</guid>
+      <pubDate>Mon, 18 Mar 2024 21:36:10 +0000</pubDate>
+    </item>
+    <item>
+      <title>CVE-2024-28250|2024-06-04T18:03:15.198Z -- cilium -- cilium</title>
+      <link>https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2024-28250</link>
       <description>Cilium is a networking, observability, and security solution with an eBPF-based dataplane. Starting in version 1.14.0 and prior to versions 1.14.8 and 1.15.2, In Cilium clusters with WireGuard enabled and traffic matching Layer 7 policies Wireguard-eligible traffic that is sent between a node's Envoy proxy and pods on other nodes is sent unencrypted and Wireguard-eligible traffic that is sent between a node's DNS proxy and pods on other nodes is sent unencrypted. This issue has been resolved in Cilium 1.14.8 and 1.15.2 in in native routing mode (`routingMode=native`) and in Cilium 1.14.4 in tunneling mode (`routingMode=tunnel`). Not that in tunneling mode, `encryption.wireguard.encapsulate` must be set to `true`. There is no known workaround for this issue.</description>
-      <guid isPermaLink="false">CVE-2024-28250|2024-08-02T00:48:49.605Z</guid>
+      <guid isPermaLink="false">CVE-2024-28250|2024-06-04T18:03:15.198Z</guid>
       <pubDate>Mon, 18 Mar 2024 21:42:21 +0000</pubDate>
     </item>
     <item>
-      <title>CVE-2024-28860|2024-08-02T00:56:58.123Z -- cilium -- cilium</title>
-      <link>https://www.cve.org/CVERecord?id=CVE-2024-28860</link>
+      <title>CVE-2024-28860|2024-03-27T18:34:23.105Z -- cilium -- cilium</title>
+      <link>https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2024-28860</link>
       <description>Cilium is a networking, observability, and security solution with an eBPF-based dataplane. Users of IPsec transparent encryption in Cilium may be vulnerable to cryptographic attacks that render the transparent encryption ineffective. In particular, Cilium is vulnerable to chosen plaintext, key recovery, replay attacks by a man-in-the-middle attacker. These attacks are possible due to an ESP sequence number collision when multiple nodes are configured with the same key. Fixed versions of Cilium use unique keys for each IPsec tunnel established between nodes, resolving all of the above attacks. This vulnerability is fixed in 1.13.13, 1.14.9, and 1.15.3.</description>
-      <guid isPermaLink="false">CVE-2024-28860|2024-08-02T00:56:58.123Z</guid>
+      <guid isPermaLink="false">CVE-2024-28860|2024-03-27T18:34:23.105Z</guid>
       <pubDate>Wed, 27 Mar 2024 18:34:23 +0000</pubDate>
     </item>
     <item>
-      <title>CVE-2024-28249|2024-08-02T00:48:49.660Z -- cilium -- cilium</title>
-      <link>https://www.cve.org/CVERecord?id=CVE-2024-28249</link>
-      <description>Cilium is a networking, observability, and security solution with an eBPF-based dataplane. Prior to versions 1.13.13, 1.14.8, and 1.15.2, in Cilium clusters with IPsec enabled and traffic matching Layer 7 policies, IPsec-eligible traffic between a node's Envoy proxy and pods on other nodes is sent unencrypted and IPsec-eligible traffic between a node's DNS proxy and pods on other nodes is sent unencrypted. This issue has been resolved in Cilium 1.15.2, 1.14.8, and 1.13.13. There is no known workaround for this issue.</description>
-      <guid isPermaLink="false">CVE-2024-28249|2024-08-02T00:48:49.660Z</guid>
-      <pubDate>Mon, 18 Mar 2024 21:36:10 +0000</pubDate>
+      <title>CVE-2024-25630|2024-02-20T17:53:16.685Z -- cilium -- cilium</title>
+      <link>https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2024-25630</link>
+      <description>Cilium is a networking, observability, and security solution with an eBPF-based dataplane. For Cilium users who are using CRDs to store Cilium state (the default configuration) and Wireguard transparent encryption, traffic to/from the Ingress and health endpoints is not encrypted. This issue affects Cilium v1.14 before v1.14.7 and has been patched in Cilium v1.14.7. There is no workaround to this issue.</description>
+      <guid isPermaLink="false">CVE-2024-25630|2024-02-20T17:53:16.685Z</guid>
+      <pubDate>Tue, 20 Feb 2024 17:53:16 +0000</pubDate>
+    </item>
+    <item>
+      <title>CVE-2024-25631|2024-02-20T18:08:56.946Z -- cilium -- cilium</title>
+      <link>https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2024-25631</link>
+      <description>Cilium is a networking, observability, and security solution with an eBPF-based dataplane. For Cilium users who have enabled an external kvstore and Wireguard transparent encryption, traffic between pods in the affected cluster is not encrypted. This issue affects Cilium v1.14 before v1.14.7 and has been patched in Cilium v1.14.7. There is no workaround to this issue.</description>
+      <guid isPermaLink="false">CVE-2024-25631|2024-02-20T18:08:56.946Z</guid>
+      <pubDate>Tue, 20 Feb 2024 18:08:56 +0000</pubDate>
+    </item>
+    <item>
+      <title>CVE-2024-37307|2024-06-13T16:09:22.378Z -- cilium -- cilium</title>
+      <link>https://www.cve.org/CVERecord?id=CVE-2024-37307</link>
+      <description>Cilium is a networking, observability, and security solution with an eBPF-based dataplane. Starting in version 1.13.0 and prior to versions 1.13.7, 1.14.12, and 1.15.6, the output of `cilium-bugtool` can contain sensitive data when the tool is run (with the `--envoy-dump` flag set) against Cilium deployments with the Envoy proxy enabled. Users of the TLS inspection, Ingress with TLS termination, Gateway API with TLS termination, and Kafka network policies with API key filtering features are affected. The sensitive data includes the CA certificate, certificate chain, and private key used by Cilium HTTP Network Policies, and when using Ingress/Gateway API and the API keys used in Kafka-related network policy. `cilium-bugtool` is a debugging tool that is typically invoked manually and does not run during the normal operation of a Cilium cluster. This issue has been patched in Cilium v1.15.6, v1.14.12, and v1.13.17. There is no workaround to this issue.</description>
+      <guid isPermaLink="false">CVE-2024-37307|2024-06-13T16:09:22.378Z</guid>
+      <pubDate>Thu, 13 Jun 2024 16:09:22 +0000</pubDate>
+    </item>
+    <item>
+      <title>CVE-2024-28860|2024-07-17T17:10:17.414Z -- cilium -- cilium</title>
+      <link>https://www.cve.org/CVERecord?id=CVE-2024-28860</link>
+      <description>Cilium is a networking, observability, and security solution with an eBPF-based dataplane. Users of IPsec transparent encryption in Cilium may be vulnerable to cryptographic attacks that render the transparent encryption ineffective. In particular, Cilium is vulnerable to chosen plaintext, key recovery, replay attacks by a man-in-the-middle attacker. These attacks are possible due to an ESP sequence number collision when multiple nodes are configured with the same key. Fixed versions of Cilium use unique keys for each IPsec tunnel established between nodes, resolving all of the above attacks. This vulnerability is fixed in 1.13.13, 1.14.9, and 1.15.3.</description>
+      <guid isPermaLink="false">CVE-2024-28860|2024-07-17T17:10:17.414Z</guid>
+      <pubDate>Wed, 27 Mar 2024 18:34:23 +0000</pubDate>
+    </item>
+    <item>
+      <title>CVE-2024-37307|2024-08-02T03:50:55.958Z -- cilium -- cilium</title>
+      <link>https://www.cve.org/CVERecord?id=CVE-2024-37307</link>
+      <description>Cilium is a networking, observability, and security solution with an eBPF-based dataplane. Starting in version 1.13.0 and prior to versions 1.13.7, 1.14.12, and 1.15.6, the output of `cilium-bugtool` can contain sensitive data when the tool is run (with the `--envoy-dump` flag set) against Cilium deployments with the Envoy proxy enabled. Users of the TLS inspection, Ingress with TLS termination, Gateway API with TLS termination, and Kafka network policies with API key filtering features are affected. The sensitive data includes the CA certificate, certificate chain, and private key used by Cilium HTTP Network Policies, and when using Ingress/Gateway API and the API keys used in Kafka-related network policy. `cilium-bugtool` is a debugging tool that is typically invoked manually and does not run during the normal operation of a Cilium cluster. This issue has been patched in Cilium v1.15.6, v1.14.12, and v1.13.17. There is no workaround to this issue.</description>
+      <guid isPermaLink="false">CVE-2024-37307|2024-08-02T03:50:55.958Z</guid>
+      <pubDate>Thu, 13 Jun 2024 16:09:22 +0000</pubDate>
     </item>
   </channel>
 </rss>

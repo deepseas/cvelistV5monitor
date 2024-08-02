@@ -6,39 +6,23 @@
     <description>The latest CVEs for crossplane -- all products</description>
     <docs>http://www.rssboard.org/rss-specification</docs>
     <generator>python-feedgen</generator>
-    <lastBuildDate>Wed, 12 Jun 2024 11:24:39 +0000</lastBuildDate>
+    <lastBuildDate>Fri, 02 Aug 2024 13:23:59 +0000</lastBuildDate>
     <ttl>60</ttl>
     <item>
-      <title>CVE-2023-38495|2023-07-27T18:07:13.283Z -- crossplane -- crossplane
+      <title>CVE-2023-27484|2024-08-02T12:09:43.558Z -- crossplane -- crossplane
 </title>
-      <link>https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2023-38495</link>
-      <description>Crossplane is a framework for building cloud native control planes without needing to write code. In versions prior to 1.11.5, 1.12.3, and 1.13.0, Crossplane's image backend does not validate the byte contents of Crossplane packages. As such, Crossplane does not detect if an attacker has tampered with a Package. The problem has been fixed in 1.11.5, 1.12.3 and 1.13.0. As a workaround, only use images from trusted sources and keep Package editing/creating privileges to administrators only.</description>
-      <guid isPermaLink="false">CVE-2023-38495|2023-07-27T18:07:13.283Z</guid>
-      <pubDate>Thu, 27 Jul 2023 18:07:13 +0000</pubDate>
-    </item>
-    <item>
-      <title>CVE-2023-27483|2023-03-09T20:18:31.955Z -- crossplane -- crossplane-runtime
-</title>
-      <link>https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2023-27483</link>
-      <description>crossplane-runtime is a set of go libraries used to build Kubernetes controllers in Crossplane and its related stacks. An out of memory panic vulnerability has been discovered in affected versions. Applications that use the `Paved` type's `SetValue` method with user provided input without proper validation might use excessive amounts of memory and cause an out of memory panic. In the fieldpath package, the Paved.SetValue method sets a value on the Paved object according to the provided path, without any validation. This allows setting values in slices at any provided index, which grows the target array up to the requested index, the index is currently capped at max uint32 (4294967295) given how indexes are parsed,  but that is still an unnecessarily large value. If callers are not validating paths' indexes on their own, which most probably are not going to do, given that the input is parsed directly in the SetValue method, this could allow users to consume arbitrary amounts of memory. Applications that do not use the `Paved` type's `SetValue` method are not affected. This issue has been addressed in versions 0.16.1 and 0.19.2. Users are advised to upgrade. Users unable to upgrade can parse and validate the path before passing it to the `SetValue` method of the `Paved` type, constraining the index size as deemed appropriate.</description>
-      <guid isPermaLink="false">CVE-2023-27483|2023-03-09T20:18:31.955Z</guid>
-      <pubDate>Thu, 09 Mar 2023 20:18:31 +0000</pubDate>
-    </item>
-    <item>
-      <title>CVE-2023-27484|2023-03-09T20:22:48.602Z -- crossplane -- crossplane
-</title>
-      <link>https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2023-27484</link>
+      <link>https://www.cve.org/CVERecord?id=CVE-2023-27484</link>
       <description>crossplane-runtime is a set of go libraries used to build Kubernetes controllers in Crossplane and its related stacks. In affected versions an already highly privileged user able to create or update Compositions can specify an arbitrarily high index in a patch's `ToFieldPath`, which could lead to excessive memory usage once such Composition is selected for a Composite resource. Compositions allow users to specify patches inserting elements into arrays at an arbitrary index. When a Composition is selected for a Composite Resource, patches are evaluated and if a specified index is greater than the current size of the target slice, Crossplane will grow that slice up to the specified index, which could lead to an excessive amount of memory usage and therefore the Pod being OOM-Killed. The index is already capped to the maximum value for a uint32 (4294967295) when parsed, but that is still an unnecessarily large value. This issue has been addressed in versions 1.11.2, 1.10.3, and 1.9.2. Users are advised to upgrade. Users unable to upgrade can restrict write privileges on Compositions to only admin users as a workaround.</description>
-      <guid isPermaLink="false">CVE-2023-27484|2023-03-09T20:22:48.602Z</guid>
+      <guid isPermaLink="false">CVE-2023-27484|2024-08-02T12:09:43.558Z</guid>
       <pubDate>Thu, 09 Mar 2023 20:22:48 +0000</pubDate>
     </item>
     <item>
-      <title>CVE-2023-37900|2023-07-27T17:54:31.116Z -- crossplane -- crossplane
+      <title>CVE-2023-27483|2024-08-02T12:09:43.588Z -- crossplane -- crossplane-runtime
 </title>
-      <link>https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2023-37900</link>
-      <description>Crossplane is a framework for building cloud native control planes without needing to write code. In versions prior to 1.11.5, 1.12.3, and 1.13.0, a high-privileged user could create a Package referencing an arbitrarily large image containing that Crossplane would then parse, possibly resulting in exhausting all the available memory and therefore in the container being OOMKilled. The impact is limited due to the high privileges required to be able to create the Package and the eventually consistency nature of controller. This issue is fixed in versions 1.11.5, 1.12.3, and 1.13.0.</description>
-      <guid isPermaLink="false">CVE-2023-37900|2023-07-27T17:54:31.116Z</guid>
-      <pubDate>Thu, 27 Jul 2023 15:50:54 +0000</pubDate>
+      <link>https://www.cve.org/CVERecord?id=CVE-2023-27483</link>
+      <description>crossplane-runtime is a set of go libraries used to build Kubernetes controllers in Crossplane and its related stacks. An out of memory panic vulnerability has been discovered in affected versions. Applications that use the `Paved` type's `SetValue` method with user provided input without proper validation might use excessive amounts of memory and cause an out of memory panic. In the fieldpath package, the Paved.SetValue method sets a value on the Paved object according to the provided path, without any validation. This allows setting values in slices at any provided index, which grows the target array up to the requested index, the index is currently capped at max uint32 (4294967295) given how indexes are parsed,  but that is still an unnecessarily large value. If callers are not validating paths' indexes on their own, which most probably are not going to do, given that the input is parsed directly in the SetValue method, this could allow users to consume arbitrary amounts of memory. Applications that do not use the `Paved` type's `SetValue` method are not affected. This issue has been addressed in versions 0.16.1 and 0.19.2. Users are advised to upgrade. Users unable to upgrade can parse and validate the path before passing it to the `SetValue` method of the `Paved` type, constraining the index size as deemed appropriate.</description>
+      <guid isPermaLink="false">CVE-2023-27483|2024-08-02T12:09:43.588Z</guid>
+      <pubDate>Thu, 09 Mar 2023 20:18:31 +0000</pubDate>
     </item>
   </channel>
 </rss>

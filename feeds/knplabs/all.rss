@@ -6,27 +6,15 @@
     <description>The latest CVEs for KnpLabs -- all products</description>
     <docs>http://www.rssboard.org/rss-specification</docs>
     <generator>python-feedgen</generator>
-    <lastBuildDate>Wed, 12 Jun 2024 11:24:36 +0000</lastBuildDate>
+    <lastBuildDate>Fri, 02 Aug 2024 13:24:14 +0000</lastBuildDate>
     <ttl>60</ttl>
     <item>
-      <title>CVE-2023-28115|2023-03-17T21:15:25.113Z -- knplabs -- snappy
+      <title>CVE-2023-28115|2024-08-02T12:30:24.135Z -- knplabs -- snappy
 </title>
-      <link>https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2023-28115</link>
+      <link>https://www.cve.org/CVERecord?id=CVE-2023-28115</link>
       <description>Snappy is a PHP library allowing thumbnail, snapshot or PDF generation from a url or a html page. Prior to version 1.4.2, Snappy is vulnerable to PHAR deserialization due to a lack of checking on the protocol before passing it into the `file_exists()` function. If an attacker can upload files of any type to the server he can pass in the phar:// protocol to unserialize the uploaded file and instantiate arbitrary PHP objects. This can lead to remote code execution especially when snappy is used with frameworks with documented POP chains like Laravel/Symfony vulnerable developer code. If a user can control the output file from the `generateFromHtml()` function, it will invoke deserialization. This vulnerability is capable of remote code execution if Snappy is used with frameworks or developer code with vulnerable POP chains. It has been fixed in version 1.4.2.</description>
-      <guid isPermaLink="false">CVE-2023-28115|2023-03-17T21:15:25.113Z</guid>
+      <guid isPermaLink="false">CVE-2023-28115|2024-08-02T12:30:24.135Z</guid>
       <pubDate>Fri, 17 Mar 2023 21:15:25 +0000</pubDate>
-    </item>
-    <item>
-      <title>CVE-2023-41330|2023-09-06T17:33:21.098Z -- knplabs -- snappy
-</title>
-      <link>https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2023-41330</link>
-      <description>knplabs/knp-snappy is a PHP library allowing thumbnail, snapshot or PDF generation from a url or a html page.
-## Issue
-
-On March 17th the vulnerability CVE-2023-28115 was disclosed, allowing an attacker to gain remote code execution through PHAR deserialization. Version 1.4.2 added a check `if (\strpos($filename, 'phar://') === 0)` in the `prepareOutput` function to resolve this CVE, however if the user is able to control the second parameter of the `generateFromHtml()` function of Snappy, it will then be passed as the `$filename` parameter in the `prepareOutput()` function. In the original vulnerability, a file name with a `phar://` wrapper could be sent to the `fileExists()` function, equivalent to the `file_exists()` PHP function. This allowed users to trigger a deserialization on arbitrary PHAR files. To fix this issue, the string is now passed to the `strpos()` function and if it starts with `phar://`, an exception is raised. However, PHP wrappers being case insensitive, this patch can be bypassed using `PHAR://` instead of `phar://`. A successful exploitation of this vulnerability allows executing arbitrary code and accessing the underlying filesystem. The attacker must be able to upload a file and the server must be running a PHP version prior to 8. This issue has been addressed in commit `d3b742d61a` which has been included in version 1.4.3. Users are advised to upgrade. Users unable to upgrade should ensure that only trusted users may submit data to the `AbstractGenerator-&gt;generate(...)` function.
-</description>
-      <guid isPermaLink="false">CVE-2023-41330|2023-09-06T17:33:21.098Z</guid>
-      <pubDate>Wed, 06 Sep 2023 17:33:21 +0000</pubDate>
     </item>
   </channel>
 </rss>

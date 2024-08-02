@@ -6,7 +6,7 @@
     <description>The latest CVEs for flarum -- all products</description>
     <docs>http://www.rssboard.org/rss-specification</docs>
     <generator>python-feedgen</generator>
-    <lastBuildDate>Fri, 02 Aug 2024 12:25:51 +0000</lastBuildDate>
+    <lastBuildDate>Fri, 02 Aug 2024 13:23:54 +0000</lastBuildDate>
     <ttl>60</ttl>
     <item>
       <title>CVE-2023-22489|2024-08-02T10:13:48.669Z -- flarum -- framework
@@ -32,6 +32,15 @@
       <description>Flarum is a forum software for building communities. Using the mentions feature provided by the flarum/mentions extension, users can mention any post ID on the forum with the special `@"&lt;username&gt;"#p&lt;id&gt;` syntax. The following behavior never changes no matter if the actor should be able to read the mentioned post or not: A URL to the mentioned post is inserted into the actor post HTML, leaking its discussion ID and post number. The `mentionsPosts` relationship included in the `POST /api/posts` and `PATCH /api/posts/&lt;id&gt;` JSON responses leaks the full JSON:API payload of all mentioned posts without any access control. This includes the content, date, number and attributes added by other extensions. An attacker only needs the ability to create new posts on the forum to exploit the vulnerability. This works even if new posts require approval. If they have the ability to edit posts, the attack can be performed even more discreetly by using a single post to scan any size of database and hiding the attack post content afterward. The attack allows the leaking of all posts in the forum database, including posts awaiting approval, posts in tags the user has no access to, and private discussions created by other extensions like FriendsOfFlarum Byobu. This also includes non-comment posts like tag changes or renaming events. The discussion payload is not leaked but using the mention HTML payload it's possible to extract the discussion ID of all posts and combine all posts back together into their original discussions even if the discussion title remains unknown. All Flarum versions prior to 1.6.3 are affected. The vulnerability has been fixed and published as flarum/core v1.6.3. As a workaround, user can disable the mentions extension.</description>
       <guid isPermaLink="false">CVE-2023-22487|2024-08-02T10:13:48.533Z</guid>
       <pubDate>Wed, 11 Jan 2023 19:49:37 +0000</pubDate>
+    </item>
+    <item>
+      <title>CVE-2023-27577|2024-08-02T12:16:35.623Z -- flarum -- framework
+</title>
+      <link>https://www.cve.org/CVERecord?id=CVE-2023-27577</link>
+      <description>flarum is a forum software package for building communities. In versions prior to 1.7.0 an admin account which has already been compromised by an attacker may use a vulnerability in the `LESS` parser which can be exploited to read sensitive files on the server through the use of path traversal techniques. An attacker can achieve this by providing an absolute path to a sensitive file in the custom `LESS` setting, which the `LESS` parser will then read. For example, an attacker could use the following code to read the contents of the `/etc/passwd` file on a linux machine. The scope of what files are vulnerable will depend on the permissions given to the running flarum process. The vulnerability has been addressed in version `1.7`. Users should upgrade to this version to mitigate the vulnerability. Users unable to upgrade may mitigate the vulnerability by ensuring that their admin accounts are secured with strong passwords and follow other best practices for account security. Additionally, users can limit the exposure of sensitive files on the server by implementing appropriate file permissions and access controls at the operating system level.
+</description>
+      <guid isPermaLink="false">CVE-2023-27577|2024-08-02T12:16:35.623Z</guid>
+      <pubDate>Fri, 10 Mar 2023 20:56:58 +0000</pubDate>
     </item>
   </channel>
 </rss>

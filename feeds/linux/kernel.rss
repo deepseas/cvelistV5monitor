@@ -6,8 +6,190 @@
     <description>The latest CVEs for Linux -- Kernel</description>
     <docs>http://www.rssboard.org/rss-specification</docs>
     <generator>python-feedgen</generator>
-    <lastBuildDate>Fri, 02 Aug 2024 12:25:47 +0000</lastBuildDate>
+    <lastBuildDate>Fri, 02 Aug 2024 13:23:47 +0000</lastBuildDate>
     <ttl>60</ttl>
+    <item>
+      <title>CVE-2023-4244|2024-08-02T07:24:03.697Z -- linux -- kernel
+</title>
+      <link>https://www.cve.org/CVERecord?id=CVE-2023-4244</link>
+      <description>A use-after-free vulnerability in the Linux kernel's netfilter: nf_tables component can be exploited to achieve local privilege escalation.
+
+Due to a race condition between nf_tables netlink control plane transaction and nft_set element garbage collection, it is possible to underflow the reference counter causing a use-after-free vulnerability.
+
+We recommend upgrading past commit 3e91b0ebd994635df2346353322ac51ce84ce6d8.
+
+</description>
+      <guid isPermaLink="false">CVE-2023-4244|2024-08-02T07:24:03.697Z</guid>
+      <pubDate>Wed, 06 Sep 2023 13:53:24 +0000</pubDate>
+    </item>
+    <item>
+      <title>CVE-2023-3609|2024-08-02T07:01:56.672Z -- linux -- kernel
+</title>
+      <link>https://www.cve.org/CVERecord?id=CVE-2023-3609</link>
+      <description>A use-after-free vulnerability in the Linux kernel's net/sched: cls_u32 component can be exploited to achieve local privilege escalation.
+
+If tcf_change_indev() fails, u32_set_parms() will immediately return an error after incrementing or decrementing the reference counter in tcf_bind_filter(). If an attacker can control the reference counter and set it to zero, they can cause the reference to be freed, leading to a use-after-free vulnerability.
+
+We recommend upgrading past commit 04c55383fa5689357bcdd2c8036725a55ed632bc.
+
+</description>
+      <guid isPermaLink="false">CVE-2023-3609|2024-08-02T07:01:56.672Z</guid>
+      <pubDate>Fri, 21 Jul 2023 20:47:12 +0000</pubDate>
+    </item>
+    <item>
+      <title>CVE-2023-6111|2024-08-02T08:21:17.363Z -- linux -- kernel
+</title>
+      <link>https://www.cve.org/CVERecord?id=CVE-2023-6111</link>
+      <description>A use-after-free vulnerability in the Linux kernel's netfilter: nf_tables component can be exploited to achieve local privilege escalation.
+
+The function nft_trans_gc_catchall did not remove the catchall set element from the catchall_list when the argument sync is true, making it possible to free a catchall set element many times.
+
+We recommend upgrading past commit 93995bf4af2c5a99e2a87f0cd5ce547d31eb7630.
+
+</description>
+      <guid isPermaLink="false">CVE-2023-6111|2024-08-02T08:21:17.363Z</guid>
+      <pubDate>Tue, 14 Nov 2023 14:05:35 +0000</pubDate>
+    </item>
+    <item>
+      <title>CVE-2023-6817|2024-08-02T08:42:08.222Z -- linux -- kernel
+</title>
+      <link>https://www.cve.org/CVERecord?id=CVE-2023-6817</link>
+      <description>A use-after-free vulnerability in the Linux kernel's netfilter: nf_tables component can be exploited to achieve local privilege escalation.
+
+The function nft_pipapo_walk did not skip inactive elements during set walk which could lead double deactivations of PIPAPO (Pile Packet Policies) elements, leading to use-after-free.
+
+We recommend upgrading past commit 317eb9685095678f2c9f5a8189de698c5354316a.
+
+</description>
+      <guid isPermaLink="false">CVE-2023-6817|2024-08-02T08:42:08.222Z</guid>
+      <pubDate>Mon, 18 Dec 2023 14:37:05 +0000</pubDate>
+    </item>
+    <item>
+      <title>CVE-2023-4206|2024-08-02T07:17:12.232Z -- linux -- kernel
+</title>
+      <link>https://www.cve.org/CVERecord?id=CVE-2023-4206</link>
+      <description>A use-after-free vulnerability in the Linux kernel's net/sched: cls_route component can be exploited to achieve local privilege escalation.
+
+When route4_change() is called on an existing filter, the whole tcf_result struct is always copied into the new instance of the filter. This causes a problem when updating a filter bound to a class, as tcf_unbind_filter() is always called on the old instance in the success path, decreasing filter_cnt of the still referenced class and allowing it to be deleted, leading to a use-after-free.
+
+We recommend upgrading past commit b80b829e9e2c1b3f7aae34855e04d8f6ecaf13c8.
+
+</description>
+      <guid isPermaLink="false">CVE-2023-4206|2024-08-02T07:17:12.232Z</guid>
+      <pubDate>Wed, 06 Sep 2023 13:53:05 +0000</pubDate>
+    </item>
+    <item>
+      <title>CVE-2023-5717|2024-08-02T08:07:32.716Z -- linux -- kernel
+</title>
+      <link>https://www.cve.org/CVERecord?id=CVE-2023-5717</link>
+      <description>A heap out-of-bounds write vulnerability in the Linux kernel's Linux Kernel Performance Events (perf) component can be exploited to achieve local privilege escalation.
+
+If perf_read_group() is called while an event's sibling_list is smaller than its child's sibling_list, it can increment or write to memory locations outside of the allocated buffer.
+
+We recommend upgrading past commit 32671e3799ca2e4590773fd0e63aaa4229e50c06.
+
+</description>
+      <guid isPermaLink="false">CVE-2023-5717|2024-08-02T08:07:32.716Z</guid>
+      <pubDate>Wed, 25 Oct 2023 12:55:06 +0000</pubDate>
+    </item>
+    <item>
+      <title>CVE-2023-3610|2024-08-02T07:01:56.594Z -- linux -- kernel
+</title>
+      <link>https://www.cve.org/CVERecord?id=CVE-2023-3610</link>
+      <description>A use-after-free vulnerability in the Linux kernel's netfilter: nf_tables component can be exploited to achieve local privilege escalation.
+
+Flaw in the error handling of bound chains causes a use-after-free in the abort path of NFT_MSG_NEWRULE. The vulnerability requires CAP_NET_ADMIN to be triggered.
+
+We recommend upgrading past commit 4bedf9eee016286c835e3d8fa981ddece5338795.
+
+</description>
+      <guid isPermaLink="false">CVE-2023-3610|2024-08-02T07:01:56.594Z</guid>
+      <pubDate>Fri, 21 Jul 2023 20:48:13 +0000</pubDate>
+    </item>
+    <item>
+      <title>CVE-2023-4207|2024-08-02T07:17:12.218Z -- linux -- kernel
+</title>
+      <link>https://www.cve.org/CVERecord?id=CVE-2023-4207</link>
+      <description>A use-after-free vulnerability in the Linux kernel's net/sched: cls_fw component can be exploited to achieve local privilege escalation.
+
+When fw_change() is called on an existing filter, the whole tcf_result struct is always copied into the new instance of the filter. This causes a problem when updating a filter bound to a class, as tcf_unbind_filter() is always called on the old instance in the success path, decreasing filter_cnt of the still referenced class and allowing it to be deleted, leading to a use-after-free.
+
+We recommend upgrading past commit 76e42ae831991c828cffa8c37736ebfb831ad5ec.
+
+</description>
+      <guid isPermaLink="false">CVE-2023-4207|2024-08-02T07:17:12.218Z</guid>
+      <pubDate>Wed, 06 Sep 2023 13:53:22 +0000</pubDate>
+    </item>
+    <item>
+      <title>CVE-2023-4208|2024-08-02T07:17:12.134Z -- linux -- kernel
+</title>
+      <link>https://www.cve.org/CVERecord?id=CVE-2023-4208</link>
+      <description>A use-after-free vulnerability in the Linux kernel's net/sched: cls_u32 component can be exploited to achieve local privilege escalation.
+
+When u32_change() is called on an existing filter, the whole tcf_result struct is always copied into the new instance of the filter. This causes a problem when updating a filter bound to a class, as tcf_unbind_filter() is always called on the old instance in the success path, decreasing filter_cnt of the still referenced class and allowing it to be deleted, leading to a use-after-free.
+
+We recommend upgrading past commit 3044b16e7c6fe5d24b1cdbcf1bd0a9d92d1ebd81.
+
+</description>
+      <guid isPermaLink="false">CVE-2023-4208|2024-08-02T07:17:12.134Z</guid>
+      <pubDate>Wed, 06 Sep 2023 13:53:23 +0000</pubDate>
+    </item>
+    <item>
+      <title>CVE-2023-4623|2024-08-02T07:31:06.625Z -- linux -- kernel
+</title>
+      <link>https://www.cve.org/CVERecord?id=CVE-2023-4623</link>
+      <description>A use-after-free vulnerability in the Linux kernel's net/sched: sch_hfsc (HFSC qdisc traffic control) component can be exploited to achieve local privilege escalation.
+
+If a class with a link-sharing curve (i.e. with the HFSC_FSC flag set) has a parent without a link-sharing curve, then init_vf() will call vttree_insert() on the parent, but vttree_remove() will be skipped in update_vf(). This leaves a dangling pointer that can cause a use-after-free.
+
+We recommend upgrading past commit b3d26c5702c7d6c45456326e56d2ccf3f103e60f.
+
+</description>
+      <guid isPermaLink="false">CVE-2023-4623|2024-08-02T07:31:06.625Z</guid>
+      <pubDate>Wed, 06 Sep 2023 13:56:57 +0000</pubDate>
+    </item>
+    <item>
+      <title>CVE-2023-5345|2024-08-02T07:52:08.630Z -- linux -- kernel
+</title>
+      <link>https://www.cve.org/CVERecord?id=CVE-2023-5345</link>
+      <description>A use-after-free vulnerability in the Linux kernel's fs/smb/client component can be exploited to achieve local privilege escalation.
+
+In case of an error in smb3_fs_context_parse_param, ctx-&gt;password was freed but the field was not set to NULL which could lead to double free.
+
+We recommend upgrading past commit e6e43b8aa7cd3c3af686caf0c2e11819a886d705.
+
+</description>
+      <guid isPermaLink="false">CVE-2023-5345|2024-08-02T07:52:08.630Z</guid>
+      <pubDate>Tue, 03 Oct 2023 02:33:06 +0000</pubDate>
+    </item>
+    <item>
+      <title>CVE-2023-6931|2024-08-02T08:42:08.665Z -- linux -- kernel
+</title>
+      <link>https://www.cve.org/CVERecord?id=CVE-2023-6931</link>
+      <description>A heap out-of-bounds write vulnerability in the Linux kernel's Performance Events system component can be exploited to achieve local privilege escalation.
+
+A perf_event's read_size can overflow, leading to an heap out-of-bounds increment or write in perf_read_group().
+
+We recommend upgrading past commit 382c27f4ed28f803b1f1473ac2d8db0afc795a1b.
+
+</description>
+      <guid isPermaLink="false">CVE-2023-6931|2024-08-02T08:42:08.665Z</guid>
+      <pubDate>Tue, 19 Dec 2023 14:09:14 +0000</pubDate>
+    </item>
+    <item>
+      <title>CVE-2023-5197|2024-08-02T07:52:08.142Z -- linux -- kernel
+</title>
+      <link>https://www.cve.org/CVERecord?id=CVE-2023-5197</link>
+      <description>A use-after-free vulnerability in the Linux kernel's netfilter: nf_tables component can be exploited to achieve local privilege escalation.
+
+Addition and removal of rules from chain bindings within the same transaction causes leads to use-after-free.
+
+We recommend upgrading past commit f15f29fd4779be8a418b66e9d52979bb6d6c2325.
+
+</description>
+      <guid isPermaLink="false">CVE-2023-5197|2024-08-02T07:52:08.142Z</guid>
+      <pubDate>Tue, 26 Sep 2023 10:04:37 +0000</pubDate>
+    </item>
     <item>
       <title>CVE-2023-4622|2024-08-02T07:31:06.586Z -- linux -- kernel
 </title>
@@ -21,6 +203,62 @@ We recommend upgrading past commit 790c2f9d15b594350ae9bca7b236f2b1859de02c.
 </description>
       <guid isPermaLink="false">CVE-2023-4622|2024-08-02T07:31:06.586Z</guid>
       <pubDate>Wed, 06 Sep 2023 13:56:56 +0000</pubDate>
+    </item>
+    <item>
+      <title>CVE-2023-3776|2024-08-02T07:08:49.975Z -- linux -- kernel
+</title>
+      <link>https://www.cve.org/CVERecord?id=CVE-2023-3776</link>
+      <description>A use-after-free vulnerability in the Linux kernel's net/sched: cls_fw component can be exploited to achieve local privilege escalation.
+
+If tcf_change_indev() fails, fw_set_parms() will immediately return an error after incrementing or decrementing the reference counter in tcf_bind_filter(). If an attacker can control the reference counter and set it to zero, they can cause the reference to be freed, leading to a use-after-free vulnerability.
+
+We recommend upgrading past commit 0323bce598eea038714f941ce2b22541c46d488f.
+
+</description>
+      <guid isPermaLink="false">CVE-2023-3776|2024-08-02T07:08:49.975Z</guid>
+      <pubDate>Fri, 21 Jul 2023 20:49:53 +0000</pubDate>
+    </item>
+    <item>
+      <title>CVE-2023-6932|2024-08-02T08:42:08.680Z -- linux -- kernel
+</title>
+      <link>https://www.cve.org/CVERecord?id=CVE-2023-6932</link>
+      <description>A use-after-free vulnerability in the Linux kernel's ipv4: igmp component can be exploited to achieve local privilege escalation.
+
+A race condition can be exploited to cause a timer be mistakenly registered on a RCU read locked object which is freed by another thread.
+
+We recommend upgrading past commit e2b706c691905fe78468c361aaabc719d0a496f1.
+
+</description>
+      <guid isPermaLink="false">CVE-2023-6932|2024-08-02T08:42:08.680Z</guid>
+      <pubDate>Tue, 19 Dec 2023 14:09:15 +0000</pubDate>
+    </item>
+    <item>
+      <title>CVE-2023-3777|2024-08-02T07:08:50.184Z -- linux -- kernel
+</title>
+      <link>https://www.cve.org/CVERecord?id=CVE-2023-3777</link>
+      <description>A use-after-free vulnerability in the Linux kernel's netfilter: nf_tables component can be exploited to achieve local privilege escalation.
+
+When nf_tables_delrule() is flushing table rules, it is not checked whether the chain is bound and the chain's owner rule can also release the objects in certain circumstances.
+
+We recommend upgrading past commit 6eaf41e87a223ae6f8e7a28d6e78384ad7e407f8.
+
+</description>
+      <guid isPermaLink="false">CVE-2023-3777|2024-08-02T07:08:50.184Z</guid>
+      <pubDate>Wed, 06 Sep 2023 13:50:26 +0000</pubDate>
+    </item>
+    <item>
+      <title>CVE-2023-4921|2024-08-02T07:44:52.210Z -- linux -- kernel
+</title>
+      <link>https://www.cve.org/CVERecord?id=CVE-2023-4921</link>
+      <description>A use-after-free vulnerability in the Linux kernel's net/sched: sch_qfq component can be exploited to achieve local privilege escalation.
+
+When the plug qdisc is used as a class of the qfq qdisc, sending network packets triggers use-after-free in qfq_dequeue() due to the incorrect .peek handler of sch_plug and lack of error checking in agg_dequeue().
+
+We recommend upgrading past commit 8fc134fee27f2263988ae38920bc03da416b03d8.
+
+</description>
+      <guid isPermaLink="false">CVE-2023-4921|2024-08-02T07:44:52.210Z</guid>
+      <pubDate>Tue, 12 Sep 2023 19:45:19 +0000</pubDate>
     </item>
     <item>
       <title>CVE-2023-3090|2024-08-02T06:41:04.144Z -- linux -- kernel
@@ -38,90 +276,6 @@ We recommend upgrading past commit 90cbed5247439a966b645b34eb0a2e037836ea8e.
       <pubDate>Wed, 28 Jun 2023 19:06:41 +0000</pubDate>
     </item>
     <item>
-      <title>CVE-2023-4623|2024-08-02T07:31:06.625Z -- linux -- kernel
-</title>
-      <link>https://www.cve.org/CVERecord?id=CVE-2023-4623</link>
-      <description>A use-after-free vulnerability in the Linux kernel's net/sched: sch_hfsc (HFSC qdisc traffic control) component can be exploited to achieve local privilege escalation.
-
-If a class with a link-sharing curve (i.e. with the HFSC_FSC flag set) has a parent without a link-sharing curve, then init_vf() will call vttree_insert() on the parent, but vttree_remove() will be skipped in update_vf(). This leaves a dangling pointer that can cause a use-after-free.
-
-We recommend upgrading past commit b3d26c5702c7d6c45456326e56d2ccf3f103e60f.
-
-</description>
-      <guid isPermaLink="false">CVE-2023-4623|2024-08-02T07:31:06.625Z</guid>
-      <pubDate>Wed, 06 Sep 2023 13:56:57 +0000</pubDate>
-    </item>
-    <item>
-      <title>CVE-2023-3611|2024-08-02T07:01:57.288Z -- linux -- kernel
-</title>
-      <link>https://www.cve.org/CVERecord?id=CVE-2023-3611</link>
-      <description>An out-of-bounds write vulnerability in the Linux kernel's net/sched: sch_qfq component can be exploited to achieve local privilege escalation.
-
-The qfq_change_agg() function in net/sched/sch_qfq.c allows an out-of-bounds write because lmax is updated according to packet sizes without bounds checks.
-
-We recommend upgrading past commit 3e337087c3b5805fe0b8a46ba622a962880b5d64.
-
-</description>
-      <guid isPermaLink="false">CVE-2023-3611|2024-08-02T07:01:57.288Z</guid>
-      <pubDate>Fri, 21 Jul 2023 20:49:10 +0000</pubDate>
-    </item>
-    <item>
-      <title>CVE-2023-4206|2024-08-02T07:17:12.232Z -- linux -- kernel
-</title>
-      <link>https://www.cve.org/CVERecord?id=CVE-2023-4206</link>
-      <description>A use-after-free vulnerability in the Linux kernel's net/sched: cls_route component can be exploited to achieve local privilege escalation.
-
-When route4_change() is called on an existing filter, the whole tcf_result struct is always copied into the new instance of the filter. This causes a problem when updating a filter bound to a class, as tcf_unbind_filter() is always called on the old instance in the success path, decreasing filter_cnt of the still referenced class and allowing it to be deleted, leading to a use-after-free.
-
-We recommend upgrading past commit b80b829e9e2c1b3f7aae34855e04d8f6ecaf13c8.
-
-</description>
-      <guid isPermaLink="false">CVE-2023-4206|2024-08-02T07:17:12.232Z</guid>
-      <pubDate>Wed, 06 Sep 2023 13:53:05 +0000</pubDate>
-    </item>
-    <item>
-      <title>CVE-2023-3777|2024-08-02T07:08:50.184Z -- linux -- kernel
-</title>
-      <link>https://www.cve.org/CVERecord?id=CVE-2023-3777</link>
-      <description>A use-after-free vulnerability in the Linux kernel's netfilter: nf_tables component can be exploited to achieve local privilege escalation.
-
-When nf_tables_delrule() is flushing table rules, it is not checked whether the chain is bound and the chain's owner rule can also release the objects in certain circumstances.
-
-We recommend upgrading past commit 6eaf41e87a223ae6f8e7a28d6e78384ad7e407f8.
-
-</description>
-      <guid isPermaLink="false">CVE-2023-3777|2024-08-02T07:08:50.184Z</guid>
-      <pubDate>Wed, 06 Sep 2023 13:50:26 +0000</pubDate>
-    </item>
-    <item>
-      <title>CVE-2023-4207|2024-08-02T07:17:12.218Z -- linux -- kernel
-</title>
-      <link>https://www.cve.org/CVERecord?id=CVE-2023-4207</link>
-      <description>A use-after-free vulnerability in the Linux kernel's net/sched: cls_fw component can be exploited to achieve local privilege escalation.
-
-When fw_change() is called on an existing filter, the whole tcf_result struct is always copied into the new instance of the filter. This causes a problem when updating a filter bound to a class, as tcf_unbind_filter() is always called on the old instance in the success path, decreasing filter_cnt of the still referenced class and allowing it to be deleted, leading to a use-after-free.
-
-We recommend upgrading past commit 76e42ae831991c828cffa8c37736ebfb831ad5ec.
-
-</description>
-      <guid isPermaLink="false">CVE-2023-4207|2024-08-02T07:17:12.218Z</guid>
-      <pubDate>Wed, 06 Sep 2023 13:53:22 +0000</pubDate>
-    </item>
-    <item>
-      <title>CVE-2023-3609|2024-08-02T07:01:56.672Z -- linux -- kernel
-</title>
-      <link>https://www.cve.org/CVERecord?id=CVE-2023-3609</link>
-      <description>A use-after-free vulnerability in the Linux kernel's net/sched: cls_u32 component can be exploited to achieve local privilege escalation.
-
-If tcf_change_indev() fails, u32_set_parms() will immediately return an error after incrementing or decrementing the reference counter in tcf_bind_filter(). If an attacker can control the reference counter and set it to zero, they can cause the reference to be freed, leading to a use-after-free vulnerability.
-
-We recommend upgrading past commit 04c55383fa5689357bcdd2c8036725a55ed632bc.
-
-</description>
-      <guid isPermaLink="false">CVE-2023-3609|2024-08-02T07:01:56.672Z</guid>
-      <pubDate>Fri, 21 Jul 2023 20:47:12 +0000</pubDate>
-    </item>
-    <item>
       <title>CVE-2023-4015|2024-08-02T07:17:11.558Z -- linux -- kernel
 </title>
       <link>https://www.cve.org/CVERecord?id=CVE-2023-4015</link>
@@ -134,160 +288,6 @@ We recommend upgrading past commit 0a771f7b266b02d262900c75f1e175c7fe76fec2.
 </description>
       <guid isPermaLink="false">CVE-2023-4015|2024-08-02T07:17:11.558Z</guid>
       <pubDate>Wed, 06 Sep 2023 13:52:44 +0000</pubDate>
-    </item>
-    <item>
-      <title>CVE-2023-5717|2024-08-02T08:07:32.716Z -- linux -- kernel
-</title>
-      <link>https://www.cve.org/CVERecord?id=CVE-2023-5717</link>
-      <description>A heap out-of-bounds write vulnerability in the Linux kernel's Linux Kernel Performance Events (perf) component can be exploited to achieve local privilege escalation.
-
-If perf_read_group() is called while an event's sibling_list is smaller than its child's sibling_list, it can increment or write to memory locations outside of the allocated buffer.
-
-We recommend upgrading past commit 32671e3799ca2e4590773fd0e63aaa4229e50c06.
-
-</description>
-      <guid isPermaLink="false">CVE-2023-5717|2024-08-02T08:07:32.716Z</guid>
-      <pubDate>Wed, 25 Oct 2023 12:55:06 +0000</pubDate>
-    </item>
-    <item>
-      <title>CVE-2023-4208|2024-08-02T07:17:12.134Z -- linux -- kernel
-</title>
-      <link>https://www.cve.org/CVERecord?id=CVE-2023-4208</link>
-      <description>A use-after-free vulnerability in the Linux kernel's net/sched: cls_u32 component can be exploited to achieve local privilege escalation.
-
-When u32_change() is called on an existing filter, the whole tcf_result struct is always copied into the new instance of the filter. This causes a problem when updating a filter bound to a class, as tcf_unbind_filter() is always called on the old instance in the success path, decreasing filter_cnt of the still referenced class and allowing it to be deleted, leading to a use-after-free.
-
-We recommend upgrading past commit 3044b16e7c6fe5d24b1cdbcf1bd0a9d92d1ebd81.
-
-</description>
-      <guid isPermaLink="false">CVE-2023-4208|2024-08-02T07:17:12.134Z</guid>
-      <pubDate>Wed, 06 Sep 2023 13:53:23 +0000</pubDate>
-    </item>
-    <item>
-      <title>CVE-2023-6111|2024-08-02T08:21:17.363Z -- linux -- kernel
-</title>
-      <link>https://www.cve.org/CVERecord?id=CVE-2023-6111</link>
-      <description>A use-after-free vulnerability in the Linux kernel's netfilter: nf_tables component can be exploited to achieve local privilege escalation.
-
-The function nft_trans_gc_catchall did not remove the catchall set element from the catchall_list when the argument sync is true, making it possible to free a catchall set element many times.
-
-We recommend upgrading past commit 93995bf4af2c5a99e2a87f0cd5ce547d31eb7630.
-
-</description>
-      <guid isPermaLink="false">CVE-2023-6111|2024-08-02T08:21:17.363Z</guid>
-      <pubDate>Tue, 14 Nov 2023 14:05:35 +0000</pubDate>
-    </item>
-    <item>
-      <title>CVE-2023-3610|2024-08-02T07:01:56.594Z -- linux -- kernel
-</title>
-      <link>https://www.cve.org/CVERecord?id=CVE-2023-3610</link>
-      <description>A use-after-free vulnerability in the Linux kernel's netfilter: nf_tables component can be exploited to achieve local privilege escalation.
-
-Flaw in the error handling of bound chains causes a use-after-free in the abort path of NFT_MSG_NEWRULE. The vulnerability requires CAP_NET_ADMIN to be triggered.
-
-We recommend upgrading past commit 4bedf9eee016286c835e3d8fa981ddece5338795.
-
-</description>
-      <guid isPermaLink="false">CVE-2023-3610|2024-08-02T07:01:56.594Z</guid>
-      <pubDate>Fri, 21 Jul 2023 20:48:13 +0000</pubDate>
-    </item>
-    <item>
-      <title>CVE-2023-5345|2024-08-02T07:52:08.630Z -- linux -- kernel
-</title>
-      <link>https://www.cve.org/CVERecord?id=CVE-2023-5345</link>
-      <description>A use-after-free vulnerability in the Linux kernel's fs/smb/client component can be exploited to achieve local privilege escalation.
-
-In case of an error in smb3_fs_context_parse_param, ctx-&gt;password was freed but the field was not set to NULL which could lead to double free.
-
-We recommend upgrading past commit e6e43b8aa7cd3c3af686caf0c2e11819a886d705.
-
-</description>
-      <guid isPermaLink="false">CVE-2023-5345|2024-08-02T07:52:08.630Z</guid>
-      <pubDate>Tue, 03 Oct 2023 02:33:06 +0000</pubDate>
-    </item>
-    <item>
-      <title>CVE-2023-6817|2024-08-02T08:42:08.222Z -- linux -- kernel
-</title>
-      <link>https://www.cve.org/CVERecord?id=CVE-2023-6817</link>
-      <description>A use-after-free vulnerability in the Linux kernel's netfilter: nf_tables component can be exploited to achieve local privilege escalation.
-
-The function nft_pipapo_walk did not skip inactive elements during set walk which could lead double deactivations of PIPAPO (Pile Packet Policies) elements, leading to use-after-free.
-
-We recommend upgrading past commit 317eb9685095678f2c9f5a8189de698c5354316a.
-
-</description>
-      <guid isPermaLink="false">CVE-2023-6817|2024-08-02T08:42:08.222Z</guid>
-      <pubDate>Mon, 18 Dec 2023 14:37:05 +0000</pubDate>
-    </item>
-    <item>
-      <title>CVE-2023-6932|2024-08-02T08:42:08.680Z -- linux -- kernel
-</title>
-      <link>https://www.cve.org/CVERecord?id=CVE-2023-6932</link>
-      <description>A use-after-free vulnerability in the Linux kernel's ipv4: igmp component can be exploited to achieve local privilege escalation.
-
-A race condition can be exploited to cause a timer be mistakenly registered on a RCU read locked object which is freed by another thread.
-
-We recommend upgrading past commit e2b706c691905fe78468c361aaabc719d0a496f1.
-
-</description>
-      <guid isPermaLink="false">CVE-2023-6932|2024-08-02T08:42:08.680Z</guid>
-      <pubDate>Tue, 19 Dec 2023 14:09:15 +0000</pubDate>
-    </item>
-    <item>
-      <title>CVE-2023-5197|2024-08-02T07:52:08.142Z -- linux -- kernel
-</title>
-      <link>https://www.cve.org/CVERecord?id=CVE-2023-5197</link>
-      <description>A use-after-free vulnerability in the Linux kernel's netfilter: nf_tables component can be exploited to achieve local privilege escalation.
-
-Addition and removal of rules from chain bindings within the same transaction causes leads to use-after-free.
-
-We recommend upgrading past commit f15f29fd4779be8a418b66e9d52979bb6d6c2325.
-
-</description>
-      <guid isPermaLink="false">CVE-2023-5197|2024-08-02T07:52:08.142Z</guid>
-      <pubDate>Tue, 26 Sep 2023 10:04:37 +0000</pubDate>
-    </item>
-    <item>
-      <title>CVE-2023-3776|2024-08-02T07:08:49.975Z -- linux -- kernel
-</title>
-      <link>https://www.cve.org/CVERecord?id=CVE-2023-3776</link>
-      <description>A use-after-free vulnerability in the Linux kernel's net/sched: cls_fw component can be exploited to achieve local privilege escalation.
-
-If tcf_change_indev() fails, fw_set_parms() will immediately return an error after incrementing or decrementing the reference counter in tcf_bind_filter(). If an attacker can control the reference counter and set it to zero, they can cause the reference to be freed, leading to a use-after-free vulnerability.
-
-We recommend upgrading past commit 0323bce598eea038714f941ce2b22541c46d488f.
-
-</description>
-      <guid isPermaLink="false">CVE-2023-3776|2024-08-02T07:08:49.975Z</guid>
-      <pubDate>Fri, 21 Jul 2023 20:49:53 +0000</pubDate>
-    </item>
-    <item>
-      <title>CVE-2023-6931|2024-08-02T08:42:08.665Z -- linux -- kernel
-</title>
-      <link>https://www.cve.org/CVERecord?id=CVE-2023-6931</link>
-      <description>A heap out-of-bounds write vulnerability in the Linux kernel's Performance Events system component can be exploited to achieve local privilege escalation.
-
-A perf_event's read_size can overflow, leading to an heap out-of-bounds increment or write in perf_read_group().
-
-We recommend upgrading past commit 382c27f4ed28f803b1f1473ac2d8db0afc795a1b.
-
-</description>
-      <guid isPermaLink="false">CVE-2023-6931|2024-08-02T08:42:08.665Z</guid>
-      <pubDate>Tue, 19 Dec 2023 14:09:14 +0000</pubDate>
-    </item>
-    <item>
-      <title>CVE-2023-4244|2024-08-02T07:24:03.697Z -- linux -- kernel
-</title>
-      <link>https://www.cve.org/CVERecord?id=CVE-2023-4244</link>
-      <description>A use-after-free vulnerability in the Linux kernel's netfilter: nf_tables component can be exploited to achieve local privilege escalation.
-
-Due to a race condition between nf_tables netlink control plane transaction and nft_set element garbage collection, it is possible to underflow the reference counter causing a use-after-free vulnerability.
-
-We recommend upgrading past commit 3e91b0ebd994635df2346353322ac51ce84ce6d8.
-
-</description>
-      <guid isPermaLink="false">CVE-2023-4244|2024-08-02T07:24:03.697Z</guid>
-      <pubDate>Wed, 06 Sep 2023 13:53:24 +0000</pubDate>
     </item>
     <item>
       <title>CVE-2023-3389|2024-08-02T06:55:02.753Z -- linux -- kernel
@@ -304,18 +304,18 @@ We recommend upgrading past commit ef7dfac51d8ed961b742218f526bd589f3900a59 (471
       <pubDate>Wed, 28 Jun 2023 19:33:55 +0000</pubDate>
     </item>
     <item>
-      <title>CVE-2023-4921|2024-08-02T07:44:52.210Z -- linux -- kernel
+      <title>CVE-2023-3611|2024-08-02T07:01:57.288Z -- linux -- kernel
 </title>
-      <link>https://www.cve.org/CVERecord?id=CVE-2023-4921</link>
-      <description>A use-after-free vulnerability in the Linux kernel's net/sched: sch_qfq component can be exploited to achieve local privilege escalation.
+      <link>https://www.cve.org/CVERecord?id=CVE-2023-3611</link>
+      <description>An out-of-bounds write vulnerability in the Linux kernel's net/sched: sch_qfq component can be exploited to achieve local privilege escalation.
 
-When the plug qdisc is used as a class of the qfq qdisc, sending network packets triggers use-after-free in qfq_dequeue() due to the incorrect .peek handler of sch_plug and lack of error checking in agg_dequeue().
+The qfq_change_agg() function in net/sched/sch_qfq.c allows an out-of-bounds write because lmax is updated according to packet sizes without bounds checks.
 
-We recommend upgrading past commit 8fc134fee27f2263988ae38920bc03da416b03d8.
+We recommend upgrading past commit 3e337087c3b5805fe0b8a46ba622a962880b5d64.
 
 </description>
-      <guid isPermaLink="false">CVE-2023-4921|2024-08-02T07:44:52.210Z</guid>
-      <pubDate>Tue, 12 Sep 2023 19:45:19 +0000</pubDate>
+      <guid isPermaLink="false">CVE-2023-3611|2024-08-02T07:01:57.288Z</guid>
+      <pubDate>Fri, 21 Jul 2023 20:49:10 +0000</pubDate>
     </item>
   </channel>
 </rss>
