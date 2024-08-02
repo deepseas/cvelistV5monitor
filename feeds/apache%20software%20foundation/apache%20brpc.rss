@@ -6,7 +6,7 @@
     <description>The latest CVEs for Apache Software Foundation -- Apache bRPC</description>
     <docs>http://www.rssboard.org/rss-specification</docs>
     <generator>python-feedgen</generator>
-    <lastBuildDate>Fri, 02 Aug 2024 16:25:02 +0000</lastBuildDate>
+    <lastBuildDate>Fri, 02 Aug 2024 17:22:59 +0000</lastBuildDate>
     <ttl>60</ttl>
     <item>
       <title>CVE-2023-31039|2024-08-02T14:45:25.629Z -- apache%20software%20foundation -- apache%20brpc
@@ -20,26 +20,6 @@ Solution:
 2. If you are using an old version of bRPC and hard to upgrade, you can apply this patch:  https://github.com/apache/brpc/pull/2218 https://github.com/apache/brpc/pull/2218 </description>
       <guid isPermaLink="false">CVE-2023-31039|2024-08-02T14:45:25.629Z</guid>
       <pubDate>Mon, 08 May 2023 08:57:14 +0000</pubDate>
-    </item>
-    <item>
-      <title>CVE-2024-23452|2024-07-05T17:20:45.348Z -- apache%20software%20foundation -- apache%20brpc</title>
-      <link>https://www.cve.org/CVERecord?id=CVE-2024-23452</link>
-      <description>Request smuggling vulnerability in HTTP server in Apache bRPC 0.9.5~1.7.0 on all platforms allows attacker to smuggle request.
-
-Vulnerability Cause Description：
-
-The http_parser does not comply with the RFC-7230 HTTP 1.1 specification.
-
-Attack scenario:
-If a message is received with both a Transfer-Encoding and a Content-Length header field, such a message might indicate an attempt to perform request smuggling or response splitting.
-One particular attack scenario is that a bRPC made http server on the backend receiving requests in one persistent connection from frontend server that uses TE to parse request with the logic that 'chunk' is contained in the TE field. in that case an attacker can smuggle a request into the connection to the backend server. 
-
-Solution:
-You can choose one solution from below:
-1. Upgrade bRPC to version 1.8.0, which fixes this issue. Download link:  https://github.com/apache/brpc/releases/tag/1.8.0
- 2. Apply this patch:  https://github.com/apache/brpc/pull/2518</description>
-      <guid isPermaLink="false">CVE-2024-23452|2024-07-05T17:20:45.348Z</guid>
-      <pubDate>Thu, 08 Feb 2024 09:00:04 +0000</pubDate>
     </item>
     <item>
       <title>CVE-2024-23452|2024-02-08T09:00:04.809Z -- apache%20software%20foundation -- apache%20brpc</title>
@@ -59,6 +39,26 @@ You can choose one solution from below:
 1. Upgrade bRPC to version 1.8.0, which fixes this issue. Download link:  https://github.com/apache/brpc/releases/tag/1.8.0
  2. Apply this patch:  https://github.com/apache/brpc/pull/2518</description>
       <guid isPermaLink="false">CVE-2024-23452|2024-02-08T09:00:04.809Z</guid>
+      <pubDate>Thu, 08 Feb 2024 09:00:04 +0000</pubDate>
+    </item>
+    <item>
+      <title>CVE-2024-23452|2024-07-05T17:20:45.348Z -- apache%20software%20foundation -- apache%20brpc</title>
+      <link>https://www.cve.org/CVERecord?id=CVE-2024-23452</link>
+      <description>Request smuggling vulnerability in HTTP server in Apache bRPC 0.9.5~1.7.0 on all platforms allows attacker to smuggle request.
+
+Vulnerability Cause Description：
+
+The http_parser does not comply with the RFC-7230 HTTP 1.1 specification.
+
+Attack scenario:
+If a message is received with both a Transfer-Encoding and a Content-Length header field, such a message might indicate an attempt to perform request smuggling or response splitting.
+One particular attack scenario is that a bRPC made http server on the backend receiving requests in one persistent connection from frontend server that uses TE to parse request with the logic that 'chunk' is contained in the TE field. in that case an attacker can smuggle a request into the connection to the backend server. 
+
+Solution:
+You can choose one solution from below:
+1. Upgrade bRPC to version 1.8.0, which fixes this issue. Download link:  https://github.com/apache/brpc/releases/tag/1.8.0
+ 2. Apply this patch:  https://github.com/apache/brpc/pull/2518</description>
+      <guid isPermaLink="false">CVE-2024-23452|2024-07-05T17:20:45.348Z</guid>
       <pubDate>Thu, 08 Feb 2024 09:00:04 +0000</pubDate>
     </item>
   </channel>

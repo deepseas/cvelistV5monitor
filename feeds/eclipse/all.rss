@@ -6,7 +6,7 @@
     <description>The latest CVEs for Eclipse -- all products</description>
     <docs>http://www.rssboard.org/rss-specification</docs>
     <generator>python-feedgen</generator>
-    <lastBuildDate>Fri, 02 Aug 2024 16:24:41 +0000</lastBuildDate>
+    <lastBuildDate>Fri, 02 Aug 2024 17:22:38 +0000</lastBuildDate>
     <ttl>60</ttl>
     <item>
       <title>CVE-2023-3592|2024-08-02T07:01:56.716Z -- eclipse -- mosquitto
@@ -34,12 +34,31 @@
       <pubDate>Tue, 18 Apr 2023 20:30:20 +0000</pubDate>
     </item>
     <item>
+      <title>CVE-2023-36479|2024-08-02T16:45:57.116Z -- eclipse -- jetty.project
+</title>
+      <link>https://www.cve.org/CVERecord?id=CVE-2023-36479</link>
+      <description>Eclipse Jetty Canonical Repository is the canonical repository for the Jetty project. Users of the CgiServlet with a very specific command structure may have the wrong command executed. If a user sends a request to a org.eclipse.jetty.servlets.CGI Servlet for a binary with a space in its name, the servlet will escape the command by wrapping it in quotation marks. This wrapped command, plus an optional command prefix, will then be executed through a call to Runtime.exec. If the original binary name provided by the user contains a quotation mark followed by a space, the resulting command line will contain multiple tokens instead of one. This issue was patched in version 9.4.52, 10.0.16, 11.0.16 and 12.0.0-beta2.
+</description>
+      <guid isPermaLink="false">CVE-2023-36479|2024-08-02T16:45:57.116Z</guid>
+      <pubDate>Fri, 15 Sep 2023 18:37:35 +0000</pubDate>
+    </item>
+    <item>
       <title>CVE-2023-26049|2024-08-02T11:39:06.483Z -- eclipse -- jetty.project
 </title>
       <link>https://www.cve.org/CVERecord?id=CVE-2023-26049</link>
       <description>Jetty is a java based web server and servlet engine. Nonstandard cookie parsing in Jetty may allow an attacker to smuggle cookies within other cookies, or otherwise perform unintended behavior by tampering with the cookie parsing mechanism. If Jetty sees a cookie VALUE that starts with `"` (double quote), it will continue to read the cookie string until it sees a closing quote -- even if a semicolon is encountered. So, a cookie header such as: `DISPLAY_LANGUAGE="b; JSESSIONID=1337; c=d"` will be parsed as one cookie, with the name DISPLAY_LANGUAGE and a value of b; JSESSIONID=1337; c=d instead of 3 separate cookies. This has security implications because if, say, JSESSIONID is an HttpOnly cookie, and the DISPLAY_LANGUAGE cookie value is rendered on the page, an attacker can smuggle the JSESSIONID cookie into the DISPLAY_LANGUAGE cookie and thereby exfiltrate it. This is significant when an intermediary is enacting some policy based on cookies, so a smuggled cookie can bypass that policy yet still be seen by the Jetty server or its logging system. This issue has been addressed in versions 9.4.51, 10.0.14, 11.0.14, and 12.0.0.beta0 and users are advised to upgrade. There are no known workarounds for this issue.</description>
       <guid isPermaLink="false">CVE-2023-26049|2024-08-02T11:39:06.483Z</guid>
       <pubDate>Tue, 18 Apr 2023 20:35:36 +0000</pubDate>
+    </item>
+    <item>
+      <title>CVE-2023-36478|2024-08-02T16:45:57.038Z -- eclipse -- jetty.project
+</title>
+      <link>https://www.cve.org/CVERecord?id=CVE-2023-36478</link>
+      <description>Eclipse Jetty provides a web server and servlet container. In versions 11.0.0 through 11.0.15, 10.0.0 through 10.0.15, and 9.0.0 through 9.4.52, an integer overflow in `MetaDataBuilder.checkSize` allows for HTTP/2 HPACK header values to
+exceed their size limit. `MetaDataBuilder.java` determines if a header name or value exceeds the size limit, and throws an exception if the limit is exceeded. However, when length is very large and huffman is true, the multiplication by 4 in line 295
+will overflow, and length will become negative. `(_size+length)` will now be negative, and the check on line 296 will not be triggered. Furthermore, `MetaDataBuilder.checkSize` allows for user-entered HPACK header value sizes to be negative, potentially leading to a very large buffer allocation later on when the user-entered size is multiplied by 2. This means that if a user provides a negative length value (or, more precisely, a length value which, when multiplied by the 4/3 fudge factor, is negative), and this length value is a very large positive number when multiplied by 2, then the user can cause a very large buffer to be allocated on the server. Users of HTTP/2 can be impacted by a remote denial of service attack. The issue has been fixed in versions 11.0.16, 10.0.16, and 9.4.53. There are no known workarounds.</description>
+      <guid isPermaLink="false">CVE-2023-36478|2024-08-02T16:45:57.038Z</guid>
+      <pubDate>Tue, 10 Oct 2023 16:53:07 +0000</pubDate>
     </item>
     <item>
       <title>CVE-2023-5632|2024-08-02T08:07:32.289Z -- eclipse -- mosquitto

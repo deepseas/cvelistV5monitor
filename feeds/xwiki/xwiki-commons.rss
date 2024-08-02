@@ -6,7 +6,7 @@
     <description>The latest CVEs for xwiki -- xwiki-commons</description>
     <docs>http://www.rssboard.org/rss-specification</docs>
     <generator>python-feedgen</generator>
-    <lastBuildDate>Fri, 02 Aug 2024 16:24:41 +0000</lastBuildDate>
+    <lastBuildDate>Fri, 02 Aug 2024 17:22:38 +0000</lastBuildDate>
     <ttl>60</ttl>
     <item>
       <title>CVE-2023-26055|2024-08-02T11:39:06.565Z -- xwiki -- xwiki-commons
@@ -16,6 +16,14 @@
 </description>
       <guid isPermaLink="false">CVE-2023-26055|2024-08-02T11:39:06.565Z</guid>
       <pubDate>Thu, 02 Mar 2023 18:48:16 +0000</pubDate>
+    </item>
+    <item>
+      <title>CVE-2023-36471|2024-08-02T16:45:56.818Z -- xwiki -- xwiki-commons
+</title>
+      <link>https://www.cve.org/CVERecord?id=CVE-2023-36471</link>
+      <description>Xwiki commons is the common modules used by other XWiki top level projects. The HTML sanitizer that is included in XWiki since version 14.6RC1 allowed form and input HTML tags. In the context of XWiki, this allows an attacker without script right to either create forms that can be used for phishing attacks or also in the context of a sheet, the attacker could add an input like `{{html}}&lt;input type="hidden" name="content" value="{{groovy}}println(&amp;quot;Hello from Groovy!&amp;quot;)" /&gt;{{/html}}` that would allow remote code execution when it is submitted by an admin (the sheet is rendered as part of the edit form). The attacker would need to ensure that the edit form looks plausible, though, which can be non-trivial as without script right the attacker cannot display the regular content of the document. This has been patched in XWiki 14.10.6 and 15.2RC1 by removing the central form-related tags from the list of allowed tags. Users are advised to upgrade. As a workaround an admin can manually disallow the tags by adding `form, input, select, textarea, button` to the configuration option `xml.htmlElementSanitizer.forbidTags` in the `xwiki.properties` configuration file.</description>
+      <guid isPermaLink="false">CVE-2023-36471|2024-08-02T16:45:56.818Z</guid>
+      <pubDate>Thu, 29 Jun 2023 19:44:27 +0000</pubDate>
     </item>
     <item>
       <title>CVE-2023-29201|2024-08-02T14:00:16.065Z -- xwiki -- xwiki-commons
@@ -43,17 +51,17 @@
       <pubDate>Tue, 09 May 2023 12:53:59 +0000</pubDate>
     </item>
     <item>
-      <title>CVE-2024-31996|2024-06-04T17:36:19.539Z -- xwiki -- xwiki-commons</title>
-      <link>https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2024-31996</link>
-      <description>XWiki Platform is a generic wiki platform. Starting in version 3.0.1 and prior to versions 4.10.19, 15.5.4, and 15.10-rc-1, the HTML escaping of escaping tool that is used in XWiki doesn't escape `{`, which, when used in certain places, allows XWiki syntax injection and thereby remote code execution. The vulnerability has been fixed in XWiki 14.10.19, 15.5.5, and 15.9 RC1. Apart from upgrading, there is no generic workaround. However, replacing `$escapetool.html` by `$escapetool.xml` in XWiki documents fixes the vulnerability. In a standard XWiki installation, the maintainers are only aware of the document `Panels.PanelLayoutUpdate` that exposes this vulnerability, patching this document is thus a workaround. Any extension could expose this vulnerability and might thus require patching, too.</description>
-      <guid isPermaLink="false">CVE-2024-31996|2024-06-04T17:36:19.539Z</guid>
-      <pubDate>Wed, 10 Apr 2024 20:46:19 +0000</pubDate>
-    </item>
-    <item>
       <title>CVE-2024-31996|2024-08-02T01:59:50.900Z -- xwiki -- xwiki-commons</title>
       <link>https://www.cve.org/CVERecord?id=CVE-2024-31996</link>
       <description>XWiki Platform is a generic wiki platform. Starting in version 3.0.1 and prior to versions 4.10.19, 15.5.4, and 15.10-rc-1, the HTML escaping of escaping tool that is used in XWiki doesn't escape `{`, which, when used in certain places, allows XWiki syntax injection and thereby remote code execution. The vulnerability has been fixed in XWiki 14.10.19, 15.5.5, and 15.9 RC1. Apart from upgrading, there is no generic workaround. However, replacing `$escapetool.html` by `$escapetool.xml` in XWiki documents fixes the vulnerability. In a standard XWiki installation, the maintainers are only aware of the document `Panels.PanelLayoutUpdate` that exposes this vulnerability, patching this document is thus a workaround. Any extension could expose this vulnerability and might thus require patching, too.</description>
       <guid isPermaLink="false">CVE-2024-31996|2024-08-02T01:59:50.900Z</guid>
+      <pubDate>Wed, 10 Apr 2024 20:46:19 +0000</pubDate>
+    </item>
+    <item>
+      <title>CVE-2024-31996|2024-06-04T17:36:19.539Z -- xwiki -- xwiki-commons</title>
+      <link>https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2024-31996</link>
+      <description>XWiki Platform is a generic wiki platform. Starting in version 3.0.1 and prior to versions 4.10.19, 15.5.4, and 15.10-rc-1, the HTML escaping of escaping tool that is used in XWiki doesn't escape `{`, which, when used in certain places, allows XWiki syntax injection and thereby remote code execution. The vulnerability has been fixed in XWiki 14.10.19, 15.5.5, and 15.9 RC1. Apart from upgrading, there is no generic workaround. However, replacing `$escapetool.html` by `$escapetool.xml` in XWiki documents fixes the vulnerability. In a standard XWiki installation, the maintainers are only aware of the document `Panels.PanelLayoutUpdate` that exposes this vulnerability, patching this document is thus a workaround. Any extension could expose this vulnerability and might thus require patching, too.</description>
+      <guid isPermaLink="false">CVE-2024-31996|2024-06-04T17:36:19.539Z</guid>
       <pubDate>Wed, 10 Apr 2024 20:46:19 +0000</pubDate>
     </item>
   </channel>
