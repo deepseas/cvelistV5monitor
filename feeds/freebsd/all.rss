@@ -6,7 +6,7 @@
     <description>The latest CVEs for FreeBSD -- all products</description>
     <docs>http://www.rssboard.org/rss-specification</docs>
     <generator>python-feedgen</generator>
-    <lastBuildDate>Fri, 02 Aug 2024 07:21:59 +0000</lastBuildDate>
+    <lastBuildDate>Fri, 02 Aug 2024 08:24:19 +0000</lastBuildDate>
     <ttl>60</ttl>
     <item>
       <title>CVE-2023-3107|2024-08-02T06:48:07.287Z -- freebsd -- freebsd
@@ -18,6 +18,24 @@
       <pubDate>Tue, 01 Aug 2023 22:01:07 +0000</pubDate>
     </item>
     <item>
+      <title>CVE-2023-5370|2024-08-02T07:59:43.284Z -- freebsd -- freebsd
+</title>
+      <link>https://www.cve.org/CVERecord?id=CVE-2023-5370</link>
+      <description>On CPU 0 the check for the SMCCC workaround is called before SMCCC support has been initialized. This resulted in no speculative execution workarounds being installed on CPU 0.</description>
+      <guid isPermaLink="false">CVE-2023-5370|2024-08-02T07:59:43.284Z</guid>
+      <pubDate>Wed, 04 Oct 2023 03:59:45 +0000</pubDate>
+    </item>
+    <item>
+      <title>CVE-2023-5369|2024-08-02T07:59:43.255Z -- freebsd -- freebsd
+</title>
+      <link>https://www.cve.org/CVERecord?id=CVE-2023-5369</link>
+      <description>Before correction, the copy_file_range system call checked only for the CAP_READ and CAP_WRITE capabilities on the input and output file descriptors, respectively.  Using an offset is logically equivalent to seeking, and the system call must additionally require the CAP_SEEK capability.
+
+This incorrect privilege check enabled sandboxed processes with only read or write but no seek capability on a file descriptor to read data from or write data to an arbitrary location within the file corresponding to that file descriptor.</description>
+      <guid isPermaLink="false">CVE-2023-5369|2024-08-02T07:59:43.255Z</guid>
+      <pubDate>Wed, 04 Oct 2023 03:48:53 +0000</pubDate>
+    </item>
+    <item>
       <title>CVE-2023-0751|2024-08-02T05:24:34.119Z -- freebsd -- freebsd
 </title>
       <link>https://www.cve.org/CVERecord?id=CVE-2023-0751</link>
@@ -25,6 +43,33 @@
 </description>
       <guid isPermaLink="false">CVE-2023-0751|2024-08-02T05:24:34.119Z</guid>
       <pubDate>Wed, 08 Feb 2023 19:25:01 +0000</pubDate>
+    </item>
+    <item>
+      <title>CVE-2023-5368|2024-08-02T07:59:43.658Z -- freebsd -- freebsd
+</title>
+      <link>https://www.cve.org/CVERecord?id=CVE-2023-5368</link>
+      <description>On an msdosfs filesystem, the 'truncate' or 'ftruncate' system calls under certain circumstances populate the additional space in the file with unallocated data from the underlying disk device, rather than zero bytes.
+
+This may permit a user with write access to files on a msdosfs filesystem to read unintended data (e.g. from a previously deleted file).
+
+</description>
+      <guid isPermaLink="false">CVE-2023-5368|2024-08-02T07:59:43.658Z</guid>
+      <pubDate>Wed, 04 Oct 2023 03:38:09 +0000</pubDate>
+    </item>
+    <item>
+      <title>CVE-2023-4809|2024-08-02T07:38:00.699Z -- freebsd -- freebsd
+</title>
+      <link>https://www.cve.org/CVERecord?id=CVE-2023-4809</link>
+      <description>In pf packet processing with a 'scrub fragment reassemble' rule, a packet containing multiple IPv6 fragment headers would be reassembled, and then immediately processed.  That is, a packet with multiple fragment extension headers would not be recognized as the correct ultimate payload. Instead a packet with multiple IPv6 fragment headers would unexpectedly be interpreted as a fragmented packet, rather than as whatever the real payload is.
+
+
+
+
+As a result, IPv6 fragments may bypass pf firewall rules written on the assumption all fragments have been reassembled and, as a result, be forwarded or processed by the host.
+
+</description>
+      <guid isPermaLink="false">CVE-2023-4809|2024-08-02T07:38:00.699Z</guid>
+      <pubDate>Wed, 06 Sep 2023 19:26:45 +0000</pubDate>
     </item>
     <item>
       <title>CVE-2023-3494|2024-08-02T06:55:03.345Z -- freebsd -- freebsd
@@ -47,13 +92,20 @@
       <pubDate>Thu, 22 Jun 2023 16:37:51 +0000</pubDate>
     </item>
     <item>
-      <title>CVE-2022-23085|2024-07-17T18:56:18.267Z -- freebsd -- freebsd</title>
-      <link>https://www.cve.org/CVERecord?id=CVE-2022-23085</link>
-      <description>A user-provided integer option was passed to nmreq_copyin() without checking if it would overflow.  This insufficient bounds checking could lead to kernel memory corruption.
+      <title>CVE-2022-23088|2024-07-30T17:39:58.825Z -- freebsd -- freebsd</title>
+      <link>https://www.cve.org/CVERecord?id=CVE-2022-23088</link>
+      <description>The 802.11 beacon handling routine failed to validate the length of an IEEE 802.11s Mesh ID before copying it to a heap-allocated buffer.
 
-On systems configured to include netmap in their devfs_ruleset, a privileged process running in a jail can affect the host environment.</description>
-      <guid isPermaLink="false">CVE-2022-23085|2024-07-17T18:56:18.267Z</guid>
-      <pubDate>Thu, 15 Feb 2024 04:52:17 +0000</pubDate>
+While a FreeBSD Wi-Fi client is in scanning mode (i.e., not associated with a SSID) a malicious beacon frame may overwrite kernel memory, leading to remote code execution.</description>
+      <guid isPermaLink="false">CVE-2022-23088|2024-07-30T17:39:58.825Z</guid>
+      <pubDate>Thu, 15 Feb 2024 05:03:38 +0000</pubDate>
+    </item>
+    <item>
+      <title>CVE-2024-25940|2024-06-04T17:35:21.630Z -- freebsd -- freebsd</title>
+      <link>https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2024-25940</link>
+      <description>`bhyveload -h ` may be used to grant loader access to the  directory tree on the host.  Affected versions of bhyveload(8) do not make any attempt to restrict loader's access to , allowing the loader to read any file the host user has access to. In the bhyveload(8) model, the host supplies a userboot.so to boot with, but the loader scripts generally come from the guest image.  A maliciously crafted script could be used to exfiltrate sensitive data from the host accessible to the user running bhyhveload(8), which is often the system root.</description>
+      <guid isPermaLink="false">CVE-2024-25940|2024-06-04T17:35:21.630Z</guid>
+      <pubDate>Thu, 15 Feb 2024 04:21:57 +0000</pubDate>
     </item>
     <item>
       <title>CVE-2024-25941|2024-02-15T04:27:06.726Z -- freebsd -- freebsd</title>
@@ -65,20 +117,13 @@ Attacker can get information about TTYs allocated on the host or in other jails.
       <pubDate>Thu, 15 Feb 2024 04:27:06 +0000</pubDate>
     </item>
     <item>
-      <title>CVE-2024-25940|2024-06-04T17:35:21.630Z -- freebsd -- freebsd</title>
-      <link>https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2024-25940</link>
-      <description>`bhyveload -h ` may be used to grant loader access to the  directory tree on the host.  Affected versions of bhyveload(8) do not make any attempt to restrict loader's access to , allowing the loader to read any file the host user has access to. In the bhyveload(8) model, the host supplies a userboot.so to boot with, but the loader scripts generally come from the guest image.  A maliciously crafted script could be used to exfiltrate sensitive data from the host accessible to the user running bhyhveload(8), which is often the system root.</description>
-      <guid isPermaLink="false">CVE-2024-25940|2024-06-04T17:35:21.630Z</guid>
-      <pubDate>Thu, 15 Feb 2024 04:21:57 +0000</pubDate>
-    </item>
-    <item>
-      <title>CVE-2022-23088|2024-07-30T17:39:58.825Z -- freebsd -- freebsd</title>
-      <link>https://www.cve.org/CVERecord?id=CVE-2022-23088</link>
-      <description>The 802.11 beacon handling routine failed to validate the length of an IEEE 802.11s Mesh ID before copying it to a heap-allocated buffer.
+      <title>CVE-2022-23085|2024-07-17T18:56:18.267Z -- freebsd -- freebsd</title>
+      <link>https://www.cve.org/CVERecord?id=CVE-2022-23085</link>
+      <description>A user-provided integer option was passed to nmreq_copyin() without checking if it would overflow.  This insufficient bounds checking could lead to kernel memory corruption.
 
-While a FreeBSD Wi-Fi client is in scanning mode (i.e., not associated with a SSID) a malicious beacon frame may overwrite kernel memory, leading to remote code execution.</description>
-      <guid isPermaLink="false">CVE-2022-23088|2024-07-30T17:39:58.825Z</guid>
-      <pubDate>Thu, 15 Feb 2024 05:03:38 +0000</pubDate>
+On systems configured to include netmap in their devfs_ruleset, a privileged process running in a jail can affect the host environment.</description>
+      <guid isPermaLink="false">CVE-2022-23085|2024-07-17T18:56:18.267Z</guid>
+      <pubDate>Thu, 15 Feb 2024 04:52:17 +0000</pubDate>
     </item>
   </channel>
 </rss>
