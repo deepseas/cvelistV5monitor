@@ -6,7 +6,7 @@
     <description>The latest CVEs for FreeBSD -- FreeBSD</description>
     <docs>http://www.rssboard.org/rss-specification</docs>
     <generator>python-feedgen</generator>
-    <lastBuildDate>Fri, 02 Aug 2024 17:22:30 +0000</lastBuildDate>
+    <lastBuildDate>Fri, 02 Aug 2024 18:24:43 +0000</lastBuildDate>
     <ttl>60</ttl>
     <item>
       <title>CVE-2023-4809|2024-08-02T07:38:00.699Z -- freebsd -- freebsd
@@ -128,13 +128,20 @@ This incorrect privilege check enabled sandboxed processes with only read or wri
       <pubDate>Wed, 08 Nov 2023 08:52:26 +0000</pubDate>
     </item>
     <item>
-      <title>CVE-2022-23085|2024-07-17T18:56:18.267Z -- freebsd -- freebsd</title>
-      <link>https://www.cve.org/CVERecord?id=CVE-2022-23085</link>
-      <description>A user-provided integer option was passed to nmreq_copyin() without checking if it would overflow.  This insufficient bounds checking could lead to kernel memory corruption.
+      <title>CVE-2022-23088|2024-07-30T17:39:58.825Z -- freebsd -- freebsd</title>
+      <link>https://www.cve.org/CVERecord?id=CVE-2022-23088</link>
+      <description>The 802.11 beacon handling routine failed to validate the length of an IEEE 802.11s Mesh ID before copying it to a heap-allocated buffer.
 
-On systems configured to include netmap in their devfs_ruleset, a privileged process running in a jail can affect the host environment.</description>
-      <guid isPermaLink="false">CVE-2022-23085|2024-07-17T18:56:18.267Z</guid>
-      <pubDate>Thu, 15 Feb 2024 04:52:17 +0000</pubDate>
+While a FreeBSD Wi-Fi client is in scanning mode (i.e., not associated with a SSID) a malicious beacon frame may overwrite kernel memory, leading to remote code execution.</description>
+      <guid isPermaLink="false">CVE-2022-23088|2024-07-30T17:39:58.825Z</guid>
+      <pubDate>Thu, 15 Feb 2024 05:03:38 +0000</pubDate>
+    </item>
+    <item>
+      <title>CVE-2024-25940|2024-06-04T17:35:21.630Z -- freebsd -- freebsd</title>
+      <link>https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2024-25940</link>
+      <description>`bhyveload -h ` may be used to grant loader access to the  directory tree on the host.  Affected versions of bhyveload(8) do not make any attempt to restrict loader's access to , allowing the loader to read any file the host user has access to. In the bhyveload(8) model, the host supplies a userboot.so to boot with, but the loader scripts generally come from the guest image.  A maliciously crafted script could be used to exfiltrate sensitive data from the host accessible to the user running bhyhveload(8), which is often the system root.</description>
+      <guid isPermaLink="false">CVE-2024-25940|2024-06-04T17:35:21.630Z</guid>
+      <pubDate>Thu, 15 Feb 2024 04:21:57 +0000</pubDate>
     </item>
     <item>
       <title>CVE-2024-25941|2024-02-15T04:27:06.726Z -- freebsd -- freebsd</title>
@@ -146,20 +153,13 @@ Attacker can get information about TTYs allocated on the host or in other jails.
       <pubDate>Thu, 15 Feb 2024 04:27:06 +0000</pubDate>
     </item>
     <item>
-      <title>CVE-2024-25940|2024-06-04T17:35:21.630Z -- freebsd -- freebsd</title>
-      <link>https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2024-25940</link>
-      <description>`bhyveload -h ` may be used to grant loader access to the  directory tree on the host.  Affected versions of bhyveload(8) do not make any attempt to restrict loader's access to , allowing the loader to read any file the host user has access to. In the bhyveload(8) model, the host supplies a userboot.so to boot with, but the loader scripts generally come from the guest image.  A maliciously crafted script could be used to exfiltrate sensitive data from the host accessible to the user running bhyhveload(8), which is often the system root.</description>
-      <guid isPermaLink="false">CVE-2024-25940|2024-06-04T17:35:21.630Z</guid>
-      <pubDate>Thu, 15 Feb 2024 04:21:57 +0000</pubDate>
-    </item>
-    <item>
-      <title>CVE-2022-23088|2024-07-30T17:39:58.825Z -- freebsd -- freebsd</title>
-      <link>https://www.cve.org/CVERecord?id=CVE-2022-23088</link>
-      <description>The 802.11 beacon handling routine failed to validate the length of an IEEE 802.11s Mesh ID before copying it to a heap-allocated buffer.
+      <title>CVE-2022-23085|2024-07-17T18:56:18.267Z -- freebsd -- freebsd</title>
+      <link>https://www.cve.org/CVERecord?id=CVE-2022-23085</link>
+      <description>A user-provided integer option was passed to nmreq_copyin() without checking if it would overflow.  This insufficient bounds checking could lead to kernel memory corruption.
 
-While a FreeBSD Wi-Fi client is in scanning mode (i.e., not associated with a SSID) a malicious beacon frame may overwrite kernel memory, leading to remote code execution.</description>
-      <guid isPermaLink="false">CVE-2022-23088|2024-07-30T17:39:58.825Z</guid>
-      <pubDate>Thu, 15 Feb 2024 05:03:38 +0000</pubDate>
+On systems configured to include netmap in their devfs_ruleset, a privileged process running in a jail can affect the host environment.</description>
+      <guid isPermaLink="false">CVE-2022-23085|2024-07-17T18:56:18.267Z</guid>
+      <pubDate>Thu, 15 Feb 2024 04:52:17 +0000</pubDate>
     </item>
   </channel>
 </rss>

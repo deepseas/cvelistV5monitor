@@ -6,33 +6,33 @@
     <description>The latest CVEs for Significant-Gravitas -- Auto-GPT</description>
     <docs>http://www.rssboard.org/rss-specification</docs>
     <generator>python-feedgen</generator>
-    <lastBuildDate>Wed, 12 Jun 2024 11:24:39 +0000</lastBuildDate>
+    <lastBuildDate>Fri, 02 Aug 2024 18:25:08 +0000</lastBuildDate>
     <ttl>60</ttl>
     <item>
-      <title>CVE-2023-37274|2023-07-13T22:33:41.290Z -- significant-gravitas -- auto-gpt
+      <title>CVE-2023-37273|2024-08-02T17:09:34.123Z -- significant-gravitas -- auto-gpt
 </title>
-      <link>https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2023-37274</link>
+      <link>https://www.cve.org/CVERecord?id=CVE-2023-37273</link>
+      <description>Auto-GPT is an experimental open-source application showcasing the capabilities of the GPT-4 language model. Running Auto-GPT version prior to 0.4.3 by cloning the git repo and executing `docker compose run auto-gpt` in the repo root uses a different docker-compose.yml file from the one suggested in the official docker set up instructions. The docker-compose.yml file located in the repo root mounts itself into the docker container without write protection. This means that if malicious custom python code is executed via the `execute_python_file` and `execute_python_code` commands, it can overwrite the docker-compose.yml file and abuse it to gain control of the host system the next time Auto-GPT is started. The issue has been patched in version 0.4.3.</description>
+      <guid isPermaLink="false">CVE-2023-37273|2024-08-02T17:09:34.123Z</guid>
+      <pubDate>Thu, 13 Jul 2023 22:33:16 +0000</pubDate>
+    </item>
+    <item>
+      <title>CVE-2023-37274|2024-08-02T17:09:34.085Z -- significant-gravitas -- auto-gpt
+</title>
+      <link>https://www.cve.org/CVERecord?id=CVE-2023-37274</link>
       <description>Auto-GPT is an experimental open-source application showcasing the capabilities of the GPT-4 language model. When Auto-GPT is executed directly on the host system via the provided run.sh or run.bat files, custom Python code execution is sandboxed using a temporary dedicated docker container which should not have access to any files outside of the Auto-GPT workspace directory.
 Before v0.4.3, the `execute_python_code` command (introduced in v0.4.1) does not sanitize the `basename` arg before writing LLM-supplied code to a file with an LLM-supplied name. This allows for a path traversal attack that can overwrite any .py file outside the workspace directory by specifying a `basename` such as `../../../main.py`. This can further be abused to achieve arbitrary code execution on the host running Auto-GPT by e.g. overwriting autogpt/main.py which will be executed outside of the docker environment meant to sandbox custom python code execution the next time Auto-GPT is started. The issue has been patched in version 0.4.3. As a workaround, the risk introduced by this vulnerability can be remediated by running Auto-GPT in a virtual machine, or another environment in which damage to files or corruption of the program is not a critical problem.</description>
-      <guid isPermaLink="false">CVE-2023-37274|2023-07-13T22:33:41.290Z</guid>
+      <guid isPermaLink="false">CVE-2023-37274|2024-08-02T17:09:34.085Z</guid>
       <pubDate>Thu, 13 Jul 2023 22:33:41 +0000</pubDate>
     </item>
     <item>
-      <title>CVE-2023-37275|2023-07-13T22:34:45.809Z -- significant-gravitas -- auto-gpt
+      <title>CVE-2023-37275|2024-08-02T17:09:33.632Z -- significant-gravitas -- auto-gpt
 </title>
-      <link>https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2023-37275</link>
+      <link>https://www.cve.org/CVERecord?id=CVE-2023-37275</link>
       <description>Auto-GPT is an experimental open-source application showcasing the capabilities of the GPT-4 language model. The Auto-GPT command line UI makes heavy use of color-coded print statements to signify different types of system messages to the user, including messages that are crucial for the user to review and control which commands should be executed. Before v0.4.3, it was possible for a malicious external resource (such as a website browsed by Auto-GPT) to cause misleading messages to be printed to the console by getting the LLM to regurgitate JSON encoded ANSI escape sequences (`\u001b[`). These escape sequences were JSON decoded and printed to the console as part of the model's "thinking process". The issue has been patched in release version 0.4.3.
 </description>
-      <guid isPermaLink="false">CVE-2023-37275|2023-07-13T22:34:45.809Z</guid>
+      <guid isPermaLink="false">CVE-2023-37275|2024-08-02T17:09:33.632Z</guid>
       <pubDate>Thu, 13 Jul 2023 22:34:45 +0000</pubDate>
-    </item>
-    <item>
-      <title>CVE-2023-37273|2023-07-13T22:33:16.889Z -- significant-gravitas -- auto-gpt
-</title>
-      <link>https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2023-37273</link>
-      <description>Auto-GPT is an experimental open-source application showcasing the capabilities of the GPT-4 language model. Running Auto-GPT version prior to 0.4.3 by cloning the git repo and executing `docker compose run auto-gpt` in the repo root uses a different docker-compose.yml file from the one suggested in the official docker set up instructions. The docker-compose.yml file located in the repo root mounts itself into the docker container without write protection. This means that if malicious custom python code is executed via the `execute_python_file` and `execute_python_code` commands, it can overwrite the docker-compose.yml file and abuse it to gain control of the host system the next time Auto-GPT is started. The issue has been patched in version 0.4.3.</description>
-      <guid isPermaLink="false">CVE-2023-37273|2023-07-13T22:33:16.889Z</guid>
-      <pubDate>Thu, 13 Jul 2023 22:33:16 +0000</pubDate>
     </item>
   </channel>
 </rss>

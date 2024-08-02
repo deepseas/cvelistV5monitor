@@ -6,7 +6,7 @@
     <description>The latest CVEs for zopefoundation -- all products</description>
     <docs>http://www.rssboard.org/rss-specification</docs>
     <generator>python-feedgen</generator>
-    <lastBuildDate>Fri, 02 Aug 2024 17:23:01 +0000</lastBuildDate>
+    <lastBuildDate>Fri, 02 Aug 2024 18:24:56 +0000</lastBuildDate>
     <ttl>60</ttl>
     <item>
       <title>CVE-2023-36814|2024-08-02T17:01:09.673Z -- zopefoundation -- products.cmfcore
@@ -15,6 +15,14 @@
       <description>Products.CMFCore are the key framework services for the Zope Content Management Framework (CMF). The use of Python's marshal module to handle unchecked input in a public method on `PortalFolder` objects can lead to an unauthenticated denial of service and crash situation. The code in question is exposed by all portal software built on top of `Products.CMFCore`, such as Plone. All deployments are vulnerable. The code has been fixed in `Products.CMFCore` version 3.2.</description>
       <guid isPermaLink="false">CVE-2023-36814|2024-08-02T17:01:09.673Z</guid>
       <pubDate>Mon, 03 Jul 2023 16:48:36 +0000</pubDate>
+    </item>
+    <item>
+      <title>CVE-2023-37271|2024-08-02T17:09:33.893Z -- zopefoundation -- restrictedpython
+</title>
+      <link>https://www.cve.org/CVERecord?id=CVE-2023-37271</link>
+      <description>RestrictedPython is a tool that helps to define a subset of the Python language which allows users to provide a program input into a trusted environment. RestrictedPython does not check access to stack frames and their attributes. Stack frames are accessible within at least generators and generator expressions, which are allowed inside RestrictedPython. Prior to versions 6.1 and 5.3, an attacker with access to a RestrictedPython environment can write code that gets the current stack frame in a generator and then walk the stack all the way beyond the RestrictedPython invocation boundary, thus breaking out of the restricted sandbox and potentially allowing arbitrary code execution in the Python interpreter. All RestrictedPython deployments that allow untrusted users to write Python code in the RestrictedPython environment are at risk. In terms of Zope and Plone, this would mean deployments where the administrator allows untrusted users to create and/or edit objects of type `Script (Python)`, `DTML Method`, `DTML Document` or `Zope Page Template`. This is a non-default configuration and likely to be extremely rare. The problem has been fixed in versions 6.1 and 5.3.</description>
+      <guid isPermaLink="false">CVE-2023-37271|2024-08-02T17:09:33.893Z</guid>
+      <pubDate>Tue, 11 Jul 2023 17:14:11 +0000</pubDate>
     </item>
     <item>
       <title>CVE-2024-24811|2024-02-07T14:54:41.601Z -- zopefoundation -- products.sqlalchemyda</title>

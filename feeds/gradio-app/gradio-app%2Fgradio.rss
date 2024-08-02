@@ -6,7 +6,7 @@
     <description>The latest CVEs for gradio-app -- gradio-app/gradio</description>
     <docs>http://www.rssboard.org/rss-specification</docs>
     <generator>python-feedgen</generator>
-    <lastBuildDate>Fri, 02 Aug 2024 17:22:51 +0000</lastBuildDate>
+    <lastBuildDate>Fri, 02 Aug 2024 18:25:05 +0000</lastBuildDate>
     <ttl>60</ttl>
     <item>
       <title>CVE-2023-6572|2024-08-02T08:35:14.891Z -- gradio-app -- gradio-app%2Fgradio
@@ -17,38 +17,178 @@
       <pubDate>Thu, 14 Dec 2023 13:14:16 +0000</pubDate>
     </item>
     <item>
-      <title>CVE-2024-2206|2024-08-01T19:03:39.317Z -- gradio-app -- gradio-app%2Fgradio</title>
-      <link>https://www.cve.org/CVERecord?id=CVE-2024-2206</link>
-      <description>An SSRF vulnerability exists in the gradio-app/gradio due to insufficient validation of user-supplied URLs in the `/proxy` route. Attackers can exploit this vulnerability by manipulating the `self.replica_urls` set through the `X-Direct-Url` header in requests to the `/` and `/config` routes, allowing the addition of arbitrary URLs for proxying. This flaw enables unauthorized proxying of requests and potential access to internal endpoints within the Hugging Face space. The issue arises from the application's inadequate checking of safe URLs in the `build_proxy_request` function.</description>
-      <guid isPermaLink="false">CVE-2024-2206|2024-08-01T19:03:39.317Z</guid>
-      <pubDate>Wed, 27 Mar 2024 00:00:32 +0000</pubDate>
-    </item>
-    <item>
-      <title>CVE-2024-4940|2024-06-24T14:19:45.421Z -- gradio-app -- gradio-app%2Fgradio</title>
+      <title>CVE-2024-4940|2024-08-01T20:55:10.259Z -- gradio-app -- gradio-app%2Fgradio</title>
       <link>https://www.cve.org/CVERecord?id=CVE-2024-4940</link>
       <description>An open redirect vulnerability exists in the gradio-app/gradio, affecting the latest version. The vulnerability allows an attacker to redirect users to arbitrary websites, which can be exploited for phishing attacks, Cross-site Scripting (XSS), Server-Side Request Forgery (SSRF), amongst others. This issue is due to improper validation of user-supplied input in the handling of URLs. Attackers can exploit this vulnerability by crafting a malicious URL that, when processed by the application, redirects the user to an attacker-controlled web page.</description>
-      <guid isPermaLink="false">CVE-2024-4940|2024-06-24T14:19:45.421Z</guid>
+      <guid isPermaLink="false">CVE-2024-4940|2024-08-01T20:55:10.259Z</guid>
       <pubDate>Sat, 22 Jun 2024 05:23:49 +0000</pubDate>
     </item>
     <item>
-      <title>CVE-2024-1183|2024-06-20T18:25:39.204Z -- gradio-app -- gradio-app%2Fgradio</title>
-      <link>https://www.cve.org/CVERecord?id=CVE-2024-1183</link>
-      <description>An SSRF (Server-Side Request Forgery) vulnerability exists in the gradio-app/gradio repository, allowing attackers to scan and identify open ports within an internal network. By manipulating the 'file' parameter in a GET request, an attacker can discern the status of internal ports based on the presence of a 'Location' header or a 'File not allowed' error in the response.</description>
-      <guid isPermaLink="false">CVE-2024-1183|2024-06-20T18:25:39.204Z</guid>
-      <pubDate>Tue, 16 Apr 2024 00:00:14 +0000</pubDate>
+      <title>CVE-2024-4941|2024-08-01T20:55:10.306Z -- gradio-app -- gradio-app%2Fgradio</title>
+      <link>https://www.cve.org/CVERecord?id=CVE-2024-4941</link>
+      <description>A local file inclusion vulnerability exists in the JSON component of gradio-app/gradio version 4.25. The vulnerability arises from improper input validation in the `postprocess()` function within `gradio/components/json_component.py`, where a user-controlled string is parsed as JSON. If the parsed JSON object contains a `path` key, the specified file is moved to a temporary directory, making it possible to retrieve it later via the `/file=..` endpoint. This issue is due to the `processing_utils.move_files_to_cache()` function traversing any object passed to it, looking for a dictionary with a `path` key, and then copying the specified file to a temporary directory. The vulnerability can be exploited by an attacker to read files on the remote system, posing a significant security risk.</description>
+      <guid isPermaLink="false">CVE-2024-4941|2024-08-01T20:55:10.306Z</guid>
+      <pubDate>Thu, 06 Jun 2024 17:55:11 +0000</pubDate>
     </item>
     <item>
-      <title>CVE-2024-1729|2024-06-20T18:23:34.756Z -- gradio-app -- gradio-app%2Fgradio</title>
+      <title>CVE-2024-4254|2024-08-01T20:33:53.185Z -- gradio-app -- gradio-app%2Fgradio</title>
+      <link>https://www.cve.org/CVERecord?id=CVE-2024-4254</link>
+      <description>The 'deploy-website.yml' workflow in the gradio-app/gradio repository, specifically in the 'main' branch, is vulnerable to secrets exfiltration due to improper authorization. The vulnerability arises from the workflow's explicit checkout and execution of code from a fork, which is unsafe as it allows the running of untrusted code in an environment with access to push to the base repository and access secrets. This flaw could lead to the exfiltration of sensitive secrets such as GITHUB_TOKEN, HF_TOKEN, VERCEL_ORG_ID, VERCEL_PROJECT_ID, COMMENT_TOKEN, AWSACCESSKEYID, AWSSECRETKEY, and VERCEL_TOKEN. The vulnerability is present in the workflow file located at https://github.com/gradio-app/gradio/blob/72f4ca88ab569aae47941b3fb0609e57f2e13a27/.github/workflows/deploy-website.yml.</description>
+      <guid isPermaLink="false">CVE-2024-4254|2024-08-01T20:33:53.185Z</guid>
+      <pubDate>Tue, 04 Jun 2024 12:01:37 +0000</pubDate>
+    </item>
+    <item>
+      <title>CVE-2024-4325|2024-08-01T20:40:46.442Z -- gradio-app -- gradio-app%2Fgradio</title>
+      <link>https://www.cve.org/CVERecord?id=CVE-2024-4325</link>
+      <description>A Server-Side Request Forgery (SSRF) vulnerability exists in the gradio-app/gradio version 4.21.0, specifically within the `/queue/join` endpoint and the `save_url_to_cache` function. The vulnerability arises when the `path` value, obtained from the user and expected to be a URL, is used to make an HTTP request without sufficient validation checks. This flaw allows an attacker to send crafted requests that could lead to unauthorized access to the local network or the AWS metadata endpoint, thereby compromising the security of internal servers.</description>
+      <guid isPermaLink="false">CVE-2024-4325|2024-08-01T20:40:46.442Z</guid>
+      <pubDate>Thu, 06 Jun 2024 17:55:29 +0000</pubDate>
+    </item>
+    <item>
+      <title>CVE-2024-4253|2024-08-01T20:33:53.075Z -- gradio-app -- gradio-app%2Fgradio</title>
+      <link>https://www.cve.org/CVERecord?id=CVE-2024-4253</link>
+      <description>A command injection vulnerability exists in the gradio-app/gradio repository, specifically within the 'test-functional.yml' workflow. The vulnerability arises due to improper neutralization of special elements used in a command, allowing for unauthorized modification of the base repository or secrets exfiltration. The issue affects versions up to and including '@gradio/video@0.6.12'. The flaw is present in the workflow's handling of GitHub context information, where it echoes the full name of the head repository, the head branch, and the workflow reference without adequate sanitization. This could potentially lead to the exfiltration of sensitive secrets such as 'GITHUB_TOKEN', 'COMMENT_TOKEN', and 'CHROMATIC_PROJECT_TOKEN'.</description>
+      <guid isPermaLink="false">CVE-2024-4253|2024-08-01T20:33:53.075Z</guid>
+      <pubDate>Tue, 04 Jun 2024 07:30:56 +0000</pubDate>
+    </item>
+    <item>
+      <title>CVE-2024-1727|2024-08-01T18:48:21.951Z -- gradio-app -- gradio-app%2Fgradio</title>
+      <link>https://www.cve.org/CVERecord?id=CVE-2024-1727</link>
+      <description>A Cross-Site Request Forgery (CSRF) vulnerability in gradio-app/gradio allows attackers to upload multiple large files to a victim's system if they are running Gradio locally. By crafting a malicious HTML page that triggers an unauthorized file upload to the victim's server, an attacker can deplete the system's disk space, potentially leading to a denial of service. This issue affects the file upload functionality as implemented in gradio/routes.py.</description>
+      <guid isPermaLink="false">CVE-2024-1727|2024-08-01T18:48:21.951Z</guid>
+      <pubDate>Thu, 21 Mar 2024 19:57:39 +0000</pubDate>
+    </item>
+    <item>
+      <title>CVE-2024-1561|2024-08-01T18:40:21.441Z -- gradio-app -- gradio-app%2Fgradio</title>
+      <link>https://www.cve.org/CVERecord?id=CVE-2024-1561</link>
+      <description>An issue was discovered in gradio-app/gradio, where the `/component_server` endpoint improperly allows the invocation of any method on a `Component` class with attacker-controlled arguments. Specifically, by exploiting the `move_resource_to_block_cache()` method of the `Block` class, an attacker can copy any file on the filesystem to a temporary directory and subsequently retrieve it. This vulnerability enables unauthorized local file read access, posing a significant risk especially when the application is exposed to the internet via `launch(share=True)`, thereby allowing remote attackers to read files on the host machine. Furthermore, gradio apps hosted on `huggingface.co` are also affected, potentially leading to the exposure of sensitive information such as API keys and credentials stored in environment variables.</description>
+      <guid isPermaLink="false">CVE-2024-1561|2024-08-01T18:40:21.441Z</guid>
+      <pubDate>Tue, 16 Apr 2024 00:00:15 +0000</pubDate>
+    </item>
+    <item>
+      <title>CVE-2024-1729|2024-08-01T18:48:21.924Z -- gradio-app -- gradio-app%2Fgradio</title>
       <link>https://www.cve.org/CVERecord?id=CVE-2024-1729</link>
       <description>A timing attack vulnerability exists in the gradio-app/gradio repository, specifically within the login function in routes.py. The vulnerability arises from the use of a direct comparison operation (`app.auth[username] == password`) to validate user credentials, which can be exploited to guess passwords based on response times. Successful exploitation of this vulnerability could allow an attacker to bypass authentication mechanisms and gain unauthorized access.</description>
-      <guid isPermaLink="false">CVE-2024-1729|2024-06-20T18:23:34.756Z</guid>
+      <guid isPermaLink="false">CVE-2024-1729|2024-08-01T18:48:21.924Z</guid>
       <pubDate>Fri, 29 Mar 2024 04:35:12 +0000</pubDate>
     </item>
     <item>
-      <title>CVE-2024-2206|2024-06-20T18:27:00.318Z -- gradio-app -- gradio-app%2Fgradio</title>
-      <link>https://www.cve.org/CVERecord?id=CVE-2024-2206</link>
+      <title>CVE-2024-1183|2024-08-01T18:33:24.939Z -- gradio-app -- gradio-app%2Fgradio</title>
+      <link>https://www.cve.org/CVERecord?id=CVE-2024-1183</link>
+      <description>An SSRF (Server-Side Request Forgery) vulnerability exists in the gradio-app/gradio repository, allowing attackers to scan and identify open ports within an internal network. By manipulating the 'file' parameter in a GET request, an attacker can discern the status of internal ports based on the presence of a 'Location' header or a 'File not allowed' error in the response.</description>
+      <guid isPermaLink="false">CVE-2024-1183|2024-08-01T18:33:24.939Z</guid>
+      <pubDate>Tue, 16 Apr 2024 00:00:14 +0000</pubDate>
+    </item>
+    <item>
+      <title>CVE-2024-1540|2024-08-01T18:40:21.352Z -- gradio-app -- gradio-app%2Fgradio</title>
+      <link>https://www.cve.org/CVERecord?id=CVE-2024-1540</link>
+      <description>A command injection vulnerability exists in the deploy+test-visual.yml workflow of the gradio-app/gradio repository, due to improper neutralization of special elements used in a command. This vulnerability allows attackers to execute unauthorized commands, potentially leading to unauthorized modification of the base repository or secrets exfiltration. The issue arises from the unsafe handling of GitHub context information within a `run` operation, where expressions inside `${{ }}` are evaluated and substituted before script execution. Remediation involves setting untrusted input values to intermediate environment variables to prevent direct influence on script generation.</description>
+      <guid isPermaLink="false">CVE-2024-1540|2024-08-01T18:40:21.352Z</guid>
+      <pubDate>Wed, 27 Mar 2024 15:54:27 +0000</pubDate>
+    </item>
+    <item>
+      <title>CVE-2024-0964|2024-08-01T18:26:30.347Z -- gradio-app -- gradio-app%2Fgradio</title>
+      <link>https://www.cve.org/CVERecord?id=CVE-2024-0964</link>
+      <description>A local file include could be remotely triggered in Gradio due to a vulnerable user-supplied JSON value in an API request.</description>
+      <guid isPermaLink="false">CVE-2024-0964|2024-08-01T18:26:30.347Z</guid>
+      <pubDate>Mon, 05 Feb 2024 22:53:44 +0000</pubDate>
+    </item>
+    <item>
+      <title>CVE-2024-1728|2024-08-01T18:48:22.046Z -- gradio-app -- gradio-app%2Fgradio</title>
+      <link>https://www.cve.org/CVERecord?id=CVE-2024-1728</link>
+      <description>gradio-app/gradio is vulnerable to a local file inclusion vulnerability due to improper validation of user-supplied input in the UploadButton component. Attackers can exploit this vulnerability to read arbitrary files on the filesystem, such as private SSH keys, by manipulating the file path in the request to the `/queue/join` endpoint. This issue could potentially lead to remote code execution. The vulnerability is present in the handling of file upload paths, allowing attackers to redirect file uploads to unintended locations on the server.</description>
+      <guid isPermaLink="false">CVE-2024-1728|2024-08-01T18:48:22.046Z</guid>
+      <pubDate>Wed, 10 Apr 2024 17:07:56 +0000</pubDate>
+    </item>
+    <item>
+      <title>CVE-2024-4940|2024-06-22T05:23:49.761Z -- gradio-app -- gradio-app%2Fgradio</title>
+      <link>https://www.cve.org/CVERecord?id=CVE-2024-4940</link>
+      <description>An open redirect vulnerability exists in the gradio-app/gradio, affecting the latest version. The vulnerability allows an attacker to redirect users to arbitrary websites, which can be exploited for phishing attacks, Cross-site Scripting (XSS), Server-Side Request Forgery (SSRF), amongst others. This issue is due to improper validation of user-supplied input in the handling of URLs. Attackers can exploit this vulnerability by crafting a malicious URL that, when processed by the application, redirects the user to an attacker-controlled web page.</description>
+      <guid isPermaLink="false">CVE-2024-4940|2024-06-22T05:23:49.761Z</guid>
+      <pubDate>Sat, 22 Jun 2024 05:23:49 +0000</pubDate>
+    </item>
+    <item>
+      <title>CVE-2024-1540|2024-04-16T11:10:23.577Z -- gradio-app -- gradio-app%2Fgradio</title>
+      <link>https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2024-1540</link>
+      <description>A command injection vulnerability exists in the deploy+test-visual.yml workflow of the gradio-app/gradio repository, due to improper neutralization of special elements used in a command. This vulnerability allows attackers to execute unauthorized commands, potentially leading to unauthorized modification of the base repository or secrets exfiltration. The issue arises from the unsafe handling of GitHub context information within a `run` operation, where expressions inside `${{ }}` are evaluated and substituted before script execution. Remediation involves setting untrusted input values to intermediate environment variables to prevent direct influence on script generation.</description>
+      <guid isPermaLink="false">CVE-2024-1540|2024-04-16T11:10:23.577Z</guid>
+      <pubDate>Wed, 27 Mar 2024 15:54:27 +0000</pubDate>
+    </item>
+    <item>
+      <title>CVE-2024-1561|2024-06-04T18:01:14.302Z -- gradio-app -- gradio-app%2Fgradio</title>
+      <link>https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2024-1561</link>
+      <description>An issue was discovered in gradio-app/gradio, where the `/component_server` endpoint improperly allows the invocation of any method on a `Component` class with attacker-controlled arguments. Specifically, by exploiting the `move_resource_to_block_cache()` method of the `Block` class, an attacker can copy any file on the filesystem to a temporary directory and subsequently retrieve it. This vulnerability enables unauthorized local file read access, posing a significant risk especially when the application is exposed to the internet via `launch(share=True)`, thereby allowing remote attackers to read files on the host machine. Furthermore, gradio apps hosted on `huggingface.co` are also affected, potentially leading to the exposure of sensitive information such as API keys and credentials stored in environment variables.</description>
+      <guid isPermaLink="false">CVE-2024-1561|2024-06-04T18:01:14.302Z</guid>
+      <pubDate>Tue, 16 Apr 2024 00:00:15 +0000</pubDate>
+    </item>
+    <item>
+      <title>CVE-2024-1183|2024-04-16T11:10:55.212Z -- gradio-app -- gradio-app%2Fgradio</title>
+      <link>https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2024-1183</link>
+      <description>An SSRF (Server-Side Request Forgery) vulnerability exists in the gradio-app/gradio repository, allowing attackers to scan and identify open ports within an internal network. By manipulating the 'file' parameter in a GET request, an attacker can discern the status of internal ports based on the presence of a 'Location' header or a 'File not allowed' error in the response.</description>
+      <guid isPermaLink="false">CVE-2024-1183|2024-04-16T11:10:55.212Z</guid>
+      <pubDate>Tue, 16 Apr 2024 00:00:14 +0000</pubDate>
+    </item>
+    <item>
+      <title>CVE-2024-1727|2024-06-04T21:01:35.088Z -- gradio-app -- gradio-app%2Fgradio</title>
+      <link>https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2024-1727</link>
+      <description>A Cross-Site Request Forgery (CSRF) vulnerability in gradio-app/gradio allows attackers to upload multiple large files to a victim's system if they are running Gradio locally. By crafting a malicious HTML page that triggers an unauthorized file upload to the victim's server, an attacker can deplete the system's disk space, potentially leading to a denial of service. This issue affects the file upload functionality as implemented in gradio/routes.py.</description>
+      <guid isPermaLink="false">CVE-2024-1727|2024-06-04T21:01:35.088Z</guid>
+      <pubDate>Thu, 21 Mar 2024 19:57:39 +0000</pubDate>
+    </item>
+    <item>
+      <title>CVE-2024-1728|2024-06-04T18:00:21.572Z -- gradio-app -- gradio-app%2Fgradio</title>
+      <link>https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2024-1728</link>
+      <description>gradio-app/gradio is vulnerable to a local file inclusion vulnerability due to improper validation of user-supplied input in the UploadButton component. Attackers can exploit this vulnerability to read arbitrary files on the filesystem, such as private SSH keys, by manipulating the file path in the request to the `/queue/join` endpoint. This issue could potentially lead to remote code execution. The vulnerability is present in the handling of file upload paths, allowing attackers to redirect file uploads to unintended locations on the server.</description>
+      <guid isPermaLink="false">CVE-2024-1728|2024-06-04T18:00:21.572Z</guid>
+      <pubDate>Wed, 10 Apr 2024 17:07:56 +0000</pubDate>
+    </item>
+    <item>
+      <title>CVE-2024-1729|2024-04-16T11:10:24.181Z -- gradio-app -- gradio-app%2Fgradio</title>
+      <link>https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2024-1729</link>
+      <description>A timing attack vulnerability exists in the gradio-app/gradio repository, specifically within the login function in routes.py. The vulnerability arises from the use of a direct comparison operation (`app.auth[username] == password`) to validate user credentials, which can be exploited to guess passwords based on response times. Successful exploitation of this vulnerability could allow an attacker to bypass authentication mechanisms and gain unauthorized access.</description>
+      <guid isPermaLink="false">CVE-2024-1729|2024-04-16T11:10:24.181Z</guid>
+      <pubDate>Fri, 29 Mar 2024 04:35:12 +0000</pubDate>
+    </item>
+    <item>
+      <title>CVE-2024-0964|2024-02-05T22:53:44.859Z -- gradio-app -- gradio-app%2Fgradio</title>
+      <link>https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2024-0964</link>
+      <description>A local file include could be remotely triggered in Gradio due to a vulnerable user-supplied JSON value in an API request.</description>
+      <guid isPermaLink="false">CVE-2024-0964|2024-02-05T22:53:44.859Z</guid>
+      <pubDate>Mon, 05 Feb 2024 22:53:44 +0000</pubDate>
+    </item>
+    <item>
+      <title>CVE-2024-4325|2024-06-06T19:34:17.024Z -- gradio-app -- gradio-app%2Fgradio</title>
+      <link>https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2024-4325</link>
+      <description>A Server-Side Request Forgery (SSRF) vulnerability exists in the gradio-app/gradio version 4.21.0, specifically within the `/queue/join` endpoint and the `save_url_to_cache` function. The vulnerability arises when the `path` value, obtained from the user and expected to be a URL, is used to make an HTTP request without sufficient validation checks. This flaw allows an attacker to send crafted requests that could lead to unauthorized access to the local network or the AWS metadata endpoint, thereby compromising the security of internal servers.</description>
+      <guid isPermaLink="false">CVE-2024-4325|2024-06-06T19:34:17.024Z</guid>
+      <pubDate>Thu, 06 Jun 2024 17:55:29 +0000</pubDate>
+    </item>
+    <item>
+      <title>CVE-2024-4253|2024-06-05T20:00:07.427Z -- gradio-app -- gradio-app%2Fgradio</title>
+      <link>https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2024-4253</link>
+      <description>A command injection vulnerability exists in the gradio-app/gradio repository, specifically within the 'test-functional.yml' workflow. The vulnerability arises due to improper neutralization of special elements used in a command, allowing for unauthorized modification of the base repository or secrets exfiltration. The issue affects versions up to and including '@gradio/video@0.6.12'. The flaw is present in the workflow's handling of GitHub context information, where it echoes the full name of the head repository, the head branch, and the workflow reference without adequate sanitization. This could potentially lead to the exfiltration of sensitive secrets such as 'GITHUB_TOKEN', 'COMMENT_TOKEN', and 'CHROMATIC_PROJECT_TOKEN'.</description>
+      <guid isPermaLink="false">CVE-2024-4253|2024-06-05T20:00:07.427Z</guid>
+      <pubDate>Tue, 04 Jun 2024 07:30:56 +0000</pubDate>
+    </item>
+    <item>
+      <title>CVE-2024-4941|2024-06-07T16:10:20.893Z -- gradio-app -- gradio-app%2Fgradio</title>
+      <link>https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2024-4941</link>
+      <description>A local file inclusion vulnerability exists in the JSON component of gradio-app/gradio version 4.25. The vulnerability arises from improper input validation in the `postprocess()` function within `gradio/components/json_component.py`, where a user-controlled string is parsed as JSON. If the parsed JSON object contains a `path` key, the specified file is moved to a temporary directory, making it possible to retrieve it later via the `/file=..` endpoint. This issue is due to the `processing_utils.move_files_to_cache()` function traversing any object passed to it, looking for a dictionary with a `path` key, and then copying the specified file to a temporary directory. The vulnerability can be exploited by an attacker to read files on the remote system, posing a significant security risk.</description>
+      <guid isPermaLink="false">CVE-2024-4941|2024-06-07T16:10:20.893Z</guid>
+      <pubDate>Thu, 06 Jun 2024 17:55:11 +0000</pubDate>
+    </item>
+    <item>
+      <title>CVE-2024-4254|2024-06-04T21:02:16.051Z -- gradio-app -- gradio-app%2Fgradio</title>
+      <link>https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2024-4254</link>
+      <description>The 'deploy-website.yml' workflow in the gradio-app/gradio repository, specifically in the 'main' branch, is vulnerable to secrets exfiltration due to improper authorization. The vulnerability arises from the workflow's explicit checkout and execution of code from a fork, which is unsafe as it allows the running of untrusted code in an environment with access to push to the base repository and access secrets. This flaw could lead to the exfiltration of sensitive secrets such as GITHUB_TOKEN, HF_TOKEN, VERCEL_ORG_ID, VERCEL_PROJECT_ID, COMMENT_TOKEN, AWSACCESSKEYID, AWSSECRETKEY, and VERCEL_TOKEN. The vulnerability is present in the workflow file located at https://github.com/gradio-app/gradio/blob/72f4ca88ab569aae47941b3fb0609e57f2e13a27/.github/workflows/deploy-website.yml.</description>
+      <guid isPermaLink="false">CVE-2024-4254|2024-06-04T21:02:16.051Z</guid>
+      <pubDate>Tue, 04 Jun 2024 12:01:37 +0000</pubDate>
+    </item>
+    <item>
+      <title>CVE-2024-2206|2024-04-16T11:10:22.483Z -- gradio-app -- gradio-app%2Fgradio</title>
+      <link>https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2024-2206</link>
       <description>An SSRF vulnerability exists in the gradio-app/gradio due to insufficient validation of user-supplied URLs in the `/proxy` route. Attackers can exploit this vulnerability by manipulating the `self.replica_urls` set through the `X-Direct-Url` header in requests to the `/` and `/config` routes, allowing the addition of arbitrary URLs for proxying. This flaw enables unauthorized proxying of requests and potential access to internal endpoints within the Hugging Face space. The issue arises from the application's inadequate checking of safe URLs in the `build_proxy_request` function.</description>
-      <guid isPermaLink="false">CVE-2024-2206|2024-06-20T18:27:00.318Z</guid>
+      <guid isPermaLink="false">CVE-2024-2206|2024-04-16T11:10:22.483Z</guid>
       <pubDate>Wed, 27 Mar 2024 00:00:32 +0000</pubDate>
     </item>
     <item>
@@ -59,179 +199,39 @@
       <pubDate>Thu, 06 Jun 2024 17:55:29 +0000</pubDate>
     </item>
     <item>
-      <title>CVE-2024-2206|2024-04-16T11:10:22.483Z -- gradio-app -- gradio-app%2Fgradio</title>
-      <link>https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2024-2206</link>
+      <title>CVE-2024-2206|2024-06-20T18:27:00.318Z -- gradio-app -- gradio-app%2Fgradio</title>
+      <link>https://www.cve.org/CVERecord?id=CVE-2024-2206</link>
       <description>An SSRF vulnerability exists in the gradio-app/gradio due to insufficient validation of user-supplied URLs in the `/proxy` route. Attackers can exploit this vulnerability by manipulating the `self.replica_urls` set through the `X-Direct-Url` header in requests to the `/` and `/config` routes, allowing the addition of arbitrary URLs for proxying. This flaw enables unauthorized proxying of requests and potential access to internal endpoints within the Hugging Face space. The issue arises from the application's inadequate checking of safe URLs in the `build_proxy_request` function.</description>
-      <guid isPermaLink="false">CVE-2024-2206|2024-04-16T11:10:22.483Z</guid>
+      <guid isPermaLink="false">CVE-2024-2206|2024-06-20T18:27:00.318Z</guid>
       <pubDate>Wed, 27 Mar 2024 00:00:32 +0000</pubDate>
     </item>
     <item>
-      <title>CVE-2024-4254|2024-06-04T21:02:16.051Z -- gradio-app -- gradio-app%2Fgradio</title>
-      <link>https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2024-4254</link>
-      <description>The 'deploy-website.yml' workflow in the gradio-app/gradio repository, specifically in the 'main' branch, is vulnerable to secrets exfiltration due to improper authorization. The vulnerability arises from the workflow's explicit checkout and execution of code from a fork, which is unsafe as it allows the running of untrusted code in an environment with access to push to the base repository and access secrets. This flaw could lead to the exfiltration of sensitive secrets such as GITHUB_TOKEN, HF_TOKEN, VERCEL_ORG_ID, VERCEL_PROJECT_ID, COMMENT_TOKEN, AWSACCESSKEYID, AWSSECRETKEY, and VERCEL_TOKEN. The vulnerability is present in the workflow file located at https://github.com/gradio-app/gradio/blob/72f4ca88ab569aae47941b3fb0609e57f2e13a27/.github/workflows/deploy-website.yml.</description>
-      <guid isPermaLink="false">CVE-2024-4254|2024-06-04T21:02:16.051Z</guid>
-      <pubDate>Tue, 04 Jun 2024 12:01:37 +0000</pubDate>
-    </item>
-    <item>
-      <title>CVE-2024-4941|2024-06-07T16:10:20.893Z -- gradio-app -- gradio-app%2Fgradio</title>
-      <link>https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2024-4941</link>
-      <description>A local file inclusion vulnerability exists in the JSON component of gradio-app/gradio version 4.25. The vulnerability arises from improper input validation in the `postprocess()` function within `gradio/components/json_component.py`, where a user-controlled string is parsed as JSON. If the parsed JSON object contains a `path` key, the specified file is moved to a temporary directory, making it possible to retrieve it later via the `/file=..` endpoint. This issue is due to the `processing_utils.move_files_to_cache()` function traversing any object passed to it, looking for a dictionary with a `path` key, and then copying the specified file to a temporary directory. The vulnerability can be exploited by an attacker to read files on the remote system, posing a significant security risk.</description>
-      <guid isPermaLink="false">CVE-2024-4941|2024-06-07T16:10:20.893Z</guid>
-      <pubDate>Thu, 06 Jun 2024 17:55:11 +0000</pubDate>
-    </item>
-    <item>
-      <title>CVE-2024-4253|2024-06-05T20:00:07.427Z -- gradio-app -- gradio-app%2Fgradio</title>
-      <link>https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2024-4253</link>
-      <description>A command injection vulnerability exists in the gradio-app/gradio repository, specifically within the 'test-functional.yml' workflow. The vulnerability arises due to improper neutralization of special elements used in a command, allowing for unauthorized modification of the base repository or secrets exfiltration. The issue affects versions up to and including '@gradio/video@0.6.12'. The flaw is present in the workflow's handling of GitHub context information, where it echoes the full name of the head repository, the head branch, and the workflow reference without adequate sanitization. This could potentially lead to the exfiltration of sensitive secrets such as 'GITHUB_TOKEN', 'COMMENT_TOKEN', and 'CHROMATIC_PROJECT_TOKEN'.</description>
-      <guid isPermaLink="false">CVE-2024-4253|2024-06-05T20:00:07.427Z</guid>
-      <pubDate>Tue, 04 Jun 2024 07:30:56 +0000</pubDate>
-    </item>
-    <item>
-      <title>CVE-2024-4325|2024-06-06T19:34:17.024Z -- gradio-app -- gradio-app%2Fgradio</title>
-      <link>https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2024-4325</link>
-      <description>A Server-Side Request Forgery (SSRF) vulnerability exists in the gradio-app/gradio version 4.21.0, specifically within the `/queue/join` endpoint and the `save_url_to_cache` function. The vulnerability arises when the `path` value, obtained from the user and expected to be a URL, is used to make an HTTP request without sufficient validation checks. This flaw allows an attacker to send crafted requests that could lead to unauthorized access to the local network or the AWS metadata endpoint, thereby compromising the security of internal servers.</description>
-      <guid isPermaLink="false">CVE-2024-4325|2024-06-06T19:34:17.024Z</guid>
-      <pubDate>Thu, 06 Jun 2024 17:55:29 +0000</pubDate>
-    </item>
-    <item>
-      <title>CVE-2024-0964|2024-02-05T22:53:44.859Z -- gradio-app -- gradio-app%2Fgradio</title>
-      <link>https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2024-0964</link>
-      <description>A local file include could be remotely triggered in Gradio due to a vulnerable user-supplied JSON value in an API request.</description>
-      <guid isPermaLink="false">CVE-2024-0964|2024-02-05T22:53:44.859Z</guid>
-      <pubDate>Mon, 05 Feb 2024 22:53:44 +0000</pubDate>
-    </item>
-    <item>
-      <title>CVE-2024-1729|2024-04-16T11:10:24.181Z -- gradio-app -- gradio-app%2Fgradio</title>
-      <link>https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2024-1729</link>
-      <description>A timing attack vulnerability exists in the gradio-app/gradio repository, specifically within the login function in routes.py. The vulnerability arises from the use of a direct comparison operation (`app.auth[username] == password`) to validate user credentials, which can be exploited to guess passwords based on response times. Successful exploitation of this vulnerability could allow an attacker to bypass authentication mechanisms and gain unauthorized access.</description>
-      <guid isPermaLink="false">CVE-2024-1729|2024-04-16T11:10:24.181Z</guid>
-      <pubDate>Fri, 29 Mar 2024 04:35:12 +0000</pubDate>
-    </item>
-    <item>
-      <title>CVE-2024-1728|2024-06-04T18:00:21.572Z -- gradio-app -- gradio-app%2Fgradio</title>
-      <link>https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2024-1728</link>
-      <description>gradio-app/gradio is vulnerable to a local file inclusion vulnerability due to improper validation of user-supplied input in the UploadButton component. Attackers can exploit this vulnerability to read arbitrary files on the filesystem, such as private SSH keys, by manipulating the file path in the request to the `/queue/join` endpoint. This issue could potentially lead to remote code execution. The vulnerability is present in the handling of file upload paths, allowing attackers to redirect file uploads to unintended locations on the server.</description>
-      <guid isPermaLink="false">CVE-2024-1728|2024-06-04T18:00:21.572Z</guid>
-      <pubDate>Wed, 10 Apr 2024 17:07:56 +0000</pubDate>
-    </item>
-    <item>
-      <title>CVE-2024-1727|2024-06-04T21:01:35.088Z -- gradio-app -- gradio-app%2Fgradio</title>
-      <link>https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2024-1727</link>
-      <description>A Cross-Site Request Forgery (CSRF) vulnerability in gradio-app/gradio allows attackers to upload multiple large files to a victim's system if they are running Gradio locally. By crafting a malicious HTML page that triggers an unauthorized file upload to the victim's server, an attacker can deplete the system's disk space, potentially leading to a denial of service. This issue affects the file upload functionality as implemented in gradio/routes.py.</description>
-      <guid isPermaLink="false">CVE-2024-1727|2024-06-04T21:01:35.088Z</guid>
-      <pubDate>Thu, 21 Mar 2024 19:57:39 +0000</pubDate>
-    </item>
-    <item>
-      <title>CVE-2024-1183|2024-04-16T11:10:55.212Z -- gradio-app -- gradio-app%2Fgradio</title>
-      <link>https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2024-1183</link>
-      <description>An SSRF (Server-Side Request Forgery) vulnerability exists in the gradio-app/gradio repository, allowing attackers to scan and identify open ports within an internal network. By manipulating the 'file' parameter in a GET request, an attacker can discern the status of internal ports based on the presence of a 'Location' header or a 'File not allowed' error in the response.</description>
-      <guid isPermaLink="false">CVE-2024-1183|2024-04-16T11:10:55.212Z</guid>
-      <pubDate>Tue, 16 Apr 2024 00:00:14 +0000</pubDate>
-    </item>
-    <item>
-      <title>CVE-2024-1561|2024-06-04T18:01:14.302Z -- gradio-app -- gradio-app%2Fgradio</title>
-      <link>https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2024-1561</link>
-      <description>An issue was discovered in gradio-app/gradio, where the `/component_server` endpoint improperly allows the invocation of any method on a `Component` class with attacker-controlled arguments. Specifically, by exploiting the `move_resource_to_block_cache()` method of the `Block` class, an attacker can copy any file on the filesystem to a temporary directory and subsequently retrieve it. This vulnerability enables unauthorized local file read access, posing a significant risk especially when the application is exposed to the internet via `launch(share=True)`, thereby allowing remote attackers to read files on the host machine. Furthermore, gradio apps hosted on `huggingface.co` are also affected, potentially leading to the exposure of sensitive information such as API keys and credentials stored in environment variables.</description>
-      <guid isPermaLink="false">CVE-2024-1561|2024-06-04T18:01:14.302Z</guid>
-      <pubDate>Tue, 16 Apr 2024 00:00:15 +0000</pubDate>
-    </item>
-    <item>
-      <title>CVE-2024-1540|2024-04-16T11:10:23.577Z -- gradio-app -- gradio-app%2Fgradio</title>
-      <link>https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2024-1540</link>
-      <description>A command injection vulnerability exists in the deploy+test-visual.yml workflow of the gradio-app/gradio repository, due to improper neutralization of special elements used in a command. This vulnerability allows attackers to execute unauthorized commands, potentially leading to unauthorized modification of the base repository or secrets exfiltration. The issue arises from the unsafe handling of GitHub context information within a `run` operation, where expressions inside `${{ }}` are evaluated and substituted before script execution. Remediation involves setting untrusted input values to intermediate environment variables to prevent direct influence on script generation.</description>
-      <guid isPermaLink="false">CVE-2024-1540|2024-04-16T11:10:23.577Z</guid>
-      <pubDate>Wed, 27 Mar 2024 15:54:27 +0000</pubDate>
-    </item>
-    <item>
-      <title>CVE-2024-4940|2024-06-22T05:23:49.761Z -- gradio-app -- gradio-app%2Fgradio</title>
-      <link>https://www.cve.org/CVERecord?id=CVE-2024-4940</link>
-      <description>An open redirect vulnerability exists in the gradio-app/gradio, affecting the latest version. The vulnerability allows an attacker to redirect users to arbitrary websites, which can be exploited for phishing attacks, Cross-site Scripting (XSS), Server-Side Request Forgery (SSRF), amongst others. This issue is due to improper validation of user-supplied input in the handling of URLs. Attackers can exploit this vulnerability by crafting a malicious URL that, when processed by the application, redirects the user to an attacker-controlled web page.</description>
-      <guid isPermaLink="false">CVE-2024-4940|2024-06-22T05:23:49.761Z</guid>
-      <pubDate>Sat, 22 Jun 2024 05:23:49 +0000</pubDate>
-    </item>
-    <item>
-      <title>CVE-2024-1728|2024-08-01T18:48:22.046Z -- gradio-app -- gradio-app%2Fgradio</title>
-      <link>https://www.cve.org/CVERecord?id=CVE-2024-1728</link>
-      <description>gradio-app/gradio is vulnerable to a local file inclusion vulnerability due to improper validation of user-supplied input in the UploadButton component. Attackers can exploit this vulnerability to read arbitrary files on the filesystem, such as private SSH keys, by manipulating the file path in the request to the `/queue/join` endpoint. This issue could potentially lead to remote code execution. The vulnerability is present in the handling of file upload paths, allowing attackers to redirect file uploads to unintended locations on the server.</description>
-      <guid isPermaLink="false">CVE-2024-1728|2024-08-01T18:48:22.046Z</guid>
-      <pubDate>Wed, 10 Apr 2024 17:07:56 +0000</pubDate>
-    </item>
-    <item>
-      <title>CVE-2024-0964|2024-08-01T18:26:30.347Z -- gradio-app -- gradio-app%2Fgradio</title>
-      <link>https://www.cve.org/CVERecord?id=CVE-2024-0964</link>
-      <description>A local file include could be remotely triggered in Gradio due to a vulnerable user-supplied JSON value in an API request.</description>
-      <guid isPermaLink="false">CVE-2024-0964|2024-08-01T18:26:30.347Z</guid>
-      <pubDate>Mon, 05 Feb 2024 22:53:44 +0000</pubDate>
-    </item>
-    <item>
-      <title>CVE-2024-1540|2024-08-01T18:40:21.352Z -- gradio-app -- gradio-app%2Fgradio</title>
-      <link>https://www.cve.org/CVERecord?id=CVE-2024-1540</link>
-      <description>A command injection vulnerability exists in the deploy+test-visual.yml workflow of the gradio-app/gradio repository, due to improper neutralization of special elements used in a command. This vulnerability allows attackers to execute unauthorized commands, potentially leading to unauthorized modification of the base repository or secrets exfiltration. The issue arises from the unsafe handling of GitHub context information within a `run` operation, where expressions inside `${{ }}` are evaluated and substituted before script execution. Remediation involves setting untrusted input values to intermediate environment variables to prevent direct influence on script generation.</description>
-      <guid isPermaLink="false">CVE-2024-1540|2024-08-01T18:40:21.352Z</guid>
-      <pubDate>Wed, 27 Mar 2024 15:54:27 +0000</pubDate>
-    </item>
-    <item>
-      <title>CVE-2024-1183|2024-08-01T18:33:24.939Z -- gradio-app -- gradio-app%2Fgradio</title>
-      <link>https://www.cve.org/CVERecord?id=CVE-2024-1183</link>
-      <description>An SSRF (Server-Side Request Forgery) vulnerability exists in the gradio-app/gradio repository, allowing attackers to scan and identify open ports within an internal network. By manipulating the 'file' parameter in a GET request, an attacker can discern the status of internal ports based on the presence of a 'Location' header or a 'File not allowed' error in the response.</description>
-      <guid isPermaLink="false">CVE-2024-1183|2024-08-01T18:33:24.939Z</guid>
-      <pubDate>Tue, 16 Apr 2024 00:00:14 +0000</pubDate>
-    </item>
-    <item>
-      <title>CVE-2024-1729|2024-08-01T18:48:21.924Z -- gradio-app -- gradio-app%2Fgradio</title>
+      <title>CVE-2024-1729|2024-06-20T18:23:34.756Z -- gradio-app -- gradio-app%2Fgradio</title>
       <link>https://www.cve.org/CVERecord?id=CVE-2024-1729</link>
       <description>A timing attack vulnerability exists in the gradio-app/gradio repository, specifically within the login function in routes.py. The vulnerability arises from the use of a direct comparison operation (`app.auth[username] == password`) to validate user credentials, which can be exploited to guess passwords based on response times. Successful exploitation of this vulnerability could allow an attacker to bypass authentication mechanisms and gain unauthorized access.</description>
-      <guid isPermaLink="false">CVE-2024-1729|2024-08-01T18:48:21.924Z</guid>
+      <guid isPermaLink="false">CVE-2024-1729|2024-06-20T18:23:34.756Z</guid>
       <pubDate>Fri, 29 Mar 2024 04:35:12 +0000</pubDate>
     </item>
     <item>
-      <title>CVE-2024-1561|2024-08-01T18:40:21.441Z -- gradio-app -- gradio-app%2Fgradio</title>
-      <link>https://www.cve.org/CVERecord?id=CVE-2024-1561</link>
-      <description>An issue was discovered in gradio-app/gradio, where the `/component_server` endpoint improperly allows the invocation of any method on a `Component` class with attacker-controlled arguments. Specifically, by exploiting the `move_resource_to_block_cache()` method of the `Block` class, an attacker can copy any file on the filesystem to a temporary directory and subsequently retrieve it. This vulnerability enables unauthorized local file read access, posing a significant risk especially when the application is exposed to the internet via `launch(share=True)`, thereby allowing remote attackers to read files on the host machine. Furthermore, gradio apps hosted on `huggingface.co` are also affected, potentially leading to the exposure of sensitive information such as API keys and credentials stored in environment variables.</description>
-      <guid isPermaLink="false">CVE-2024-1561|2024-08-01T18:40:21.441Z</guid>
-      <pubDate>Tue, 16 Apr 2024 00:00:15 +0000</pubDate>
+      <title>CVE-2024-1183|2024-06-20T18:25:39.204Z -- gradio-app -- gradio-app%2Fgradio</title>
+      <link>https://www.cve.org/CVERecord?id=CVE-2024-1183</link>
+      <description>An SSRF (Server-Side Request Forgery) vulnerability exists in the gradio-app/gradio repository, allowing attackers to scan and identify open ports within an internal network. By manipulating the 'file' parameter in a GET request, an attacker can discern the status of internal ports based on the presence of a 'Location' header or a 'File not allowed' error in the response.</description>
+      <guid isPermaLink="false">CVE-2024-1183|2024-06-20T18:25:39.204Z</guid>
+      <pubDate>Tue, 16 Apr 2024 00:00:14 +0000</pubDate>
     </item>
     <item>
-      <title>CVE-2024-1727|2024-08-01T18:48:21.951Z -- gradio-app -- gradio-app%2Fgradio</title>
-      <link>https://www.cve.org/CVERecord?id=CVE-2024-1727</link>
-      <description>A Cross-Site Request Forgery (CSRF) vulnerability in gradio-app/gradio allows attackers to upload multiple large files to a victim's system if they are running Gradio locally. By crafting a malicious HTML page that triggers an unauthorized file upload to the victim's server, an attacker can deplete the system's disk space, potentially leading to a denial of service. This issue affects the file upload functionality as implemented in gradio/routes.py.</description>
-      <guid isPermaLink="false">CVE-2024-1727|2024-08-01T18:48:21.951Z</guid>
-      <pubDate>Thu, 21 Mar 2024 19:57:39 +0000</pubDate>
-    </item>
-    <item>
-      <title>CVE-2024-4253|2024-08-01T20:33:53.075Z -- gradio-app -- gradio-app%2Fgradio</title>
-      <link>https://www.cve.org/CVERecord?id=CVE-2024-4253</link>
-      <description>A command injection vulnerability exists in the gradio-app/gradio repository, specifically within the 'test-functional.yml' workflow. The vulnerability arises due to improper neutralization of special elements used in a command, allowing for unauthorized modification of the base repository or secrets exfiltration. The issue affects versions up to and including '@gradio/video@0.6.12'. The flaw is present in the workflow's handling of GitHub context information, where it echoes the full name of the head repository, the head branch, and the workflow reference without adequate sanitization. This could potentially lead to the exfiltration of sensitive secrets such as 'GITHUB_TOKEN', 'COMMENT_TOKEN', and 'CHROMATIC_PROJECT_TOKEN'.</description>
-      <guid isPermaLink="false">CVE-2024-4253|2024-08-01T20:33:53.075Z</guid>
-      <pubDate>Tue, 04 Jun 2024 07:30:56 +0000</pubDate>
-    </item>
-    <item>
-      <title>CVE-2024-4325|2024-08-01T20:40:46.442Z -- gradio-app -- gradio-app%2Fgradio</title>
-      <link>https://www.cve.org/CVERecord?id=CVE-2024-4325</link>
-      <description>A Server-Side Request Forgery (SSRF) vulnerability exists in the gradio-app/gradio version 4.21.0, specifically within the `/queue/join` endpoint and the `save_url_to_cache` function. The vulnerability arises when the `path` value, obtained from the user and expected to be a URL, is used to make an HTTP request without sufficient validation checks. This flaw allows an attacker to send crafted requests that could lead to unauthorized access to the local network or the AWS metadata endpoint, thereby compromising the security of internal servers.</description>
-      <guid isPermaLink="false">CVE-2024-4325|2024-08-01T20:40:46.442Z</guid>
-      <pubDate>Thu, 06 Jun 2024 17:55:29 +0000</pubDate>
-    </item>
-    <item>
-      <title>CVE-2024-4254|2024-08-01T20:33:53.185Z -- gradio-app -- gradio-app%2Fgradio</title>
-      <link>https://www.cve.org/CVERecord?id=CVE-2024-4254</link>
-      <description>The 'deploy-website.yml' workflow in the gradio-app/gradio repository, specifically in the 'main' branch, is vulnerable to secrets exfiltration due to improper authorization. The vulnerability arises from the workflow's explicit checkout and execution of code from a fork, which is unsafe as it allows the running of untrusted code in an environment with access to push to the base repository and access secrets. This flaw could lead to the exfiltration of sensitive secrets such as GITHUB_TOKEN, HF_TOKEN, VERCEL_ORG_ID, VERCEL_PROJECT_ID, COMMENT_TOKEN, AWSACCESSKEYID, AWSSECRETKEY, and VERCEL_TOKEN. The vulnerability is present in the workflow file located at https://github.com/gradio-app/gradio/blob/72f4ca88ab569aae47941b3fb0609e57f2e13a27/.github/workflows/deploy-website.yml.</description>
-      <guid isPermaLink="false">CVE-2024-4254|2024-08-01T20:33:53.185Z</guid>
-      <pubDate>Tue, 04 Jun 2024 12:01:37 +0000</pubDate>
-    </item>
-    <item>
-      <title>CVE-2024-4941|2024-08-01T20:55:10.306Z -- gradio-app -- gradio-app%2Fgradio</title>
-      <link>https://www.cve.org/CVERecord?id=CVE-2024-4941</link>
-      <description>A local file inclusion vulnerability exists in the JSON component of gradio-app/gradio version 4.25. The vulnerability arises from improper input validation in the `postprocess()` function within `gradio/components/json_component.py`, where a user-controlled string is parsed as JSON. If the parsed JSON object contains a `path` key, the specified file is moved to a temporary directory, making it possible to retrieve it later via the `/file=..` endpoint. This issue is due to the `processing_utils.move_files_to_cache()` function traversing any object passed to it, looking for a dictionary with a `path` key, and then copying the specified file to a temporary directory. The vulnerability can be exploited by an attacker to read files on the remote system, posing a significant security risk.</description>
-      <guid isPermaLink="false">CVE-2024-4941|2024-08-01T20:55:10.306Z</guid>
-      <pubDate>Thu, 06 Jun 2024 17:55:11 +0000</pubDate>
-    </item>
-    <item>
-      <title>CVE-2024-4940|2024-08-01T20:55:10.259Z -- gradio-app -- gradio-app%2Fgradio</title>
+      <title>CVE-2024-4940|2024-06-24T14:19:45.421Z -- gradio-app -- gradio-app%2Fgradio</title>
       <link>https://www.cve.org/CVERecord?id=CVE-2024-4940</link>
       <description>An open redirect vulnerability exists in the gradio-app/gradio, affecting the latest version. The vulnerability allows an attacker to redirect users to arbitrary websites, which can be exploited for phishing attacks, Cross-site Scripting (XSS), Server-Side Request Forgery (SSRF), amongst others. This issue is due to improper validation of user-supplied input in the handling of URLs. Attackers can exploit this vulnerability by crafting a malicious URL that, when processed by the application, redirects the user to an attacker-controlled web page.</description>
-      <guid isPermaLink="false">CVE-2024-4940|2024-08-01T20:55:10.259Z</guid>
+      <guid isPermaLink="false">CVE-2024-4940|2024-06-24T14:19:45.421Z</guid>
       <pubDate>Sat, 22 Jun 2024 05:23:49 +0000</pubDate>
+    </item>
+    <item>
+      <title>CVE-2024-2206|2024-08-01T19:03:39.317Z -- gradio-app -- gradio-app%2Fgradio</title>
+      <link>https://www.cve.org/CVERecord?id=CVE-2024-2206</link>
+      <description>An SSRF vulnerability exists in the gradio-app/gradio due to insufficient validation of user-supplied URLs in the `/proxy` route. Attackers can exploit this vulnerability by manipulating the `self.replica_urls` set through the `X-Direct-Url` header in requests to the `/` and `/config` routes, allowing the addition of arbitrary URLs for proxying. This flaw enables unauthorized proxying of requests and potential access to internal endpoints within the Hugging Face space. The issue arises from the application's inadequate checking of safe URLs in the `build_proxy_request` function.</description>
+      <guid isPermaLink="false">CVE-2024-2206|2024-08-01T19:03:39.317Z</guid>
+      <pubDate>Wed, 27 Mar 2024 00:00:32 +0000</pubDate>
     </item>
   </channel>
 </rss>

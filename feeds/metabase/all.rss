@@ -6,7 +6,7 @@
     <description>The latest CVEs for metabase -- all products</description>
     <docs>http://www.rssboard.org/rss-specification</docs>
     <generator>python-feedgen</generator>
-    <lastBuildDate>Fri, 02 Aug 2024 17:22:27 +0000</lastBuildDate>
+    <lastBuildDate>Fri, 02 Aug 2024 18:24:40 +0000</lastBuildDate>
     <ttl>60</ttl>
     <item>
       <title>CVE-2023-32680|2024-08-02T15:25:36.349Z -- metabase -- metabase
@@ -24,6 +24,14 @@
 </description>
       <guid isPermaLink="false">CVE-2023-23629|2024-08-02T10:35:33.616Z</guid>
       <pubDate>Sat, 28 Jan 2023 01:23:33 +0000</pubDate>
+    </item>
+    <item>
+      <title>CVE-2023-37470|2024-08-02T17:16:30.142Z -- metabase -- metabase
+</title>
+      <link>https://www.cve.org/CVERecord?id=CVE-2023-37470</link>
+      <description>Metabase is an open-source business intelligence and analytics platform. Prior to versions 0.43.7.3, 0.44.7.3, 0.45.4.3, 0.46.6.4, 1.43.7.3, 1.44.7.3, 1.45.4.3, and 1.46.6.4, a vulnerability could potentially allow remote code execution on one's Metabase server. The core issue is that one of the supported data warehouses (an embedded in-memory database H2), exposes a number of ways for a connection string to include code that is then executed by the process running the embedded database. Because Metabase allows users to connect to databases, this means that a user supplied string can be used to inject executable code. Metabase allows users to validate their connection string before adding a database (including on setup), and this validation API was the primary vector used as it can be called without validation. Versions 0.43.7.3, 0.44.7.3, 0.45.4.3, 0.46.6.4, 1.43.7.3, 1.44.7.3, 1.45.4.3, and 1.46.6.4 fix this issue by removing the ability of users to add H2 databases entirely. As a workaround, it is possible to block these vulnerabilities at the network level by blocking the endpoints `POST /api/database`, `PUT /api/database/:id`, and `POST /api/setup/validateuntil`. Those who use H2 as a file-based database should migrate to SQLite.</description>
+      <guid isPermaLink="false">CVE-2023-37470|2024-08-02T17:16:30.142Z</guid>
+      <pubDate>Fri, 04 Aug 2023 15:12:43 +0000</pubDate>
     </item>
     <item>
       <title>CVE-2023-23628|2024-08-02T10:35:33.640Z -- metabase -- metabase

@@ -6,7 +6,7 @@
     <description>The latest CVEs for matrix-org -- all products</description>
     <docs>http://www.rssboard.org/rss-specification</docs>
     <generator>python-feedgen</generator>
-    <lastBuildDate>Fri, 02 Aug 2024 17:22:29 +0000</lastBuildDate>
+    <lastBuildDate>Fri, 02 Aug 2024 18:24:42 +0000</lastBuildDate>
     <ttl>60</ttl>
     <item>
       <title>CVE-2023-28103|2024-08-02T12:30:24.072Z -- matrix-org -- matrix-react-sdk
@@ -25,12 +25,28 @@
       <pubDate>Tue, 06 Jun 2023 18:20:14 +0000</pubDate>
     </item>
     <item>
+      <title>CVE-2023-38690|2024-08-02T17:46:56.774Z -- matrix-org -- matrix-appservice-irc
+</title>
+      <link>https://www.cve.org/CVERecord?id=CVE-2023-38690</link>
+      <description>matrix-appservice-irc is a Node.js IRC bridge for Matrix. Prior to version 1.0.1, it is possible to craft a command with newlines which would not be properly parsed. This would mean you could pass a string of commands as a channel name, which would then be run by the IRC bridge bot. Versions 1.0.1 and above are patched. There are no robust workarounds to the bug. One may disable dynamic channels in the config to disable the most common execution method but others may exist.</description>
+      <guid isPermaLink="false">CVE-2023-38690|2024-08-02T17:46:56.774Z</guid>
+      <pubDate>Fri, 04 Aug 2023 16:31:41 +0000</pubDate>
+    </item>
+    <item>
       <title>CVE-2023-30609|2024-08-02T14:28:51.679Z -- matrix-org -- matrix-react-sdk
 </title>
       <link>https://www.cve.org/CVERecord?id=CVE-2023-30609</link>
       <description>matrix-react-sdk is a react-based SDK for inserting a Matrix chat/VoIP client into a web page. Prior to version 3.71.0, plain text messages containing HTML tags are rendered as HTML in the search results. To exploit this, an attacker needs to trick a user into searching for a specific message containing an HTML injection payload. No cross-site scripting attack is possible due to the hardcoded content security policy. Version 3.71.0 of the SDK patches over the issue. As a workaround, restarting the client will clear the HTML injection.</description>
       <guid isPermaLink="false">CVE-2023-30609|2024-08-02T14:28:51.679Z</guid>
       <pubDate>Tue, 25 Apr 2023 20:58:27 +0000</pubDate>
+    </item>
+    <item>
+      <title>CVE-2023-37259|2024-08-02T17:09:33.537Z -- matrix-org -- matrix-react-sdk
+</title>
+      <link>https://www.cve.org/CVERecord?id=CVE-2023-37259</link>
+      <description>matrix-react-sdk is a react-based SDK for inserting a Matrix chat/voip client into a web page. The Export Chat feature includes certain attacker-controlled elements in the generated document without sufficient escaping, leading to stored Cross site scripting (XSS). Since the Export Chat feature generates a separate document, an attacker can only inject code run from the `null` origin, restricting the impact. However, the attacker can still potentially use the XSS to leak message contents. A malicious homeserver is a potential attacker since the affected inputs are controllable server-side. This issue has been addressed in commit `22fcd34c60` which is included in release version 3.76.0. Users are advised to upgrade. The only known workaround for this issue is to disable or to not use the Export Chat feature.</description>
+      <guid isPermaLink="false">CVE-2023-37259|2024-08-02T17:09:33.537Z</guid>
+      <pubDate>Tue, 18 Jul 2023 16:59:21 +0000</pubDate>
     </item>
     <item>
       <title>CVE-2023-32323|2024-08-02T15:10:24.899Z -- matrix-org -- synapse
@@ -43,12 +59,28 @@
       <pubDate>Fri, 26 May 2023 13:32:01 +0000</pubDate>
     </item>
     <item>
+      <title>CVE-2023-38700|2024-08-02T17:46:56.508Z -- matrix-org -- matrix-appservice-irc
+</title>
+      <link>https://www.cve.org/CVERecord?id=CVE-2023-38700</link>
+      <description>matrix-appservice-irc is a Node.js IRC bridge for Matrix. Prior to version 1.0.1, it was possible to craft an event such that it would leak part of a targeted message event from another bridged room. This required knowing an event ID to target. Version 1.0.1n fixes this issue. As a workaround, set the `matrixHandler.eventCacheSize` config value to `0`. This workaround may impact performance.</description>
+      <guid isPermaLink="false">CVE-2023-38700|2024-08-02T17:46:56.508Z</guid>
+      <pubDate>Fri, 04 Aug 2023 18:05:43 +0000</pubDate>
+    </item>
+    <item>
       <title>CVE-2023-29529|2024-08-02T14:14:38.965Z -- matrix-org -- matrix-js-sdk
 </title>
       <link>https://www.cve.org/CVERecord?id=CVE-2023-29529</link>
       <description>matrix-js-sdk is the Matrix Client-Server SDK for JavaScript and TypeScript. An attacker present in a room where an MSC3401 group call is taking place can eavesdrop on the video and audio of participants using matrix-js-sdk, without their knowledge. To affected matrix-js-sdk users, the attacker will not appear to be participating in the call. This attack is possible because matrix-js-sdk's group call implementation accepts incoming direct calls from other users, even if they have not yet declared intent to participate in the group call, as a means of resolving a race condition in call setup. Affected versions do not restrict access to the user's outbound media in this case. Legacy 1:1 calls are unaffected. This is fixed in matrix-js-sdk 24.1.0. As a workaround, users may hold group calls in private rooms where only the exact users who are expected to participate in the call are present.</description>
       <guid isPermaLink="false">CVE-2023-29529|2024-08-02T14:14:38.965Z</guid>
       <pubDate>Fri, 14 Apr 2023 18:21:17 +0000</pubDate>
+    </item>
+    <item>
+      <title>CVE-2023-38691|2024-08-02T17:46:56.516Z -- matrix-org -- matrix-appservice-bridge
+</title>
+      <link>https://www.cve.org/CVERecord?id=CVE-2023-38691</link>
+      <description>matrix-appservice-bridge provides an API for setting up bridges. Starting in version 4.0.0 and prior to versions 8.1.2 and 9.0.1, a malicious Matrix server can use a foreign user's MXID in an OpenID exchange, allowing a bad actor to impersonate users when using the provisioning API. The library does not check that the servername part of the `sub` parameter (containing the user's *claimed* MXID) is the the same as the servername we are talking to. A malicious actor could spin up a server on any given domain, respond with a `sub` parameter according to the user they want to act as and use the resulting token to perform provisioning requests. Versions 8.1.2 and 9.0.1 contain a patch. As a workaround, disable the provisioning API.</description>
+      <guid isPermaLink="false">CVE-2023-38691|2024-08-02T17:46:56.516Z</guid>
+      <pubDate>Fri, 04 Aug 2023 16:34:54 +0000</pubDate>
     </item>
     <item>
       <title>CVE-2023-32683|2024-08-02T15:25:36.588Z -- matrix-org -- synapse
@@ -59,6 +91,14 @@
       <pubDate>Tue, 06 Jun 2023 18:24:30 +0000</pubDate>
     </item>
     <item>
+      <title>CVE-2023-38686|2024-08-02T17:46:56.843Z -- matrix-org -- sydent
+</title>
+      <link>https://www.cve.org/CVERecord?id=CVE-2023-38686</link>
+      <description>Sydent is an identity server for the Matrix communications protocol. Prior to version 2.5.6, if configured to send emails using TLS, Sydent does not verify SMTP servers' certificates. This makes  Sydent's emails vulnerable to interception via a man-in-the-middle (MITM) attack. Attackers with privileged access to the network can intercept room invitations and address confirmation emails. This is patched in Sydent 2.5.6. When patching, make sure that Sydent trusts the certificate of the server it is connecting to. This should happen automatically when using properly issued certificates. Those who use self-signed certificates should make sure to copy their Certification Authority certificate, or their self signed certificate if using only one, to the trust store of your operating system. As a workaround, one can ensure Sydent's emails fail to send by setting the configured SMTP server to a loopback or non-routable address under one's control which does not have a listening SMTP server.</description>
+      <guid isPermaLink="false">CVE-2023-38686|2024-08-02T17:46:56.843Z</guid>
+      <pubDate>Fri, 04 Aug 2023 15:57:15 +0000</pubDate>
+    </item>
+    <item>
       <title>CVE-2023-28427|2024-08-02T12:38:25.414Z -- matrix-org -- matrix-js-sdk
 </title>
       <link>https://www.cve.org/CVERecord?id=CVE-2023-28427</link>
@@ -67,54 +107,60 @@
       <pubDate>Tue, 28 Mar 2023 20:32:22 +0000</pubDate>
     </item>
     <item>
-      <title>CVE-2024-34353|2024-08-02T02:51:10.872Z -- matrix-org -- matrix-sdk-crypto</title>
-      <link>https://www.cve.org/CVERecord?id=CVE-2024-34353</link>
-      <description>The matrix-sdk-crypto crate, part of the Matrix Rust SDK project, is an implementation of a Matrix end-to-end encryption state machine in Rust. In Matrix, the server-side `key backup` stores encrypted copies of Matrix message keys. This facilitates key sharing between a user's devices and provides a redundant copy in case all devices are lost. The key backup uses asymmetric
-cryptography, with each server-side key backup assigned a unique public-private key pair. Due to a logic bug introduced in commit 71136e44c03c79f80d6d1a2446673bc4d53a2067, matrix-sdk-crypto version 0.7.0 will sometimes log the private part of the backup key pair to Rust debug logs (using the `tracing` crate). This issue has been resolved in matrix-sdk-crypto version 0.7.1. No known workarounds are available.</description>
-      <guid isPermaLink="false">CVE-2024-34353|2024-08-02T02:51:10.872Z</guid>
-      <pubDate>Mon, 13 May 2024 15:43:10 +0000</pubDate>
-    </item>
-    <item>
-      <title>CVE-2024-34063|2024-08-02T02:42:59.879Z -- matrix-org -- vodozemac</title>
-      <link>https://www.cve.org/CVERecord?id=CVE-2024-34063</link>
-      <description>vodozemac is an implementation of Olm and Megolm in pure Rust. Versions 0.5.0 and 0.5.1 of vodozemac have degraded secret zeroization capabilities, due to changes in third-party cryptographic dependencies (the Dalek crates), which moved secret zeroization capabilities behind a feature flag and defaulted this feature to off. The degraded zeroization capabilities could result in the production of more memory copies of encryption secrets and secrets could linger in memory longer than necessary. This marginally increases the risk of sensitive data exposure. This issue has been addressed in version 0.6.0 and users are advised to upgrade. There are no known workarounds for this vulnerability.</description>
-      <guid isPermaLink="false">CVE-2024-34063|2024-08-02T02:42:59.879Z</guid>
-      <pubDate>Fri, 03 May 2024 09:52:28 +0000</pubDate>
-    </item>
-    <item>
-      <title>CVE-2024-40648|2024-07-18T17:48:47.443Z -- matrix-org -- matrix-rust-sdk</title>
-      <link>https://www.cve.org/CVERecord?id=CVE-2024-40648</link>
-      <description>matrix-rust-sdk is an implementation of a Matrix client-server library in Rust. The `UserIdentity::is_verified()` method in the matrix-sdk-crypto crate before version 0.7.2 doesn't take into account the verification status of the user's own identity while performing the check and may as a result return a value contrary to what is implied by its name and documentation. If the method is used to decide whether to perform sensitive operations towards a user identity, a malicious homeserver could manipulate the outcome in order to make the identity appear trusted. This is not a typical usage of the method, which lowers the impact. The method itself is not used inside the `matrix-sdk-crypto` crate. The 0.7.2 release of the `matrix-sdk-crypto` crate includes a fix. All users are advised to upgrade. There are no known workarounds for this vulnerability.</description>
-      <guid isPermaLink="false">CVE-2024-40648|2024-07-18T17:48:47.443Z</guid>
-      <pubDate>Thu, 18 Jul 2024 16:45:56 +0000</pubDate>
-    </item>
-    <item>
-      <title>CVE-2024-40640|2024-07-17T18:15:31.774Z -- matrix-org -- vodozemac</title>
-      <link>https://www.cve.org/CVERecord?id=CVE-2024-40640</link>
-      <description>vodozemac is an open source implementation of Olm and Megolm in pure Rust.  Versions before 0.7.0 of vodozemac use a non-constant time base64 implementation for importing key material for Megolm group sessions and `PkDecryption` Ed25519 secret keys. This flaw might allow an attacker to infer some information about the secret key material through a side-channel attack. The use of a non-constant time base64 implementation might allow an attacker to observe timing variations in the encoding and decoding operations of the secret key material. This could potentially provide insights into the underlying secret key material. The impact of this vulnerability is considered low because exploiting the attacker is required to have access to high precision timing measurements, as well as repeated access to the base64 encoding or decoding processes.  Additionally, the estimated leakage amount is bounded and low according to the referenced paper. This has been patched in commit 734b6c6948d4b2bdee3dd8b4efa591d93a61d272 which has been included in release version 0.7.0. Users are advised to upgrade. There are no known workarounds for this vulnerability.</description>
-      <guid isPermaLink="false">CVE-2024-40640|2024-07-17T18:15:31.774Z</guid>
-      <pubDate>Wed, 17 Jul 2024 17:27:15 +0000</pubDate>
-    </item>
-    <item>
-      <title>CVE-2024-32000|2024-07-10T20:18:49.404Z -- matrix-org -- matrix-appservice-irc</title>
-      <link>https://www.cve.org/CVERecord?id=CVE-2024-32000</link>
-      <description>matrix-appservice-irc is a Node.js IRC bridge for the Matrix messaging protocol. matrix-appservice-irc before version 2.0.0 can be exploited to leak the truncated body of a message if a malicious user sends a Matrix reply to an event ID they don't have access to. As a precondition to the attack, the malicious user needs to know the event ID of the message they want to leak, as well as to be joined to both the Matrix room and the IRC channel it is bridged to. The message reply containing the leaked message content is visible to IRC channel members when this happens. matrix-appservice-irc 2.0.0 checks whether the user has permission to view an event before constructing a reply. Administrators should upgrade to this version. It's possible to limit the amount of information leaked by setting a reply template that doesn't contain the original message. See these lines `601-604` in the configuration file linked.</description>
-      <guid isPermaLink="false">CVE-2024-32000|2024-07-10T20:18:49.404Z</guid>
-      <pubDate>Fri, 12 Apr 2024 20:02:51 +0000</pubDate>
-    </item>
-    <item>
-      <title>CVE-2024-39691|2024-07-05T18:42:06.864Z -- matrix-org -- matrix-appservice-irc</title>
+      <title>CVE-2024-39691|2024-08-02T04:26:15.991Z -- matrix-org -- matrix-appservice-irc</title>
       <link>https://www.cve.org/CVERecord?id=CVE-2024-39691</link>
       <description>matrix-appservice-irc is a Node.js IRC bridge for the Matrix messaging protocol. The fix for GHSA-wm4w-7h2q-3pf7 / CVE-2024-32000 included in matrix-appservice-irc 2.0.0 relied on the Matrix homeserver-provided timestamp to determine whether a user has access to the event they're replying to when determining whether or not to include a truncated version of the original event in the IRC message. Since this value is controlled by external entities, a malicious Matrix homeserver joined to a room in which a matrix-appservice-irc bridge instance (before version 2.0.1) is present can fabricate the timestamp with the intent of tricking the bridge into leaking room messages the homeserver should not have access to. matrix-appservice-irc 2.0.1 drops the reliance on `origin_server_ts` when determining whether or not an event should be visible to a user, instead tracking the event timestamps internally. As a workaround, it's possible to limit the amount of information leaked by setting a reply template that doesn't contain the original message.</description>
-      <guid isPermaLink="false">CVE-2024-39691|2024-07-05T18:42:06.864Z</guid>
+      <guid isPermaLink="false">CVE-2024-39691|2024-08-02T04:26:15.991Z</guid>
       <pubDate>Fri, 05 Jul 2024 18:42:06 +0000</pubDate>
     </item>
     <item>
-      <title>CVE-2024-34063|2024-06-04T17:41:34.387Z -- matrix-org -- vodozemac</title>
-      <link>https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2024-34063</link>
-      <description>vodozemac is an implementation of Olm and Megolm in pure Rust. Versions 0.5.0 and 0.5.1 of vodozemac have degraded secret zeroization capabilities, due to changes in third-party cryptographic dependencies (the Dalek crates), which moved secret zeroization capabilities behind a feature flag and defaulted this feature to off. The degraded zeroization capabilities could result in the production of more memory copies of encryption secrets and secrets could linger in memory longer than necessary. This marginally increases the risk of sensitive data exposure. This issue has been addressed in version 0.6.0 and users are advised to upgrade. There are no known workarounds for this vulnerability.</description>
-      <guid isPermaLink="false">CVE-2024-34063|2024-06-04T17:41:34.387Z</guid>
-      <pubDate>Fri, 03 May 2024 09:52:28 +0000</pubDate>
+      <title>CVE-2024-40648|2024-08-02T04:33:11.826Z -- matrix-org -- matrix-rust-sdk</title>
+      <link>https://www.cve.org/CVERecord?id=CVE-2024-40648</link>
+      <description>matrix-rust-sdk is an implementation of a Matrix client-server library in Rust. The `UserIdentity::is_verified()` method in the matrix-sdk-crypto crate before version 0.7.2 doesn't take into account the verification status of the user's own identity while performing the check and may as a result return a value contrary to what is implied by its name and documentation. If the method is used to decide whether to perform sensitive operations towards a user identity, a malicious homeserver could manipulate the outcome in order to make the identity appear trusted. This is not a typical usage of the method, which lowers the impact. The method itself is not used inside the `matrix-sdk-crypto` crate. The 0.7.2 release of the `matrix-sdk-crypto` crate includes a fix. All users are advised to upgrade. There are no known workarounds for this vulnerability.</description>
+      <guid isPermaLink="false">CVE-2024-40648|2024-08-02T04:33:11.826Z</guid>
+      <pubDate>Thu, 18 Jul 2024 16:45:56 +0000</pubDate>
+    </item>
+    <item>
+      <title>CVE-2024-40640|2024-08-02T04:33:11.880Z -- matrix-org -- vodozemac</title>
+      <link>https://www.cve.org/CVERecord?id=CVE-2024-40640</link>
+      <description>vodozemac is an open source implementation of Olm and Megolm in pure Rust.  Versions before 0.7.0 of vodozemac use a non-constant time base64 implementation for importing key material for Megolm group sessions and `PkDecryption` Ed25519 secret keys. This flaw might allow an attacker to infer some information about the secret key material through a side-channel attack. The use of a non-constant time base64 implementation might allow an attacker to observe timing variations in the encoding and decoding operations of the secret key material. This could potentially provide insights into the underlying secret key material. The impact of this vulnerability is considered low because exploiting the attacker is required to have access to high precision timing measurements, as well as repeated access to the base64 encoding or decoding processes.  Additionally, the estimated leakage amount is bounded and low according to the referenced paper. This has been patched in commit 734b6c6948d4b2bdee3dd8b4efa591d93a61d272 which has been included in release version 0.7.0. Users are advised to upgrade. There are no known workarounds for this vulnerability.</description>
+      <guid isPermaLink="false">CVE-2024-40640|2024-08-02T04:33:11.880Z</guid>
+      <pubDate>Wed, 17 Jul 2024 17:27:15 +0000</pubDate>
+    </item>
+    <item>
+      <title>CVE-2024-32000|2024-08-02T01:59:50.908Z -- matrix-org -- matrix-appservice-irc</title>
+      <link>https://www.cve.org/CVERecord?id=CVE-2024-32000</link>
+      <description>matrix-appservice-irc is a Node.js IRC bridge for the Matrix messaging protocol. matrix-appservice-irc before version 2.0.0 can be exploited to leak the truncated body of a message if a malicious user sends a Matrix reply to an event ID they don't have access to. As a precondition to the attack, the malicious user needs to know the event ID of the message they want to leak, as well as to be joined to both the Matrix room and the IRC channel it is bridged to. The message reply containing the leaked message content is visible to IRC channel members when this happens. matrix-appservice-irc 2.0.0 checks whether the user has permission to view an event before constructing a reply. Administrators should upgrade to this version. It's possible to limit the amount of information leaked by setting a reply template that doesn't contain the original message. See these lines `601-604` in the configuration file linked.</description>
+      <guid isPermaLink="false">CVE-2024-32000|2024-08-02T01:59:50.908Z</guid>
+      <pubDate>Fri, 12 Apr 2024 20:02:51 +0000</pubDate>
+    </item>
+    <item>
+      <title>CVE-2024-40648|2024-07-18T16:45:56.321Z -- matrix-org -- matrix-rust-sdk</title>
+      <link>https://www.cve.org/CVERecord?id=CVE-2024-40648</link>
+      <description>matrix-rust-sdk is an implementation of a Matrix client-server library in Rust. The `UserIdentity::is_verified()` method in the matrix-sdk-crypto crate before version 0.7.2 doesn't take into account the verification status of the user's own identity while performing the check and may as a result return a value contrary to what is implied by its name and documentation. If the method is used to decide whether to perform sensitive operations towards a user identity, a malicious homeserver could manipulate the outcome in order to make the identity appear trusted. This is not a typical usage of the method, which lowers the impact. The method itself is not used inside the `matrix-sdk-crypto` crate. The 0.7.2 release of the `matrix-sdk-crypto` crate includes a fix. All users are advised to upgrade. There are no known workarounds for this vulnerability.</description>
+      <guid isPermaLink="false">CVE-2024-40648|2024-07-18T16:45:56.321Z</guid>
+      <pubDate>Thu, 18 Jul 2024 16:45:56 +0000</pubDate>
+    </item>
+    <item>
+      <title>CVE-2024-40640|2024-07-17T17:27:15.586Z -- matrix-org -- vodozemac</title>
+      <link>https://www.cve.org/CVERecord?id=CVE-2024-40640</link>
+      <description>vodozemac is an open source implementation of Olm and Megolm in pure Rust.  Versions before 0.7.0 of vodozemac use a non-constant time base64 implementation for importing key material for Megolm group sessions and `PkDecryption` Ed25519 secret keys. This flaw might allow an attacker to infer some information about the secret key material through a side-channel attack. The use of a non-constant time base64 implementation might allow an attacker to observe timing variations in the encoding and decoding operations of the secret key material. This could potentially provide insights into the underlying secret key material. The impact of this vulnerability is considered low because exploiting the attacker is required to have access to high precision timing measurements, as well as repeated access to the base64 encoding or decoding processes.  Additionally, the estimated leakage amount is bounded and low according to the referenced paper. This has been patched in commit 734b6c6948d4b2bdee3dd8b4efa591d93a61d272 which has been included in release version 0.7.0. Users are advised to upgrade. There are no known workarounds for this vulnerability.</description>
+      <guid isPermaLink="false">CVE-2024-40640|2024-07-17T17:27:15.586Z</guid>
+      <pubDate>Wed, 17 Jul 2024 17:27:15 +0000</pubDate>
+    </item>
+    <item>
+      <title>CVE-2024-39691|2024-07-08T15:48:21.210Z -- matrix-org -- matrix-appservice-irc</title>
+      <link>https://www.cve.org/CVERecord?id=CVE-2024-39691</link>
+      <description>matrix-appservice-irc is a Node.js IRC bridge for the Matrix messaging protocol. The fix for GHSA-wm4w-7h2q-3pf7 / CVE-2024-32000 included in matrix-appservice-irc 2.0.0 relied on the Matrix homeserver-provided timestamp to determine whether a user has access to the event they're replying to when determining whether or not to include a truncated version of the original event in the IRC message. Since this value is controlled by external entities, a malicious Matrix homeserver joined to a room in which a matrix-appservice-irc bridge instance (before version 2.0.1) is present can fabricate the timestamp with the intent of tricking the bridge into leaking room messages the homeserver should not have access to. matrix-appservice-irc 2.0.1 drops the reliance on `origin_server_ts` when determining whether or not an event should be visible to a user, instead tracking the event timestamps internally. As a workaround, it's possible to limit the amount of information leaked by setting a reply template that doesn't contain the original message.</description>
+      <guid isPermaLink="false">CVE-2024-39691|2024-07-08T15:48:21.210Z</guid>
+      <pubDate>Fri, 05 Jul 2024 18:42:06 +0000</pubDate>
+    </item>
+    <item>
+      <title>CVE-2024-32000|2024-04-12T20:02:51.987Z -- matrix-org -- matrix-appservice-irc</title>
+      <link>https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2024-32000</link>
+      <description>matrix-appservice-irc is a Node.js IRC bridge for the Matrix messaging protocol. matrix-appservice-irc before version 2.0.0 can be exploited to leak the truncated body of a message if a malicious user sends a Matrix reply to an event ID they don't have access to. As a precondition to the attack, the malicious user needs to know the event ID of the message they want to leak, as well as to be joined to both the Matrix room and the IRC channel it is bridged to. The message reply containing the leaked message content is visible to IRC channel members when this happens. matrix-appservice-irc 2.0.0 checks whether the user has permission to view an event before constructing a reply. Administrators should upgrade to this version. It's possible to limit the amount of information leaked by setting a reply template that doesn't contain the original message. See these lines `601-604` in the configuration file linked.</description>
+      <guid isPermaLink="false">CVE-2024-32000|2024-04-12T20:02:51.987Z</guid>
+      <pubDate>Fri, 12 Apr 2024 20:02:51 +0000</pubDate>
     </item>
     <item>
       <title>CVE-2024-34353|2024-06-05T16:09:42.514Z -- matrix-org -- matrix-sdk-crypto</title>
@@ -125,60 +171,54 @@ cryptography, with each server-side key backup assigned a unique public-private 
       <pubDate>Mon, 13 May 2024 15:43:10 +0000</pubDate>
     </item>
     <item>
-      <title>CVE-2024-32000|2024-04-12T20:02:51.987Z -- matrix-org -- matrix-appservice-irc</title>
-      <link>https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2024-32000</link>
-      <description>matrix-appservice-irc is a Node.js IRC bridge for the Matrix messaging protocol. matrix-appservice-irc before version 2.0.0 can be exploited to leak the truncated body of a message if a malicious user sends a Matrix reply to an event ID they don't have access to. As a precondition to the attack, the malicious user needs to know the event ID of the message they want to leak, as well as to be joined to both the Matrix room and the IRC channel it is bridged to. The message reply containing the leaked message content is visible to IRC channel members when this happens. matrix-appservice-irc 2.0.0 checks whether the user has permission to view an event before constructing a reply. Administrators should upgrade to this version. It's possible to limit the amount of information leaked by setting a reply template that doesn't contain the original message. See these lines `601-604` in the configuration file linked.</description>
-      <guid isPermaLink="false">CVE-2024-32000|2024-04-12T20:02:51.987Z</guid>
-      <pubDate>Fri, 12 Apr 2024 20:02:51 +0000</pubDate>
+      <title>CVE-2024-34063|2024-06-04T17:41:34.387Z -- matrix-org -- vodozemac</title>
+      <link>https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2024-34063</link>
+      <description>vodozemac is an implementation of Olm and Megolm in pure Rust. Versions 0.5.0 and 0.5.1 of vodozemac have degraded secret zeroization capabilities, due to changes in third-party cryptographic dependencies (the Dalek crates), which moved secret zeroization capabilities behind a feature flag and defaulted this feature to off. The degraded zeroization capabilities could result in the production of more memory copies of encryption secrets and secrets could linger in memory longer than necessary. This marginally increases the risk of sensitive data exposure. This issue has been addressed in version 0.6.0 and users are advised to upgrade. There are no known workarounds for this vulnerability.</description>
+      <guid isPermaLink="false">CVE-2024-34063|2024-06-04T17:41:34.387Z</guid>
+      <pubDate>Fri, 03 May 2024 09:52:28 +0000</pubDate>
     </item>
     <item>
-      <title>CVE-2024-39691|2024-07-08T15:48:21.210Z -- matrix-org -- matrix-appservice-irc</title>
+      <title>CVE-2024-39691|2024-07-05T18:42:06.864Z -- matrix-org -- matrix-appservice-irc</title>
       <link>https://www.cve.org/CVERecord?id=CVE-2024-39691</link>
       <description>matrix-appservice-irc is a Node.js IRC bridge for the Matrix messaging protocol. The fix for GHSA-wm4w-7h2q-3pf7 / CVE-2024-32000 included in matrix-appservice-irc 2.0.0 relied on the Matrix homeserver-provided timestamp to determine whether a user has access to the event they're replying to when determining whether or not to include a truncated version of the original event in the IRC message. Since this value is controlled by external entities, a malicious Matrix homeserver joined to a room in which a matrix-appservice-irc bridge instance (before version 2.0.1) is present can fabricate the timestamp with the intent of tricking the bridge into leaking room messages the homeserver should not have access to. matrix-appservice-irc 2.0.1 drops the reliance on `origin_server_ts` when determining whether or not an event should be visible to a user, instead tracking the event timestamps internally. As a workaround, it's possible to limit the amount of information leaked by setting a reply template that doesn't contain the original message.</description>
-      <guid isPermaLink="false">CVE-2024-39691|2024-07-08T15:48:21.210Z</guid>
+      <guid isPermaLink="false">CVE-2024-39691|2024-07-05T18:42:06.864Z</guid>
       <pubDate>Fri, 05 Jul 2024 18:42:06 +0000</pubDate>
     </item>
     <item>
-      <title>CVE-2024-40640|2024-07-17T17:27:15.586Z -- matrix-org -- vodozemac</title>
-      <link>https://www.cve.org/CVERecord?id=CVE-2024-40640</link>
-      <description>vodozemac is an open source implementation of Olm and Megolm in pure Rust.  Versions before 0.7.0 of vodozemac use a non-constant time base64 implementation for importing key material for Megolm group sessions and `PkDecryption` Ed25519 secret keys. This flaw might allow an attacker to infer some information about the secret key material through a side-channel attack. The use of a non-constant time base64 implementation might allow an attacker to observe timing variations in the encoding and decoding operations of the secret key material. This could potentially provide insights into the underlying secret key material. The impact of this vulnerability is considered low because exploiting the attacker is required to have access to high precision timing measurements, as well as repeated access to the base64 encoding or decoding processes.  Additionally, the estimated leakage amount is bounded and low according to the referenced paper. This has been patched in commit 734b6c6948d4b2bdee3dd8b4efa591d93a61d272 which has been included in release version 0.7.0. Users are advised to upgrade. There are no known workarounds for this vulnerability.</description>
-      <guid isPermaLink="false">CVE-2024-40640|2024-07-17T17:27:15.586Z</guid>
-      <pubDate>Wed, 17 Jul 2024 17:27:15 +0000</pubDate>
-    </item>
-    <item>
-      <title>CVE-2024-40648|2024-07-18T16:45:56.321Z -- matrix-org -- matrix-rust-sdk</title>
-      <link>https://www.cve.org/CVERecord?id=CVE-2024-40648</link>
-      <description>matrix-rust-sdk is an implementation of a Matrix client-server library in Rust. The `UserIdentity::is_verified()` method in the matrix-sdk-crypto crate before version 0.7.2 doesn't take into account the verification status of the user's own identity while performing the check and may as a result return a value contrary to what is implied by its name and documentation. If the method is used to decide whether to perform sensitive operations towards a user identity, a malicious homeserver could manipulate the outcome in order to make the identity appear trusted. This is not a typical usage of the method, which lowers the impact. The method itself is not used inside the `matrix-sdk-crypto` crate. The 0.7.2 release of the `matrix-sdk-crypto` crate includes a fix. All users are advised to upgrade. There are no known workarounds for this vulnerability.</description>
-      <guid isPermaLink="false">CVE-2024-40648|2024-07-18T16:45:56.321Z</guid>
-      <pubDate>Thu, 18 Jul 2024 16:45:56 +0000</pubDate>
-    </item>
-    <item>
-      <title>CVE-2024-32000|2024-08-02T01:59:50.908Z -- matrix-org -- matrix-appservice-irc</title>
+      <title>CVE-2024-32000|2024-07-10T20:18:49.404Z -- matrix-org -- matrix-appservice-irc</title>
       <link>https://www.cve.org/CVERecord?id=CVE-2024-32000</link>
       <description>matrix-appservice-irc is a Node.js IRC bridge for the Matrix messaging protocol. matrix-appservice-irc before version 2.0.0 can be exploited to leak the truncated body of a message if a malicious user sends a Matrix reply to an event ID they don't have access to. As a precondition to the attack, the malicious user needs to know the event ID of the message they want to leak, as well as to be joined to both the Matrix room and the IRC channel it is bridged to. The message reply containing the leaked message content is visible to IRC channel members when this happens. matrix-appservice-irc 2.0.0 checks whether the user has permission to view an event before constructing a reply. Administrators should upgrade to this version. It's possible to limit the amount of information leaked by setting a reply template that doesn't contain the original message. See these lines `601-604` in the configuration file linked.</description>
-      <guid isPermaLink="false">CVE-2024-32000|2024-08-02T01:59:50.908Z</guid>
+      <guid isPermaLink="false">CVE-2024-32000|2024-07-10T20:18:49.404Z</guid>
       <pubDate>Fri, 12 Apr 2024 20:02:51 +0000</pubDate>
     </item>
     <item>
-      <title>CVE-2024-40640|2024-08-02T04:33:11.880Z -- matrix-org -- vodozemac</title>
+      <title>CVE-2024-40640|2024-07-17T18:15:31.774Z -- matrix-org -- vodozemac</title>
       <link>https://www.cve.org/CVERecord?id=CVE-2024-40640</link>
       <description>vodozemac is an open source implementation of Olm and Megolm in pure Rust.  Versions before 0.7.0 of vodozemac use a non-constant time base64 implementation for importing key material for Megolm group sessions and `PkDecryption` Ed25519 secret keys. This flaw might allow an attacker to infer some information about the secret key material through a side-channel attack. The use of a non-constant time base64 implementation might allow an attacker to observe timing variations in the encoding and decoding operations of the secret key material. This could potentially provide insights into the underlying secret key material. The impact of this vulnerability is considered low because exploiting the attacker is required to have access to high precision timing measurements, as well as repeated access to the base64 encoding or decoding processes.  Additionally, the estimated leakage amount is bounded and low according to the referenced paper. This has been patched in commit 734b6c6948d4b2bdee3dd8b4efa591d93a61d272 which has been included in release version 0.7.0. Users are advised to upgrade. There are no known workarounds for this vulnerability.</description>
-      <guid isPermaLink="false">CVE-2024-40640|2024-08-02T04:33:11.880Z</guid>
+      <guid isPermaLink="false">CVE-2024-40640|2024-07-17T18:15:31.774Z</guid>
       <pubDate>Wed, 17 Jul 2024 17:27:15 +0000</pubDate>
     </item>
     <item>
-      <title>CVE-2024-40648|2024-08-02T04:33:11.826Z -- matrix-org -- matrix-rust-sdk</title>
+      <title>CVE-2024-40648|2024-07-18T17:48:47.443Z -- matrix-org -- matrix-rust-sdk</title>
       <link>https://www.cve.org/CVERecord?id=CVE-2024-40648</link>
       <description>matrix-rust-sdk is an implementation of a Matrix client-server library in Rust. The `UserIdentity::is_verified()` method in the matrix-sdk-crypto crate before version 0.7.2 doesn't take into account the verification status of the user's own identity while performing the check and may as a result return a value contrary to what is implied by its name and documentation. If the method is used to decide whether to perform sensitive operations towards a user identity, a malicious homeserver could manipulate the outcome in order to make the identity appear trusted. This is not a typical usage of the method, which lowers the impact. The method itself is not used inside the `matrix-sdk-crypto` crate. The 0.7.2 release of the `matrix-sdk-crypto` crate includes a fix. All users are advised to upgrade. There are no known workarounds for this vulnerability.</description>
-      <guid isPermaLink="false">CVE-2024-40648|2024-08-02T04:33:11.826Z</guid>
+      <guid isPermaLink="false">CVE-2024-40648|2024-07-18T17:48:47.443Z</guid>
       <pubDate>Thu, 18 Jul 2024 16:45:56 +0000</pubDate>
     </item>
     <item>
-      <title>CVE-2024-39691|2024-08-02T04:26:15.991Z -- matrix-org -- matrix-appservice-irc</title>
-      <link>https://www.cve.org/CVERecord?id=CVE-2024-39691</link>
-      <description>matrix-appservice-irc is a Node.js IRC bridge for the Matrix messaging protocol. The fix for GHSA-wm4w-7h2q-3pf7 / CVE-2024-32000 included in matrix-appservice-irc 2.0.0 relied on the Matrix homeserver-provided timestamp to determine whether a user has access to the event they're replying to when determining whether or not to include a truncated version of the original event in the IRC message. Since this value is controlled by external entities, a malicious Matrix homeserver joined to a room in which a matrix-appservice-irc bridge instance (before version 2.0.1) is present can fabricate the timestamp with the intent of tricking the bridge into leaking room messages the homeserver should not have access to. matrix-appservice-irc 2.0.1 drops the reliance on `origin_server_ts` when determining whether or not an event should be visible to a user, instead tracking the event timestamps internally. As a workaround, it's possible to limit the amount of information leaked by setting a reply template that doesn't contain the original message.</description>
-      <guid isPermaLink="false">CVE-2024-39691|2024-08-02T04:26:15.991Z</guid>
-      <pubDate>Fri, 05 Jul 2024 18:42:06 +0000</pubDate>
+      <title>CVE-2024-34063|2024-08-02T02:42:59.879Z -- matrix-org -- vodozemac</title>
+      <link>https://www.cve.org/CVERecord?id=CVE-2024-34063</link>
+      <description>vodozemac is an implementation of Olm and Megolm in pure Rust. Versions 0.5.0 and 0.5.1 of vodozemac have degraded secret zeroization capabilities, due to changes in third-party cryptographic dependencies (the Dalek crates), which moved secret zeroization capabilities behind a feature flag and defaulted this feature to off. The degraded zeroization capabilities could result in the production of more memory copies of encryption secrets and secrets could linger in memory longer than necessary. This marginally increases the risk of sensitive data exposure. This issue has been addressed in version 0.6.0 and users are advised to upgrade. There are no known workarounds for this vulnerability.</description>
+      <guid isPermaLink="false">CVE-2024-34063|2024-08-02T02:42:59.879Z</guid>
+      <pubDate>Fri, 03 May 2024 09:52:28 +0000</pubDate>
+    </item>
+    <item>
+      <title>CVE-2024-34353|2024-08-02T02:51:10.872Z -- matrix-org -- matrix-sdk-crypto</title>
+      <link>https://www.cve.org/CVERecord?id=CVE-2024-34353</link>
+      <description>The matrix-sdk-crypto crate, part of the Matrix Rust SDK project, is an implementation of a Matrix end-to-end encryption state machine in Rust. In Matrix, the server-side `key backup` stores encrypted copies of Matrix message keys. This facilitates key sharing between a user's devices and provides a redundant copy in case all devices are lost. The key backup uses asymmetric
+cryptography, with each server-side key backup assigned a unique public-private key pair. Due to a logic bug introduced in commit 71136e44c03c79f80d6d1a2446673bc4d53a2067, matrix-sdk-crypto version 0.7.0 will sometimes log the private part of the backup key pair to Rust debug logs (using the `tracing` crate). This issue has been resolved in matrix-sdk-crypto version 0.7.1. No known workarounds are available.</description>
+      <guid isPermaLink="false">CVE-2024-34353|2024-08-02T02:51:10.872Z</guid>
+      <pubDate>Mon, 13 May 2024 15:43:10 +0000</pubDate>
     </item>
   </channel>
 </rss>
