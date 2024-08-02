@@ -6,35 +6,78 @@
     <description>The latest CVEs for Linux -- Kernel</description>
     <docs>http://www.rssboard.org/rss-specification</docs>
     <generator>python-feedgen</generator>
-    <lastBuildDate>Thu, 01 Aug 2024 23:22:44 +0000</lastBuildDate>
+    <lastBuildDate>Fri, 02 Aug 2024 07:21:59 +0000</lastBuildDate>
     <ttl>60</ttl>
     <item>
-      <title>CVE-2024-1086|2024-08-01T18:26:30.467Z -- linux -- kernel
+      <title>CVE-2023-3090|2024-08-02T06:41:04.144Z -- linux -- kernel
 </title>
-      <link>https://www.cve.org/CVERecord?id=CVE-2024-1086</link>
-      <description>A use-after-free vulnerability in the Linux kernel's netfilter: nf_tables component can be exploited to achieve local privilege escalation.
+      <link>https://www.cve.org/CVERecord?id=CVE-2023-3090</link>
+      <description>A heap out-of-bounds write vulnerability in the Linux Kernel ipvlan network driver can be exploited to achieve local privilege escalation.
 
-The nft_verdict_init() function allows positive values as drop error within the hook verdict, and hence the nf_hook_slow() function can cause a double free vulnerability when NF_DROP is issued with a drop error which resembles NF_ACCEPT.
+The out-of-bounds write is caused by missing skb-&gt;cb  initialization in the ipvlan network driver. The vulnerability is reachable if CONFIG_IPVLAN is enabled.
 
-We recommend upgrading past commit f342de4e2f33e0e39165d8639387aa6c19dff660.
+
+We recommend upgrading past commit 90cbed5247439a966b645b34eb0a2e037836ea8e.
 
 </description>
-      <guid isPermaLink="false">CVE-2024-1086|2024-08-01T18:26:30.467Z</guid>
-      <pubDate>Wed, 31 Jan 2024 12:14:34 +0000</pubDate>
+      <guid isPermaLink="false">CVE-2023-3090|2024-08-02T06:41:04.144Z</guid>
+      <pubDate>Wed, 28 Jun 2023 19:06:41 +0000</pubDate>
     </item>
     <item>
-      <title>CVE-2024-1085|2024-08-01T18:26:30.459Z -- linux -- kernel
+      <title>CVE-2023-3611|2024-08-02T07:01:57.288Z -- linux -- kernel
 </title>
-      <link>https://www.cve.org/CVERecord?id=CVE-2024-1085</link>
-      <description>A use-after-free vulnerability in the Linux kernel's netfilter: nf_tables component can be exploited to achieve local privilege escalation.
+      <link>https://www.cve.org/CVERecord?id=CVE-2023-3611</link>
+      <description>An out-of-bounds write vulnerability in the Linux kernel's net/sched: sch_qfq component can be exploited to achieve local privilege escalation.
 
-The nft_setelem_catchall_deactivate() function checks whether the catch-all set element is active in the current generation instead of the next generation before freeing it, but only flags it inactive in the next generation, making it possible to free the element multiple times, leading to a double free vulnerability.
+The qfq_change_agg() function in net/sched/sch_qfq.c allows an out-of-bounds write because lmax is updated according to packet sizes without bounds checks.
 
-We recommend upgrading past commit b1db244ffd041a49ecc9618e8feb6b5c1afcdaa7.
+We recommend upgrading past commit 3e337087c3b5805fe0b8a46ba622a962880b5d64.
 
 </description>
-      <guid isPermaLink="false">CVE-2024-1085|2024-08-01T18:26:30.459Z</guid>
-      <pubDate>Wed, 31 Jan 2024 12:14:32 +0000</pubDate>
+      <guid isPermaLink="false">CVE-2023-3611|2024-08-02T07:01:57.288Z</guid>
+      <pubDate>Fri, 21 Jul 2023 20:49:10 +0000</pubDate>
+    </item>
+    <item>
+      <title>CVE-2023-3609|2024-08-02T07:01:56.672Z -- linux -- kernel
+</title>
+      <link>https://www.cve.org/CVERecord?id=CVE-2023-3609</link>
+      <description>A use-after-free vulnerability in the Linux kernel's net/sched: cls_u32 component can be exploited to achieve local privilege escalation.
+
+If tcf_change_indev() fails, u32_set_parms() will immediately return an error after incrementing or decrementing the reference counter in tcf_bind_filter(). If an attacker can control the reference counter and set it to zero, they can cause the reference to be freed, leading to a use-after-free vulnerability.
+
+We recommend upgrading past commit 04c55383fa5689357bcdd2c8036725a55ed632bc.
+
+</description>
+      <guid isPermaLink="false">CVE-2023-3609|2024-08-02T07:01:56.672Z</guid>
+      <pubDate>Fri, 21 Jul 2023 20:47:12 +0000</pubDate>
+    </item>
+    <item>
+      <title>CVE-2023-3610|2024-08-02T07:01:56.594Z -- linux -- kernel
+</title>
+      <link>https://www.cve.org/CVERecord?id=CVE-2023-3610</link>
+      <description>A use-after-free vulnerability in the Linux kernel's netfilter: nf_tables component can be exploited to achieve local privilege escalation.
+
+Flaw in the error handling of bound chains causes a use-after-free in the abort path of NFT_MSG_NEWRULE. The vulnerability requires CAP_NET_ADMIN to be triggered.
+
+We recommend upgrading past commit 4bedf9eee016286c835e3d8fa981ddece5338795.
+
+</description>
+      <guid isPermaLink="false">CVE-2023-3610|2024-08-02T07:01:56.594Z</guid>
+      <pubDate>Fri, 21 Jul 2023 20:48:13 +0000</pubDate>
+    </item>
+    <item>
+      <title>CVE-2023-3389|2024-08-02T06:55:02.753Z -- linux -- kernel
+</title>
+      <link>https://www.cve.org/CVERecord?id=CVE-2023-3389</link>
+      <description>A use-after-free vulnerability in the Linux Kernel io_uring subsystem can be exploited to achieve local privilege escalation.
+
+Racing a io_uring cancel poll request with a linked timeout can cause a UAF in a hrtimer.
+
+We recommend upgrading past commit ef7dfac51d8ed961b742218f526bd589f3900a59 (4716c73b188566865bdd79c3a6709696a224ac04 for 5.10 stable and 0e388fce7aec40992eadee654193cad345d62663 for 5.15 stable).
+
+</description>
+      <guid isPermaLink="false">CVE-2023-3389|2024-08-02T06:55:02.753Z</guid>
+      <pubDate>Wed, 28 Jun 2023 19:33:55 +0000</pubDate>
     </item>
   </channel>
 </rss>

@@ -6,8 +6,35 @@
     <description>The latest CVEs for Linux -- Linux kernel</description>
     <docs>http://www.rssboard.org/rss-specification</docs>
     <generator>python-feedgen</generator>
-    <lastBuildDate>Fri, 02 Aug 2024 06:25:00 +0000</lastBuildDate>
+    <lastBuildDate>Fri, 02 Aug 2024 07:21:58 +0000</lastBuildDate>
     <ttl>60</ttl>
+    <item>
+      <title>CVE-2023-1998|2024-08-02T06:05:27.106Z -- linux -- linux%20kernel
+</title>
+      <link>https://www.cve.org/CVERecord?id=CVE-2023-1998</link>
+      <description>The Linux kernel allows userspace processes to enable mitigations by calling prctl with PR_SET_SPECULATION_CTRL which disables the speculation feature as well as by using seccomp. We had noticed that on VMs of at least one major cloud provider, the kernel still left the victim process exposed to attacks in some cases even after enabling the spectre-BTI mitigation with prctl. The same behavior can be observed on a bare-metal machine when forcing the mitigation to IBRS on boot command line.
+
+This happened because when plain IBRS was enabled (not enhanced IBRS), the kernel had some logic that determined that STIBP was not needed. The IBRS bit implicitly protects against cross-thread branch target injection. However, with legacy IBRS, the IBRS bit was cleared on returning to userspace, due to performance reasons, which disabled the implicit STIBP and left userspace threads vulnerable to cross-thread branch target injection against which STIBP protects.
+
+
+</description>
+      <guid isPermaLink="false">CVE-2023-1998|2024-08-02T06:05:27.106Z</guid>
+      <pubDate>Fri, 21 Apr 2023 14:51:52 +0000</pubDate>
+    </item>
+    <item>
+      <title>CVE-2023-2236|2024-08-02T06:19:13.600Z -- linux -- linux%20kernel
+</title>
+      <link>https://www.cve.org/CVERecord?id=CVE-2023-2236</link>
+      <description>A use-after-free vulnerability in the Linux Kernel io_uring subsystem can be exploited to achieve local privilege escalation.
+
+Both io_install_fixed_file and its callers call fput in a file in case of an error, causing a reference underflow which leads to a use-after-free vulnerability.
+
+We recommend upgrading past commit 9d94c04c0db024922e886c9fd429659f22f48ea4.
+
+</description>
+      <guid isPermaLink="false">CVE-2023-2236|2024-08-02T06:19:13.600Z</guid>
+      <pubDate>Mon, 01 May 2023 12:50:47 +0000</pubDate>
+    </item>
     <item>
       <title>CVE-2023-1281|2024-08-02T05:40:59.846Z -- linux -- linux%20kernel
 </title>
@@ -18,6 +45,18 @@ This issue affects Linux Kernel: from 4.14 before git commit ee059170b1f7e94e55f
 </description>
       <guid isPermaLink="false">CVE-2023-1281|2024-08-02T05:40:59.846Z</guid>
       <pubDate>Wed, 22 Mar 2023 13:18:55 +0000</pubDate>
+    </item>
+    <item>
+      <title>CVE-2023-3390|2024-08-02T06:55:03.302Z -- linux -- linux%20kernel
+</title>
+      <link>https://www.cve.org/CVERecord?id=CVE-2023-3390</link>
+      <description>A use-after-free vulnerability was found in the Linux kernel's netfilter subsystem in net/netfilter/nf_tables_api.c.
+
+Mishandled error handling with NFT_MSG_NEWRULE makes it possible to use a dangling pointer in the same transaction causing a use-after-free vulnerability. This flaw allows a local attacker with user access to cause a privilege escalation issue.
+
+We recommend upgrading past commit 1240eb93f0616b21c675416516ff3d74798fdc97.</description>
+      <guid isPermaLink="false">CVE-2023-3390|2024-08-02T06:55:03.302Z</guid>
+      <pubDate>Wed, 28 Jun 2023 20:02:07 +0000</pubDate>
     </item>
     <item>
       <title>CVE-2023-0461|2024-08-02T05:10:56.165Z -- linux -- linux%20kernel
@@ -63,6 +102,16 @@ In the io_prep_async_work function the assumption that the last io_grab_identity
       <pubDate>Wed, 26 Apr 2023 18:03:11 +0000</pubDate>
     </item>
     <item>
+      <title>CVE-2023-2163|2024-08-02T06:12:20.554Z -- linux -- linux%20kernel
+</title>
+      <link>https://www.cve.org/CVERecord?id=CVE-2023-2163</link>
+      <description>Incorrect verifier pruning in BPF in Linux Kernel &gt;=5.4 leads to unsafe
+code paths being incorrectly marked as safe, resulting in arbitrary read/write in
+kernel memory, lateral privilege escalation, and container escape.</description>
+      <guid isPermaLink="false">CVE-2023-2163|2024-08-02T06:12:20.554Z</guid>
+      <pubDate>Wed, 20 Sep 2023 05:02:38 +0000</pubDate>
+    </item>
+    <item>
       <title>CVE-2023-0045|2024-08-02T04:54:32.575Z -- linux -- linux%20kernel
 </title>
       <link>https://www.cve.org/CVERecord?id=CVE-2023-0045</link>
@@ -73,6 +122,17 @@ We recommend upgrading past commit a664ec9158eeddd75121d39c9a0758016097fa96
 </description>
       <guid isPermaLink="false">CVE-2023-0045|2024-08-02T04:54:32.575Z</guid>
       <pubDate>Tue, 25 Apr 2023 22:44:57 +0000</pubDate>
+    </item>
+    <item>
+      <title>CVE-2023-1829|2024-08-02T06:05:26.153Z -- linux -- linux%20kernel
+</title>
+      <link>https://www.cve.org/CVERecord?id=CVE-2023-1829</link>
+      <description>A use-after-free vulnerability in the Linux Kernel traffic control index filter (tcindex) can be exploited to achieve local privilege escalation. The tcindex_delete function which does not properly deactivate filters in case of a perfect hashes while deleting the underlying structure which can later lead to double freeing the structure. A local attacker user can use this vulnerability to elevate its privileges to root.
+We recommend upgrading past commit 8c710f75256bb3cf05ac7b1672c82b92c43f3d28.
+
+</description>
+      <guid isPermaLink="false">CVE-2023-1829|2024-08-02T06:05:26.153Z</guid>
+      <pubDate>Wed, 12 Apr 2023 11:16:59 +0000</pubDate>
     </item>
     <item>
       <title>CVE-2023-0459|2024-08-02T05:10:56.155Z -- linux -- linux%20kernel
@@ -91,10 +151,157 @@ We recommend upgrading past commit a664ec9158eeddd75121d39c9a0758016097fa96
       <pubDate>Wed, 28 Jun 2023 11:08:54 +0000</pubDate>
     </item>
     <item>
-      <title>CVE-2024-22386|2024-08-01T22:43:34.688Z -- linux -- linux%20kernel</title>
+      <title>CVE-2023-1872|2024-08-02T06:05:26.723Z -- linux -- linux%20kernel
+</title>
+      <link>https://www.cve.org/CVERecord?id=CVE-2023-1872</link>
+      <description>A use-after-free vulnerability in the Linux Kernel io_uring system can be exploited to achieve local privilege escalation.
+
+The io_file_get_fixed function lacks the presence of ctx-&gt;uring_lock which can lead to a Use-After-Free vulnerability due a race condition with fixed files getting unregistered.
+
+We recommend upgrading past commit da24142b1ef9fd5d36b76e36bab328a5b27523e8.
+
+</description>
+      <guid isPermaLink="false">CVE-2023-1872|2024-08-02T06:05:26.723Z</guid>
+      <pubDate>Wed, 12 Apr 2023 15:40:42 +0000</pubDate>
+    </item>
+    <item>
+      <title>CVE-2023-2235|2024-08-02T06:19:13.580Z -- linux -- linux%20kernel
+</title>
+      <link>https://www.cve.org/CVERecord?id=CVE-2023-2235</link>
+      <description>A use-after-free vulnerability in the Linux Kernel Performance Events system can be exploited to achieve local privilege escalation.
+
+The perf_group_detach function did not check the event's siblings' attach_state before calling add_event_to_groups(), but remove_on_exec made it possible to call list_del_event() on before detaching from their group, making it possible to use a dangling pointer causing a use-after-free vulnerability.
+
+We recommend upgrading past commit fd0815f632c24878e325821943edccc7fde947a2.
+
+</description>
+      <guid isPermaLink="false">CVE-2023-2235|2024-08-02T06:19:13.580Z</guid>
+      <pubDate>Mon, 01 May 2023 12:51:25 +0000</pubDate>
+    </item>
+    <item>
+      <title>CVE-2024-24859|2024-07-05T17:21:25.429Z -- linux -- linux%20kernel</title>
+      <link>https://www.cve.org/CVERecord?id=CVE-2024-24859</link>
+      <description>A race condition was found in the Linux kernel's net/bluetooth in sniff_{min,max}_interval_set() function. This can result in a bluetooth sniffing exception issue, possibly leading denial of service.</description>
+      <guid isPermaLink="false">CVE-2024-24859|2024-07-05T17:21:25.429Z</guid>
+      <pubDate>Mon, 05 Feb 2024 07:28:06 +0000</pubDate>
+    </item>
+    <item>
+      <title>CVE-2024-24858|2024-07-05T17:21:10.209Z -- linux -- linux%20kernel</title>
+      <link>https://www.cve.org/CVERecord?id=CVE-2024-24858</link>
+      <description>A race condition was found in the Linux kernel's net/bluetooth in {conn,adv}_{min,max}_interval_set() function. This can result in I2cap connection or broadcast abnormality issue, possibly leading to denial of service.</description>
+      <guid isPermaLink="false">CVE-2024-24858|2024-07-05T17:21:10.209Z</guid>
+      <pubDate>Mon, 05 Feb 2024 07:30:55 +0000</pubDate>
+    </item>
+    <item>
+      <title>CVE-2024-23196|2024-07-05T17:22:53.499Z -- linux -- linux%20kernel</title>
+      <link>https://www.cve.org/CVERecord?id=CVE-2024-23196</link>
+      <description>A race condition was found in the Linux kernel's sound/hda  device driver in snd_hdac_regmap_sync() function. This can result in a null pointer dereference issue, possibly leading to a kernel panic or denial of service issue.</description>
+      <guid isPermaLink="false">CVE-2024-23196|2024-07-05T17:22:53.499Z</guid>
+      <pubDate>Mon, 05 Feb 2024 07:22:39 +0000</pubDate>
+    </item>
+    <item>
+      <title>CVE-2024-24855|2024-07-05T17:21:34.582Z -- linux -- linux%20kernel</title>
+      <link>https://www.cve.org/CVERecord?id=CVE-2024-24855</link>
+      <description>A race condition was found in the Linux kernel's scsi device driver in lpfc_unregister_fcf_rescan() function. This can result in a null pointer dereference issue, possibly leading to a kernel panic or denial of service issue.</description>
+      <guid isPermaLink="false">CVE-2024-24855|2024-07-05T17:21:34.582Z</guid>
+      <pubDate>Mon, 05 Feb 2024 07:25:41 +0000</pubDate>
+    </item>
+    <item>
+      <title>CVE-2024-24860|2024-07-05T17:21:19.546Z -- linux -- linux%20kernel</title>
+      <link>https://www.cve.org/CVERecord?id=CVE-2024-24860</link>
+      <description>A race condition was found in the Linux kernel's bluetooth device driver in {min,max}_key_size_set() function. This can result in a null pointer dereference issue, possibly leading to a kernel panic or denial of service issue.</description>
+      <guid isPermaLink="false">CVE-2024-24860|2024-07-05T17:21:19.546Z</guid>
+      <pubDate>Mon, 05 Feb 2024 07:27:31 +0000</pubDate>
+    </item>
+    <item>
+      <title>CVE-2024-24864|2024-07-05T17:21:24.554Z -- linux -- linux%20kernel</title>
+      <link>https://www.cve.org/CVERecord?id=CVE-2024-24864</link>
+      <description>A race condition was found in the Linux kernel's media/dvb-core in dvbdmx_write() function. This can result in a null pointer dereference issue, possibly leading to a kernel panic or denial of service issue.</description>
+      <guid isPermaLink="false">CVE-2024-24864|2024-07-05T17:21:24.554Z</guid>
+      <pubDate>Mon, 05 Feb 2024 07:36:04 +0000</pubDate>
+    </item>
+    <item>
+      <title>CVE-2024-24857|2024-02-05T07:31:31.308Z -- linux -- linux%20kernel</title>
+      <link>https://www.cve.org/CVERecord?id=CVE-2024-24857</link>
+      <description>A race condition was found in the Linux kernel's net/bluetooth device driver in conn_info_{min,max}_age_set() function. This can result in integrity overflow issue, possibly leading to bluetooth connection abnormality or denial of service.</description>
+      <guid isPermaLink="false">CVE-2024-24857|2024-02-05T07:31:31.308Z</guid>
+      <pubDate>Mon, 05 Feb 2024 07:31:31 +0000</pubDate>
+    </item>
+    <item>
+      <title>CVE-2024-22386|2024-02-05T07:21:20.819Z -- linux -- linux%20kernel</title>
+      <link>https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2024-22386</link>
+      <description>A race condition was found in the Linux kernel's drm/exynos device driver in exynos_drm_crtc_atomic_disable() function. This can result in a null pointer dereference issue, possibly leading to a kernel panic or denial of service issue.</description>
+      <guid isPermaLink="false">CVE-2024-22386|2024-02-05T07:21:20.819Z</guid>
+      <pubDate>Mon, 05 Feb 2024 07:21:20 +0000</pubDate>
+    </item>
+    <item>
+      <title>CVE-2024-23196|2024-02-05T07:22:39.907Z -- linux -- linux%20kernel</title>
+      <link>https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2024-23196</link>
+      <description>A race condition was found in the Linux kernel's sound/hda  device driver in snd_hdac_regmap_sync() function. This can result in a null pointer dereference issue, possibly leading to a kernel panic or denial of service issue.</description>
+      <guid isPermaLink="false">CVE-2024-23196|2024-02-05T07:22:39.907Z</guid>
+      <pubDate>Mon, 05 Feb 2024 07:22:39 +0000</pubDate>
+    </item>
+    <item>
+      <title>CVE-2024-24861|2024-06-04T17:43:39.200Z -- linux -- linux%20kernel</title>
+      <link>https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2024-24861</link>
+      <description>A race condition was found in the Linux kernel's media/xc4000 device driver in xc4000 xc4000_get_frequency() function. This can result in return value overflow issue, possibly leading to malfunction or denial of service issue.</description>
+      <guid isPermaLink="false">CVE-2024-24861|2024-06-04T17:43:39.200Z</guid>
+      <pubDate>Mon, 05 Feb 2024 07:26:43 +0000</pubDate>
+    </item>
+    <item>
+      <title>CVE-2024-24857|2024-06-04T17:43:34.885Z -- linux -- linux%20kernel</title>
+      <link>https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2024-24857</link>
+      <description>A race condition was found in the Linux kernel's net/bluetooth device driver in conn_info_{min,max}_age_set() function. This can result in integrity overflow issue, possibly leading to bluetooth connection abnormality or denial of service.</description>
+      <guid isPermaLink="false">CVE-2024-24857|2024-06-04T17:43:34.885Z</guid>
+      <pubDate>Mon, 05 Feb 2024 07:31:31 +0000</pubDate>
+    </item>
+    <item>
+      <title>CVE-2024-24860|2024-02-05T07:27:31.042Z -- linux -- linux%20kernel</title>
+      <link>https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2024-24860</link>
+      <description>A race condition was found in the Linux kernel's bluetooth device driver in {min,max}_key_size_set() function. This can result in a null pointer dereference issue, possibly leading to a kernel panic or denial of service issue.</description>
+      <guid isPermaLink="false">CVE-2024-24860|2024-02-05T07:27:31.042Z</guid>
+      <pubDate>Mon, 05 Feb 2024 07:27:31 +0000</pubDate>
+    </item>
+    <item>
+      <title>CVE-2024-24864|2024-02-05T07:36:04.281Z -- linux -- linux%20kernel</title>
+      <link>https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2024-24864</link>
+      <description>A race condition was found in the Linux kernel's media/dvb-core in dvbdmx_write() function. This can result in a null pointer dereference issue, possibly leading to a kernel panic or denial of service issue.</description>
+      <guid isPermaLink="false">CVE-2024-24864|2024-02-05T07:36:04.281Z</guid>
+      <pubDate>Mon, 05 Feb 2024 07:36:04 +0000</pubDate>
+    </item>
+    <item>
+      <title>CVE-2024-24859|2024-02-05T07:28:06.115Z -- linux -- linux%20kernel</title>
+      <link>https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2024-24859</link>
+      <description>A race condition was found in the Linux kernel's net/bluetooth in sniff_{min,max}_interval_set() function. This can result in a bluetooth sniffing exception issue, possibly leading denial of service.</description>
+      <guid isPermaLink="false">CVE-2024-24859|2024-02-05T07:28:06.115Z</guid>
+      <pubDate>Mon, 05 Feb 2024 07:28:06 +0000</pubDate>
+    </item>
+    <item>
+      <title>CVE-2024-24855|2024-02-05T07:25:41.568Z -- linux -- linux%20kernel</title>
+      <link>https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2024-24855</link>
+      <description>A race condition was found in the Linux kernel's scsi device driver in lpfc_unregister_fcf_rescan() function. This can result in a null pointer dereference issue, possibly leading to a kernel panic or denial of service issue.</description>
+      <guid isPermaLink="false">CVE-2024-24855|2024-02-05T07:25:41.568Z</guid>
+      <pubDate>Mon, 05 Feb 2024 07:25:41 +0000</pubDate>
+    </item>
+    <item>
+      <title>CVE-2024-24858|2024-02-05T07:30:55.483Z -- linux -- linux%20kernel</title>
+      <link>https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2024-24858</link>
+      <description>A race condition was found in the Linux kernel's net/bluetooth in {conn,adv}_{min,max}_interval_set() function. This can result in I2cap connection or broadcast abnormality issue, possibly leading to denial of service.</description>
+      <guid isPermaLink="false">CVE-2024-24858|2024-02-05T07:30:55.483Z</guid>
+      <pubDate>Mon, 05 Feb 2024 07:30:55 +0000</pubDate>
+    </item>
+    <item>
+      <title>CVE-2024-24861|2024-02-05T07:26:43.824Z -- linux -- linux%20kernel</title>
+      <link>https://www.cve.org/CVERecord?id=CVE-2024-24861</link>
+      <description>A race condition was found in the Linux kernel's media/xc4000 device driver in xc4000 xc4000_get_frequency() function. This can result in return value overflow issue, possibly leading to malfunction or denial of service issue.</description>
+      <guid isPermaLink="false">CVE-2024-24861|2024-02-05T07:26:43.824Z</guid>
+      <pubDate>Mon, 05 Feb 2024 07:26:43 +0000</pubDate>
+    </item>
+    <item>
+      <title>CVE-2024-22386|2024-06-28T17:07:05.173Z -- linux -- linux%20kernel</title>
       <link>https://www.cve.org/CVERecord?id=CVE-2024-22386</link>
       <description>A race condition was found in the Linux kernel's drm/exynos device driver in exynos_drm_crtc_atomic_disable() function. This can result in a null pointer dereference issue, possibly leading to a kernel panic or denial of service issue.</description>
-      <guid isPermaLink="false">CVE-2024-22386|2024-08-01T22:43:34.688Z</guid>
+      <guid isPermaLink="false">CVE-2024-22386|2024-06-28T17:07:05.173Z</guid>
       <pubDate>Mon, 05 Feb 2024 07:21:20 +0000</pubDate>
     </item>
     <item>
@@ -105,130 +312,11 @@ We recommend upgrading past commit a664ec9158eeddd75121d39c9a0758016097fa96
       <pubDate>Mon, 05 Feb 2024 07:22:39 +0000</pubDate>
     </item>
     <item>
-      <title>CVE-2024-22386|2024-06-28T17:07:05.173Z -- linux -- linux%20kernel</title>
+      <title>CVE-2024-22386|2024-08-01T22:43:34.688Z -- linux -- linux%20kernel</title>
       <link>https://www.cve.org/CVERecord?id=CVE-2024-22386</link>
       <description>A race condition was found in the Linux kernel's drm/exynos device driver in exynos_drm_crtc_atomic_disable() function. This can result in a null pointer dereference issue, possibly leading to a kernel panic or denial of service issue.</description>
-      <guid isPermaLink="false">CVE-2024-22386|2024-06-28T17:07:05.173Z</guid>
+      <guid isPermaLink="false">CVE-2024-22386|2024-08-01T22:43:34.688Z</guid>
       <pubDate>Mon, 05 Feb 2024 07:21:20 +0000</pubDate>
-    </item>
-    <item>
-      <title>CVE-2024-24861|2024-02-05T07:26:43.824Z -- linux -- linux%20kernel</title>
-      <link>https://www.cve.org/CVERecord?id=CVE-2024-24861</link>
-      <description>A race condition was found in the Linux kernel's media/xc4000 device driver in xc4000 xc4000_get_frequency() function. This can result in return value overflow issue, possibly leading to malfunction or denial of service issue.</description>
-      <guid isPermaLink="false">CVE-2024-24861|2024-02-05T07:26:43.824Z</guid>
-      <pubDate>Mon, 05 Feb 2024 07:26:43 +0000</pubDate>
-    </item>
-    <item>
-      <title>CVE-2024-24858|2024-02-05T07:30:55.483Z -- linux -- linux%20kernel</title>
-      <link>https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2024-24858</link>
-      <description>A race condition was found in the Linux kernel's net/bluetooth in {conn,adv}_{min,max}_interval_set() function. This can result in I2cap connection or broadcast abnormality issue, possibly leading to denial of service.</description>
-      <guid isPermaLink="false">CVE-2024-24858|2024-02-05T07:30:55.483Z</guid>
-      <pubDate>Mon, 05 Feb 2024 07:30:55 +0000</pubDate>
-    </item>
-    <item>
-      <title>CVE-2024-24855|2024-02-05T07:25:41.568Z -- linux -- linux%20kernel</title>
-      <link>https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2024-24855</link>
-      <description>A race condition was found in the Linux kernel's scsi device driver in lpfc_unregister_fcf_rescan() function. This can result in a null pointer dereference issue, possibly leading to a kernel panic or denial of service issue.</description>
-      <guid isPermaLink="false">CVE-2024-24855|2024-02-05T07:25:41.568Z</guid>
-      <pubDate>Mon, 05 Feb 2024 07:25:41 +0000</pubDate>
-    </item>
-    <item>
-      <title>CVE-2024-24859|2024-02-05T07:28:06.115Z -- linux -- linux%20kernel</title>
-      <link>https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2024-24859</link>
-      <description>A race condition was found in the Linux kernel's net/bluetooth in sniff_{min,max}_interval_set() function. This can result in a bluetooth sniffing exception issue, possibly leading denial of service.</description>
-      <guid isPermaLink="false">CVE-2024-24859|2024-02-05T07:28:06.115Z</guid>
-      <pubDate>Mon, 05 Feb 2024 07:28:06 +0000</pubDate>
-    </item>
-    <item>
-      <title>CVE-2024-24864|2024-02-05T07:36:04.281Z -- linux -- linux%20kernel</title>
-      <link>https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2024-24864</link>
-      <description>A race condition was found in the Linux kernel's media/dvb-core in dvbdmx_write() function. This can result in a null pointer dereference issue, possibly leading to a kernel panic or denial of service issue.</description>
-      <guid isPermaLink="false">CVE-2024-24864|2024-02-05T07:36:04.281Z</guid>
-      <pubDate>Mon, 05 Feb 2024 07:36:04 +0000</pubDate>
-    </item>
-    <item>
-      <title>CVE-2024-24860|2024-02-05T07:27:31.042Z -- linux -- linux%20kernel</title>
-      <link>https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2024-24860</link>
-      <description>A race condition was found in the Linux kernel's bluetooth device driver in {min,max}_key_size_set() function. This can result in a null pointer dereference issue, possibly leading to a kernel panic or denial of service issue.</description>
-      <guid isPermaLink="false">CVE-2024-24860|2024-02-05T07:27:31.042Z</guid>
-      <pubDate>Mon, 05 Feb 2024 07:27:31 +0000</pubDate>
-    </item>
-    <item>
-      <title>CVE-2024-24857|2024-06-04T17:43:34.885Z -- linux -- linux%20kernel</title>
-      <link>https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2024-24857</link>
-      <description>A race condition was found in the Linux kernel's net/bluetooth device driver in conn_info_{min,max}_age_set() function. This can result in integrity overflow issue, possibly leading to bluetooth connection abnormality or denial of service.</description>
-      <guid isPermaLink="false">CVE-2024-24857|2024-06-04T17:43:34.885Z</guid>
-      <pubDate>Mon, 05 Feb 2024 07:31:31 +0000</pubDate>
-    </item>
-    <item>
-      <title>CVE-2024-24861|2024-06-04T17:43:39.200Z -- linux -- linux%20kernel</title>
-      <link>https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2024-24861</link>
-      <description>A race condition was found in the Linux kernel's media/xc4000 device driver in xc4000 xc4000_get_frequency() function. This can result in return value overflow issue, possibly leading to malfunction or denial of service issue.</description>
-      <guid isPermaLink="false">CVE-2024-24861|2024-06-04T17:43:39.200Z</guid>
-      <pubDate>Mon, 05 Feb 2024 07:26:43 +0000</pubDate>
-    </item>
-    <item>
-      <title>CVE-2024-23196|2024-02-05T07:22:39.907Z -- linux -- linux%20kernel</title>
-      <link>https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2024-23196</link>
-      <description>A race condition was found in the Linux kernel's sound/hda  device driver in snd_hdac_regmap_sync() function. This can result in a null pointer dereference issue, possibly leading to a kernel panic or denial of service issue.</description>
-      <guid isPermaLink="false">CVE-2024-23196|2024-02-05T07:22:39.907Z</guid>
-      <pubDate>Mon, 05 Feb 2024 07:22:39 +0000</pubDate>
-    </item>
-    <item>
-      <title>CVE-2024-22386|2024-02-05T07:21:20.819Z -- linux -- linux%20kernel</title>
-      <link>https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2024-22386</link>
-      <description>A race condition was found in the Linux kernel's drm/exynos device driver in exynos_drm_crtc_atomic_disable() function. This can result in a null pointer dereference issue, possibly leading to a kernel panic or denial of service issue.</description>
-      <guid isPermaLink="false">CVE-2024-22386|2024-02-05T07:21:20.819Z</guid>
-      <pubDate>Mon, 05 Feb 2024 07:21:20 +0000</pubDate>
-    </item>
-    <item>
-      <title>CVE-2024-24857|2024-02-05T07:31:31.308Z -- linux -- linux%20kernel</title>
-      <link>https://www.cve.org/CVERecord?id=CVE-2024-24857</link>
-      <description>A race condition was found in the Linux kernel's net/bluetooth device driver in conn_info_{min,max}_age_set() function. This can result in integrity overflow issue, possibly leading to bluetooth connection abnormality or denial of service.</description>
-      <guid isPermaLink="false">CVE-2024-24857|2024-02-05T07:31:31.308Z</guid>
-      <pubDate>Mon, 05 Feb 2024 07:31:31 +0000</pubDate>
-    </item>
-    <item>
-      <title>CVE-2024-24864|2024-07-05T17:21:24.554Z -- linux -- linux%20kernel</title>
-      <link>https://www.cve.org/CVERecord?id=CVE-2024-24864</link>
-      <description>A race condition was found in the Linux kernel's media/dvb-core in dvbdmx_write() function. This can result in a null pointer dereference issue, possibly leading to a kernel panic or denial of service issue.</description>
-      <guid isPermaLink="false">CVE-2024-24864|2024-07-05T17:21:24.554Z</guid>
-      <pubDate>Mon, 05 Feb 2024 07:36:04 +0000</pubDate>
-    </item>
-    <item>
-      <title>CVE-2024-24860|2024-07-05T17:21:19.546Z -- linux -- linux%20kernel</title>
-      <link>https://www.cve.org/CVERecord?id=CVE-2024-24860</link>
-      <description>A race condition was found in the Linux kernel's bluetooth device driver in {min,max}_key_size_set() function. This can result in a null pointer dereference issue, possibly leading to a kernel panic or denial of service issue.</description>
-      <guid isPermaLink="false">CVE-2024-24860|2024-07-05T17:21:19.546Z</guid>
-      <pubDate>Mon, 05 Feb 2024 07:27:31 +0000</pubDate>
-    </item>
-    <item>
-      <title>CVE-2024-24855|2024-07-05T17:21:34.582Z -- linux -- linux%20kernel</title>
-      <link>https://www.cve.org/CVERecord?id=CVE-2024-24855</link>
-      <description>A race condition was found in the Linux kernel's scsi device driver in lpfc_unregister_fcf_rescan() function. This can result in a null pointer dereference issue, possibly leading to a kernel panic or denial of service issue.</description>
-      <guid isPermaLink="false">CVE-2024-24855|2024-07-05T17:21:34.582Z</guid>
-      <pubDate>Mon, 05 Feb 2024 07:25:41 +0000</pubDate>
-    </item>
-    <item>
-      <title>CVE-2024-23196|2024-07-05T17:22:53.499Z -- linux -- linux%20kernel</title>
-      <link>https://www.cve.org/CVERecord?id=CVE-2024-23196</link>
-      <description>A race condition was found in the Linux kernel's sound/hda  device driver in snd_hdac_regmap_sync() function. This can result in a null pointer dereference issue, possibly leading to a kernel panic or denial of service issue.</description>
-      <guid isPermaLink="false">CVE-2024-23196|2024-07-05T17:22:53.499Z</guid>
-      <pubDate>Mon, 05 Feb 2024 07:22:39 +0000</pubDate>
-    </item>
-    <item>
-      <title>CVE-2024-24858|2024-07-05T17:21:10.209Z -- linux -- linux%20kernel</title>
-      <link>https://www.cve.org/CVERecord?id=CVE-2024-24858</link>
-      <description>A race condition was found in the Linux kernel's net/bluetooth in {conn,adv}_{min,max}_interval_set() function. This can result in I2cap connection or broadcast abnormality issue, possibly leading to denial of service.</description>
-      <guid isPermaLink="false">CVE-2024-24858|2024-07-05T17:21:10.209Z</guid>
-      <pubDate>Mon, 05 Feb 2024 07:30:55 +0000</pubDate>
-    </item>
-    <item>
-      <title>CVE-2024-24859|2024-07-05T17:21:25.429Z -- linux -- linux%20kernel</title>
-      <link>https://www.cve.org/CVERecord?id=CVE-2024-24859</link>
-      <description>A race condition was found in the Linux kernel's net/bluetooth in sniff_{min,max}_interval_set() function. This can result in a bluetooth sniffing exception issue, possibly leading denial of service.</description>
-      <guid isPermaLink="false">CVE-2024-24859|2024-07-05T17:21:25.429Z</guid>
-      <pubDate>Mon, 05 Feb 2024 07:28:06 +0000</pubDate>
     </item>
   </channel>
 </rss>
