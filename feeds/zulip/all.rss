@@ -6,8 +6,16 @@
     <description>The latest CVEs for zulip -- all products</description>
     <docs>http://www.rssboard.org/rss-specification</docs>
     <generator>python-feedgen</generator>
-    <lastBuildDate>Fri, 02 Aug 2024 15:23:24 +0000</lastBuildDate>
+    <lastBuildDate>Fri, 02 Aug 2024 16:24:39 +0000</lastBuildDate>
     <ttl>60</ttl>
+    <item>
+      <title>CVE-2023-32677|2024-08-02T15:25:36.618Z -- zulip -- zulip
+</title>
+      <link>https://www.cve.org/CVERecord?id=CVE-2023-32677</link>
+      <description>Zulip is an open-source team collaboration tool with unique topic-based threading. Zulip administrators can configure Zulip to limit who can add users to streams, and separately to limit who can invite users to the organization. In Zulip Server 6.1 and below, the UI which allows a user to invite a new user also allows them to set the streams that the new user is invited to -- even if the inviting user would not have permissions to add an existing user to streams. While such a configuration is likely rare in practice, the behavior does violate security-related controls. This does not let a user invite new users to streams they cannot see, or would not be able to add users to if they had that general permission. This issue has been addressed in version 6.2. Users are advised to upgrade. Users unable to upgrade may limit sending of invitations down to users who also have the permission to add users to streams.</description>
+      <guid isPermaLink="false">CVE-2023-32677|2024-08-02T15:25:36.618Z</guid>
+      <pubDate>Fri, 19 May 2023 20:44:47 +0000</pubDate>
+    </item>
     <item>
       <title>CVE-2023-22735|2024-08-02T10:13:50.231Z -- zulip -- zulip
 </title>
@@ -25,17 +33,33 @@
       <pubDate>Fri, 19 May 2023 21:04:51 +0000</pubDate>
     </item>
     <item>
-      <title>CVE-2024-27286|2024-06-04T17:46:59.769Z -- zulip -- zulip</title>
-      <link>https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2024-27286</link>
-      <description>Zulip is an open-source team collaboration. When a user moves a Zulip message, they have the option to move all messages in the topic, move only subsequent messages as well, or move just a single message.  If the user chose to just move one message, and was moving it from a public stream to a private stream, Zulip would successfully move the message, -- but active users who did not have access to the private stream, but whose client had already received the message, would continue to see the message in the public stream until they reloaded their client.  Additionally, Zulip did not remove view permissions on the message from recently-active users, allowing the message to show up in the "All messages" view or in search results, but not in "Inbox" or "Recent conversations" views. While the bug has been present since moving messages between streams was first introduced in version 3.0, this option became much more common starting in Zulip 8.0, when the default option in the picker for moving the very last message in a conversation was changed. This issue is fixed in Zulip Server 8.3. No known workarounds are available.</description>
-      <guid isPermaLink="false">CVE-2024-27286|2024-06-04T17:46:59.769Z</guid>
-      <pubDate>Wed, 20 Mar 2024 19:35:59 +0000</pubDate>
+      <title>CVE-2023-32678|2024-08-02T15:25:36.357Z -- zulip -- zulip
+</title>
+      <link>https://www.cve.org/CVERecord?id=CVE-2023-32678</link>
+      <description>Zulip is an open-source team collaboration tool with topic-based threading that combines email and chat. Users who used to be subscribed to a private stream and have been removed from it since retain the ability to edit messages/topics, move messages to other streams, and delete messages that they used to have access to, if other relevant organization permissions allow these actions. For example, a user may be able to edit or delete their old messages they posted in such a private stream. An administrator will be able to delete old messages (that they had access to) from the private stream. This issue was fixed in Zulip Server version 7.3.</description>
+      <guid isPermaLink="false">CVE-2023-32678|2024-08-02T15:25:36.357Z</guid>
+      <pubDate>Fri, 25 Aug 2023 20:04:49 +0000</pubDate>
+    </item>
+    <item>
+      <title>CVE-2023-33186|2024-08-02T15:39:35.439Z -- zulip -- zulip
+</title>
+      <link>https://www.cve.org/CVERecord?id=CVE-2023-33186</link>
+      <description>Zulip is an open-source team collaboration tool with unique topic-based threading that combines the best of email and chat to make remote work productive and delightful. The main development branch of Zulip Server from May 2, 2023 and later, including beta versions 7.0-beta1 and 7.0-beta2, is vulnerable to a cross-site scripting vulnerability in tooltips on the message feed. An attacker who can send messages could maliciously craft a topic for the message, such that a victim who hovers the tooltip for that topic in their message feed triggers execution of JavaScript code controlled by the attacker.</description>
+      <guid isPermaLink="false">CVE-2023-33186|2024-08-02T15:39:35.439Z</guid>
+      <pubDate>Tue, 30 May 2023 05:31:37 +0000</pubDate>
     </item>
     <item>
       <title>CVE-2024-27286|2024-08-02T00:27:59.940Z -- zulip -- zulip</title>
       <link>https://www.cve.org/CVERecord?id=CVE-2024-27286</link>
       <description>Zulip is an open-source team collaboration. When a user moves a Zulip message, they have the option to move all messages in the topic, move only subsequent messages as well, or move just a single message.  If the user chose to just move one message, and was moving it from a public stream to a private stream, Zulip would successfully move the message, -- but active users who did not have access to the private stream, but whose client had already received the message, would continue to see the message in the public stream until they reloaded their client.  Additionally, Zulip did not remove view permissions on the message from recently-active users, allowing the message to show up in the "All messages" view or in search results, but not in "Inbox" or "Recent conversations" views. While the bug has been present since moving messages between streams was first introduced in version 3.0, this option became much more common starting in Zulip 8.0, when the default option in the picker for moving the very last message in a conversation was changed. This issue is fixed in Zulip Server 8.3. No known workarounds are available.</description>
       <guid isPermaLink="false">CVE-2024-27286|2024-08-02T00:27:59.940Z</guid>
+      <pubDate>Wed, 20 Mar 2024 19:35:59 +0000</pubDate>
+    </item>
+    <item>
+      <title>CVE-2024-27286|2024-06-04T17:46:59.769Z -- zulip -- zulip</title>
+      <link>https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2024-27286</link>
+      <description>Zulip is an open-source team collaboration. When a user moves a Zulip message, they have the option to move all messages in the topic, move only subsequent messages as well, or move just a single message.  If the user chose to just move one message, and was moving it from a public stream to a private stream, Zulip would successfully move the message, -- but active users who did not have access to the private stream, but whose client had already received the message, would continue to see the message in the public stream until they reloaded their client.  Additionally, Zulip did not remove view permissions on the message from recently-active users, allowing the message to show up in the "All messages" view or in search results, but not in "Inbox" or "Recent conversations" views. While the bug has been present since moving messages between streams was first introduced in version 3.0, this option became much more common starting in Zulip 8.0, when the default option in the picker for moving the very last message in a conversation was changed. This issue is fixed in Zulip Server 8.3. No known workarounds are available.</description>
+      <guid isPermaLink="false">CVE-2024-27286|2024-06-04T17:46:59.769Z</guid>
       <pubDate>Wed, 20 Mar 2024 19:35:59 +0000</pubDate>
     </item>
   </channel>

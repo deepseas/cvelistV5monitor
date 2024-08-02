@@ -6,70 +6,16 @@
     <description>The latest CVEs for xerial -- all products</description>
     <docs>http://www.rssboard.org/rss-specification</docs>
     <generator>python-feedgen</generator>
-    <lastBuildDate>Wed, 12 Jun 2024 11:24:34 +0000</lastBuildDate>
+    <lastBuildDate>Fri, 02 Aug 2024 16:25:06 +0000</lastBuildDate>
     <ttl>60</ttl>
     <item>
-      <title>CVE-2023-32697|2023-05-23T22:45:10.493Z -- xerial -- sqlite-jdbc
+      <title>CVE-2023-32697|2024-08-02T15:25:36.870Z -- xerial -- sqlite-jdbc
 </title>
-      <link>https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2023-32697</link>
+      <link>https://www.cve.org/CVERecord?id=CVE-2023-32697</link>
       <description>SQLite JDBC is a library for accessing and creating SQLite database files in Java. Sqlite-jdbc addresses a remote code execution vulnerability via JDBC URL. This issue impacting versions 3.6.14.1 through 3.41.2.1 and has been fixed in version 3.41.2.2.
 </description>
-      <guid isPermaLink="false">CVE-2023-32697|2023-05-23T22:45:10.493Z</guid>
+      <guid isPermaLink="false">CVE-2023-32697|2024-08-02T15:25:36.870Z</guid>
       <pubDate>Tue, 23 May 2023 22:45:10 +0000</pubDate>
-    </item>
-    <item>
-      <title>CVE-2023-43642|2023-09-25T19:03:49.145Z -- xerial -- snappy-java
-</title>
-      <link>https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2023-43642</link>
-      <description>snappy-java is a Java port of the snappy, a fast C++ compresser/decompresser developed by Google. The SnappyInputStream was found to be vulnerable to Denial of Service (DoS) attacks when decompressing data with a too large chunk size. Due to missing upper bound check on chunk length, an unrecoverable fatal error can occur. All versions of snappy-java including the latest released version 1.1.10.3 are vulnerable to this issue. A fix has been introduced in commit `9f8c3cf74` which will be included in the 1.1.10.4 release. Users are advised to upgrade. Users unable to upgrade should only accept compressed data from trusted sources.</description>
-      <guid isPermaLink="false">CVE-2023-43642|2023-09-25T19:03:49.145Z</guid>
-      <pubDate>Mon, 25 Sep 2023 19:03:49 +0000</pubDate>
-    </item>
-    <item>
-      <title>CVE-2023-34454|2023-06-15T16:27:45.467Z -- xerial -- snappy-java
-</title>
-      <link>https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2023-34454</link>
-      <description>snappy-java is a fast compressor/decompressor for Java. Due to unchecked multiplications, an integer overflow may occur in versions prior to 1.1.10.1, causing an unrecoverable fatal error.
-
-The function `compress(char[] input)` in the file `Snappy.java` receives an array of characters and compresses it. It does so by multiplying the length by 2 and passing it to the rawCompress` function.
-
-Since the length is not tested, the multiplication by two can cause an integer overflow and become negative. The rawCompress function then uses the received length and passes it to the natively compiled maxCompressedLength function, using the returned value to allocate a byte array.
-
-Since the maxCompressedLength function treats the length as an unsigned integer, it doesn’t care that it is negative, and it returns a valid value, which is casted to a signed integer by the Java engine. If the result is negative, a `java.lang.NegativeArraySizeException` exception will be raised while trying to allocate the array `buf`. On the other side, if the result is positive, the `buf` array will successfully be allocated, but its size might be too small to use for the compression, causing a fatal Access Violation error.
-
-The same issue exists also when using the `compress` functions that receive double, float, int, long and short, each using a different multiplier that may cause the same issue. The issue most likely won’t occur when using a byte array, since creating a byte array of size 0x80000000 (or any other negative value) is impossible in the first place.
-
-Version 1.1.10.1 contains a patch for this issue.</description>
-      <guid isPermaLink="false">CVE-2023-34454|2023-06-15T16:27:45.467Z</guid>
-      <pubDate>Thu, 15 Jun 2023 16:27:45 +0000</pubDate>
-    </item>
-    <item>
-      <title>CVE-2023-34455|2023-06-15T17:15:00.311Z -- xerial -- snappy-java
-</title>
-      <link>https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2023-34455</link>
-      <description>snappy-java is a fast compressor/decompressor for Java. Due to use of an unchecked chunk length, an unrecoverable fatal error can occur in versions prior to 1.1.10.1.
-
-The code in the function hasNextChunk in the fileSnappyInputStream.java checks if a given stream has more chunks to read. It does that by attempting to read 4 bytes. If it wasn’t possible to read the 4 bytes, the function returns false. Otherwise, if 4 bytes were available, the code treats them as the length of the next chunk.
-
-In the case that the `compressed` variable is null, a byte array is allocated with the size given by the input data. Since the code doesn’t test the legality of the `chunkSize` variable, it is possible to pass a negative number (such as 0xFFFFFFFF which is -1), which will cause the code to raise a `java.lang.NegativeArraySizeException` exception. A worse case would happen when passing a huge positive value (such as 0x7FFFFFFF), which would raise the fatal `java.lang.OutOfMemoryError` error.
-
-Version 1.1.10.1 contains a patch for this issue.</description>
-      <guid isPermaLink="false">CVE-2023-34455|2023-06-15T17:15:00.311Z</guid>
-      <pubDate>Thu, 15 Jun 2023 17:15:00 +0000</pubDate>
-    </item>
-    <item>
-      <title>CVE-2023-34453|2023-06-15T16:12:34.119Z -- xerial -- snappy-java
-</title>
-      <link>https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2023-34453</link>
-      <description>snappy-java is a fast compressor/decompressor for Java. Due to unchecked multiplications, an integer overflow may occur in versions prior to 1.1.10.1, causing a fatal error.
-
-The function `shuffle(int[] input)` in the file `BitShuffle.java` receives an array of integers and applies a bit shuffle on it. It does so by multiplying the length by 4 and passing it to the natively compiled shuffle function. Since the length is not tested, the multiplication by four can cause an integer overflow and become a smaller value than the true size, or even zero or negative. In the case of a negative value, a `java.lang.NegativeArraySizeException` exception will raise, which can crash the program. In a case of a value that is zero or too small, the code that afterwards references the shuffled array will assume a bigger size of the array, which might cause exceptions such as `java.lang.ArrayIndexOutOfBoundsException`.
-
-The same issue exists also when using the `shuffle` functions that receive a double, float, long and short, each using a different multiplier that may cause the same issue.
-
-Version 1.1.10.1 contains a patch for this vulnerability.</description>
-      <guid isPermaLink="false">CVE-2023-34453|2023-06-15T16:12:34.119Z</guid>
-      <pubDate>Thu, 15 Jun 2023 16:12:34 +0000</pubDate>
     </item>
   </channel>
 </rss>

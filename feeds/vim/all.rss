@@ -6,7 +6,7 @@
     <description>The latest CVEs for vim -- all products</description>
     <docs>http://www.rssboard.org/rss-specification</docs>
     <generator>python-feedgen</generator>
-    <lastBuildDate>Fri, 02 Aug 2024 15:23:08 +0000</lastBuildDate>
+    <lastBuildDate>Fri, 02 Aug 2024 16:24:38 +0000</lastBuildDate>
     <ttl>60</ttl>
     <item>
       <title>CVE-2023-4750|2024-08-02T07:37:59.540Z -- vim -- vim%2Fvim
@@ -161,6 +161,15 @@
       <pubDate>Mon, 04 Sep 2023 13:46:57 +0000</pubDate>
     </item>
     <item>
+      <title>CVE-2024-41957|2024-08-02T15:32:16.672Z -- vim -- vim
+</title>
+      <link>https://www.cve.org/CVERecord?id=CVE-2024-41957</link>
+      <description>Vim is an open source command line text editor. Vim &lt; v9.1.0647 has double free in src/alloc.c:616. When closing a window, the corresponding tagstack data will be cleared and freed. However a bit later, the quickfix list belonging to that window will also be cleared and if that quickfix list points to the same tagstack data, Vim will try to free it again, resulting in a double-free/use-after-free access exception. Impact is low since the user must intentionally execute vim with several non-default flags,
+but it may cause a crash of Vim. The issue has been fixed as of Vim patch v9.1.0647</description>
+      <guid isPermaLink="false">CVE-2024-41957|2024-08-02T15:32:16.672Z</guid>
+      <pubDate>Thu, 01 Aug 2024 21:41:42 +0000</pubDate>
+    </item>
+    <item>
       <title>CVE-2023-1264|2024-08-02T05:40:59.781Z -- vim -- vim%2Fvim
 </title>
       <link>https://www.cve.org/CVERecord?id=CVE-2023-1264</link>
@@ -217,19 +226,19 @@
       <pubDate>Sun, 03 Sep 2023 18:54:47 +0000</pubDate>
     </item>
     <item>
+      <title>CVE-2024-41965|2024-08-01T21:44:09.056Z -- vim -- vim</title>
+      <link>https://www.cve.org/CVERecord?id=CVE-2024-41965</link>
+      <description>Vim is an open source command line text editor. double-free in dialog_changed() in Vim &lt; v9.1.0648. When abandoning a buffer, Vim may ask the user what to do with the modified buffer. If the user wants the changed buffer to be saved, Vim may create a new Untitled file, if the buffer did not have a name yet. However, when setting the buffer name to Unnamed, Vim will falsely free a pointer twice, leading to a double-free and possibly later to a heap-use-after-free, which can lead to a crash. The issue has been fixed as of Vim patch v9.1.0648.</description>
+      <guid isPermaLink="false">CVE-2024-41965|2024-08-01T21:44:09.056Z</guid>
+      <pubDate>Thu, 01 Aug 2024 21:44:09 +0000</pubDate>
+    </item>
+    <item>
       <title>CVE-2024-41957|2024-08-01T21:41:42.921Z -- vim -- vim</title>
       <link>https://www.cve.org/CVERecord?id=CVE-2024-41957</link>
       <description>Vim is an open source command line text editor. Vim &lt; v9.1.0647 has double free in src/alloc.c:616. When closing a window, the corresponding tagstack data will be cleared and freed. However a bit later, the quickfix list belonging to that window will also be cleared and if that quickfix list points to the same tagstack data, Vim will try to free it again, resulting in a double-free/use-after-free access exception. Impact is low since the user must intentionally execute vim with several non-default flags,
 but it may cause a crash of Vim. The issue has been fixed as of Vim patch v9.1.0647</description>
       <guid isPermaLink="false">CVE-2024-41957|2024-08-01T21:41:42.921Z</guid>
       <pubDate>Thu, 01 Aug 2024 21:41:42 +0000</pubDate>
-    </item>
-    <item>
-      <title>CVE-2024-41965|2024-08-01T21:44:09.056Z -- vim -- vim</title>
-      <link>https://www.cve.org/CVERecord?id=CVE-2024-41965</link>
-      <description>Vim is an open source command line text editor. double-free in dialog_changed() in Vim &lt; v9.1.0648. When abandoning a buffer, Vim may ask the user what to do with the modified buffer. If the user wants the changed buffer to be saved, Vim may create a new Untitled file, if the buffer did not have a name yet. However, when setting the buffer name to Unnamed, Vim will falsely free a pointer twice, leading to a double-free and possibly later to a heap-use-after-free, which can lead to a crash. The issue has been fixed as of Vim patch v9.1.0648.</description>
-      <guid isPermaLink="false">CVE-2024-41965|2024-08-01T21:44:09.056Z</guid>
-      <pubDate>Thu, 01 Aug 2024 21:44:09 +0000</pubDate>
     </item>
   </channel>
 </rss>

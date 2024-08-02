@@ -6,7 +6,7 @@
     <description>The latest CVEs for mastodon -- all products</description>
     <docs>http://www.rssboard.org/rss-specification</docs>
     <generator>python-feedgen</generator>
-    <lastBuildDate>Fri, 02 Aug 2024 15:23:13 +0000</lastBuildDate>
+    <lastBuildDate>Fri, 02 Aug 2024 16:24:42 +0000</lastBuildDate>
     <ttl>60</ttl>
     <item>
       <title>CVE-2023-28853|2024-08-02T13:51:38.946Z -- mastodon -- mastodon
@@ -17,10 +17,38 @@
       <pubDate>Tue, 04 Apr 2023 21:14:53 +0000</pubDate>
     </item>
     <item>
-      <title>CVE-2024-37903|2024-08-02T04:04:23.423Z -- mastodon -- mastodon</title>
+      <title>CVE-2024-37903|2024-07-31T19:17:25.833Z -- mastodon -- mastodon</title>
       <link>https://www.cve.org/CVERecord?id=CVE-2024-37903</link>
       <description>Mastodon is a self-hosted, federated microblogging platform. Starting in version 2.6.0 and prior to versions 4.1.18 and 4.2.10, by crafting specific activities, an attacker can extend the audience of a post they do not own to other Mastodon users on a target server, thus gaining access to the contents of a post not intended for them. Versions 4.1.18 and 4.2.10 contain a patch for this issue.</description>
-      <guid isPermaLink="false">CVE-2024-37903|2024-08-02T04:04:23.423Z</guid>
+      <guid isPermaLink="false">CVE-2024-37903|2024-07-31T19:17:25.833Z</guid>
+      <pubDate>Fri, 05 Jul 2024 17:24:49 +0000</pubDate>
+    </item>
+    <item>
+      <title>CVE-2024-25618|2024-02-14T20:45:50.621Z -- mastodon -- mastodon</title>
+      <link>https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2024-25618</link>
+      <description>Mastodon is a free, open-source social network server based on ActivityPub. Mastodon allows new identities from configured authentication providers (CAS, SAML, OIDC) to attach to existing local users with the same e-mail address. This results in a possible account takeover if the authentication provider allows changing the e-mail address or multiple authentication providers are configured. When a user logs in through an external authentication provider for the first time, Mastodon checks the e-mail address passed by the provider to find an existing account. However, using the e-mail address alone means that if the authentication provider allows changing the e-mail address of an account, the Mastodon account can immediately be hijacked. All users logging in through external authentication providers are affected. The severity is medium, as it also requires the external authentication provider to misbehave. However, some well-known OIDC providers (like Microsoft Azure) make it very easy to accidentally allow unverified e-mail changes. Moreover, OpenID Connect also allows dynamic client registration. This issue has been addressed in versions 4.2.6, 4.1.14, 4.0.14, and 3.5.18. Users are advised to upgrade. There are no known workarounds for this vulnerability.</description>
+      <guid isPermaLink="false">CVE-2024-25618|2024-02-14T20:45:50.621Z</guid>
+      <pubDate>Wed, 14 Feb 2024 20:45:50 +0000</pubDate>
+    </item>
+    <item>
+      <title>CVE-2024-25623|2024-02-19T15:28:15.296Z -- mastodon -- mastodon</title>
+      <link>https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2024-25623</link>
+      <description>Mastodon is a free, open-source social network server based on ActivityPub. Prior to versions 4.2.7, 4.1.15, 4.0.15, and 3.5.19, when fetching remote statuses, Mastodon doesn't check that the response from the remote server has a `Content-Type` header value of the Activity Streams media type, which allows a threat actor to upload a crafted Activity Streams document to a remote server and make a Mastodon server fetch it, if the remote server accepts arbitrary user uploads. The vulnerability allows a threat actor to impersonate an account on a remote server that satisfies all of the following properties: allows the attacker to register an account; accepts arbitrary user-uploaded documents and places them on the same domain as the ActivityPub actors; and serves user-uploaded document in response to requests with an `Accept` header value of the Activity Streams media type. Versions 4.2.7, 4.1.15, 4.0.15, and 3.5.19 contain a fix for this issue.</description>
+      <guid isPermaLink="false">CVE-2024-25623|2024-02-19T15:28:15.296Z</guid>
+      <pubDate>Mon, 19 Feb 2024 15:28:15 +0000</pubDate>
+    </item>
+    <item>
+      <title>CVE-2024-25619|2024-06-04T17:34:59.800Z -- mastodon -- mastodon</title>
+      <link>https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2024-25619</link>
+      <description>Mastodon is a free, open-source social network server based on ActivityPub. When an OAuth Application is destroyed, the streaming server wasn't being informed that the Access Tokens had also been destroyed, this could have posed security risks to users by allowing an application to continue listening to streaming after the application had been destroyed. Essentially this comes down to the fact that when Doorkeeper sets up the relationship between Applications and Access Tokens, it uses a `dependent: delete_all` configuration, which means the `after_commit` callback setup on `AccessTokenExtension` didn't actually fire, since `delete_all` doesn't trigger ActiveRecord callbacks. To mitigate, we need to add a `before_destroy` callback to `ApplicationExtension` which announces to streaming that all the Application's Access Tokens are being "killed". Impact should be negligible given the affected application had to be owned by the user. None the less this issue has been addressed in versions 4.2.6, 4.1.14, 4.0.14, and 3.5.18. Users are advised to upgrade. There are no known workaround for this vulnerability.</description>
+      <guid isPermaLink="false">CVE-2024-25619|2024-06-04T17:34:59.800Z</guid>
+      <pubDate>Wed, 14 Feb 2024 20:50:10 +0000</pubDate>
+    </item>
+    <item>
+      <title>CVE-2024-37903|2024-07-05T17:24:49.213Z -- mastodon -- mastodon</title>
+      <link>https://www.cve.org/CVERecord?id=CVE-2024-37903</link>
+      <description>Mastodon is a self-hosted, federated microblogging platform. Starting in version 2.6.0 and prior to versions 4.1.18 and 4.2.10, by crafting specific activities, an attacker can extend the audience of a post they do not own to other Mastodon users on a target server, thus gaining access to the contents of a post not intended for them. Versions 4.1.18 and 4.2.10 contain a patch for this issue.</description>
+      <guid isPermaLink="false">CVE-2024-37903|2024-07-05T17:24:49.213Z</guid>
       <pubDate>Fri, 05 Jul 2024 17:24:49 +0000</pubDate>
     </item>
     <item>
@@ -31,38 +59,10 @@
       <pubDate>Mon, 19 Feb 2024 15:28:15 +0000</pubDate>
     </item>
     <item>
-      <title>CVE-2024-37903|2024-07-05T17:24:49.213Z -- mastodon -- mastodon</title>
+      <title>CVE-2024-37903|2024-08-02T04:04:23.423Z -- mastodon -- mastodon</title>
       <link>https://www.cve.org/CVERecord?id=CVE-2024-37903</link>
       <description>Mastodon is a self-hosted, federated microblogging platform. Starting in version 2.6.0 and prior to versions 4.1.18 and 4.2.10, by crafting specific activities, an attacker can extend the audience of a post they do not own to other Mastodon users on a target server, thus gaining access to the contents of a post not intended for them. Versions 4.1.18 and 4.2.10 contain a patch for this issue.</description>
-      <guid isPermaLink="false">CVE-2024-37903|2024-07-05T17:24:49.213Z</guid>
-      <pubDate>Fri, 05 Jul 2024 17:24:49 +0000</pubDate>
-    </item>
-    <item>
-      <title>CVE-2024-25619|2024-06-04T17:34:59.800Z -- mastodon -- mastodon</title>
-      <link>https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2024-25619</link>
-      <description>Mastodon is a free, open-source social network server based on ActivityPub. When an OAuth Application is destroyed, the streaming server wasn't being informed that the Access Tokens had also been destroyed, this could have posed security risks to users by allowing an application to continue listening to streaming after the application had been destroyed. Essentially this comes down to the fact that when Doorkeeper sets up the relationship between Applications and Access Tokens, it uses a `dependent: delete_all` configuration, which means the `after_commit` callback setup on `AccessTokenExtension` didn't actually fire, since `delete_all` doesn't trigger ActiveRecord callbacks. To mitigate, we need to add a `before_destroy` callback to `ApplicationExtension` which announces to streaming that all the Application's Access Tokens are being "killed". Impact should be negligible given the affected application had to be owned by the user. None the less this issue has been addressed in versions 4.2.6, 4.1.14, 4.0.14, and 3.5.18. Users are advised to upgrade. There are no known workaround for this vulnerability.</description>
-      <guid isPermaLink="false">CVE-2024-25619|2024-06-04T17:34:59.800Z</guid>
-      <pubDate>Wed, 14 Feb 2024 20:50:10 +0000</pubDate>
-    </item>
-    <item>
-      <title>CVE-2024-25623|2024-02-19T15:28:15.296Z -- mastodon -- mastodon</title>
-      <link>https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2024-25623</link>
-      <description>Mastodon is a free, open-source social network server based on ActivityPub. Prior to versions 4.2.7, 4.1.15, 4.0.15, and 3.5.19, when fetching remote statuses, Mastodon doesn't check that the response from the remote server has a `Content-Type` header value of the Activity Streams media type, which allows a threat actor to upload a crafted Activity Streams document to a remote server and make a Mastodon server fetch it, if the remote server accepts arbitrary user uploads. The vulnerability allows a threat actor to impersonate an account on a remote server that satisfies all of the following properties: allows the attacker to register an account; accepts arbitrary user-uploaded documents and places them on the same domain as the ActivityPub actors; and serves user-uploaded document in response to requests with an `Accept` header value of the Activity Streams media type. Versions 4.2.7, 4.1.15, 4.0.15, and 3.5.19 contain a fix for this issue.</description>
-      <guid isPermaLink="false">CVE-2024-25623|2024-02-19T15:28:15.296Z</guid>
-      <pubDate>Mon, 19 Feb 2024 15:28:15 +0000</pubDate>
-    </item>
-    <item>
-      <title>CVE-2024-25618|2024-02-14T20:45:50.621Z -- mastodon -- mastodon</title>
-      <link>https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2024-25618</link>
-      <description>Mastodon is a free, open-source social network server based on ActivityPub. Mastodon allows new identities from configured authentication providers (CAS, SAML, OIDC) to attach to existing local users with the same e-mail address. This results in a possible account takeover if the authentication provider allows changing the e-mail address or multiple authentication providers are configured. When a user logs in through an external authentication provider for the first time, Mastodon checks the e-mail address passed by the provider to find an existing account. However, using the e-mail address alone means that if the authentication provider allows changing the e-mail address of an account, the Mastodon account can immediately be hijacked. All users logging in through external authentication providers are affected. The severity is medium, as it also requires the external authentication provider to misbehave. However, some well-known OIDC providers (like Microsoft Azure) make it very easy to accidentally allow unverified e-mail changes. Moreover, OpenID Connect also allows dynamic client registration. This issue has been addressed in versions 4.2.6, 4.1.14, 4.0.14, and 3.5.18. Users are advised to upgrade. There are no known workarounds for this vulnerability.</description>
-      <guid isPermaLink="false">CVE-2024-25618|2024-02-14T20:45:50.621Z</guid>
-      <pubDate>Wed, 14 Feb 2024 20:45:50 +0000</pubDate>
-    </item>
-    <item>
-      <title>CVE-2024-37903|2024-07-31T19:17:25.833Z -- mastodon -- mastodon</title>
-      <link>https://www.cve.org/CVERecord?id=CVE-2024-37903</link>
-      <description>Mastodon is a self-hosted, federated microblogging platform. Starting in version 2.6.0 and prior to versions 4.1.18 and 4.2.10, by crafting specific activities, an attacker can extend the audience of a post they do not own to other Mastodon users on a target server, thus gaining access to the contents of a post not intended for them. Versions 4.1.18 and 4.2.10 contain a patch for this issue.</description>
-      <guid isPermaLink="false">CVE-2024-37903|2024-07-31T19:17:25.833Z</guid>
+      <guid isPermaLink="false">CVE-2024-37903|2024-08-02T04:04:23.423Z</guid>
       <pubDate>Fri, 05 Jul 2024 17:24:49 +0000</pubDate>
     </item>
   </channel>
