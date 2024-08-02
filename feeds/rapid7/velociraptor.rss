@@ -6,37 +6,12 @@
     <description>The latest CVEs for Rapid7 -- Velociraptor</description>
     <docs>http://www.rssboard.org/rss-specification</docs>
     <generator>python-feedgen</generator>
-    <lastBuildDate>Wed, 12 Jun 2024 11:24:27 +0000</lastBuildDate>
+    <lastBuildDate>Fri, 02 Aug 2024 06:25:00 +0000</lastBuildDate>
     <ttl>60</ttl>
     <item>
-      <title>CVE-2023-5950|2023-11-06T14:30:28.972Z -- rapid7 -- velociraptor
+      <title>CVE-2023-0242|2024-08-02T05:02:44.109Z -- rapid7 -- velociraptor
 </title>
-      <link>https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2023-5950</link>
-      <description>Rapid7 Velociraptor versions prior to 0.7.0-4 suffer from a reflected cross site scripting vulnerability. This vulnerability allows attackers to inject JS into the error path, potentially leading to unauthorized execution of scripts within a user's web browser. This vulnerability is fixed in version 0.7.0-04 and a patch is available to download. Patches are also available for version 0.6.9 (0.6.9-1).
-
-</description>
-      <guid isPermaLink="false">CVE-2023-5950|2023-11-06T14:30:28.972Z</guid>
-      <pubDate>Mon, 06 Nov 2023 14:30:28 +0000</pubDate>
-    </item>
-    <item>
-      <title>CVE-2023-0290|2023-01-18T21:10:42.929Z -- rapid7 -- velociraptor
-</title>
-      <link>https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2023-0290</link>
-      <description>Rapid7 Velociraptor did not properly sanitize the client ID parameter to the CreateCollection API, allowing a directory traversal in where the collection task could be written. It was possible to provide a client id of "../clients/server" to schedule the collection for the server (as a server artifact), but only require privileges to schedule collections on the client.
-
-Normally, to schedule an artifact on the server, the COLLECT_SERVER permission is required. This permission is normally only granted to "administrator" role. Due to this issue, it is sufficient to have the COLLECT_CLIENT privilege, which is normally granted to the "investigator" role.
-To exploit this vulnerability, the attacker must already have a Velociraptor user account at least "investigator" level, and be able to authenticate to the GUI and issue an API call to the backend. Typically, most users deploy Velociraptor with limited access to a trusted group, and most users will already be administrators within the GUI.
-
-This issue affects Velociraptor versions before 0.6.7-5. Version 0.6.7-5, released January 16, 2023, fixes the issue.
-
-</description>
-      <guid isPermaLink="false">CVE-2023-0290|2023-01-18T21:10:42.929Z</guid>
-      <pubDate>Wed, 18 Jan 2023 21:10:42 +0000</pubDate>
-    </item>
-    <item>
-      <title>CVE-2023-0242|2023-01-18T20:57:30.570Z -- rapid7 -- velociraptor
-</title>
-      <link>https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2023-0242</link>
+      <link>https://www.cve.org/CVERecord?id=CVE-2023-0242</link>
       <description>Rapid7 Velociraptor allows users to be created with different privileges on the server. Administrators are generally allowed to run any command on the server including writing arbitrary files. However, lower privilege users are generally forbidden from writing or modifying files on the server.
 
 The VQL copy() function applies permission checks for reading files but does not check for permission to write files. This allows a low privilege user (usually, users with the Velociraptor "investigator" role) to overwrite files on the server, including Velociraptor configuration files.
@@ -47,20 +22,23 @@ This vulnerability is associated with program files  https://github.Com/Velocide
 This issue affects Velociraptor versions before 0.6.7-5. Version 0.6.7-5, released January 16, 2023, fixes the issue.
 
 </description>
-      <guid isPermaLink="false">CVE-2023-0242|2023-01-18T20:57:30.570Z</guid>
+      <guid isPermaLink="false">CVE-2023-0242|2024-08-02T05:02:44.109Z</guid>
       <pubDate>Wed, 18 Jan 2023 20:57:30 +0000</pubDate>
     </item>
     <item>
-      <title>CVE-2023-2226|2023-04-21T11:48:46.279Z -- rapid7 -- velociraptor
+      <title>CVE-2023-0290|2024-08-02T05:02:44.149Z -- rapid7 -- velociraptor
 </title>
-      <link>https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2023-2226</link>
-      <description>Due to insufficient validation in the PE and OLE parsers in Rapid7's Velociraptor versions earlier than 0.6.8 allows attacker to crash Velociraptor during parsing of maliciously malformed files. 
+      <link>https://www.cve.org/CVERecord?id=CVE-2023-0290</link>
+      <description>Rapid7 Velociraptor did not properly sanitize the client ID parameter to the CreateCollection API, allowing a directory traversal in where the collection task could be written. It was possible to provide a client id of "../clients/server" to schedule the collection for the server (as a server artifact), but only require privileges to schedule collections on the client.
 
-For this attack to succeed, the attacker needs to be able to introduce malicious files to the system at the same time that Velociraptor attempts to collect any artifacts that attempt to parse PE files, Authenticode signatures, or OLE files. After crashing, the Velociraptor service will restart and it will still be possible to collect other artifacts.
+Normally, to schedule an artifact on the server, the COLLECT_SERVER permission is required. This permission is normally only granted to "administrator" role. Due to this issue, it is sufficient to have the COLLECT_CLIENT privilege, which is normally granted to the "investigator" role.
+To exploit this vulnerability, the attacker must already have a Velociraptor user account at least "investigator" level, and be able to authenticate to the GUI and issue an API call to the backend. Typically, most users deploy Velociraptor with limited access to a trusted group, and most users will already be administrators within the GUI.
+
+This issue affects Velociraptor versions before 0.6.7-5. Version 0.6.7-5, released January 16, 2023, fixes the issue.
 
 </description>
-      <guid isPermaLink="false">CVE-2023-2226|2023-04-21T11:48:46.279Z</guid>
-      <pubDate>Fri, 21 Apr 2023 11:48:46 +0000</pubDate>
+      <guid isPermaLink="false">CVE-2023-0290|2024-08-02T05:02:44.149Z</guid>
+      <pubDate>Wed, 18 Jan 2023 21:10:42 +0000</pubDate>
     </item>
   </channel>
 </rss>

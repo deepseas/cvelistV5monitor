@@ -6,54 +6,104 @@
     <description>The latest CVEs for Grafana -- Grafana</description>
     <docs>http://www.rssboard.org/rss-specification</docs>
     <generator>python-feedgen</generator>
-    <lastBuildDate>Thu, 01 Aug 2024 23:22:44 +0000</lastBuildDate>
+    <lastBuildDate>Fri, 02 Aug 2024 06:24:55 +0000</lastBuildDate>
     <ttl>60</ttl>
     <item>
-      <title>CVE-2022-39324|2024-08-01T15:45:36.804Z -- grafana -- grafana
+      <title>CVE-2023-0594|2024-08-02T05:17:50.130Z -- grafana -- grafana
 </title>
-      <link>https://www.cve.org/CVERecord?id=CVE-2022-39324</link>
-      <description>Grafana is an open-source platform for monitoring and observability. Prior to versions 8.5.16 and 9.2.8, malicious user can create a snapshot and arbitrarily choose the `originalUrl` parameter by editing the query, thanks to a web proxy. When another user opens the URL of the snapshot, they will be presented with the regular web interface delivered by the trusted Grafana server. The `Open original dashboard` button no longer points to the to the real original dashboard but to the attacker’s injected URL. This issue is fixed in versions 8.5.16 and 9.2.8.</description>
-      <guid isPermaLink="false">CVE-2022-39324|2024-08-01T15:45:36.804Z</guid>
-      <pubDate>Fri, 27 Jan 2023 22:42:01 +0000</pubDate>
+      <link>https://www.cve.org/CVERecord?id=CVE-2023-0594</link>
+      <description>Grafana is an open-source platform for monitoring and observability. 
+
+Starting with the 7.0 branch, Grafana had a stored XSS vulnerability in the trace view visualization. 
+
+The stored XSS vulnerability was possible due the value of a span's attributes/resources were not properly sanitized and this will be rendered when the span's attributes/resources are expanded.
+
+An attacker needs to have the Editor role in order to change the value of a trace view visualization to contain JavaScript. 
+
+This means that vertical privilege escalation is possible, where a user with Editor role can change to a known password for a user having Admin role if the user with Admin role executes malicious JavaScript viewing a dashboard. 
+
+Users may upgrade to version 8.5.21, 9.2.13 and 9.3.8 to receive a fix. 
+
+</description>
+      <guid isPermaLink="false">CVE-2023-0594|2024-08-02T05:17:50.130Z</guid>
+      <pubDate>Wed, 01 Mar 2023 15:36:43 +0000</pubDate>
     </item>
     <item>
-      <title>CVE-2022-23552|2024-08-01T14:04:27.841Z -- grafana -- grafana
+      <title>CVE-2023-0507|2024-08-02T05:17:49.040Z -- grafana -- grafana
 </title>
-      <link>https://www.cve.org/CVERecord?id=CVE-2022-23552</link>
-      <description>Grafana is an open-source platform for monitoring and observability. Starting with the 8.1 branch and prior to versions 8.5.16, 9.2.10, and 9.3.4, Grafana had a stored XSS vulnerability affecting the core plugin GeoMap. The stored XSS vulnerability was possible because SVG files weren't properly sanitized and allowed arbitrary JavaScript to be executed in the context of the currently authorized user of the Grafana instance. 
+      <link>https://www.cve.org/CVERecord?id=CVE-2023-0507</link>
+      <description>Grafana is an open-source platform for monitoring and observability. 
 
-An attacker needs to have the Editor role in order to change a panel to include either an external URL to a SVG-file containing JavaScript, or use the `data:` scheme to load an inline SVG-file containing JavaScript. This means that vertical privilege escalation is possible, where a user with Editor role can change to a known password for a user having Admin role if the user with Admin role executes malicious JavaScript viewing a dashboard.   
+Starting with the 8.1 branch, Grafana had a stored XSS vulnerability affecting the core plugin GeoMap. 
 
-Users may upgrade to version 8.5.16, 9.2.10, or 9.3.4 to receive a fix.</description>
-      <guid isPermaLink="false">CVE-2022-23552|2024-08-01T14:04:27.841Z</guid>
-      <pubDate>Fri, 27 Jan 2023 22:59:16 +0000</pubDate>
+The stored XSS vulnerability was possible due to map attributions weren't properly sanitized and allowed arbitrary JavaScript to be executed in the context of the currently authorized user of the Grafana instance. 
+
+An attacker needs to have the Editor role in order to change a panel to include a map attribution containing JavaScript. 
+
+This means that vertical privilege escalation is possible, where a user with Editor role can change to a known password for a user having Admin role if the user with Admin role executes malicious JavaScript viewing a dashboard. 
+
+Users may upgrade to version 8.5.21, 9.2.13 and 9.3.8 to receive a fix. 
+
+</description>
+      <guid isPermaLink="false">CVE-2023-0507|2024-08-02T05:17:49.040Z</guid>
+      <pubDate>Wed, 01 Mar 2023 15:35:55 +0000</pubDate>
     </item>
     <item>
-      <title>CVE-2024-1313|2024-08-01T18:33:25.596Z -- grafana -- grafana</title>
-      <link>https://www.cve.org/CVERecord?id=CVE-2024-1313</link>
-      <description>It is possible for a user in a different organization from the owner of a snapshot to bypass authorization and delete a snapshot by issuing a DELETE request to /api/snapshots/ using its view key. This functionality is intended to only be available to individuals with the permission to write/edit to the snapshot in question, but due to a bug in the authorization logic, deletion requests issued by an unprivileged user in a different organization than the snapshot owner are treated as authorized.
+      <title>CVE-2023-1410|2024-08-02T05:49:11.621Z -- grafana -- grafana
+</title>
+      <link>https://www.cve.org/CVERecord?id=CVE-2023-1410</link>
+      <description>Grafana is an open-source platform for monitoring and observability. 
 
-Grafana Labs would like to thank Ravid Mazon and Jay Chen of Palo 
-Alto Research for discovering and disclosing this vulnerability.
+Grafana had a stored XSS vulnerability in the Graphite FunctionDescription tooltip. 
 
-This issue affects Grafana: from 9.5.0 before 9.5.18, from 10.0.0 before 10.0.13, from 10.1.0 before 10.1.9, from 10.2.0 before 10.2.6, from 10.3.0 before 10.3.5.</description>
-      <guid isPermaLink="false">CVE-2024-1313|2024-08-01T18:33:25.596Z</guid>
-      <pubDate>Tue, 26 Mar 2024 17:24:25 +0000</pubDate>
+The stored XSS vulnerability was possible due the value of the Function Description was not properly sanitized.
+
+An attacker needs to have control over the Graphite data source in order to manipulate a function description and a Grafana admin needs to configure the data source, later a Grafana user needs to select a tampered function and hover over the description. 
+
+  Users may upgrade to version 8.5.22, 9.2.15 and 9.3.11 to receive a fix. 
+
+
+
+
+
+
+
+
+
+
+</description>
+      <guid isPermaLink="false">CVE-2023-1410|2024-08-02T05:49:11.621Z</guid>
+      <pubDate>Thu, 23 Mar 2023 07:48:56 +0000</pubDate>
     </item>
     <item>
-      <title>CVE-2024-1442|2024-08-01T18:40:21.181Z -- grafana -- grafana</title>
-      <link>https://www.cve.org/CVERecord?id=CVE-2024-1442</link>
+      <title>CVE-2023-1387|2024-08-02T05:49:11.313Z -- grafana -- grafana
+</title>
+      <link>https://www.cve.org/CVERecord?id=CVE-2023-1387</link>
+      <description>Grafana is an open-source platform for monitoring and observability. 
+
+Starting with the 9.1 branch, Grafana introduced the ability to search for a JWT in the URL query parameter auth_token and use it as the authentication token. 
+
+By enabling the "url_login" configuration option (disabled by default), a JWT might be sent to data sources. If an attacker has access to the data source, the leaked token could be used to authenticate to Grafana.
+
+</description>
+      <guid isPermaLink="false">CVE-2023-1387|2024-08-02T05:49:11.313Z</guid>
+      <pubDate>Wed, 26 Apr 2023 13:47:16 +0000</pubDate>
+    </item>
+    <item>
+      <title>CVE-2023-6152|2024-02-13T21:38:01.404Z -- grafana -- grafana</title>
+      <link>https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2023-6152</link>
+      <description>A user changing their email after signing up and verifying it can change it without verification in profile settings.
+
+The configuration option "verify_email_enabled" will only validate email only on sign up.</description>
+      <guid isPermaLink="false">CVE-2023-6152|2024-02-13T21:38:01.404Z</guid>
+      <pubDate>Tue, 13 Feb 2024 21:38:01 +0000</pubDate>
+    </item>
+    <item>
+      <title>CVE-2024-1442|2024-03-07T17:45:43.993Z -- grafana -- grafana</title>
+      <link>https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2024-1442</link>
       <description>A user with the permissions to create a data source can use Grafana API to create a data source with UID set to *.
 Doing this will grant the user access to read, query, edit and delete all data sources within the organization.</description>
-      <guid isPermaLink="false">CVE-2024-1442|2024-08-01T18:40:21.181Z</guid>
-      <pubDate>Thu, 07 Mar 2024 17:45:43 +0000</pubDate>
-    </item>
-    <item>
-      <title>CVE-2024-1442|2024-07-26T14:35:58.049Z -- grafana -- grafana</title>
-      <link>https://www.cve.org/CVERecord?id=CVE-2024-1442</link>
-      <description>A user with the permissions to create a data source can use Grafana API to create a data source with UID set to *.
-Doing this will grant the user access to read, query, edit and delete all data sources within the organization.</description>
-      <guid isPermaLink="false">CVE-2024-1442|2024-07-26T14:35:58.049Z</guid>
+      <guid isPermaLink="false">CVE-2024-1442|2024-03-07T17:45:43.993Z</guid>
       <pubDate>Thu, 07 Mar 2024 17:45:43 +0000</pubDate>
     </item>
     <item>
@@ -69,21 +119,32 @@ This issue affects Grafana: from 9.5.0 before 9.5.18, from 10.0.0 before 10.0.13
       <pubDate>Tue, 26 Mar 2024 17:24:25 +0000</pubDate>
     </item>
     <item>
-      <title>CVE-2024-1442|2024-03-07T17:45:43.993Z -- grafana -- grafana</title>
-      <link>https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2024-1442</link>
+      <title>CVE-2024-1442|2024-07-26T14:35:58.049Z -- grafana -- grafana</title>
+      <link>https://www.cve.org/CVERecord?id=CVE-2024-1442</link>
       <description>A user with the permissions to create a data source can use Grafana API to create a data source with UID set to *.
 Doing this will grant the user access to read, query, edit and delete all data sources within the organization.</description>
-      <guid isPermaLink="false">CVE-2024-1442|2024-03-07T17:45:43.993Z</guid>
+      <guid isPermaLink="false">CVE-2024-1442|2024-07-26T14:35:58.049Z</guid>
       <pubDate>Thu, 07 Mar 2024 17:45:43 +0000</pubDate>
     </item>
     <item>
-      <title>CVE-2023-6152|2024-02-13T21:38:01.404Z -- grafana -- grafana</title>
-      <link>https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2023-6152</link>
-      <description>A user changing their email after signing up and verifying it can change it without verification in profile settings.
+      <title>CVE-2024-1442|2024-08-01T18:40:21.181Z -- grafana -- grafana</title>
+      <link>https://www.cve.org/CVERecord?id=CVE-2024-1442</link>
+      <description>A user with the permissions to create a data source can use Grafana API to create a data source with UID set to *.
+Doing this will grant the user access to read, query, edit and delete all data sources within the organization.</description>
+      <guid isPermaLink="false">CVE-2024-1442|2024-08-01T18:40:21.181Z</guid>
+      <pubDate>Thu, 07 Mar 2024 17:45:43 +0000</pubDate>
+    </item>
+    <item>
+      <title>CVE-2024-1313|2024-08-01T18:33:25.596Z -- grafana -- grafana</title>
+      <link>https://www.cve.org/CVERecord?id=CVE-2024-1313</link>
+      <description>It is possible for a user in a different organization from the owner of a snapshot to bypass authorization and delete a snapshot by issuing a DELETE request to /api/snapshots/ using its view key. This functionality is intended to only be available to individuals with the permission to write/edit to the snapshot in question, but due to a bug in the authorization logic, deletion requests issued by an unprivileged user in a different organization than the snapshot owner are treated as authorized.
 
-The configuration option "verify_email_enabled" will only validate email only on sign up.</description>
-      <guid isPermaLink="false">CVE-2023-6152|2024-02-13T21:38:01.404Z</guid>
-      <pubDate>Tue, 13 Feb 2024 21:38:01 +0000</pubDate>
+Grafana Labs would like to thank Ravid Mazon and Jay Chen of Palo 
+Alto Research for discovering and disclosing this vulnerability.
+
+This issue affects Grafana: from 9.5.0 before 9.5.18, from 10.0.0 before 10.0.13, from 10.1.0 before 10.1.9, from 10.2.0 before 10.2.6, from 10.3.0 before 10.3.5.</description>
+      <guid isPermaLink="false">CVE-2024-1313|2024-08-01T18:33:25.596Z</guid>
+      <pubDate>Tue, 26 Mar 2024 17:24:25 +0000</pubDate>
     </item>
   </channel>
 </rss>
