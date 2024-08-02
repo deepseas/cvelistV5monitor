@@ -6,23 +6,23 @@
     <description>The latest CVEs for johannschopplich -- nuxt-api-party</description>
     <docs>http://www.rssboard.org/rss-specification</docs>
     <generator>python-feedgen</generator>
-    <lastBuildDate>Wed, 12 Jun 2024 11:24:51 +0000</lastBuildDate>
+    <lastBuildDate>Fri, 02 Aug 2024 22:23:20 +0000</lastBuildDate>
     <ttl>60</ttl>
     <item>
-      <title>CVE-2023-49799|2023-12-08T23:45:18.581Z -- johannschopplich -- nuxt-api-party
+      <title>CVE-2023-49800|2024-08-02T22:01:26.234Z -- johannschopplich -- nuxt-api-party
 </title>
-      <link>https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2023-49799</link>
-      <description>`nuxt-api-party` is an open source module to proxy API requests. nuxt-api-party attempts to check if the user has passed an absolute URL to prevent the aforementioned attack. This has been recently changed to use the regular expression `^https?://`, however this regular expression can be bypassed by an absolute URL with leading whitespace. For example `\nhttps://whatever.com` which has a leading newline. According to the fetch specification, before a fetch is made the URL is normalized. "To normalize a byte sequence potentialValue, remove any leading and trailing HTTP whitespace bytes from potentialValue.". This means the final request will be normalized to `https://whatever.com` bypassing the check and nuxt-api-party will send a request outside of the whitelist. This could allow us to leak credentials or perform Server-Side Request Forgery (SSRF). This vulnerability has been addressed in version 0.22.1. Users are advised to upgrade. Users unable to upgrade should revert to the previous method of detecting absolute URLs.</description>
-      <guid isPermaLink="false">CVE-2023-49799|2023-12-08T23:45:18.581Z</guid>
-      <pubDate>Fri, 08 Dec 2023 23:45:18 +0000</pubDate>
+      <link>https://www.cve.org/CVERecord?id=CVE-2023-49800</link>
+      <description>`nuxt-api-party` is an open source module to proxy API requests. The library allows the user to send many options directly to `ofetch`. There is no filter on which options are available. We can abuse the retry logic to cause the server to crash from a stack overflow. fetchOptions are obtained directly from the request body. A malicious user can construct a URL known  to not fetch successfully, then set the retry attempts to a high value, this will cause a stack overflow as ofetch error handling works recursively resulting in a denial of service. This issue has been addressed in version 0.22.1. Users are advised to upgrade. Users unable to upgrade should limit ofetch options.</description>
+      <guid isPermaLink="false">CVE-2023-49800|2024-08-02T22:01:26.234Z</guid>
+      <pubDate>Fri, 08 Dec 2023 23:41:55 +0000</pubDate>
     </item>
     <item>
-      <title>CVE-2023-49800|2023-12-08T23:41:55.206Z -- johannschopplich -- nuxt-api-party
+      <title>CVE-2023-49799|2024-08-02T22:01:25.998Z -- johannschopplich -- nuxt-api-party
 </title>
-      <link>https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2023-49800</link>
-      <description>`nuxt-api-party` is an open source module to proxy API requests. The library allows the user to send many options directly to `ofetch`. There is no filter on which options are available. We can abuse the retry logic to cause the server to crash from a stack overflow. fetchOptions are obtained directly from the request body. A malicious user can construct a URL known  to not fetch successfully, then set the retry attempts to a high value, this will cause a stack overflow as ofetch error handling works recursively resulting in a denial of service. This issue has been addressed in version 0.22.1. Users are advised to upgrade. Users unable to upgrade should limit ofetch options.</description>
-      <guid isPermaLink="false">CVE-2023-49800|2023-12-08T23:41:55.206Z</guid>
-      <pubDate>Fri, 08 Dec 2023 23:41:55 +0000</pubDate>
+      <link>https://www.cve.org/CVERecord?id=CVE-2023-49799</link>
+      <description>`nuxt-api-party` is an open source module to proxy API requests. nuxt-api-party attempts to check if the user has passed an absolute URL to prevent the aforementioned attack. This has been recently changed to use the regular expression `^https?://`, however this regular expression can be bypassed by an absolute URL with leading whitespace. For example `\nhttps://whatever.com` which has a leading newline. According to the fetch specification, before a fetch is made the URL is normalized. "To normalize a byte sequence potentialValue, remove any leading and trailing HTTP whitespace bytes from potentialValue.". This means the final request will be normalized to `https://whatever.com` bypassing the check and nuxt-api-party will send a request outside of the whitelist. This could allow us to leak credentials or perform Server-Side Request Forgery (SSRF). This vulnerability has been addressed in version 0.22.1. Users are advised to upgrade. Users unable to upgrade should revert to the previous method of detecting absolute URLs.</description>
+      <guid isPermaLink="false">CVE-2023-49799|2024-08-02T22:01:25.998Z</guid>
+      <pubDate>Fri, 08 Dec 2023 23:45:18 +0000</pubDate>
     </item>
   </channel>
 </rss>

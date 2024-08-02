@@ -6,7 +6,7 @@
     <description>The latest CVEs for argoproj -- all products</description>
     <docs>http://www.rssboard.org/rss-specification</docs>
     <generator>python-feedgen</generator>
-    <lastBuildDate>Fri, 02 Aug 2024 21:22:16 +0000</lastBuildDate>
+    <lastBuildDate>Fri, 02 Aug 2024 22:23:01 +0000</lastBuildDate>
     <ttl>60</ttl>
     <item>
       <title>CVE-2023-22482|2024-08-02T10:13:48.469Z -- argoproj -- argo-cd
@@ -76,186 +76,11 @@
       <pubDate>Wed, 23 Aug 2023 19:12:04 +0000</pubDate>
     </item>
     <item>
-      <title>CVE-2024-36106|2024-08-02T03:30:13.074Z -- argoproj -- argo-cd</title>
-      <link>https://www.cve.org/CVERecord?id=CVE-2024-36106</link>
-      <description>Argo CD is a declarative, GitOps continuous delivery tool for Kubernetes. It’s possible for authenticated users to enumerate clusters by name by inspecting error messages. It’s also possible to enumerate the names of projects with project-scoped clusters if you know the names of the clusters. This vulnerability is fixed in 2.11.3, 2.10.12, and 2.9.17.</description>
-      <guid isPermaLink="false">CVE-2024-36106|2024-08-02T03:30:13.074Z</guid>
-      <pubDate>Thu, 06 Jun 2024 15:09:36 +0000</pubDate>
-    </item>
-    <item>
-      <title>CVE-2024-37152|2024-08-02T03:50:55.946Z -- argoproj -- argo-cd</title>
-      <link>https://www.cve.org/CVERecord?id=CVE-2024-37152</link>
-      <description>Argo CD is a declarative, GitOps continuous delivery tool for Kubernetes. The vulnerability allows unauthorized access to the sensitive settings exposed by  /api/v1/settings endpoint without authentication. All sensitive settings are hidden except passwordPattern. This vulnerability is fixed in 2.11.3, 2.10.12, and 2.9.17.</description>
-      <guid isPermaLink="false">CVE-2024-37152|2024-08-02T03:50:55.946Z</guid>
-      <pubDate>Thu, 06 Jun 2024 15:33:29 +0000</pubDate>
-    </item>
-    <item>
-      <title>CVE-2024-29893|2024-08-02T01:17:58.029Z -- argoproj -- argo-cd</title>
-      <link>https://www.cve.org/CVERecord?id=CVE-2024-29893</link>
-      <description>Argo CD is a declarative, GitOps continuous delivery tool for Kubernetes. All versions of ArgoCD starting from v2.4 have a bug where the ArgoCD repo-server component is vulnerable to a Denial-of-Service attack vector. Specifically,  it's possible to crash the repo server component through an out of memory error by pointing it to a malicious Helm registry. The loadRepoIndex() function in the ArgoCD's helm package, does not limit the size nor time while fetching the data. It fetches it and creates a byte slice from the retrieved data in one go. If the registry is implemented to push data continuously, the repo server will keep allocating memory until it runs out of it. A patch for this vulnerability has been released in v2.10.3, v2.9.8, and v2.8.12.</description>
-      <guid isPermaLink="false">CVE-2024-29893|2024-08-02T01:17:58.029Z</guid>
-      <pubDate>Fri, 29 Mar 2024 15:07:51 +0000</pubDate>
-    </item>
-    <item>
-      <title>CVE-2024-28175|2024-08-02T00:48:49.312Z -- argoproj -- argo-cd</title>
-      <link>https://www.cve.org/CVERecord?id=CVE-2024-28175</link>
-      <description>Argo CD is a declarative, GitOps continuous delivery tool for Kubernetes. Due to the improper URL protocols filtering of links specified in the `link.argocd.argoproj.io` annotations in the application summary component, an attacker can achieve cross-site scripting with elevated permissions. All unpatched versions of Argo CD starting with v1.0.0 are vulnerable to a cross-site scripting (XSS) bug allowing a malicious user to inject a javascript: link in the UI. When clicked by a victim user, the script will execute with the victim's permissions (up to and including admin). This vulnerability allows an attacker to perform arbitrary actions on behalf of the victim via the API, such as creating, modifying, and deleting Kubernetes resources. A patch for this vulnerability has been released in Argo CD versions v2.10.3 v2.9.8, and v2.8.12. There are no completely-safe workarounds besides upgrading. The safest alternative, if upgrading is not possible, would be to create a Kubernetes admission controller to reject any resources with an annotation starting with link.argocd.argoproj.io or reject the resource if the value use an improper URL protocol. This validation will need to be applied in all clusters managed by ArgoCD.</description>
-      <guid isPermaLink="false">CVE-2024-28175|2024-08-02T00:48:49.312Z</guid>
-      <pubDate>Wed, 13 Mar 2024 20:48:05 +0000</pubDate>
-    </item>
-    <item>
-      <title>CVE-2024-41666|2024-07-24T18:07:47.936Z -- argoproj -- argo-cd</title>
-      <link>https://www.cve.org/CVERecord?id=CVE-2024-41666</link>
-      <description>Argo CD is a declarative, GitOps continuous delivery tool for Kubernetes. Argo CD has a Web-based terminal that allows users to get a shell inside a running pod, just as they would with kubectl exec. Starting in version 2.6.0, when the administrator enables this function and grants permission to the user `p, role:myrole, exec, create, */*, allow`, even if the user revokes this permission, the user can still perform operations in the container, as long as the user keeps the terminal view open for a long time. Although the token expiration and revocation of the user are fixed, however, the fix does not address the situation of revocation of only user `p, role:myrole, exec, create, */*, allow` permissions, which may still lead to the leakage of sensitive information. A patch for this vulnerability has been released in Argo CD versions 2.11.7, 2.10.16, and 2.9.21.</description>
-      <guid isPermaLink="false">CVE-2024-41666|2024-07-24T18:07:47.936Z</guid>
-      <pubDate>Wed, 24 Jul 2024 17:16:37 +0000</pubDate>
-    </item>
-    <item>
-      <title>CVE-2024-40634|2024-07-23T13:19:36.934Z -- argoproj -- argo-cd</title>
-      <link>https://www.cve.org/CVERecord?id=CVE-2024-40634</link>
-      <description>Argo CD is a declarative, GitOps continuous delivery tool for Kubernetes. This report details a security vulnerability in Argo CD, where an unauthenticated attacker can send a specially crafted large JSON payload to the /api/webhook endpoint, causing excessive memory allocation that leads to service disruption by triggering an Out Of Memory (OOM) kill. The issue poses a high risk to the availability of Argo CD deployments. This vulnerability is fixed in 2.11.6, 2.10.15, and 2.9.20.</description>
-      <guid isPermaLink="false">CVE-2024-40634|2024-07-23T13:19:36.934Z</guid>
-      <pubDate>Mon, 22 Jul 2024 17:22:55 +0000</pubDate>
-    </item>
-    <item>
-      <title>CVE-2023-50726|2024-06-04T17:18:02.620Z -- argoproj -- argo-cd</title>
-      <link>https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2023-50726</link>
-      <description>Argo CD is a declarative, GitOps continuous delivery tool for Kubernetes. "Local sync" is an Argo CD feature that allows developers to temporarily override an Application's manifests with locally-defined manifests. Use of the feature should generally be limited to highly-trusted users, since it allows the user to bypass any merge protections in git. An improper validation bug allows users who have `create` privileges but not `override` privileges to sync local manifests on app creation. All other restrictions, including AppProject restrictions are still enforced. The only restriction which is not enforced is that the manifests come from some approved git/Helm/OCI source. The bug was introduced in 1.2.0-rc1 when the local manifest sync feature was added. The bug has been patched in Argo CD versions 2.10.3, 2.9.8, and 2.8.12. Users are advised to upgrade. Users unable to upgrade may mitigate the risk of branch protection bypass by removing `applications, create` RBAC access. The only way to eliminate the issue without removing RBAC access is to upgrade to a patched version.</description>
-      <guid isPermaLink="false">CVE-2023-50726|2024-06-04T17:18:02.620Z</guid>
-      <pubDate>Wed, 13 Mar 2024 20:50:52 +0000</pubDate>
-    </item>
-    <item>
-      <title>CVE-2024-28175|2024-03-13T20:48:05.363Z -- argoproj -- argo-cd</title>
-      <link>https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2024-28175</link>
-      <description>Argo CD is a declarative, GitOps continuous delivery tool for Kubernetes. Due to the improper URL protocols filtering of links specified in the `link.argocd.argoproj.io` annotations in the application summary component, an attacker can achieve cross-site scripting with elevated permissions. All unpatched versions of Argo CD starting with v1.0.0 are vulnerable to a cross-site scripting (XSS) bug allowing a malicious user to inject a javascript: link in the UI. When clicked by a victim user, the script will execute with the victim's permissions (up to and including admin). This vulnerability allows an attacker to perform arbitrary actions on behalf of the victim via the API, such as creating, modifying, and deleting Kubernetes resources. A patch for this vulnerability has been released in Argo CD versions v2.10.3 v2.9.8, and v2.8.12. There are no completely-safe workarounds besides upgrading. The safest alternative, if upgrading is not possible, would be to create a Kubernetes admission controller to reject any resources with an annotation starting with link.argocd.argoproj.io or reject the resource if the value use an improper URL protocol. This validation will need to be applied in all clusters managed by ArgoCD.</description>
-      <guid isPermaLink="false">CVE-2024-28175|2024-03-13T20:48:05.363Z</guid>
-      <pubDate>Wed, 13 Mar 2024 20:48:05 +0000</pubDate>
-    </item>
-    <item>
-      <title>CVE-2024-29893|2024-06-06T19:22:49.108Z -- argoproj -- argo-cd</title>
-      <link>https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2024-29893</link>
-      <description>Argo CD is a declarative, GitOps continuous delivery tool for Kubernetes. All versions of ArgoCD starting from v2.4 have a bug where the ArgoCD repo-server component is vulnerable to a Denial-of-Service attack vector. Specifically,  it's possible to crash the repo server component through an out of memory error by pointing it to a malicious Helm registry. The loadRepoIndex() function in the ArgoCD's helm package, does not limit the size nor time while fetching the data. It fetches it and creates a byte slice from the retrieved data in one go. If the registry is implemented to push data continuously, the repo server will keep allocating memory until it runs out of it. A patch for this vulnerability has been released in v2.10.3, v2.9.8, and v2.8.12.</description>
-      <guid isPermaLink="false">CVE-2024-29893|2024-06-06T19:22:49.108Z</guid>
-      <pubDate>Fri, 29 Mar 2024 15:07:51 +0000</pubDate>
-    </item>
-    <item>
-      <title>CVE-2024-32476|2024-06-04T17:50:51.120Z -- argoproj -- argo-cd</title>
-      <link>https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2024-32476</link>
-      <description>Argo CD is a declarative, GitOps continuous delivery tool for Kubernetes. There is a Denial of Service (DoS) vulnerability via OOM using jq in ignoreDifferences. This vulnerability has been patched in version(s) 2.10.7, 2.9.12 and 2.8.16.</description>
-      <guid isPermaLink="false">CVE-2024-32476|2024-06-04T17:50:51.120Z</guid>
-      <pubDate>Fri, 26 Apr 2024 15:24:13 +0000</pubDate>
-    </item>
-    <item>
-      <title>CVE-2024-36106|2024-06-06T15:09:36.474Z -- argoproj -- argo-cd</title>
-      <link>https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2024-36106</link>
-      <description>Argo CD is a declarative, GitOps continuous delivery tool for Kubernetes. It’s possible for authenticated users to enumerate clusters by name by inspecting error messages. It’s also possible to enumerate the names of projects with project-scoped clusters if you know the names of the clusters. This vulnerability is fixed in 2.11.3, 2.10.12, and 2.9.17.</description>
-      <guid isPermaLink="false">CVE-2024-36106|2024-06-06T15:09:36.474Z</guid>
-      <pubDate>Thu, 06 Jun 2024 15:09:36 +0000</pubDate>
-    </item>
-    <item>
-      <title>CVE-2024-37152|2024-06-10T13:59:44.786Z -- argoproj -- argo-cd</title>
-      <link>https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2024-37152</link>
-      <description>Argo CD is a declarative, GitOps continuous delivery tool for Kubernetes. The vulnerability allows unauthorized access to the sensitive settings exposed by  /api/v1/settings endpoint without authentication. All sensitive settings are hidden except passwordPattern. This vulnerability is fixed in 2.11.3, 2.10.12, and 2.9.17.</description>
-      <guid isPermaLink="false">CVE-2024-37152|2024-06-10T13:59:44.786Z</guid>
-      <pubDate>Thu, 06 Jun 2024 15:33:29 +0000</pubDate>
-    </item>
-    <item>
-      <title>CVE-2024-21662|2024-03-18T18:42:04.701Z -- argoproj -- argo-cd</title>
-      <link>https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2024-21662</link>
-      <description>Argo CD is a declarative, GitOps continuous delivery tool for Kubernetes. Prior to versions 2.8.13, 2.9.9, and 2.10.4, an attacker can effectively bypass the rate limit and brute force protections by exploiting the application's weak cache-based mechanism. This loophole in security can be combined with other vulnerabilities to attack the default admin account. This flaw undermines a patch for CVE-2020-8827 intended to protect against brute-force attacks. The application's brute force protection relies on a cache mechanism that tracks login attempts for each user. This cache is limited to a `defaultMaxCacheSize` of 1000 entries. An attacker can overflow this cache by bombarding it with login attempts for different users, thereby pushing out the admin account's failed attempts and effectively resetting the rate limit for that account. This is a severe vulnerability that enables attackers to perform brute force attacks at an accelerated rate, especially targeting the default admin account. Users should upgrade to version 2.8.13, 2.9.9, or 2.10.4 to receive a patch.</description>
-      <guid isPermaLink="false">CVE-2024-21662|2024-03-18T18:42:04.701Z</guid>
-      <pubDate>Mon, 18 Mar 2024 18:42:04 +0000</pubDate>
-    </item>
-    <item>
-      <title>CVE-2024-21652|2024-06-07T15:52:27.549Z -- argoproj -- argo-cd</title>
-      <link>https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2024-21652</link>
-      <description>Argo CD is a declarative, GitOps continuous delivery tool for Kubernetes. Prior to versions 2.8.13, 2.9.9, and 2.10.4, an attacker can exploit a chain of vulnerabilities, including a Denial of Service (DoS) flaw and in-memory data storage weakness, to effectively bypass the application's brute force login protection. This is a critical security vulnerability that allows attackers to bypass the brute force login protection mechanism. Not only can they crash the service affecting all users, but they can also make unlimited login attempts, increasing the risk of account compromise. Versions 2.8.13, 2.9.9, and 2.10.4 contain a patch for this issue.</description>
-      <guid isPermaLink="false">CVE-2024-21652|2024-06-07T15:52:27.549Z</guid>
-      <pubDate>Mon, 18 Mar 2024 17:14:02 +0000</pubDate>
-    </item>
-    <item>
-      <title>CVE-2024-21661|2024-03-18T18:32:24.871Z -- argoproj -- argo-cd</title>
-      <link>https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2024-21661</link>
-      <description>Argo CD is a declarative, GitOps continuous delivery tool for Kubernetes. Prior to versions 2.8.13, 2.9.9, and 2.10.4, an attacker can exploit a critical flaw in the application to initiate a Denial of Service (DoS) attack, rendering the application inoperable and affecting all users. The issue arises from unsafe manipulation of an array in a multi-threaded environment. The vulnerability is rooted in the application's code, where an array is being modified while it is being iterated over. This is a classic programming error but becomes critically unsafe when executed in a multi-threaded environment. When two threads interact with the same array simultaneously, the application crashes. This is a Denial of Service (DoS) vulnerability. Any attacker can crash the application continuously, making it impossible for legitimate users to access the service. The issue is exacerbated because it does not require authentication, widening the pool of potential attackers. Versions 2.8.13, 2.9.9, and 2.10.4 contain a patch for this issue.</description>
-      <guid isPermaLink="false">CVE-2024-21661|2024-03-18T18:32:24.871Z</guid>
-      <pubDate>Mon, 18 Mar 2024 18:32:24 +0000</pubDate>
-    </item>
-    <item>
-      <title>CVE-2024-31989|2024-06-06T17:10:15.062Z -- argoproj -- argo-cd</title>
-      <link>https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2024-31989</link>
-      <description>Argo CD is a declarative, GitOps continuous delivery tool for Kubernetes. It has been discovered that an unprivileged pod in a different namespace on the same cluster could connect to the Redis server on port 6379. Despite having installed the latest version of the VPC CNI plugin on the EKS cluster, it requires manual enablement through configuration to enforce network policies. This raises concerns that many clients might unknowingly have open access to their Redis servers. This vulnerability could lead to Privilege Escalation to the level of cluster controller, or to information leakage, affecting anyone who does not have strict access controls on their Redis instance. This issue has been patched in version(s) 2.8.19, 2.9.15 and 2.10.10.</description>
-      <guid isPermaLink="false">CVE-2024-31989|2024-06-06T17:10:15.062Z</guid>
-      <pubDate>Tue, 21 May 2024 19:08:48 +0000</pubDate>
-    </item>
-    <item>
-      <title>CVE-2024-31990|2024-06-04T17:35:59.749Z -- argoproj -- argo-cd</title>
-      <link>https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2024-31990</link>
-      <description>Argo CD is a declarative, GitOps continuous delivery tool for Kubernetes. The API server does not enforce project sourceNamespaces which allows attackers to use the UI to edit resources which should only be mutable via gitops. This vulenrability is fixed in 2.10.7, 2.9.12, and 2.8.16.</description>
-      <guid isPermaLink="false">CVE-2024-31990|2024-06-04T17:35:59.749Z</guid>
-      <pubDate>Mon, 15 Apr 2024 19:52:55 +0000</pubDate>
-    </item>
-    <item>
-      <title>CVE-2024-40634|2024-07-22T17:22:55.732Z -- argoproj -- argo-cd</title>
-      <link>https://www.cve.org/CVERecord?id=CVE-2024-40634</link>
-      <description>Argo CD is a declarative, GitOps continuous delivery tool for Kubernetes. This report details a security vulnerability in Argo CD, where an unauthenticated attacker can send a specially crafted large JSON payload to the /api/webhook endpoint, causing excessive memory allocation that leads to service disruption by triggering an Out Of Memory (OOM) kill. The issue poses a high risk to the availability of Argo CD deployments. This vulnerability is fixed in 2.11.6, 2.10.15, and 2.9.20.</description>
-      <guid isPermaLink="false">CVE-2024-40634|2024-07-22T17:22:55.732Z</guid>
-      <pubDate>Mon, 22 Jul 2024 17:22:55 +0000</pubDate>
-    </item>
-    <item>
-      <title>CVE-2024-41666|2024-07-24T17:16:37.730Z -- argoproj -- argo-cd</title>
-      <link>https://www.cve.org/CVERecord?id=CVE-2024-41666</link>
-      <description>Argo CD is a declarative, GitOps continuous delivery tool for Kubernetes. Argo CD has a Web-based terminal that allows users to get a shell inside a running pod, just as they would with kubectl exec. Starting in version 2.6.0, when the administrator enables this function and grants permission to the user `p, role:myrole, exec, create, */*, allow`, even if the user revokes this permission, the user can still perform operations in the container, as long as the user keeps the terminal view open for a long time. Although the token expiration and revocation of the user are fixed, however, the fix does not address the situation of revocation of only user `p, role:myrole, exec, create, */*, allow` permissions, which may still lead to the leakage of sensitive information. A patch for this vulnerability has been released in Argo CD versions 2.11.7, 2.10.16, and 2.9.21.</description>
-      <guid isPermaLink="false">CVE-2024-41666|2024-07-24T17:16:37.730Z</guid>
-      <pubDate>Wed, 24 Jul 2024 17:16:37 +0000</pubDate>
-    </item>
-    <item>
-      <title>CVE-2024-21661|2024-08-01T22:27:35.875Z -- argoproj -- argo-cd</title>
+      <title>CVE-2024-21661|2024-08-02T15:09:39.868Z -- argoproj -- argo-cd</title>
       <link>https://www.cve.org/CVERecord?id=CVE-2024-21661</link>
       <description>Argo CD is a declarative, GitOps continuous delivery tool for Kubernetes. Prior to versions 2.8.13, 2.9.9, and 2.10.4, an attacker can exploit a critical flaw in the application to initiate a Denial of Service (DoS) attack, rendering the application inoperable and affecting all users. The issue arises from unsafe manipulation of an array in a multi-threaded environment. The vulnerability is rooted in the application's code, where an array is being modified while it is being iterated over. This is a classic programming error but becomes critically unsafe when executed in a multi-threaded environment. When two threads interact with the same array simultaneously, the application crashes. This is a Denial of Service (DoS) vulnerability. Any attacker can crash the application continuously, making it impossible for legitimate users to access the service. The issue is exacerbated because it does not require authentication, widening the pool of potential attackers. Versions 2.8.13, 2.9.9, and 2.10.4 contain a patch for this issue.</description>
-      <guid isPermaLink="false">CVE-2024-21661|2024-08-01T22:27:35.875Z</guid>
+      <guid isPermaLink="false">CVE-2024-21661|2024-08-02T15:09:39.868Z</guid>
       <pubDate>Mon, 18 Mar 2024 18:32:24 +0000</pubDate>
-    </item>
-    <item>
-      <title>CVE-2024-21652|2024-08-01T22:27:36.044Z -- argoproj -- argo-cd</title>
-      <link>https://www.cve.org/CVERecord?id=CVE-2024-21652</link>
-      <description>Argo CD is a declarative, GitOps continuous delivery tool for Kubernetes. Prior to versions 2.8.13, 2.9.9, and 2.10.4, an attacker can exploit a chain of vulnerabilities, including a Denial of Service (DoS) flaw and in-memory data storage weakness, to effectively bypass the application's brute force login protection. This is a critical security vulnerability that allows attackers to bypass the brute force login protection mechanism. Not only can they crash the service affecting all users, but they can also make unlimited login attempts, increasing the risk of account compromise. Versions 2.8.13, 2.9.9, and 2.10.4 contain a patch for this issue.</description>
-      <guid isPermaLink="false">CVE-2024-21652|2024-08-01T22:27:36.044Z</guid>
-      <pubDate>Mon, 18 Mar 2024 17:14:02 +0000</pubDate>
-    </item>
-    <item>
-      <title>CVE-2024-21662|2024-08-01T22:27:36.084Z -- argoproj -- argo-cd</title>
-      <link>https://www.cve.org/CVERecord?id=CVE-2024-21662</link>
-      <description>Argo CD is a declarative, GitOps continuous delivery tool for Kubernetes. Prior to versions 2.8.13, 2.9.9, and 2.10.4, an attacker can effectively bypass the rate limit and brute force protections by exploiting the application's weak cache-based mechanism. This loophole in security can be combined with other vulnerabilities to attack the default admin account. This flaw undermines a patch for CVE-2020-8827 intended to protect against brute-force attacks. The application's brute force protection relies on a cache mechanism that tracks login attempts for each user. This cache is limited to a `defaultMaxCacheSize` of 1000 entries. An attacker can overflow this cache by bombarding it with login attempts for different users, thereby pushing out the admin account's failed attempts and effectively resetting the rate limit for that account. This is a severe vulnerability that enables attackers to perform brute force attacks at an accelerated rate, especially targeting the default admin account. Users should upgrade to version 2.8.13, 2.9.9, or 2.10.4 to receive a patch.</description>
-      <guid isPermaLink="false">CVE-2024-21662|2024-08-01T22:27:36.084Z</guid>
-      <pubDate>Mon, 18 Mar 2024 18:42:04 +0000</pubDate>
-    </item>
-    <item>
-      <title>CVE-2024-31990|2024-08-02T01:59:50.786Z -- argoproj -- argo-cd</title>
-      <link>https://www.cve.org/CVERecord?id=CVE-2024-31990</link>
-      <description>Argo CD is a declarative, GitOps continuous delivery tool for Kubernetes. The API server does not enforce project sourceNamespaces which allows attackers to use the UI to edit resources which should only be mutable via gitops. This vulenrability is fixed in 2.10.7, 2.9.12, and 2.8.16.</description>
-      <guid isPermaLink="false">CVE-2024-31990|2024-08-02T01:59:50.786Z</guid>
-      <pubDate>Mon, 15 Apr 2024 19:52:55 +0000</pubDate>
-    </item>
-    <item>
-      <title>CVE-2024-31989|2024-08-02T01:59:50.839Z -- argoproj -- argo-cd</title>
-      <link>https://www.cve.org/CVERecord?id=CVE-2024-31989</link>
-      <description>Argo CD is a declarative, GitOps continuous delivery tool for Kubernetes. It has been discovered that an unprivileged pod in a different namespace on the same cluster could connect to the Redis server on port 6379. Despite having installed the latest version of the VPC CNI plugin on the EKS cluster, it requires manual enablement through configuration to enforce network policies. This raises concerns that many clients might unknowingly have open access to their Redis servers. This vulnerability could lead to Privilege Escalation to the level of cluster controller, or to information leakage, affecting anyone who does not have strict access controls on their Redis instance. This issue has been patched in version(s) 2.8.19, 2.9.15 and 2.10.10.</description>
-      <guid isPermaLink="false">CVE-2024-31989|2024-08-02T01:59:50.839Z</guid>
-      <pubDate>Tue, 21 May 2024 19:08:48 +0000</pubDate>
-    </item>
-    <item>
-      <title>CVE-2024-32476|2024-08-02T02:13:38.994Z -- argoproj -- argo-cd</title>
-      <link>https://www.cve.org/CVERecord?id=CVE-2024-32476</link>
-      <description>Argo CD is a declarative, GitOps continuous delivery tool for Kubernetes. There is a Denial of Service (DoS) vulnerability via OOM using jq in ignoreDifferences. This vulnerability has been patched in version(s) 2.10.7, 2.9.12 and 2.8.16.</description>
-      <guid isPermaLink="false">CVE-2024-32476|2024-08-02T02:13:38.994Z</guid>
-      <pubDate>Fri, 26 Apr 2024 15:24:13 +0000</pubDate>
-    </item>
-    <item>
-      <title>CVE-2024-40634|2024-08-02T04:33:11.910Z -- argoproj -- argo-cd</title>
-      <link>https://www.cve.org/CVERecord?id=CVE-2024-40634</link>
-      <description>Argo CD is a declarative, GitOps continuous delivery tool for Kubernetes. This report details a security vulnerability in Argo CD, where an unauthenticated attacker can send a specially crafted large JSON payload to the /api/webhook endpoint, causing excessive memory allocation that leads to service disruption by triggering an Out Of Memory (OOM) kill. The issue poses a high risk to the availability of Argo CD deployments. This vulnerability is fixed in 2.11.6, 2.10.15, and 2.9.20.</description>
-      <guid isPermaLink="false">CVE-2024-40634|2024-08-02T04:33:11.910Z</guid>
-      <pubDate>Mon, 22 Jul 2024 17:22:55 +0000</pubDate>
     </item>
     <item>
       <title>CVE-2024-41666|2024-08-02T04:46:52.923Z -- argoproj -- argo-cd</title>
@@ -265,11 +90,186 @@
       <pubDate>Wed, 24 Jul 2024 17:16:37 +0000</pubDate>
     </item>
     <item>
-      <title>CVE-2024-21661|2024-08-02T15:09:39.868Z -- argoproj -- argo-cd</title>
+      <title>CVE-2024-40634|2024-08-02T04:33:11.910Z -- argoproj -- argo-cd</title>
+      <link>https://www.cve.org/CVERecord?id=CVE-2024-40634</link>
+      <description>Argo CD is a declarative, GitOps continuous delivery tool for Kubernetes. This report details a security vulnerability in Argo CD, where an unauthenticated attacker can send a specially crafted large JSON payload to the /api/webhook endpoint, causing excessive memory allocation that leads to service disruption by triggering an Out Of Memory (OOM) kill. The issue poses a high risk to the availability of Argo CD deployments. This vulnerability is fixed in 2.11.6, 2.10.15, and 2.9.20.</description>
+      <guid isPermaLink="false">CVE-2024-40634|2024-08-02T04:33:11.910Z</guid>
+      <pubDate>Mon, 22 Jul 2024 17:22:55 +0000</pubDate>
+    </item>
+    <item>
+      <title>CVE-2024-32476|2024-08-02T02:13:38.994Z -- argoproj -- argo-cd</title>
+      <link>https://www.cve.org/CVERecord?id=CVE-2024-32476</link>
+      <description>Argo CD is a declarative, GitOps continuous delivery tool for Kubernetes. There is a Denial of Service (DoS) vulnerability via OOM using jq in ignoreDifferences. This vulnerability has been patched in version(s) 2.10.7, 2.9.12 and 2.8.16.</description>
+      <guid isPermaLink="false">CVE-2024-32476|2024-08-02T02:13:38.994Z</guid>
+      <pubDate>Fri, 26 Apr 2024 15:24:13 +0000</pubDate>
+    </item>
+    <item>
+      <title>CVE-2024-31989|2024-08-02T01:59:50.839Z -- argoproj -- argo-cd</title>
+      <link>https://www.cve.org/CVERecord?id=CVE-2024-31989</link>
+      <description>Argo CD is a declarative, GitOps continuous delivery tool for Kubernetes. It has been discovered that an unprivileged pod in a different namespace on the same cluster could connect to the Redis server on port 6379. Despite having installed the latest version of the VPC CNI plugin on the EKS cluster, it requires manual enablement through configuration to enforce network policies. This raises concerns that many clients might unknowingly have open access to their Redis servers. This vulnerability could lead to Privilege Escalation to the level of cluster controller, or to information leakage, affecting anyone who does not have strict access controls on their Redis instance. This issue has been patched in version(s) 2.8.19, 2.9.15 and 2.10.10.</description>
+      <guid isPermaLink="false">CVE-2024-31989|2024-08-02T01:59:50.839Z</guid>
+      <pubDate>Tue, 21 May 2024 19:08:48 +0000</pubDate>
+    </item>
+    <item>
+      <title>CVE-2024-31990|2024-08-02T01:59:50.786Z -- argoproj -- argo-cd</title>
+      <link>https://www.cve.org/CVERecord?id=CVE-2024-31990</link>
+      <description>Argo CD is a declarative, GitOps continuous delivery tool for Kubernetes. The API server does not enforce project sourceNamespaces which allows attackers to use the UI to edit resources which should only be mutable via gitops. This vulenrability is fixed in 2.10.7, 2.9.12, and 2.8.16.</description>
+      <guid isPermaLink="false">CVE-2024-31990|2024-08-02T01:59:50.786Z</guid>
+      <pubDate>Mon, 15 Apr 2024 19:52:55 +0000</pubDate>
+    </item>
+    <item>
+      <title>CVE-2024-21662|2024-08-01T22:27:36.084Z -- argoproj -- argo-cd</title>
+      <link>https://www.cve.org/CVERecord?id=CVE-2024-21662</link>
+      <description>Argo CD is a declarative, GitOps continuous delivery tool for Kubernetes. Prior to versions 2.8.13, 2.9.9, and 2.10.4, an attacker can effectively bypass the rate limit and brute force protections by exploiting the application's weak cache-based mechanism. This loophole in security can be combined with other vulnerabilities to attack the default admin account. This flaw undermines a patch for CVE-2020-8827 intended to protect against brute-force attacks. The application's brute force protection relies on a cache mechanism that tracks login attempts for each user. This cache is limited to a `defaultMaxCacheSize` of 1000 entries. An attacker can overflow this cache by bombarding it with login attempts for different users, thereby pushing out the admin account's failed attempts and effectively resetting the rate limit for that account. This is a severe vulnerability that enables attackers to perform brute force attacks at an accelerated rate, especially targeting the default admin account. Users should upgrade to version 2.8.13, 2.9.9, or 2.10.4 to receive a patch.</description>
+      <guid isPermaLink="false">CVE-2024-21662|2024-08-01T22:27:36.084Z</guid>
+      <pubDate>Mon, 18 Mar 2024 18:42:04 +0000</pubDate>
+    </item>
+    <item>
+      <title>CVE-2024-21652|2024-08-01T22:27:36.044Z -- argoproj -- argo-cd</title>
+      <link>https://www.cve.org/CVERecord?id=CVE-2024-21652</link>
+      <description>Argo CD is a declarative, GitOps continuous delivery tool for Kubernetes. Prior to versions 2.8.13, 2.9.9, and 2.10.4, an attacker can exploit a chain of vulnerabilities, including a Denial of Service (DoS) flaw and in-memory data storage weakness, to effectively bypass the application's brute force login protection. This is a critical security vulnerability that allows attackers to bypass the brute force login protection mechanism. Not only can they crash the service affecting all users, but they can also make unlimited login attempts, increasing the risk of account compromise. Versions 2.8.13, 2.9.9, and 2.10.4 contain a patch for this issue.</description>
+      <guid isPermaLink="false">CVE-2024-21652|2024-08-01T22:27:36.044Z</guid>
+      <pubDate>Mon, 18 Mar 2024 17:14:02 +0000</pubDate>
+    </item>
+    <item>
+      <title>CVE-2024-21661|2024-08-01T22:27:35.875Z -- argoproj -- argo-cd</title>
       <link>https://www.cve.org/CVERecord?id=CVE-2024-21661</link>
       <description>Argo CD is a declarative, GitOps continuous delivery tool for Kubernetes. Prior to versions 2.8.13, 2.9.9, and 2.10.4, an attacker can exploit a critical flaw in the application to initiate a Denial of Service (DoS) attack, rendering the application inoperable and affecting all users. The issue arises from unsafe manipulation of an array in a multi-threaded environment. The vulnerability is rooted in the application's code, where an array is being modified while it is being iterated over. This is a classic programming error but becomes critically unsafe when executed in a multi-threaded environment. When two threads interact with the same array simultaneously, the application crashes. This is a Denial of Service (DoS) vulnerability. Any attacker can crash the application continuously, making it impossible for legitimate users to access the service. The issue is exacerbated because it does not require authentication, widening the pool of potential attackers. Versions 2.8.13, 2.9.9, and 2.10.4 contain a patch for this issue.</description>
-      <guid isPermaLink="false">CVE-2024-21661|2024-08-02T15:09:39.868Z</guid>
+      <guid isPermaLink="false">CVE-2024-21661|2024-08-01T22:27:35.875Z</guid>
       <pubDate>Mon, 18 Mar 2024 18:32:24 +0000</pubDate>
+    </item>
+    <item>
+      <title>CVE-2024-41666|2024-07-24T17:16:37.730Z -- argoproj -- argo-cd</title>
+      <link>https://www.cve.org/CVERecord?id=CVE-2024-41666</link>
+      <description>Argo CD is a declarative, GitOps continuous delivery tool for Kubernetes. Argo CD has a Web-based terminal that allows users to get a shell inside a running pod, just as they would with kubectl exec. Starting in version 2.6.0, when the administrator enables this function and grants permission to the user `p, role:myrole, exec, create, */*, allow`, even if the user revokes this permission, the user can still perform operations in the container, as long as the user keeps the terminal view open for a long time. Although the token expiration and revocation of the user are fixed, however, the fix does not address the situation of revocation of only user `p, role:myrole, exec, create, */*, allow` permissions, which may still lead to the leakage of sensitive information. A patch for this vulnerability has been released in Argo CD versions 2.11.7, 2.10.16, and 2.9.21.</description>
+      <guid isPermaLink="false">CVE-2024-41666|2024-07-24T17:16:37.730Z</guid>
+      <pubDate>Wed, 24 Jul 2024 17:16:37 +0000</pubDate>
+    </item>
+    <item>
+      <title>CVE-2024-40634|2024-07-22T17:22:55.732Z -- argoproj -- argo-cd</title>
+      <link>https://www.cve.org/CVERecord?id=CVE-2024-40634</link>
+      <description>Argo CD is a declarative, GitOps continuous delivery tool for Kubernetes. This report details a security vulnerability in Argo CD, where an unauthenticated attacker can send a specially crafted large JSON payload to the /api/webhook endpoint, causing excessive memory allocation that leads to service disruption by triggering an Out Of Memory (OOM) kill. The issue poses a high risk to the availability of Argo CD deployments. This vulnerability is fixed in 2.11.6, 2.10.15, and 2.9.20.</description>
+      <guid isPermaLink="false">CVE-2024-40634|2024-07-22T17:22:55.732Z</guid>
+      <pubDate>Mon, 22 Jul 2024 17:22:55 +0000</pubDate>
+    </item>
+    <item>
+      <title>CVE-2024-31990|2024-06-04T17:35:59.749Z -- argoproj -- argo-cd</title>
+      <link>https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2024-31990</link>
+      <description>Argo CD is a declarative, GitOps continuous delivery tool for Kubernetes. The API server does not enforce project sourceNamespaces which allows attackers to use the UI to edit resources which should only be mutable via gitops. This vulenrability is fixed in 2.10.7, 2.9.12, and 2.8.16.</description>
+      <guid isPermaLink="false">CVE-2024-31990|2024-06-04T17:35:59.749Z</guid>
+      <pubDate>Mon, 15 Apr 2024 19:52:55 +0000</pubDate>
+    </item>
+    <item>
+      <title>CVE-2024-31989|2024-06-06T17:10:15.062Z -- argoproj -- argo-cd</title>
+      <link>https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2024-31989</link>
+      <description>Argo CD is a declarative, GitOps continuous delivery tool for Kubernetes. It has been discovered that an unprivileged pod in a different namespace on the same cluster could connect to the Redis server on port 6379. Despite having installed the latest version of the VPC CNI plugin on the EKS cluster, it requires manual enablement through configuration to enforce network policies. This raises concerns that many clients might unknowingly have open access to their Redis servers. This vulnerability could lead to Privilege Escalation to the level of cluster controller, or to information leakage, affecting anyone who does not have strict access controls on their Redis instance. This issue has been patched in version(s) 2.8.19, 2.9.15 and 2.10.10.</description>
+      <guid isPermaLink="false">CVE-2024-31989|2024-06-06T17:10:15.062Z</guid>
+      <pubDate>Tue, 21 May 2024 19:08:48 +0000</pubDate>
+    </item>
+    <item>
+      <title>CVE-2024-21661|2024-03-18T18:32:24.871Z -- argoproj -- argo-cd</title>
+      <link>https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2024-21661</link>
+      <description>Argo CD is a declarative, GitOps continuous delivery tool for Kubernetes. Prior to versions 2.8.13, 2.9.9, and 2.10.4, an attacker can exploit a critical flaw in the application to initiate a Denial of Service (DoS) attack, rendering the application inoperable and affecting all users. The issue arises from unsafe manipulation of an array in a multi-threaded environment. The vulnerability is rooted in the application's code, where an array is being modified while it is being iterated over. This is a classic programming error but becomes critically unsafe when executed in a multi-threaded environment. When two threads interact with the same array simultaneously, the application crashes. This is a Denial of Service (DoS) vulnerability. Any attacker can crash the application continuously, making it impossible for legitimate users to access the service. The issue is exacerbated because it does not require authentication, widening the pool of potential attackers. Versions 2.8.13, 2.9.9, and 2.10.4 contain a patch for this issue.</description>
+      <guid isPermaLink="false">CVE-2024-21661|2024-03-18T18:32:24.871Z</guid>
+      <pubDate>Mon, 18 Mar 2024 18:32:24 +0000</pubDate>
+    </item>
+    <item>
+      <title>CVE-2024-21652|2024-06-07T15:52:27.549Z -- argoproj -- argo-cd</title>
+      <link>https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2024-21652</link>
+      <description>Argo CD is a declarative, GitOps continuous delivery tool for Kubernetes. Prior to versions 2.8.13, 2.9.9, and 2.10.4, an attacker can exploit a chain of vulnerabilities, including a Denial of Service (DoS) flaw and in-memory data storage weakness, to effectively bypass the application's brute force login protection. This is a critical security vulnerability that allows attackers to bypass the brute force login protection mechanism. Not only can they crash the service affecting all users, but they can also make unlimited login attempts, increasing the risk of account compromise. Versions 2.8.13, 2.9.9, and 2.10.4 contain a patch for this issue.</description>
+      <guid isPermaLink="false">CVE-2024-21652|2024-06-07T15:52:27.549Z</guid>
+      <pubDate>Mon, 18 Mar 2024 17:14:02 +0000</pubDate>
+    </item>
+    <item>
+      <title>CVE-2024-21662|2024-03-18T18:42:04.701Z -- argoproj -- argo-cd</title>
+      <link>https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2024-21662</link>
+      <description>Argo CD is a declarative, GitOps continuous delivery tool for Kubernetes. Prior to versions 2.8.13, 2.9.9, and 2.10.4, an attacker can effectively bypass the rate limit and brute force protections by exploiting the application's weak cache-based mechanism. This loophole in security can be combined with other vulnerabilities to attack the default admin account. This flaw undermines a patch for CVE-2020-8827 intended to protect against brute-force attacks. The application's brute force protection relies on a cache mechanism that tracks login attempts for each user. This cache is limited to a `defaultMaxCacheSize` of 1000 entries. An attacker can overflow this cache by bombarding it with login attempts for different users, thereby pushing out the admin account's failed attempts and effectively resetting the rate limit for that account. This is a severe vulnerability that enables attackers to perform brute force attacks at an accelerated rate, especially targeting the default admin account. Users should upgrade to version 2.8.13, 2.9.9, or 2.10.4 to receive a patch.</description>
+      <guid isPermaLink="false">CVE-2024-21662|2024-03-18T18:42:04.701Z</guid>
+      <pubDate>Mon, 18 Mar 2024 18:42:04 +0000</pubDate>
+    </item>
+    <item>
+      <title>CVE-2024-37152|2024-06-10T13:59:44.786Z -- argoproj -- argo-cd</title>
+      <link>https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2024-37152</link>
+      <description>Argo CD is a declarative, GitOps continuous delivery tool for Kubernetes. The vulnerability allows unauthorized access to the sensitive settings exposed by  /api/v1/settings endpoint without authentication. All sensitive settings are hidden except passwordPattern. This vulnerability is fixed in 2.11.3, 2.10.12, and 2.9.17.</description>
+      <guid isPermaLink="false">CVE-2024-37152|2024-06-10T13:59:44.786Z</guid>
+      <pubDate>Thu, 06 Jun 2024 15:33:29 +0000</pubDate>
+    </item>
+    <item>
+      <title>CVE-2024-36106|2024-06-06T15:09:36.474Z -- argoproj -- argo-cd</title>
+      <link>https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2024-36106</link>
+      <description>Argo CD is a declarative, GitOps continuous delivery tool for Kubernetes. It’s possible for authenticated users to enumerate clusters by name by inspecting error messages. It’s also possible to enumerate the names of projects with project-scoped clusters if you know the names of the clusters. This vulnerability is fixed in 2.11.3, 2.10.12, and 2.9.17.</description>
+      <guid isPermaLink="false">CVE-2024-36106|2024-06-06T15:09:36.474Z</guid>
+      <pubDate>Thu, 06 Jun 2024 15:09:36 +0000</pubDate>
+    </item>
+    <item>
+      <title>CVE-2024-32476|2024-06-04T17:50:51.120Z -- argoproj -- argo-cd</title>
+      <link>https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2024-32476</link>
+      <description>Argo CD is a declarative, GitOps continuous delivery tool for Kubernetes. There is a Denial of Service (DoS) vulnerability via OOM using jq in ignoreDifferences. This vulnerability has been patched in version(s) 2.10.7, 2.9.12 and 2.8.16.</description>
+      <guid isPermaLink="false">CVE-2024-32476|2024-06-04T17:50:51.120Z</guid>
+      <pubDate>Fri, 26 Apr 2024 15:24:13 +0000</pubDate>
+    </item>
+    <item>
+      <title>CVE-2024-29893|2024-06-06T19:22:49.108Z -- argoproj -- argo-cd</title>
+      <link>https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2024-29893</link>
+      <description>Argo CD is a declarative, GitOps continuous delivery tool for Kubernetes. All versions of ArgoCD starting from v2.4 have a bug where the ArgoCD repo-server component is vulnerable to a Denial-of-Service attack vector. Specifically,  it's possible to crash the repo server component through an out of memory error by pointing it to a malicious Helm registry. The loadRepoIndex() function in the ArgoCD's helm package, does not limit the size nor time while fetching the data. It fetches it and creates a byte slice from the retrieved data in one go. If the registry is implemented to push data continuously, the repo server will keep allocating memory until it runs out of it. A patch for this vulnerability has been released in v2.10.3, v2.9.8, and v2.8.12.</description>
+      <guid isPermaLink="false">CVE-2024-29893|2024-06-06T19:22:49.108Z</guid>
+      <pubDate>Fri, 29 Mar 2024 15:07:51 +0000</pubDate>
+    </item>
+    <item>
+      <title>CVE-2024-28175|2024-03-13T20:48:05.363Z -- argoproj -- argo-cd</title>
+      <link>https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2024-28175</link>
+      <description>Argo CD is a declarative, GitOps continuous delivery tool for Kubernetes. Due to the improper URL protocols filtering of links specified in the `link.argocd.argoproj.io` annotations in the application summary component, an attacker can achieve cross-site scripting with elevated permissions. All unpatched versions of Argo CD starting with v1.0.0 are vulnerable to a cross-site scripting (XSS) bug allowing a malicious user to inject a javascript: link in the UI. When clicked by a victim user, the script will execute with the victim's permissions (up to and including admin). This vulnerability allows an attacker to perform arbitrary actions on behalf of the victim via the API, such as creating, modifying, and deleting Kubernetes resources. A patch for this vulnerability has been released in Argo CD versions v2.10.3 v2.9.8, and v2.8.12. There are no completely-safe workarounds besides upgrading. The safest alternative, if upgrading is not possible, would be to create a Kubernetes admission controller to reject any resources with an annotation starting with link.argocd.argoproj.io or reject the resource if the value use an improper URL protocol. This validation will need to be applied in all clusters managed by ArgoCD.</description>
+      <guid isPermaLink="false">CVE-2024-28175|2024-03-13T20:48:05.363Z</guid>
+      <pubDate>Wed, 13 Mar 2024 20:48:05 +0000</pubDate>
+    </item>
+    <item>
+      <title>CVE-2023-50726|2024-06-04T17:18:02.620Z -- argoproj -- argo-cd</title>
+      <link>https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2023-50726</link>
+      <description>Argo CD is a declarative, GitOps continuous delivery tool for Kubernetes. "Local sync" is an Argo CD feature that allows developers to temporarily override an Application's manifests with locally-defined manifests. Use of the feature should generally be limited to highly-trusted users, since it allows the user to bypass any merge protections in git. An improper validation bug allows users who have `create` privileges but not `override` privileges to sync local manifests on app creation. All other restrictions, including AppProject restrictions are still enforced. The only restriction which is not enforced is that the manifests come from some approved git/Helm/OCI source. The bug was introduced in 1.2.0-rc1 when the local manifest sync feature was added. The bug has been patched in Argo CD versions 2.10.3, 2.9.8, and 2.8.12. Users are advised to upgrade. Users unable to upgrade may mitigate the risk of branch protection bypass by removing `applications, create` RBAC access. The only way to eliminate the issue without removing RBAC access is to upgrade to a patched version.</description>
+      <guid isPermaLink="false">CVE-2023-50726|2024-06-04T17:18:02.620Z</guid>
+      <pubDate>Wed, 13 Mar 2024 20:50:52 +0000</pubDate>
+    </item>
+    <item>
+      <title>CVE-2024-40634|2024-07-23T13:19:36.934Z -- argoproj -- argo-cd</title>
+      <link>https://www.cve.org/CVERecord?id=CVE-2024-40634</link>
+      <description>Argo CD is a declarative, GitOps continuous delivery tool for Kubernetes. This report details a security vulnerability in Argo CD, where an unauthenticated attacker can send a specially crafted large JSON payload to the /api/webhook endpoint, causing excessive memory allocation that leads to service disruption by triggering an Out Of Memory (OOM) kill. The issue poses a high risk to the availability of Argo CD deployments. This vulnerability is fixed in 2.11.6, 2.10.15, and 2.9.20.</description>
+      <guid isPermaLink="false">CVE-2024-40634|2024-07-23T13:19:36.934Z</guid>
+      <pubDate>Mon, 22 Jul 2024 17:22:55 +0000</pubDate>
+    </item>
+    <item>
+      <title>CVE-2024-41666|2024-07-24T18:07:47.936Z -- argoproj -- argo-cd</title>
+      <link>https://www.cve.org/CVERecord?id=CVE-2024-41666</link>
+      <description>Argo CD is a declarative, GitOps continuous delivery tool for Kubernetes. Argo CD has a Web-based terminal that allows users to get a shell inside a running pod, just as they would with kubectl exec. Starting in version 2.6.0, when the administrator enables this function and grants permission to the user `p, role:myrole, exec, create, */*, allow`, even if the user revokes this permission, the user can still perform operations in the container, as long as the user keeps the terminal view open for a long time. Although the token expiration and revocation of the user are fixed, however, the fix does not address the situation of revocation of only user `p, role:myrole, exec, create, */*, allow` permissions, which may still lead to the leakage of sensitive information. A patch for this vulnerability has been released in Argo CD versions 2.11.7, 2.10.16, and 2.9.21.</description>
+      <guid isPermaLink="false">CVE-2024-41666|2024-07-24T18:07:47.936Z</guid>
+      <pubDate>Wed, 24 Jul 2024 17:16:37 +0000</pubDate>
+    </item>
+    <item>
+      <title>CVE-2024-28175|2024-08-02T00:48:49.312Z -- argoproj -- argo-cd</title>
+      <link>https://www.cve.org/CVERecord?id=CVE-2024-28175</link>
+      <description>Argo CD is a declarative, GitOps continuous delivery tool for Kubernetes. Due to the improper URL protocols filtering of links specified in the `link.argocd.argoproj.io` annotations in the application summary component, an attacker can achieve cross-site scripting with elevated permissions. All unpatched versions of Argo CD starting with v1.0.0 are vulnerable to a cross-site scripting (XSS) bug allowing a malicious user to inject a javascript: link in the UI. When clicked by a victim user, the script will execute with the victim's permissions (up to and including admin). This vulnerability allows an attacker to perform arbitrary actions on behalf of the victim via the API, such as creating, modifying, and deleting Kubernetes resources. A patch for this vulnerability has been released in Argo CD versions v2.10.3 v2.9.8, and v2.8.12. There are no completely-safe workarounds besides upgrading. The safest alternative, if upgrading is not possible, would be to create a Kubernetes admission controller to reject any resources with an annotation starting with link.argocd.argoproj.io or reject the resource if the value use an improper URL protocol. This validation will need to be applied in all clusters managed by ArgoCD.</description>
+      <guid isPermaLink="false">CVE-2024-28175|2024-08-02T00:48:49.312Z</guid>
+      <pubDate>Wed, 13 Mar 2024 20:48:05 +0000</pubDate>
+    </item>
+    <item>
+      <title>CVE-2024-29893|2024-08-02T01:17:58.029Z -- argoproj -- argo-cd</title>
+      <link>https://www.cve.org/CVERecord?id=CVE-2024-29893</link>
+      <description>Argo CD is a declarative, GitOps continuous delivery tool for Kubernetes. All versions of ArgoCD starting from v2.4 have a bug where the ArgoCD repo-server component is vulnerable to a Denial-of-Service attack vector. Specifically,  it's possible to crash the repo server component through an out of memory error by pointing it to a malicious Helm registry. The loadRepoIndex() function in the ArgoCD's helm package, does not limit the size nor time while fetching the data. It fetches it and creates a byte slice from the retrieved data in one go. If the registry is implemented to push data continuously, the repo server will keep allocating memory until it runs out of it. A patch for this vulnerability has been released in v2.10.3, v2.9.8, and v2.8.12.</description>
+      <guid isPermaLink="false">CVE-2024-29893|2024-08-02T01:17:58.029Z</guid>
+      <pubDate>Fri, 29 Mar 2024 15:07:51 +0000</pubDate>
+    </item>
+    <item>
+      <title>CVE-2024-37152|2024-08-02T03:50:55.946Z -- argoproj -- argo-cd</title>
+      <link>https://www.cve.org/CVERecord?id=CVE-2024-37152</link>
+      <description>Argo CD is a declarative, GitOps continuous delivery tool for Kubernetes. The vulnerability allows unauthorized access to the sensitive settings exposed by  /api/v1/settings endpoint without authentication. All sensitive settings are hidden except passwordPattern. This vulnerability is fixed in 2.11.3, 2.10.12, and 2.9.17.</description>
+      <guid isPermaLink="false">CVE-2024-37152|2024-08-02T03:50:55.946Z</guid>
+      <pubDate>Thu, 06 Jun 2024 15:33:29 +0000</pubDate>
+    </item>
+    <item>
+      <title>CVE-2024-36106|2024-08-02T03:30:13.074Z -- argoproj -- argo-cd</title>
+      <link>https://www.cve.org/CVERecord?id=CVE-2024-36106</link>
+      <description>Argo CD is a declarative, GitOps continuous delivery tool for Kubernetes. It’s possible for authenticated users to enumerate clusters by name by inspecting error messages. It’s also possible to enumerate the names of projects with project-scoped clusters if you know the names of the clusters. This vulnerability is fixed in 2.11.3, 2.10.12, and 2.9.17.</description>
+      <guid isPermaLink="false">CVE-2024-36106|2024-08-02T03:30:13.074Z</guid>
+      <pubDate>Thu, 06 Jun 2024 15:09:36 +0000</pubDate>
     </item>
   </channel>
 </rss>

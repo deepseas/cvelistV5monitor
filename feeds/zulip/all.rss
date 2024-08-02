@@ -6,7 +6,7 @@
     <description>The latest CVEs for zulip -- all products</description>
     <docs>http://www.rssboard.org/rss-specification</docs>
     <generator>python-feedgen</generator>
-    <lastBuildDate>Fri, 02 Aug 2024 21:22:11 +0000</lastBuildDate>
+    <lastBuildDate>Fri, 02 Aug 2024 22:22:56 +0000</lastBuildDate>
     <ttl>60</ttl>
     <item>
       <title>CVE-2023-32677|2024-08-02T15:25:36.618Z -- zulip -- zulip
@@ -15,6 +15,14 @@
       <description>Zulip is an open-source team collaboration tool with unique topic-based threading. Zulip administrators can configure Zulip to limit who can add users to streams, and separately to limit who can invite users to the organization. In Zulip Server 6.1 and below, the UI which allows a user to invite a new user also allows them to set the streams that the new user is invited to -- even if the inviting user would not have permissions to add an existing user to streams. While such a configuration is likely rare in practice, the behavior does violate security-related controls. This does not let a user invite new users to streams they cannot see, or would not be able to add users to if they had that general permission. This issue has been addressed in version 6.2. Users are advised to upgrade. Users unable to upgrade may limit sending of invitations down to users who also have the permission to add users to streams.</description>
       <guid isPermaLink="false">CVE-2023-32677|2024-08-02T15:25:36.618Z</guid>
       <pubDate>Fri, 19 May 2023 20:44:47 +0000</pubDate>
+    </item>
+    <item>
+      <title>CVE-2023-47642|2024-08-02T21:16:43.329Z -- zulip -- zulip
+</title>
+      <link>https://www.cve.org/CVERecord?id=CVE-2023-47642</link>
+      <description>Zulip is an open-source team collaboration tool. It was discovered by the Zulip development team that active users who had previously been subscribed to a stream incorrectly continued being able to use the Zulip API to access metadata for that stream. As a result, users who had been removed from a stream, but still had an account in the organization, could still view metadata for that stream (including the stream name, description, settings, and an email address used to send emails into the stream via the incoming email integration). This potentially allowed users to see changes to a stream’s metadata after they had lost access to the stream. This vulnerability has been addressed in version 7.5 and all users are advised to upgrade. There are no known workarounds for this issue.</description>
+      <guid isPermaLink="false">CVE-2023-47642|2024-08-02T21:16:43.329Z</guid>
+      <pubDate>Thu, 16 Nov 2023 21:41:46 +0000</pubDate>
     </item>
     <item>
       <title>CVE-2023-22735|2024-08-02T10:13:50.231Z -- zulip -- zulip
@@ -49,17 +57,17 @@
       <pubDate>Tue, 30 May 2023 05:31:37 +0000</pubDate>
     </item>
     <item>
-      <title>CVE-2024-27286|2024-06-04T17:46:59.769Z -- zulip -- zulip</title>
-      <link>https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2024-27286</link>
-      <description>Zulip is an open-source team collaboration. When a user moves a Zulip message, they have the option to move all messages in the topic, move only subsequent messages as well, or move just a single message.  If the user chose to just move one message, and was moving it from a public stream to a private stream, Zulip would successfully move the message, -- but active users who did not have access to the private stream, but whose client had already received the message, would continue to see the message in the public stream until they reloaded their client.  Additionally, Zulip did not remove view permissions on the message from recently-active users, allowing the message to show up in the "All messages" view or in search results, but not in "Inbox" or "Recent conversations" views. While the bug has been present since moving messages between streams was first introduced in version 3.0, this option became much more common starting in Zulip 8.0, when the default option in the picker for moving the very last message in a conversation was changed. This issue is fixed in Zulip Server 8.3. No known workarounds are available.</description>
-      <guid isPermaLink="false">CVE-2024-27286|2024-06-04T17:46:59.769Z</guid>
-      <pubDate>Wed, 20 Mar 2024 19:35:59 +0000</pubDate>
-    </item>
-    <item>
       <title>CVE-2024-27286|2024-08-02T00:27:59.940Z -- zulip -- zulip</title>
       <link>https://www.cve.org/CVERecord?id=CVE-2024-27286</link>
       <description>Zulip is an open-source team collaboration. When a user moves a Zulip message, they have the option to move all messages in the topic, move only subsequent messages as well, or move just a single message.  If the user chose to just move one message, and was moving it from a public stream to a private stream, Zulip would successfully move the message, -- but active users who did not have access to the private stream, but whose client had already received the message, would continue to see the message in the public stream until they reloaded their client.  Additionally, Zulip did not remove view permissions on the message from recently-active users, allowing the message to show up in the "All messages" view or in search results, but not in "Inbox" or "Recent conversations" views. While the bug has been present since moving messages between streams was first introduced in version 3.0, this option became much more common starting in Zulip 8.0, when the default option in the picker for moving the very last message in a conversation was changed. This issue is fixed in Zulip Server 8.3. No known workarounds are available.</description>
       <guid isPermaLink="false">CVE-2024-27286|2024-08-02T00:27:59.940Z</guid>
+      <pubDate>Wed, 20 Mar 2024 19:35:59 +0000</pubDate>
+    </item>
+    <item>
+      <title>CVE-2024-27286|2024-06-04T17:46:59.769Z -- zulip -- zulip</title>
+      <link>https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2024-27286</link>
+      <description>Zulip is an open-source team collaboration. When a user moves a Zulip message, they have the option to move all messages in the topic, move only subsequent messages as well, or move just a single message.  If the user chose to just move one message, and was moving it from a public stream to a private stream, Zulip would successfully move the message, -- but active users who did not have access to the private stream, but whose client had already received the message, would continue to see the message in the public stream until they reloaded their client.  Additionally, Zulip did not remove view permissions on the message from recently-active users, allowing the message to show up in the "All messages" view or in search results, but not in "Inbox" or "Recent conversations" views. While the bug has been present since moving messages between streams was first introduced in version 3.0, this option became much more common starting in Zulip 8.0, when the default option in the picker for moving the very last message in a conversation was changed. This issue is fixed in Zulip Server 8.3. No known workarounds are available.</description>
+      <guid isPermaLink="false">CVE-2024-27286|2024-06-04T17:46:59.769Z</guid>
       <pubDate>Wed, 20 Mar 2024 19:35:59 +0000</pubDate>
     </item>
   </channel>

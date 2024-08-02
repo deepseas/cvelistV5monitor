@@ -6,7 +6,7 @@
     <description>The latest CVEs for louislam -- all products</description>
     <docs>http://www.rssboard.org/rss-specification</docs>
     <generator>python-feedgen</generator>
-    <lastBuildDate>Fri, 02 Aug 2024 21:22:19 +0000</lastBuildDate>
+    <lastBuildDate>Fri, 02 Aug 2024 22:22:57 +0000</lastBuildDate>
     <ttl>60</ttl>
     <item>
       <title>CVE-2023-36821|2024-08-02T17:01:09.559Z -- louislam -- uptime-kuma
@@ -25,6 +25,18 @@
       <pubDate>Tue, 21 Feb 2023 20:45:39 +0000</pubDate>
     </item>
     <item>
+      <title>CVE-2023-49805|2024-08-02T22:01:26.032Z -- louislam -- uptime-kuma
+</title>
+      <link>https://www.cve.org/CVERecord?id=CVE-2023-49805</link>
+      <description>Uptime Kuma is an easy-to-use self-hosted monitoring tool. Prior to version 1.23.9, the application uses WebSocket (with Socket.io), but it does not verify that the source of communication is valid. This allows third-party website to access the application on behalf of their client. When connecting to the server using Socket.IO, the server does not validate the `Origin` header leading to other site being able to open connections to the server and communicate with it. Other websites still need to authenticate to access most features, however this can be used to circumvent firewall protections made in place by people deploying the application.
+
+Without origin validation, Javascript executed from another origin would be allowed to connect to the application without any user interaction. Without login credentials, such a connection is unable to access protected endpoints containing sensitive data of the application. However, such a connection may allow attacker to further exploit unseen vulnerabilities of the application. Users with "No-auth" mode configured who are relying on a reverse proxy or firewall to provide protection to the application would be especially vulnerable as it would grant the attacker full access to the application.
+
+In version 1.23.9, additional verification of the HTTP Origin header has been added to the socket.io connection handler. By default, if the `Origin` header is present, it would be checked against the Host header. Connection would be denied if the hostnames do not match, which would indicate that the request is cross-origin. Connection would be allowed if the `Origin` header is not present. Users can override this behavior by setting environment variable `UPTIME_KUMA_WS_ORIGIN_CHECK=bypass`.</description>
+      <guid isPermaLink="false">CVE-2023-49805|2024-08-02T22:01:26.032Z</guid>
+      <pubDate>Mon, 11 Dec 2023 22:37:04 +0000</pubDate>
+    </item>
+    <item>
       <title>CVE-2023-25810|2024-08-02T11:32:12.731Z -- louislam -- uptime-kuma
 </title>
       <link>https://www.cve.org/CVERecord?id=CVE-2023-25810</link>
@@ -41,6 +53,14 @@
       <pubDate>Mon, 09 Oct 2023 15:15:07 +0000</pubDate>
     </item>
     <item>
+      <title>CVE-2023-49804|2024-08-02T22:01:26.028Z -- louislam -- uptime-kuma
+</title>
+      <link>https://www.cve.org/CVERecord?id=CVE-2023-49804</link>
+      <description>Uptime Kuma is an easy-to-use self-hosted monitoring tool. Prior to version 1.23.9, when a user changes their login password in Uptime Kuma, a previously logged-in user retains access without being logged out. This behavior persists consistently, even after system restarts or browser restarts. This vulnerability allows unauthorized access to user accounts, compromising the security of sensitive information. The same vulnerability was partially fixed in  CVE-2023-44400, but logging existing users out of their accounts was forgotten. To mitigate the risks associated with this vulnerability, the maintainers made the server emit a `refresh` event (clients handle this by reloading) and then disconnecting all clients except the one initiating the password change. It is recommended to update Uptime Kuma to version 1.23.9.</description>
+      <guid isPermaLink="false">CVE-2023-49804|2024-08-02T22:01:26.028Z</guid>
+      <pubDate>Mon, 11 Dec 2023 22:32:32 +0000</pubDate>
+    </item>
+    <item>
       <title>CVE-2023-36822|2024-08-02T17:01:09.629Z -- louislam -- uptime-kuma
 </title>
       <link>https://www.cve.org/CVERecord?id=CVE-2023-36822</link>
@@ -48,6 +68,14 @@
 </description>
       <guid isPermaLink="false">CVE-2023-36822|2024-08-02T17:01:09.629Z</guid>
       <pubDate>Wed, 05 Jul 2023 21:18:09 +0000</pubDate>
+    </item>
+    <item>
+      <title>CVE-2023-49276|2024-08-02T21:53:44.985Z -- louislam -- uptime-kuma
+</title>
+      <link>https://www.cve.org/CVERecord?id=CVE-2023-49276</link>
+      <description>Uptime Kuma is an open source self-hosted monitoring tool. In affected versions the Google Analytics element in vulnerable to Attribute Injection leading to Cross-Site-Scripting (XSS). Since the custom status interface can set an independent Google Analytics ID and the template has not been sanitized, there is an attribute injection vulnerability here, which can lead to XSS attacks. This vulnerability has been addressed in commit `f28dccf4e` which is included in release version 1.23.7. Users are advised to upgrade. There are no known workarounds for this vulnerability.</description>
+      <guid isPermaLink="false">CVE-2023-49276|2024-08-02T21:53:44.985Z</guid>
+      <pubDate>Fri, 01 Dec 2023 22:05:41 +0000</pubDate>
     </item>
   </channel>
 </rss>
