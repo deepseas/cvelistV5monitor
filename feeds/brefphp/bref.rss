@@ -6,11 +6,27 @@
     <description>The latest CVEs for brefphp -- bref</description>
     <docs>http://www.rssboard.org/rss-specification</docs>
     <generator>python-feedgen</generator>
-    <lastBuildDate>Wed, 12 Jun 2024 11:24:21 +0000</lastBuildDate>
+    <lastBuildDate>Fri, 02 Aug 2024 01:43:28 +0000</lastBuildDate>
     <ttl>60</ttl>
     <item>
-      <title>CVE-2024-29186|2024-03-22T17:07:10.899Z -- brefphp -- bref
+      <title>CVE-2024-29186|2024-08-02T01:10:54.072Z -- brefphp -- bref
 </title>
+      <link>https://www.cve.org/CVERecord?id=CVE-2024-29186</link>
+      <description>Bref is an open-source project that helps users go serverless on Amazon Web Services with PHP. When Bref prior to version 2.1.17 is used with the Event-Driven Function runtime and the handler is a `RequestHandlerInterface`, then the Lambda event is converted to a PSR7 object. During the conversion process, if the request is a MultiPart, each part is parsed. In the parsing process, the `Content-Type` header of each part is read using the `Riverline/multipart-parser` library.
+
+The library, in the `StreamedPart::parseHeaderContent` function, performs slow multi-byte string operations on the header value.
+Precisely, the `mb_convert_encoding` function is used with the first (`$string`) and third (`$from_encoding`) parameters read from the header value.
+
+An attacker could send specifically crafted requests which would force the server into performing long operations with a consequent long billed duration.
+
+The attack has the following requirements and limitations: The Lambda should use the Event-Driven Function runtime and the `RequestHandlerInterface` handler and should implement at least an endpoint accepting POST requests; the attacker can send requests up to 6MB long (this is enough to cause a billed duration between 400ms and 500ms with the default 1024MB RAM Lambda image of Bref); and if the Lambda uses a PHP runtime &lt;= php-82, the impact is higher as the billed duration in the default 1024MB RAM Lambda image of Bref could be brought to more than 900ms for each request. Notice that the vulnerability applies only to headers read from the request body as the request header has a limitation which allows a total maximum size of ~10KB.
+
+Version 2.1.17 contains a fix for this issue.</description>
+      <guid isPermaLink="false">CVE-2024-29186|2024-08-02T01:10:54.072Z</guid>
+      <pubDate>Fri, 22 Mar 2024 17:07:10 +0000</pubDate>
+    </item>
+    <item>
+      <title>CVE-2024-29186|2024-03-22T17:07:10.899Z -- brefphp -- bref</title>
       <link>https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2024-29186</link>
       <description>Bref is an open-source project that helps users go serverless on Amazon Web Services with PHP. When Bref prior to version 2.1.17 is used with the Event-Driven Function runtime and the handler is a `RequestHandlerInterface`, then the Lambda event is converted to a PSR7 object. During the conversion process, if the request is a MultiPart, each part is parsed. In the parsing process, the `Content-Type` header of each part is read using the `Riverline/multipart-parser` library.
 
@@ -24,30 +40,6 @@ The attack has the following requirements and limitations: The Lambda should use
 Version 2.1.17 contains a fix for this issue.</description>
       <guid isPermaLink="false">CVE-2024-29186|2024-03-22T17:07:10.899Z</guid>
       <pubDate>Fri, 22 Mar 2024 17:07:10 +0000</pubDate>
-    </item>
-    <item>
-      <title>CVE-2024-24752|2024-02-01T20:20:00.974Z -- brefphp -- bref
-</title>
-      <link>https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2024-24752</link>
-      <description>Bref enable serverless PHP on AWS Lambda. When Bref is used with the Event-Driven Function runtime and the handler is a `RequestHandlerInterface`, then the Lambda event is converted to a PSR7 object. During the conversion process, if the request is a MultiPart, each part is parsed and for each which contains a file, it is extracted and saved in `/tmp` with a random filename starting with `bref_upload_`. The flow mimics what plain PHP does but it does not delete the temporary files when the request has been processed. An attacker could fill the Lambda instance disk by performing multiple MultiPart requests containing files. This vulnerability is patched in 2.1.13.</description>
-      <guid isPermaLink="false">CVE-2024-24752|2024-02-01T20:20:00.974Z</guid>
-      <pubDate>Thu, 01 Feb 2024 16:10:07 +0000</pubDate>
-    </item>
-    <item>
-      <title>CVE-2024-24753|2024-02-01T20:25:07.428Z -- brefphp -- bref
-</title>
-      <link>https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2024-24753</link>
-      <description>Bref enable serverless PHP on AWS Lambda. When Bref is used in combination with an API Gateway with the v2 format, it does not handle multiple values headers. If PHP generates a response with two headers having the same key but different values only the latest one is kept. If an application relies on multiple headers with the same key being set for security reasons, then Bref would lower the application security. For example, if an application sets multiple `Content-Security-Policy` headers, then Bref would just reflect the latest one. This vulnerability is patched in 2.1.13.</description>
-      <guid isPermaLink="false">CVE-2024-24753|2024-02-01T20:25:07.428Z</guid>
-      <pubDate>Thu, 01 Feb 2024 16:09:55 +0000</pubDate>
-    </item>
-    <item>
-      <title>CVE-2024-24754|2024-02-01T21:00:56.787Z -- brefphp -- bref
-</title>
-      <link>https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2024-24754</link>
-      <description>Bref enable serverless PHP on AWS Lambda. When Bref is used with the Event-Driven Function runtime and the handler is a `RequestHandlerInterface`, then the Lambda event is converted to a PSR7 object. During the conversion process, if the request is a MultiPart, each part is parsed and its content added in the `$files` or `$parsedBody` arrays. The conversion process produces a different output compared to the one of plain PHP when keys ending with and open square bracket ([) are used. Based on the application logic the difference in the body parsing might lead to vulnerabilities and/or undefined behaviors. This vulnerability is patched in 2.1.13.</description>
-      <guid isPermaLink="false">CVE-2024-24754|2024-02-01T21:00:56.787Z</guid>
-      <pubDate>Thu, 01 Feb 2024 16:10:30 +0000</pubDate>
     </item>
   </channel>
 </rss>

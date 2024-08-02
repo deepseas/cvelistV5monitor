@@ -6,85 +6,18 @@
     <description>The latest CVEs for OpenZeppelin -- all products</description>
     <docs>http://www.rssboard.org/rss-specification</docs>
     <generator>python-feedgen</generator>
-    <lastBuildDate>Wed, 12 Jun 2024 11:24:22 +0000</lastBuildDate>
+    <lastBuildDate>Fri, 02 Aug 2024 01:43:25 +0000</lastBuildDate>
     <ttl>60</ttl>
     <item>
-      <title>CVE-2023-49798|2023-12-08T23:35:24.467Z -- openzeppelin -- openzeppelin-contracts
+      <title>CVE-2024-27094|2024-08-02T00:27:58.413Z -- openzeppelin -- openzeppelin-contracts
 </title>
-      <link>https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2023-49798</link>
-      <description>OpenZeppelin Contracts is a library for smart contract development. A merge issue when porting the 5.0.1 patch to the 4.9 branch caused a line duplication. In the version of `Multicall.sol` released in `@openzeppelin/contracts@4.9.4` and `@openzeppelin/contracts-upgradeable@4.9.4`, all subcalls are executed twice. Concretely, this exposes a user to unintentionally duplicate operations like asset transfers. The duplicated delegatecall was removed in version 4.9.5. The 4.9.4 version is marked as deprecated. Users are advised to upgrade. There are no known workarounds for this issue.</description>
-      <guid isPermaLink="false">CVE-2023-49798|2023-12-08T23:35:24.467Z</guid>
-      <pubDate>Fri, 08 Dec 2023 23:35:24 +0000</pubDate>
+      <link>https://www.cve.org/CVERecord?id=CVE-2024-27094</link>
+      <description>OpenZeppelin Contracts is a library for secure smart contract development. The `Base64.encode` function encodes a `bytes` input by iterating over it in chunks of 3 bytes. When this input is not a multiple of 3, the last iteration may read parts of the memory that are beyond the input buffer. The vulnerability is fixed in 5.0.2 and 4.9.6.</description>
+      <guid isPermaLink="false">CVE-2024-27094|2024-08-02T00:27:58.413Z</guid>
+      <pubDate>Thu, 29 Feb 2024 18:18:24 +0000</pubDate>
     </item>
     <item>
-      <title>CVE-2023-26488|2023-03-03T21:08:34.886Z -- openzeppelin -- openzeppelin-contracts
-</title>
-      <link>https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2023-26488</link>
-      <description>OpenZeppelin Contracts is a library for secure smart contract development. The ERC721Consecutive contract designed for minting NFTs in batches does not update balances when a batch has size 1 and consists of a single token. Subsequent transfers from the receiver of that token may overflow the balance as reported by `balanceOf`. The issue exclusively presents with batches of size 1. The issue has been patched in 4.8.2.</description>
-      <guid isPermaLink="false">CVE-2023-26488|2023-03-03T21:08:34.886Z</guid>
-      <pubDate>Fri, 03 Mar 2023 21:08:34 +0000</pubDate>
-    </item>
-    <item>
-      <title>CVE-2023-23940|2023-02-03T19:43:11.178Z -- openzeppelin -- cairo-contracts
-</title>
-      <link>https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2023-23940</link>
-      <description>OpenZeppelin Contracts for Cairo is a library for secure smart contract development written in Cairo for StarkNet, a decentralized ZK Rollup. `is_valid_eth_signature` is missing a call to `finalize_keccak` after calling `verify_eth_signature`. As a result, any contract using `is_valid_eth_signature` from the account library (such as the `EthAccount` preset) is vulnerable to a malicious sequencer. Specifically, the malicious sequencer would be able to bypass signature validation to impersonate an instance of these accounts. The issue has been patched in 0.6.1.
-</description>
-      <guid isPermaLink="false">CVE-2023-23940|2023-02-03T19:43:11.178Z</guid>
-      <pubDate>Fri, 03 Feb 2023 19:43:11 +0000</pubDate>
-    </item>
-    <item>
-      <title>CVE-2023-34459|2023-06-16T22:13:18.181Z -- openzeppelin -- openzeppelin-contracts
-</title>
-      <link>https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2023-34459</link>
-      <description>OpenZeppelin Contracts is a library for smart contract development. Starting in version 4.7.0 and prior to version 4.9.2, when the `verifyMultiProof`, `verifyMultiProofCalldata`, `procesprocessMultiProof`, or `processMultiProofCalldat` functions are in use, it is possible to construct merkle trees that allow forging a valid multiproof for an arbitrary set of leaves.
-
-A contract may be vulnerable if it uses multiproofs for verification and the merkle tree that is processed includes a node with value 0 at depth 1 (just under the root). This could happen inadvertedly for balanced trees with 3 leaves or less, if the leaves are not hashed. This could happen deliberately if a malicious tree builder includes such a node in the tree.
-
-A contract is not vulnerable if it uses single-leaf proving (`verify`, `verifyCalldata`, `processProof`, or `processProofCalldata`), or if it uses multiproofs with a known tree that has hashed leaves. Standard merkle trees produced or validated with the @openzeppelin/merkle-tree library are safe.
-
-The problem has been patched in version 4.9.2.
-
-Some workarounds are available. For those using multiproofs: When constructing merkle trees hash the leaves and do not insert empty nodes in your trees. Using the @openzeppelin/merkle-tree package eliminates this issue. Do not accept user-provided merkle roots without reconstructing at least the first level of the tree. Verify the merkle tree structure by reconstructing it from the leaves.</description>
-      <guid isPermaLink="false">CVE-2023-34459|2023-06-16T22:13:18.181Z</guid>
-      <pubDate>Fri, 16 Jun 2023 22:13:18 +0000</pubDate>
-    </item>
-    <item>
-      <title>CVE-2023-34234|2023-06-07T17:06:10.154Z -- openzeppelin -- openzeppelin-contracts
-</title>
-      <link>https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2023-34234</link>
-      <description> OpenZeppelin Contracts is a library for smart contract development. By frontrunning the creation of a proposal, an attacker can become the proposer and gain the ability to cancel it. The attacker can do this repeatedly to try to prevent a proposal from being proposed at all. This impacts the `Governor` contract in v4.9.0 only, and the `GovernorCompatibilityBravo` contract since v4.3.0. This problem has been patched in 4.9.1 by introducing opt-in frontrunning protection. Users are advised to upgrade. Users unable to upgrade may submit the proposal creation transaction to an endpoint with frontrunning protection as a workaround.</description>
-      <guid isPermaLink="false">CVE-2023-34234|2023-06-07T17:06:10.154Z</guid>
-      <pubDate>Wed, 07 Jun 2023 17:06:10 +0000</pubDate>
-    </item>
-    <item>
-      <title>CVE-2023-30541|2023-04-17T21:37:29.361Z -- openzeppelin -- openzeppelin-contracts
-</title>
-      <link>https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2023-30541</link>
-      <description>OpenZeppelin Contracts is a library for secure smart contract development. A function in the implementation contract may be inaccessible if its selector clashes with one of the proxy's own selectors. Specifically, if the clashing function has a different signature with incompatible ABI encoding, the proxy could revert while attempting to decode the arguments from calldata. The probability of an accidental clash is negligible, but one could be caused deliberately and could cause a reduction in availability. The issue has been fixed in version 4.8.3. As a workaround if a function appears to be inaccessible for this reason, it may be possible to craft the calldata such that ABI decoding does not fail at the proxy and the function is properly proxied through.</description>
-      <guid isPermaLink="false">CVE-2023-30541|2023-04-17T21:37:29.361Z</guid>
-      <pubDate>Mon, 17 Apr 2023 21:37:29 +0000</pubDate>
-    </item>
-    <item>
-      <title>CVE-2023-30542|2023-04-16T07:10:13.474Z -- openzeppelin -- openzeppelin-contracts
-</title>
-      <link>https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2023-30542</link>
-      <description>OpenZeppelin Contracts is a library for secure smart contract development. The proposal creation entrypoint (`propose`) in `GovernorCompatibilityBravo` allows the creation of proposals with a `signatures` array shorter than the `calldatas` array. This causes the additional elements of the latter to be ignored, and if the proposal succeeds the corresponding actions would eventually execute without any calldata. The `ProposalCreated` event correctly represents what will eventually execute, but the proposal parameters as queried through `getActions` appear to respect the original intended calldata. This issue has been patched in 4.8.3. As a workaround, ensure that all proposals that pass through governance have equal length `signatures` and `calldatas` parameters.</description>
-      <guid isPermaLink="false">CVE-2023-30542|2023-04-16T07:10:13.474Z</guid>
-      <pubDate>Sun, 16 Apr 2023 07:10:13 +0000</pubDate>
-    </item>
-    <item>
-      <title>CVE-2023-40014|2023-08-10T19:52:55.699Z -- openzeppelin -- openzeppelin-contracts
-</title>
-      <link>https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2023-40014</link>
-      <description>OpenZeppelin Contracts is a library for secure smart contract development. Starting in version 4.0.0 and prior to version 4.9.3, contracts using `ERC2771Context` along with a custom trusted forwarder may see `_msgSender` return `address(0)` in calls that originate from the forwarder with calldata shorter than 20 bytes. This combination of circumstances does not appear to be common, in particular it is not the case for `MinimalForwarder` from OpenZeppelin Contracts, or any deployed forwarder the team is aware of, given that the signer address is appended to all calls that originate from these forwarders. The problem has been patched in v4.9.3.
-</description>
-      <guid isPermaLink="false">CVE-2023-40014|2023-08-10T19:52:55.699Z</guid>
-      <pubDate>Thu, 10 Aug 2023 19:52:55 +0000</pubDate>
-    </item>
-    <item>
-      <title>CVE-2024-27094|2024-02-29T18:18:24.721Z -- openzeppelin -- openzeppelin-contracts
-</title>
+      <title>CVE-2024-27094|2024-02-29T18:18:24.721Z -- openzeppelin -- openzeppelin-contracts</title>
       <link>https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2024-27094</link>
       <description>OpenZeppelin Contracts is a library for secure smart contract development. The `Base64.encode` function encodes a `bytes` input by iterating over it in chunks of 3 bytes. When this input is not a multiple of 3, the last iteration may read parts of the memory that are beyond the input buffer. The vulnerability is fixed in 5.0.2 and 4.9.6.</description>
       <guid isPermaLink="false">CVE-2024-27094|2024-02-29T18:18:24.721Z</guid>
