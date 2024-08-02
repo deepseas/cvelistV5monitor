@@ -6,37 +6,22 @@
     <description>The latest CVEs for Go standard library -- net/http</description>
     <docs>http://www.rssboard.org/rss-specification</docs>
     <generator>python-feedgen</generator>
-    <lastBuildDate>Wed, 31 Jul 2024 23:21:34 +0000</lastBuildDate>
+    <lastBuildDate>Fri, 02 Aug 2024 15:23:35 +0000</lastBuildDate>
     <ttl>60</ttl>
     <item>
-      <title>CVE-2022-41723|2024-07-31T20:12:14.842Z -- go%20standard%20library -- net%2Fhttp
+      <title>CVE-2023-29406|2024-08-02T14:07:45.735Z -- go%20standard%20library -- net%2Fhttp
 </title>
-      <link>https://www.cve.org/CVERecord?id=CVE-2022-41723</link>
-      <description>A maliciously crafted HTTP/2 stream could cause excessive CPU consumption in the HPACK decoder, sufficient to cause a denial of service from a small number of small requests.</description>
-      <guid isPermaLink="false">CVE-2022-41723|2024-07-31T20:12:14.842Z</guid>
-      <pubDate>Tue, 28 Feb 2023 17:19:45 +0000</pubDate>
+      <link>https://www.cve.org/CVERecord?id=CVE-2023-29406</link>
+      <description>The HTTP/1 client does not fully validate the contents of the Host header. A maliciously crafted Host header can inject additional headers or entire requests. With fix, the HTTP/1 client now refuses to send requests containing an invalid Request.Host or Request.URL.Host value.</description>
+      <guid isPermaLink="false">CVE-2023-29406|2024-08-02T14:07:45.735Z</guid>
+      <pubDate>Tue, 11 Jul 2023 19:23:58 +0000</pubDate>
     </item>
     <item>
-      <title>CVE-2022-41717|2024-07-31T20:12:12.987Z -- go%20standard%20library -- net%2Fhttp
-</title>
-      <link>https://www.cve.org/CVERecord?id=CVE-2022-41717</link>
-      <description>An attacker can cause excessive memory growth in a Go server accepting HTTP/2 requests. HTTP/2 server connections contain a cache of HTTP header keys sent by the client. While the total number of entries in this cache is capped, an attacker sending very large keys can cause the server to allocate approximately 64 MiB per open connection.</description>
-      <guid isPermaLink="false">CVE-2022-41717|2024-07-31T20:12:12.987Z</guid>
-      <pubDate>Thu, 08 Dec 2022 19:03:53 +0000</pubDate>
-    </item>
-    <item>
-      <title>CVE-2024-24791|2024-07-02T21:28:25.677Z -- go%20standard%20library -- net%2Fhttp</title>
+      <title>CVE-2024-24791|2024-07-03T13:45:59.566Z -- go%20standard%20library -- net%2Fhttp</title>
       <link>https://www.cve.org/CVERecord?id=CVE-2024-24791</link>
       <description>The net/http HTTP/1.1 client mishandled the case where a server responds to a request with an "Expect: 100-continue" header with a non-informational (200 or higher) status. This mishandling could leave a client connection in an invalid state, where the next request sent on the connection will fail. An attacker sending a request to a net/http/httputil.ReverseProxy proxy can exploit this mishandling to cause a denial of service by sending "Expect: 100-continue" requests which elicit a non-informational response from the backend. Each such request leaves the proxy with an invalid connection, and causes one subsequent request using that connection to fail.</description>
-      <guid isPermaLink="false">CVE-2024-24791|2024-07-02T21:28:25.677Z</guid>
+      <guid isPermaLink="false">CVE-2024-24791|2024-07-03T13:45:59.566Z</guid>
       <pubDate>Tue, 02 Jul 2024 21:28:25 +0000</pubDate>
-    </item>
-    <item>
-      <title>CVE-2023-45288|2024-04-04T20:37:30.714Z -- go%20standard%20library -- net%2Fhttp</title>
-      <link>https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2023-45288</link>
-      <description>An attacker may cause an HTTP/2 endpoint to read arbitrary amounts of header data by sending an excessive number of CONTINUATION frames. Maintaining HPACK state requires parsing and processing all HEADERS and CONTINUATION frames on a connection. When a request's headers exceed MaxHeaderBytes, no memory is allocated to store the excess headers, but they are still parsed. This permits an attacker to cause an HTTP/2 endpoint to read arbitrary amounts of header data, all associated with a request which is going to be rejected. These headers can include Huffman-encoded data which is significantly more expensive for the receiver to decode than for an attacker to send. The fix sets a limit on the amount of excess header frames we will process before closing a connection.</description>
-      <guid isPermaLink="false">CVE-2023-45288|2024-04-04T20:37:30.714Z</guid>
-      <pubDate>Thu, 04 Apr 2024 20:37:30 +0000</pubDate>
     </item>
     <item>
       <title>CVE-2023-45289|2024-06-04T17:20:06.035Z -- go%20standard%20library -- net%2Fhttp</title>
@@ -46,10 +31,17 @@
       <pubDate>Tue, 05 Mar 2024 22:22:30 +0000</pubDate>
     </item>
     <item>
-      <title>CVE-2024-24791|2024-07-03T13:45:59.566Z -- go%20standard%20library -- net%2Fhttp</title>
+      <title>CVE-2023-45288|2024-04-04T20:37:30.714Z -- go%20standard%20library -- net%2Fhttp</title>
+      <link>https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2023-45288</link>
+      <description>An attacker may cause an HTTP/2 endpoint to read arbitrary amounts of header data by sending an excessive number of CONTINUATION frames. Maintaining HPACK state requires parsing and processing all HEADERS and CONTINUATION frames on a connection. When a request's headers exceed MaxHeaderBytes, no memory is allocated to store the excess headers, but they are still parsed. This permits an attacker to cause an HTTP/2 endpoint to read arbitrary amounts of header data, all associated with a request which is going to be rejected. These headers can include Huffman-encoded data which is significantly more expensive for the receiver to decode than for an attacker to send. The fix sets a limit on the amount of excess header frames we will process before closing a connection.</description>
+      <guid isPermaLink="false">CVE-2023-45288|2024-04-04T20:37:30.714Z</guid>
+      <pubDate>Thu, 04 Apr 2024 20:37:30 +0000</pubDate>
+    </item>
+    <item>
+      <title>CVE-2024-24791|2024-07-02T21:28:25.677Z -- go%20standard%20library -- net%2Fhttp</title>
       <link>https://www.cve.org/CVERecord?id=CVE-2024-24791</link>
       <description>The net/http HTTP/1.1 client mishandled the case where a server responds to a request with an "Expect: 100-continue" header with a non-informational (200 or higher) status. This mishandling could leave a client connection in an invalid state, where the next request sent on the connection will fail. An attacker sending a request to a net/http/httputil.ReverseProxy proxy can exploit this mishandling to cause a denial of service by sending "Expect: 100-continue" requests which elicit a non-informational response from the backend. Each such request leaves the proxy with an invalid connection, and causes one subsequent request using that connection to fail.</description>
-      <guid isPermaLink="false">CVE-2024-24791|2024-07-03T13:45:59.566Z</guid>
+      <guid isPermaLink="false">CVE-2024-24791|2024-07-02T21:28:25.677Z</guid>
       <pubDate>Tue, 02 Jul 2024 21:28:25 +0000</pubDate>
     </item>
   </channel>

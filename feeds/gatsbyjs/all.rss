@@ -6,7 +6,7 @@
     <description>The latest CVEs for gatsbyjs -- all products</description>
     <docs>http://www.rssboard.org/rss-specification</docs>
     <generator>python-feedgen</generator>
-    <lastBuildDate>Fri, 02 Aug 2024 14:23:10 +0000</lastBuildDate>
+    <lastBuildDate>Fri, 02 Aug 2024 15:23:34 +0000</lastBuildDate>
     <ttl>60</ttl>
     <item>
       <title>CVE-2023-22491|2024-08-02T10:13:48.484Z -- gatsbyjs -- gatsby
@@ -15,6 +15,14 @@
       <description>Gatsby is a free and open source framework based on React that helps developers build websites and apps. The gatsby-transformer-remark plugin prior to versions 5.25.1 and 6.3.2 passes input through to the `gray-matter` npm package, which is vulnerable to JavaScript injection in its default configuration, unless input is sanitized.  The vulnerability is present in gatsby-transformer-remark when passing input in data mode (querying MarkdownRemark nodes via GraphQL).  Injected JavaScript executes in the context of the build server. To exploit this vulnerability untrusted/unsanitized input would need to be sourced by or added into a file processed by gatsby-transformer-remark. A patch has been introduced in `gatsby-transformer-remark@5.25.1` and `gatsby-transformer-remark@6.3.2` which mitigates the issue by disabling the `gray-matter` JavaScript Frontmatter engine. As a workaround, if an older version of `gatsby-transformer-remark` must be used, input passed into the plugin should be sanitized ahead of processing. It is encouraged for  projects to upgrade to the latest major release branch for all Gatsby plugins to ensure the latest security updates and bug fixes are received in a timely manner.</description>
       <guid isPermaLink="false">CVE-2023-22491|2024-08-02T10:13:48.484Z</guid>
       <pubDate>Fri, 13 Jan 2023 18:05:00 +0000</pubDate>
+    </item>
+    <item>
+      <title>CVE-2023-30548|2024-08-02T14:28:51.685Z -- gatsbyjs -- gatsby
+</title>
+      <link>https://www.cve.org/CVERecord?id=CVE-2023-30548</link>
+      <description>gatsby-plugin-sharp is a plugin for the gatsby framework which exposes functions built on the Sharp image processing library. The gatsby-plugin-sharp plugin prior to versions 5.8.1 and 4.25.1 contains a path traversal vulnerability exposed when running the Gatsby develop server (`gatsby develop`). It should be noted that by default gatsby develop is only accessible via the localhost 127.0.0.1, and one would need to intentionally expose the server to other interfaces to exploit this vulnerability by using server options such as --host 0.0.0.0, -H 0.0.0.0, or the GATSBY_HOST=0.0.0.0 environment variable. Attackers exploiting this vulnerability will have read access to all files within the scope of the server process. A patch has been introduced in gatsby-plugin-sharp@5.8.1 and gatsby-plugin-sharp@4.25.1 which mitigates the issue by ensuring that included paths remain within the project directory. As stated above, by default gatsby develop is only exposed to the localhost 127.0.0.1. For those using the develop server in the default configuration no risk is posed. If other ranges are required, preventing the develop server from being exposed to untrusted interfaces or IP address ranges would mitigate the risk from this vulnerability. Users are non the less encouraged to upgrade to a safe version.</description>
+      <guid isPermaLink="false">CVE-2023-30548|2024-08-02T14:28:51.685Z</guid>
+      <pubDate>Mon, 17 Apr 2023 20:43:43 +0000</pubDate>
     </item>
   </channel>
 </rss>
