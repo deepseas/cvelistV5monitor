@@ -6,21 +6,29 @@
     <description>The latest CVEs for bytecodealliance -- wasmtime</description>
     <docs>http://www.rssboard.org/rss-specification</docs>
     <generator>python-feedgen</generator>
-    <lastBuildDate>Fri, 02 Aug 2024 02:28:25 +0000</lastBuildDate>
+    <lastBuildDate>Fri, 02 Aug 2024 12:25:59 +0000</lastBuildDate>
     <ttl>60</ttl>
     <item>
-      <title>CVE-2024-30266|2024-08-02T01:32:07.072Z -- bytecodealliance -- wasmtime
+      <title>CVE-2023-26489|2024-08-02T11:53:52.930Z -- bytecodealliance -- wasmtime
 </title>
-      <link>https://www.cve.org/CVERecord?id=CVE-2024-30266</link>
-      <description>wasmtime is a runtime for WebAssembly. The 19.0.0 release of Wasmtime contains a regression introduced during its development which can lead to a guest WebAssembly module causing a panic in the host runtime. A valid WebAssembly module, when executed at runtime, may cause this panic. This vulnerability has been patched in version 19.0.1.</description>
-      <guid isPermaLink="false">CVE-2024-30266|2024-08-02T01:32:07.072Z</guid>
-      <pubDate>Thu, 04 Apr 2024 15:42:00 +0000</pubDate>
+      <link>https://www.cve.org/CVERecord?id=CVE-2023-26489</link>
+      <description>wasmtime is a fast and secure runtime for WebAssembly. In affected versions wasmtime's code generator, Cranelift, has a bug on x86_64 targets where address-mode computation mistakenly would calculate a 35-bit effective address instead of WebAssembly's defined 33-bit effective address. This bug means that, with default codegen settings, a wasm-controlled load/store operation could read/write addresses up to 35 bits away from the base of linear memory. Due to this bug, however, addresses up to `0xffffffff * 8 + 0x7ffffffc = 36507222004 = ~34G` bytes away from the base of linear memory are possible from guest code. This means that the virtual memory 6G away from the base of linear memory up to ~34G away can be read/written by a malicious module. A guest module can, without the knowledge of the embedder, read/write memory in this region. The memory may belong to other WebAssembly instances when using the pooling allocator, for example. Affected embedders are recommended to analyze preexisting wasm modules to see if they're affected by the incorrect codegen rules and possibly correlate that with an anomalous number of traps during historical execution to locate possibly suspicious modules. The specific bug in Cranelift's x86_64 backend is that a WebAssembly address which is left-shifted by a constant amount from 1 to 3 will get folded into x86_64's addressing modes which perform shifts. For example `(i32.load (i32.shl (local.get 0) (i32.const 3)))` loads from the WebAssembly address `$local0 &lt;&lt; 3`. When translated to Cranelift the `$local0 &lt;&lt; 3` computation, a 32-bit value, is zero-extended to a 64-bit value and then added to the base address of linear memory. Cranelift would generate an instruction of the form `movl (%base, %local0, 8), %dst` which calculates `%base + %local0 &lt;&lt; 3`. The bug here, however, is that the address computation happens with 64-bit values, where the `$local0 &lt;&lt; 3` computation was supposed to be truncated to a a 32-bit value. This means that `%local0`, which can use up to 32-bits for an address, gets 3 extra bits of address space to be accessible via this `movl` instruction. The fix in Cranelift is to remove the erroneous lowering rules in the backend which handle these zero-extended expression. The above example is then translated to `movl %local0, %temp; shl $3, %temp; movl (%base, %temp), %dst` which correctly truncates the intermediate computation of `%local0 &lt;&lt; 3` to 32-bits inside the `%temp` register which is then added to the `%base` value. Wasmtime version 4.0.1, 5.0.1, and 6.0.1 have been released and have all been patched to no longer contain the erroneous lowering rules. While updating Wasmtime is recommended, there are a number of possible workarounds that embedders can employ to mitigate this issue if updating is not possible. Note that none of these workarounds are on-by-default and require explicit configuration: 1. The `Config::static_memory_maximum_size(0)` option can be used to force all accesses to linear memory to be explicitly bounds-checked. This will perform a bounds check separately from the address-mode computation which correctly calculates the effective address of a load/store. Note that this can have a large impact on the execution performance of WebAssembly modules. 2. The `Config::static_memory_guard_size(1 &lt;&lt; 36)` option can be used to greatly increase the guard pages placed after linear memory. This will guarantee that memory accesses up-to-34G away are guaranteed to be semantically correct by reserving unmapped memory for the instance. Note that this reserves a very large amount of virtual memory per-instances and can greatly reduce the maximum number of concurrent instances being run. 3. If using a non-x86_64 host is possible, then that will also work around this bug. This bug does not affect Wasmtime's or Cranelift's AArch64 backend, for example.
+</description>
+      <guid isPermaLink="false">CVE-2023-26489|2024-08-02T11:53:52.930Z</guid>
+      <pubDate>Wed, 08 Mar 2023 19:59:57 +0000</pubDate>
     </item>
     <item>
       <title>CVE-2024-30266|2024-06-04T17:38:20.190Z -- bytecodealliance -- wasmtime</title>
       <link>https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2024-30266</link>
       <description>wasmtime is a runtime for WebAssembly. The 19.0.0 release of Wasmtime contains a regression introduced during its development which can lead to a guest WebAssembly module causing a panic in the host runtime. A valid WebAssembly module, when executed at runtime, may cause this panic. This vulnerability has been patched in version 19.0.1.</description>
       <guid isPermaLink="false">CVE-2024-30266|2024-06-04T17:38:20.190Z</guid>
+      <pubDate>Thu, 04 Apr 2024 15:42:00 +0000</pubDate>
+    </item>
+    <item>
+      <title>CVE-2024-30266|2024-08-02T01:32:07.072Z -- bytecodealliance -- wasmtime</title>
+      <link>https://www.cve.org/CVERecord?id=CVE-2024-30266</link>
+      <description>wasmtime is a runtime for WebAssembly. The 19.0.0 release of Wasmtime contains a regression introduced during its development which can lead to a guest WebAssembly module causing a panic in the host runtime. A valid WebAssembly module, when executed at runtime, may cause this panic. This vulnerability has been patched in version 19.0.1.</description>
+      <guid isPermaLink="false">CVE-2024-30266|2024-08-02T01:32:07.072Z</guid>
       <pubDate>Thu, 04 Apr 2024 15:42:00 +0000</pubDate>
     </item>
   </channel>

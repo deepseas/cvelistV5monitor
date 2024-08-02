@@ -6,7 +6,7 @@
     <description>The latest CVEs for dompdf -- all products</description>
     <docs>http://www.rssboard.org/rss-specification</docs>
     <generator>python-feedgen</generator>
-    <lastBuildDate>Fri, 02 Aug 2024 11:20:37 +0000</lastBuildDate>
+    <lastBuildDate>Fri, 02 Aug 2024 12:25:55 +0000</lastBuildDate>
     <ttl>60</ttl>
     <item>
       <title>CVE-2023-23924|2024-08-02T10:42:27.102Z -- dompdf -- dompdf
@@ -16,6 +16,14 @@
 </description>
       <guid isPermaLink="false">CVE-2023-23924|2024-08-02T10:42:27.102Z</guid>
       <pubDate>Tue, 31 Jan 2023 23:54:30 +0000</pubDate>
+    </item>
+    <item>
+      <title>CVE-2023-24813|2024-08-02T11:03:19.250Z -- dompdf -- dompdf
+</title>
+      <link>https://www.cve.org/CVERecord?id=CVE-2023-24813</link>
+      <description>Dompdf is an HTML to PDF converter written in php. Due to the difference in the attribute parser of Dompdf and php-svg-lib, an attacker can still call arbitrary URLs with arbitrary protocols. Dompdf parses the href attribute of `image` tags and respects `xlink:href` even if `href` is specified. However, php-svg-lib, which is later used to parse the svg file, parses the href attribute. Since `href` is respected if both `xlink:href` and `href` is specified, it's possible to bypass the protection on the Dompdf side by providing an empty `xlink:href` attribute. An attacker can exploit the vulnerability to call arbitrary URLs with arbitrary protocols if they provide an SVG file to the Dompdf. In PHP versions before 8.0.0, it leads to arbitrary unserialize, which will lead, at the very least, to arbitrary file deletion and might lead to remote code execution, depending on available classes. This vulnerability has been addressed in commit `95009ea98` which has been included in release version 2.0.3. Users are advised to upgrade. There are no known workarounds for this vulnerability.</description>
+      <guid isPermaLink="false">CVE-2023-24813|2024-08-02T11:03:19.250Z</guid>
+      <pubDate>Tue, 07 Feb 2023 18:05:14 +0000</pubDate>
     </item>
     <item>
       <title>CVE-2024-25117|2024-02-21T16:25:17.970Z -- dompdf -- php-svg-lib</title>

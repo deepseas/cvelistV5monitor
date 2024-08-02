@@ -6,59 +6,34 @@
     <description>The latest CVEs for Go standard library -- html/template</description>
     <docs>http://www.rssboard.org/rss-specification</docs>
     <generator>python-feedgen</generator>
-    <lastBuildDate>Wed, 12 Jun 2024 11:24:21 +0000</lastBuildDate>
+    <lastBuildDate>Fri, 02 Aug 2024 12:26:10 +0000</lastBuildDate>
     <ttl>60</ttl>
     <item>
-      <title>CVE-2023-29400|2023-06-12T19:08:27.799Z -- go%20standard%20library -- html%2Ftemplate
+      <title>CVE-2023-24540|2024-08-02T11:03:17.767Z -- go%20standard%20library -- html%2Ftemplate
 </title>
-      <link>https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2023-29400</link>
-      <description>Templates containing actions in unquoted HTML attributes (e.g. "attr={{.}}") executed with empty input can result in output with unexpected results when parsed due to HTML normalization rules. This may allow injection of arbitrary attributes into tags.</description>
-      <guid isPermaLink="false">CVE-2023-29400|2023-06-12T19:08:27.799Z</guid>
-      <pubDate>Thu, 11 May 2023 15:29:24 +0000</pubDate>
-    </item>
-    <item>
-      <title>CVE-2023-39319|2023-09-08T16:13:28.663Z -- go%20standard%20library -- html%2Ftemplate
-</title>
-      <link>https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2023-39319</link>
-      <description>The html/template package does not apply the proper rules for handling occurrences of "&lt;script", "&lt;!--", and "&lt;/script" within JS literals in &lt;script&gt; contexts. This may cause the template parser to improperly consider script contexts to be terminated early, causing actions to be improperly escaped. This could be leveraged to perform an XSS attack.</description>
-      <guid isPermaLink="false">CVE-2023-39319|2023-09-08T16:13:28.663Z</guid>
-      <pubDate>Fri, 08 Sep 2023 16:13:28 +0000</pubDate>
-    </item>
-    <item>
-      <title>CVE-2023-39318|2023-09-08T16:13:24.063Z -- go%20standard%20library -- html%2Ftemplate
-</title>
-      <link>https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2023-39318</link>
-      <description>The html/template package does not properly handle HTML-like "" comment tokens, nor hashbang "#!" comment tokens, in &lt;script&gt; contexts. This may cause the template parser to improperly interpret the contents of &lt;script&gt; contexts, causing actions to be improperly escaped. This may be leveraged to perform an XSS attack.</description>
-      <guid isPermaLink="false">CVE-2023-39318|2023-09-08T16:13:24.063Z</guid>
-      <pubDate>Fri, 08 Sep 2023 16:13:24 +0000</pubDate>
-    </item>
-    <item>
-      <title>CVE-2023-24539|2023-06-12T19:08:23.986Z -- go%20standard%20library -- html%2Ftemplate
-</title>
-      <link>https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2023-24539</link>
-      <description>Angle brackets (&lt;&gt;) are not considered dangerous characters when inserted into CSS contexts. Templates containing multiple actions separated by a '/' character can result in unexpectedly closing the CSS context and allowing for injection of unexpected HTML, if executed with untrusted input.</description>
-      <guid isPermaLink="false">CVE-2023-24539|2023-06-12T19:08:23.986Z</guid>
-      <pubDate>Thu, 11 May 2023 15:29:38 +0000</pubDate>
-    </item>
-    <item>
-      <title>CVE-2023-24538|2023-06-12T19:08:03.854Z -- go%20standard%20library -- html%2Ftemplate
-</title>
-      <link>https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2023-24538</link>
-      <description>Templates do not properly consider backticks (`) as Javascript string delimiters, and do not escape them as expected. Backticks are used, since ES6, for JS template literals. If a template contains a Go template action within a Javascript template literal, the contents of the action can be used to terminate the literal, injecting arbitrary Javascript code into the Go template. As ES6 template literals are rather complex, and themselves can do string interpolation, the decision was made to simply disallow Go template actions from being used inside of them (e.g. "var a = {{.}}"), since there is no obviously safe way to allow this behavior. This takes the same approach as github.com/google/safehtml. With fix, Template.Parse returns an Error when it encounters templates like this, with an ErrorCode of value 12. This ErrorCode is currently unexported, but will be exported in the release of Go 1.21. Users who rely on the previous behavior can re-enable it using the GODEBUG flag jstmpllitinterp=1, with the caveat that backticks will now be escaped. This should be used with caution.</description>
-      <guid isPermaLink="false">CVE-2023-24538|2023-06-12T19:08:03.854Z</guid>
-      <pubDate>Thu, 06 Apr 2023 15:50:48 +0000</pubDate>
-    </item>
-    <item>
-      <title>CVE-2023-24540|2023-06-12T19:08:26.127Z -- go%20standard%20library -- html%2Ftemplate
-</title>
-      <link>https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2023-24540</link>
+      <link>https://www.cve.org/CVERecord?id=CVE-2023-24540</link>
       <description>Not all valid JavaScript whitespace characters are considered to be whitespace. Templates containing whitespace characters outside of the character set "\t\n\f\r\u0020\u2028\u2029" in JavaScript contexts that also contain actions may not be properly sanitized during execution.</description>
-      <guid isPermaLink="false">CVE-2023-24540|2023-06-12T19:08:26.127Z</guid>
+      <guid isPermaLink="false">CVE-2023-24540|2024-08-02T11:03:17.767Z</guid>
       <pubDate>Thu, 11 May 2023 15:29:31 +0000</pubDate>
     </item>
     <item>
-      <title>CVE-2024-24785|2024-06-04T17:43:02.716Z -- go%20standard%20library -- html%2Ftemplate
+      <title>CVE-2023-24538|2024-08-02T11:03:17.754Z -- go%20standard%20library -- html%2Ftemplate
 </title>
+      <link>https://www.cve.org/CVERecord?id=CVE-2023-24538</link>
+      <description>Templates do not properly consider backticks (`) as Javascript string delimiters, and do not escape them as expected. Backticks are used, since ES6, for JS template literals. If a template contains a Go template action within a Javascript template literal, the contents of the action can be used to terminate the literal, injecting arbitrary Javascript code into the Go template. As ES6 template literals are rather complex, and themselves can do string interpolation, the decision was made to simply disallow Go template actions from being used inside of them (e.g. "var a = {{.}}"), since there is no obviously safe way to allow this behavior. This takes the same approach as github.com/google/safehtml. With fix, Template.Parse returns an Error when it encounters templates like this, with an ErrorCode of value 12. This ErrorCode is currently unexported, but will be exported in the release of Go 1.21. Users who rely on the previous behavior can re-enable it using the GODEBUG flag jstmpllitinterp=1, with the caveat that backticks will now be escaped. This should be used with caution.</description>
+      <guid isPermaLink="false">CVE-2023-24538|2024-08-02T11:03:17.754Z</guid>
+      <pubDate>Thu, 06 Apr 2023 15:50:48 +0000</pubDate>
+    </item>
+    <item>
+      <title>CVE-2023-24539|2024-08-02T11:03:17.753Z -- go%20standard%20library -- html%2Ftemplate
+</title>
+      <link>https://www.cve.org/CVERecord?id=CVE-2023-24539</link>
+      <description>Angle brackets (&lt;&gt;) are not considered dangerous characters when inserted into CSS contexts. Templates containing multiple actions separated by a '/' character can result in unexpectedly closing the CSS context and allowing for injection of unexpected HTML, if executed with untrusted input.</description>
+      <guid isPermaLink="false">CVE-2023-24539|2024-08-02T11:03:17.753Z</guid>
+      <pubDate>Thu, 11 May 2023 15:29:38 +0000</pubDate>
+    </item>
+    <item>
+      <title>CVE-2024-24785|2024-06-04T17:43:02.716Z -- go%20standard%20library -- html%2Ftemplate</title>
       <link>https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2024-24785</link>
       <description>If errors returned from MarshalJSON methods contain user controlled data, they may be used to break the contextual auto-escaping behavior of the html/template package, allowing for subsequent actions to inject unexpected content into templates.</description>
       <guid isPermaLink="false">CVE-2024-24785|2024-06-04T17:43:02.716Z</guid>

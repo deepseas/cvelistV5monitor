@@ -6,50 +6,15 @@
     <description>The latest CVEs for moby -- buildkit</description>
     <docs>http://www.rssboard.org/rss-specification</docs>
     <generator>python-feedgen</generator>
-    <lastBuildDate>Wed, 12 Jun 2024 11:24:21 +0000</lastBuildDate>
+    <lastBuildDate>Fri, 02 Aug 2024 12:26:18 +0000</lastBuildDate>
     <ttl>60</ttl>
     <item>
-      <title>CVE-2023-26054|2023-03-06T18:05:07.602Z -- moby -- buildkit
+      <title>CVE-2023-26054|2024-08-02T11:39:06.521Z -- moby -- buildkit
 </title>
-      <link>https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2023-26054</link>
+      <link>https://www.cve.org/CVERecord?id=CVE-2023-26054</link>
       <description>BuildKit is a toolkit for converting source code to build artifacts in an efficient, expressive and repeatable manner. In affected versions when the user sends a build request that contains a Git URL that contains credentials and the build creates a provenance attestation describing that build, these credentials could be visible from the provenance attestation. Git URL can be passed in two ways: 1) Invoking build directly from a URL with credentials. 2) If the client sends additional version control system (VCS) info hint parameters on builds from a local source. Usually, that would mean reading the origin URL from `.git/config` file. When a build is performed under specific conditions where credentials were passed to BuildKit they may be visible to everyone who has access to provenance attestation. Provenance attestations and VCS info hints were added in version v0.11.0. Previous versions are not vulnerable. In v0.10, when building directly from Git URL, the same URL could be visible in `BuildInfo` structure that is a predecessor of Provenance attestations. Previous versions are not vulnerable. This bug has been fixed in v0.11.4. Users are advised to upgrade. Users unable to upgrade may disable VCS info hints by setting `BUILDX_GIT_INFO=0`. `buildctl` does not set VCS hints based on `.git` directory, and values would need to be passed manually with `--opt`.</description>
-      <guid isPermaLink="false">CVE-2023-26054|2023-03-06T18:05:07.602Z</guid>
+      <guid isPermaLink="false">CVE-2023-26054|2024-08-02T11:39:06.521Z</guid>
       <pubDate>Mon, 06 Mar 2023 18:05:07 +0000</pubDate>
-    </item>
-    <item>
-      <title>CVE-2024-23652|2024-01-31T21:57:42.774Z -- moby -- buildkit
-</title>
-      <link>https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2024-23652</link>
-      <description>BuildKit is a toolkit for converting source code to build artifacts in an efficient, expressive and repeatable manner. A malicious BuildKit frontend or Dockerfile using RUN --mount could trick the feature that removes empty files created for the mountpoints into removing a file outside the container, from the host system. The issue has been fixed in v0.12.5. Workarounds include avoiding using BuildKit frontends from an untrusted source or building an untrusted Dockerfile containing RUN --mount feature.</description>
-      <guid isPermaLink="false">CVE-2024-23652|2024-01-31T21:57:42.774Z</guid>
-      <pubDate>Wed, 31 Jan 2024 21:57:42 +0000</pubDate>
-    </item>
-    <item>
-      <title>CVE-2024-23653|2024-01-31T22:03:56.667Z -- moby -- buildkit
-</title>
-      <link>https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2024-23653</link>
-      <description>BuildKit is a toolkit for converting source code to build artifacts in an efficient, expressive and repeatable manner. In addition to running containers as build steps, BuildKit also provides APIs for running interactive containers based on built images. It was possible to use these APIs to ask BuildKit to run a container with elevated privileges. Normally, running such containers is only allowed if special `security.insecure` entitlement is enabled both by buildkitd configuration and allowed by the user initializing the build request. The issue has been fixed in v0.12.5 . Avoid using BuildKit frontends from untrusted sources. 
-</description>
-      <guid isPermaLink="false">CVE-2024-23653|2024-01-31T22:03:56.667Z</guid>
-      <pubDate>Wed, 31 Jan 2024 22:03:56 +0000</pubDate>
-    </item>
-    <item>
-      <title>CVE-2024-23650|2024-01-31T21:42:13.382Z -- moby -- buildkit
-</title>
-      <link>https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2024-23650</link>
-      <description>BuildKit is a toolkit for converting source code to build artifacts in an efficient, expressive and repeatable manner. A malicious BuildKit client or frontend could craft a request that could lead to BuildKit daemon crashing with a panic. The issue has been fixed in v0.12.5. As a workaround, avoid using BuildKit frontends from untrusted sources.
-</description>
-      <guid isPermaLink="false">CVE-2024-23650|2024-01-31T21:42:13.382Z</guid>
-      <pubDate>Wed, 31 Jan 2024 21:42:13 +0000</pubDate>
-    </item>
-    <item>
-      <title>CVE-2024-23651|2024-01-31T22:00:36.755Z -- moby -- buildkit
-</title>
-      <link>https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2024-23651</link>
-      <description>BuildKit is a toolkit for converting source code to build artifacts in an efficient, expressive and repeatable manner. Two malicious build steps running in parallel sharing the same cache mounts with subpaths could cause a race condition that can lead to files from the host system being accessible to the build container. The issue has been fixed in v0.12.5. Workarounds include, avoiding using BuildKit frontend from an untrusted source or building an untrusted Dockerfile containing cache mounts with --mount=type=cache,source=... options.
-</description>
-      <guid isPermaLink="false">CVE-2024-23651|2024-01-31T22:00:36.755Z</guid>
-      <pubDate>Wed, 31 Jan 2024 21:49:18 +0000</pubDate>
     </item>
   </channel>
 </rss>
