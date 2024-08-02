@@ -6,8 +6,38 @@
     <description>The latest CVEs for input-output-hk -- hydra</description>
     <docs>http://www.rssboard.org/rss-specification</docs>
     <generator>python-feedgen</generator>
-    <lastBuildDate>Fri, 02 Aug 2024 19:19:52 +0000</lastBuildDate>
+    <lastBuildDate>Fri, 02 Aug 2024 20:23:15 +0000</lastBuildDate>
     <ttl>60</ttl>
+    <item>
+      <title>CVE-2023-42448|2024-08-02T19:23:38.532Z -- input-output-hk -- hydra
+</title>
+      <link>https://www.cve.org/CVERecord?id=CVE-2023-42448</link>
+      <description>Hydra is the layer-two scalability solution for Cardano. Prior to version 0.13.0, the specification states that the contestation period in the datum of the UTxO at the head validator must stay unchanged as the state progresses from Open to Closed (Close transaction), but no such check appears to be performed in the `checkClose` function of the head validator. This would allow a malicious participant to modify the contestation deadline of the head to either allow them to fanout the head without giving another participant the chance to contest, or prevent any participant from ever redistributing the funds locked in the head via a fan-out. Version 0.13.0 contains a patch for this issue.</description>
+      <guid isPermaLink="false">CVE-2023-42448|2024-08-02T19:23:38.532Z</guid>
+      <pubDate>Wed, 04 Oct 2023 18:57:52 +0000</pubDate>
+    </item>
+    <item>
+      <title>CVE-2023-42449|2024-08-02T19:23:38.806Z -- input-output-hk -- hydra
+</title>
+      <link>https://www.cve.org/CVERecord?id=CVE-2023-42449</link>
+      <description>Hydra is the two-layer scalability solution for Cardano. Prior to version 0.13.0, it is possible for a malicious head initializer to extract one or more PTs for the head they are initializing due to incorrect data validation logic in the head token minting policy which then results in an flawed check for burning the head ST in the `initial` validator. This is possible because it is not checked in `HeadTokens.hs` that the datums of the outputs at the `initial` validator are equal to the real head ID, and it is also not checked in the `off-chain code`.
+
+During the `Initial` state of the protocol, if the malicious initializer removes a PT from the Hydra scripts it becomes impossible for any other participant to reclaim any funds they have attempted to commit into the head, as to do so the Abort transaction must burn all the PTs for the head, but they cannot burn the PT which the attacker controls and so cannot satisfy this requirement. That means the initializer can lock the other participants committed funds forever or until they choose to return the PT (ransom).
+
+The malicious initializer can also use the PT to spoof that they have committed a particular TxO when progressing the head into the `Open` state. For example, they could say they committed a TxO residing at their address containing 100 ADA, but in fact this 100 ADA was not moved into the head, and thus in order for an other participant to perform the fanout they will be forced to pay the attacker the 100 ADA out of their own funds, as the fanout transaction must pay all the committed TxOs (even though the attacker did not really commit that TxO). They can do this by placing the PT in a UTxO with a well-formed `Commit` datum with whatever contents they like, then use this UTxO in the `collectCom` transaction. There may be other possible ways to abuse having control of a PT.
+
+Version 0.13.0 fixes this issue.</description>
+      <guid isPermaLink="false">CVE-2023-42449|2024-08-02T19:23:38.806Z</guid>
+      <pubDate>Wed, 04 Oct 2023 19:06:50 +0000</pubDate>
+    </item>
+    <item>
+      <title>CVE-2023-42806|2024-08-02T19:30:24.694Z -- input-output-hk -- hydra
+</title>
+      <link>https://www.cve.org/CVERecord?id=CVE-2023-42806</link>
+      <description>Hydra is the layer-two scalability solution for Cardano. Prior to version 0.13.0, not signing and verifying `$\mathsf{cid}$` allows an attacker (which must be a participant of this head) to use a snapshot from an old head instance with the same participants to close the head or contest the state with it. This can lead to an incorrect distribution of value (= value extraction attack; hard, but possible) or prevent the head to finalize because the value available is not consistent with the closed utxo state (= denial of service; easy). A patch is planned for version 0.13.0. As a workaround, rotate keys between heads so not to re-use keys and not result in the same multi-signature participants.</description>
+      <guid isPermaLink="false">CVE-2023-42806|2024-08-02T19:30:24.694Z</guid>
+      <pubDate>Thu, 21 Sep 2023 16:45:34 +0000</pubDate>
+    </item>
     <item>
       <title>CVE-2023-38701|2024-08-02T17:46:56.645Z -- input-output-hk -- hydra
 </title>

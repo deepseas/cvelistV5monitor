@@ -6,7 +6,7 @@
     <description>The latest CVEs for Node.js -- all products</description>
     <docs>http://www.rssboard.org/rss-specification</docs>
     <generator>python-feedgen</generator>
-    <lastBuildDate>Fri, 02 Aug 2024 19:19:42 +0000</lastBuildDate>
+    <lastBuildDate>Fri, 02 Aug 2024 20:23:04 +0000</lastBuildDate>
     <ttl>60</ttl>
     <item>
       <title>CVE-2023-32004|2024-08-02T15:03:28.645Z -- node.js -- node.js
@@ -185,177 +185,70 @@ Please note that at the time this CVE was issued, the policy is an experimental 
       <pubDate>Mon, 21 Aug 2023 16:52:42 +0000</pubDate>
     </item>
     <item>
-      <title>CVE-2024-22018|2024-08-01T22:35:34.862Z -- node.js -- node.js</title>
-      <link>https://www.cve.org/CVERecord?id=CVE-2024-22018</link>
-      <description>A vulnerability has been identified in Node.js, affecting users of the experimental permission model when the --allow-fs-read flag is used.
-This flaw arises from an inadequate permission model that fails to restrict file stats through the fs.lstat API. As a result, malicious actors can retrieve stats from files that they do not have explicit read access to.
-This vulnerability affects all users using the experimental permission model in Node.js 20 and Node.js 21.
-Please note that at the time this CVE was issued, the permission model is an experimental feature of Node.js.</description>
-      <guid isPermaLink="false">CVE-2024-22018|2024-08-01T22:35:34.862Z</guid>
-      <pubDate>Wed, 10 Jul 2024 01:00:12 +0000</pubDate>
-    </item>
-    <item>
-      <title>CVE-2024-22019|2024-08-01T22:35:34.700Z -- node.js -- node.js</title>
-      <link>https://www.cve.org/CVERecord?id=CVE-2024-22019</link>
-      <description>A vulnerability in Node.js HTTP servers allows an attacker to send a specially crafted HTTP request with chunked encoding, leading to resource exhaustion and denial of service (DoS). The server reads an unbounded number of bytes from a single connection, exploiting the lack of limitations on chunk extension bytes. The issue can cause CPU and network bandwidth exhaustion, bypassing standard safeguards like timeouts and body size limits.</description>
-      <guid isPermaLink="false">CVE-2024-22019|2024-08-01T22:35:34.700Z</guid>
-      <pubDate>Tue, 20 Feb 2024 01:31:08 +0000</pubDate>
-    </item>
-    <item>
-      <title>CVE-2024-22017|2024-08-01T22:35:34.492Z -- node.js -- node.js</title>
-      <link>https://www.cve.org/CVERecord?id=CVE-2024-22017</link>
-      <description>setuid() does not affect libuv's internal io_uring operations if initialized before the call to setuid().
-This allows the process to perform privileged operations despite presumably having dropped such privileges through a call to setuid().
-This vulnerability affects all users using version greater or equal than Node.js 18.18.0, Node.js 20.4.0 and Node.js 21.</description>
-      <guid isPermaLink="false">CVE-2024-22017|2024-08-01T22:35:34.492Z</guid>
-      <pubDate>Tue, 19 Mar 2024 04:32:34 +0000</pubDate>
-    </item>
-    <item>
-      <title>CVE-2024-22020|2024-08-01T22:35:34.646Z -- node.js -- node.js</title>
-      <link>https://www.cve.org/CVERecord?id=CVE-2024-22020</link>
-      <description>A security flaw in Node.js  allows a bypass of network import restrictions.
-By embedding non-network imports in data URLs, an attacker can execute arbitrary code, compromising system security.
-Verified on various platforms, the vulnerability is mitigated by forbidding data URLs in network imports.
-Exploiting this flaw can violate network import security, posing a risk to developers and servers.</description>
-      <guid isPermaLink="false">CVE-2024-22020|2024-08-01T22:35:34.646Z</guid>
-      <pubDate>Tue, 09 Jul 2024 01:07:28 +0000</pubDate>
-    </item>
-    <item>
-      <title>CVE-2024-22025|2024-08-01T22:35:34.825Z -- node.js -- node.js</title>
-      <link>https://www.cve.org/CVERecord?id=CVE-2024-22025</link>
-      <description>A vulnerability in Node.js has been identified, allowing for a Denial of Service (DoS) attack through resource exhaustion when using the fetch() function to retrieve content from an untrusted URL.
-The vulnerability stems from the fact that the fetch() function in Node.js always decodes Brotli, making it possible for an attacker to cause resource exhaustion when fetching content from an untrusted URL.
-An attacker controlling the URL passed into fetch() can exploit this vulnerability to exhaust memory, potentially leading to process termination, depending on the system configuration.</description>
-      <guid isPermaLink="false">CVE-2024-22025|2024-08-01T22:35:34.825Z</guid>
-      <pubDate>Tue, 19 Mar 2024 04:32:34 +0000</pubDate>
-    </item>
-    <item>
-      <title>CVE-2024-21896|2024-08-01T22:35:33.412Z -- node.js -- node.js</title>
-      <link>https://www.cve.org/CVERecord?id=CVE-2024-21896</link>
-      <description>The permission model protects itself against path traversal attacks by calling path.resolve() on any paths given by the user. If the path is to be treated as a Buffer, the implementation uses Buffer.from() to obtain a Buffer from the result of path.resolve(). By monkey-patching Buffer internals, namely, Buffer.prototype.utf8Write, the application can modify the result of path.resolve(), which leads to a path traversal vulnerability.
-This vulnerability affects all users using the experimental permission model in Node.js 20 and Node.js 21.
-Please note that at the time this CVE was issued, the permission model is an experimental feature of Node.js.</description>
-      <guid isPermaLink="false">CVE-2024-21896|2024-08-01T22:35:33.412Z</guid>
-      <pubDate>Tue, 20 Feb 2024 01:31:08 +0000</pubDate>
-    </item>
-    <item>
-      <title>CVE-2024-21891|2024-08-01T22:35:33.379Z -- node.js -- node.js</title>
-      <link>https://www.cve.org/CVERecord?id=CVE-2024-21891</link>
-      <description>Node.js depends on multiple built-in utility functions to normalize paths provided to node:fs functions, which can be overwitten with user-defined implementations leading to filesystem permission model bypass through path traversal attack.
-This vulnerability affects all users using the experimental permission model in Node.js 20 and Node.js 21.
-Please note that at the time this CVE was issued, the permission model is an experimental feature of Node.js.</description>
-      <guid isPermaLink="false">CVE-2024-21891|2024-08-01T22:35:33.379Z</guid>
-      <pubDate>Tue, 20 Feb 2024 01:31:08 +0000</pubDate>
-    </item>
-    <item>
-      <title>CVE-2024-21892|2024-08-01T22:35:34.516Z -- node.js -- node.js</title>
-      <link>https://www.cve.org/CVERecord?id=CVE-2024-21892</link>
-      <description>On Linux, Node.js ignores certain environment variables if those may have been set by an unprivileged user while the process is running with elevated privileges with the only exception of CAP_NET_BIND_SERVICE.
-Due to a bug in the implementation of this exception, Node.js incorrectly applies this exception even when certain other capabilities have been set.
-This allows unprivileged users to inject code that inherits the process's elevated privileges.</description>
-      <guid isPermaLink="false">CVE-2024-21892|2024-08-01T22:35:34.516Z</guid>
-      <pubDate>Tue, 20 Feb 2024 01:31:08 +0000</pubDate>
-    </item>
-    <item>
-      <title>CVE-2024-21890|2024-08-01T22:35:33.424Z -- node.js -- node.js</title>
-      <link>https://www.cve.org/CVERecord?id=CVE-2024-21890</link>
-      <description>The Node.js Permission Model does not clarify in the documentation that wildcards should be only used as the last character of a file path. For example:
-```
- --allow-fs-read=/home/node/.ssh/*.pub
-```
-
-will ignore `pub` and give access to everything after `.ssh/`.
-
-This misleading documentation affects all users using the experimental permission model in Node.js 20 and Node.js 21.
-
-Please note that at the time this CVE was issued, the permission model is an experimental feature of Node.js.</description>
-      <guid isPermaLink="false">CVE-2024-21890|2024-08-01T22:35:33.424Z</guid>
-      <pubDate>Tue, 20 Feb 2024 01:31:08 +0000</pubDate>
-    </item>
-    <item>
-      <title>CVE-2024-21892|2024-07-26T15:43:18.066Z -- node.js -- node.js</title>
-      <link>https://www.cve.org/CVERecord?id=CVE-2024-21892</link>
-      <description>On Linux, Node.js ignores certain environment variables if those may have been set by an unprivileged user while the process is running with elevated privileges with the only exception of CAP_NET_BIND_SERVICE.
-Due to a bug in the implementation of this exception, Node.js incorrectly applies this exception even when certain other capabilities have been set.
-This allows unprivileged users to inject code that inherits the process's elevated privileges.</description>
-      <guid isPermaLink="false">CVE-2024-21892|2024-07-26T15:43:18.066Z</guid>
-      <pubDate>Tue, 20 Feb 2024 01:31:08 +0000</pubDate>
-    </item>
-    <item>
-      <title>CVE-2024-22018|2024-07-10T16:08:02.472Z -- node.js -- node.js</title>
-      <link>https://www.cve.org/CVERecord?id=CVE-2024-22018</link>
-      <description>A vulnerability has been identified in Node.js, affecting users of the experimental permission model when the --allow-fs-read flag is used.
-This flaw arises from an inadequate permission model that fails to restrict file stats through the fs.lstat API. As a result, malicious actors can retrieve stats from files that they do not have explicit read access to.
-This vulnerability affects all users using the experimental permission model in Node.js 20 and Node.js 21.
-Please note that at the time this CVE was issued, the permission model is an experimental feature of Node.js.</description>
-      <guid isPermaLink="false">CVE-2024-22018|2024-07-10T16:08:02.472Z</guid>
-      <pubDate>Wed, 10 Jul 2024 01:00:12 +0000</pubDate>
-    </item>
-    <item>
-      <title>CVE-2024-22020|2024-07-09T14:17:19.481Z -- node.js -- node.js</title>
-      <link>https://www.cve.org/CVERecord?id=CVE-2024-22020</link>
-      <description>A security flaw in Node.js  allows a bypass of network import restrictions.
-By embedding non-network imports in data URLs, an attacker can execute arbitrary code, compromising system security.
-Verified on various platforms, the vulnerability is mitigated by forbidding data URLs in network imports.
-Exploiting this flaw can violate network import security, posing a risk to developers and servers.</description>
-      <guid isPermaLink="false">CVE-2024-22020|2024-07-09T14:17:19.481Z</guid>
-      <pubDate>Tue, 09 Jul 2024 01:07:28 +0000</pubDate>
-    </item>
-    <item>
-      <title>CVE-2024-22019|2024-06-04T17:52:49.946Z -- node.js -- node.js</title>
-      <link>https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2024-22019</link>
-      <description>A vulnerability in Node.js HTTP servers allows an attacker to send a specially crafted HTTP request with chunked encoding, leading to resource exhaustion and denial of service (DoS). The server reads an unbounded number of bytes from a single connection, exploiting the lack of limitations on chunk extension bytes. The issue can cause CPU and network bandwidth exhaustion, bypassing standard safeguards like timeouts and body size limits.</description>
-      <guid isPermaLink="false">CVE-2024-22019|2024-06-04T17:52:49.946Z</guid>
-      <pubDate>Tue, 20 Feb 2024 01:31:08 +0000</pubDate>
-    </item>
-    <item>
-      <title>CVE-2024-22025|2024-03-19T04:32:34.211Z -- node.js -- node.js</title>
-      <link>https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2024-22025</link>
-      <description>A vulnerability in Node.js has been identified, allowing for a Denial of Service (DoS) attack through resource exhaustion when using the fetch() function to retrieve content from an untrusted URL.
-The vulnerability stems from the fact that the fetch() function in Node.js always decodes Brotli, making it possible for an attacker to cause resource exhaustion when fetching content from an untrusted URL.
-An attacker controlling the URL passed into fetch() can exploit this vulnerability to exhaust memory, potentially leading to process termination, depending on the system configuration.</description>
-      <guid isPermaLink="false">CVE-2024-22025|2024-03-19T04:32:34.211Z</guid>
-      <pubDate>Tue, 19 Mar 2024 04:32:34 +0000</pubDate>
-    </item>
-    <item>
-      <title>CVE-2024-22017|2024-03-19T04:32:34.137Z -- node.js -- node.js</title>
-      <link>https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2024-22017</link>
-      <description>setuid() does not affect libuv's internal io_uring operations if initialized before the call to setuid().
-This allows the process to perform privileged operations despite presumably having dropped such privileges through a call to setuid().
-This vulnerability affects all users using version greater or equal than Node.js 18.18.0, Node.js 20.4.0 and Node.js 21.</description>
-      <guid isPermaLink="false">CVE-2024-22017|2024-03-19T04:32:34.137Z</guid>
-      <pubDate>Tue, 19 Mar 2024 04:32:34 +0000</pubDate>
-    </item>
-    <item>
-      <title>CVE-2024-27982|2024-06-04T17:46:34.311Z -- node.js -- node</title>
-      <link>https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2024-27982</link>
+      <title>CVE-2024-27982|2024-08-02T00:41:55.961Z -- node.js -- node</title>
+      <link>https://www.cve.org/CVERecord?id=CVE-2024-27982</link>
       <description>The team has identified a critical vulnerability in the http server of the most recent version of Node, where malformed headers can lead to HTTP request smuggling. Specifically, if a space is placed before a content-length header, it is not interpreted correctly, enabling attackers to smuggle in a second request within the body of the first.</description>
-      <guid isPermaLink="false">CVE-2024-27982|2024-06-04T17:46:34.311Z</guid>
+      <guid isPermaLink="false">CVE-2024-27982|2024-08-02T00:41:55.961Z</guid>
       <pubDate>Tue, 07 May 2024 16:40:02 +0000</pubDate>
     </item>
     <item>
-      <title>CVE-2024-27983|2024-04-09T01:06:43.681Z -- node.js -- node</title>
-      <link>https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2024-27983</link>
+      <title>CVE-2024-27983|2024-08-02T00:41:55.943Z -- node.js -- node</title>
+      <link>https://www.cve.org/CVERecord?id=CVE-2024-27983</link>
       <description>An attacker can make the Node.js HTTP/2 server completely unavailable by sending a small amount of HTTP/2 frames packets with a few HTTP/2 frames inside. It is possible to leave some data in nghttp2 memory after reset when headers with HTTP/2 CONTINUATION frame are sent to the server and then a TCP connection is abruptly closed by the client triggering the Http2Session destructor while header frames are still being processed (and stored in memory) causing a race condition.</description>
-      <guid isPermaLink="false">CVE-2024-27983|2024-04-09T01:06:43.681Z</guid>
+      <guid isPermaLink="false">CVE-2024-27983|2024-08-02T00:41:55.943Z</guid>
       <pubDate>Tue, 09 Apr 2024 01:06:43 +0000</pubDate>
     </item>
     <item>
-      <title>CVE-2024-21896|2024-02-20T01:31:08.176Z -- node.js -- node.js</title>
-      <link>https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2024-21896</link>
-      <description>The permission model protects itself against path traversal attacks by calling path.resolve() on any paths given by the user. If the path is to be treated as a Buffer, the implementation uses Buffer.from() to obtain a Buffer from the result of path.resolve(). By monkey-patching Buffer internals, namely, Buffer.prototype.utf8Write, the application can modify the result of path.resolve(), which leads to a path traversal vulnerability.
-This vulnerability affects all users using the experimental permission model in Node.js 20 and Node.js 21.
-Please note that at the time this CVE was issued, the permission model is an experimental feature of Node.js.</description>
-      <guid isPermaLink="false">CVE-2024-21896|2024-02-20T01:31:08.176Z</guid>
-      <pubDate>Tue, 20 Feb 2024 01:31:08 +0000</pubDate>
+      <title>CVE-2024-3566|2024-08-01T20:12:07.971Z -- node.js -- node.js</title>
+      <link>https://www.cve.org/CVERecord?id=CVE-2024-3566</link>
+      <description>A command inject vulnerability allows an attacker to perform command injection on Windows applications that indirectly depend on the CreateProcess function when the specific conditions are satisfied.</description>
+      <guid isPermaLink="false">CVE-2024-3566|2024-08-01T20:12:07.971Z</guid>
+      <pubDate>Wed, 10 Apr 2024 15:22:56 +0000</pubDate>
     </item>
     <item>
-      <title>CVE-2024-21891|2024-06-04T17:38:01.954Z -- node.js -- node.js</title>
-      <link>https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2024-21891</link>
-      <description>Node.js depends on multiple built-in utility functions to normalize paths provided to node:fs functions, which can be overwitten with user-defined implementations leading to filesystem permission model bypass through path traversal attack.
+      <title>CVE-2024-22020|2024-07-13T03:55:29.139Z -- node.js -- node.js</title>
+      <link>https://www.cve.org/CVERecord?id=CVE-2024-22020</link>
+      <description>A security flaw in Node.js  allows a bypass of network import restrictions.
+By embedding non-network imports in data URLs, an attacker can execute arbitrary code, compromising system security.
+Verified on various platforms, the vulnerability is mitigated by forbidding data URLs in network imports.
+Exploiting this flaw can violate network import security, posing a risk to developers and servers.</description>
+      <guid isPermaLink="false">CVE-2024-22020|2024-07-13T03:55:29.139Z</guid>
+      <pubDate>Tue, 09 Jul 2024 01:07:28 +0000</pubDate>
+    </item>
+    <item>
+      <title>CVE-2024-22018|2024-07-10T01:00:12.747Z -- node.js -- node.js</title>
+      <link>https://www.cve.org/CVERecord?id=CVE-2024-22018</link>
+      <description>A vulnerability has been identified in Node.js, affecting users of the experimental permission model when the --allow-fs-read flag is used.
+This flaw arises from an inadequate permission model that fails to restrict file stats through the fs.lstat API. As a result, malicious actors can retrieve stats from files that they do not have explicit read access to.
 This vulnerability affects all users using the experimental permission model in Node.js 20 and Node.js 21.
 Please note that at the time this CVE was issued, the permission model is an experimental feature of Node.js.</description>
-      <guid isPermaLink="false">CVE-2024-21891|2024-06-04T17:38:01.954Z</guid>
+      <guid isPermaLink="false">CVE-2024-22018|2024-07-10T01:00:12.747Z</guid>
+      <pubDate>Wed, 10 Jul 2024 01:00:12 +0000</pubDate>
+    </item>
+    <item>
+      <title>CVE-2024-22020|2024-07-09T01:07:28.098Z -- node.js -- node.js</title>
+      <link>https://www.cve.org/CVERecord?id=CVE-2024-22020</link>
+      <description>A security flaw in Node.js  allows a bypass of network import restrictions.
+By embedding non-network imports in data URLs, an attacker can execute arbitrary code, compromising system security.
+Verified on various platforms, the vulnerability is mitigated by forbidding data URLs in network imports.
+Exploiting this flaw can violate network import security, posing a risk to developers and servers.</description>
+      <guid isPermaLink="false">CVE-2024-22020|2024-07-09T01:07:28.098Z</guid>
+      <pubDate>Tue, 09 Jul 2024 01:07:28 +0000</pubDate>
+    </item>
+    <item>
+      <title>CVE-2024-3566|2024-04-10T15:26:52.009Z -- node.js -- node.js</title>
+      <link>https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2024-3566</link>
+      <description>A command inject vulnerability allows an attacker to perform command injection on Windows applications that indirectly depend on the CreateProcess function when the specific conditions are satisfied.</description>
+      <guid isPermaLink="false">CVE-2024-3566|2024-04-10T15:26:52.009Z</guid>
+      <pubDate>Wed, 10 Apr 2024 15:22:56 +0000</pubDate>
+    </item>
+    <item>
+      <title>CVE-2024-21892|2024-02-20T01:31:08.073Z -- node.js -- node.js</title>
+      <link>https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2024-21892</link>
+      <description>On Linux, Node.js ignores certain environment variables if those may have been set by an unprivileged user while the process is running with elevated privileges with the only exception of CAP_NET_BIND_SERVICE.
+Due to a bug in the implementation of this exception, Node.js incorrectly applies this exception even when certain other capabilities have been set.
+This allows unprivileged users to inject code that inherits the process's elevated privileges.</description>
+      <guid isPermaLink="false">CVE-2024-21892|2024-02-20T01:31:08.073Z</guid>
       <pubDate>Tue, 20 Feb 2024 01:31:08 +0000</pubDate>
     </item>
     <item>
@@ -375,71 +268,178 @@ Please note that at the time this CVE was issued, the permission model is an exp
       <pubDate>Tue, 20 Feb 2024 01:31:08 +0000</pubDate>
     </item>
     <item>
-      <title>CVE-2024-21892|2024-02-20T01:31:08.073Z -- node.js -- node.js</title>
-      <link>https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2024-21892</link>
-      <description>On Linux, Node.js ignores certain environment variables if those may have been set by an unprivileged user while the process is running with elevated privileges with the only exception of CAP_NET_BIND_SERVICE.
-Due to a bug in the implementation of this exception, Node.js incorrectly applies this exception even when certain other capabilities have been set.
-This allows unprivileged users to inject code that inherits the process's elevated privileges.</description>
-      <guid isPermaLink="false">CVE-2024-21892|2024-02-20T01:31:08.073Z</guid>
+      <title>CVE-2024-21891|2024-06-04T17:38:01.954Z -- node.js -- node.js</title>
+      <link>https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2024-21891</link>
+      <description>Node.js depends on multiple built-in utility functions to normalize paths provided to node:fs functions, which can be overwitten with user-defined implementations leading to filesystem permission model bypass through path traversal attack.
+This vulnerability affects all users using the experimental permission model in Node.js 20 and Node.js 21.
+Please note that at the time this CVE was issued, the permission model is an experimental feature of Node.js.</description>
+      <guid isPermaLink="false">CVE-2024-21891|2024-06-04T17:38:01.954Z</guid>
       <pubDate>Tue, 20 Feb 2024 01:31:08 +0000</pubDate>
     </item>
     <item>
-      <title>CVE-2024-3566|2024-04-10T15:26:52.009Z -- node.js -- node.js</title>
-      <link>https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2024-3566</link>
-      <description>A command inject vulnerability allows an attacker to perform command injection on Windows applications that indirectly depend on the CreateProcess function when the specific conditions are satisfied.</description>
-      <guid isPermaLink="false">CVE-2024-3566|2024-04-10T15:26:52.009Z</guid>
-      <pubDate>Wed, 10 Apr 2024 15:22:56 +0000</pubDate>
+      <title>CVE-2024-21896|2024-02-20T01:31:08.176Z -- node.js -- node.js</title>
+      <link>https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2024-21896</link>
+      <description>The permission model protects itself against path traversal attacks by calling path.resolve() on any paths given by the user. If the path is to be treated as a Buffer, the implementation uses Buffer.from() to obtain a Buffer from the result of path.resolve(). By monkey-patching Buffer internals, namely, Buffer.prototype.utf8Write, the application can modify the result of path.resolve(), which leads to a path traversal vulnerability.
+This vulnerability affects all users using the experimental permission model in Node.js 20 and Node.js 21.
+Please note that at the time this CVE was issued, the permission model is an experimental feature of Node.js.</description>
+      <guid isPermaLink="false">CVE-2024-21896|2024-02-20T01:31:08.176Z</guid>
+      <pubDate>Tue, 20 Feb 2024 01:31:08 +0000</pubDate>
     </item>
     <item>
-      <title>CVE-2024-22020|2024-07-09T01:07:28.098Z -- node.js -- node.js</title>
+      <title>CVE-2024-27983|2024-04-09T01:06:43.681Z -- node.js -- node</title>
+      <link>https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2024-27983</link>
+      <description>An attacker can make the Node.js HTTP/2 server completely unavailable by sending a small amount of HTTP/2 frames packets with a few HTTP/2 frames inside. It is possible to leave some data in nghttp2 memory after reset when headers with HTTP/2 CONTINUATION frame are sent to the server and then a TCP connection is abruptly closed by the client triggering the Http2Session destructor while header frames are still being processed (and stored in memory) causing a race condition.</description>
+      <guid isPermaLink="false">CVE-2024-27983|2024-04-09T01:06:43.681Z</guid>
+      <pubDate>Tue, 09 Apr 2024 01:06:43 +0000</pubDate>
+    </item>
+    <item>
+      <title>CVE-2024-27982|2024-06-04T17:46:34.311Z -- node.js -- node</title>
+      <link>https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2024-27982</link>
+      <description>The team has identified a critical vulnerability in the http server of the most recent version of Node, where malformed headers can lead to HTTP request smuggling. Specifically, if a space is placed before a content-length header, it is not interpreted correctly, enabling attackers to smuggle in a second request within the body of the first.</description>
+      <guid isPermaLink="false">CVE-2024-27982|2024-06-04T17:46:34.311Z</guid>
+      <pubDate>Tue, 07 May 2024 16:40:02 +0000</pubDate>
+    </item>
+    <item>
+      <title>CVE-2024-22017|2024-03-19T04:32:34.137Z -- node.js -- node.js</title>
+      <link>https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2024-22017</link>
+      <description>setuid() does not affect libuv's internal io_uring operations if initialized before the call to setuid().
+This allows the process to perform privileged operations despite presumably having dropped such privileges through a call to setuid().
+This vulnerability affects all users using version greater or equal than Node.js 18.18.0, Node.js 20.4.0 and Node.js 21.</description>
+      <guid isPermaLink="false">CVE-2024-22017|2024-03-19T04:32:34.137Z</guid>
+      <pubDate>Tue, 19 Mar 2024 04:32:34 +0000</pubDate>
+    </item>
+    <item>
+      <title>CVE-2024-22025|2024-03-19T04:32:34.211Z -- node.js -- node.js</title>
+      <link>https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2024-22025</link>
+      <description>A vulnerability in Node.js has been identified, allowing for a Denial of Service (DoS) attack through resource exhaustion when using the fetch() function to retrieve content from an untrusted URL.
+The vulnerability stems from the fact that the fetch() function in Node.js always decodes Brotli, making it possible for an attacker to cause resource exhaustion when fetching content from an untrusted URL.
+An attacker controlling the URL passed into fetch() can exploit this vulnerability to exhaust memory, potentially leading to process termination, depending on the system configuration.</description>
+      <guid isPermaLink="false">CVE-2024-22025|2024-03-19T04:32:34.211Z</guid>
+      <pubDate>Tue, 19 Mar 2024 04:32:34 +0000</pubDate>
+    </item>
+    <item>
+      <title>CVE-2024-22019|2024-06-04T17:52:49.946Z -- node.js -- node.js</title>
+      <link>https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2024-22019</link>
+      <description>A vulnerability in Node.js HTTP servers allows an attacker to send a specially crafted HTTP request with chunked encoding, leading to resource exhaustion and denial of service (DoS). The server reads an unbounded number of bytes from a single connection, exploiting the lack of limitations on chunk extension bytes. The issue can cause CPU and network bandwidth exhaustion, bypassing standard safeguards like timeouts and body size limits.</description>
+      <guid isPermaLink="false">CVE-2024-22019|2024-06-04T17:52:49.946Z</guid>
+      <pubDate>Tue, 20 Feb 2024 01:31:08 +0000</pubDate>
+    </item>
+    <item>
+      <title>CVE-2024-22020|2024-07-09T14:17:19.481Z -- node.js -- node.js</title>
       <link>https://www.cve.org/CVERecord?id=CVE-2024-22020</link>
       <description>A security flaw in Node.js  allows a bypass of network import restrictions.
 By embedding non-network imports in data URLs, an attacker can execute arbitrary code, compromising system security.
 Verified on various platforms, the vulnerability is mitigated by forbidding data URLs in network imports.
 Exploiting this flaw can violate network import security, posing a risk to developers and servers.</description>
-      <guid isPermaLink="false">CVE-2024-22020|2024-07-09T01:07:28.098Z</guid>
+      <guid isPermaLink="false">CVE-2024-22020|2024-07-09T14:17:19.481Z</guid>
       <pubDate>Tue, 09 Jul 2024 01:07:28 +0000</pubDate>
     </item>
     <item>
-      <title>CVE-2024-22018|2024-07-10T01:00:12.747Z -- node.js -- node.js</title>
+      <title>CVE-2024-22018|2024-07-10T16:08:02.472Z -- node.js -- node.js</title>
       <link>https://www.cve.org/CVERecord?id=CVE-2024-22018</link>
       <description>A vulnerability has been identified in Node.js, affecting users of the experimental permission model when the --allow-fs-read flag is used.
 This flaw arises from an inadequate permission model that fails to restrict file stats through the fs.lstat API. As a result, malicious actors can retrieve stats from files that they do not have explicit read access to.
 This vulnerability affects all users using the experimental permission model in Node.js 20 and Node.js 21.
 Please note that at the time this CVE was issued, the permission model is an experimental feature of Node.js.</description>
-      <guid isPermaLink="false">CVE-2024-22018|2024-07-10T01:00:12.747Z</guid>
+      <guid isPermaLink="false">CVE-2024-22018|2024-07-10T16:08:02.472Z</guid>
       <pubDate>Wed, 10 Jul 2024 01:00:12 +0000</pubDate>
     </item>
     <item>
-      <title>CVE-2024-22020|2024-07-13T03:55:29.139Z -- node.js -- node.js</title>
+      <title>CVE-2024-21892|2024-07-26T15:43:18.066Z -- node.js -- node.js</title>
+      <link>https://www.cve.org/CVERecord?id=CVE-2024-21892</link>
+      <description>On Linux, Node.js ignores certain environment variables if those may have been set by an unprivileged user while the process is running with elevated privileges with the only exception of CAP_NET_BIND_SERVICE.
+Due to a bug in the implementation of this exception, Node.js incorrectly applies this exception even when certain other capabilities have been set.
+This allows unprivileged users to inject code that inherits the process's elevated privileges.</description>
+      <guid isPermaLink="false">CVE-2024-21892|2024-07-26T15:43:18.066Z</guid>
+      <pubDate>Tue, 20 Feb 2024 01:31:08 +0000</pubDate>
+    </item>
+    <item>
+      <title>CVE-2024-21890|2024-08-01T22:35:33.424Z -- node.js -- node.js</title>
+      <link>https://www.cve.org/CVERecord?id=CVE-2024-21890</link>
+      <description>The Node.js Permission Model does not clarify in the documentation that wildcards should be only used as the last character of a file path. For example:
+```
+ --allow-fs-read=/home/node/.ssh/*.pub
+```
+
+will ignore `pub` and give access to everything after `.ssh/`.
+
+This misleading documentation affects all users using the experimental permission model in Node.js 20 and Node.js 21.
+
+Please note that at the time this CVE was issued, the permission model is an experimental feature of Node.js.</description>
+      <guid isPermaLink="false">CVE-2024-21890|2024-08-01T22:35:33.424Z</guid>
+      <pubDate>Tue, 20 Feb 2024 01:31:08 +0000</pubDate>
+    </item>
+    <item>
+      <title>CVE-2024-21892|2024-08-01T22:35:34.516Z -- node.js -- node.js</title>
+      <link>https://www.cve.org/CVERecord?id=CVE-2024-21892</link>
+      <description>On Linux, Node.js ignores certain environment variables if those may have been set by an unprivileged user while the process is running with elevated privileges with the only exception of CAP_NET_BIND_SERVICE.
+Due to a bug in the implementation of this exception, Node.js incorrectly applies this exception even when certain other capabilities have been set.
+This allows unprivileged users to inject code that inherits the process's elevated privileges.</description>
+      <guid isPermaLink="false">CVE-2024-21892|2024-08-01T22:35:34.516Z</guid>
+      <pubDate>Tue, 20 Feb 2024 01:31:08 +0000</pubDate>
+    </item>
+    <item>
+      <title>CVE-2024-21891|2024-08-01T22:35:33.379Z -- node.js -- node.js</title>
+      <link>https://www.cve.org/CVERecord?id=CVE-2024-21891</link>
+      <description>Node.js depends on multiple built-in utility functions to normalize paths provided to node:fs functions, which can be overwitten with user-defined implementations leading to filesystem permission model bypass through path traversal attack.
+This vulnerability affects all users using the experimental permission model in Node.js 20 and Node.js 21.
+Please note that at the time this CVE was issued, the permission model is an experimental feature of Node.js.</description>
+      <guid isPermaLink="false">CVE-2024-21891|2024-08-01T22:35:33.379Z</guid>
+      <pubDate>Tue, 20 Feb 2024 01:31:08 +0000</pubDate>
+    </item>
+    <item>
+      <title>CVE-2024-21896|2024-08-01T22:35:33.412Z -- node.js -- node.js</title>
+      <link>https://www.cve.org/CVERecord?id=CVE-2024-21896</link>
+      <description>The permission model protects itself against path traversal attacks by calling path.resolve() on any paths given by the user. If the path is to be treated as a Buffer, the implementation uses Buffer.from() to obtain a Buffer from the result of path.resolve(). By monkey-patching Buffer internals, namely, Buffer.prototype.utf8Write, the application can modify the result of path.resolve(), which leads to a path traversal vulnerability.
+This vulnerability affects all users using the experimental permission model in Node.js 20 and Node.js 21.
+Please note that at the time this CVE was issued, the permission model is an experimental feature of Node.js.</description>
+      <guid isPermaLink="false">CVE-2024-21896|2024-08-01T22:35:33.412Z</guid>
+      <pubDate>Tue, 20 Feb 2024 01:31:08 +0000</pubDate>
+    </item>
+    <item>
+      <title>CVE-2024-22025|2024-08-01T22:35:34.825Z -- node.js -- node.js</title>
+      <link>https://www.cve.org/CVERecord?id=CVE-2024-22025</link>
+      <description>A vulnerability in Node.js has been identified, allowing for a Denial of Service (DoS) attack through resource exhaustion when using the fetch() function to retrieve content from an untrusted URL.
+The vulnerability stems from the fact that the fetch() function in Node.js always decodes Brotli, making it possible for an attacker to cause resource exhaustion when fetching content from an untrusted URL.
+An attacker controlling the URL passed into fetch() can exploit this vulnerability to exhaust memory, potentially leading to process termination, depending on the system configuration.</description>
+      <guid isPermaLink="false">CVE-2024-22025|2024-08-01T22:35:34.825Z</guid>
+      <pubDate>Tue, 19 Mar 2024 04:32:34 +0000</pubDate>
+    </item>
+    <item>
+      <title>CVE-2024-22020|2024-08-01T22:35:34.646Z -- node.js -- node.js</title>
       <link>https://www.cve.org/CVERecord?id=CVE-2024-22020</link>
       <description>A security flaw in Node.js  allows a bypass of network import restrictions.
 By embedding non-network imports in data URLs, an attacker can execute arbitrary code, compromising system security.
 Verified on various platforms, the vulnerability is mitigated by forbidding data URLs in network imports.
 Exploiting this flaw can violate network import security, posing a risk to developers and servers.</description>
-      <guid isPermaLink="false">CVE-2024-22020|2024-07-13T03:55:29.139Z</guid>
+      <guid isPermaLink="false">CVE-2024-22020|2024-08-01T22:35:34.646Z</guid>
       <pubDate>Tue, 09 Jul 2024 01:07:28 +0000</pubDate>
     </item>
     <item>
-      <title>CVE-2024-3566|2024-08-01T20:12:07.971Z -- node.js -- node.js</title>
-      <link>https://www.cve.org/CVERecord?id=CVE-2024-3566</link>
-      <description>A command inject vulnerability allows an attacker to perform command injection on Windows applications that indirectly depend on the CreateProcess function when the specific conditions are satisfied.</description>
-      <guid isPermaLink="false">CVE-2024-3566|2024-08-01T20:12:07.971Z</guid>
-      <pubDate>Wed, 10 Apr 2024 15:22:56 +0000</pubDate>
+      <title>CVE-2024-22017|2024-08-01T22:35:34.492Z -- node.js -- node.js</title>
+      <link>https://www.cve.org/CVERecord?id=CVE-2024-22017</link>
+      <description>setuid() does not affect libuv's internal io_uring operations if initialized before the call to setuid().
+This allows the process to perform privileged operations despite presumably having dropped such privileges through a call to setuid().
+This vulnerability affects all users using version greater or equal than Node.js 18.18.0, Node.js 20.4.0 and Node.js 21.</description>
+      <guid isPermaLink="false">CVE-2024-22017|2024-08-01T22:35:34.492Z</guid>
+      <pubDate>Tue, 19 Mar 2024 04:32:34 +0000</pubDate>
     </item>
     <item>
-      <title>CVE-2024-27983|2024-08-02T00:41:55.943Z -- node.js -- node</title>
-      <link>https://www.cve.org/CVERecord?id=CVE-2024-27983</link>
-      <description>An attacker can make the Node.js HTTP/2 server completely unavailable by sending a small amount of HTTP/2 frames packets with a few HTTP/2 frames inside. It is possible to leave some data in nghttp2 memory after reset when headers with HTTP/2 CONTINUATION frame are sent to the server and then a TCP connection is abruptly closed by the client triggering the Http2Session destructor while header frames are still being processed (and stored in memory) causing a race condition.</description>
-      <guid isPermaLink="false">CVE-2024-27983|2024-08-02T00:41:55.943Z</guid>
-      <pubDate>Tue, 09 Apr 2024 01:06:43 +0000</pubDate>
+      <title>CVE-2024-22019|2024-08-01T22:35:34.700Z -- node.js -- node.js</title>
+      <link>https://www.cve.org/CVERecord?id=CVE-2024-22019</link>
+      <description>A vulnerability in Node.js HTTP servers allows an attacker to send a specially crafted HTTP request with chunked encoding, leading to resource exhaustion and denial of service (DoS). The server reads an unbounded number of bytes from a single connection, exploiting the lack of limitations on chunk extension bytes. The issue can cause CPU and network bandwidth exhaustion, bypassing standard safeguards like timeouts and body size limits.</description>
+      <guid isPermaLink="false">CVE-2024-22019|2024-08-01T22:35:34.700Z</guid>
+      <pubDate>Tue, 20 Feb 2024 01:31:08 +0000</pubDate>
     </item>
     <item>
-      <title>CVE-2024-27982|2024-08-02T00:41:55.961Z -- node.js -- node</title>
-      <link>https://www.cve.org/CVERecord?id=CVE-2024-27982</link>
-      <description>The team has identified a critical vulnerability in the http server of the most recent version of Node, where malformed headers can lead to HTTP request smuggling. Specifically, if a space is placed before a content-length header, it is not interpreted correctly, enabling attackers to smuggle in a second request within the body of the first.</description>
-      <guid isPermaLink="false">CVE-2024-27982|2024-08-02T00:41:55.961Z</guid>
-      <pubDate>Tue, 07 May 2024 16:40:02 +0000</pubDate>
+      <title>CVE-2024-22018|2024-08-01T22:35:34.862Z -- node.js -- node.js</title>
+      <link>https://www.cve.org/CVERecord?id=CVE-2024-22018</link>
+      <description>A vulnerability has been identified in Node.js, affecting users of the experimental permission model when the --allow-fs-read flag is used.
+This flaw arises from an inadequate permission model that fails to restrict file stats through the fs.lstat API. As a result, malicious actors can retrieve stats from files that they do not have explicit read access to.
+This vulnerability affects all users using the experimental permission model in Node.js 20 and Node.js 21.
+Please note that at the time this CVE was issued, the permission model is an experimental feature of Node.js.</description>
+      <guid isPermaLink="false">CVE-2024-22018|2024-08-01T22:35:34.862Z</guid>
+      <pubDate>Wed, 10 Jul 2024 01:00:12 +0000</pubDate>
     </item>
   </channel>
 </rss>

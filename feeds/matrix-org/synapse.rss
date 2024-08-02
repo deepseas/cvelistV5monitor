@@ -6,7 +6,7 @@
     <description>The latest CVEs for matrix-org -- synapse</description>
     <docs>http://www.rssboard.org/rss-specification</docs>
     <generator>python-feedgen</generator>
-    <lastBuildDate>Fri, 02 Aug 2024 19:20:05 +0000</lastBuildDate>
+    <lastBuildDate>Fri, 02 Aug 2024 20:23:23 +0000</lastBuildDate>
     <ttl>60</ttl>
     <item>
       <title>CVE-2023-32682|2024-08-02T15:25:36.434Z -- matrix-org -- synapse
@@ -15,6 +15,15 @@
       <description>Synapse is a Matrix protocol homeserver written in Python with the Twisted framework. In affected versions it may be possible for a deactivated user to login when using uncommon configurations. This only applies if any of the following are true: 1. JSON Web Tokens are enabled for login via the `jwt_config.enabled` configuration setting. 2. The local password database is enabled via the `password_config.enabled` and `password_config.localdb_enabled` configuration settings *and* a user's password is updated via an admin API after a user is deactivated. Note that the local password database is enabled by default, but it is uncommon to set a user's password after they've been deactivated. Installations that are configured to only allow login via Single Sign-On (SSO) via CAS, SAML or OpenID Connect (OIDC); or via an external password provider (e.g. LDAP) are not affected. If not using JSON Web Tokens, ensure that deactivated users do not have a password set. This issue has been addressed in version 1.85.0. Users are advised to upgrade.</description>
       <guid isPermaLink="false">CVE-2023-32682|2024-08-02T15:25:36.434Z</guid>
       <pubDate>Tue, 06 Jun 2023 18:20:14 +0000</pubDate>
+    </item>
+    <item>
+      <title>CVE-2023-43796|2024-08-02T19:52:11.374Z -- matrix-org -- synapse
+</title>
+      <link>https://www.cve.org/CVERecord?id=CVE-2023-43796</link>
+      <description>Synapse is an open-source Matrix homeserver Prior to versions 1.95.1 and 1.96.0rc1, cached device information of remote users can be queried from Synapse. This can be used to enumerate the remote users known to a homeserver. System administrators are encouraged to upgrade to Synapse 1.95.1 or 1.96.0rc1 to receive a patch. As a workaround, the `federation_domain_whitelist` can be used to limit federation traffic with a homeserver.
+</description>
+      <guid isPermaLink="false">CVE-2023-43796|2024-08-02T19:52:11.374Z</guid>
+      <pubDate>Tue, 31 Oct 2023 16:52:48 +0000</pubDate>
     </item>
     <item>
       <title>CVE-2023-32323|2024-08-02T15:10:24.899Z -- matrix-org -- synapse
@@ -41,6 +50,14 @@
       <description>Synapse is a Matrix protocol homeserver written in Python with the Twisted framework. A discovered oEmbed or image URL can bypass the `url_preview_url_blacklist` setting potentially allowing server side request forgery or bypassing network policies. Impact is limited to IP addresses allowed by the `url_preview_ip_range_blacklist` setting (by default this only allows public IPs) and by the limited information returned to the client: 1. For discovered oEmbed URLs, any non-JSON response or a JSON response which includes non-oEmbed information is discarded. 2. For discovered image URLs, any non-image response is discarded. Systems which have URL preview disabled (via the `url_preview_enabled` setting) or have not configured a `url_preview_url_blacklist` are not affected. This issue has been addressed in version 1.85.0. Users are advised to upgrade. User unable to upgrade may also disable URL previews.</description>
       <guid isPermaLink="false">CVE-2023-32683|2024-08-02T15:25:36.588Z</guid>
       <pubDate>Tue, 06 Jun 2023 18:24:30 +0000</pubDate>
+    </item>
+    <item>
+      <title>CVE-2023-42453|2024-08-02T19:23:38.904Z -- matrix-org -- synapse
+</title>
+      <link>https://www.cve.org/CVERecord?id=CVE-2023-42453</link>
+      <description>Synapse is an open-source Matrix homeserver written and maintained by the Matrix.org Foundation. Users were able to forge read receipts for any event (if they knew the room ID and event ID). Note that the users were not able to view the events, but simply mark it as read. This could be confusing as clients will show the event as read by the user, even if they are not in the room. This issue has been patched in version 1.93.0. Users are advised to upgrade. There are no known workarounds for this issue.</description>
+      <guid isPermaLink="false">CVE-2023-42453|2024-08-02T19:23:38.904Z</guid>
+      <pubDate>Tue, 26 Sep 2023 20:49:23 +0000</pubDate>
     </item>
   </channel>
 </rss>
