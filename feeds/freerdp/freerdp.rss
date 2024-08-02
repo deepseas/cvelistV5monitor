@@ -6,221 +6,153 @@
     <description>The latest CVEs for FreeRDP -- FreeRDP</description>
     <docs>http://www.rssboard.org/rss-specification</docs>
     <generator>python-feedgen</generator>
-    <lastBuildDate>Fri, 02 Aug 2024 02:28:22 +0000</lastBuildDate>
+    <lastBuildDate>Fri, 02 Aug 2024 19:19:42 +0000</lastBuildDate>
     <ttl>60</ttl>
     <item>
-      <title>CVE-2024-32659|2024-08-02T02:13:40.331Z -- freerdp -- freerdp
+      <title>CVE-2023-39354|2024-08-02T18:10:20.321Z -- freerdp -- freerdp
 </title>
-      <link>https://www.cve.org/CVERecord?id=CVE-2024-32659</link>
-      <description>FreeRDP is a free implementation of the Remote Desktop Protocol. FreeRDP based clients prior to version 3.5.1 are vulnerable to out-of-bounds read if `((nWidth == 0) and (nHeight == 0))`. Version 3.5.1 contains a patch for the issue. No known workarounds are available.</description>
-      <guid isPermaLink="false">CVE-2024-32659|2024-08-02T02:13:40.331Z</guid>
-      <pubDate>Tue, 23 Apr 2024 19:40:24 +0000</pubDate>
+      <link>https://www.cve.org/CVERecord?id=CVE-2023-39354</link>
+      <description>FreeRDP is a free implementation of the Remote Desktop Protocol (RDP), released under the Apache license. Affected versions are subject to an Out-Of-Bounds Read in the `nsc_rle_decompress_data` function. The Out-Of-Bounds Read occurs because it processes `context-&gt;Planes` without  checking if it contains data of sufficient length. Should an attacker be able to leverage this vulnerability they may be able to cause a crash. This issue has been addressed in versions 2.11.0 and 3.0.0-beta3. Users are advised to upgrade. There are no known workarounds for this vulnerability.</description>
+      <guid isPermaLink="false">CVE-2023-39354|2024-08-02T18:10:20.321Z</guid>
+      <pubDate>Thu, 31 Aug 2023 19:36:28 +0000</pubDate>
     </item>
     <item>
-      <title>CVE-2024-32040|2024-08-02T02:06:42.838Z -- freerdp -- freerdp
+      <title>CVE-2023-39355|2024-08-02T18:10:20.336Z -- freerdp -- freerdp
 </title>
+      <link>https://www.cve.org/CVERecord?id=CVE-2023-39355</link>
+      <description>FreeRDP is a free implementation of the Remote Desktop Protocol (RDP), released under the Apache license. Versions of FreeRDP on the 3.x release branch before beta3 are subject to a Use-After-Free in processing `RDPGFX_CMDID_RESETGRAPHICS` packets. If `context-&gt;maxPlaneSize` is 0, `context-&gt;planesBuffer` will be freed. However, without updating `context-&gt;planesBuffer`, this leads to a Use-After-Free exploit vector. In most environments this should only result in a crash. This issue has been addressed in version 3.0.0-beta3 and users of the beta 3.x releases are advised to upgrade. There are no known workarounds for this vulnerability.</description>
+      <guid isPermaLink="false">CVE-2023-39355|2024-08-02T18:10:20.336Z</guid>
+      <pubDate>Thu, 31 Aug 2023 19:45:02 +0000</pubDate>
+    </item>
+    <item>
+      <title>CVE-2023-40575|2024-08-02T18:38:50.910Z -- freerdp -- freerdp
+</title>
+      <link>https://www.cve.org/CVERecord?id=CVE-2023-40575</link>
+      <description>FreeRDP is a free implementation of the Remote Desktop Protocol (RDP), released under the Apache license. Affected versions are subject to an Out-Of-Bounds Read in the `general_YUV444ToRGB_8u_P3AC4R_BGRX` function. This issue is likely down to insufficient data for the `pSrc` variable and results in crashes. This issue has been addressed in version 3.0.0-beta3. Users are advised to upgrade. There are no known workarounds for this issue.</description>
+      <guid isPermaLink="false">CVE-2023-40575|2024-08-02T18:38:50.910Z</guid>
+      <pubDate>Thu, 31 Aug 2023 21:34:11 +0000</pubDate>
+    </item>
+    <item>
+      <title>CVE-2023-40188|2024-08-02T18:24:55.790Z -- freerdp -- freerdp
+</title>
+      <link>https://www.cve.org/CVERecord?id=CVE-2023-40188</link>
+      <description>FreeRDP is a free implementation of the Remote Desktop Protocol (RDP), released under the Apache license. Affected versions are subject to an Out-Of-Bounds Read in the `general_LumaToYUV444` function. This Out-Of-Bounds Read occurs because processing is done on the `in` variable without checking if it contains data of sufficient length. Insufficient data for the `in` variable may cause errors or crashes. This issue has been addressed in versions 2.11.0 and 3.0.0-beta3. Users are advised to upgrade. There are no known workarounds for this issue.</description>
+      <guid isPermaLink="false">CVE-2023-40188|2024-08-02T18:24:55.790Z</guid>
+      <pubDate>Thu, 31 Aug 2023 21:32:55 +0000</pubDate>
+    </item>
+    <item>
+      <title>CVE-2023-39350|2024-08-02T18:10:20.229Z -- freerdp -- freerdp
+</title>
+      <link>https://www.cve.org/CVERecord?id=CVE-2023-39350</link>
+      <description>FreeRDP is a free implementation of the Remote Desktop Protocol (RDP), released under the Apache license. This issue affects Clients only. Integer underflow leading to DOS (e.g. abort due to `WINPR_ASSERT` with default compilation flags). When an insufficient blockLen is provided, and proper length validation is not performed, an Integer Underflow occurs, leading to a Denial of Service (DOS) vulnerability. This issue has been addressed in versions 2.11.0 and 3.0.0-beta3. Users are advised to upgrade. There are no known workarounds for this vulnerability.
+</description>
+      <guid isPermaLink="false">CVE-2023-39350|2024-08-02T18:10:20.229Z</guid>
+      <pubDate>Thu, 31 Aug 2023 19:31:13 +0000</pubDate>
+    </item>
+    <item>
+      <title>CVE-2023-40574|2024-08-02T18:38:50.393Z -- freerdp -- freerdp
+</title>
+      <link>https://www.cve.org/CVERecord?id=CVE-2023-40574</link>
+      <description>FreeRDP is a free implementation of the Remote Desktop Protocol (RDP), released under the Apache license. Affected versions are subject to an Out-Of-Bounds Write in the `writePixelBGRX` function. This issue is likely down to incorrect calculations of the `nHeight` and `srcStep` variables. This issue has been addressed in version 3.0.0-beta3. Users are advised to upgrade. There are no known workarounds for this issue.</description>
+      <guid isPermaLink="false">CVE-2023-40574|2024-08-02T18:38:50.393Z</guid>
+      <pubDate>Thu, 31 Aug 2023 21:39:17 +0000</pubDate>
+    </item>
+    <item>
+      <title>CVE-2023-39353|2024-08-02T18:10:20.277Z -- freerdp -- freerdp
+</title>
+      <link>https://www.cve.org/CVERecord?id=CVE-2023-39353</link>
+      <description>FreeRDP is a free implementation of the Remote Desktop Protocol (RDP), released under the Apache license. Affected versions are subject to a missing offset validation leading to Out Of Bound Read. In the `libfreerdp/codec/rfx.c` file there is no offset validation in `tile-&gt;quantIdxY`, `tile-&gt;quantIdxCb`, and `tile-&gt;quantIdxCr`. As a result crafted input can lead to an out of bounds read access which in turn will cause a crash. This issue has been addressed in versions 2.11.0 and 3.0.0-beta3. Users are advised to upgrade. There are no known workarounds for this vulnerability.</description>
+      <guid isPermaLink="false">CVE-2023-39353|2024-08-02T18:10:20.277Z</guid>
+      <pubDate>Thu, 31 Aug 2023 20:04:29 +0000</pubDate>
+    </item>
+    <item>
+      <title>CVE-2023-40186|2024-08-02T18:24:55.788Z -- freerdp -- freerdp
+</title>
+      <link>https://www.cve.org/CVERecord?id=CVE-2023-40186</link>
+      <description>FreeRDP is a free implementation of the Remote Desktop Protocol (RDP), released under the Apache license. Affected versions are subject to an IntegerOverflow leading to Out-Of-Bound Write Vulnerability in the `gdi_CreateSurface` function. This issue affects FreeRDP based clients only. FreeRDP proxies are not affected as image decoding is not done by a proxy. This issue has been addressed in versions 2.11.0 and 3.0.0-beta3. Users are advised to upgrade. There are no known workarounds for this issue.</description>
+      <guid isPermaLink="false">CVE-2023-40186|2024-08-02T18:24:55.788Z</guid>
+      <pubDate>Thu, 31 Aug 2023 21:13:57 +0000</pubDate>
+    </item>
+    <item>
+      <title>CVE-2023-39356|2024-08-02T18:10:20.296Z -- freerdp -- freerdp
+</title>
+      <link>https://www.cve.org/CVERecord?id=CVE-2023-39356</link>
+      <description>FreeRDP is a free implementation of the Remote Desktop Protocol (RDP), released under the Apache license. In affected versions a missing offset validation may lead to an Out Of Bound Read in the function `gdi_multi_opaque_rect`. In particular there is no code to validate if the value `multi_opaque_rect-&gt;numRectangles` is less than 45. Looping through `multi_opaque_rect-&gt;`numRectangles without proper boundary checks can lead to Out-of-Bounds Read errors which will likely lead to a crash. This issue has been addressed in versions 2.11.0 and 3.0.0-beta3. Users are advised to upgrade. There are no known workarounds for this vulnerability.
+</description>
+      <guid isPermaLink="false">CVE-2023-39356|2024-08-02T18:10:20.296Z</guid>
+      <pubDate>Thu, 31 Aug 2023 20:50:19 +0000</pubDate>
+    </item>
+    <item>
+      <title>CVE-2023-40567|2024-08-02T18:38:50.887Z -- freerdp -- freerdp
+</title>
+      <link>https://www.cve.org/CVERecord?id=CVE-2023-40567</link>
+      <description>FreeRDP is a free implementation of the Remote Desktop Protocol (RDP), released under the Apache license. Affected versions are subject to an Out-Of-Bounds Write in the `clear_decompress_bands_data` function in which there is no offset validation. Abuse of this vulnerability may lead to an out of bounds write. This issue has been addressed in versions 2.11.0 and 3.0.0-beta3. Users are advised to upgrade. there are no known workarounds for this vulnerability.</description>
+      <guid isPermaLink="false">CVE-2023-40567|2024-08-02T18:38:50.887Z</guid>
+      <pubDate>Thu, 31 Aug 2023 21:42:53 +0000</pubDate>
+    </item>
+    <item>
+      <title>CVE-2023-40181|2024-08-02T18:24:55.613Z -- freerdp -- freerdp
+</title>
+      <link>https://www.cve.org/CVERecord?id=CVE-2023-40181</link>
+      <description>FreeRDP is a free implementation of the Remote Desktop Protocol (RDP), released under the Apache license. Affected versions are subject to an Integer-Underflow leading to Out-Of-Bound Read in the `zgfx_decompress_segment` function. In the context of `CopyMemory`, it's possible to read data beyond the transmitted packet range and likely cause a crash. This issue has been addressed in versions 2.11.0 and 3.0.0-beta3. Users are advised to upgrade. There are no known workarounds for this issue.</description>
+      <guid isPermaLink="false">CVE-2023-40181|2024-08-02T18:24:55.613Z</guid>
+      <pubDate>Thu, 31 Aug 2023 21:06:14 +0000</pubDate>
+    </item>
+    <item>
+      <title>CVE-2023-40187|2024-08-02T18:24:55.794Z -- freerdp -- freerdp
+</title>
+      <link>https://www.cve.org/CVERecord?id=CVE-2023-40187</link>
+      <description>FreeRDP is a free implementation of the Remote Desktop Protocol (RDP), released under the Apache license. Affected versions of the 3.x beta branch are subject to a Use-After-Free issue in the `avc420_ensure_buffer` and `avc444_ensure_buffer` functions. If the value of `piDstSize[x]` is 0, `ppYUVDstData[x]` will be freed. However, in this case `ppYUVDstData[x]` will not have been updated which leads to a Use-After-Free vulnerability. This issue has been addressed in version 3.0.0-beta3. Users of the 3.x beta releases are advised to upgrade. There are no known workarounds for this vulnerability.</description>
+      <guid isPermaLink="false">CVE-2023-40187|2024-08-02T18:24:55.794Z</guid>
+      <pubDate>Thu, 31 Aug 2023 21:21:12 +0000</pubDate>
+    </item>
+    <item>
+      <title>CVE-2023-39351|2024-08-02T18:10:20.471Z -- freerdp -- freerdp
+</title>
+      <link>https://www.cve.org/CVERecord?id=CVE-2023-39351</link>
+      <description>FreeRDP is a free implementation of the Remote Desktop Protocol (RDP), released under the Apache license. Affected versions of FreeRDP are subject to a Null Pointer Dereference leading a crash in the RemoteFX (rfx) handling.  Inside the `rfx_process_message_tileset` function, the program allocates tiles using `rfx_allocate_tiles` for the number of numTiles. If the initialization process of tiles is not completed for various reasons, tiles will have a NULL pointer. Which may be accessed in further processing and would cause a program crash. This issue has been addressed in versions 2.11.0 and 3.0.0-beta3. Users are advised to upgrade. There are no known workarounds for this vulnerability.</description>
+      <guid isPermaLink="false">CVE-2023-39351|2024-08-02T18:10:20.471Z</guid>
+      <pubDate>Thu, 31 Aug 2023 19:56:07 +0000</pubDate>
+    </item>
+    <item>
+      <title>CVE-2023-40589|2024-08-02T18:38:50.831Z -- freerdp -- freerdp
+</title>
+      <link>https://www.cve.org/CVERecord?id=CVE-2023-40589</link>
+      <description>FreeRDP is a free implementation of the Remote Desktop Protocol (RDP), released under the Apache license. In affected versions there is a Global-Buffer-Overflow in the ncrush_decompress function. Feeding crafted input into this function can trigger the overflow which has only been shown to cause a crash. This issue has been addressed in versions 2.11.0 and 3.0.0-beta3. Users are advised to upgrade. There are no known workarounds for this issue.</description>
+      <guid isPermaLink="false">CVE-2023-40589|2024-08-02T18:38:50.831Z</guid>
+      <pubDate>Thu, 31 Aug 2023 18:31:07 +0000</pubDate>
+    </item>
+    <item>
+      <title>CVE-2023-40576|2024-08-02T18:38:50.725Z -- freerdp -- freerdp
+</title>
+      <link>https://www.cve.org/CVERecord?id=CVE-2023-40576</link>
+      <description>FreeRDP is a free implementation of the Remote Desktop Protocol (RDP), released under the Apache license. Affected versions are subject to an Out-Of-Bounds Read in the `RleDecompress` function. This Out-Of-Bounds Read occurs because FreeRDP processes the `pbSrcBuffer` variable without checking if it contains data of sufficient length. Insufficient data in the `pbSrcBuffer` variable may cause errors or crashes. This issue has been addressed in version 3.0.0-beta3. Users are advised to upgrade. There are no known workarounds for this issue.</description>
+      <guid isPermaLink="false">CVE-2023-40576|2024-08-02T18:38:50.725Z</guid>
+      <pubDate>Thu, 31 Aug 2023 21:35:38 +0000</pubDate>
+    </item>
+    <item>
+      <title>CVE-2023-40569|2024-08-02T18:38:50.776Z -- freerdp -- freerdp
+</title>
+      <link>https://www.cve.org/CVERecord?id=CVE-2023-40569</link>
+      <description>FreeRDP is a free implementation of the Remote Desktop Protocol (RDP), released under the Apache license. Affected versions are subject to an Out-Of-Bounds Write in the `progressive_decompress` function. This issue is likely down to incorrect calculations of the `nXSrc` and `nYSrc` variables. This issue has been addressed in versions 2.11.0 and 3.0.0-beta3. Users are advised to upgrade. there are no known workarounds for this vulnerability.</description>
+      <guid isPermaLink="false">CVE-2023-40569|2024-08-02T18:38:50.776Z</guid>
+      <pubDate>Thu, 31 Aug 2023 21:41:12 +0000</pubDate>
+    </item>
+    <item>
+      <title>CVE-2023-39352|2024-08-02T18:10:20.242Z -- freerdp -- freerdp
+</title>
+      <link>https://www.cve.org/CVERecord?id=CVE-2023-39352</link>
+      <description>FreeRDP is a free implementation of the Remote Desktop Protocol (RDP), released under the Apache license. Affected versions are subject to an invalid offset validation leading to Out Of Bound Write. This can be triggered when the values `rect-&gt;left` and `rect-&gt;top` are exactly equal to `surface-&gt;width` and  `surface-&gt;height`. eg. `rect-&gt;left` == `surface-&gt;width` &amp;&amp; `rect-&gt;top` == `surface-&gt;height`. In practice this should cause a crash. This issue has been addressed in versions 2.11.0 and 3.0.0-beta3. Users are advised to upgrade. There are no known workarounds for this vulnerability.
+</description>
+      <guid isPermaLink="false">CVE-2023-39352|2024-08-02T18:10:20.242Z</guid>
+      <pubDate>Thu, 31 Aug 2023 20:46:31 +0000</pubDate>
+    </item>
+    <item>
+      <title>CVE-2024-32040|2024-07-26T15:01:11.371Z -- freerdp -- freerdp</title>
       <link>https://www.cve.org/CVERecord?id=CVE-2024-32040</link>
       <description>FreeRDP is a free implementation of the Remote Desktop Protocol. FreeRDP based clients that use a version of FreeRDP prior to 3.5.0 or 2.11.6 and have connections to servers using the `NSC` codec are vulnerable to integer underflow. Versions 3.5.0 and 2.11.6 patch the issue. As a workaround, do not use the NSC codec (e.g. use `-nsc`).</description>
-      <guid isPermaLink="false">CVE-2024-32040|2024-08-02T02:06:42.838Z</guid>
+      <guid isPermaLink="false">CVE-2024-32040|2024-07-26T15:01:11.371Z</guid>
       <pubDate>Mon, 22 Apr 2024 20:36:45 +0000</pubDate>
-    </item>
-    <item>
-      <title>CVE-2024-32660|2024-08-02T02:13:40.338Z -- freerdp -- freerdp
-</title>
-      <link>https://www.cve.org/CVERecord?id=CVE-2024-32660</link>
-      <description>FreeRDP is a free implementation of the Remote Desktop Protocol. Prior to version 3.5.1, a malicious server can crash the FreeRDP client by sending invalid huge allocation size. Version 3.5.1 contains a patch for the issue. No known workarounds are available.</description>
-      <guid isPermaLink="false">CVE-2024-32660|2024-08-02T02:13:40.338Z</guid>
-      <pubDate>Tue, 23 Apr 2024 20:03:28 +0000</pubDate>
-    </item>
-    <item>
-      <title>CVE-2024-32458|2024-08-02T02:13:38.977Z -- freerdp -- freerdp
-</title>
-      <link>https://www.cve.org/CVERecord?id=CVE-2024-32458</link>
-      <description>FreeRDP is a free implementation of the Remote Desktop Protocol. FreeRDP based clients that use a version of FreeRDP prior to 3.5.0 or 2.11.6 are vulnerable to out-of-bounds read. Versions 3.5.0 and 2.11.6 patch the issue. As a workaround, use `/gfx` or `/rfx` modes (on by default, require server side support).</description>
-      <guid isPermaLink="false">CVE-2024-32458|2024-08-02T02:13:38.977Z</guid>
-      <pubDate>Mon, 22 Apr 2024 20:52:45 +0000</pubDate>
-    </item>
-    <item>
-      <title>CVE-2024-32658|2024-08-02T02:13:40.479Z -- freerdp -- freerdp
-</title>
-      <link>https://www.cve.org/CVERecord?id=CVE-2024-32658</link>
-      <description>FreeRDP is a free implementation of the Remote Desktop Protocol. FreeRDP based clients prior to version 3.5.1 are vulnerable to out-of-bounds read. Version 3.5.1 contains a patch for the issue. No known workarounds are available.</description>
-      <guid isPermaLink="false">CVE-2024-32658|2024-08-02T02:13:40.479Z</guid>
-      <pubDate>Tue, 23 Apr 2024 17:41:21 +0000</pubDate>
-    </item>
-    <item>
-      <title>CVE-2024-32459|2024-08-02T02:13:39.162Z -- freerdp -- freerdp
-</title>
-      <link>https://www.cve.org/CVERecord?id=CVE-2024-32459</link>
-      <description>FreeRDP is a free implementation of the Remote Desktop Protocol. FreeRDP based clients and servers that use a version of FreeRDP prior to 3.5.0 or 2.11.6 are vulnerable to out-of-bounds read. Versions 3.5.0 and 2.11.6 patch the issue. No known workarounds are available.</description>
-      <guid isPermaLink="false">CVE-2024-32459|2024-08-02T02:13:39.162Z</guid>
-      <pubDate>Mon, 22 Apr 2024 21:32:57 +0000</pubDate>
-    </item>
-    <item>
-      <title>CVE-2024-32039|2024-08-02T02:06:42.839Z -- freerdp -- freerdp
-</title>
-      <link>https://www.cve.org/CVERecord?id=CVE-2024-32039</link>
-      <description>FreeRDP is a free implementation of the Remote Desktop Protocol. FreeRDP based clients using a version of FreeRDP prior to 3.5.0 or 2.11.6 are vulnerable to integer overflow and out-of-bounds write. Versions 3.5.0 and 2.11.6 patch the issue. As a workaround, do not use `/gfx` options (e.g. deactivate with `/bpp:32` or `/rfx` as it is on by default).</description>
-      <guid isPermaLink="false">CVE-2024-32039|2024-08-02T02:06:42.839Z</guid>
-      <pubDate>Mon, 22 Apr 2024 20:23:58 +0000</pubDate>
-    </item>
-    <item>
-      <title>CVE-2024-32661|2024-08-02T02:13:40.396Z -- freerdp -- freerdp
-</title>
-      <link>https://www.cve.org/CVERecord?id=CVE-2024-32661</link>
-      <description>FreeRDP is a free implementation of the Remote Desktop Protocol. FreeRDP based clients prior to version 3.5.1 are vulnerable to a possible `NULL` access and crash. Version 3.5.1 contains a patch for the issue. No known workarounds are available.</description>
-      <guid isPermaLink="false">CVE-2024-32661|2024-08-02T02:13:40.396Z</guid>
-      <pubDate>Tue, 23 Apr 2024 20:05:50 +0000</pubDate>
-    </item>
-    <item>
-      <title>CVE-2024-32041|2024-08-02T02:06:42.833Z -- freerdp -- freerdp
-</title>
-      <link>https://www.cve.org/CVERecord?id=CVE-2024-32041</link>
-      <description>FreeRDP is a free implementation of the Remote Desktop Protocol. FreeRDP based clients that use a version of FreeRDP prior to 3.5.0 or 2.11.6 are vulnerable to out-of-bounds read. Versions 3.5.0 and 2.11.6 patch the issue. As a workaround, deactivate `/gfx` (on by default, set `/bpp` or `/rfx` options instead.</description>
-      <guid isPermaLink="false">CVE-2024-32041|2024-08-02T02:06:42.833Z</guid>
-      <pubDate>Mon, 22 Apr 2024 20:39:47 +0000</pubDate>
-    </item>
-    <item>
-      <title>CVE-2024-32460|2024-08-02T02:13:39.163Z -- freerdp -- freerdp
-</title>
-      <link>https://www.cve.org/CVERecord?id=CVE-2024-32460</link>
-      <description>FreeRDP is a free implementation of the Remote Desktop Protocol. FreeRDP based based clients using `/bpp:32` legacy `GDI` drawing path with a version of FreeRDP prior to 3.5.0 or 2.11.6 are vulnerable to out-of-bounds read. Versions 3.5.0 and 2.11.6 patch the issue. As a workaround, use modern drawing paths (e.g. `/rfx` or `/gfx` options). The workaround requires server side support.</description>
-      <guid isPermaLink="false">CVE-2024-32460|2024-08-02T02:13:39.163Z</guid>
-      <pubDate>Mon, 22 Apr 2024 21:49:30 +0000</pubDate>
-    </item>
-    <item>
-      <title>CVE-2024-32662|2024-08-02T02:13:40.282Z -- freerdp -- freerdp
-</title>
-      <link>https://www.cve.org/CVERecord?id=CVE-2024-32662</link>
-      <description>FreeRDP is a free implementation of the Remote Desktop Protocol. FreeRDP based clients prior to version 3.5.1 are vulnerable to out-of-bounds read. This occurs when `WCHAR` string is read with twice the size it has and converted to `UTF-8`, `base64` decoded. The string is only used to compare against the redirection server certificate. Version 3.5.1 contains a patch for the issue. No known workarounds are available.</description>
-      <guid isPermaLink="false">CVE-2024-32662|2024-08-02T02:13:40.282Z</guid>
-      <pubDate>Tue, 23 Apr 2024 20:17:30 +0000</pubDate>
-    </item>
-    <item>
-      <title>CVE-2024-32658|2024-07-26T19:34:55.765Z -- freerdp -- freerdp</title>
-      <link>https://www.cve.org/CVERecord?id=CVE-2024-32658</link>
-      <description>FreeRDP is a free implementation of the Remote Desktop Protocol. FreeRDP based clients prior to version 3.5.1 are vulnerable to out-of-bounds read. Version 3.5.1 contains a patch for the issue. No known workarounds are available.</description>
-      <guid isPermaLink="false">CVE-2024-32658|2024-07-26T19:34:55.765Z</guid>
-      <pubDate>Tue, 23 Apr 2024 17:41:21 +0000</pubDate>
-    </item>
-    <item>
-      <title>CVE-2024-32458|2024-07-26T14:58:25.074Z -- freerdp -- freerdp</title>
-      <link>https://www.cve.org/CVERecord?id=CVE-2024-32458</link>
-      <description>FreeRDP is a free implementation of the Remote Desktop Protocol. FreeRDP based clients that use a version of FreeRDP prior to 3.5.0 or 2.11.6 are vulnerable to out-of-bounds read. Versions 3.5.0 and 2.11.6 patch the issue. As a workaround, use `/gfx` or `/rfx` modes (on by default, require server side support).</description>
-      <guid isPermaLink="false">CVE-2024-32458|2024-07-26T14:58:25.074Z</guid>
-      <pubDate>Mon, 22 Apr 2024 20:52:45 +0000</pubDate>
-    </item>
-    <item>
-      <title>CVE-2024-32039|2024-07-26T14:58:59.987Z -- freerdp -- freerdp</title>
-      <link>https://www.cve.org/CVERecord?id=CVE-2024-32039</link>
-      <description>FreeRDP is a free implementation of the Remote Desktop Protocol. FreeRDP based clients using a version of FreeRDP prior to 3.5.0 or 2.11.6 are vulnerable to integer overflow and out-of-bounds write. Versions 3.5.0 and 2.11.6 patch the issue. As a workaround, do not use `/gfx` options (e.g. deactivate with `/bpp:32` or `/rfx` as it is on by default).</description>
-      <guid isPermaLink="false">CVE-2024-32039|2024-07-26T14:58:59.987Z</guid>
-      <pubDate>Mon, 22 Apr 2024 20:23:58 +0000</pubDate>
-    </item>
-    <item>
-      <title>CVE-2024-32460|2024-07-26T14:57:50.670Z -- freerdp -- freerdp</title>
-      <link>https://www.cve.org/CVERecord?id=CVE-2024-32460</link>
-      <description>FreeRDP is a free implementation of the Remote Desktop Protocol. FreeRDP based based clients using `/bpp:32` legacy `GDI` drawing path with a version of FreeRDP prior to 3.5.0 or 2.11.6 are vulnerable to out-of-bounds read. Versions 3.5.0 and 2.11.6 patch the issue. As a workaround, use modern drawing paths (e.g. `/rfx` or `/gfx` options). The workaround requires server side support.</description>
-      <guid isPermaLink="false">CVE-2024-32460|2024-07-26T14:57:50.670Z</guid>
-      <pubDate>Mon, 22 Apr 2024 21:49:30 +0000</pubDate>
-    </item>
-    <item>
-      <title>CVE-2024-32662|2024-07-26T14:55:46.952Z -- freerdp -- freerdp</title>
-      <link>https://www.cve.org/CVERecord?id=CVE-2024-32662</link>
-      <description>FreeRDP is a free implementation of the Remote Desktop Protocol. FreeRDP based clients prior to version 3.5.1 are vulnerable to out-of-bounds read. This occurs when `WCHAR` string is read with twice the size it has and converted to `UTF-8`, `base64` decoded. The string is only used to compare against the redirection server certificate. Version 3.5.1 contains a patch for the issue. No known workarounds are available.</description>
-      <guid isPermaLink="false">CVE-2024-32662|2024-07-26T14:55:46.952Z</guid>
-      <pubDate>Tue, 23 Apr 2024 20:17:30 +0000</pubDate>
-    </item>
-    <item>
-      <title>CVE-2024-32040|2024-04-22T20:36:45.439Z -- freerdp -- freerdp</title>
-      <link>https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2024-32040</link>
-      <description>FreeRDP is a free implementation of the Remote Desktop Protocol. FreeRDP based clients that use a version of FreeRDP prior to 3.5.0 or 2.11.6 and have connections to servers using the `NSC` codec are vulnerable to integer underflow. Versions 3.5.0 and 2.11.6 patch the issue. As a workaround, do not use the NSC codec (e.g. use `-nsc`).</description>
-      <guid isPermaLink="false">CVE-2024-32040|2024-04-22T20:36:45.439Z</guid>
-      <pubDate>Mon, 22 Apr 2024 20:36:45 +0000</pubDate>
-    </item>
-    <item>
-      <title>CVE-2024-32041|2024-04-22T20:39:47.048Z -- freerdp -- freerdp</title>
-      <link>https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2024-32041</link>
-      <description>FreeRDP is a free implementation of the Remote Desktop Protocol. FreeRDP based clients that use a version of FreeRDP prior to 3.5.0 or 2.11.6 are vulnerable to out-of-bounds read. Versions 3.5.0 and 2.11.6 patch the issue. As a workaround, deactivate `/gfx` (on by default, set `/bpp` or `/rfx` options instead.</description>
-      <guid isPermaLink="false">CVE-2024-32041|2024-04-22T20:39:47.048Z</guid>
-      <pubDate>Mon, 22 Apr 2024 20:39:47 +0000</pubDate>
-    </item>
-    <item>
-      <title>CVE-2024-32660|2024-04-23T20:04:09.052Z -- freerdp -- freerdp</title>
-      <link>https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2024-32660</link>
-      <description>FreeRDP is a free implementation of the Remote Desktop Protocol. Prior to version 3.5.1, a malicious server can crash the FreeRDP client by sending invalid huge allocation size. Version 3.5.1 contains a patch for the issue. No known workarounds are available.</description>
-      <guid isPermaLink="false">CVE-2024-32660|2024-04-23T20:04:09.052Z</guid>
-      <pubDate>Tue, 23 Apr 2024 20:03:28 +0000</pubDate>
-    </item>
-    <item>
-      <title>CVE-2024-32661|2024-04-23T20:05:50.310Z -- freerdp -- freerdp</title>
-      <link>https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2024-32661</link>
-      <description>FreeRDP is a free implementation of the Remote Desktop Protocol. FreeRDP based clients prior to version 3.5.1 are vulnerable to a possible `NULL` access and crash. Version 3.5.1 contains a patch for the issue. No known workarounds are available.</description>
-      <guid isPermaLink="false">CVE-2024-32661|2024-04-23T20:05:50.310Z</guid>
-      <pubDate>Tue, 23 Apr 2024 20:05:50 +0000</pubDate>
-    </item>
-    <item>
-      <title>CVE-2024-32460|2024-04-22T21:49:30.911Z -- freerdp -- freerdp</title>
-      <link>https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2024-32460</link>
-      <description>FreeRDP is a free implementation of the Remote Desktop Protocol. FreeRDP based based clients using `/bpp:32` legacy `GDI` drawing path with a version of FreeRDP prior to 3.5.0 or 2.11.6 are vulnerable to out-of-bounds read. Versions 3.5.0 and 2.11.6 patch the issue. As a workaround, use modern drawing paths (e.g. `/rfx` or `/gfx` options). The workaround requires server side support.</description>
-      <guid isPermaLink="false">CVE-2024-32460|2024-04-22T21:49:30.911Z</guid>
-      <pubDate>Mon, 22 Apr 2024 21:49:30 +0000</pubDate>
-    </item>
-    <item>
-      <title>CVE-2024-32662|2024-04-23T20:17:30.949Z -- freerdp -- freerdp</title>
-      <link>https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2024-32662</link>
-      <description>FreeRDP is a free implementation of the Remote Desktop Protocol. FreeRDP based clients prior to version 3.5.1 are vulnerable to out-of-bounds read. This occurs when `WCHAR` string is read with twice the size it has and converted to `UTF-8`, `base64` decoded. The string is only used to compare against the redirection server certificate. Version 3.5.1 contains a patch for the issue. No known workarounds are available.</description>
-      <guid isPermaLink="false">CVE-2024-32662|2024-04-23T20:17:30.949Z</guid>
-      <pubDate>Tue, 23 Apr 2024 20:17:30 +0000</pubDate>
-    </item>
-    <item>
-      <title>CVE-2024-32459|2024-04-22T21:32:57.478Z -- freerdp -- freerdp</title>
-      <link>https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2024-32459</link>
-      <description>FreeRDP is a free implementation of the Remote Desktop Protocol. FreeRDP based clients and servers that use a version of FreeRDP prior to 3.5.0 or 2.11.6 are vulnerable to out-of-bounds read. Versions 3.5.0 and 2.11.6 patch the issue. No known workarounds are available.</description>
-      <guid isPermaLink="false">CVE-2024-32459|2024-04-22T21:32:57.478Z</guid>
-      <pubDate>Mon, 22 Apr 2024 21:32:57 +0000</pubDate>
-    </item>
-    <item>
-      <title>CVE-2024-32658|2024-04-23T17:41:21.212Z -- freerdp -- freerdp</title>
-      <link>https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2024-32658</link>
-      <description>FreeRDP is a free implementation of the Remote Desktop Protocol. FreeRDP based clients prior to version 3.5.1 are vulnerable to out-of-bounds read. Version 3.5.1 contains a patch for the issue. No known workarounds are available.</description>
-      <guid isPermaLink="false">CVE-2024-32658|2024-04-23T17:41:21.212Z</guid>
-      <pubDate>Tue, 23 Apr 2024 17:41:21 +0000</pubDate>
-    </item>
-    <item>
-      <title>CVE-2024-32659|2024-04-23T19:40:24.919Z -- freerdp -- freerdp</title>
-      <link>https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2024-32659</link>
-      <description>FreeRDP is a free implementation of the Remote Desktop Protocol. FreeRDP based clients prior to version 3.5.1 are vulnerable to out-of-bounds read if `((nWidth == 0) and (nHeight == 0))`. Version 3.5.1 contains a patch for the issue. No known workarounds are available.</description>
-      <guid isPermaLink="false">CVE-2024-32659|2024-04-23T19:40:24.919Z</guid>
-      <pubDate>Tue, 23 Apr 2024 19:40:24 +0000</pubDate>
-    </item>
-    <item>
-      <title>CVE-2024-32458|2024-04-22T20:52:45.457Z -- freerdp -- freerdp</title>
-      <link>https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2024-32458</link>
-      <description>FreeRDP is a free implementation of the Remote Desktop Protocol. FreeRDP based clients that use a version of FreeRDP prior to 3.5.0 or 2.11.6 are vulnerable to out-of-bounds read. Versions 3.5.0 and 2.11.6 patch the issue. As a workaround, use `/gfx` or `/rfx` modes (on by default, require server side support).</description>
-      <guid isPermaLink="false">CVE-2024-32458|2024-04-22T20:52:45.457Z</guid>
-      <pubDate>Mon, 22 Apr 2024 20:52:45 +0000</pubDate>
-    </item>
-    <item>
-      <title>CVE-2024-32039|2024-04-22T20:23:58.360Z -- freerdp -- freerdp</title>
-      <link>https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2024-32039</link>
-      <description>FreeRDP is a free implementation of the Remote Desktop Protocol. FreeRDP based clients using a version of FreeRDP prior to 3.5.0 or 2.11.6 are vulnerable to integer overflow and out-of-bounds write. Versions 3.5.0 and 2.11.6 patch the issue. As a workaround, do not use `/gfx` options (e.g. deactivate with `/bpp:32` or `/rfx` as it is on by default).</description>
-      <guid isPermaLink="false">CVE-2024-32039|2024-04-22T20:23:58.360Z</guid>
-      <pubDate>Mon, 22 Apr 2024 20:23:58 +0000</pubDate>
-    </item>
-    <item>
-      <title>CVE-2024-32041|2024-07-26T15:00:28.225Z -- freerdp -- freerdp</title>
-      <link>https://www.cve.org/CVERecord?id=CVE-2024-32041</link>
-      <description>FreeRDP is a free implementation of the Remote Desktop Protocol. FreeRDP based clients that use a version of FreeRDP prior to 3.5.0 or 2.11.6 are vulnerable to out-of-bounds read. Versions 3.5.0 and 2.11.6 patch the issue. As a workaround, deactivate `/gfx` (on by default, set `/bpp` or `/rfx` options instead.</description>
-      <guid isPermaLink="false">CVE-2024-32041|2024-07-26T15:00:28.225Z</guid>
-      <pubDate>Mon, 22 Apr 2024 20:39:47 +0000</pubDate>
-    </item>
-    <item>
-      <title>CVE-2024-32661|2024-07-26T15:02:27.327Z -- freerdp -- freerdp</title>
-      <link>https://www.cve.org/CVERecord?id=CVE-2024-32661</link>
-      <description>FreeRDP is a free implementation of the Remote Desktop Protocol. FreeRDP based clients prior to version 3.5.1 are vulnerable to a possible `NULL` access and crash. Version 3.5.1 contains a patch for the issue. No known workarounds are available.</description>
-      <guid isPermaLink="false">CVE-2024-32661|2024-07-26T15:02:27.327Z</guid>
-      <pubDate>Tue, 23 Apr 2024 20:05:50 +0000</pubDate>
     </item>
     <item>
       <title>CVE-2024-32459|2024-07-26T15:01:51.457Z -- freerdp -- freerdp</title>
@@ -230,11 +162,207 @@
       <pubDate>Mon, 22 Apr 2024 21:32:57 +0000</pubDate>
     </item>
     <item>
-      <title>CVE-2024-32040|2024-07-26T15:01:11.371Z -- freerdp -- freerdp</title>
+      <title>CVE-2024-32661|2024-07-26T15:02:27.327Z -- freerdp -- freerdp</title>
+      <link>https://www.cve.org/CVERecord?id=CVE-2024-32661</link>
+      <description>FreeRDP is a free implementation of the Remote Desktop Protocol. FreeRDP based clients prior to version 3.5.1 are vulnerable to a possible `NULL` access and crash. Version 3.5.1 contains a patch for the issue. No known workarounds are available.</description>
+      <guid isPermaLink="false">CVE-2024-32661|2024-07-26T15:02:27.327Z</guid>
+      <pubDate>Tue, 23 Apr 2024 20:05:50 +0000</pubDate>
+    </item>
+    <item>
+      <title>CVE-2024-32041|2024-07-26T15:00:28.225Z -- freerdp -- freerdp</title>
+      <link>https://www.cve.org/CVERecord?id=CVE-2024-32041</link>
+      <description>FreeRDP is a free implementation of the Remote Desktop Protocol. FreeRDP based clients that use a version of FreeRDP prior to 3.5.0 or 2.11.6 are vulnerable to out-of-bounds read. Versions 3.5.0 and 2.11.6 patch the issue. As a workaround, deactivate `/gfx` (on by default, set `/bpp` or `/rfx` options instead.</description>
+      <guid isPermaLink="false">CVE-2024-32041|2024-07-26T15:00:28.225Z</guid>
+      <pubDate>Mon, 22 Apr 2024 20:39:47 +0000</pubDate>
+    </item>
+    <item>
+      <title>CVE-2024-32039|2024-04-22T20:23:58.360Z -- freerdp -- freerdp</title>
+      <link>https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2024-32039</link>
+      <description>FreeRDP is a free implementation of the Remote Desktop Protocol. FreeRDP based clients using a version of FreeRDP prior to 3.5.0 or 2.11.6 are vulnerable to integer overflow and out-of-bounds write. Versions 3.5.0 and 2.11.6 patch the issue. As a workaround, do not use `/gfx` options (e.g. deactivate with `/bpp:32` or `/rfx` as it is on by default).</description>
+      <guid isPermaLink="false">CVE-2024-32039|2024-04-22T20:23:58.360Z</guid>
+      <pubDate>Mon, 22 Apr 2024 20:23:58 +0000</pubDate>
+    </item>
+    <item>
+      <title>CVE-2024-32458|2024-04-22T20:52:45.457Z -- freerdp -- freerdp</title>
+      <link>https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2024-32458</link>
+      <description>FreeRDP is a free implementation of the Remote Desktop Protocol. FreeRDP based clients that use a version of FreeRDP prior to 3.5.0 or 2.11.6 are vulnerable to out-of-bounds read. Versions 3.5.0 and 2.11.6 patch the issue. As a workaround, use `/gfx` or `/rfx` modes (on by default, require server side support).</description>
+      <guid isPermaLink="false">CVE-2024-32458|2024-04-22T20:52:45.457Z</guid>
+      <pubDate>Mon, 22 Apr 2024 20:52:45 +0000</pubDate>
+    </item>
+    <item>
+      <title>CVE-2024-32659|2024-04-23T19:40:24.919Z -- freerdp -- freerdp</title>
+      <link>https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2024-32659</link>
+      <description>FreeRDP is a free implementation of the Remote Desktop Protocol. FreeRDP based clients prior to version 3.5.1 are vulnerable to out-of-bounds read if `((nWidth == 0) and (nHeight == 0))`. Version 3.5.1 contains a patch for the issue. No known workarounds are available.</description>
+      <guid isPermaLink="false">CVE-2024-32659|2024-04-23T19:40:24.919Z</guid>
+      <pubDate>Tue, 23 Apr 2024 19:40:24 +0000</pubDate>
+    </item>
+    <item>
+      <title>CVE-2024-32658|2024-04-23T17:41:21.212Z -- freerdp -- freerdp</title>
+      <link>https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2024-32658</link>
+      <description>FreeRDP is a free implementation of the Remote Desktop Protocol. FreeRDP based clients prior to version 3.5.1 are vulnerable to out-of-bounds read. Version 3.5.1 contains a patch for the issue. No known workarounds are available.</description>
+      <guid isPermaLink="false">CVE-2024-32658|2024-04-23T17:41:21.212Z</guid>
+      <pubDate>Tue, 23 Apr 2024 17:41:21 +0000</pubDate>
+    </item>
+    <item>
+      <title>CVE-2024-32459|2024-04-22T21:32:57.478Z -- freerdp -- freerdp</title>
+      <link>https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2024-32459</link>
+      <description>FreeRDP is a free implementation of the Remote Desktop Protocol. FreeRDP based clients and servers that use a version of FreeRDP prior to 3.5.0 or 2.11.6 are vulnerable to out-of-bounds read. Versions 3.5.0 and 2.11.6 patch the issue. No known workarounds are available.</description>
+      <guid isPermaLink="false">CVE-2024-32459|2024-04-22T21:32:57.478Z</guid>
+      <pubDate>Mon, 22 Apr 2024 21:32:57 +0000</pubDate>
+    </item>
+    <item>
+      <title>CVE-2024-32662|2024-04-23T20:17:30.949Z -- freerdp -- freerdp</title>
+      <link>https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2024-32662</link>
+      <description>FreeRDP is a free implementation of the Remote Desktop Protocol. FreeRDP based clients prior to version 3.5.1 are vulnerable to out-of-bounds read. This occurs when `WCHAR` string is read with twice the size it has and converted to `UTF-8`, `base64` decoded. The string is only used to compare against the redirection server certificate. Version 3.5.1 contains a patch for the issue. No known workarounds are available.</description>
+      <guid isPermaLink="false">CVE-2024-32662|2024-04-23T20:17:30.949Z</guid>
+      <pubDate>Tue, 23 Apr 2024 20:17:30 +0000</pubDate>
+    </item>
+    <item>
+      <title>CVE-2024-32460|2024-04-22T21:49:30.911Z -- freerdp -- freerdp</title>
+      <link>https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2024-32460</link>
+      <description>FreeRDP is a free implementation of the Remote Desktop Protocol. FreeRDP based based clients using `/bpp:32` legacy `GDI` drawing path with a version of FreeRDP prior to 3.5.0 or 2.11.6 are vulnerable to out-of-bounds read. Versions 3.5.0 and 2.11.6 patch the issue. As a workaround, use modern drawing paths (e.g. `/rfx` or `/gfx` options). The workaround requires server side support.</description>
+      <guid isPermaLink="false">CVE-2024-32460|2024-04-22T21:49:30.911Z</guid>
+      <pubDate>Mon, 22 Apr 2024 21:49:30 +0000</pubDate>
+    </item>
+    <item>
+      <title>CVE-2024-32661|2024-04-23T20:05:50.310Z -- freerdp -- freerdp</title>
+      <link>https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2024-32661</link>
+      <description>FreeRDP is a free implementation of the Remote Desktop Protocol. FreeRDP based clients prior to version 3.5.1 are vulnerable to a possible `NULL` access and crash. Version 3.5.1 contains a patch for the issue. No known workarounds are available.</description>
+      <guid isPermaLink="false">CVE-2024-32661|2024-04-23T20:05:50.310Z</guid>
+      <pubDate>Tue, 23 Apr 2024 20:05:50 +0000</pubDate>
+    </item>
+    <item>
+      <title>CVE-2024-32660|2024-04-23T20:04:09.052Z -- freerdp -- freerdp</title>
+      <link>https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2024-32660</link>
+      <description>FreeRDP is a free implementation of the Remote Desktop Protocol. Prior to version 3.5.1, a malicious server can crash the FreeRDP client by sending invalid huge allocation size. Version 3.5.1 contains a patch for the issue. No known workarounds are available.</description>
+      <guid isPermaLink="false">CVE-2024-32660|2024-04-23T20:04:09.052Z</guid>
+      <pubDate>Tue, 23 Apr 2024 20:03:28 +0000</pubDate>
+    </item>
+    <item>
+      <title>CVE-2024-32041|2024-04-22T20:39:47.048Z -- freerdp -- freerdp</title>
+      <link>https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2024-32041</link>
+      <description>FreeRDP is a free implementation of the Remote Desktop Protocol. FreeRDP based clients that use a version of FreeRDP prior to 3.5.0 or 2.11.6 are vulnerable to out-of-bounds read. Versions 3.5.0 and 2.11.6 patch the issue. As a workaround, deactivate `/gfx` (on by default, set `/bpp` or `/rfx` options instead.</description>
+      <guid isPermaLink="false">CVE-2024-32041|2024-04-22T20:39:47.048Z</guid>
+      <pubDate>Mon, 22 Apr 2024 20:39:47 +0000</pubDate>
+    </item>
+    <item>
+      <title>CVE-2024-32040|2024-04-22T20:36:45.439Z -- freerdp -- freerdp</title>
+      <link>https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2024-32040</link>
+      <description>FreeRDP is a free implementation of the Remote Desktop Protocol. FreeRDP based clients that use a version of FreeRDP prior to 3.5.0 or 2.11.6 and have connections to servers using the `NSC` codec are vulnerable to integer underflow. Versions 3.5.0 and 2.11.6 patch the issue. As a workaround, do not use the NSC codec (e.g. use `-nsc`).</description>
+      <guid isPermaLink="false">CVE-2024-32040|2024-04-22T20:36:45.439Z</guid>
+      <pubDate>Mon, 22 Apr 2024 20:36:45 +0000</pubDate>
+    </item>
+    <item>
+      <title>CVE-2024-32662|2024-07-26T14:55:46.952Z -- freerdp -- freerdp</title>
+      <link>https://www.cve.org/CVERecord?id=CVE-2024-32662</link>
+      <description>FreeRDP is a free implementation of the Remote Desktop Protocol. FreeRDP based clients prior to version 3.5.1 are vulnerable to out-of-bounds read. This occurs when `WCHAR` string is read with twice the size it has and converted to `UTF-8`, `base64` decoded. The string is only used to compare against the redirection server certificate. Version 3.5.1 contains a patch for the issue. No known workarounds are available.</description>
+      <guid isPermaLink="false">CVE-2024-32662|2024-07-26T14:55:46.952Z</guid>
+      <pubDate>Tue, 23 Apr 2024 20:17:30 +0000</pubDate>
+    </item>
+    <item>
+      <title>CVE-2024-32460|2024-07-26T14:57:50.670Z -- freerdp -- freerdp</title>
+      <link>https://www.cve.org/CVERecord?id=CVE-2024-32460</link>
+      <description>FreeRDP is a free implementation of the Remote Desktop Protocol. FreeRDP based based clients using `/bpp:32` legacy `GDI` drawing path with a version of FreeRDP prior to 3.5.0 or 2.11.6 are vulnerable to out-of-bounds read. Versions 3.5.0 and 2.11.6 patch the issue. As a workaround, use modern drawing paths (e.g. `/rfx` or `/gfx` options). The workaround requires server side support.</description>
+      <guid isPermaLink="false">CVE-2024-32460|2024-07-26T14:57:50.670Z</guid>
+      <pubDate>Mon, 22 Apr 2024 21:49:30 +0000</pubDate>
+    </item>
+    <item>
+      <title>CVE-2024-32039|2024-07-26T14:58:59.987Z -- freerdp -- freerdp</title>
+      <link>https://www.cve.org/CVERecord?id=CVE-2024-32039</link>
+      <description>FreeRDP is a free implementation of the Remote Desktop Protocol. FreeRDP based clients using a version of FreeRDP prior to 3.5.0 or 2.11.6 are vulnerable to integer overflow and out-of-bounds write. Versions 3.5.0 and 2.11.6 patch the issue. As a workaround, do not use `/gfx` options (e.g. deactivate with `/bpp:32` or `/rfx` as it is on by default).</description>
+      <guid isPermaLink="false">CVE-2024-32039|2024-07-26T14:58:59.987Z</guid>
+      <pubDate>Mon, 22 Apr 2024 20:23:58 +0000</pubDate>
+    </item>
+    <item>
+      <title>CVE-2024-32458|2024-07-26T14:58:25.074Z -- freerdp -- freerdp</title>
+      <link>https://www.cve.org/CVERecord?id=CVE-2024-32458</link>
+      <description>FreeRDP is a free implementation of the Remote Desktop Protocol. FreeRDP based clients that use a version of FreeRDP prior to 3.5.0 or 2.11.6 are vulnerable to out-of-bounds read. Versions 3.5.0 and 2.11.6 patch the issue. As a workaround, use `/gfx` or `/rfx` modes (on by default, require server side support).</description>
+      <guid isPermaLink="false">CVE-2024-32458|2024-07-26T14:58:25.074Z</guid>
+      <pubDate>Mon, 22 Apr 2024 20:52:45 +0000</pubDate>
+    </item>
+    <item>
+      <title>CVE-2024-32658|2024-07-26T19:34:55.765Z -- freerdp -- freerdp</title>
+      <link>https://www.cve.org/CVERecord?id=CVE-2024-32658</link>
+      <description>FreeRDP is a free implementation of the Remote Desktop Protocol. FreeRDP based clients prior to version 3.5.1 are vulnerable to out-of-bounds read. Version 3.5.1 contains a patch for the issue. No known workarounds are available.</description>
+      <guid isPermaLink="false">CVE-2024-32658|2024-07-26T19:34:55.765Z</guid>
+      <pubDate>Tue, 23 Apr 2024 17:41:21 +0000</pubDate>
+    </item>
+    <item>
+      <title>CVE-2024-32662|2024-08-02T02:13:40.282Z -- freerdp -- freerdp</title>
+      <link>https://www.cve.org/CVERecord?id=CVE-2024-32662</link>
+      <description>FreeRDP is a free implementation of the Remote Desktop Protocol. FreeRDP based clients prior to version 3.5.1 are vulnerable to out-of-bounds read. This occurs when `WCHAR` string is read with twice the size it has and converted to `UTF-8`, `base64` decoded. The string is only used to compare against the redirection server certificate. Version 3.5.1 contains a patch for the issue. No known workarounds are available.</description>
+      <guid isPermaLink="false">CVE-2024-32662|2024-08-02T02:13:40.282Z</guid>
+      <pubDate>Tue, 23 Apr 2024 20:17:30 +0000</pubDate>
+    </item>
+    <item>
+      <title>CVE-2024-32460|2024-08-02T02:13:39.163Z -- freerdp -- freerdp</title>
+      <link>https://www.cve.org/CVERecord?id=CVE-2024-32460</link>
+      <description>FreeRDP is a free implementation of the Remote Desktop Protocol. FreeRDP based based clients using `/bpp:32` legacy `GDI` drawing path with a version of FreeRDP prior to 3.5.0 or 2.11.6 are vulnerable to out-of-bounds read. Versions 3.5.0 and 2.11.6 patch the issue. As a workaround, use modern drawing paths (e.g. `/rfx` or `/gfx` options). The workaround requires server side support.</description>
+      <guid isPermaLink="false">CVE-2024-32460|2024-08-02T02:13:39.163Z</guid>
+      <pubDate>Mon, 22 Apr 2024 21:49:30 +0000</pubDate>
+    </item>
+    <item>
+      <title>CVE-2024-32041|2024-08-02T02:06:42.833Z -- freerdp -- freerdp</title>
+      <link>https://www.cve.org/CVERecord?id=CVE-2024-32041</link>
+      <description>FreeRDP is a free implementation of the Remote Desktop Protocol. FreeRDP based clients that use a version of FreeRDP prior to 3.5.0 or 2.11.6 are vulnerable to out-of-bounds read. Versions 3.5.0 and 2.11.6 patch the issue. As a workaround, deactivate `/gfx` (on by default, set `/bpp` or `/rfx` options instead.</description>
+      <guid isPermaLink="false">CVE-2024-32041|2024-08-02T02:06:42.833Z</guid>
+      <pubDate>Mon, 22 Apr 2024 20:39:47 +0000</pubDate>
+    </item>
+    <item>
+      <title>CVE-2024-32661|2024-08-02T02:13:40.396Z -- freerdp -- freerdp</title>
+      <link>https://www.cve.org/CVERecord?id=CVE-2024-32661</link>
+      <description>FreeRDP is a free implementation of the Remote Desktop Protocol. FreeRDP based clients prior to version 3.5.1 are vulnerable to a possible `NULL` access and crash. Version 3.5.1 contains a patch for the issue. No known workarounds are available.</description>
+      <guid isPermaLink="false">CVE-2024-32661|2024-08-02T02:13:40.396Z</guid>
+      <pubDate>Tue, 23 Apr 2024 20:05:50 +0000</pubDate>
+    </item>
+    <item>
+      <title>CVE-2024-32039|2024-08-02T02:06:42.839Z -- freerdp -- freerdp</title>
+      <link>https://www.cve.org/CVERecord?id=CVE-2024-32039</link>
+      <description>FreeRDP is a free implementation of the Remote Desktop Protocol. FreeRDP based clients using a version of FreeRDP prior to 3.5.0 or 2.11.6 are vulnerable to integer overflow and out-of-bounds write. Versions 3.5.0 and 2.11.6 patch the issue. As a workaround, do not use `/gfx` options (e.g. deactivate with `/bpp:32` or `/rfx` as it is on by default).</description>
+      <guid isPermaLink="false">CVE-2024-32039|2024-08-02T02:06:42.839Z</guid>
+      <pubDate>Mon, 22 Apr 2024 20:23:58 +0000</pubDate>
+    </item>
+    <item>
+      <title>CVE-2024-32459|2024-08-02T02:13:39.162Z -- freerdp -- freerdp</title>
+      <link>https://www.cve.org/CVERecord?id=CVE-2024-32459</link>
+      <description>FreeRDP is a free implementation of the Remote Desktop Protocol. FreeRDP based clients and servers that use a version of FreeRDP prior to 3.5.0 or 2.11.6 are vulnerable to out-of-bounds read. Versions 3.5.0 and 2.11.6 patch the issue. No known workarounds are available.</description>
+      <guid isPermaLink="false">CVE-2024-32459|2024-08-02T02:13:39.162Z</guid>
+      <pubDate>Mon, 22 Apr 2024 21:32:57 +0000</pubDate>
+    </item>
+    <item>
+      <title>CVE-2024-32658|2024-08-02T02:13:40.479Z -- freerdp -- freerdp</title>
+      <link>https://www.cve.org/CVERecord?id=CVE-2024-32658</link>
+      <description>FreeRDP is a free implementation of the Remote Desktop Protocol. FreeRDP based clients prior to version 3.5.1 are vulnerable to out-of-bounds read. Version 3.5.1 contains a patch for the issue. No known workarounds are available.</description>
+      <guid isPermaLink="false">CVE-2024-32658|2024-08-02T02:13:40.479Z</guid>
+      <pubDate>Tue, 23 Apr 2024 17:41:21 +0000</pubDate>
+    </item>
+    <item>
+      <title>CVE-2024-32458|2024-08-02T02:13:38.977Z -- freerdp -- freerdp</title>
+      <link>https://www.cve.org/CVERecord?id=CVE-2024-32458</link>
+      <description>FreeRDP is a free implementation of the Remote Desktop Protocol. FreeRDP based clients that use a version of FreeRDP prior to 3.5.0 or 2.11.6 are vulnerable to out-of-bounds read. Versions 3.5.0 and 2.11.6 patch the issue. As a workaround, use `/gfx` or `/rfx` modes (on by default, require server side support).</description>
+      <guid isPermaLink="false">CVE-2024-32458|2024-08-02T02:13:38.977Z</guid>
+      <pubDate>Mon, 22 Apr 2024 20:52:45 +0000</pubDate>
+    </item>
+    <item>
+      <title>CVE-2024-32660|2024-08-02T02:13:40.338Z -- freerdp -- freerdp</title>
+      <link>https://www.cve.org/CVERecord?id=CVE-2024-32660</link>
+      <description>FreeRDP is a free implementation of the Remote Desktop Protocol. Prior to version 3.5.1, a malicious server can crash the FreeRDP client by sending invalid huge allocation size. Version 3.5.1 contains a patch for the issue. No known workarounds are available.</description>
+      <guid isPermaLink="false">CVE-2024-32660|2024-08-02T02:13:40.338Z</guid>
+      <pubDate>Tue, 23 Apr 2024 20:03:28 +0000</pubDate>
+    </item>
+    <item>
+      <title>CVE-2024-32040|2024-08-02T02:06:42.838Z -- freerdp -- freerdp</title>
       <link>https://www.cve.org/CVERecord?id=CVE-2024-32040</link>
       <description>FreeRDP is a free implementation of the Remote Desktop Protocol. FreeRDP based clients that use a version of FreeRDP prior to 3.5.0 or 2.11.6 and have connections to servers using the `NSC` codec are vulnerable to integer underflow. Versions 3.5.0 and 2.11.6 patch the issue. As a workaround, do not use the NSC codec (e.g. use `-nsc`).</description>
-      <guid isPermaLink="false">CVE-2024-32040|2024-07-26T15:01:11.371Z</guid>
+      <guid isPermaLink="false">CVE-2024-32040|2024-08-02T02:06:42.838Z</guid>
       <pubDate>Mon, 22 Apr 2024 20:36:45 +0000</pubDate>
+    </item>
+    <item>
+      <title>CVE-2024-32659|2024-08-02T02:13:40.331Z -- freerdp -- freerdp</title>
+      <link>https://www.cve.org/CVERecord?id=CVE-2024-32659</link>
+      <description>FreeRDP is a free implementation of the Remote Desktop Protocol. FreeRDP based clients prior to version 3.5.1 are vulnerable to out-of-bounds read if `((nWidth == 0) and (nHeight == 0))`. Version 3.5.1 contains a patch for the issue. No known workarounds are available.</description>
+      <guid isPermaLink="false">CVE-2024-32659|2024-08-02T02:13:40.331Z</guid>
+      <pubDate>Tue, 23 Apr 2024 19:40:24 +0000</pubDate>
     </item>
   </channel>
 </rss>

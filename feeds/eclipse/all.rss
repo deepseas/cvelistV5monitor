@@ -6,7 +6,7 @@
     <description>The latest CVEs for Eclipse -- all products</description>
     <docs>http://www.rssboard.org/rss-specification</docs>
     <generator>python-feedgen</generator>
-    <lastBuildDate>Fri, 02 Aug 2024 18:24:51 +0000</lastBuildDate>
+    <lastBuildDate>Fri, 02 Aug 2024 19:19:58 +0000</lastBuildDate>
     <ttl>60</ttl>
     <item>
       <title>CVE-2023-3592|2024-08-02T07:01:56.716Z -- eclipse -- mosquitto
@@ -49,6 +49,14 @@
       <description>Jetty is a java based web server and servlet engine. Nonstandard cookie parsing in Jetty may allow an attacker to smuggle cookies within other cookies, or otherwise perform unintended behavior by tampering with the cookie parsing mechanism. If Jetty sees a cookie VALUE that starts with `"` (double quote), it will continue to read the cookie string until it sees a closing quote -- even if a semicolon is encountered. So, a cookie header such as: `DISPLAY_LANGUAGE="b; JSESSIONID=1337; c=d"` will be parsed as one cookie, with the name DISPLAY_LANGUAGE and a value of b; JSESSIONID=1337; c=d instead of 3 separate cookies. This has security implications because if, say, JSESSIONID is an HttpOnly cookie, and the DISPLAY_LANGUAGE cookie value is rendered on the page, an attacker can smuggle the JSESSIONID cookie into the DISPLAY_LANGUAGE cookie and thereby exfiltrate it. This is significant when an intermediary is enacting some policy based on cookies, so a smuggled cookie can bypass that policy yet still be seen by the Jetty server or its logging system. This issue has been addressed in versions 9.4.51, 10.0.14, 11.0.14, and 12.0.0.beta0 and users are advised to upgrade. There are no known workarounds for this issue.</description>
       <guid isPermaLink="false">CVE-2023-26049|2024-08-02T11:39:06.483Z</guid>
       <pubDate>Tue, 18 Apr 2023 20:35:36 +0000</pubDate>
+    </item>
+    <item>
+      <title>CVE-2023-40167|2024-08-02T18:24:55.674Z -- eclipse -- jetty.project
+</title>
+      <link>https://www.cve.org/CVERecord?id=CVE-2023-40167</link>
+      <description>Jetty is a Java based web server and servlet engine. Prior to versions 9.4.52, 10.0.16, 11.0.16, and 12.0.1, Jetty accepts the `+` character proceeding the content-length value in a HTTP/1 header field.  This is more permissive than allowed by the RFC and other servers routinely reject such requests with 400 responses.  There is no known exploit scenario, but it is conceivable that request smuggling could result if jetty is used in combination with a server that does not close the connection after sending such a 400 response. Versions 9.4.52, 10.0.16, 11.0.16, and 12.0.1 contain a patch for this issue. There is no workaround as there is no known exploit scenario.</description>
+      <guid isPermaLink="false">CVE-2023-40167|2024-08-02T18:24:55.674Z</guid>
+      <pubDate>Fri, 15 Sep 2023 19:37:37 +0000</pubDate>
     </item>
     <item>
       <title>CVE-2023-36478|2024-08-02T16:45:57.038Z -- eclipse -- jetty.project

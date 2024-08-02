@@ -6,33 +6,33 @@
     <description>The latest CVEs for wiremock -- all products</description>
     <docs>http://www.rssboard.org/rss-specification</docs>
     <generator>python-feedgen</generator>
-    <lastBuildDate>Wed, 12 Jun 2024 11:24:36 +0000</lastBuildDate>
+    <lastBuildDate>Fri, 02 Aug 2024 19:20:24 +0000</lastBuildDate>
     <ttl>60</ttl>
     <item>
-      <title>CVE-2023-39967|2023-09-06T20:40:43.679Z -- wiremock -- wiremock
+      <title>CVE-2023-41327|2024-08-02T19:01:33.620Z -- wiremock -- wiremock
 </title>
-      <link>https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2023-39967</link>
-      <description>WireMock is a tool for mocking HTTP services. When certain request URLs like “@127.0.0.1:1234" are used in WireMock Studio configuration fields, the request might be forwarded to an arbitrary service reachable from WireMock’s instance. There are 3 identified potential attack vectors: via “TestRequester” functionality, webhooks and the proxy mode. As we can control HTTP Method, HTTP Headers, HTTP Data, it allows sending requests with the default level of credentials for the WireMock instance. The vendor has discontinued the affected Wiremock studio product and there will be no fix. Users are advised to find alternatives.</description>
-      <guid isPermaLink="false">CVE-2023-39967|2023-09-06T20:40:43.679Z</guid>
-      <pubDate>Wed, 06 Sep 2023 20:40:43 +0000</pubDate>
-    </item>
-    <item>
-      <title>CVE-2023-41327|2023-09-06T20:38:45.161Z -- wiremock -- wiremock
-</title>
-      <link>https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2023-41327</link>
+      <link>https://www.cve.org/CVERecord?id=CVE-2023-41327</link>
       <description>WireMock is a tool for mocking HTTP services. WireMock can be configured to only permit proxying (and therefore recording) to certain addresses. This is achieved via a list of allowed address rules and a list of denied address rules, where the allowed list is evaluated first. 
 
 Until WireMock Webhooks Extension 3.0.0-beta-15, the filtering of target addresses from the proxy mode DID NOT work for Webhooks, so the users were potentially vulnerable regardless of the `limitProxyTargets` settings. Via the WireMock webhooks configuration, POST requests from a webhook might be forwarded to an arbitrary service reachable from WireMock’s instance. For example, If someone is running the WireMock docker Container inside a private cluster, they can trigger internal POST requests against unsecured APIs or even against secure ones by passing a token, discovered using another exploit, via authentication headers. This issue has been addressed in versions 2.35.1 and 3.0.3 of wiremock. Wiremock studio has been discontinued and will not see a fix. Users unable to upgrade should use external firewall rules to define the list of permitted destinations.</description>
-      <guid isPermaLink="false">CVE-2023-41327|2023-09-06T20:38:45.161Z</guid>
+      <guid isPermaLink="false">CVE-2023-41327|2024-08-02T19:01:33.620Z</guid>
       <pubDate>Wed, 06 Sep 2023 20:38:45 +0000</pubDate>
     </item>
     <item>
-      <title>CVE-2023-41329|2023-09-06T20:34:46.867Z -- wiremock -- wiremock
+      <title>CVE-2023-41329|2024-08-02T19:01:35.275Z -- wiremock -- wiremock
 </title>
-      <link>https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2023-41329</link>
+      <link>https://www.cve.org/CVERecord?id=CVE-2023-41329</link>
       <description>WireMock is a tool for mocking HTTP services. The proxy mode of WireMock, can be protected by the network restrictions configuration, as documented in Preventing proxying to and recording from specific target addresses. These restrictions can be configured using the domain names, and in such a case the configuration is vulnerable to the DNS rebinding attacks. A similar patch was applied in WireMock 3.0.0-beta-15 for the WireMock Webhook Extensions. The root cause of the attack is a defect in the logic which allows for a race condition triggered by a DNS server whose address expires in between the initial validation and the outbound network request that might go to a domain that was supposed to be prohibited. Control over a DNS service is required to exploit this attack, so it has high execution complexity and limited impact. This issue has been addressed in version 2.35.1 of wiremock-jre8 and wiremock-jre8-standalone, version 3.0.3 of wiremock and wiremock-standalone, version 2.6.1 of the python version of wiremock, and versions 2.35.1-1 and 3.0.3-1 of the wiremock/wiremock Docker container. Users are advised to upgrade. Users unable to upgrade should either configure firewall rules to define the list of permitted destinations or to configure WireMock to use IP addresses instead of the domain names.</description>
-      <guid isPermaLink="false">CVE-2023-41329|2023-09-06T20:34:46.867Z</guid>
+      <guid isPermaLink="false">CVE-2023-41329|2024-08-02T19:01:35.275Z</guid>
       <pubDate>Wed, 06 Sep 2023 20:34:46 +0000</pubDate>
+    </item>
+    <item>
+      <title>CVE-2023-39967|2024-08-02T18:18:10.120Z -- wiremock -- wiremock
+</title>
+      <link>https://www.cve.org/CVERecord?id=CVE-2023-39967</link>
+      <description>WireMock is a tool for mocking HTTP services. When certain request URLs like “@127.0.0.1:1234" are used in WireMock Studio configuration fields, the request might be forwarded to an arbitrary service reachable from WireMock’s instance. There are 3 identified potential attack vectors: via “TestRequester” functionality, webhooks and the proxy mode. As we can control HTTP Method, HTTP Headers, HTTP Data, it allows sending requests with the default level of credentials for the WireMock instance. The vendor has discontinued the affected Wiremock studio product and there will be no fix. Users are advised to find alternatives.</description>
+      <guid isPermaLink="false">CVE-2023-39967|2024-08-02T18:18:10.120Z</guid>
+      <pubDate>Wed, 06 Sep 2023 20:40:43 +0000</pubDate>
     </item>
   </channel>
 </rss>

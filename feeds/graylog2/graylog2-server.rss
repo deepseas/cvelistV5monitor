@@ -6,15 +6,42 @@
     <description>The latest CVEs for Graylog2 -- graylog2-server</description>
     <docs>http://www.rssboard.org/rss-specification</docs>
     <generator>python-feedgen</generator>
-    <lastBuildDate>Fri, 05 Jul 2024 18:24:02 +0000</lastBuildDate>
+    <lastBuildDate>Fri, 02 Aug 2024 19:20:10 +0000</lastBuildDate>
     <ttl>60</ttl>
     <item>
-      <title>CVE-2024-24823|2024-07-05T17:22:48.251Z -- graylog2 -- graylog2-server
+      <title>CVE-2023-41045|2024-08-02T18:46:11.839Z -- graylog2 -- graylog2-server
 </title>
-      <link>https://www.cve.org/CVERecord?id=CVE-2024-24823</link>
-      <description>Graylog is a free and open log management platform. Starting in version 4.3.0 and prior to versions 5.1.11 and 5.2.4, reauthenticating with an existing session cookie would re-use that session id, even if for different user credentials. In this case, the pre-existing session could be used to gain elevated access to an existing Graylog login session, provided the malicious user could successfully inject their session cookie into someone else's browser. The complexity of such an attack is high, because it requires presenting a spoofed login screen and injection of a session cookie into an existing browser, potentially through a cross-site scripting attack. No such attack has been discovered. Graylog 5.1.11 and 5.2.4, and any versions of the 6.0 development branch, contain patches to not re-use sessions under any circumstances. Some workarounds are available. Using short session expiration and explicit log outs of unused sessions can help limiting the attack vector. Unpatched this vulnerability exists, but is relatively hard to exploit. A proxy could be leveraged to clear the `authentication` cookie for the Graylog server URL for the `/api/system/sessions` endpoint, as that is the only one vulnerable.</description>
-      <guid isPermaLink="false">CVE-2024-24823|2024-07-05T17:22:48.251Z</guid>
-      <pubDate>Wed, 07 Feb 2024 17:21:20 +0000</pubDate>
+      <link>https://www.cve.org/CVERecord?id=CVE-2023-41045</link>
+      <description>Graylog is a free and open log management platform. Graylog makes use of only one single source port for DNS queries. Graylog binds a single socket for outgoing DNS queries and while that socket is bound to a random port number it is never changed again. This goes against recommended practice since 2008, when Dan Kaminsky discovered how easy is to carry out DNS cache poisoning attacks. In order to prevent cache poisoning with spoofed DNS responses, it is necessary to maximise the uncertainty in the choice of a source port for a DNS query. Although unlikely in many setups, an external attacker could inject forged DNS responses into a Graylog's lookup table cache. In order to prevent this, it is at least recommendable to distribute the DNS queries through a pool of distinct sockets, each of them with a random source port and renew them periodically. This issue has been addressed in versions 5.0.9 and 5.1.3. Users are advised to upgrade. There are no known workarounds for this issue.</description>
+      <guid isPermaLink="false">CVE-2023-41045|2024-08-02T18:46:11.839Z</guid>
+      <pubDate>Thu, 31 Aug 2023 17:59:41 +0000</pubDate>
+    </item>
+    <item>
+      <title>CVE-2023-41041|2024-08-02T18:46:11.543Z -- graylog2 -- graylog2-server
+</title>
+      <link>https://www.cve.org/CVERecord?id=CVE-2023-41041</link>
+      <description>Graylog is a free and open log management platform. In a multi-node Graylog cluster, after a user has explicitly logged out, a user session may still be used for API requests until it has reached its original expiry time. Each node maintains an in-memory cache of user sessions. Upon a cache-miss, the session is loaded from the database. After that, the node operates solely on the cached session. Modifications to sessions will update the cached version as well as the session persisted in the database. However, each node maintains their isolated version of the session. When the user logs out, the session is removed from the node-local cache and deleted from the database. The other nodes will however still use the cached session. These nodes will only fail to accept the session id if they intent to update the session in the database. They will then notice that the session is gone. This is true for most API requests originating from user interaction with the Graylog UI because these will lead to an update of the session's "last access" timestamp. If the session update is however prevented by setting the `X-Graylog-No-Session-Extension:true` header in the request, the node will consider the (cached) session valid until the session is expired according to its timeout setting. No session identifiers are leaked. After a user has logged out, the UI shows the login screen again, which gives the user the impression that their session is not valid anymore. However, if the session becomes compromised later, it can still be used to perform API requests against the Graylog cluster. The time frame for this is limited to the configured session lifetime, starting from the time when the user logged out. This issue has been addressed in versions 5.0.9 and 5.1.3. Users are advised to upgrade.
+
+
+</description>
+      <guid isPermaLink="false">CVE-2023-41041|2024-08-02T18:46:11.543Z</guid>
+      <pubDate>Wed, 30 Aug 2023 21:03:40 +0000</pubDate>
+    </item>
+    <item>
+      <title>CVE-2023-41044|2024-08-02T18:46:11.487Z -- graylog2 -- graylog2-server
+</title>
+      <link>https://www.cve.org/CVERecord?id=CVE-2023-41044</link>
+      <description>Graylog is a free and open log management platform. A partial path traversal vulnerability exists in Graylog's `Support Bundle` feature. The vulnerability is caused by incorrect user input validation in an HTTP API resource. Graylog's Support Bundle feature allows an attacker with valid Admin role credentials to download or delete files in sibling directories of the support bundle directory. The default `data_dir` in operating system packages (DEB, RPM) is set to `/var/lib/graylog-server`. The data directory for the Support Bundle feature is always `&lt;data_dir&gt;/support-bundle`. Due to the partial path traversal vulnerability, an attacker with valid Admin role credentials can read or delete files in directories that start with a `/var/lib/graylog-server/support-bundle` directory name. The vulnerability would allow the download or deletion of files in the following example directories: `/var/lib/graylog-server/support-bundle-test` and `/var/lib/graylog-server/support-bundlesdirectory`. For the Graylog Docker images, the `data_dir` is set to `/usr/share/graylog/data` by default. This vulnerability is fixed in Graylog version 5.1.3 and later. Users are advised to upgrade. Users unable to upgrade should block all HTTP requests to the following HTTP API endpoints by using a reverse proxy server in front of Graylog. `GET /api/system/debug/support/bundle/download/{filename}` and `DELETE /api/system/debug/support/bundle/{filename}`.
+</description>
+      <guid isPermaLink="false">CVE-2023-41044|2024-08-02T18:46:11.487Z</guid>
+      <pubDate>Thu, 31 Aug 2023 17:10:08 +0000</pubDate>
+    </item>
+    <item>
+      <title>CVE-2024-24824|2024-02-07T17:25:20.102Z -- graylog2 -- graylog2-server</title>
+      <link>https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2024-24824</link>
+      <description>Graylog is a free and open log management platform. Starting in version 2.0.0 and prior to versions 5.1.11 and 5.2.4, arbitrary classes can be loaded and instantiated using a HTTP PUT request to the `/api/system/cluster_config/` endpoint. Graylog's cluster config system uses fully qualified class names as config keys. To validate the existence of the requested class before using them, Graylog loads the class using the class loader. If a user with the appropriate permissions performs the request, arbitrary classes with 1-arg String constructors can be instantiated. This will execute arbitrary code that is run during class instantiation. In the specific use case of `java.io.File`, the behavior of the internal web-server stack will lead to information exposure by including the entire file content in the response to the REST request. Versions 5.1.11 and 5.2.4 contain a fix for this issue.</description>
+      <guid isPermaLink="false">CVE-2024-24824|2024-02-07T17:25:20.102Z</guid>
+      <pubDate>Wed, 07 Feb 2024 17:25:20 +0000</pubDate>
     </item>
     <item>
       <title>CVE-2024-24823|2024-02-07T17:21:20.492Z -- graylog2 -- graylog2-server</title>
@@ -24,11 +51,11 @@
       <pubDate>Wed, 07 Feb 2024 17:21:20 +0000</pubDate>
     </item>
     <item>
-      <title>CVE-2024-24824|2024-02-07T17:25:20.102Z -- graylog2 -- graylog2-server</title>
-      <link>https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2024-24824</link>
-      <description>Graylog is a free and open log management platform. Starting in version 2.0.0 and prior to versions 5.1.11 and 5.2.4, arbitrary classes can be loaded and instantiated using a HTTP PUT request to the `/api/system/cluster_config/` endpoint. Graylog's cluster config system uses fully qualified class names as config keys. To validate the existence of the requested class before using them, Graylog loads the class using the class loader. If a user with the appropriate permissions performs the request, arbitrary classes with 1-arg String constructors can be instantiated. This will execute arbitrary code that is run during class instantiation. In the specific use case of `java.io.File`, the behavior of the internal web-server stack will lead to information exposure by including the entire file content in the response to the REST request. Versions 5.1.11 and 5.2.4 contain a fix for this issue.</description>
-      <guid isPermaLink="false">CVE-2024-24824|2024-02-07T17:25:20.102Z</guid>
-      <pubDate>Wed, 07 Feb 2024 17:25:20 +0000</pubDate>
+      <title>CVE-2024-24823|2024-07-05T17:22:48.251Z -- graylog2 -- graylog2-server</title>
+      <link>https://www.cve.org/CVERecord?id=CVE-2024-24823</link>
+      <description>Graylog is a free and open log management platform. Starting in version 4.3.0 and prior to versions 5.1.11 and 5.2.4, reauthenticating with an existing session cookie would re-use that session id, even if for different user credentials. In this case, the pre-existing session could be used to gain elevated access to an existing Graylog login session, provided the malicious user could successfully inject their session cookie into someone else's browser. The complexity of such an attack is high, because it requires presenting a spoofed login screen and injection of a session cookie into an existing browser, potentially through a cross-site scripting attack. No such attack has been discovered. Graylog 5.1.11 and 5.2.4, and any versions of the 6.0 development branch, contain patches to not re-use sessions under any circumstances. Some workarounds are available. Using short session expiration and explicit log outs of unused sessions can help limiting the attack vector. Unpatched this vulnerability exists, but is relatively hard to exploit. A proxy could be leveraged to clear the `authentication` cookie for the Graylog server URL for the `/api/system/sessions` endpoint, as that is the only one vulnerable.</description>
+      <guid isPermaLink="false">CVE-2024-24823|2024-07-05T17:22:48.251Z</guid>
+      <pubDate>Wed, 07 Feb 2024 17:21:20 +0000</pubDate>
     </item>
   </channel>
 </rss>

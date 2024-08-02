@@ -6,31 +6,23 @@
     <description>The latest CVEs for signalwire -- freeswitch</description>
     <docs>http://www.rssboard.org/rss-specification</docs>
     <generator>python-feedgen</generator>
-    <lastBuildDate>Wed, 12 Jun 2024 11:24:30 +0000</lastBuildDate>
+    <lastBuildDate>Fri, 02 Aug 2024 19:20:01 +0000</lastBuildDate>
     <ttl>60</ttl>
     <item>
-      <title>CVE-2023-51443|2023-12-27T16:30:48.425Z -- signalwire -- freeswitch
+      <title>CVE-2023-40018|2024-08-02T18:24:54.689Z -- signalwire -- freeswitch
 </title>
-      <link>https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2023-51443</link>
-      <description>FreeSWITCH is a Software Defined Telecom Stack enabling the digital transformation from proprietary telecom switches to a software implementation that runs on any commodity hardware. Prior to version 1.10.11, when handling DTLS-SRTP for media setup, FreeSWITCH is susceptible to Denial of Service due to a race condition in the hello handshake phase of the DTLS protocol. This attack can be done continuously, thus denying new DTLS-SRTP encrypted calls during the attack. If an attacker manages to send a ClientHello DTLS message with an invalid CipherSuite (such as `TLS_NULL_WITH_NULL_NULL`) to the port on the FreeSWITCH server that is expecting packets from the caller, a DTLS error is generated. This results in the media session being torn down, which is followed by teardown at signaling (SIP) level too. Abuse of this vulnerability may lead to a massive Denial of Service on vulnerable FreeSWITCH servers for calls that rely on DTLS-SRTP. To address this vulnerability, upgrade FreeSWITCH to 1.10.11 which includes the security fix. The solution implemented is to drop all packets from addresses that have not been validated by an ICE check.</description>
-      <guid isPermaLink="false">CVE-2023-51443|2023-12-27T16:30:48.425Z</guid>
-      <pubDate>Wed, 27 Dec 2023 16:30:48 +0000</pubDate>
-    </item>
-    <item>
-      <title>CVE-2023-40019|2023-09-15T19:34:32.429Z -- signalwire -- freeswitch
-</title>
-      <link>https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2023-40019</link>
-      <description>FreeSWITCH is a Software Defined Telecom Stack enabling the digital transformation from proprietary telecom switches to a software implementation that runs on any commodity hardware. Prior to version 1.10.10, FreeSWITCH allows authorized users to cause a denial of service attack by sending re-INVITE with SDP containing duplicate codec names. When a call in FreeSWITCH completes codec negotiation, the `codec_string` channel variable is set with the result of the negotiation. On a subsequent re-negotiation, if an SDP is offered that contains codecs with the same names but with different formats, there may be too many codec matches detected by FreeSWITCH leading to overflows of its internal arrays. By abusing this vulnerability, an attacker is able to corrupt stack of FreeSWITCH leading to an undefined behavior of the system or simply crash it. Version 1.10.10 contains a patch for this issue.</description>
-      <guid isPermaLink="false">CVE-2023-40019|2023-09-15T19:34:32.429Z</guid>
-      <pubDate>Fri, 15 Sep 2023 19:34:32 +0000</pubDate>
-    </item>
-    <item>
-      <title>CVE-2023-40018|2023-09-15T19:32:19.207Z -- signalwire -- freeswitch
-</title>
-      <link>https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2023-40018</link>
+      <link>https://www.cve.org/CVERecord?id=CVE-2023-40018</link>
       <description>FreeSWITCH is a Software Defined Telecom Stack enabling the digital transformation from proprietary telecom switches to a software implementation that runs on any commodity hardware. Prior to version 1.10.10, FreeSWITCH allows remote users to trigger out of bounds write by offering an ICE candidate with unknown component ID. When an SDP is offered with any ICE candidates with an unknown component ID, FreeSWITCH will make an out of bounds write to its  arrays. By abusing this vulnerability, an attacker is able to corrupt FreeSWITCH memory leading to an undefined behavior of the system or a crash of it. Version 1.10.10 contains a patch for this issue.</description>
-      <guid isPermaLink="false">CVE-2023-40018|2023-09-15T19:32:19.207Z</guid>
+      <guid isPermaLink="false">CVE-2023-40018|2024-08-02T18:24:54.689Z</guid>
       <pubDate>Fri, 15 Sep 2023 19:32:19 +0000</pubDate>
+    </item>
+    <item>
+      <title>CVE-2023-40019|2024-08-02T18:24:54.547Z -- signalwire -- freeswitch
+</title>
+      <link>https://www.cve.org/CVERecord?id=CVE-2023-40019</link>
+      <description>FreeSWITCH is a Software Defined Telecom Stack enabling the digital transformation from proprietary telecom switches to a software implementation that runs on any commodity hardware. Prior to version 1.10.10, FreeSWITCH allows authorized users to cause a denial of service attack by sending re-INVITE with SDP containing duplicate codec names. When a call in FreeSWITCH completes codec negotiation, the `codec_string` channel variable is set with the result of the negotiation. On a subsequent re-negotiation, if an SDP is offered that contains codecs with the same names but with different formats, there may be too many codec matches detected by FreeSWITCH leading to overflows of its internal arrays. By abusing this vulnerability, an attacker is able to corrupt stack of FreeSWITCH leading to an undefined behavior of the system or simply crash it. Version 1.10.10 contains a patch for this issue.</description>
+      <guid isPermaLink="false">CVE-2023-40019|2024-08-02T18:24:54.547Z</guid>
+      <pubDate>Fri, 15 Sep 2023 19:34:32 +0000</pubDate>
     </item>
   </channel>
 </rss>
