@@ -6,77 +6,24 @@
     <description>The latest CVEs for minio -- all products</description>
     <docs>http://www.rssboard.org/rss-specification</docs>
     <generator>python-feedgen</generator>
-    <lastBuildDate>Wed, 12 Jun 2024 11:24:21 +0000</lastBuildDate>
+    <lastBuildDate>Fri, 02 Aug 2024 04:24:24 +0000</lastBuildDate>
     <ttl>60</ttl>
     <item>
-      <title>CVE-2023-28432|2023-03-27T00:08:29.261163Z -- minio -- minio
+      <title>CVE-2024-36107|2024-08-02T03:30:13.046Z -- minio -- minio
 </title>
-      <link>https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2023-28432</link>
-      <description>Minio is a Multi-Cloud Object Storage framework. In a cluster deployment starting with RELEASE.2019-12-17T23-16-33Z and prior to RELEASE.2023-03-20T20-16-18Z, MinIO returns all environment variables, including `MINIO_SECRET_KEY`
-and `MINIO_ROOT_PASSWORD`, resulting in information disclosure. All users of distributed deployment are impacted. All users are advised to upgrade to RELEASE.2023-03-20T20-16-18Z.</description>
-      <guid isPermaLink="false">CVE-2023-28432|2023-03-27T00:08:29.261163Z</guid>
-      <pubDate>Wed, 22 Mar 2023 20:16:38 +0000</pubDate>
+      <link>https://www.cve.org/CVERecord?id=CVE-2024-36107</link>
+      <description>MinIO is a High Performance Object Storage released under GNU Affero General Public License v3.0. `If-Modified-Since` and `If-Unmodified-Since` headers when used with anonymous requests by sending a random object name requests can be used to determine if an object exists or not on the server on a specific bucket and also gain access to some amount of
+information such as  `Last-Modified (of the latest version)`, `Etag (of the latest version)`, `x-amz-version-id (of the latest version)`, `Expires (metadata value of the latest version)`, `Cache-Control (metadata value of the latest version)`. This conditional check was being honored before validating if the anonymous access is indeed allowed on the metadata of an object. This issue has been addressed in commit `e0fe7cc3917`. Users must upgrade to RELEASE.2024-05-27T19-17-46Z for the fix. There are no known workarounds for this issue.</description>
+      <guid isPermaLink="false">CVE-2024-36107|2024-08-02T03:30:13.046Z</guid>
+      <pubDate>Tue, 28 May 2024 18:50:51 +0000</pubDate>
     </item>
     <item>
-      <title>CVE-2023-28433|2023-03-22T20:33:43.452Z -- minio -- minio
-</title>
-      <link>https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2023-28433</link>
-      <description>Minio is a Multi-Cloud Object Storage framework. All users on Windows prior to version RELEASE.2023-03-20T20-16-18Z are impacted. MinIO fails to filter the `\` character, which allows for arbitrary object placement across buckets. As a result, a user with low privileges, such as an access key, service account, or STS credential, which only has permission to `PutObject` in a specific bucket, can create an admin user. This issue is patched in RELEASE.2023-03-20T20-16-18Z. There are no known workarounds.</description>
-      <guid isPermaLink="false">CVE-2023-28433|2023-03-22T20:33:43.452Z</guid>
-      <pubDate>Wed, 22 Mar 2023 20:33:43 +0000</pubDate>
-    </item>
-    <item>
-      <title>CVE-2023-28434|2023-03-22T20:44:04.216Z -- minio -- minio
-</title>
-      <link>https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2023-28434</link>
-      <description>Minio is a Multi-Cloud Object Storage framework. Prior to RELEASE.2023-03-20T20-16-18Z, an attacker can use crafted requests to bypass metadata bucket name checking and put an object into any bucket while processing `PostPolicyBucket`. To carry out this attack, the attacker requires credentials with `arn:aws:s3:::*` permission, as well as enabled Console API access. This issue has been patched in RELEASE.2023-03-20T20-16-18Z. As a workaround, enable browser API access and turn off `MINIO_BROWSER=off`. 
-</description>
-      <guid isPermaLink="false">CVE-2023-28434|2023-03-22T20:44:04.216Z</guid>
-      <pubDate>Wed, 22 Mar 2023 20:44:04 +0000</pubDate>
-    </item>
-    <item>
-      <title>CVE-2023-27589|2023-03-14T18:22:35.884Z -- minio -- minio
-</title>
-      <link>https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2023-27589</link>
-      <description>Minio is a Multi-Cloud Object Storage framework. Starting with RELEASE.2020-12-23T02-24-12Z and prior to RELEASE.2023-03-13T19-46-17Z, a user with `consoleAdmin` permissions can potentially create a user that matches the root credential `accessKey`. Once this user is created successfully, the root credential ceases to work appropriately. The issue is patched in RELEASE.2023-03-13T19-46-17Z. There are ways to work around this via adding higher privileges to the disabled root user via `mc admin policy set`.</description>
-      <guid isPermaLink="false">CVE-2023-27589|2023-03-14T18:22:35.884Z</guid>
-      <pubDate>Tue, 14 Mar 2023 18:22:35 +0000</pubDate>
-    </item>
-    <item>
-      <title>CVE-2023-33955|2023-05-30T06:34:08.578Z -- minio -- console
-</title>
-      <link>https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2023-33955</link>
-      <description>Minio Console is the UI for MinIO Object Storage. Unicode RIGHT-TO-LEFT OVERRIDE characters can be used to mask the original filename. This issue has been patched in version 0.28.0.
-
-</description>
-      <guid isPermaLink="false">CVE-2023-33955|2023-05-30T06:34:08.578Z</guid>
-      <pubDate>Tue, 30 May 2023 06:34:08 +0000</pubDate>
-    </item>
-    <item>
-      <title>CVE-2023-25812|2023-02-21T20:32:34.798Z -- minio -- minio
-</title>
-      <link>https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2023-25812</link>
-      <description>Minio is a Multi-Cloud Object Storage framework. Affected versions do not correctly honor a `Deny` policy on ByPassGoverance. Ideally, minio should return "Access Denied" to all users attempting to DELETE a versionId  with the special header `X-Amz-Bypass-Governance-Retention: true`.  However, this was not honored instead the request will be honored and an object under governance would be incorrectly deleted.  All users are advised to upgrade. There are no known workarounds for this issue.
-</description>
-      <guid isPermaLink="false">CVE-2023-25812|2023-02-21T20:32:34.798Z</guid>
-      <pubDate>Tue, 21 Feb 2023 20:32:34 +0000</pubDate>
-    </item>
-    <item>
-      <title>CVE-2024-36107|2024-05-28T18:50:51.013Z -- minio -- minio
-</title>
+      <title>CVE-2024-36107|2024-05-28T18:50:51.013Z -- minio -- minio</title>
       <link>https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2024-36107</link>
       <description>MinIO is a High Performance Object Storage released under GNU Affero General Public License v3.0. `If-Modified-Since` and `If-Unmodified-Since` headers when used with anonymous requests by sending a random object name requests can be used to determine if an object exists or not on the server on a specific bucket and also gain access to some amount of
 information such as  `Last-Modified (of the latest version)`, `Etag (of the latest version)`, `x-amz-version-id (of the latest version)`, `Expires (metadata value of the latest version)`, `Cache-Control (metadata value of the latest version)`. This conditional check was being honored before validating if the anonymous access is indeed allowed on the metadata of an object. This issue has been addressed in commit `e0fe7cc3917`. Users must upgrade to RELEASE.2024-05-27T19-17-46Z for the fix. There are no known workarounds for this issue.</description>
       <guid isPermaLink="false">CVE-2024-36107|2024-05-28T18:50:51.013Z</guid>
       <pubDate>Tue, 28 May 2024 18:50:51 +0000</pubDate>
-    </item>
-    <item>
-      <title>CVE-2024-24747|2024-06-06T14:14:48.455Z -- minio -- minio
-</title>
-      <link>https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2024-24747</link>
-      <description>MinIO is a High Performance Object Storage. When someone creates an access key, it inherits the permissions of the parent key. Not only for `s3:*` actions, but also `admin:*` actions. Which means unless somewhere above in the access-key hierarchy, the `admin` rights are denied, access keys will be able to simply override their own `s3` permissions to something more permissive. The vulnerability is fixed in RELEASE.2024-01-31T20-20-33Z.</description>
-      <guid isPermaLink="false">CVE-2024-24747|2024-06-06T14:14:48.455Z</guid>
-      <pubDate>Wed, 31 Jan 2024 22:10:23 +0000</pubDate>
     </item>
   </channel>
 </rss>

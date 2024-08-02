@@ -6,44 +6,22 @@
     <description>The latest CVEs for awslabs -- all products</description>
     <docs>http://www.rssboard.org/rss-specification</docs>
     <generator>python-feedgen</generator>
-    <lastBuildDate>Wed, 12 Jun 2024 11:24:22 +0000</lastBuildDate>
+    <lastBuildDate>Fri, 02 Aug 2024 04:24:30 +0000</lastBuildDate>
     <ttl>60</ttl>
     <item>
-      <title>CVE-2023-36467|2023-06-28T13:55:06.163Z -- awslabs -- aws-dataall
+      <title>CVE-2024-37293|2024-08-02T03:50:55.744Z -- awslabs -- aws-deployment-framework
 </title>
-      <link>https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2023-36467</link>
-      <description>AWS data.all is an open source development framework to help users build a data marketplace on Amazon Web Services. data.all versions 1.2.0 through 1.5.1 do not prevent remote code execution when a user injects Python commands into the ‘Template’ field when configuring a data pipeline. The issue can only be triggered by authenticated users. A fix for this issue is available in data.all version 1.5.2 and later. There is no recommended work around.</description>
-      <guid isPermaLink="false">CVE-2023-36467|2023-06-28T13:55:06.163Z</guid>
-      <pubDate>Wed, 28 Jun 2023 13:55:06 +0000</pubDate>
+      <link>https://www.cve.org/CVERecord?id=CVE-2024-37293</link>
+      <description>The AWS Deployment Framework (ADF) is a framework to manage and deploy resources across multiple AWS accounts and regions within an AWS Organization. ADF allows for staged, parallel, multi-account, cross-region deployments of applications or resources via the structure defined in AWS Organizations while taking advantage of services such as AWS CodePipeline, AWS CodeBuild, and AWS CodeCommit to alleviate the heavy lifting and management compared to a traditional CI/CD setup. ADF contains a bootstrap process that is responsible to deploy ADF's bootstrap stacks to facilitate multi-account cross-region deployments. The ADF bootstrap process relies on elevated privileges to perform this task. Two versions of the bootstrap process exist; a code-change driven pipeline using AWS CodeBuild and an event-driven state machine using AWS Lambda. If an actor has permissions to change the behavior of the CodeBuild project or the Lambda function, they would be able to escalate their privileges.
+
+Prior to version 4.0.0, the bootstrap CodeBuild role provides access to the `sts:AssumeRole` operation without further restrictions. Therefore, it is able to assume into any AWS Account in the AWS Organization with the elevated privileges provided by the cross-account access role. By default, this role is not restricted when it is created by AWS Organizations, providing Administrator level access to the AWS resources in the AWS Account. The patches for this issue are included in `aws-deployment-framework` version 4.0.0.
+
+As a temporary mitigation, add a permissions boundary to the roles created by ADF in the management account. The permissions boundary should deny all IAM and STS actions. This permissions boundary should be in place until you upgrade ADF or bootstrap a new account. While the permissions boundary is in place, the account management and bootstrapping of accounts are unable to create, update, or assume into roles. This mitigates the privilege escalation risk, but also disables ADF's ability to create, manage, and bootstrap accounts.</description>
+      <guid isPermaLink="false">CVE-2024-37293|2024-08-02T03:50:55.744Z</guid>
+      <pubDate>Tue, 11 Jun 2024 16:49:33 +0000</pubDate>
     </item>
     <item>
-      <title>CVE-2023-51386|2023-12-22T21:58:58.714Z -- awslabs -- sandbox-accounts-for-events
-</title>
-      <link>https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2023-51386</link>
-      <description>Sandbox Accounts for Events provides multiple, temporary AWS accounts to a number of authenticated users simultaneously via a browser-based GUI. Authenticated users could potentially read data from the events table by sending request payloads to the events API, collecting information on planned events, timeframes, budgets and owner email addresses. This data access may allow users to get insights into upcoming events and join events which they have not been invited to. This issue has been patched in version 1.10.0.</description>
-      <guid isPermaLink="false">CVE-2023-51386|2023-12-22T21:58:58.714Z</guid>
-      <pubDate>Fri, 22 Dec 2023 21:58:58 +0000</pubDate>
-    </item>
-    <item>
-      <title>CVE-2023-30610|2023-04-19T17:18:54.703Z -- awslabs -- aws-sdk-rust
-</title>
-      <link>https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2023-30610</link>
-      <description>aws-sigv4 is a rust library for low level request signing in the aws cloud platform. The `aws_sigv4::SigningParams` struct had a derived `Debug` implementation. When debug-formatted, it would include a user's AWS access key, AWS secret key, and security token in plaintext. When TRACE-level logging is enabled for an SDK, `SigningParams` is printed, thereby revealing those credentials to anyone with access to logs. All users of the AWS SDK for Rust who enabled TRACE-level logging, either globally (e.g. `RUST_LOG=trace`), or for the `aws-sigv4` crate specifically are affected. This issue has been addressed in a set of new releases. Users are advised to upgrade. Users unable to upgrade should disable TRACE-level logging for AWS Rust SDK crates.
-</description>
-      <guid isPermaLink="false">CVE-2023-30610|2023-04-19T17:18:54.703Z</guid>
-      <pubDate>Wed, 19 Apr 2023 17:18:54 +0000</pubDate>
-    </item>
-    <item>
-      <title>CVE-2023-50928|2023-12-22T21:00:49.814Z -- awslabs -- sandbox-accounts-for-events
-</title>
-      <link>https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2023-50928</link>
-      <description>"Sandbox Accounts for Events" provides multiple, temporary AWS accounts to a number of authenticated users simultaneously via a browser-based GUI. Authenticated users could potentially claim and access empty AWS accounts by sending request payloads to the account API containing non-existent event ids and self-defined budget &amp; duration. This issue only affects cleaned AWS accounts, it is not possible to access AWS accounts in use or existing data/infrastructure. This issue has been patched in version 1.1.0.</description>
-      <guid isPermaLink="false">CVE-2023-50928|2023-12-22T21:00:49.814Z</guid>
-      <pubDate>Fri, 22 Dec 2023 21:00:49 +0000</pubDate>
-    </item>
-    <item>
-      <title>CVE-2024-37293|2024-06-11T18:40:23.322Z -- awslabs -- aws-deployment-framework
-</title>
+      <title>CVE-2024-37293|2024-06-11T18:40:23.322Z -- awslabs -- aws-deployment-framework</title>
       <link>https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2024-37293</link>
       <description>The AWS Deployment Framework (ADF) is a framework to manage and deploy resources across multiple AWS accounts and regions within an AWS Organization. ADF allows for staged, parallel, multi-account, cross-region deployments of applications or resources via the structure defined in AWS Organizations while taking advantage of services such as AWS CodePipeline, AWS CodeBuild, and AWS CodeCommit to alleviate the heavy lifting and management compared to a traditional CI/CD setup. ADF contains a bootstrap process that is responsible to deploy ADF's bootstrap stacks to facilitate multi-account cross-region deployments. The ADF bootstrap process relies on elevated privileges to perform this task. Two versions of the bootstrap process exist; a code-change driven pipeline using AWS CodeBuild and an event-driven state machine using AWS Lambda. If an actor has permissions to change the behavior of the CodeBuild project or the Lambda function, they would be able to escalate their privileges.
 

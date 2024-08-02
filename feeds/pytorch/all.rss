@@ -6,22 +6,30 @@
     <description>The latest CVEs for pytorch -- all products</description>
     <docs>http://www.rssboard.org/rss-specification</docs>
     <generator>python-feedgen</generator>
-    <lastBuildDate>Thu, 01 Aug 2024 22:22:42 +0000</lastBuildDate>
+    <lastBuildDate>Fri, 02 Aug 2024 04:24:28 +0000</lastBuildDate>
     <ttl>60</ttl>
     <item>
-      <title>CVE-2024-5480|2024-08-01T21:11:12.859Z -- pytorch -- pytorch%2Fpytorch
+      <title>CVE-2024-35199|2024-08-02T03:07:46.885Z -- pytorch -- serve
 </title>
-      <link>https://www.cve.org/CVERecord?id=CVE-2024-5480</link>
-      <description>A vulnerability in the PyTorch's torch.distributed.rpc framework, specifically in versions prior to 2.2.2, allows for remote code execution (RCE). The framework, which is used in distributed training scenarios, does not properly verify the functions being called during RPC (Remote Procedure Call) operations. This oversight permits attackers to execute arbitrary commands by leveraging built-in Python functions such as eval during multi-cpu RPC communication. The vulnerability arises from the lack of restriction on function calls when a worker node serializes and sends a PythonUDF (User Defined Function) to the master node, which then deserializes and executes the function without validation. This flaw can be exploited to compromise master nodes initiating distributed training, potentially leading to the theft of sensitive AI-related data.</description>
-      <guid isPermaLink="false">CVE-2024-5480|2024-08-01T21:11:12.859Z</guid>
-      <pubDate>Thu, 06 Jun 2024 18:17:40 +0000</pubDate>
+      <link>https://www.cve.org/CVERecord?id=CVE-2024-35199</link>
+      <description>TorchServe is a flexible and easy-to-use tool for serving and scaling PyTorch models in production. In affected versions the two gRPC ports 7070 and 7071, are not bound to [localhost](http://localhost/) by default, so when TorchServe is launched, these two interfaces are bound to all interfaces. Customers using PyTorch inference Deep Learning Containers (DLC) through Amazon SageMaker and EKS are not affected. This issue in TorchServe has been fixed in PR #3083. TorchServe release 0.11.0 includes the fix to address this vulnerability. Users are advised to upgrade. There are no known workarounds for this vulnerability.</description>
+      <guid isPermaLink="false">CVE-2024-35199|2024-08-02T03:07:46.885Z</guid>
+      <pubDate>Thu, 18 Jul 2024 22:40:06 +0000</pubDate>
     </item>
     <item>
-      <title>CVE-2024-5480|2024-06-06T20:21:37.796Z -- pytorch -- pytorch%2Fpytorch</title>
-      <link>https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2024-5480</link>
-      <description>A vulnerability in the PyTorch's torch.distributed.rpc framework, specifically in versions prior to 2.2.2, allows for remote code execution (RCE). The framework, which is used in distributed training scenarios, does not properly verify the functions being called during RPC (Remote Procedure Call) operations. This oversight permits attackers to execute arbitrary commands by leveraging built-in Python functions such as eval during multi-cpu RPC communication. The vulnerability arises from the lack of restriction on function calls when a worker node serializes and sends a PythonUDF (User Defined Function) to the master node, which then deserializes and executes the function without validation. This flaw can be exploited to compromise master nodes initiating distributed training, potentially leading to the theft of sensitive AI-related data.</description>
-      <guid isPermaLink="false">CVE-2024-5480|2024-06-06T20:21:37.796Z</guid>
-      <pubDate>Thu, 06 Jun 2024 18:17:40 +0000</pubDate>
+      <title>CVE-2024-35198|2024-08-02T03:07:46.750Z -- pytorch -- serve
+</title>
+      <link>https://www.cve.org/CVERecord?id=CVE-2024-35198</link>
+      <description>TorchServe is a flexible and easy-to-use tool for serving and scaling PyTorch models in production. TorchServe 's check on allowed_urls configuration can be by-passed if the URL contains characters such as ".." but it does not prevent the model from being downloaded into the model store. Once a file is downloaded, it can be referenced without providing a URL the second time, which effectively bypasses the allowed_urls security check. Customers using PyTorch inference Deep Learning Containers (DLC) through Amazon SageMaker and EKS are not affected. This issue in TorchServe has been fixed by validating the URL without characters such as ".." before downloading see PR #3082. TorchServe release 0.11.0 includes the fix to address this vulnerability. Users are advised to upgrade. There are no known workarounds for this vulnerability.</description>
+      <guid isPermaLink="false">CVE-2024-35198|2024-08-02T03:07:46.750Z</guid>
+      <pubDate>Thu, 18 Jul 2024 22:40:08 +0000</pubDate>
+    </item>
+    <item>
+      <title>CVE-2024-35198|2024-07-19T16:58:12.450Z -- pytorch -- serve</title>
+      <link>https://www.cve.org/CVERecord?id=CVE-2024-35198</link>
+      <description>TorchServe is a flexible and easy-to-use tool for serving and scaling PyTorch models in production. TorchServe 's check on allowed_urls configuration can be by-passed if the URL contains characters such as ".." but it does not prevent the model from being downloaded into the model store. Once a file is downloaded, it can be referenced without providing a URL the second time, which effectively bypasses the allowed_urls security check. Customers using PyTorch inference Deep Learning Containers (DLC) through Amazon SageMaker and EKS are not affected. This issue in TorchServe has been fixed by validating the URL without characters such as ".." before downloading see PR #3082. TorchServe release 0.11.0 includes the fix to address this vulnerability. Users are advised to upgrade. There are no known workarounds for this vulnerability.</description>
+      <guid isPermaLink="false">CVE-2024-35198|2024-07-19T16:58:12.450Z</guid>
+      <pubDate>Thu, 18 Jul 2024 22:40:08 +0000</pubDate>
     </item>
     <item>
       <title>CVE-2024-35199|2024-07-19T16:57:14.131Z -- pytorch -- serve</title>
@@ -31,11 +39,18 @@
       <pubDate>Thu, 18 Jul 2024 22:40:06 +0000</pubDate>
     </item>
     <item>
-      <title>CVE-2024-35198|2024-07-19T16:58:12.450Z -- pytorch -- serve</title>
-      <link>https://www.cve.org/CVERecord?id=CVE-2024-35198</link>
-      <description>TorchServe is a flexible and easy-to-use tool for serving and scaling PyTorch models in production. TorchServe 's check on allowed_urls configuration can be by-passed if the URL contains characters such as ".." but it does not prevent the model from being downloaded into the model store. Once a file is downloaded, it can be referenced without providing a URL the second time, which effectively bypasses the allowed_urls security check. Customers using PyTorch inference Deep Learning Containers (DLC) through Amazon SageMaker and EKS are not affected. This issue in TorchServe has been fixed by validating the URL without characters such as ".." before downloading see PR #3082. TorchServe release 0.11.0 includes the fix to address this vulnerability. Users are advised to upgrade. There are no known workarounds for this vulnerability.</description>
-      <guid isPermaLink="false">CVE-2024-35198|2024-07-19T16:58:12.450Z</guid>
-      <pubDate>Thu, 18 Jul 2024 22:40:08 +0000</pubDate>
+      <title>CVE-2024-5480|2024-06-06T20:21:37.796Z -- pytorch -- pytorch%2Fpytorch</title>
+      <link>https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2024-5480</link>
+      <description>A vulnerability in the PyTorch's torch.distributed.rpc framework, specifically in versions prior to 2.2.2, allows for remote code execution (RCE). The framework, which is used in distributed training scenarios, does not properly verify the functions being called during RPC (Remote Procedure Call) operations. This oversight permits attackers to execute arbitrary commands by leveraging built-in Python functions such as eval during multi-cpu RPC communication. The vulnerability arises from the lack of restriction on function calls when a worker node serializes and sends a PythonUDF (User Defined Function) to the master node, which then deserializes and executes the function without validation. This flaw can be exploited to compromise master nodes initiating distributed training, potentially leading to the theft of sensitive AI-related data.</description>
+      <guid isPermaLink="false">CVE-2024-5480|2024-06-06T20:21:37.796Z</guid>
+      <pubDate>Thu, 06 Jun 2024 18:17:40 +0000</pubDate>
+    </item>
+    <item>
+      <title>CVE-2024-5480|2024-08-01T21:11:12.859Z -- pytorch -- pytorch%2Fpytorch</title>
+      <link>https://www.cve.org/CVERecord?id=CVE-2024-5480</link>
+      <description>A vulnerability in the PyTorch's torch.distributed.rpc framework, specifically in versions prior to 2.2.2, allows for remote code execution (RCE). The framework, which is used in distributed training scenarios, does not properly verify the functions being called during RPC (Remote Procedure Call) operations. This oversight permits attackers to execute arbitrary commands by leveraging built-in Python functions such as eval during multi-cpu RPC communication. The vulnerability arises from the lack of restriction on function calls when a worker node serializes and sends a PythonUDF (User Defined Function) to the master node, which then deserializes and executes the function without validation. This flaw can be exploited to compromise master nodes initiating distributed training, potentially leading to the theft of sensitive AI-related data.</description>
+      <guid isPermaLink="false">CVE-2024-5480|2024-08-01T21:11:12.859Z</guid>
+      <pubDate>Thu, 06 Jun 2024 18:17:40 +0000</pubDate>
     </item>
   </channel>
 </rss>
