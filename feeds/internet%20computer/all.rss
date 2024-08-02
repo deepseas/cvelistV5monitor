@@ -6,7 +6,7 @@
     <description>The latest CVEs for Internet Computer -- all products</description>
     <docs>http://www.rssboard.org/rss-specification</docs>
     <generator>python-feedgen</generator>
-    <lastBuildDate>Fri, 02 Aug 2024 20:23:51 +0000</lastBuildDate>
+    <lastBuildDate>Fri, 02 Aug 2024 21:22:44 +0000</lastBuildDate>
     <ttl>60</ttl>
     <item>
       <title>CVE-2023-6245|2024-08-02T08:21:17.978Z -- internet%20computer -- candid
@@ -30,21 +30,10 @@ will result in degraded performance of the canister. Note: Canisters written in 
       <pubDate>Fri, 08 Dec 2023 14:26:09 +0000</pubDate>
     </item>
     <item>
-      <title>CVE-2024-4435|2024-08-01T20:40:47.180Z -- internet%20computer -- ic-stable-structures</title>
-      <link>https://www.cve.org/CVERecord?id=CVE-2024-4435</link>
-      <description>When storing unbounded types in a BTreeMap, a node is represented as a linked list of "memory chunks". It was discovered recently that when we deallocate a node, in some cases only the first memory chunk is deallocated, and the rest of the memory chunks remain (incorrectly) allocated, causing a memory leak. In the worst case, depending on how a canister uses the BTreeMap, an adversary could interact with the canister through its API and trigger interactions with the map that keep consuming memory due to the memory leak. This could potentially lead to using an excessive amount of memory, or even running out of memory.
-
-This issue has been fixed in  #212 https://github.com/dfinity/stable-structures/pull/212  by changing the logic for deallocating nodes to ensure that all of a node's memory chunks are deallocated and users are asked to upgrade to version 0.6.4.. Tests have been added to prevent regressions of this nature moving forward. Note: Users of stable-structure &lt; 0.6.0 are not affected.
-
-Users who are not storing unbounded types in BTreeMap are not affected and do not need to upgrade. Otherwise, an upgrade to version 0.6.4 is necessary.</description>
-      <guid isPermaLink="false">CVE-2024-4435|2024-08-01T20:40:47.180Z</guid>
-      <pubDate>Tue, 21 May 2024 09:41:35 +0000</pubDate>
-    </item>
-    <item>
-      <title>CVE-2024-1631|2024-02-21T05:09:43.340Z -- internet%20computer -- agent-js</title>
-      <link>https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2024-1631</link>
+      <title>CVE-2024-1631|2024-08-01T18:48:20.675Z -- internet%20computer -- agent-js</title>
+      <link>https://www.cve.org/CVERecord?id=CVE-2024-1631</link>
       <description>Impact: The library offers a function to generate an ed25519 key pair via Ed25519KeyIdentity.generate with an optional param to provide a 32 byte seed value, which will then be used as the secret key. When no seed value is provided, it is expected that the library generates the secret key using secure randomness. However, a recent change broke this guarantee and uses an insecure seed for key pair generation. Since the private key of this identity (535yc-uxytb-gfk7h-tny7p-vjkoe-i4krp-3qmcl-uqfgr-cpgej-yqtjq-rqe) is compromised, one could lose funds associated with the principal on ledgers or lose access to a canister where this principal is the controller.</description>
-      <guid isPermaLink="false">CVE-2024-1631|2024-02-21T05:09:43.340Z</guid>
+      <guid isPermaLink="false">CVE-2024-1631|2024-08-01T18:48:20.675Z</guid>
       <pubDate>Wed, 21 Feb 2024 02:12:38 +0000</pubDate>
     </item>
     <item>
@@ -59,11 +48,22 @@ Users who are not storing unbounded types in BTreeMap are not affected and do n
       <pubDate>Tue, 21 May 2024 09:41:35 +0000</pubDate>
     </item>
     <item>
-      <title>CVE-2024-1631|2024-08-01T18:48:20.675Z -- internet%20computer -- agent-js</title>
-      <link>https://www.cve.org/CVERecord?id=CVE-2024-1631</link>
+      <title>CVE-2024-1631|2024-02-21T05:09:43.340Z -- internet%20computer -- agent-js</title>
+      <link>https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2024-1631</link>
       <description>Impact: The library offers a function to generate an ed25519 key pair via Ed25519KeyIdentity.generate with an optional param to provide a 32 byte seed value, which will then be used as the secret key. When no seed value is provided, it is expected that the library generates the secret key using secure randomness. However, a recent change broke this guarantee and uses an insecure seed for key pair generation. Since the private key of this identity (535yc-uxytb-gfk7h-tny7p-vjkoe-i4krp-3qmcl-uqfgr-cpgej-yqtjq-rqe) is compromised, one could lose funds associated with the principal on ledgers or lose access to a canister where this principal is the controller.</description>
-      <guid isPermaLink="false">CVE-2024-1631|2024-08-01T18:48:20.675Z</guid>
+      <guid isPermaLink="false">CVE-2024-1631|2024-02-21T05:09:43.340Z</guid>
       <pubDate>Wed, 21 Feb 2024 02:12:38 +0000</pubDate>
+    </item>
+    <item>
+      <title>CVE-2024-4435|2024-08-01T20:40:47.180Z -- internet%20computer -- ic-stable-structures</title>
+      <link>https://www.cve.org/CVERecord?id=CVE-2024-4435</link>
+      <description>When storing unbounded types in a BTreeMap, a node is represented as a linked list of "memory chunks". It was discovered recently that when we deallocate a node, in some cases only the first memory chunk is deallocated, and the rest of the memory chunks remain (incorrectly) allocated, causing a memory leak. In the worst case, depending on how a canister uses the BTreeMap, an adversary could interact with the canister through its API and trigger interactions with the map that keep consuming memory due to the memory leak. This could potentially lead to using an excessive amount of memory, or even running out of memory.
+
+This issue has been fixed in  #212 https://github.com/dfinity/stable-structures/pull/212  by changing the logic for deallocating nodes to ensure that all of a node's memory chunks are deallocated and users are asked to upgrade to version 0.6.4.. Tests have been added to prevent regressions of this nature moving forward. Note: Users of stable-structure &lt; 0.6.0 are not affected.
+
+Users who are not storing unbounded types in BTreeMap are not affected and do not need to upgrade. Otherwise, an upgrade to version 0.6.4 is necessary.</description>
+      <guid isPermaLink="false">CVE-2024-4435|2024-08-01T20:40:47.180Z</guid>
+      <pubDate>Tue, 21 May 2024 09:41:35 +0000</pubDate>
     </item>
   </channel>
 </rss>

@@ -6,8 +6,16 @@
     <description>The latest CVEs for tauri-apps -- tauri</description>
     <docs>http://www.rssboard.org/rss-specification</docs>
     <generator>python-feedgen</generator>
-    <lastBuildDate>Fri, 02 Aug 2024 20:23:22 +0000</lastBuildDate>
+    <lastBuildDate>Fri, 02 Aug 2024 21:22:15 +0000</lastBuildDate>
     <ttl>60</ttl>
+    <item>
+      <title>CVE-2023-46115|2024-08-02T20:37:39.516Z -- tauri-apps -- tauri
+</title>
+      <link>https://www.cve.org/CVERecord?id=CVE-2023-46115</link>
+      <description>Tauri is a framework for building binaries for all major desktop platforms. This advisory is not describing a vulnerability in the Tauri code base itself but a commonly used misconfiguration which could lead to leaking of the private key and updater key password into bundled Tauri applications using the Vite frontend in a specific configuration. The Tauri documentation used an insecure example configuration in the `Vite guide` to showcase how to use Tauri together with Vite.  Copying the following snippet `envPrefix: ['VITE_', 'TAURI_'],` from this guide into the `vite.config.ts` of a Tauri project leads to bundling the `TAURI_PRIVATE_KEY` and `TAURI_KEY_PASSWORD` into the Vite frontend code and therefore leaking this value to the released Tauri application. Using the `envPrefix: ['VITE_'],` or any other framework than Vite means you are not impacted by this advisory. Users are advised to rotate their updater private key if they are affected by this (requires Tauri CLI &gt;=1.5.5). After updating the envPrefix configuration, generate a new private key with `tauri signer generate`, saving the new private key and updating the updater's `pubkey` value on `tauri.conf.json` with the new public key. To update your existing application, the next application build must be signed with the older private key in order to be accepted by the existing application.</description>
+      <guid isPermaLink="false">CVE-2023-46115|2024-08-02T20:37:39.516Z</guid>
+      <pubDate>Thu, 19 Oct 2023 23:35:03 +0000</pubDate>
+    </item>
     <item>
       <title>CVE-2023-34460|2024-08-02T16:10:07.301Z -- tauri-apps -- tauri
 </title>
@@ -28,17 +36,17 @@ arbitrary websites or due to a bug allowing the open redirect. This allows the e
       <pubDate>Tue, 09 May 2023 13:09:31 +0000</pubDate>
     </item>
     <item>
-      <title>CVE-2024-35222|2024-08-02T03:07:46.872Z -- tauri-apps -- tauri</title>
-      <link>https://www.cve.org/CVERecord?id=CVE-2024-35222</link>
-      <description>Tauri is a framework for building binaries for all major desktop platforms. Remote origin iFrames in Tauri applications can access the Tauri IPC endpoints without being explicitly allowed in the `dangerousRemoteDomainIpcAccess` in v1 and in the `capabilities` in v2. Valid commands with potentially unwanted consequences ("delete project", "transfer credits", etc.) could be invoked by an attacker that controls the content of an iframe running inside a Tauri app. This vulnerability has been patched in versions 1.6.7 and 2.0.0-beta.19.</description>
-      <guid isPermaLink="false">CVE-2024-35222|2024-08-02T03:07:46.872Z</guid>
-      <pubDate>Thu, 23 May 2024 13:20:26 +0000</pubDate>
-    </item>
-    <item>
       <title>CVE-2024-35222|2024-06-04T17:34:02.079Z -- tauri-apps -- tauri</title>
       <link>https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2024-35222</link>
       <description>Tauri is a framework for building binaries for all major desktop platforms. Remote origin iFrames in Tauri applications can access the Tauri IPC endpoints without being explicitly allowed in the `dangerousRemoteDomainIpcAccess` in v1 and in the `capabilities` in v2. Valid commands with potentially unwanted consequences ("delete project", "transfer credits", etc.) could be invoked by an attacker that controls the content of an iframe running inside a Tauri app. This vulnerability has been patched in versions 1.6.7 and 2.0.0-beta.19.</description>
       <guid isPermaLink="false">CVE-2024-35222|2024-06-04T17:34:02.079Z</guid>
+      <pubDate>Thu, 23 May 2024 13:20:26 +0000</pubDate>
+    </item>
+    <item>
+      <title>CVE-2024-35222|2024-08-02T03:07:46.872Z -- tauri-apps -- tauri</title>
+      <link>https://www.cve.org/CVERecord?id=CVE-2024-35222</link>
+      <description>Tauri is a framework for building binaries for all major desktop platforms. Remote origin iFrames in Tauri applications can access the Tauri IPC endpoints without being explicitly allowed in the `dangerousRemoteDomainIpcAccess` in v1 and in the `capabilities` in v2. Valid commands with potentially unwanted consequences ("delete project", "transfer credits", etc.) could be invoked by an attacker that controls the content of an iframe running inside a Tauri app. This vulnerability has been patched in versions 1.6.7 and 2.0.0-beta.19.</description>
+      <guid isPermaLink="false">CVE-2024-35222|2024-08-02T03:07:46.872Z</guid>
       <pubDate>Thu, 23 May 2024 13:20:26 +0000</pubDate>
     </item>
   </channel>

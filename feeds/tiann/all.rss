@@ -6,7 +6,7 @@
     <description>The latest CVEs for tiann -- all products</description>
     <docs>http://www.rssboard.org/rss-specification</docs>
     <generator>python-feedgen</generator>
-    <lastBuildDate>Fri, 02 Aug 2024 20:23:49 +0000</lastBuildDate>
+    <lastBuildDate>Fri, 02 Aug 2024 21:22:39 +0000</lastBuildDate>
     <ttl>60</ttl>
     <item>
       <title>CVE-2023-5521|2024-08-02T07:59:44.739Z -- tiann -- tiann%2Fkernelsu
@@ -15,6 +15,14 @@
       <description>Incorrect Authorization in GitHub repository tiann/kernelsu prior to v0.6.9.</description>
       <guid isPermaLink="false">CVE-2023-5521|2024-08-02T07:59:44.739Z</guid>
       <pubDate>Wed, 11 Oct 2023 12:00:01 +0000</pubDate>
+    </item>
+    <item>
+      <title>CVE-2023-46139|2024-08-02T20:37:39.905Z -- tiann -- kernelsu
+</title>
+      <link>https://www.cve.org/CVERecord?id=CVE-2023-46139</link>
+      <description>KernelSU is a Kernel based root solution for Android. Starting in version 0.6.1 and prior to version 0.7.0, if a KernelSU installed device is infected with a malware whose app signing block specially constructed, it can take over root privileges on the device. The vulnerable verification logic actually obtains the signature of the last block with an id of `0x7109871a`, while the verification logic during Android installation is to obtain the first one. In addition to the actual signature upgrade that has been fixed (KSU thought it was V2 but was actually V3), there is also the problem of actual signature downgrading (KSU thought it was V2 but was actually V1). Find a condition in the signature verification logic that will cause the signature not to be found error, and KernelSU does not implement the same conditions, so KSU thinks there is a V2 signature, but the APK signature verification actually uses the V1 signature. This issue is fixed in version 0.7.0. As workarounds, keep the KernelSU manager installed and avoid installing unknown apps.</description>
+      <guid isPermaLink="false">CVE-2023-46139|2024-08-02T20:37:39.905Z</guid>
+      <pubDate>Mon, 30 Oct 2023 23:58:05 +0000</pubDate>
     </item>
   </channel>
 </rss>

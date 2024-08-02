@@ -6,7 +6,7 @@
     <description>The latest CVEs for yt-dlp -- yt-dlp</description>
     <docs>http://www.rssboard.org/rss-specification</docs>
     <generator>python-feedgen</generator>
-    <lastBuildDate>Fri, 02 Aug 2024 20:23:31 +0000</lastBuildDate>
+    <lastBuildDate>Fri, 02 Aug 2024 21:22:07 +0000</lastBuildDate>
     <ttl>60</ttl>
     <item>
       <title>CVE-2023-40581|2024-08-02T18:38:50.806Z -- yt-dlp -- yt-dlp
@@ -32,16 +32,33 @@ Some workarounds are available for those who are unable to upgrade. Avoid using 
       <pubDate>Thu, 06 Jul 2023 19:39:49 +0000</pubDate>
     </item>
     <item>
-      <title>CVE-2024-38519|2024-08-02T04:12:25.618Z -- yt-dlp -- yt-dlp</title>
+      <title>CVE-2023-46121|2024-08-02T20:37:39.888Z -- yt-dlp -- yt-dlp
+</title>
+      <link>https://www.cve.org/CVERecord?id=CVE-2023-46121</link>
+      <description>yt-dlp is a youtube-dl fork with additional features and fixes. The Generic Extractor in yt-dlp is vulnerable to an attacker setting an arbitrary proxy for a request to an arbitrary url, allowing the attacker to MITM the request made from yt-dlp's HTTP session. This could lead to cookie exfiltration in some cases. Version 2023.11.14 removed the ability to smuggle `http_headers` to the Generic extractor, as well as other extractors that use the same pattern. Users are advised to upgrade. Users unable to upgrade should disable the Ggneric extractor (or only pass trusted sites with trusted content) and ake caution when using `--no-check-certificate`.</description>
+      <guid isPermaLink="false">CVE-2023-46121|2024-08-02T20:37:39.888Z</guid>
+      <pubDate>Tue, 14 Nov 2023 23:31:55 +0000</pubDate>
+    </item>
+    <item>
+      <title>CVE-2024-22423|2024-08-01T22:43:34.950Z -- yt-dlp -- yt-dlp</title>
+      <link>https://www.cve.org/CVERecord?id=CVE-2024-22423</link>
+      <description>yt-dlp is a youtube-dl fork with additional features and fixes. The patch that addressed CVE-2023-40581 attempted to prevent RCE when using `--exec` with `%q` by replacing double quotes with two double quotes. However, this escaping is not sufficient, and still allows expansion of environment variables. Support for output template expansion in `--exec`, along with this vulnerable behavior, was added to `yt-dlp` in version 2021.04.11. yt-dlp version 2024.04.09 fixes this issue by properly escaping `%`. It replaces them with `%%cd:~,%`, a variable that expands to nothing, leaving only the leading percent. It is recommended to upgrade yt-dlp to version 2024.04.09 as soon as possible. Also, always be careful when using `--exec`, because while this specific vulnerability has been patched, using unvalidated input in shell commands is inherently dangerous. For Windows users who are not able to upgrade, avoid using any output template expansion in `--exec` other than `{}` (filepath); if expansion in `--exec` is needed, verify the fields you are using do not contain `"`, `|` or `&amp;`; and/or instead of using `--exec`, write the info json and load the fields from it instead.</description>
+      <guid isPermaLink="false">CVE-2024-22423|2024-08-01T22:43:34.950Z</guid>
+      <pubDate>Tue, 09 Apr 2024 17:22:58 +0000</pubDate>
+    </item>
+    <item>
+      <title>CVE-2024-38519|2024-07-02T13:47:36.399Z -- yt-dlp -- yt-dlp</title>
       <link>https://www.cve.org/CVERecord?id=CVE-2024-38519</link>
-      <description>`yt-dlp` and `youtube-dl` are command-line audio/video downloaders. Prior to the fixed versions, `yt-dlp` and `youtube-dl` do not limit the extensions of downloaded files, which could lead to arbitrary filenames being created in the download folder (and path traversal on Windows). Since `yt-dlp` and `youtube-dl` also read config from the working directory (and on Windows executables will be executed from the `yt-dlp` or `youtube-dl` directory), this could lead to arbitrary code being executed.
-
-
-
-
-`yt-dlp` version 2024.07.01 fixes this issue by whitelisting the allowed extensions. `youtube-dl` fixes this issue in commit `d42a222` on the `master` branch and in nightly builds tagged 2024-07-03 or later. This might mean some very uncommon extensions might not get downloaded, however it will also limit the possible exploitation surface. In addition to upgrading, have `.%(ext)s` at the end of the output template and make sure the user trusts the websites that they are downloading from. Also, make sure to never download to a directory within PATH or other sensitive locations like one's user directory, `system32`, or other binaries locations. For users who are not able to upgrade, keep the default output template (`-o "%(title)s [%(id)s].%(ext)s`); make sure the extension of the media to download is a common video/audio/sub/... one; try to avoid the generic extractor; and/or use `--ignore-config --config-location ...` to not load config from common locations.</description>
-      <guid isPermaLink="false">CVE-2024-38519|2024-08-02T04:12:25.618Z</guid>
+      <description>`yt-dlp` is a command-line audio/video downloader. Prior to version 2024.07.01, `yt-dlp` does not limit the extensions of downloaded files, which could lead to aribitrary filenames being created in the download folder (and path traversal on Windows). Since `yt-dlp` also reads config from the working directory (and on Windows executables will be executed from the yt-dlp directory) this could lead to arbitrary code being executed. `yt-dlp` version 2024.07.01 fixes this issue by whitelisting the allowed extensions. This might mean some very uncommon extensions might not get downloaded, however it will also limit the possible exploitation surface. In addition to upgrading, have `.%(ext)s` at the end of the output template and make sure the user trusts the websites that they are downloading from. Also, make sure to never download to a directory within PATH or other sensitive locations like one's user directory, `system32`, or other binaries locations. For users who are not able to upgrade, keep the default output template (`-o "%(title)s [%(id)s].%(ext)s`); make sure the extension of the media to download is a common video/audio/sub/... one; try to avoid the generic extractor; and/or use `--ignore-config --config-location ...` to not load config from common locations.</description>
+      <guid isPermaLink="false">CVE-2024-38519|2024-07-02T13:47:36.399Z</guid>
       <pubDate>Tue, 02 Jul 2024 13:47:36 +0000</pubDate>
+    </item>
+    <item>
+      <title>CVE-2024-22423|2024-06-04T17:52:45.637Z -- yt-dlp -- yt-dlp</title>
+      <link>https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2024-22423</link>
+      <description>yt-dlp is a youtube-dl fork with additional features and fixes. The patch that addressed CVE-2023-40581 attempted to prevent RCE when using `--exec` with `%q` by replacing double quotes with two double quotes. However, this escaping is not sufficient, and still allows expansion of environment variables. Support for output template expansion in `--exec`, along with this vulnerable behavior, was added to `yt-dlp` in version 2021.04.11. yt-dlp version 2024.04.09 fixes this issue by properly escaping `%`. It replaces them with `%%cd:~,%`, a variable that expands to nothing, leaving only the leading percent. It is recommended to upgrade yt-dlp to version 2024.04.09 as soon as possible. Also, always be careful when using `--exec`, because while this specific vulnerability has been patched, using unvalidated input in shell commands is inherently dangerous. For Windows users who are not able to upgrade, avoid using any output template expansion in `--exec` other than `{}` (filepath); if expansion in `--exec` is needed, verify the fields you are using do not contain `"`, `|` or `&amp;`; and/or instead of using `--exec`, write the info json and load the fields from it instead.</description>
+      <guid isPermaLink="false">CVE-2024-22423|2024-06-04T17:52:45.637Z</guid>
+      <pubDate>Tue, 09 Apr 2024 17:22:58 +0000</pubDate>
     </item>
     <item>
       <title>CVE-2024-38519|2024-07-24T18:21:58.650Z -- yt-dlp -- yt-dlp</title>
@@ -56,25 +73,16 @@ Some workarounds are available for those who are unable to upgrade. Avoid using 
       <pubDate>Tue, 02 Jul 2024 13:47:36 +0000</pubDate>
     </item>
     <item>
-      <title>CVE-2024-22423|2024-06-04T17:52:45.637Z -- yt-dlp -- yt-dlp</title>
-      <link>https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2024-22423</link>
-      <description>yt-dlp is a youtube-dl fork with additional features and fixes. The patch that addressed CVE-2023-40581 attempted to prevent RCE when using `--exec` with `%q` by replacing double quotes with two double quotes. However, this escaping is not sufficient, and still allows expansion of environment variables. Support for output template expansion in `--exec`, along with this vulnerable behavior, was added to `yt-dlp` in version 2021.04.11. yt-dlp version 2024.04.09 fixes this issue by properly escaping `%`. It replaces them with `%%cd:~,%`, a variable that expands to nothing, leaving only the leading percent. It is recommended to upgrade yt-dlp to version 2024.04.09 as soon as possible. Also, always be careful when using `--exec`, because while this specific vulnerability has been patched, using unvalidated input in shell commands is inherently dangerous. For Windows users who are not able to upgrade, avoid using any output template expansion in `--exec` other than `{}` (filepath); if expansion in `--exec` is needed, verify the fields you are using do not contain `"`, `|` or `&amp;`; and/or instead of using `--exec`, write the info json and load the fields from it instead.</description>
-      <guid isPermaLink="false">CVE-2024-22423|2024-06-04T17:52:45.637Z</guid>
-      <pubDate>Tue, 09 Apr 2024 17:22:58 +0000</pubDate>
-    </item>
-    <item>
-      <title>CVE-2024-38519|2024-07-02T13:47:36.399Z -- yt-dlp -- yt-dlp</title>
+      <title>CVE-2024-38519|2024-08-02T04:12:25.618Z -- yt-dlp -- yt-dlp</title>
       <link>https://www.cve.org/CVERecord?id=CVE-2024-38519</link>
-      <description>`yt-dlp` is a command-line audio/video downloader. Prior to version 2024.07.01, `yt-dlp` does not limit the extensions of downloaded files, which could lead to aribitrary filenames being created in the download folder (and path traversal on Windows). Since `yt-dlp` also reads config from the working directory (and on Windows executables will be executed from the yt-dlp directory) this could lead to arbitrary code being executed. `yt-dlp` version 2024.07.01 fixes this issue by whitelisting the allowed extensions. This might mean some very uncommon extensions might not get downloaded, however it will also limit the possible exploitation surface. In addition to upgrading, have `.%(ext)s` at the end of the output template and make sure the user trusts the websites that they are downloading from. Also, make sure to never download to a directory within PATH or other sensitive locations like one's user directory, `system32`, or other binaries locations. For users who are not able to upgrade, keep the default output template (`-o "%(title)s [%(id)s].%(ext)s`); make sure the extension of the media to download is a common video/audio/sub/... one; try to avoid the generic extractor; and/or use `--ignore-config --config-location ...` to not load config from common locations.</description>
-      <guid isPermaLink="false">CVE-2024-38519|2024-07-02T13:47:36.399Z</guid>
+      <description>`yt-dlp` and `youtube-dl` are command-line audio/video downloaders. Prior to the fixed versions, `yt-dlp` and `youtube-dl` do not limit the extensions of downloaded files, which could lead to arbitrary filenames being created in the download folder (and path traversal on Windows). Since `yt-dlp` and `youtube-dl` also read config from the working directory (and on Windows executables will be executed from the `yt-dlp` or `youtube-dl` directory), this could lead to arbitrary code being executed.
+
+
+
+
+`yt-dlp` version 2024.07.01 fixes this issue by whitelisting the allowed extensions. `youtube-dl` fixes this issue in commit `d42a222` on the `master` branch and in nightly builds tagged 2024-07-03 or later. This might mean some very uncommon extensions might not get downloaded, however it will also limit the possible exploitation surface. In addition to upgrading, have `.%(ext)s` at the end of the output template and make sure the user trusts the websites that they are downloading from. Also, make sure to never download to a directory within PATH or other sensitive locations like one's user directory, `system32`, or other binaries locations. For users who are not able to upgrade, keep the default output template (`-o "%(title)s [%(id)s].%(ext)s`); make sure the extension of the media to download is a common video/audio/sub/... one; try to avoid the generic extractor; and/or use `--ignore-config --config-location ...` to not load config from common locations.</description>
+      <guid isPermaLink="false">CVE-2024-38519|2024-08-02T04:12:25.618Z</guid>
       <pubDate>Tue, 02 Jul 2024 13:47:36 +0000</pubDate>
-    </item>
-    <item>
-      <title>CVE-2024-22423|2024-08-01T22:43:34.950Z -- yt-dlp -- yt-dlp</title>
-      <link>https://www.cve.org/CVERecord?id=CVE-2024-22423</link>
-      <description>yt-dlp is a youtube-dl fork with additional features and fixes. The patch that addressed CVE-2023-40581 attempted to prevent RCE when using `--exec` with `%q` by replacing double quotes with two double quotes. However, this escaping is not sufficient, and still allows expansion of environment variables. Support for output template expansion in `--exec`, along with this vulnerable behavior, was added to `yt-dlp` in version 2021.04.11. yt-dlp version 2024.04.09 fixes this issue by properly escaping `%`. It replaces them with `%%cd:~,%`, a variable that expands to nothing, leaving only the leading percent. It is recommended to upgrade yt-dlp to version 2024.04.09 as soon as possible. Also, always be careful when using `--exec`, because while this specific vulnerability has been patched, using unvalidated input in shell commands is inherently dangerous. For Windows users who are not able to upgrade, avoid using any output template expansion in `--exec` other than `{}` (filepath); if expansion in `--exec` is needed, verify the fields you are using do not contain `"`, `|` or `&amp;`; and/or instead of using `--exec`, write the info json and load the fields from it instead.</description>
-      <guid isPermaLink="false">CVE-2024-22423|2024-08-01T22:43:34.950Z</guid>
-      <pubDate>Tue, 09 Apr 2024 17:22:58 +0000</pubDate>
     </item>
   </channel>
 </rss>
