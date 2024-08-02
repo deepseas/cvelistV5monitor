@@ -6,8 +6,17 @@
     <description>The latest CVEs for Cloudflare -- wrangler</description>
     <docs>http://www.rssboard.org/rss-specification</docs>
     <generator>python-feedgen</generator>
-    <lastBuildDate>Fri, 02 Aug 2024 08:24:29 +0000</lastBuildDate>
+    <lastBuildDate>Fri, 02 Aug 2024 09:23:41 +0000</lastBuildDate>
     <ttl>60</ttl>
+    <item>
+      <title>CVE-2023-7079|2024-08-02T08:50:07.936Z -- cloudflare -- wrangler
+</title>
+      <link>https://www.cve.org/CVERecord?id=CVE-2023-7079</link>
+      <description>Sending specially crafted HTTP requests and inspector messages to Wrangler's dev server could result in any file on the user's computer being accessible over the local network. An attacker that could trick any user on the local network into opening a malicious website could also read any file.
+</description>
+      <guid isPermaLink="false">CVE-2023-7079|2024-08-02T08:50:07.936Z</guid>
+      <pubDate>Fri, 29 Dec 2023 11:54:08 +0000</pubDate>
+    </item>
     <item>
       <title>CVE-2023-3348|2024-08-02T06:55:03.253Z -- cloudflare -- wrangler
 </title>
@@ -19,6 +28,17 @@
 </description>
       <guid isPermaLink="false">CVE-2023-3348|2024-08-02T06:55:03.253Z</guid>
       <pubDate>Thu, 03 Aug 2023 13:47:07 +0000</pubDate>
+    </item>
+    <item>
+      <title>CVE-2023-7080|2024-08-02T08:50:07.794Z -- cloudflare -- wrangler
+</title>
+      <link>https://www.cve.org/CVERecord?id=CVE-2023-7080</link>
+      <description>The V8 inspector intentionally allows arbitrary code execution within the Workers sandbox for debugging. wrangler dev would previously start an inspector server listening on all network interfaces. This would allow an attacker on the local network to connect to the inspector and run arbitrary code. Additionally, the inspector server did not validate Origin/Host headers, granting an attacker that can trick any user on the local network into opening a malicious website the ability to run code. If wrangler dev --remote was being used, an attacker could access production resources if they were bound to the worker.
+
+This issue was fixed in wrangler@3.19.0 and wrangler@2.20.2. Whilst wrangler dev's inspector server listens on local interfaces by default as of wrangler@3.16.0, an  SSRF vulnerability in miniflare https://github.com/cloudflare/workers-sdk/security/advisories/GHSA-fwvg-2739-22v7  (CVE-2023-7078) allowed access from the local network until wrangler@3.18.0. wrangler@3.19.0 and wrangler@2.20.2 introduced validation for the Origin/Host headers.
+</description>
+      <guid isPermaLink="false">CVE-2023-7080|2024-08-02T08:50:07.794Z</guid>
+      <pubDate>Fri, 29 Dec 2023 11:58:36 +0000</pubDate>
     </item>
   </channel>
 </rss>

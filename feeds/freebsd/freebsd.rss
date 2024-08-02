@@ -6,8 +6,28 @@
     <description>The latest CVEs for FreeBSD -- FreeBSD</description>
     <docs>http://www.rssboard.org/rss-specification</docs>
     <generator>python-feedgen</generator>
-    <lastBuildDate>Fri, 02 Aug 2024 08:24:19 +0000</lastBuildDate>
+    <lastBuildDate>Fri, 02 Aug 2024 09:23:33 +0000</lastBuildDate>
     <ttl>60</ttl>
+    <item>
+      <title>CVE-2023-6660|2024-08-02T08:35:14.831Z -- freebsd -- freebsd
+</title>
+      <link>https://www.cve.org/CVERecord?id=CVE-2023-6660</link>
+      <description>When a program running on an affected system appends data to a file via an NFS client mount, the bug can cause the NFS client to fail to copy in the data to be written but proceed as though the copy operation had succeeded.  This means that the data to be written is instead replaced with whatever data had been in the packet buffer previously.  Thus, an unprivileged user with access to an affected system may abuse the bug to trigger disclosure of sensitive information.  In particular, the leak is limited to data previously stored in mbufs, which are used for network transmission and reception, and for certain types of inter-process communication.
+
+The bug can also be triggered unintentionally by system applications, in which case the data written by the application to an NFS mount may be corrupted.  Corrupted data is written over the network to the NFS server, and thus also susceptible to being snooped by other hosts on the network.
+
+Note that the bug exists only in the NFS client; the version and implementation of the server has no effect on whether a given system is affected by the problem.</description>
+      <guid isPermaLink="false">CVE-2023-6660|2024-08-02T08:35:14.831Z</guid>
+      <pubDate>Wed, 13 Dec 2023 08:23:40 +0000</pubDate>
+    </item>
+    <item>
+      <title>CVE-2023-6534|2024-08-02T08:35:14.417Z -- freebsd -- freebsd
+</title>
+      <link>https://www.cve.org/CVERecord?id=CVE-2023-6534</link>
+      <description>In versions of FreeBSD 14.0-RELEASE before 14-RELEASE-p2, FreeBSD 13.2-RELEASE before 13.2-RELEASE-p7 and FreeBSD 12.4-RELEASE before 12.4-RELEASE-p9, the pf(4) packet filter incorrectly validates TCP sequence numbers.  This could allow a malicious actor to execute a denial-of-service attack against hosts behind the firewall.</description>
+      <guid isPermaLink="false">CVE-2023-6534|2024-08-02T08:35:14.417Z</guid>
+      <pubDate>Wed, 13 Dec 2023 08:12:14 +0000</pubDate>
+    </item>
     <item>
       <title>CVE-2023-3107|2024-08-02T06:48:07.287Z -- freebsd -- freebsd
 </title>
@@ -16,6 +36,14 @@
 </description>
       <guid isPermaLink="false">CVE-2023-3107|2024-08-02T06:48:07.287Z</guid>
       <pubDate>Tue, 01 Aug 2023 22:01:07 +0000</pubDate>
+    </item>
+    <item>
+      <title>CVE-2023-5978|2024-08-02T08:14:25.164Z -- freebsd -- freebsd
+</title>
+      <link>https://www.cve.org/CVERecord?id=CVE-2023-5978</link>
+      <description>In versions of FreeBSD 13-RELEASE before 13-RELEASE-p5, under certain circumstances the cap_net libcasper(3) service incorrectly validates that updated constraints are strictly subsets of the active constraints.  When only a list of resolvable domain names was specified without setting any other limitations, an application could submit a new list of domains including include entries not previously listed.  This could permit the application to resolve domain names that were previously restricted.</description>
+      <guid isPermaLink="false">CVE-2023-5978|2024-08-02T08:14:25.164Z</guid>
+      <pubDate>Wed, 08 Nov 2023 08:52:46 +0000</pubDate>
     </item>
     <item>
       <title>CVE-2023-5370|2024-08-02T07:59:43.284Z -- freebsd -- freebsd
@@ -72,6 +100,14 @@ As a result, IPv6 fragments may bypass pf firewall rules written on the assumpti
       <pubDate>Wed, 06 Sep 2023 19:26:45 +0000</pubDate>
     </item>
     <item>
+      <title>CVE-2023-5941|2024-08-02T08:14:25.137Z -- freebsd -- freebsd
+</title>
+      <link>https://www.cve.org/CVERecord?id=CVE-2023-5941</link>
+      <description>In versions of FreeBSD 12.4-RELEASE prior to 12.4-RELEASE-p7 and FreeBSD 13.2-RELEASE prior to 13.2-RELEASE-p5 the __sflush() stdio function in libc does not correctly update FILE objects' write space members for write-buffered streams when the write(2) system call returns an error.  Depending on the nature of an application that calls libc's stdio functions and the presence of errors returned from the write(2) system call (or an overridden stdio write routine) a heap buffer overflow may occur.  Such overflows may lead to data corruption or the execution of arbitrary code at the privilege level of the calling program.</description>
+      <guid isPermaLink="false">CVE-2023-5941|2024-08-02T08:14:25.137Z</guid>
+      <pubDate>Wed, 08 Nov 2023 08:52:26 +0000</pubDate>
+    </item>
+    <item>
       <title>CVE-2023-3494|2024-08-02T06:55:03.345Z -- freebsd -- freebsd
 </title>
       <link>https://www.cve.org/CVERecord?id=CVE-2023-3494</link>
@@ -92,20 +128,13 @@ As a result, IPv6 fragments may bypass pf firewall rules written on the assumpti
       <pubDate>Thu, 22 Jun 2023 16:37:51 +0000</pubDate>
     </item>
     <item>
-      <title>CVE-2022-23088|2024-07-30T17:39:58.825Z -- freebsd -- freebsd</title>
-      <link>https://www.cve.org/CVERecord?id=CVE-2022-23088</link>
-      <description>The 802.11 beacon handling routine failed to validate the length of an IEEE 802.11s Mesh ID before copying it to a heap-allocated buffer.
+      <title>CVE-2022-23085|2024-07-17T18:56:18.267Z -- freebsd -- freebsd</title>
+      <link>https://www.cve.org/CVERecord?id=CVE-2022-23085</link>
+      <description>A user-provided integer option was passed to nmreq_copyin() without checking if it would overflow.  This insufficient bounds checking could lead to kernel memory corruption.
 
-While a FreeBSD Wi-Fi client is in scanning mode (i.e., not associated with a SSID) a malicious beacon frame may overwrite kernel memory, leading to remote code execution.</description>
-      <guid isPermaLink="false">CVE-2022-23088|2024-07-30T17:39:58.825Z</guid>
-      <pubDate>Thu, 15 Feb 2024 05:03:38 +0000</pubDate>
-    </item>
-    <item>
-      <title>CVE-2024-25940|2024-06-04T17:35:21.630Z -- freebsd -- freebsd</title>
-      <link>https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2024-25940</link>
-      <description>`bhyveload -h ` may be used to grant loader access to the  directory tree on the host.  Affected versions of bhyveload(8) do not make any attempt to restrict loader's access to , allowing the loader to read any file the host user has access to. In the bhyveload(8) model, the host supplies a userboot.so to boot with, but the loader scripts generally come from the guest image.  A maliciously crafted script could be used to exfiltrate sensitive data from the host accessible to the user running bhyhveload(8), which is often the system root.</description>
-      <guid isPermaLink="false">CVE-2024-25940|2024-06-04T17:35:21.630Z</guid>
-      <pubDate>Thu, 15 Feb 2024 04:21:57 +0000</pubDate>
+On systems configured to include netmap in their devfs_ruleset, a privileged process running in a jail can affect the host environment.</description>
+      <guid isPermaLink="false">CVE-2022-23085|2024-07-17T18:56:18.267Z</guid>
+      <pubDate>Thu, 15 Feb 2024 04:52:17 +0000</pubDate>
     </item>
     <item>
       <title>CVE-2024-25941|2024-02-15T04:27:06.726Z -- freebsd -- freebsd</title>
@@ -117,13 +146,20 @@ Attacker can get information about TTYs allocated on the host or in other jails.
       <pubDate>Thu, 15 Feb 2024 04:27:06 +0000</pubDate>
     </item>
     <item>
-      <title>CVE-2022-23085|2024-07-17T18:56:18.267Z -- freebsd -- freebsd</title>
-      <link>https://www.cve.org/CVERecord?id=CVE-2022-23085</link>
-      <description>A user-provided integer option was passed to nmreq_copyin() without checking if it would overflow.  This insufficient bounds checking could lead to kernel memory corruption.
+      <title>CVE-2024-25940|2024-06-04T17:35:21.630Z -- freebsd -- freebsd</title>
+      <link>https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2024-25940</link>
+      <description>`bhyveload -h ` may be used to grant loader access to the  directory tree on the host.  Affected versions of bhyveload(8) do not make any attempt to restrict loader's access to , allowing the loader to read any file the host user has access to. In the bhyveload(8) model, the host supplies a userboot.so to boot with, but the loader scripts generally come from the guest image.  A maliciously crafted script could be used to exfiltrate sensitive data from the host accessible to the user running bhyhveload(8), which is often the system root.</description>
+      <guid isPermaLink="false">CVE-2024-25940|2024-06-04T17:35:21.630Z</guid>
+      <pubDate>Thu, 15 Feb 2024 04:21:57 +0000</pubDate>
+    </item>
+    <item>
+      <title>CVE-2022-23088|2024-07-30T17:39:58.825Z -- freebsd -- freebsd</title>
+      <link>https://www.cve.org/CVERecord?id=CVE-2022-23088</link>
+      <description>The 802.11 beacon handling routine failed to validate the length of an IEEE 802.11s Mesh ID before copying it to a heap-allocated buffer.
 
-On systems configured to include netmap in their devfs_ruleset, a privileged process running in a jail can affect the host environment.</description>
-      <guid isPermaLink="false">CVE-2022-23085|2024-07-17T18:56:18.267Z</guid>
-      <pubDate>Thu, 15 Feb 2024 04:52:17 +0000</pubDate>
+While a FreeBSD Wi-Fi client is in scanning mode (i.e., not associated with a SSID) a malicious beacon frame may overwrite kernel memory, leading to remote code execution.</description>
+      <guid isPermaLink="false">CVE-2022-23088|2024-07-30T17:39:58.825Z</guid>
+      <pubDate>Thu, 15 Feb 2024 05:03:38 +0000</pubDate>
     </item>
   </channel>
 </rss>
