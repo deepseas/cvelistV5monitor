@@ -6,105 +6,40 @@
     <description>The latest CVEs for github -- cmark-gfm</description>
     <docs>http://www.rssboard.org/rss-specification</docs>
     <generator>python-feedgen</generator>
-    <lastBuildDate>Wed, 12 Jun 2024 11:24:35 +0000</lastBuildDate>
+    <lastBuildDate>Fri, 02 Aug 2024 11:20:37 +0000</lastBuildDate>
     <ttl>60</ttl>
     <item>
-      <title>CVE-2023-22486|2023-01-24T02:30:29.099Z -- github -- cmark-gfm
+      <title>CVE-2023-22486|2024-08-02T10:13:48.528Z -- github -- cmark-gfm
 </title>
-      <link>https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2023-22486</link>
+      <link>https://www.cve.org/CVERecord?id=CVE-2023-22486</link>
       <description>cmark-gfm is GitHub's fork of cmark, a CommonMark parsing and rendering library and program in C. Versions prior to 0.29.0.gfm.7 contain a  polynomial time complexity issue in handle_close_bracket that may lead to unbounded resource exhaustion and subsequent denial of service. This vulnerability has been patched in 0.29.0.gfm.7.</description>
-      <guid isPermaLink="false">CVE-2023-22486|2023-01-24T02:30:29.099Z</guid>
+      <guid isPermaLink="false">CVE-2023-22486|2024-08-02T10:13:48.528Z</guid>
       <pubDate>Tue, 24 Jan 2023 02:30:29 +0000</pubDate>
     </item>
     <item>
-      <title>CVE-2023-22484|2023-01-23T22:42:57.790Z -- github -- cmark-gfm
+      <title>CVE-2023-22484|2024-08-02T10:13:48.528Z -- github -- cmark-gfm
 </title>
-      <link>https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2023-22484</link>
+      <link>https://www.cve.org/CVERecord?id=CVE-2023-22484</link>
       <description>cmark-gfm is GitHub's fork of cmark, a CommonMark parsing and rendering library and program in C. Versions prior to 0.29.0.gfm.7 are subject to a polynomial time complexity issue in cmark-gfm that may lead to unbounded resource exhaustion and subsequent denial of service. This vulnerability has been patched in 0.29.0.gfm.7.</description>
-      <guid isPermaLink="false">CVE-2023-22484|2023-01-23T22:42:57.790Z</guid>
+      <guid isPermaLink="false">CVE-2023-22484|2024-08-02T10:13:48.528Z</guid>
       <pubDate>Mon, 23 Jan 2023 22:42:57 +0000</pubDate>
     </item>
     <item>
-      <title>CVE-2023-22485|2023-01-24T00:26:57.671Z -- github -- cmark-gfm
+      <title>CVE-2023-22483|2024-08-02T10:13:48.482Z -- github -- cmark-gfm
 </title>
-      <link>https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2023-22485</link>
-      <description>cmark-gfm is GitHub's fork of cmark, a CommonMark parsing and rendering library and program in C. In versions prior 0.29.0.gfm.7, a crafted markdown document can trigger an out-of-bounds read in the `validate_protocol` function. We believe this bug is harmless in practice, because the out-of-bounds read accesses `malloc` metadata without causing any visible damage.This vulnerability has been patched in 0.29.0.gfm.7.</description>
-      <guid isPermaLink="false">CVE-2023-22485|2023-01-24T00:26:57.671Z</guid>
-      <pubDate>Tue, 24 Jan 2023 00:26:57 +0000</pubDate>
-    </item>
-    <item>
-      <title>CVE-2023-22483|2023-01-23T22:36:14.574Z -- github -- cmark-gfm
-</title>
-      <link>https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2023-22483</link>
+      <link>https://www.cve.org/CVERecord?id=CVE-2023-22483</link>
       <description>cmark-gfm is GitHub's fork of cmark, a CommonMark parsing and rendering library and program in C. Versions prior to 0.29.0.gfm.7 are subject to several polynomial time complexity issues in cmark-gfm that may lead to unbounded resource exhaustion and subsequent denial of service. Various commands, when piped to cmark-gfm with large values, cause the running time to increase quadratically. These vulnerabilities have been patched in version 0.29.0.gfm.7.
 </description>
-      <guid isPermaLink="false">CVE-2023-22483|2023-01-23T22:36:14.574Z</guid>
+      <guid isPermaLink="false">CVE-2023-22483|2024-08-02T10:13:48.482Z</guid>
       <pubDate>Mon, 23 Jan 2023 22:36:14 +0000</pubDate>
     </item>
     <item>
-      <title>CVE-2023-26485|2023-03-31T22:01:16.350Z -- github -- cmark-gfm
+      <title>CVE-2023-22485|2024-08-02T10:13:48.514Z -- github -- cmark-gfm
 </title>
-      <link>https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2023-26485</link>
-      <description>cmark-gfm is GitHub's fork of cmark, a CommonMark parsing and rendering library and program in C. A polynomial time complexity issue in cmark-gfm may lead to unbounded resource exhaustion and subsequent denial of service. This CVE covers quadratic complexity issues when parsing text which leads with either large numbers of `_` characters. This issue has been addressed in version 0.29.0.gfm.10. Users are advised to upgrade. Users unable to upgrade should validate that their input comes from trusted sources.
-
-
-
-
-### Impact
-
-A polynomial time complexity issue in cmark-gfm may lead to unbounded resource exhaustion and subsequent denial of service.
-
-### Proof of concept
-
-```
-$ ~/cmark-gfm$ python3 -c 'pad = "_" * 100000; print(pad + "." + pad, end="")' | time ./build/src/cmark-gfm --to plaintext
-```
-
-Increasing the number 10000 in the above commands causes the running time to increase quadratically.
-
-### Patches
-
-This vulnerability have been patched in 0.29.0.gfm.10.
-
-### Note on cmark and cmark-gfm
-
-XXX: TBD
-
-[cmark-gfm](https://github.com/github/cmark-gfm) is a fork of [cmark](https://github.com/commonmark/cmark) that adds the GitHub Flavored Markdown extensions. The two codebases have diverged over time, but share a common core. These bugs affect both `cmark` and `cmark-gfm`. 
-
-### Credit
-
-We would like to thank @gravypod for reporting this vulnerability.
-
-### References
-
-https://en.wikipedia.org/wiki/Time_complexity
-
-### For more information
-
-If you have any questions or comments about this advisory:
-
-* Open an issue in [github/cmark-gfm](https://github.com/github/cmark-gfm)
-</description>
-      <guid isPermaLink="false">CVE-2023-26485|2023-03-31T22:01:16.350Z</guid>
-      <pubDate>Fri, 31 Mar 2023 22:01:16 +0000</pubDate>
-    </item>
-    <item>
-      <title>CVE-2023-37463|2023-07-13T19:22:16.654Z -- github -- cmark-gfm
-</title>
-      <link>https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2023-37463</link>
-      <description>cmark-gfm is an extended version of the C reference implementation of CommonMark, a rationalized version of Markdown syntax with a spec. Three polynomial time complexity issues in cmark-gfm may lead to unbounded resource exhaustion and subsequent denial of service. These vulnerabilities have been patched in 0.29.0.gfm.12.
-</description>
-      <guid isPermaLink="false">CVE-2023-37463|2023-07-13T19:22:16.654Z</guid>
-      <pubDate>Thu, 13 Jul 2023 19:22:16 +0000</pubDate>
-    </item>
-    <item>
-      <title>CVE-2023-24824|2023-03-31T22:01:18.220Z -- github -- cmark-gfm
-</title>
-      <link>https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2023-24824</link>
-      <description>cmark-gfm is GitHub's fork of cmark, a CommonMark parsing and rendering library and program in C. A polynomial time complexity issue in cmark-gfm may lead to unbounded resource exhaustion and subsequent denial of service. This CVE covers quadratic complexity issues when parsing text which leads with either large numbers of `&gt;` or `-` characters. This issue has been addressed in version 0.29.0.gfm.10. Users are advised to upgrade. Users unable to upgrade should validate that their input comes from trusted sources.</description>
-      <guid isPermaLink="false">CVE-2023-24824|2023-03-31T22:01:18.220Z</guid>
-      <pubDate>Fri, 31 Mar 2023 22:01:18 +0000</pubDate>
+      <link>https://www.cve.org/CVERecord?id=CVE-2023-22485</link>
+      <description>cmark-gfm is GitHub's fork of cmark, a CommonMark parsing and rendering library and program in C. In versions prior 0.29.0.gfm.7, a crafted markdown document can trigger an out-of-bounds read in the `validate_protocol` function. We believe this bug is harmless in practice, because the out-of-bounds read accesses `malloc` metadata without causing any visible damage.This vulnerability has been patched in 0.29.0.gfm.7.</description>
+      <guid isPermaLink="false">CVE-2023-22485|2024-08-02T10:13:48.514Z</guid>
+      <pubDate>Tue, 24 Jan 2023 00:26:57 +0000</pubDate>
     </item>
   </channel>
 </rss>
