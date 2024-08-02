@@ -6,12 +6,12 @@
     <description>The latest CVEs for sveltejs -- kit</description>
     <docs>http://www.rssboard.org/rss-specification</docs>
     <generator>python-feedgen</generator>
-    <lastBuildDate>Wed, 12 Jun 2024 11:24:22 +0000</lastBuildDate>
+    <lastBuildDate>Fri, 02 Aug 2024 14:23:01 +0000</lastBuildDate>
     <ttl>60</ttl>
     <item>
-      <title>CVE-2023-29003|2023-04-04T21:20:43.983Z -- sveltejs -- kit
+      <title>CVE-2023-29003|2024-08-02T13:51:38.989Z -- sveltejs -- kit
 </title>
-      <link>https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2023-29003</link>
+      <link>https://www.cve.org/CVERecord?id=CVE-2023-29003</link>
       <description>SvelteKit is a web development framework. The SvelteKit framework offers developers an option to create simple REST APIs. This is done by defining a `+server.js` file, containing endpoint handlers for different HTTP methods.
 
 SvelteKit provides out-of-the-box cross-site request forgery (CSRF) protection to its users. While the implementation does a sufficient job in mitigating common CSRF attacks, prior to version 1.15.1, the protection can be bypassed by simply specifying a different `Content-Type` header value.
@@ -19,13 +19,13 @@ SvelteKit provides out-of-the-box cross-site request forgery (CSRF) protection t
 If abused, this issue will allow malicious requests to be submitted from third-party domains, which can allow execution of operations within the context of the victim's session, and in extreme scenarios can lead to unauthorized access to users’ accounts.
 
 SvelteKit 1.15.1 updates the `is_form_content_type` function call in the CSRF protection logic to include `text/plain`. As additional hardening of the CSRF protection mechanism against potential method overrides, SvelteKit 1.15.1 is now performing validation on `PUT`, `PATCH` and `DELETE` methods as well. This latter hardening is only needed to protect users who have put in some sort of `?_method= override` feature themselves in their `handle` hook, so that the request that resolve sees could be `PUT`/`PATCH`/`DELETE` when the browser issues a `POST` request.</description>
-      <guid isPermaLink="false">CVE-2023-29003|2023-04-04T21:20:43.983Z</guid>
+      <guid isPermaLink="false">CVE-2023-29003|2024-08-02T13:51:38.989Z</guid>
       <pubDate>Tue, 04 Apr 2023 21:20:43 +0000</pubDate>
     </item>
     <item>
-      <title>CVE-2023-29008|2023-04-06T16:36:50.972Z -- sveltejs -- kit
+      <title>CVE-2023-29008|2024-08-02T14:00:14.369Z -- sveltejs -- kit
 </title>
-      <link>https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2023-29008</link>
+      <link>https://www.cve.org/CVERecord?id=CVE-2023-29008</link>
       <description>The SvelteKit framework offers developers an option to create simple REST APIs. This is done by defining a `+server.js` file, containing endpoint handlers for different HTTP methods.
 
 SvelteKit provides out-of-the-box cross-site request forgery (CSRF) protection to its users. The protection is implemented at `kit/src/runtime/server/respond.js`. While the implementation does a sufficient job of mitigating common CSRF attacks, the protection can be bypassed in versions prior to 1.15.2 by simply specifying an upper-cased `Content-Type` header value. The browser will not send uppercase characters, but this check does not block all expected CORS requests.
@@ -33,16 +33,8 @@ SvelteKit provides out-of-the-box cross-site request forgery (CSRF) protection t
 If abused, this issue will allow malicious requests to be submitted from third-party domains, which can allow execution of operations within the context of the victim's session, and in extreme scenarios can lead to unauthorized access to users’ accounts. This may lead to all POST operations requiring authentication being allowed in the following cases: If the target site sets `SameSite=None` on its auth cookie and the user visits a malicious site in a Chromium-based browser; if the target site doesn't set the `SameSite` attribute explicitly and the user visits a malicious site with Firefox/Safari with tracking protections turned off; and/or if the user is visiting a malicious site with a very outdated browser.
 
 SvelteKit 1.15.2 contains a patch for this issue. It is also recommended to explicitly set `SameSite` to a value other than `None` on authentication cookies especially if the upgrade cannot be done in a timely manner.</description>
-      <guid isPermaLink="false">CVE-2023-29008|2023-04-06T16:36:50.972Z</guid>
+      <guid isPermaLink="false">CVE-2023-29008|2024-08-02T14:00:14.369Z</guid>
       <pubDate>Thu, 06 Apr 2023 16:36:50 +0000</pubDate>
-    </item>
-    <item>
-      <title>CVE-2024-23641|2024-01-24T16:56:32.392Z -- sveltejs -- kit
-</title>
-      <link>https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2024-23641</link>
-      <description>SvelteKit is a web development kit. In SvelteKit 2, sending a GET request with a body eg `{}` to a built and previewed/hosted sveltekit app throws `Request with GET/HEAD method cannot have body.` and crashes the preview/hosting. After this happens, one must manually restart the app. `TRACE` requests will also cause the app to crash. Prerendered pages and SvelteKit 1 apps are not affected. `@sveltejs/adapter-node` versions 2.1.2, 3.0.3, and 4.0.1 and `@sveltejs/kit` version 2.4.3 contain a patch for this issue.</description>
-      <guid isPermaLink="false">CVE-2024-23641|2024-01-24T16:56:32.392Z</guid>
-      <pubDate>Wed, 24 Jan 2024 16:56:32 +0000</pubDate>
     </item>
   </channel>
 </rss>
