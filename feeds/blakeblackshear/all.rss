@@ -6,35 +6,18 @@
     <description>The latest CVEs for blakeblackshear -- all products</description>
     <docs>http://www.rssboard.org/rss-specification</docs>
     <generator>python-feedgen</generator>
-    <lastBuildDate>Wed, 12 Jun 2024 11:24:23 +0000</lastBuildDate>
+    <lastBuildDate>Fri, 02 Aug 2024 03:23:52 +0000</lastBuildDate>
     <ttl>60</ttl>
     <item>
-      <title>CVE-2023-45671|2023-12-13T19:41:08.602Z -- blakeblackshear -- frigate
+      <title>CVE-2024-32874|2024-08-02T02:20:35.681Z -- blakeblackshear -- frigate
 </title>
-      <link>https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2023-45671</link>
-      <description>Frigate is an open source network video recorder. Prior to version 0.13.0 Beta 3, there is a reflected cross-site scripting vulnerability in any API endpoints reliant on the `/&lt;camera_name&gt;` base path as values provided for the path are not sanitized. Exploiting this vulnerability requires the attacker to both know very specific information about a user's Frigate server and requires an authenticated user to be tricked into clicking a specially crafted link to their Frigate instance. This vulnerability could exploited by an attacker under the following circumstances: Frigate publicly exposed to the internet (even with authentication); attacker knows the address of a user's Frigate instance; attacker crafts a specialized page which links to the user's Frigate instance; attacker finds a way to get an authenticated user to visit their specialized page and click the button/link. As the reflected values included in the URL are not sanitized or escaped, this permits execution arbitrary Javascript payloads. Version 0.13.0 Beta 3 contains a patch for this issue.</description>
-      <guid isPermaLink="false">CVE-2023-45671|2023-12-13T19:41:08.602Z</guid>
-      <pubDate>Mon, 30 Oct 2023 22:41:17 +0000</pubDate>
+      <link>https://www.cve.org/CVERecord?id=CVE-2024-32874</link>
+      <description>Frigate is a network video recorder (NVR) with realtime local object detection for IP cameras. Below 0.13.2 Release, when uploading a file or retrieving the filename, a user may intentionally use a large Unicode filename which would lead to a application-level denial of service. This is due to no limitation set on the length of the filename and the costy use of the Unicode normalization with the form NFKD under the hood of `secure_filename()`.</description>
+      <guid isPermaLink="false">CVE-2024-32874|2024-08-02T02:20:35.681Z</guid>
+      <pubDate>Thu, 09 May 2024 14:20:04 +0000</pubDate>
     </item>
     <item>
-      <title>CVE-2023-45670|2023-12-13T19:41:30.165Z -- blakeblackshear -- frigate
-</title>
-      <link>https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2023-45670</link>
-      <description>Frigate is an open source network video recorder. Prior to version 0.13.0 Beta 3, the `config/save` and `config/set` endpoints of Frigate do not implement any CSRF protection. This makes it possible for a request sourced from another site to update the configuration of the Frigate server (e.g. via "drive-by" attack). Exploiting this vulnerability requires the attacker to both know very specific information about a user's Frigate server and requires an authenticated user to be tricked into clicking a specially crafted link to their Frigate instance. This vulnerability could exploited by an attacker under the following circumstances: Frigate publicly exposed to the internet (even with authentication); attacker knows the address of a user's Frigate instance; attacker crafts a specialized page which links to the user's Frigate instance; attacker finds a way to get an authenticated user to visit their specialized page and click the button/link. This issue can lead to arbitrary configuration updates for the Frigate server, resulting in denial of service and possible data exfiltration. Version 0.13.0 Beta 3 contains a patch.</description>
-      <guid isPermaLink="false">CVE-2023-45670|2023-12-13T19:41:30.165Z</guid>
-      <pubDate>Mon, 30 Oct 2023 22:38:19 +0000</pubDate>
-    </item>
-    <item>
-      <title>CVE-2023-45672|2023-12-13T19:40:37.540Z -- blakeblackshear -- frigate
-</title>
-      <link>https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2023-45672</link>
-      <description>Frigate is an open source network video recorder. Prior to version 0.13.0 Beta 3, an unsafe deserialization vulnerability was identified in the endpoints used to save configurations for Frigate. This can lead to unauthenticated remote code execution. This can be performed through the UI at `/config` or through a direct call to `/api/config/save`. Exploiting this vulnerability requires the attacker to both know very specific information about a user's Frigate server and requires an authenticated user to be tricked into clicking a specially crafted link to their Frigate instance. This vulnerability could exploited by an attacker under the following circumstances: Frigate publicly exposed to the internet (even with authentication); attacker knows the address of a user's Frigate instance; attacker crafts a specialized page which links to the user's Frigate instance; attacker finds a way to get an authenticated user to visit their specialized page and click the button/link. Input is initially accepted through `http.py`. The user-provided input is then parsed and loaded by `load_config_with_no_duplicates`. However, `load_config_with_no_duplicates` does not sanitize this input by merit of using `yaml.loader.Loader` which can instantiate custom constructors. A provided payload will be executed directly at `frigate/util/builtin.py:110`. This issue may lead to pre-authenticated Remote Code Execution. Version 0.13.0 Beta 3 contains a patch.</description>
-      <guid isPermaLink="false">CVE-2023-45672|2023-12-13T19:40:37.540Z</guid>
-      <pubDate>Mon, 30 Oct 2023 22:49:45 +0000</pubDate>
-    </item>
-    <item>
-      <title>CVE-2024-32874|2024-06-06T17:35:41.883Z -- blakeblackshear -- frigate
-</title>
+      <title>CVE-2024-32874|2024-06-06T17:35:41.883Z -- blakeblackshear -- frigate</title>
       <link>https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2024-32874</link>
       <description>Frigate is a network video recorder (NVR) with realtime local object detection for IP cameras. Below 0.13.2 Release, when uploading a file or retrieving the filename, a user may intentionally use a large Unicode filename which would lead to a application-level denial of service. This is due to no limitation set on the length of the filename and the costy use of the Unicode normalization with the form NFKD under the hood of `secure_filename()`.</description>
       <guid isPermaLink="false">CVE-2024-32874|2024-06-06T17:35:41.883Z</guid>
