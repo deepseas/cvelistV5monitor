@@ -6,7 +6,7 @@
     <description>The latest CVEs for home-assistant -- core</description>
     <docs>http://www.rssboard.org/rss-specification</docs>
     <generator>python-feedgen</generator>
-    <lastBuildDate>Fri, 02 Aug 2024 22:23:09 +0000</lastBuildDate>
+    <lastBuildDate>Fri, 02 Aug 2024 23:22:04 +0000</lastBuildDate>
     <ttl>60</ttl>
     <item>
       <title>CVE-2023-44385|2024-08-02T20:07:32.887Z -- home-assistant -- core
@@ -79,6 +79,18 @@
       <description>Home assistant is an open source home automation. The assessment verified that webhooks available in the webhook component are triggerable via the `*.ui.nabu.casa` URL without authentication, even when the webhook is marked as Only accessible from the local network. This issue is facilitated by the SniTun proxy, which sets the source address to 127.0.0.1 on all requests sent to the public URL and forwarded to the local Home Assistant. This issue has been addressed in version 2023.9.0 and all users are advised to upgrade. There are no known workarounds for this vulnerability.</description>
       <guid isPermaLink="false">CVE-2023-41894|2024-08-02T19:09:49.255Z</guid>
       <pubDate>Thu, 19 Oct 2023 23:23:17 +0000</pubDate>
+    </item>
+    <item>
+      <title>CVE-2023-50715|2024-08-02T22:16:47.325Z -- home-assistant -- core
+</title>
+      <link>https://www.cve.org/CVERecord?id=CVE-2023-50715</link>
+      <description>Home Assistant is open source home automation software. Prior to version 2023.12.3, the login page discloses all active user accounts to any unauthenticated browsing request originating on the Local Area Network. Version 2023.12.3 contains a patch for this issue.
+
+When starting the Home Assistant 2023.12 release, the login page returns all currently active user accounts to browsing requests from the Local Area Network. Tests showed that this occurs when the request is not authenticated and the request originated locally, meaning on the Home Assistant host local subnet or any other private subnet. The rationale behind this is to make the login more user-friendly and an experience better aligned with other applications that have multiple user-profiles.
+
+However, as a result, all accounts are displayed regardless of them having logged in or not and for any device that navigates to the server. This disclosure is mitigated by the fact that it only occurs for requests originating from a LAN address. But note that this applies to the local subnet where Home Assistant resides and to any private subnet that can reach it.</description>
+      <guid isPermaLink="false">CVE-2023-50715|2024-08-02T22:16:47.325Z</guid>
+      <pubDate>Fri, 15 Dec 2023 02:05:57 +0000</pubDate>
     </item>
   </channel>
 </rss>
