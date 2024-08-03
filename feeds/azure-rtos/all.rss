@@ -6,8 +6,16 @@
     <description>The latest CVEs for azure-rtos -- all products</description>
     <docs>http://www.rssboard.org/rss-specification</docs>
     <generator>python-feedgen</generator>
-    <lastBuildDate>Sat, 03 Aug 2024 11:20:29 +0000</lastBuildDate>
+    <lastBuildDate>Sat, 03 Aug 2024 12:25:37 +0000</lastBuildDate>
     <ttl>60</ttl>
+    <item>
+      <title>CVE-2022-39344|2024-08-03T12:00:44.101Z -- azure-rtos -- usbx
+</title>
+      <link>https://www.cve.org/CVERecord?id=CVE-2022-39344</link>
+      <description>Azure RTOS USBX is a USB host, device, and on-the-go (OTG) embedded stack, that is fully integrated with Azure RTOS ThreadX. Prior to version 6.1.12, the USB DFU UPLOAD functionality may be utilized to introduce a buffer overflow resulting in overwrite of memory contents. In particular cases this may allow an attacker to bypass security features or execute arbitrary code. The implementation of `ux_device_class_dfu_control_request` function prevents buffer overflow during handling of DFU UPLOAD command when current state is `UX_SYSTEM_DFU_STATE_DFU_IDLE`. This issue has been patched, please upgrade to version 6.1.12. As a workaround, add the `UPLOAD_LENGTH` check in all possible states.</description>
+      <guid isPermaLink="false">CVE-2022-39344|2024-08-03T12:00:44.101Z</guid>
+      <pubDate>Fri, 04 Nov 2022 00:00:00 +0000</pubDate>
+    </item>
     <item>
       <title>CVE-2022-36063|2024-08-03T09:52:00.523Z -- azure-rtos -- usbx
 </title>
@@ -25,12 +33,28 @@
       <pubDate>Tue, 24 May 2022 15:00:16 +0000</pubDate>
     </item>
     <item>
+      <title>CVE-2022-39343|2024-08-03T12:00:44.101Z -- azure-rtos -- filex
+</title>
+      <link>https://www.cve.org/CVERecord?id=CVE-2022-39343</link>
+      <description>Azure RTOS FileX is a FAT-compatible file system that’s fully integrated with Azure RTOS ThreadX. In versions before 6.2.0, the Fault Tolerant feature of Azure RTOS FileX includes integer under and overflows which may be exploited to achieve buffer overflow and modify memory contents. When a valid log file with correct ID and checksum is detected by the `_fx_fault_tolerant_enable` function an attempt to recover the previous failed write operation is taken by call of `_fx_fault_tolerant_apply_logs`. This function iterates through the log entries and performs required recovery operations. When properly crafted a log including entries of type `FX_FAULT_TOLERANT_DIR_LOG_TYPE` may be utilized to introduce unexpected behavior. This issue has been patched in version 6.2.0. A workaround to fix line 218 in fx_fault_tolerant_apply_logs.c is documented in the GHSA.</description>
+      <guid isPermaLink="false">CVE-2022-39343|2024-08-03T12:00:44.101Z</guid>
+      <pubDate>Tue, 08 Nov 2022 00:00:00 +0000</pubDate>
+    </item>
+    <item>
       <title>CVE-2022-29223|2024-08-03T06:17:54.276Z -- azure-rtos -- usbx
 </title>
       <link>https://www.cve.org/CVERecord?id=CVE-2022-29223</link>
       <description>Azure RTOS USBX is a USB host, device, and on-the-go (OTG) embedded stack. In versions prior to 6.1.10, an attacker can cause a buffer overflow by providing the Azure RTOS USBX host stack a HUB descriptor with `bNbPorts` set to a value greater than `UX_MAX_TT` which defaults to 8. For a `bNbPorts` value of 255, the implementation of `ux_host_class_hub_descriptor_get` function will modify the contents of `hub` -&gt; `ux_host_class_hub_device` -&gt; `ux_device_hub_tt` array violating the end boundary by 255 - `UX_MAX_TT` items. The USB host stack needs to validate the number of ports reported by the hub, and if the value is larger than UX_MAX_TT, USB stack needs to reject the request. This fix has been included in USBX release 6.1.10.</description>
       <guid isPermaLink="false">CVE-2022-29223|2024-08-03T06:17:54.276Z</guid>
       <pubDate>Tue, 24 May 2022 14:25:10 +0000</pubDate>
+    </item>
+    <item>
+      <title>CVE-2022-39293|2024-08-03T12:00:43.793Z -- azure-rtos -- usbx
+</title>
+      <link>https://www.cve.org/CVERecord?id=CVE-2022-39293</link>
+      <description>Azure RTOS USBX is a high-performance USB host, device, and on-the-go (OTG) embedded stack, that is fully integrated with Azure RTOS ThreadX. The case is, in [_ux_host_class_pima_read](https://github.com/azure-rtos/usbx/blob/master/common/usbx_host_classes/src/ux_host_class_pima_read.c), there is data length from device response, returned in the very first packet, and read by [L165 code](https://github.com/azure-rtos/usbx/blob/082fd9db09a3669eca3358f10b8837a5c1635c0b/common/usbx_host_classes/src/ux_host_class_pima_read.c#L165), as header_length. Then in [L178 code](https://github.com/azure-rtos/usbx/blob/082fd9db09a3669eca3358f10b8837a5c1635c0b/common/usbx_host_classes/src/ux_host_class_pima_read.c#L178), there is a “if” branch, which check the expression of “(header_length - UX_HOST_CLASS_PIMA_DATA_HEADER_SIZE) &gt; data_length” where if header_length is smaller than UX_HOST_CLASS_PIMA_DATA_HEADER_SIZE, calculation could overflow and then [L182 code](https://github.com/azure-rtos/usbx/blob/082fd9db09a3669eca3358f10b8837a5c1635c0b/common/usbx_host_classes/src/ux_host_class_pima_read.c#L182) the calculation of data_length is also overflow, this way the later [while loop start from L192](https://github.com/azure-rtos/usbx/blob/082fd9db09a3669eca3358f10b8837a5c1635c0b/common/usbx_host_classes/src/ux_host_class_pima_read.c#L192) can move data_pointer to unexpected address and cause write buffer overflow. The fix has been included in USBX release [6.1.12](https://github.com/azure-rtos/usbx/releases/tag/v6.1.12_rel). The following can be used as a workaround: Add check of `header_length`: 1. It must be greater than `UX_HOST_CLASS_PIMA_DATA_HEADER_SIZE`. 1. It should be greater or equal to the current returned data length (`transfer_request -&gt; ux_transfer_request_actual_length`).</description>
+      <guid isPermaLink="false">CVE-2022-39293|2024-08-03T12:00:43.793Z</guid>
+      <pubDate>Thu, 13 Oct 2022 00:00:00 +0000</pubDate>
     </item>
   </channel>
 </rss>

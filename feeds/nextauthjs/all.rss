@@ -6,7 +6,7 @@
     <description>The latest CVEs for nextauthjs -- all products</description>
     <docs>http://www.rssboard.org/rss-specification</docs>
     <generator>python-feedgen</generator>
-    <lastBuildDate>Sat, 03 Aug 2024 11:20:06 +0000</lastBuildDate>
+    <lastBuildDate>Sat, 03 Aug 2024 12:25:23 +0000</lastBuildDate>
     <ttl>60</ttl>
     <item>
       <title>CVE-2022-31186|2024-08-03T07:11:39.595Z -- nextauthjs -- next-auth
@@ -31,6 +31,14 @@
       <description>NextAuth.js is a complete open source authentication solution for Next.js applications. In affected versions an attacker can send a request to an app using NextAuth.js with an invalid `callbackUrl` query parameter, which internally is converted to a `URL` object. The URL instantiation would fail due to a malformed URL being passed into the constructor, causing it to throw an unhandled error which led to the **API route handler timing out and logging in to fail**. This has been remedied in versions 3.29.5 and 4.5.0. If for some reason you cannot upgrade, the workaround requires you to rely on Advanced Initialization. Please see the documentation for more.</description>
       <guid isPermaLink="false">CVE-2022-31093|2024-08-03T07:11:39.437Z</guid>
       <pubDate>Mon, 27 Jun 2022 21:30:20 +0000</pubDate>
+    </item>
+    <item>
+      <title>CVE-2022-39263|2024-08-03T12:00:43.453Z -- nextauthjs -- next-auth
+</title>
+      <link>https://www.cve.org/CVERecord?id=CVE-2022-39263</link>
+      <description>`@next-auth/upstash-redis-adapter` is the Upstash Redis adapter for NextAuth.js, which provides authentication for Next.js. Applications that use `next-auth` Email Provider and `@next-auth/upstash-redis-adapter` before v3.0.2 are affected by this vulnerability. The Upstash Redis adapter implementation did not check for both the identifier (email) and the token, but only checking for the identifier when verifying the token in the email callback flow. An attacker who knows about the victim's email could easily sign in as the victim, given the attacker also knows about the verification token's expired duration. The vulnerability is patched in v3.0.2. A workaround is available. Using Advanced Initialization, developers can check the requests and compare the query's token and identifier before proceeding.</description>
+      <guid isPermaLink="false">CVE-2022-39263|2024-08-03T12:00:43.453Z</guid>
+      <pubDate>Wed, 28 Sep 2022 21:05:09 +0000</pubDate>
     </item>
     <item>
       <title>CVE-2022-24858|2024-08-03T04:20:50.660Z -- nextauthjs -- next-auth

@@ -6,7 +6,7 @@
     <description>The latest CVEs for fastify -- all products</description>
     <docs>http://www.rssboard.org/rss-specification</docs>
     <generator>python-feedgen</generator>
-    <lastBuildDate>Sat, 03 Aug 2024 11:20:19 +0000</lastBuildDate>
+    <lastBuildDate>Sat, 03 Aug 2024 12:25:35 +0000</lastBuildDate>
     <ttl>60</ttl>
     <item>
       <title>CVE-2022-31142|2024-08-03T07:11:39.576Z -- fastify -- fastify-bearer-auth
@@ -25,17 +25,26 @@
       <pubDate>Tue, 31 May 2022 16:10:10 +0000</pubDate>
     </item>
     <item>
-      <title>CVE-2024-31999|2024-08-02T01:59:50.856Z -- fastify -- fastify-secure-session</title>
-      <link>https://www.cve.org/CVERecord?id=CVE-2024-31999</link>
-      <description>@festify/secure-session creates a secure stateless cookie session for Fastify. At the end of the request handling, it will encrypt all data in the session with a secret key and attach the ciphertext as a cookie value with the defined cookie name. After that, the session on the server side is destroyed. When an encrypted cookie with matching session name is provided with subsequent requests, it will decrypt the ciphertext to get the data. The plugin then creates a new session with the data in the ciphertext. Thus theoretically the web instance is still accessing the data from a server-side session, but technically that session is generated solely from a user provided cookie (which is assumed to be non-craftable because it is encrypted with a secret key not known to the user). The issue exists in the session removal process. In the delete function of the code, when the session is deleted, it is marked for deletion. However, if an attacker could gain access to the cookie, they could keep using it forever. Version 7.3.0 contains a patch for the issue. As a workaround, one may include a "last update" field in the session, and treat "old sessions" as expired.</description>
-      <guid isPermaLink="false">CVE-2024-31999|2024-08-02T01:59:50.856Z</guid>
-      <pubDate>Wed, 10 Apr 2024 21:59:54 +0000</pubDate>
+      <title>CVE-2022-39288|2024-08-03T12:00:43.799Z -- fastify -- fastify
+</title>
+      <link>https://www.cve.org/CVERecord?id=CVE-2022-39288</link>
+      <description>fastify is a fast and low overhead web framework, for Node.js. Affected versions of fastify are subject to a denial of service via malicious use of the Content-Type header. An attacker can send an invalid Content-Type header that can cause the application to crash. This issue has been addressed in commit `fbb07e8d` and will be included in release version 4.8.1. Users are advised to upgrade. Users unable to upgrade may manually filter out http content with malicious Content-Type headers.</description>
+      <guid isPermaLink="false">CVE-2022-39288|2024-08-03T12:00:43.799Z</guid>
+      <pubDate>Mon, 10 Oct 2022 00:00:00 +0000</pubDate>
     </item>
     <item>
-      <title>CVE-2024-31999|2024-07-31T17:54:23.641Z -- fastify -- fastify-secure-session</title>
-      <link>https://www.cve.org/CVERecord?id=CVE-2024-31999</link>
+      <title>CVE-2024-35220|2024-08-02T03:07:46.810Z -- fastify -- session</title>
+      <link>https://www.cve.org/CVERecord?id=CVE-2024-35220</link>
+      <description>@fastify/session is a session plugin for fastify. Requires the @fastify/cookie plugin. When restoring the cookie from the session store, the `expires` field is overriden if the `maxAge` field was set.
+This means a cookie is never correctly detected as expired and thus expired sessions are not destroyed. This vulnerability has been patched 10.8.0.</description>
+      <guid isPermaLink="false">CVE-2024-35220|2024-08-02T03:07:46.810Z</guid>
+      <pubDate>Tue, 21 May 2024 20:26:53 +0000</pubDate>
+    </item>
+    <item>
+      <title>CVE-2024-31999|2024-04-10T21:59:54.176Z -- fastify -- fastify-secure-session</title>
+      <link>https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2024-31999</link>
       <description>@festify/secure-session creates a secure stateless cookie session for Fastify. At the end of the request handling, it will encrypt all data in the session with a secret key and attach the ciphertext as a cookie value with the defined cookie name. After that, the session on the server side is destroyed. When an encrypted cookie with matching session name is provided with subsequent requests, it will decrypt the ciphertext to get the data. The plugin then creates a new session with the data in the ciphertext. Thus theoretically the web instance is still accessing the data from a server-side session, but technically that session is generated solely from a user provided cookie (which is assumed to be non-craftable because it is encrypted with a secret key not known to the user). The issue exists in the session removal process. In the delete function of the code, when the session is deleted, it is marked for deletion. However, if an attacker could gain access to the cookie, they could keep using it forever. Version 7.3.0 contains a patch for the issue. As a workaround, one may include a "last update" field in the session, and treat "old sessions" as expired.</description>
-      <guid isPermaLink="false">CVE-2024-31999|2024-07-31T17:54:23.641Z</guid>
+      <guid isPermaLink="false">CVE-2024-31999|2024-04-10T21:59:54.176Z</guid>
       <pubDate>Wed, 10 Apr 2024 21:59:54 +0000</pubDate>
     </item>
     <item>
@@ -47,19 +56,18 @@ This means a cookie is never correctly detected as expired and thus expired sess
       <pubDate>Tue, 21 May 2024 20:26:53 +0000</pubDate>
     </item>
     <item>
-      <title>CVE-2024-31999|2024-04-10T21:59:54.176Z -- fastify -- fastify-secure-session</title>
-      <link>https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2024-31999</link>
+      <title>CVE-2024-31999|2024-07-31T17:54:23.641Z -- fastify -- fastify-secure-session</title>
+      <link>https://www.cve.org/CVERecord?id=CVE-2024-31999</link>
       <description>@festify/secure-session creates a secure stateless cookie session for Fastify. At the end of the request handling, it will encrypt all data in the session with a secret key and attach the ciphertext as a cookie value with the defined cookie name. After that, the session on the server side is destroyed. When an encrypted cookie with matching session name is provided with subsequent requests, it will decrypt the ciphertext to get the data. The plugin then creates a new session with the data in the ciphertext. Thus theoretically the web instance is still accessing the data from a server-side session, but technically that session is generated solely from a user provided cookie (which is assumed to be non-craftable because it is encrypted with a secret key not known to the user). The issue exists in the session removal process. In the delete function of the code, when the session is deleted, it is marked for deletion. However, if an attacker could gain access to the cookie, they could keep using it forever. Version 7.3.0 contains a patch for the issue. As a workaround, one may include a "last update" field in the session, and treat "old sessions" as expired.</description>
-      <guid isPermaLink="false">CVE-2024-31999|2024-04-10T21:59:54.176Z</guid>
+      <guid isPermaLink="false">CVE-2024-31999|2024-07-31T17:54:23.641Z</guid>
       <pubDate>Wed, 10 Apr 2024 21:59:54 +0000</pubDate>
     </item>
     <item>
-      <title>CVE-2024-35220|2024-08-02T03:07:46.810Z -- fastify -- session</title>
-      <link>https://www.cve.org/CVERecord?id=CVE-2024-35220</link>
-      <description>@fastify/session is a session plugin for fastify. Requires the @fastify/cookie plugin. When restoring the cookie from the session store, the `expires` field is overriden if the `maxAge` field was set.
-This means a cookie is never correctly detected as expired and thus expired sessions are not destroyed. This vulnerability has been patched 10.8.0.</description>
-      <guid isPermaLink="false">CVE-2024-35220|2024-08-02T03:07:46.810Z</guid>
-      <pubDate>Tue, 21 May 2024 20:26:53 +0000</pubDate>
+      <title>CVE-2024-31999|2024-08-02T01:59:50.856Z -- fastify -- fastify-secure-session</title>
+      <link>https://www.cve.org/CVERecord?id=CVE-2024-31999</link>
+      <description>@festify/secure-session creates a secure stateless cookie session for Fastify. At the end of the request handling, it will encrypt all data in the session with a secret key and attach the ciphertext as a cookie value with the defined cookie name. After that, the session on the server side is destroyed. When an encrypted cookie with matching session name is provided with subsequent requests, it will decrypt the ciphertext to get the data. The plugin then creates a new session with the data in the ciphertext. Thus theoretically the web instance is still accessing the data from a server-side session, but technically that session is generated solely from a user provided cookie (which is assumed to be non-craftable because it is encrypted with a secret key not known to the user). The issue exists in the session removal process. In the delete function of the code, when the session is deleted, it is marked for deletion. However, if an attacker could gain access to the cookie, they could keep using it forever. Version 7.3.0 contains a patch for the issue. As a workaround, one may include a "last update" field in the session, and treat "old sessions" as expired.</description>
+      <guid isPermaLink="false">CVE-2024-31999|2024-08-02T01:59:50.856Z</guid>
+      <pubDate>Wed, 10 Apr 2024 21:59:54 +0000</pubDate>
     </item>
   </channel>
 </rss>

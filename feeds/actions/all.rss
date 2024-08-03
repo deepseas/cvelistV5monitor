@@ -6,7 +6,7 @@
     <description>The latest CVEs for actions -- all products</description>
     <docs>http://www.rssboard.org/rss-specification</docs>
     <generator>python-feedgen</generator>
-    <lastBuildDate>Sat, 03 Aug 2024 11:20:30 +0000</lastBuildDate>
+    <lastBuildDate>Sat, 03 Aug 2024 12:25:42 +0000</lastBuildDate>
     <ttl>60</ttl>
     <item>
       <title>CVE-2022-35954|2024-08-03T09:51:59.249Z -- actions -- toolkit
@@ -15,6 +15,14 @@
       <description>The GitHub Actions ToolKit provides a set of packages to make creating actions easier. The `core.exportVariable` function uses a well known delimiter that attackers can use to break out of that specific variable and assign values to other arbitrary variables. Workflows that write untrusted values to the `GITHUB_ENV` file may cause the path or other environment variables to be modified without the intention of the workflow or action author. Users should upgrade to `@actions/core v1.9.1`. If you are unable to upgrade the `@actions/core` package, you can modify your action to ensure that any user input does not contain the delimiter `_GitHubActionsFileCommandDelimeter_` before calling `core.exportVariable`.</description>
       <guid isPermaLink="false">CVE-2022-35954|2024-08-03T09:51:59.249Z</guid>
       <pubDate>Sat, 13 Aug 2022 23:40:09 +0000</pubDate>
+    </item>
+    <item>
+      <title>CVE-2022-39321|2024-08-03T12:00:44.033Z -- actions -- runner
+</title>
+      <link>https://www.cve.org/CVERecord?id=CVE-2022-39321</link>
+      <description>GitHub Actions Runner is the application that runs a job from a GitHub Actions workflow. The actions runner invokes the docker cli directly in order to run job containers, service containers, or container actions. A bug in the logic for how the environment is encoded into these docker commands was discovered in versions prior to 2.296.2, 2.293.1, 2.289.4, 2.285.2, and 2.283.4 that allows an input to escape the environment variable and modify that docker command invocation directly. Jobs that use container actions, job containers, or service containers alongside untrusted user inputs in environment variables may be vulnerable. The Actions Runner has been patched, both on `github.com` and hotfixes for GHES and GHAE customers in versions 2.296.2, 2.293.1, 2.289.4, 2.285.2, and 2.283.4. GHES and GHAE customers may want to patch their instance in order to have their runners automatically upgrade to these new runner versions. As a workaround, users may consider removing any container actions, job containers, or service containers from their jobs until they are able to upgrade their runner versions.</description>
+      <guid isPermaLink="false">CVE-2022-39321|2024-08-03T12:00:44.033Z</guid>
+      <pubDate>Tue, 25 Oct 2022 00:00:00 +0000</pubDate>
     </item>
   </channel>
 </rss>

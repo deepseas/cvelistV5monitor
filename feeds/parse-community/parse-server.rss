@@ -6,7 +6,7 @@
     <description>The latest CVEs for parse-community -- parse-server</description>
     <docs>http://www.rssboard.org/rss-specification</docs>
     <generator>python-feedgen</generator>
-    <lastBuildDate>Sat, 03 Aug 2024 11:20:12 +0000</lastBuildDate>
+    <lastBuildDate>Sat, 03 Aug 2024 12:25:19 +0000</lastBuildDate>
     <ttl>60</ttl>
     <item>
       <title>CVE-2022-24760|2024-08-03T04:20:50.491Z -- parse-community -- parse-server
@@ -15,6 +15,14 @@
       <description>Parse Server is an open source http web server backend. In versions prior to 4.10.7 there is a Remote Code Execution (RCE) vulnerability in Parse Server. This vulnerability affects Parse Server in the default configuration with MongoDB. The main weakness that leads to RCE is the Prototype Pollution vulnerable code in the file `DatabaseController.js`, so it is likely to affect Postgres and any other database backend as well. This vulnerability has been confirmed on Linux (Ubuntu) and Windows. Users are advised to upgrade as soon as possible. The only known workaround is to manually patch your installation with code referenced at the source GHSA-p6h4-93qp-jhcm.</description>
       <guid isPermaLink="false">CVE-2022-24760|2024-08-03T04:20:50.491Z</guid>
       <pubDate>Fri, 11 Mar 2022 23:55:10 +0000</pubDate>
+    </item>
+    <item>
+      <title>CVE-2022-39313|2024-08-03T12:00:44.102Z -- parse-community -- parse-server
+</title>
+      <link>https://www.cve.org/CVERecord?id=CVE-2022-39313</link>
+      <description>Parse Server is an open source backend that can be deployed to any infrastructure that can run Node.js. Versions prior to 4.10.17, and prior to 5.2.8 on the 5.x branch, crash when a file download request is received with an invalid byte range, resulting in a Denial of Service. This issue has been patched in versions 4.10.17, and 5.2.8. There are no known workarounds.</description>
+      <guid isPermaLink="false">CVE-2022-39313|2024-08-03T12:00:44.102Z</guid>
+      <pubDate>Mon, 24 Oct 2022 00:00:00 +0000</pubDate>
     </item>
     <item>
       <title>CVE-2022-31089|2024-08-03T07:11:38.495Z -- parse-community -- parse-server
@@ -57,46 +65,27 @@
       <pubDate>Wed, 04 May 2022 01:10:08 +0000</pubDate>
     </item>
     <item>
-      <title>CVE-2024-39309|2024-08-02T04:19:20.712Z -- parse-community -- parse-server</title>
-      <link>https://www.cve.org/CVERecord?id=CVE-2024-39309</link>
-      <description>Parse Server is an open source backend that can be deployed to any infrastructure that can run Node.js. A vulnerability in versions prior to 6.5.7 and 7.1.0 allows SQL injection when Parse Server is configured to use the PostgreSQL database. The algorithm to detect SQL injection has been improved in versions 6.5.7 and 7.1.0. No known workarounds are available.</description>
-      <guid isPermaLink="false">CVE-2024-39309|2024-08-02T04:19:20.712Z</guid>
-      <pubDate>Mon, 01 Jul 2024 21:15:26 +0000</pubDate>
+      <title>CVE-2022-39225|2024-08-03T12:00:43.471Z -- parse-community -- parse-server
+</title>
+      <link>https://www.cve.org/CVERecord?id=CVE-2022-39225</link>
+      <description>Parse Server is an open source backend that can be deployed to any infrastructure that can run Node.js. In versions prior to 4.10.15, or 5.0.0 and above prior to 5.2.6, a user can write to the session object of another user if the session object ID is known. For example, an attacker can assign the session object to their own user by writing to the `user` field and then read any custom fields of that session object. Note that assigning a session to another user does not usually change the privileges of either of the two users, and a user cannot assign their own session to another user. This issue is patched in version 4.10.15 and above, and 5.2.6 and above. To mitigate this issue in unpatched versions add a `beforeSave` trigger to the `_Session` class and prevent writing if the requesting user is different from the user in the session object.</description>
+      <guid isPermaLink="false">CVE-2022-39225|2024-08-03T12:00:43.471Z</guid>
+      <pubDate>Fri, 23 Sep 2022 06:40:07 +0000</pubDate>
     </item>
     <item>
-      <title>CVE-2024-39309|2024-07-01T21:15:26.242Z -- parse-community -- parse-server</title>
-      <link>https://www.cve.org/CVERecord?id=CVE-2024-39309</link>
-      <description>Parse Server is an open source backend that can be deployed to any infrastructure that can run Node.js. A vulnerability in versions prior to 6.5.7 and 7.1.0 allows SQL injection when Parse Server is configured to use the PostgreSQL database. The algorithm to detect SQL injection has been improved in versions 6.5.7 and 7.1.0. No known workarounds are available.</description>
-      <guid isPermaLink="false">CVE-2024-39309|2024-07-01T21:15:26.242Z</guid>
-      <pubDate>Mon, 01 Jul 2024 21:15:26 +0000</pubDate>
+      <title>CVE-2022-39231|2024-08-03T12:00:43.531Z -- parse-community -- parse-server
+</title>
+      <link>https://www.cve.org/CVERecord?id=CVE-2022-39231</link>
+      <description>Parse Server is an open source backend that can be deployed to any infrastructure that can run Node.js. In versions prior to 4.10.16, or from 5.0.0 to 5.2.6, validation of the authentication adapter app ID for _Facebook_ and _Spotify_ may be circumvented. Configurations which allow users to authenticate using the Parse Server authentication adapter where `appIds` is set as a string instead of an array of strings authenticate requests from an app with a different app ID than the one specified in the `appIds` configuration. For this vulnerability to be exploited, an attacker needs to be assigned an app ID by the authentication provider which is a sub-set of the server-side configured app ID. This issue is patched in versions 4.10.16 and 5.2.7. There are no known workarounds.</description>
+      <guid isPermaLink="false">CVE-2022-39231|2024-08-03T12:00:43.531Z</guid>
+      <pubDate>Fri, 23 Sep 2022 07:40:08 +0000</pubDate>
     </item>
     <item>
-      <title>CVE-2024-27298|2024-03-01T17:48:52.919Z -- parse-community -- parse-server</title>
-      <link>https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2024-27298</link>
-      <description>parse-server is a Parse Server for Node.js / Express. This vulnerability allows SQL injection when Parse Server is configured to use the PostgreSQL database. The vulnerability has been fixed in 6.5.0 and 7.0.0-alpha.20.</description>
-      <guid isPermaLink="false">CVE-2024-27298|2024-03-01T17:48:52.919Z</guid>
-      <pubDate>Fri, 01 Mar 2024 17:48:52 +0000</pubDate>
-    </item>
-    <item>
-      <title>CVE-2024-29027|2024-03-19T18:57:24.782Z -- parse-community -- parse-server</title>
-      <link>https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2024-29027</link>
+      <title>CVE-2024-29027|2024-08-02T14:42:21.433Z -- parse-community -- parse-server</title>
+      <link>https://www.cve.org/CVERecord?id=CVE-2024-29027</link>
       <description>Parse Server is an open source backend that can be deployed to any infrastructure that can run Node.js. Prior to versions 6.5.5 and 7.0.0-alpha.29, calling an invalid Parse Server Cloud Function name or Cloud Job name crashes the server and may allow for code injection, internal store manipulation or remote code execution. The patch in versions 6.5.5 and 7.0.0-alpha.29 added string sanitation for Cloud Function name and Cloud Job name. As a workaround, sanitize the Cloud Function name and Cloud Job name before it reaches Parse Server.</description>
-      <guid isPermaLink="false">CVE-2024-29027|2024-03-19T18:57:24.782Z</guid>
+      <guid isPermaLink="false">CVE-2024-29027|2024-08-02T14:42:21.433Z</guid>
       <pubDate>Tue, 19 Mar 2024 18:57:24 +0000</pubDate>
-    </item>
-    <item>
-      <title>CVE-2024-39309|2024-07-02T17:32:40.086Z -- parse-community -- parse-server</title>
-      <link>https://www.cve.org/CVERecord?id=CVE-2024-39309</link>
-      <description>Parse Server is an open source backend that can be deployed to any infrastructure that can run Node.js. A vulnerability in versions prior to 6.5.7 and 7.1.0 allows SQL injection when Parse Server is configured to use the PostgreSQL database. The algorithm to detect SQL injection has been improved in versions 6.5.7 and 7.1.0. No known workarounds are available.</description>
-      <guid isPermaLink="false">CVE-2024-39309|2024-07-02T17:32:40.086Z</guid>
-      <pubDate>Mon, 01 Jul 2024 21:15:26 +0000</pubDate>
-    </item>
-    <item>
-      <title>CVE-2024-27298|2024-08-02T00:27:59.923Z -- parse-community -- parse-server</title>
-      <link>https://www.cve.org/CVERecord?id=CVE-2024-27298</link>
-      <description>parse-server is a Parse Server for Node.js / Express. This vulnerability allows SQL injection when Parse Server is configured to use the PostgreSQL database. The vulnerability has been fixed in 6.5.0 and 7.0.0-alpha.20.</description>
-      <guid isPermaLink="false">CVE-2024-27298|2024-08-02T00:27:59.923Z</guid>
-      <pubDate>Fri, 01 Mar 2024 17:48:52 +0000</pubDate>
     </item>
     <item>
       <title>CVE-2024-29027|2024-08-02T01:03:51.581Z -- parse-community -- parse-server</title>
@@ -106,11 +95,46 @@
       <pubDate>Tue, 19 Mar 2024 18:57:24 +0000</pubDate>
     </item>
     <item>
-      <title>CVE-2024-29027|2024-08-02T14:42:21.433Z -- parse-community -- parse-server</title>
-      <link>https://www.cve.org/CVERecord?id=CVE-2024-29027</link>
+      <title>CVE-2024-27298|2024-08-02T00:27:59.923Z -- parse-community -- parse-server</title>
+      <link>https://www.cve.org/CVERecord?id=CVE-2024-27298</link>
+      <description>parse-server is a Parse Server for Node.js / Express. This vulnerability allows SQL injection when Parse Server is configured to use the PostgreSQL database. The vulnerability has been fixed in 6.5.0 and 7.0.0-alpha.20.</description>
+      <guid isPermaLink="false">CVE-2024-27298|2024-08-02T00:27:59.923Z</guid>
+      <pubDate>Fri, 01 Mar 2024 17:48:52 +0000</pubDate>
+    </item>
+    <item>
+      <title>CVE-2024-39309|2024-07-02T17:32:40.086Z -- parse-community -- parse-server</title>
+      <link>https://www.cve.org/CVERecord?id=CVE-2024-39309</link>
+      <description>Parse Server is an open source backend that can be deployed to any infrastructure that can run Node.js. A vulnerability in versions prior to 6.5.7 and 7.1.0 allows SQL injection when Parse Server is configured to use the PostgreSQL database. The algorithm to detect SQL injection has been improved in versions 6.5.7 and 7.1.0. No known workarounds are available.</description>
+      <guid isPermaLink="false">CVE-2024-39309|2024-07-02T17:32:40.086Z</guid>
+      <pubDate>Mon, 01 Jul 2024 21:15:26 +0000</pubDate>
+    </item>
+    <item>
+      <title>CVE-2024-29027|2024-03-19T18:57:24.782Z -- parse-community -- parse-server</title>
+      <link>https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2024-29027</link>
       <description>Parse Server is an open source backend that can be deployed to any infrastructure that can run Node.js. Prior to versions 6.5.5 and 7.0.0-alpha.29, calling an invalid Parse Server Cloud Function name or Cloud Job name crashes the server and may allow for code injection, internal store manipulation or remote code execution. The patch in versions 6.5.5 and 7.0.0-alpha.29 added string sanitation for Cloud Function name and Cloud Job name. As a workaround, sanitize the Cloud Function name and Cloud Job name before it reaches Parse Server.</description>
-      <guid isPermaLink="false">CVE-2024-29027|2024-08-02T14:42:21.433Z</guid>
+      <guid isPermaLink="false">CVE-2024-29027|2024-03-19T18:57:24.782Z</guid>
       <pubDate>Tue, 19 Mar 2024 18:57:24 +0000</pubDate>
+    </item>
+    <item>
+      <title>CVE-2024-27298|2024-03-01T17:48:52.919Z -- parse-community -- parse-server</title>
+      <link>https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2024-27298</link>
+      <description>parse-server is a Parse Server for Node.js / Express. This vulnerability allows SQL injection when Parse Server is configured to use the PostgreSQL database. The vulnerability has been fixed in 6.5.0 and 7.0.0-alpha.20.</description>
+      <guid isPermaLink="false">CVE-2024-27298|2024-03-01T17:48:52.919Z</guid>
+      <pubDate>Fri, 01 Mar 2024 17:48:52 +0000</pubDate>
+    </item>
+    <item>
+      <title>CVE-2024-39309|2024-07-01T21:15:26.242Z -- parse-community -- parse-server</title>
+      <link>https://www.cve.org/CVERecord?id=CVE-2024-39309</link>
+      <description>Parse Server is an open source backend that can be deployed to any infrastructure that can run Node.js. A vulnerability in versions prior to 6.5.7 and 7.1.0 allows SQL injection when Parse Server is configured to use the PostgreSQL database. The algorithm to detect SQL injection has been improved in versions 6.5.7 and 7.1.0. No known workarounds are available.</description>
+      <guid isPermaLink="false">CVE-2024-39309|2024-07-01T21:15:26.242Z</guid>
+      <pubDate>Mon, 01 Jul 2024 21:15:26 +0000</pubDate>
+    </item>
+    <item>
+      <title>CVE-2024-39309|2024-08-02T04:19:20.712Z -- parse-community -- parse-server</title>
+      <link>https://www.cve.org/CVERecord?id=CVE-2024-39309</link>
+      <description>Parse Server is an open source backend that can be deployed to any infrastructure that can run Node.js. A vulnerability in versions prior to 6.5.7 and 7.1.0 allows SQL injection when Parse Server is configured to use the PostgreSQL database. The algorithm to detect SQL injection has been improved in versions 6.5.7 and 7.1.0. No known workarounds are available.</description>
+      <guid isPermaLink="false">CVE-2024-39309|2024-08-02T04:19:20.712Z</guid>
+      <pubDate>Mon, 01 Jul 2024 21:15:26 +0000</pubDate>
     </item>
   </channel>
 </rss>

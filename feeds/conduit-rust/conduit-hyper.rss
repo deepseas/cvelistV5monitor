@@ -1,0 +1,20 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<rss xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/" version="2.0">
+  <channel>
+    <title>CVE Feed for conduit-rust -- conduit-hyper</title>
+    <link>https://raw.githubusercontent.com/deepseas/cvelistV5monitor/main/feeds/conduit-rust/conduit-hyper.rss</link>
+    <description>The latest CVEs for conduit-rust -- conduit-hyper</description>
+    <docs>http://www.rssboard.org/rss-specification</docs>
+    <generator>python-feedgen</generator>
+    <lastBuildDate>Sat, 03 Aug 2024 12:25:42 +0000</lastBuildDate>
+    <ttl>60</ttl>
+    <item>
+      <title>CVE-2022-39294|2024-08-03T12:00:44.059Z -- conduit-rust -- conduit-hyper
+</title>
+      <link>https://www.cve.org/CVERecord?id=CVE-2022-39294</link>
+      <description>conduit-hyper integrates a conduit application with the hyper server. Prior to version 0.4.2, `conduit-hyper` did not check any limit on a request's length before calling [`hyper::body::to_bytes`](https://docs.rs/hyper/latest/hyper/body/fn.to_bytes.html). An attacker could send a malicious request with an abnormally large `Content-Length`, which could lead to a panic if memory allocation failed for that request. In version 0.4.2, `conduit-hyper` sets an internal limit of 128 MiB per request, otherwise returning status 400 ("Bad Request"). This crate is part of the implementation of Rust's [crates.io](https://crates.io/), but that service is not affected due to its existing cloud infrastructure, which already drops such malicious requests. Even with the new limit in place, `conduit-hyper` is not recommended for production use, nor to directly serve the public Internet.</description>
+      <guid isPermaLink="false">CVE-2022-39294|2024-08-03T12:00:44.059Z</guid>
+      <pubDate>Mon, 31 Oct 2022 00:00:00 +0000</pubDate>
+    </item>
+  </channel>
+</rss>
