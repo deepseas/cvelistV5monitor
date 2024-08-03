@@ -1,0 +1,20 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<rss xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/" version="2.0">
+  <channel>
+    <title>CVE Feed for openSUSE -- travel-support-program</title>
+    <link>https://raw.githubusercontent.com/deepseas/cvelistV5monitor/main/feeds/opensuse/travel-support-program.rss</link>
+    <description>The latest CVEs for openSUSE -- travel-support-program</description>
+    <docs>http://www.rssboard.org/rss-specification</docs>
+    <generator>python-feedgen</generator>
+    <lastBuildDate>Sat, 03 Aug 2024 15:23:09 +0000</lastBuildDate>
+    <ttl>60</ttl>
+    <item>
+      <title>CVE-2022-46163|2024-08-03T14:24:03.290Z -- opensuse -- travel-support-program
+</title>
+      <link>https://www.cve.org/CVERecord?id=CVE-2022-46163</link>
+      <description>Travel support program is a rails app to support the travel support program of openSUSE (TSP). Sensitive user data (bank account details, password Hash) can be extracted via Ransack query injection. Every deployment of travel-support-program below the patched version is affected. The travel-support-program uses the Ransack library to implement search functionality. In its default configuration, Ransack will allow for query conditions based on properties of associated database objects [1]. The `*_start`, `*_end` or `*_cont` search matchers [2] can then be abused to exfiltrate sensitive string values of associated database objects via character-by-character brute-force (A match is indicated by the returned JSON not being empty). A single bank account number can be extracted with &lt;200 requests, a password hash can be extracted with ~1200 requests, all within a few minutes. The problem has been patched in commit d22916275c51500b4004933ff1b0a69bc807b2b7. In order to work around this issue, you can also cherry pick that patch, however it will not work without the Rails 5.0 migration that was done in #150, which in turn had quite a few pull requests it depended on.</description>
+      <guid isPermaLink="false">CVE-2022-46163|2024-08-03T14:24:03.290Z</guid>
+      <pubDate>Tue, 10 Jan 2023 20:26:02 +0000</pubDate>
+    </item>
+  </channel>
+</rss>
