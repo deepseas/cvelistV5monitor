@@ -6,62 +6,59 @@
     <description>The latest CVEs for KNIME -- all products</description>
     <docs>http://www.rssboard.org/rss-specification</docs>
     <generator>python-feedgen</generator>
-    <lastBuildDate>Fri, 02 Aug 2024 23:22:13 +0000</lastBuildDate>
+    <lastBuildDate>Sat, 03 Aug 2024 14:22:53 +0000</lastBuildDate>
     <ttl>60</ttl>
     <item>
-      <title>CVE-2023-3140|2024-08-02T06:48:07.354Z -- knime -- knime%20business%20hub
+      <title>CVE-2022-44749|2024-08-03T14:01:31.155Z -- knime -- knime%20analytics%20platform
 </title>
-      <link>https://www.cve.org/CVERecord?id=CVE-2023-3140</link>
-      <description>Missing HTTP headers (X-Frame-Options, Content-Security-Policy) in KNIME
- Business Hub before 1.4.0 has left users vulnerable to click 
-jacking. Clickjacking is an attack that occurs when an attacker uses a 
-transparent iframe in a window to trick a user into clicking on an 
-actionable item, such as a button or link, to another server in which 
-they have an identical webpage. The attacker essentially hijacks the 
-user activity intended for the original server and sends them to the 
-other server.</description>
-      <guid isPermaLink="false">CVE-2023-3140|2024-08-02T06:48:07.354Z</guid>
-      <pubDate>Wed, 07 Jun 2023 09:15:00 +0000</pubDate>
-    </item>
-    <item>
-      <title>CVE-2023-5562|2024-08-02T07:59:44.813Z -- knime -- knime%20analytics%20platform
-</title>
-      <link>https://www.cve.org/CVERecord?id=CVE-2023-5562</link>
-      <description>An unsafe default configuration in KNIME Analytics Platform before 5.2.0 allows for a cross-site scripting attack. When KNIME Analytics Platform is used as an executor for either KNIME Server or KNIME Business Hub several JavaScript-based view nodes do not sanitize the data that is displayed by default. If the data to be displayed contains JavaScript this code is executed in the browser and can perform any operations that the current user is allowed to perform silently.
+      <link>https://www.cve.org/CVERecord?id=CVE-2022-44749</link>
+      <description>A directory traversal vulnerability in the ZIP archive extraction routines of KNIME Analytics Platform 3.2.0 and above can result in arbitrary files being overwritten on the user's system. This vulnerability is also known as 'Zip-Slip'.
 
 
 
 
-KNIME Analytics Platform already has configuration options with which sanitization of data can be actived, see  https://docs.knime.com/latest/webportal_admin_guide/index.html#html-sanitization-webportal https://docs.knime.com/latest/webportal_admin_guide/index.html#html-sanitization-webportal . However, these are off by default which allows for cross-site scripting attacks.
 
+An attacker can create a KNIME workflow that, when being opened by a user, can overwrite arbitrary files that the user has write access to. It's not necessary to execute the workflow, opening the workflow is sufficient. The user will notice that something is wrong because an error is being reported but only after the files have already been written.
 
-KNIME Analytics Platform 5.2.0 will enable sanitization by default. For all previous releases we recommend users to add the corresponding settings to the executor's knime.ini.
+This can impact data integrity (file contents are changed) or cause errors in other software (vital files being corrupted). It can even lead to remote code execution if executable files are being replaced and subsequently executed by the user. In all cases the attacker has to know the location of files on the user's system, though.
 
 
 </description>
-      <guid isPermaLink="false">CVE-2023-5562|2024-08-02T07:59:44.813Z</guid>
-      <pubDate>Thu, 12 Oct 2023 19:00:54 +0000</pubDate>
+      <guid isPermaLink="false">CVE-2022-44749|2024-08-03T14:01:31.155Z</guid>
+      <pubDate>Thu, 24 Nov 2022 06:39:22 +0000</pubDate>
     </item>
     <item>
-      <title>CVE-2023-2541|2024-08-02T06:26:09.564Z -- knime -- knime%20business%20hub
+      <title>CVE-2022-44748|2024-08-03T14:01:31.162Z -- knime -- knime%20server
 </title>
-      <link>https://www.cve.org/CVERecord?id=CVE-2023-2541</link>
-      <description>The Web Frontend of KNIME Business Hub before 1.4.0 allows an unauthenticated remote attacker to access internals about the application such as versions, host names, or IP addresses. No personal information or application data was exposed.
+      <link>https://www.cve.org/CVERecord?id=CVE-2022-44748</link>
+      <description>A directory traversal vulnerability in the ZIP archive extraction routines of KNIME Server since 4.3.0 can result in arbitrary files being overwritten on the server's file system. This vulnerability is also known as 'Zip-Slip'.
 
+
+
+
+
+An attacker can create a KNIME workflow that, when being uploaded, can overwrite arbitrary files that the operating system user running the KNIME Server process has write access to. The user must be authenticated and have permissions to upload files to KNIME Server.
+
+
+This can impact data integrity (file contents are changed) or cause errors in other software (vital files being corrupted). It can even lead to remote code execution if executable files are being replaced and subsequently executed by the KNIME Server process user. In all cases the attacker has to know the location of files on the server's file system, though.
+
+Note that users that have permissions to upload workflows usually also have permissions to run them on the KNIME Server and can therefore already execute arbitrary code in the context of the KNIME Executor's operating system user.
+
+There is no workaround to prevent this vulnerability from being exploited. Updates to fixed versions 4.13.6, 4.14.3, or 4.15.3 are advised.
 
 
 </description>
-      <guid isPermaLink="false">CVE-2023-2541|2024-08-02T06:26:09.564Z</guid>
-      <pubDate>Wed, 07 Jun 2023 08:08:50 +0000</pubDate>
+      <guid isPermaLink="false">CVE-2022-44748|2024-08-03T14:01:31.162Z</guid>
+      <pubDate>Thu, 24 Nov 2022 06:36:23 +0000</pubDate>
     </item>
     <item>
-      <title>CVE-2024-6598|2024-07-09T14:02:34.211Z -- knime -- knime%20business%20hub</title>
+      <title>CVE-2024-6598|2024-08-01T21:41:03.941Z -- knime -- knime%20business%20hub</title>
       <link>https://www.cve.org/CVERecord?id=CVE-2024-6598</link>
       <description>A denial-of-service attack is possible through the execution functionality of KNIME Business Hub 1.10.0 and 1.10.1. It allows an authenticated attacker with job execution privileges to execute a job that causes internal messages to pile up until there are no more resources available for processing new messages. This leads to an outage of most functionality of KNIME Business Hub. Recovery from the situation is only possible by manual administrator interaction. Please contact our support for instructions in case you have run into this situation.
 
 
 Updating to KNIME Business Hub 1.10.2 or later solves the problem.</description>
-      <guid isPermaLink="false">CVE-2024-6598|2024-07-09T14:02:34.211Z</guid>
+      <guid isPermaLink="false">CVE-2024-6598|2024-08-01T21:41:03.941Z</guid>
       <pubDate>Tue, 09 Jul 2024 13:41:15 +0000</pubDate>
     </item>
     <item>
@@ -75,13 +72,13 @@ Updating to KNIME Business Hub 1.10.2 or later solves the problem.</description>
       <pubDate>Tue, 09 Jul 2024 13:41:15 +0000</pubDate>
     </item>
     <item>
-      <title>CVE-2024-6598|2024-08-01T21:41:03.941Z -- knime -- knime%20business%20hub</title>
+      <title>CVE-2024-6598|2024-07-09T14:02:34.211Z -- knime -- knime%20business%20hub</title>
       <link>https://www.cve.org/CVERecord?id=CVE-2024-6598</link>
       <description>A denial-of-service attack is possible through the execution functionality of KNIME Business Hub 1.10.0 and 1.10.1. It allows an authenticated attacker with job execution privileges to execute a job that causes internal messages to pile up until there are no more resources available for processing new messages. This leads to an outage of most functionality of KNIME Business Hub. Recovery from the situation is only possible by manual administrator interaction. Please contact our support for instructions in case you have run into this situation.
 
 
 Updating to KNIME Business Hub 1.10.2 or later solves the problem.</description>
-      <guid isPermaLink="false">CVE-2024-6598|2024-08-01T21:41:03.941Z</guid>
+      <guid isPermaLink="false">CVE-2024-6598|2024-07-09T14:02:34.211Z</guid>
       <pubDate>Tue, 09 Jul 2024 13:41:15 +0000</pubDate>
     </item>
   </channel>

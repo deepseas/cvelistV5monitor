@@ -6,7 +6,7 @@
     <description>The latest CVEs for Xen -- all products</description>
     <docs>http://www.rssboard.org/rss-specification</docs>
     <generator>python-feedgen</generator>
-    <lastBuildDate>Sat, 03 Aug 2024 13:22:22 +0000</lastBuildDate>
+    <lastBuildDate>Sat, 03 Aug 2024 14:22:39 +0000</lastBuildDate>
     <ttl>60</ttl>
     <item>
       <title>CVE-2022-23035|2024-08-03T03:28:43.301Z -- xen -- xen
@@ -17,12 +17,28 @@
       <pubDate>Tue, 25 Jan 2022 13:46:03 +0000</pubDate>
     </item>
     <item>
+      <title>CVE-2022-42324|2024-08-03T13:03:45.972Z -- xen -- xen
+</title>
+      <link>https://www.cve.org/CVERecord?id=CVE-2022-42324</link>
+      <description>Oxenstored 32-&gt;31 bit integer truncation issues Integers in Ocaml are 63 or 31 bits of signed precision. The Ocaml Xenbus library takes a C uint32_t out of the ring and casts it directly to an Ocaml integer. In 64-bit Ocaml builds this is fine, but in 32-bit builds, it truncates off the most significant bit, and then creates unsigned/signed confusion in the remainder. This in turn can feed a negative value into logic not expecting a negative value, resulting in unexpected exceptions being thrown. The unexpected exception is not handled suitably, creating a busy-loop trying (and failing) to take the bad packet out of the xenstore ring.</description>
+      <guid isPermaLink="false">CVE-2022-42324|2024-08-03T13:03:45.972Z</guid>
+      <pubDate>Tue, 01 Nov 2022 00:00:00 +0000</pubDate>
+    </item>
+    <item>
       <title>CVE-2022-33748|2024-08-03T08:09:22.688Z -- xen -- xen
 </title>
       <link>https://www.cve.org/CVERecord?id=CVE-2022-33748</link>
       <description>lock order inversion in transitive grant copy handling As part of XSA-226 a missing cleanup call was inserted on an error handling path. While doing so, locking requirements were not paid attention to. As a result two cooperating guests granting each other transitive grants can cause locks to be acquired nested within one another, but in respectively opposite order. With suitable timing between the involved grant copy operations this may result in the locking up of a CPU.</description>
       <guid isPermaLink="false">CVE-2022-33748|2024-08-03T08:09:22.688Z</guid>
       <pubDate>Tue, 11 Oct 2022 00:00:00 +0000</pubDate>
+    </item>
+    <item>
+      <title>CVE-2022-42332|2024-08-03T13:03:45.920Z -- xen -- xen
+</title>
+      <link>https://www.cve.org/CVERecord?id=CVE-2022-42332</link>
+      <description>x86 shadow plus log-dirty mode use-after-free In environments where host assisted address translation is necessary but Hardware Assisted Paging (HAP) is unavailable, Xen will run guests in so called shadow mode. Shadow mode maintains a pool of memory used for both shadow page tables as well as auxiliary data structures. To migrate or snapshot guests, Xen additionally runs them in so called log-dirty mode. The data structures needed by the log-dirty tracking are part of aformentioned auxiliary data. In order to keep error handling efforts within reasonable bounds, for operations which may require memory allocations shadow mode logic ensures up front that enough memory is available for the worst case requirements. Unfortunately, while page table memory is properly accounted for on the code path requiring the potential establishing of new shadows, demands by the log-dirty infrastructure were not taken into consideration. As a result, just established shadow page tables could be freed again immediately, while other code is still accessing them on the assumption that they would remain allocated.</description>
+      <guid isPermaLink="false">CVE-2022-42332|2024-08-03T13:03:45.920Z</guid>
+      <pubDate>Tue, 21 Mar 2023 00:00:00 +0000</pubDate>
     </item>
     <item>
       <title>CVE-2022-33745|2024-08-03T08:09:22.681Z -- xen -- xen
@@ -41,12 +57,52 @@
       <pubDate>Thu, 09 Jun 2022 12:50:14 +0000</pubDate>
     </item>
     <item>
+      <title>CVE-2022-42309|2024-08-03T13:03:45.940Z -- xen -- xen
+</title>
+      <link>https://www.cve.org/CVERecord?id=CVE-2022-42309</link>
+      <description>Xenstore: Guests can crash xenstored Due to a bug in the fix of XSA-115 a malicious guest can cause xenstored to use a wrong pointer during node creation in an error path, resulting in a crash of xenstored or a memory corruption in xenstored causing further damage. Entering the error path can be controlled by the guest e.g. by exceeding the quota value of maximum nodes per domain.</description>
+      <guid isPermaLink="false">CVE-2022-42309|2024-08-03T13:03:45.940Z</guid>
+      <pubDate>Tue, 01 Nov 2022 00:00:00 +0000</pubDate>
+    </item>
+    <item>
+      <title>CVE-2022-42325|2024-08-03T13:03:45.931Z -- xen -- xen
+</title>
+      <link>https://www.cve.org/CVERecord?id=CVE-2022-42325</link>
+      <description>Xenstore: Guests can create arbitrary number of nodes via transactions T[his CNA information record relates to multiple CVEs; the text explains which aspects/vulnerabilities correspond to which CVE.] In case a node has been created in a transaction and it is later deleted in the same transaction, the transaction will be terminated with an error. As this error is encountered only when handling the deleted node at transaction finalization, the transaction will have been performed partially and without updating the accounting information. This will enable a malicious guest to create arbitrary number of nodes.</description>
+      <guid isPermaLink="false">CVE-2022-42325|2024-08-03T13:03:45.931Z</guid>
+      <pubDate>Tue, 01 Nov 2022 00:00:00 +0000</pubDate>
+    </item>
+    <item>
+      <title>CVE-2022-42317|2024-08-03T13:03:45.932Z -- xen -- xen
+</title>
+      <link>https://www.cve.org/CVERecord?id=CVE-2022-42317</link>
+      <description>Xenstore: guests can let run xenstored out of memory T[his CNA information record relates to multiple CVEs; the text explains which aspects/vulnerabilities correspond to which CVE.] Malicious guests can cause xenstored to allocate vast amounts of memory, eventually resulting in a Denial of Service (DoS) of xenstored. There are multiple ways how guests can cause large memory allocations in xenstored: - - by issuing new requests to xenstored without reading the responses, causing the responses to be buffered in memory - - by causing large number of watch events to be generated via setting up multiple xenstore watches and then e.g. deleting many xenstore nodes below the watched path - - by creating as many nodes as allowed with the maximum allowed size and path length in as many transactions as possible - - by accessing many nodes inside a transaction</description>
+      <guid isPermaLink="false">CVE-2022-42317|2024-08-03T13:03:45.932Z</guid>
+      <pubDate>Tue, 01 Nov 2022 00:00:00 +0000</pubDate>
+    </item>
+    <item>
+      <title>CVE-2022-42320|2024-08-03T13:03:45.823Z -- xen -- xen
+</title>
+      <link>https://www.cve.org/CVERecord?id=CVE-2022-42320</link>
+      <description>Xenstore: Guests can get access to Xenstore nodes of deleted domains Access rights of Xenstore nodes are per domid. When a domain is gone, there might be Xenstore nodes left with access rights containing the domid of the removed domain. This is normally no problem, as those access right entries will be corrected when such a node is written later. There is a small time window when a new domain is created, where the access rights of a past domain with the same domid as the new one will be regarded to be still valid, leading to the new domain being able to get access to a node which was meant to be accessible by the removed domain. For this to happen another domain needs to write the node before the newly created domain is being introduced to Xenstore by dom0.</description>
+      <guid isPermaLink="false">CVE-2022-42320|2024-08-03T13:03:45.823Z</guid>
+      <pubDate>Tue, 01 Nov 2022 00:00:00 +0000</pubDate>
+    </item>
+    <item>
       <title>CVE-2022-33741|2024-08-03T08:09:22.659Z -- xen -- xen
 </title>
       <link>https://www.cve.org/CVERecord?id=CVE-2022-33741</link>
       <description>Linux disk/nic frontends data leaks T[his CNA information record relates to multiple CVEs; the text explains which aspects/vulnerabilities correspond to which CVE.] Linux Block and Network PV device frontends don't zero memory regions before sharing them with the backend (CVE-2022-26365, CVE-2022-33740). Additionally the granularity of the grant table doesn't allow sharing less than a 4K page, leading to unrelated data residing in the same 4K page as data shared with a backend being accessible by such backend (CVE-2022-33741, CVE-2022-33742).</description>
       <guid isPermaLink="false">CVE-2022-33741|2024-08-03T08:09:22.659Z</guid>
       <pubDate>Tue, 05 Jul 2022 12:50:33 +0000</pubDate>
+    </item>
+    <item>
+      <title>CVE-2022-42310|2024-08-03T13:03:45.923Z -- xen -- xen
+</title>
+      <link>https://www.cve.org/CVERecord?id=CVE-2022-42310</link>
+      <description>Xenstore: Guests can create orphaned Xenstore nodes By creating multiple nodes inside a transaction resulting in an error, a malicious guest can create orphaned nodes in the Xenstore data base, as the cleanup after the error will not remove all nodes already created. When the transaction is committed after this situation, nodes without a valid parent can be made permanent in the data base.</description>
+      <guid isPermaLink="false">CVE-2022-42310|2024-08-03T13:03:45.923Z</guid>
+      <pubDate>Tue, 01 Nov 2022 00:00:00 +0000</pubDate>
     </item>
     <item>
       <title>CVE-2022-26357|2024-08-03T05:03:32.803Z -- xen -- xen
@@ -63,6 +119,38 @@
       <description>arm: guest_physmap_remove_page not removing the p2m mappings The functions to remove one or more entries from a guest p2m pagetable on Arm (p2m_remove_mapping, guest_physmap_remove_page, and p2m_set_entry with mfn set to INVALID_MFN) do not actually clear the pagetable entry if the entry doesn't have the valid bit set. It is possible to have a valid pagetable entry without the valid bit set when a guest operating system uses set/way cache maintenance instructions. For instance, a guest issuing a set/way cache maintenance instruction, then calling the XENMEM_decrease_reservation hypercall to give back memory pages to Xen, might be able to retain access to those pages even after Xen started reusing them for other purposes.</description>
       <guid isPermaLink="false">CVE-2022-23033|2024-08-03T03:28:42.940Z</guid>
       <pubDate>Tue, 25 Jan 2022 13:36:25 +0000</pubDate>
+    </item>
+    <item>
+      <title>CVE-2022-42336|2024-08-03T13:03:45.951Z -- xen -- xen
+</title>
+      <link>https://www.cve.org/CVERecord?id=CVE-2022-42336</link>
+      <description>Mishandling of guest SSBD selection on AMD hardware The current logic to set SSBD on AMD Family 17h and Hygon Family 18h processors requires that the setting of SSBD is coordinated at a core level, as the setting is shared between threads. Logic was introduced to keep track of how many threads require SSBD active in order to coordinate it, such logic relies on using a per-core counter of threads that have SSBD active. When running on the mentioned hardware, it's possible for a guest to under or overflow the thread counter, because each write to VIRT_SPEC_CTRL.SSBD by the guest gets propagated to the helper that does the per-core active accounting. Underflowing the counter causes the value to get saturated, and thus attempts for guests running on the same core to set SSBD won't have effect because the hypervisor assumes it's already active.</description>
+      <guid isPermaLink="false">CVE-2022-42336|2024-08-03T13:03:45.951Z</guid>
+      <pubDate>Wed, 17 May 2023 00:00:00 +0000</pubDate>
+    </item>
+    <item>
+      <title>CVE-2022-42335|2024-08-03T13:03:45.932Z -- xen -- xen
+</title>
+      <link>https://www.cve.org/CVERecord?id=CVE-2022-42335</link>
+      <description>x86 shadow paging arbitrary pointer dereference In environments where host assisted address translation is necessary but Hardware Assisted Paging (HAP) is unavailable, Xen will run guests in so called shadow mode. Due to too lax a check in one of the hypervisor routines used for shadow page handling it is possible for a guest with a PCI device passed through to cause the hypervisor to access an arbitrary pointer partially under guest control.</description>
+      <guid isPermaLink="false">CVE-2022-42335|2024-08-03T13:03:45.932Z</guid>
+      <pubDate>Tue, 25 Apr 2023 00:00:00 +0000</pubDate>
+    </item>
+    <item>
+      <title>CVE-2022-42316|2024-08-03T13:03:46.019Z -- xen -- xen
+</title>
+      <link>https://www.cve.org/CVERecord?id=CVE-2022-42316</link>
+      <description>Xenstore: guests can let run xenstored out of memory T[his CNA information record relates to multiple CVEs; the text explains which aspects/vulnerabilities correspond to which CVE.] Malicious guests can cause xenstored to allocate vast amounts of memory, eventually resulting in a Denial of Service (DoS) of xenstored. There are multiple ways how guests can cause large memory allocations in xenstored: - - by issuing new requests to xenstored without reading the responses, causing the responses to be buffered in memory - - by causing large number of watch events to be generated via setting up multiple xenstore watches and then e.g. deleting many xenstore nodes below the watched path - - by creating as many nodes as allowed with the maximum allowed size and path length in as many transactions as possible - - by accessing many nodes inside a transaction</description>
+      <guid isPermaLink="false">CVE-2022-42316|2024-08-03T13:03:46.019Z</guid>
+      <pubDate>Tue, 01 Nov 2022 00:00:00 +0000</pubDate>
+    </item>
+    <item>
+      <title>CVE-2022-42319|2024-08-03T13:03:45.976Z -- xen -- xen
+</title>
+      <link>https://www.cve.org/CVERecord?id=CVE-2022-42319</link>
+      <description>Xenstore: Guests can cause Xenstore to not free temporary memory When working on a request of a guest, xenstored might need to allocate quite large amounts of memory temporarily. This memory is freed only after the request has been finished completely. A request is regarded to be finished only after the guest has read the response message of the request from the ring page. Thus a guest not reading the response can cause xenstored to not free the temporary memory. This can result in memory shortages causing Denial of Service (DoS) of xenstored.</description>
+      <guid isPermaLink="false">CVE-2022-42319|2024-08-03T13:03:45.976Z</guid>
+      <pubDate>Tue, 01 Nov 2022 00:00:00 +0000</pubDate>
     </item>
     <item>
       <title>CVE-2022-26359|2024-08-03T05:03:32.395Z -- xen -- xen
@@ -89,12 +177,76 @@
       <pubDate>Tue, 05 Apr 2022 00:00:00 +0000</pubDate>
     </item>
     <item>
+      <title>CVE-2022-42312|2024-08-03T13:03:45.969Z -- xen -- xen
+</title>
+      <link>https://www.cve.org/CVERecord?id=CVE-2022-42312</link>
+      <description>Xenstore: guests can let run xenstored out of memory T[his CNA information record relates to multiple CVEs; the text explains which aspects/vulnerabilities correspond to which CVE.] Malicious guests can cause xenstored to allocate vast amounts of memory, eventually resulting in a Denial of Service (DoS) of xenstored. There are multiple ways how guests can cause large memory allocations in xenstored: - - by issuing new requests to xenstored without reading the responses, causing the responses to be buffered in memory - - by causing large number of watch events to be generated via setting up multiple xenstore watches and then e.g. deleting many xenstore nodes below the watched path - - by creating as many nodes as allowed with the maximum allowed size and path length in as many transactions as possible - - by accessing many nodes inside a transaction</description>
+      <guid isPermaLink="false">CVE-2022-42312|2024-08-03T13:03:45.969Z</guid>
+      <pubDate>Tue, 01 Nov 2022 00:00:00 +0000</pubDate>
+    </item>
+    <item>
+      <title>CVE-2022-42323|2024-08-03T13:03:45.898Z -- xen -- xen
+</title>
+      <link>https://www.cve.org/CVERecord?id=CVE-2022-42323</link>
+      <description>Xenstore: Cooperating guests can create arbitrary numbers of nodes T[his CNA information record relates to multiple CVEs; the text explains which aspects/vulnerabilities correspond to which CVE.] Since the fix of XSA-322 any Xenstore node owned by a removed domain will be modified to be owned by Dom0. This will allow two malicious guests working together to create an arbitrary number of Xenstore nodes. This is possible by domain A letting domain B write into domain A's local Xenstore tree. Domain B can then create many nodes and reboot. The nodes created by domain B will now be owned by Dom0. By repeating this process over and over again an arbitrary number of nodes can be created, as Dom0's number of nodes isn't limited by Xenstore quota.</description>
+      <guid isPermaLink="false">CVE-2022-42323|2024-08-03T13:03:45.898Z</guid>
+      <pubDate>Tue, 01 Nov 2022 00:00:00 +0000</pubDate>
+    </item>
+    <item>
+      <title>CVE-2022-42333|2024-08-03T13:03:45.968Z -- xen -- xen
+</title>
+      <link>https://www.cve.org/CVERecord?id=CVE-2022-42333</link>
+      <description>x86/HVM pinned cache attributes mis-handling T[his CNA information record relates to multiple CVEs; the text explains which aspects/vulnerabilities correspond to which CVE.] To allow cachability control for HVM guests with passed through devices, an interface exists to explicitly override defaults which would otherwise be put in place. While not exposed to the affected guests themselves, the interface specifically exists for domains controlling such guests. This interface may therefore be used by not fully privileged entities, e.g. qemu running deprivileged in Dom0 or qemu running in a so called stub-domain. With this exposure it is an issue that - the number of the such controlled regions was unbounded (CVE-2022-42333), - installation and removal of such regions was not properly serialized (CVE-2022-42334).</description>
+      <guid isPermaLink="false">CVE-2022-42333|2024-08-03T13:03:45.968Z</guid>
+      <pubDate>Tue, 21 Mar 2023 00:00:00 +0000</pubDate>
+    </item>
+    <item>
+      <title>CVE-2022-42331|2024-08-03T13:03:45.977Z -- xen -- xen
+</title>
+      <link>https://www.cve.org/CVERecord?id=CVE-2022-42331</link>
+      <description>x86: speculative vulnerability in 32bit SYSCALL path Due to an oversight in the very original Spectre/Meltdown security work (XSA-254), one entrypath performs its speculation-safety actions too late. In some configurations, there is an unprotected RET instruction which can be attacked with a variety of speculative attacks.</description>
+      <guid isPermaLink="false">CVE-2022-42331|2024-08-03T13:03:45.977Z</guid>
+      <pubDate>Tue, 21 Mar 2023 00:00:00 +0000</pubDate>
+    </item>
+    <item>
+      <title>CVE-2022-42322|2024-08-03T13:03:45.973Z -- xen -- xen
+</title>
+      <link>https://www.cve.org/CVERecord?id=CVE-2022-42322</link>
+      <description>Xenstore: Cooperating guests can create arbitrary numbers of nodes T[his CNA information record relates to multiple CVEs; the text explains which aspects/vulnerabilities correspond to which CVE.] Since the fix of XSA-322 any Xenstore node owned by a removed domain will be modified to be owned by Dom0. This will allow two malicious guests working together to create an arbitrary number of Xenstore nodes. This is possible by domain A letting domain B write into domain A's local Xenstore tree. Domain B can then create many nodes and reboot. The nodes created by domain B will now be owned by Dom0. By repeating this process over and over again an arbitrary number of nodes can be created, as Dom0's number of nodes isn't limited by Xenstore quota.</description>
+      <guid isPermaLink="false">CVE-2022-42322|2024-08-03T13:03:45.973Z</guid>
+      <pubDate>Tue, 01 Nov 2022 00:00:00 +0000</pubDate>
+    </item>
+    <item>
+      <title>CVE-2022-42318|2024-08-03T13:03:45.914Z -- xen -- xen
+</title>
+      <link>https://www.cve.org/CVERecord?id=CVE-2022-42318</link>
+      <description>Xenstore: guests can let run xenstored out of memory T[his CNA information record relates to multiple CVEs; the text explains which aspects/vulnerabilities correspond to which CVE.] Malicious guests can cause xenstored to allocate vast amounts of memory, eventually resulting in a Denial of Service (DoS) of xenstored. There are multiple ways how guests can cause large memory allocations in xenstored: - - by issuing new requests to xenstored without reading the responses, causing the responses to be buffered in memory - - by causing large number of watch events to be generated via setting up multiple xenstore watches and then e.g. deleting many xenstore nodes below the watched path - - by creating as many nodes as allowed with the maximum allowed size and path length in as many transactions as possible - - by accessing many nodes inside a transaction</description>
+      <guid isPermaLink="false">CVE-2022-42318|2024-08-03T13:03:45.914Z</guid>
+      <pubDate>Tue, 01 Nov 2022 00:00:00 +0000</pubDate>
+    </item>
+    <item>
+      <title>CVE-2022-42334|2024-08-03T13:03:45.933Z -- xen -- xen
+</title>
+      <link>https://www.cve.org/CVERecord?id=CVE-2022-42334</link>
+      <description>x86/HVM pinned cache attributes mis-handling T[his CNA information record relates to multiple CVEs; the text explains which aspects/vulnerabilities correspond to which CVE.] To allow cachability control for HVM guests with passed through devices, an interface exists to explicitly override defaults which would otherwise be put in place. While not exposed to the affected guests themselves, the interface specifically exists for domains controlling such guests. This interface may therefore be used by not fully privileged entities, e.g. qemu running deprivileged in Dom0 or qemu running in a so called stub-domain. With this exposure it is an issue that - the number of the such controlled regions was unbounded (CVE-2022-42333), - installation and removal of such regions was not properly serialized (CVE-2022-42334).</description>
+      <guid isPermaLink="false">CVE-2022-42334|2024-08-03T13:03:45.933Z</guid>
+      <pubDate>Tue, 21 Mar 2023 00:00:00 +0000</pubDate>
+    </item>
+    <item>
       <title>CVE-2022-33747|2024-08-03T08:09:22.675Z -- xen -- xen
 </title>
       <link>https://www.cve.org/CVERecord?id=CVE-2022-33747</link>
       <description>Arm: unbounded memory consumption for 2nd-level page tables Certain actions require e.g. removing pages from a guest's P2M (Physical-to-Machine) mapping. When large pages are in use to map guest pages in the 2nd-stage page tables, such a removal operation may incur a memory allocation (to replace a large mapping with individual smaller ones). These memory allocations are taken from the global memory pool. A malicious guest might be able to cause the global memory pool to be exhausted by manipulating its own P2M mappings.</description>
       <guid isPermaLink="false">CVE-2022-33747|2024-08-03T08:09:22.675Z</guid>
       <pubDate>Tue, 11 Oct 2022 00:00:00 +0000</pubDate>
+    </item>
+    <item>
+      <title>CVE-2022-42326|2024-08-03T13:03:45.899Z -- xen -- xen
+</title>
+      <link>https://www.cve.org/CVERecord?id=CVE-2022-42326</link>
+      <description>Xenstore: Guests can create arbitrary number of nodes via transactions T[his CNA information record relates to multiple CVEs; the text explains which aspects/vulnerabilities correspond to which CVE.] In case a node has been created in a transaction and it is later deleted in the same transaction, the transaction will be terminated with an error. As this error is encountered only when handling the deleted node at transaction finalization, the transaction will have been performed partially and without updating the accounting information. This will enable a malicious guest to create arbitrary number of nodes.</description>
+      <guid isPermaLink="false">CVE-2022-42326|2024-08-03T13:03:45.899Z</guid>
+      <pubDate>Tue, 01 Nov 2022 00:00:00 +0000</pubDate>
     </item>
     <item>
       <title>CVE-2022-33740|2024-08-03T08:09:22.628Z -- xen -- xen
@@ -129,6 +281,14 @@
       <pubDate>Tue, 05 Apr 2022 00:00:00 +0000</pubDate>
     </item>
     <item>
+      <title>CVE-2022-42315|2024-08-03T13:03:45.897Z -- xen -- xen
+</title>
+      <link>https://www.cve.org/CVERecord?id=CVE-2022-42315</link>
+      <description>Xenstore: guests can let run xenstored out of memory T[his CNA information record relates to multiple CVEs; the text explains which aspects/vulnerabilities correspond to which CVE.] Malicious guests can cause xenstored to allocate vast amounts of memory, eventually resulting in a Denial of Service (DoS) of xenstored. There are multiple ways how guests can cause large memory allocations in xenstored: - - by issuing new requests to xenstored without reading the responses, causing the responses to be buffered in memory - - by causing large number of watch events to be generated via setting up multiple xenstore watches and then e.g. deleting many xenstore nodes below the watched path - - by creating as many nodes as allowed with the maximum allowed size and path length in as many transactions as possible - - by accessing many nodes inside a transaction</description>
+      <guid isPermaLink="false">CVE-2022-42315|2024-08-03T13:03:45.897Z</guid>
+      <pubDate>Tue, 01 Nov 2022 00:00:00 +0000</pubDate>
+    </item>
+    <item>
       <title>CVE-2022-33742|2024-08-03T08:09:22.683Z -- xen -- xen
 </title>
       <link>https://www.cve.org/CVERecord?id=CVE-2022-33742</link>
@@ -143,6 +303,30 @@
       <description>A PV guest could DoS Xen while unmapping a grant To address XSA-380, reference counting was introduced for grant mappings for the case where a PV guest would have the IOMMU enabled. PV guests can request two forms of mappings. When both are in use for any individual mapping, unmapping of such a mapping can be requested in two steps. The reference count for such a mapping would then mistakenly be decremented twice. Underflow of the counters gets detected, resulting in the triggering of a hypervisor bug check.</description>
       <guid isPermaLink="false">CVE-2022-23034|2024-08-03T03:28:43.072Z</guid>
       <pubDate>Tue, 25 Jan 2022 13:43:08 +0000</pubDate>
+    </item>
+    <item>
+      <title>CVE-2022-42330|2024-08-03T13:03:45.923Z -- xen -- xen
+</title>
+      <link>https://www.cve.org/CVERecord?id=CVE-2022-42330</link>
+      <description>Guests can cause Xenstore crash via soft reset When a guest issues a "Soft Reset" (e.g. for performing a kexec) the libxl based Xen toolstack will normally perform a XS_RELEASE Xenstore operation. Due to a bug in xenstored this can result in a crash of xenstored. Any other use of XS_RELEASE will have the same impact.</description>
+      <guid isPermaLink="false">CVE-2022-42330|2024-08-03T13:03:45.923Z</guid>
+      <pubDate>Thu, 26 Jan 2023 00:00:00 +0000</pubDate>
+    </item>
+    <item>
+      <title>CVE-2022-42327|2024-08-03T13:03:45.969Z -- xen -- xen
+</title>
+      <link>https://www.cve.org/CVERecord?id=CVE-2022-42327</link>
+      <description>x86: unintended memory sharing between guests On Intel systems that support the "virtualize APIC accesses" feature, a guest can read and write the global shared xAPIC page by moving the local APIC out of xAPIC mode. Access to this shared page bypasses the expected isolation that should exist between two guests.</description>
+      <guid isPermaLink="false">CVE-2022-42327|2024-08-03T13:03:45.969Z</guid>
+      <pubDate>Tue, 01 Nov 2022 00:00:00 +0000</pubDate>
+    </item>
+    <item>
+      <title>CVE-2022-42314|2024-08-03T13:03:45.970Z -- xen -- xen
+</title>
+      <link>https://www.cve.org/CVERecord?id=CVE-2022-42314</link>
+      <description>Xenstore: guests can let run xenstored out of memory T[his CNA information record relates to multiple CVEs; the text explains which aspects/vulnerabilities correspond to which CVE.] Malicious guests can cause xenstored to allocate vast amounts of memory, eventually resulting in a Denial of Service (DoS) of xenstored. There are multiple ways how guests can cause large memory allocations in xenstored: - - by issuing new requests to xenstored without reading the responses, causing the responses to be buffered in memory - - by causing large number of watch events to be generated via setting up multiple xenstore watches and then e.g. deleting many xenstore nodes below the watched path - - by creating as many nodes as allowed with the maximum allowed size and path length in as many transactions as possible - - by accessing many nodes inside a transaction</description>
+      <guid isPermaLink="false">CVE-2022-42314|2024-08-03T13:03:45.970Z</guid>
+      <pubDate>Tue, 01 Nov 2022 00:00:00 +0000</pubDate>
     </item>
     <item>
       <title>CVE-2022-26362|2024-08-03T05:03:32.792Z -- xen -- xen
@@ -161,6 +345,14 @@
       <pubDate>Thu, 09 Jun 2022 12:50:13 +0000</pubDate>
     </item>
     <item>
+      <title>CVE-2022-42313|2024-08-03T13:03:45.927Z -- xen -- xen
+</title>
+      <link>https://www.cve.org/CVERecord?id=CVE-2022-42313</link>
+      <description>Xenstore: guests can let run xenstored out of memory T[his CNA information record relates to multiple CVEs; the text explains which aspects/vulnerabilities correspond to which CVE.] Malicious guests can cause xenstored to allocate vast amounts of memory, eventually resulting in a Denial of Service (DoS) of xenstored. There are multiple ways how guests can cause large memory allocations in xenstored: - - by issuing new requests to xenstored without reading the responses, causing the responses to be buffered in memory - - by causing large number of watch events to be generated via setting up multiple xenstore watches and then e.g. deleting many xenstore nodes below the watched path - - by creating as many nodes as allowed with the maximum allowed size and path length in as many transactions as possible - - by accessing many nodes inside a transaction</description>
+      <guid isPermaLink="false">CVE-2022-42313|2024-08-03T13:03:45.927Z</guid>
+      <pubDate>Tue, 01 Nov 2022 00:00:00 +0000</pubDate>
+    </item>
+    <item>
       <title>CVE-2022-26360|2024-08-03T05:03:32.839Z -- xen -- xen
 </title>
       <link>https://www.cve.org/CVERecord?id=CVE-2022-26360</link>
@@ -169,17 +361,99 @@
       <pubDate>Tue, 05 Apr 2022 00:00:00 +0000</pubDate>
     </item>
     <item>
-      <title>CVE-2023-46840|2024-08-02T20:53:21.926Z -- xen -- xen</title>
-      <link>https://www.cve.org/CVERecord?id=CVE-2023-46840</link>
-      <description>Incorrect placement of a preprocessor directive in source code results
-in logic that doesn't operate as intended when support for HVM guests is
-compiled out of Xen.</description>
-      <guid isPermaLink="false">CVE-2023-46840|2024-08-02T20:53:21.926Z</guid>
-      <pubDate>Wed, 20 Mar 2024 10:40:18 +0000</pubDate>
+      <title>CVE-2022-42311|2024-08-03T13:03:45.915Z -- xen -- xen
+</title>
+      <link>https://www.cve.org/CVERecord?id=CVE-2022-42311</link>
+      <description>Xenstore: guests can let run xenstored out of memory T[his CNA information record relates to multiple CVEs; the text explains which aspects/vulnerabilities correspond to which CVE.] Malicious guests can cause xenstored to allocate vast amounts of memory, eventually resulting in a Denial of Service (DoS) of xenstored. There are multiple ways how guests can cause large memory allocations in xenstored: - - by issuing new requests to xenstored without reading the responses, causing the responses to be buffered in memory - - by causing large number of watch events to be generated via setting up multiple xenstore watches and then e.g. deleting many xenstore nodes below the watched path - - by creating as many nodes as allowed with the maximum allowed size and path length in as many transactions as possible - - by accessing many nodes inside a transaction</description>
+      <guid isPermaLink="false">CVE-2022-42311|2024-08-03T13:03:45.915Z</guid>
+      <pubDate>Tue, 01 Nov 2022 00:00:00 +0000</pubDate>
     </item>
     <item>
-      <title>CVE-2023-46842|2024-08-02T20:53:21.979Z -- xen -- xen</title>
-      <link>https://www.cve.org/CVERecord?id=CVE-2023-46842</link>
+      <title>CVE-2022-42321|2024-08-03T13:03:45.928Z -- xen -- xen
+</title>
+      <link>https://www.cve.org/CVERecord?id=CVE-2022-42321</link>
+      <description>Xenstore: Guests can crash xenstored via exhausting the stack Xenstored is using recursion for some Xenstore operations (e.g. for deleting a sub-tree of Xenstore nodes). With sufficiently deep nesting levels this can result in stack exhaustion on xenstored, leading to a crash of xenstored.</description>
+      <guid isPermaLink="false">CVE-2022-42321|2024-08-03T13:03:45.928Z</guid>
+      <pubDate>Tue, 01 Nov 2022 00:00:00 +0000</pubDate>
+    </item>
+    <item>
+      <title>CVE-2024-31142|2024-08-02T01:46:04.491Z -- xen -- xen</title>
+      <link>https://www.cve.org/CVERecord?id=CVE-2024-31142</link>
+      <description>Because of a logical error in XSA-407 (Branch Type Confusion), the
+mitigation is not applied properly when it is intended to be used.
+XSA-434 (Speculative Return Stack Overflow) uses the same
+infrastructure, so is equally impacted.
+
+For more details, see:
+  https://xenbits.xen.org/xsa/advisory-407.html
+  https://xenbits.xen.org/xsa/advisory-434.html</description>
+      <guid isPermaLink="false">CVE-2024-31142|2024-08-02T01:46:04.491Z</guid>
+      <pubDate>Thu, 16 May 2024 13:39:42 +0000</pubDate>
+    </item>
+    <item>
+      <title>CVE-2024-31143|2024-08-02T01:46:04.560Z -- xen -- xen</title>
+      <link>https://www.cve.org/CVERecord?id=CVE-2024-31143</link>
+      <description>An optional feature of PCI MSI called "Multiple Message" allows a
+device to use multiple consecutive interrupt vectors.  Unlike for MSI-X,
+the setting up of these consecutive vectors needs to happen all in one
+go.  In this handling an error path could be taken in different
+situations, with or without a particular lock held.  This error path
+wrongly releases the lock even when it is not currently held.</description>
+      <guid isPermaLink="false">CVE-2024-31143|2024-08-02T01:46:04.560Z</guid>
+      <pubDate>Thu, 18 Jul 2024 13:31:31 +0000</pubDate>
+    </item>
+    <item>
+      <title>CVE-2024-31143|2024-07-18T13:31:31.244Z -- xen -- xen</title>
+      <link>https://www.cve.org/CVERecord?id=CVE-2024-31143</link>
+      <description>An optional feature of PCI MSI called "Multiple Message" allows a
+device to use multiple consecutive interrupt vectors.  Unlike for MSI-X,
+the setting up of these consecutive vectors needs to happen all in one
+go.  In this handling an error path could be taken in different
+situations, with or without a particular lock held.  This error path
+wrongly releases the lock even when it is not currently held.</description>
+      <guid isPermaLink="false">CVE-2024-31143|2024-07-18T13:31:31.244Z</guid>
+      <pubDate>Thu, 18 Jul 2024 13:31:31 +0000</pubDate>
+    </item>
+    <item>
+      <title>CVE-2024-2193|2024-03-15T21:25:07.075Z -- xen -- xen</title>
+      <link>https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2024-2193</link>
+      <description>A Speculative Race Condition (SRC) vulnerability that impacts modern CPU architectures supporting speculative execution (related to Spectre V1) has been disclosed. An unauthenticated attacker can exploit this vulnerability to disclose arbitrary data from the CPU using race conditions to access the speculative executable code paths.</description>
+      <guid isPermaLink="false">CVE-2024-2193|2024-03-15T21:25:07.075Z</guid>
+      <pubDate>Fri, 15 Mar 2024 18:03:32 +0000</pubDate>
+    </item>
+    <item>
+      <title>CVE-2024-31142|2024-06-04T17:36:07.065Z -- xen -- xen</title>
+      <link>https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2024-31142</link>
+      <description>Because of a logical error in XSA-407 (Branch Type Confusion), the
+mitigation is not applied properly when it is intended to be used.
+XSA-434 (Speculative Return Stack Overflow) uses the same
+infrastructure, so is equally impacted.
+
+For more details, see:
+  https://xenbits.xen.org/xsa/advisory-407.html
+  https://xenbits.xen.org/xsa/advisory-434.html</description>
+      <guid isPermaLink="false">CVE-2024-31142|2024-06-04T17:36:07.065Z</guid>
+      <pubDate>Thu, 16 May 2024 13:39:42 +0000</pubDate>
+    </item>
+    <item>
+      <title>CVE-2023-46839|2024-03-20T10:35:52.532Z -- xen -- xen</title>
+      <link>https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2023-46839</link>
+      <description>PCI devices can make use of a functionality called phantom functions,
+that when enabled allows the device to generate requests using the IDs
+of functions that are otherwise unpopulated.  This allows a device to
+extend the number of outstanding requests.
+
+Such phantom functions need an IOMMU context setup, but failure to
+setup the context is not fatal when the device is assigned.  Not
+failing device assignment when such failure happens can lead to the
+primary device being assigned to a guest, while some of the phantom
+functions are assigned to a different domain.</description>
+      <guid isPermaLink="false">CVE-2023-46839|2024-03-20T10:35:52.532Z</guid>
+      <pubDate>Wed, 20 Mar 2024 10:35:52 +0000</pubDate>
+    </item>
+    <item>
+      <title>CVE-2023-46842|2024-06-04T17:22:13.355Z -- xen -- xen</title>
+      <link>https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2023-46842</link>
       <description>Unlike 32-bit PV guests, HVM guests may switch freely between 64-bit and
 other modes.  This in particular means that they may set registers used
 to pass 32-bit-mode hypercall arguments to values outside of the range
@@ -195,72 +469,8 @@ Unfortunately internal sanity checking of these translated values
 assumes high halves of registers to always be clear when invoking a
 hypercall.  When this is found not to be the case, it triggers a
 consistency check in the hypervisor and causes a crash.</description>
-      <guid isPermaLink="false">CVE-2023-46842|2024-08-02T20:53:21.979Z</guid>
+      <guid isPermaLink="false">CVE-2023-46842|2024-06-04T17:22:13.355Z</guid>
       <pubDate>Thu, 16 May 2024 13:39:26 +0000</pubDate>
-    </item>
-    <item>
-      <title>CVE-2023-46841|2024-08-02T20:53:21.716Z -- xen -- xen</title>
-      <link>https://www.cve.org/CVERecord?id=CVE-2023-46841</link>
-      <description>Recent x86 CPUs offer functionality named Control-flow Enforcement
-Technology (CET).  A sub-feature of this are Shadow Stacks (CET-SS).
-CET-SS is a hardware feature designed to protect against Return Oriented
-Programming attacks. When enabled, traditional stacks holding both data
-and return addresses are accompanied by so called "shadow stacks",
-holding little more than return addresses.  Shadow stacks aren't
-writable by normal instructions, and upon function returns their
-contents are used to check for possible manipulation of a return address
-coming from the traditional stack.
-
-In particular certain memory accesses need intercepting by Xen.  In
-various cases the necessary emulation involves kind of replaying of
-the instruction.  Such replaying typically involves filling and then
-invoking of a stub.  Such a replayed instruction may raise an
-exceptions, which is expected and dealt with accordingly.
-
-Unfortunately the interaction of both of the above wasn't right:
-Recovery involves removal of a call frame from the (traditional) stack.
-The counterpart of this operation for the shadow stack was missing.</description>
-      <guid isPermaLink="false">CVE-2023-46841|2024-08-02T20:53:21.716Z</guid>
-      <pubDate>Wed, 20 Mar 2024 10:40:36 +0000</pubDate>
-    </item>
-    <item>
-      <title>CVE-2023-46839|2024-08-02T20:53:21.878Z -- xen -- xen</title>
-      <link>https://www.cve.org/CVERecord?id=CVE-2023-46839</link>
-      <description>PCI devices can make use of a functionality called phantom functions,
-that when enabled allows the device to generate requests using the IDs
-of functions that are otherwise unpopulated.  This allows a device to
-extend the number of outstanding requests.
-
-Such phantom functions need an IOMMU context setup, but failure to
-setup the context is not fatal when the device is assigned.  Not
-failing device assignment when such failure happens can lead to the
-primary device being assigned to a guest, while some of the phantom
-functions are assigned to a different domain.</description>
-      <guid isPermaLink="false">CVE-2023-46839|2024-08-02T20:53:21.878Z</guid>
-      <pubDate>Wed, 20 Mar 2024 10:35:52 +0000</pubDate>
-    </item>
-    <item>
-      <title>CVE-2024-2193|2024-08-01T19:03:39.165Z -- xen -- xen</title>
-      <link>https://www.cve.org/CVERecord?id=CVE-2024-2193</link>
-      <description>A Speculative Race Condition (SRC) vulnerability that impacts modern CPU architectures supporting speculative execution (related to Spectre V1) has been disclosed. An unauthenticated attacker can exploit this vulnerability to disclose arbitrary data from the CPU using race conditions to access the speculative executable code paths.</description>
-      <guid isPermaLink="false">CVE-2024-2193|2024-08-01T19:03:39.165Z</guid>
-      <pubDate>Fri, 15 Mar 2024 18:03:32 +0000</pubDate>
-    </item>
-    <item>
-      <title>CVE-2024-2193|2024-07-18T15:31:14.331Z -- xen -- xen</title>
-      <link>https://www.cve.org/CVERecord?id=CVE-2024-2193</link>
-      <description>A Speculative Race Condition (SRC) vulnerability that impacts modern CPU architectures supporting speculative execution (related to Spectre V1) has been disclosed. An unauthenticated attacker can exploit this vulnerability to disclose arbitrary data from the CPU using race conditions to access the speculative executable code paths.</description>
-      <guid isPermaLink="false">CVE-2024-2193|2024-07-18T15:31:14.331Z</guid>
-      <pubDate>Fri, 15 Mar 2024 18:03:32 +0000</pubDate>
-    </item>
-    <item>
-      <title>CVE-2023-46840|2024-03-20T10:40:18.050Z -- xen -- xen</title>
-      <link>https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2023-46840</link>
-      <description>Incorrect placement of a preprocessor directive in source code results
-in logic that doesn't operate as intended when support for HVM guests is
-compiled out of Xen.</description>
-      <guid isPermaLink="false">CVE-2023-46840|2024-03-20T10:40:18.050Z</guid>
-      <pubDate>Wed, 20 Mar 2024 10:40:18 +0000</pubDate>
     </item>
     <item>
       <title>CVE-2023-46841|2024-06-04T17:22:15.607Z -- xen -- xen</title>
@@ -288,8 +498,72 @@ The counterpart of this operation for the shadow stack was missing.</description
       <pubDate>Wed, 20 Mar 2024 10:40:36 +0000</pubDate>
     </item>
     <item>
-      <title>CVE-2023-46842|2024-06-04T17:22:13.355Z -- xen -- xen</title>
-      <link>https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2023-46842</link>
+      <title>CVE-2023-46840|2024-03-20T10:40:18.050Z -- xen -- xen</title>
+      <link>https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2023-46840</link>
+      <description>Incorrect placement of a preprocessor directive in source code results
+in logic that doesn't operate as intended when support for HVM guests is
+compiled out of Xen.</description>
+      <guid isPermaLink="false">CVE-2023-46840|2024-03-20T10:40:18.050Z</guid>
+      <pubDate>Wed, 20 Mar 2024 10:40:18 +0000</pubDate>
+    </item>
+    <item>
+      <title>CVE-2024-2193|2024-07-18T15:31:14.331Z -- xen -- xen</title>
+      <link>https://www.cve.org/CVERecord?id=CVE-2024-2193</link>
+      <description>A Speculative Race Condition (SRC) vulnerability that impacts modern CPU architectures supporting speculative execution (related to Spectre V1) has been disclosed. An unauthenticated attacker can exploit this vulnerability to disclose arbitrary data from the CPU using race conditions to access the speculative executable code paths.</description>
+      <guid isPermaLink="false">CVE-2024-2193|2024-07-18T15:31:14.331Z</guid>
+      <pubDate>Fri, 15 Mar 2024 18:03:32 +0000</pubDate>
+    </item>
+    <item>
+      <title>CVE-2024-2193|2024-08-01T19:03:39.165Z -- xen -- xen</title>
+      <link>https://www.cve.org/CVERecord?id=CVE-2024-2193</link>
+      <description>A Speculative Race Condition (SRC) vulnerability that impacts modern CPU architectures supporting speculative execution (related to Spectre V1) has been disclosed. An unauthenticated attacker can exploit this vulnerability to disclose arbitrary data from the CPU using race conditions to access the speculative executable code paths.</description>
+      <guid isPermaLink="false">CVE-2024-2193|2024-08-01T19:03:39.165Z</guid>
+      <pubDate>Fri, 15 Mar 2024 18:03:32 +0000</pubDate>
+    </item>
+    <item>
+      <title>CVE-2023-46839|2024-08-02T20:53:21.878Z -- xen -- xen</title>
+      <link>https://www.cve.org/CVERecord?id=CVE-2023-46839</link>
+      <description>PCI devices can make use of a functionality called phantom functions,
+that when enabled allows the device to generate requests using the IDs
+of functions that are otherwise unpopulated.  This allows a device to
+extend the number of outstanding requests.
+
+Such phantom functions need an IOMMU context setup, but failure to
+setup the context is not fatal when the device is assigned.  Not
+failing device assignment when such failure happens can lead to the
+primary device being assigned to a guest, while some of the phantom
+functions are assigned to a different domain.</description>
+      <guid isPermaLink="false">CVE-2023-46839|2024-08-02T20:53:21.878Z</guid>
+      <pubDate>Wed, 20 Mar 2024 10:35:52 +0000</pubDate>
+    </item>
+    <item>
+      <title>CVE-2023-46841|2024-08-02T20:53:21.716Z -- xen -- xen</title>
+      <link>https://www.cve.org/CVERecord?id=CVE-2023-46841</link>
+      <description>Recent x86 CPUs offer functionality named Control-flow Enforcement
+Technology (CET).  A sub-feature of this are Shadow Stacks (CET-SS).
+CET-SS is a hardware feature designed to protect against Return Oriented
+Programming attacks. When enabled, traditional stacks holding both data
+and return addresses are accompanied by so called "shadow stacks",
+holding little more than return addresses.  Shadow stacks aren't
+writable by normal instructions, and upon function returns their
+contents are used to check for possible manipulation of a return address
+coming from the traditional stack.
+
+In particular certain memory accesses need intercepting by Xen.  In
+various cases the necessary emulation involves kind of replaying of
+the instruction.  Such replaying typically involves filling and then
+invoking of a stub.  Such a replayed instruction may raise an
+exceptions, which is expected and dealt with accordingly.
+
+Unfortunately the interaction of both of the above wasn't right:
+Recovery involves removal of a call frame from the (traditional) stack.
+The counterpart of this operation for the shadow stack was missing.</description>
+      <guid isPermaLink="false">CVE-2023-46841|2024-08-02T20:53:21.716Z</guid>
+      <pubDate>Wed, 20 Mar 2024 10:40:36 +0000</pubDate>
+    </item>
+    <item>
+      <title>CVE-2023-46842|2024-08-02T20:53:21.979Z -- xen -- xen</title>
+      <link>https://www.cve.org/CVERecord?id=CVE-2023-46842</link>
       <description>Unlike 32-bit PV guests, HVM guests may switch freely between 64-bit and
 other modes.  This in particular means that they may set registers used
 to pass 32-bit-mode hypercall arguments to values outside of the range
@@ -305,83 +579,17 @@ Unfortunately internal sanity checking of these translated values
 assumes high halves of registers to always be clear when invoking a
 hypercall.  When this is found not to be the case, it triggers a
 consistency check in the hypervisor and causes a crash.</description>
-      <guid isPermaLink="false">CVE-2023-46842|2024-06-04T17:22:13.355Z</guid>
+      <guid isPermaLink="false">CVE-2023-46842|2024-08-02T20:53:21.979Z</guid>
       <pubDate>Thu, 16 May 2024 13:39:26 +0000</pubDate>
     </item>
     <item>
-      <title>CVE-2023-46839|2024-03-20T10:35:52.532Z -- xen -- xen</title>
-      <link>https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2023-46839</link>
-      <description>PCI devices can make use of a functionality called phantom functions,
-that when enabled allows the device to generate requests using the IDs
-of functions that are otherwise unpopulated.  This allows a device to
-extend the number of outstanding requests.
-
-Such phantom functions need an IOMMU context setup, but failure to
-setup the context is not fatal when the device is assigned.  Not
-failing device assignment when such failure happens can lead to the
-primary device being assigned to a guest, while some of the phantom
-functions are assigned to a different domain.</description>
-      <guid isPermaLink="false">CVE-2023-46839|2024-03-20T10:35:52.532Z</guid>
-      <pubDate>Wed, 20 Mar 2024 10:35:52 +0000</pubDate>
-    </item>
-    <item>
-      <title>CVE-2024-31142|2024-06-04T17:36:07.065Z -- xen -- xen</title>
-      <link>https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2024-31142</link>
-      <description>Because of a logical error in XSA-407 (Branch Type Confusion), the
-mitigation is not applied properly when it is intended to be used.
-XSA-434 (Speculative Return Stack Overflow) uses the same
-infrastructure, so is equally impacted.
-
-For more details, see:
-  https://xenbits.xen.org/xsa/advisory-407.html
-  https://xenbits.xen.org/xsa/advisory-434.html</description>
-      <guid isPermaLink="false">CVE-2024-31142|2024-06-04T17:36:07.065Z</guid>
-      <pubDate>Thu, 16 May 2024 13:39:42 +0000</pubDate>
-    </item>
-    <item>
-      <title>CVE-2024-2193|2024-03-15T21:25:07.075Z -- xen -- xen</title>
-      <link>https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2024-2193</link>
-      <description>A Speculative Race Condition (SRC) vulnerability that impacts modern CPU architectures supporting speculative execution (related to Spectre V1) has been disclosed. An unauthenticated attacker can exploit this vulnerability to disclose arbitrary data from the CPU using race conditions to access the speculative executable code paths.</description>
-      <guid isPermaLink="false">CVE-2024-2193|2024-03-15T21:25:07.075Z</guid>
-      <pubDate>Fri, 15 Mar 2024 18:03:32 +0000</pubDate>
-    </item>
-    <item>
-      <title>CVE-2024-31143|2024-07-18T13:31:31.244Z -- xen -- xen</title>
-      <link>https://www.cve.org/CVERecord?id=CVE-2024-31143</link>
-      <description>An optional feature of PCI MSI called "Multiple Message" allows a
-device to use multiple consecutive interrupt vectors.  Unlike for MSI-X,
-the setting up of these consecutive vectors needs to happen all in one
-go.  In this handling an error path could be taken in different
-situations, with or without a particular lock held.  This error path
-wrongly releases the lock even when it is not currently held.</description>
-      <guid isPermaLink="false">CVE-2024-31143|2024-07-18T13:31:31.244Z</guid>
-      <pubDate>Thu, 18 Jul 2024 13:31:31 +0000</pubDate>
-    </item>
-    <item>
-      <title>CVE-2024-31143|2024-08-02T01:46:04.560Z -- xen -- xen</title>
-      <link>https://www.cve.org/CVERecord?id=CVE-2024-31143</link>
-      <description>An optional feature of PCI MSI called "Multiple Message" allows a
-device to use multiple consecutive interrupt vectors.  Unlike for MSI-X,
-the setting up of these consecutive vectors needs to happen all in one
-go.  In this handling an error path could be taken in different
-situations, with or without a particular lock held.  This error path
-wrongly releases the lock even when it is not currently held.</description>
-      <guid isPermaLink="false">CVE-2024-31143|2024-08-02T01:46:04.560Z</guid>
-      <pubDate>Thu, 18 Jul 2024 13:31:31 +0000</pubDate>
-    </item>
-    <item>
-      <title>CVE-2024-31142|2024-08-02T01:46:04.491Z -- xen -- xen</title>
-      <link>https://www.cve.org/CVERecord?id=CVE-2024-31142</link>
-      <description>Because of a logical error in XSA-407 (Branch Type Confusion), the
-mitigation is not applied properly when it is intended to be used.
-XSA-434 (Speculative Return Stack Overflow) uses the same
-infrastructure, so is equally impacted.
-
-For more details, see:
-  https://xenbits.xen.org/xsa/advisory-407.html
-  https://xenbits.xen.org/xsa/advisory-434.html</description>
-      <guid isPermaLink="false">CVE-2024-31142|2024-08-02T01:46:04.491Z</guid>
-      <pubDate>Thu, 16 May 2024 13:39:42 +0000</pubDate>
+      <title>CVE-2023-46840|2024-08-02T20:53:21.926Z -- xen -- xen</title>
+      <link>https://www.cve.org/CVERecord?id=CVE-2023-46840</link>
+      <description>Incorrect placement of a preprocessor directive in source code results
+in logic that doesn't operate as intended when support for HVM guests is
+compiled out of Xen.</description>
+      <guid isPermaLink="false">CVE-2023-46840|2024-08-02T20:53:21.926Z</guid>
+      <pubDate>Wed, 20 Mar 2024 10:40:18 +0000</pubDate>
     </item>
   </channel>
 </rss>

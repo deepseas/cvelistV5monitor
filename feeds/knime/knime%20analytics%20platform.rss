@@ -6,26 +6,26 @@
     <description>The latest CVEs for KNIME -- KNIME Analytics Platform</description>
     <docs>http://www.rssboard.org/rss-specification</docs>
     <generator>python-feedgen</generator>
-    <lastBuildDate>Fri, 02 Aug 2024 23:22:14 +0000</lastBuildDate>
+    <lastBuildDate>Sat, 03 Aug 2024 14:22:56 +0000</lastBuildDate>
     <ttl>60</ttl>
     <item>
-      <title>CVE-2023-5562|2024-08-02T07:59:44.813Z -- knime -- knime%20analytics%20platform
+      <title>CVE-2022-44749|2024-08-03T14:01:31.155Z -- knime -- knime%20analytics%20platform
 </title>
-      <link>https://www.cve.org/CVERecord?id=CVE-2023-5562</link>
-      <description>An unsafe default configuration in KNIME Analytics Platform before 5.2.0 allows for a cross-site scripting attack. When KNIME Analytics Platform is used as an executor for either KNIME Server or KNIME Business Hub several JavaScript-based view nodes do not sanitize the data that is displayed by default. If the data to be displayed contains JavaScript this code is executed in the browser and can perform any operations that the current user is allowed to perform silently.
+      <link>https://www.cve.org/CVERecord?id=CVE-2022-44749</link>
+      <description>A directory traversal vulnerability in the ZIP archive extraction routines of KNIME Analytics Platform 3.2.0 and above can result in arbitrary files being overwritten on the user's system. This vulnerability is also known as 'Zip-Slip'.
 
 
 
 
-KNIME Analytics Platform already has configuration options with which sanitization of data can be actived, see  https://docs.knime.com/latest/webportal_admin_guide/index.html#html-sanitization-webportal https://docs.knime.com/latest/webportal_admin_guide/index.html#html-sanitization-webportal . However, these are off by default which allows for cross-site scripting attacks.
 
+An attacker can create a KNIME workflow that, when being opened by a user, can overwrite arbitrary files that the user has write access to. It's not necessary to execute the workflow, opening the workflow is sufficient. The user will notice that something is wrong because an error is being reported but only after the files have already been written.
 
-KNIME Analytics Platform 5.2.0 will enable sanitization by default. For all previous releases we recommend users to add the corresponding settings to the executor's knime.ini.
+This can impact data integrity (file contents are changed) or cause errors in other software (vital files being corrupted). It can even lead to remote code execution if executable files are being replaced and subsequently executed by the user. In all cases the attacker has to know the location of files on the user's system, though.
 
 
 </description>
-      <guid isPermaLink="false">CVE-2023-5562|2024-08-02T07:59:44.813Z</guid>
-      <pubDate>Thu, 12 Oct 2023 19:00:54 +0000</pubDate>
+      <guid isPermaLink="false">CVE-2022-44749|2024-08-03T14:01:31.155Z</guid>
+      <pubDate>Thu, 24 Nov 2022 06:39:22 +0000</pubDate>
     </item>
   </channel>
 </rss>
