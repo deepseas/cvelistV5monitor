@@ -1,0 +1,20 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<rss xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/" version="2.0">
+  <channel>
+    <title>CVE Feed for Swift Project -- Swift Corelib-Foundation</title>
+    <link>https://raw.githubusercontent.com/deepseas/cvelistV5monitor/main/feeds/swift%20project/swift%20corelib-foundation.rss</link>
+    <description>The latest CVEs for Swift Project -- Swift Corelib-Foundation</description>
+    <docs>http://www.rssboard.org/rss-specification</docs>
+    <generator>python-feedgen</generator>
+    <lastBuildDate>Sat, 03 Aug 2024 00:28:20 +0000</lastBuildDate>
+    <ttl>60</ttl>
+    <item>
+      <title>CVE-2022-1642|2024-08-03T00:10:03.820Z -- swift%20project -- swift%20corelib-foundation
+</title>
+      <link>https://www.cve.org/CVERecord?id=CVE-2022-1642</link>
+      <description>A program using swift-corelibs-foundation is vulnerable to a denial of service attack caused by a potentially malicious source producing a JSON document containing a type mismatch. This vulnerability is caused by the interaction between a deserialization mechanism offered by the Swift standard library, the Codable protocol; and the JSONDecoder class offered by swift-corelibs-foundation, which can deserialize types that adopt the Codable protocol based on the content of a provided JSON document. When a type that adopts Codable requests the initialization of a field with an integer value, the JSONDecoder class uses a type-erased container with different accessor methods to attempt and coerce a corresponding JSON value and produce an integer. In the case the JSON value was a numeric literal with a floating-point portion, JSONDecoder used different type-eraser methods during validation than it did during the final casting of the value. The checked casting produces a deterministic crash due to this mismatch. The JSONDecoder class is often wrapped by popular Swift-based web frameworks to parse the body of HTTP requests and perform basic type validation. This makes the attack low-effort: sending a specifically crafted JSON document during a request to these endpoints will cause them to crash. The attack does not have any confidentiality or integrity risks in and of itself; the crash is produced deterministically by an abort function that ensures that execution does not continue in the face of this violation of assumptions. However, unexpected crashes can lead to violations of invariants in services, so it's possible that this attack can be used to trigger error conditions that escalate the risk. Producing a denial of service may also be the goal of an attacker in itself. This issue is solved in Swift 5.6.2 for Linux and Windows. This issue was solved by ensuring that the same methods are invoked both when validating and during casting, so that no type mismatch occurs. Swift for Linux and Windows versions are not ABI-interchangeable. To upgrade a service, its owner must update to this version of the Swift toolchain, then recompile and redeploy their software. The new version of Swift includes an updated swift-corelibs-foundation package. Versions of Swift running on Darwin-based operating systems are not affected.</description>
+      <guid isPermaLink="false">CVE-2022-1642|2024-08-03T00:10:03.820Z</guid>
+      <pubDate>Thu, 16 Jun 2022 16:39:46 +0000</pubDate>
+    </item>
+  </channel>
+</rss>
