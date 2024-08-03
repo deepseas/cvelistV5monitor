@@ -6,8 +6,16 @@
     <description>The latest CVEs for rust-lang -- all products</description>
     <docs>http://www.rssboard.org/rss-specification</docs>
     <generator>python-feedgen</generator>
-    <lastBuildDate>Sat, 03 Aug 2024 04:23:51 +0000</lastBuildDate>
+    <lastBuildDate>Sat, 03 Aug 2024 05:22:12 +0000</lastBuildDate>
     <ttl>60</ttl>
+    <item>
+      <title>CVE-2022-24713|2024-08-03T04:20:50.199Z -- rust-lang -- regex
+</title>
+      <link>https://www.cve.org/CVERecord?id=CVE-2022-24713</link>
+      <description>regex is an implementation of regular expressions for the Rust language. The regex crate features built-in mitigations to prevent denial of service attacks caused by untrusted regexes, or untrusted input matched by trusted regexes. Those (tunable) mitigations already provide sane defaults to prevent attacks. This guarantee is documented and it's considered part of the crate's API. Unfortunately a bug was discovered in the mitigations designed to prevent untrusted regexes to take an arbitrary amount of time during parsing, and it's possible to craft regexes that bypass such mitigations. This makes it possible to perform denial of service attacks by sending specially crafted regexes to services accepting user-controlled, untrusted regexes. All versions of the regex crate before or equal to 1.5.4 are affected by this issue. The fix is include starting from regex 1.5.5. All users accepting user-controlled regexes are recommended to upgrade immediately to the latest version of the regex crate. Unfortunately there is no fixed set of problematic regexes, as there are practically infinite regexes that could be crafted to exploit this vulnerability. Because of this, it us not recommend to deny known problematic regexes.</description>
+      <guid isPermaLink="false">CVE-2022-24713|2024-08-03T04:20:50.199Z</guid>
+      <pubDate>Tue, 08 Mar 2022 19:00:12 +0000</pubDate>
+    </item>
     <item>
       <title>CVE-2022-21658|2024-08-03T02:46:39.244Z -- rust-lang -- rust
 </title>

@@ -6,7 +6,7 @@
     <description>The latest CVEs for puma -- puma</description>
     <docs>http://www.rssboard.org/rss-specification</docs>
     <generator>python-feedgen</generator>
-    <lastBuildDate>Sat, 03 Aug 2024 04:24:01 +0000</lastBuildDate>
+    <lastBuildDate>Sat, 03 Aug 2024 05:22:18 +0000</lastBuildDate>
     <ttl>60</ttl>
     <item>
       <title>CVE-2022-23634|2024-08-03T03:51:45.584Z -- puma -- puma
@@ -15,6 +15,14 @@
       <description>Puma is a Ruby/Rack web server built for parallelism. Prior to `puma` version `5.6.2`, `puma` may not always call `close` on the response body. Rails, prior to version `7.0.2.2`, depended on the response body being closed in order for its `CurrentAttributes` implementation to work correctly. The combination of these two behaviors (Puma not closing the body + Rails' Executor implementation) causes information leakage. This problem is fixed in Puma versions 5.6.2 and 4.3.11. This problem is fixed in Rails versions 7.02.2, 6.1.4.6, 6.0.4.6, and 5.2.6.2. Upgrading to a patched Rails _or_ Puma version fixes the vulnerability.</description>
       <guid isPermaLink="false">CVE-2022-23634|2024-08-03T03:51:45.584Z</guid>
       <pubDate>Fri, 11 Feb 2022 21:40:11 +0000</pubDate>
+    </item>
+    <item>
+      <title>CVE-2022-24790|2024-08-03T04:20:50.515Z -- puma -- puma
+</title>
+      <link>https://www.cve.org/CVERecord?id=CVE-2022-24790</link>
+      <description>Puma is a simple, fast, multi-threaded, parallel HTTP 1.1 server for Ruby/Rack applications. When using Puma behind a proxy that does not properly validate that the incoming HTTP request matches the RFC7230 standard, Puma and the frontend proxy may disagree on where a request starts and ends. This would allow requests to be smuggled via the front-end proxy to Puma. The vulnerability has been fixed in 5.6.4 and 4.3.12. Users are advised to upgrade as soon as possible. Workaround: when deploying a proxy in front of Puma, turning on any and all functionality to make sure that the request matches the RFC7230 standard.</description>
+      <guid isPermaLink="false">CVE-2022-24790|2024-08-03T04:20:50.515Z</guid>
+      <pubDate>Wed, 30 Mar 2022 21:50:09 +0000</pubDate>
     </item>
   </channel>
 </rss>

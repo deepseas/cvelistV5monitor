@@ -6,7 +6,7 @@
     <description>The latest CVEs for bytecodealliance -- all products</description>
     <docs>http://www.rssboard.org/rss-specification</docs>
     <generator>python-feedgen</generator>
-    <lastBuildDate>Sat, 03 Aug 2024 04:24:00 +0000</lastBuildDate>
+    <lastBuildDate>Sat, 03 Aug 2024 05:22:03 +0000</lastBuildDate>
     <ttl>60</ttl>
     <item>
       <title>CVE-2022-23636|2024-08-03T03:51:46.018Z -- bytecodealliance -- wasmtime
@@ -17,17 +17,25 @@
       <pubDate>Wed, 16 Feb 2022 22:00:10 +0000</pubDate>
     </item>
     <item>
-      <title>CVE-2024-30266|2024-06-04T17:38:20.190Z -- bytecodealliance -- wasmtime</title>
-      <link>https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2024-30266</link>
-      <description>wasmtime is a runtime for WebAssembly. The 19.0.0 release of Wasmtime contains a regression introduced during its development which can lead to a guest WebAssembly module causing a panic in the host runtime. A valid WebAssembly module, when executed at runtime, may cause this panic. This vulnerability has been patched in version 19.0.1.</description>
-      <guid isPermaLink="false">CVE-2024-30266|2024-06-04T17:38:20.190Z</guid>
-      <pubDate>Thu, 04 Apr 2024 15:42:00 +0000</pubDate>
+      <title>CVE-2022-24791|2024-08-03T04:20:50.505Z -- bytecodealliance -- wasmtime
+</title>
+      <link>https://www.cve.org/CVERecord?id=CVE-2022-24791</link>
+      <description>Wasmtime is a standalone JIT-style runtime for WebAssembly, using Cranelift. There is a use after free vulnerability in Wasmtime when both running Wasm that uses externrefs and enabling epoch interruption in Wasmtime. If you are not explicitly enabling epoch interruption (it is disabled by default) then you are not affected. If you are explicitly disabling the Wasm reference types proposal (it is enabled by default) then you are also not affected. The use after free is caused by Cranelift failing to emit stack maps when there are safepoints inside cold blocks. Cold blocks occur when epoch interruption is enabled. Cold blocks are emitted at the end of compiled functions, and change the order blocks are emitted versus defined. This reordering accidentally caused Cranelift to skip emitting some stack maps because it expected to emit the stack maps in block definition order, rather than block emission order. When Wasmtime would eventually collect garbage, it would fail to find live references on the stack because of the missing stack maps, think that they were unreferenced garbage, and therefore reclaim them. Then after the collection ended, the Wasm code could use the reclaimed-too-early references, which is a use after free. Patches have been released in versions 0.34.2 and 0.35.2, which fix the vulnerability. All Wasmtime users are recommended to upgrade to these patched versions. If upgrading is not an option for you at this time, you can avoid the vulnerability by either: disabling the Wasm reference types proposal, config.wasm_reference_types(false); or by disabling epoch interruption if you were previously enabling it. config.epoch_interruption(false).</description>
+      <guid isPermaLink="false">CVE-2022-24791|2024-08-03T04:20:50.505Z</guid>
+      <pubDate>Thu, 31 Mar 2022 23:00:15 +0000</pubDate>
     </item>
     <item>
       <title>CVE-2024-30266|2024-08-02T01:32:07.072Z -- bytecodealliance -- wasmtime</title>
       <link>https://www.cve.org/CVERecord?id=CVE-2024-30266</link>
       <description>wasmtime is a runtime for WebAssembly. The 19.0.0 release of Wasmtime contains a regression introduced during its development which can lead to a guest WebAssembly module causing a panic in the host runtime. A valid WebAssembly module, when executed at runtime, may cause this panic. This vulnerability has been patched in version 19.0.1.</description>
       <guid isPermaLink="false">CVE-2024-30266|2024-08-02T01:32:07.072Z</guid>
+      <pubDate>Thu, 04 Apr 2024 15:42:00 +0000</pubDate>
+    </item>
+    <item>
+      <title>CVE-2024-30266|2024-06-04T17:38:20.190Z -- bytecodealliance -- wasmtime</title>
+      <link>https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2024-30266</link>
+      <description>wasmtime is a runtime for WebAssembly. The 19.0.0 release of Wasmtime contains a regression introduced during its development which can lead to a guest WebAssembly module causing a panic in the host runtime. A valid WebAssembly module, when executed at runtime, may cause this panic. This vulnerability has been patched in version 19.0.1.</description>
+      <guid isPermaLink="false">CVE-2024-30266|2024-06-04T17:38:20.190Z</guid>
       <pubDate>Thu, 04 Apr 2024 15:42:00 +0000</pubDate>
     </item>
   </channel>

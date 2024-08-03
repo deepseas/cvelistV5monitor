@@ -1,0 +1,20 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<rss xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/" version="2.0">
+  <channel>
+    <title>CVE Feed for brianmario -- all</title>
+    <link>https://raw.githubusercontent.com/deepseas/cvelistV5monitor/main/feeds/brianmario/all.rss</link>
+    <description>The latest CVEs for brianmario -- all products</description>
+    <docs>http://www.rssboard.org/rss-specification</docs>
+    <generator>python-feedgen</generator>
+    <lastBuildDate>Sat, 03 Aug 2024 05:22:21 +0000</lastBuildDate>
+    <ttl>60</ttl>
+    <item>
+      <title>CVE-2022-24795|2024-08-03T04:20:50.514Z -- brianmario -- yajl-ruby
+</title>
+      <link>https://www.cve.org/CVERecord?id=CVE-2022-24795</link>
+      <description>yajl-ruby is a C binding to the YAJL JSON parsing and generation library. The 1.x branch and the 2.x branch of `yajl` contain an integer overflow which leads to subsequent heap memory corruption when dealing with large (~2GB) inputs. The reallocation logic at `yajl_buf.c#L64` may result in the `need` 32bit integer wrapping to 0 when `need` approaches a value of 0x80000000 (i.e. ~2GB of data), which results in a reallocation of buf-&gt;alloc into a small heap chunk. These integers are declared as `size_t` in the 2.x branch of `yajl`, which practically prevents the issue from triggering on 64bit platforms, however this does not preclude this issue triggering on 32bit builds on which `size_t` is a 32bit integer. Subsequent population of this under-allocated heap chunk is based on the original buffer size, leading to heap memory corruption. This vulnerability mostly impacts process availability. Maintainers believe exploitation for arbitrary code execution is unlikely. A patch is available and anticipated to be part of yajl-ruby version 1.4.2. As a workaround, avoid passing large inputs to YAJL.</description>
+      <guid isPermaLink="false">CVE-2022-24795|2024-08-03T04:20:50.514Z</guid>
+      <pubDate>Tue, 05 Apr 2022 00:00:00 +0000</pubDate>
+    </item>
+  </channel>
+</rss>

@@ -6,41 +6,31 @@
     <description>The latest CVEs for metabase -- metabase</description>
     <docs>http://www.rssboard.org/rss-specification</docs>
     <generator>python-feedgen</generator>
-    <lastBuildDate>Fri, 02 Aug 2024 23:21:41 +0000</lastBuildDate>
+    <lastBuildDate>Sat, 03 Aug 2024 05:22:13 +0000</lastBuildDate>
     <ttl>60</ttl>
     <item>
-      <title>CVE-2023-32680|2024-08-02T15:25:36.349Z -- metabase -- metabase
+      <title>CVE-2022-24855|2024-08-03T04:20:50.503Z -- metabase -- metabase
 </title>
-      <link>https://www.cve.org/CVERecord?id=CVE-2023-32680</link>
-      <description>Metabase is an open source business analytics engine. To edit SQL Snippets, Metabase should have required people to be in at least one group with native query editing permissions to a database–but affected versions of Metabase didn't enforce that requirement. This lack of enforcement meant that: Anyone–including people in sandboxed groups–could edit SQL snippets. They could edit snippets via the API or, in the application UI, when editing the metadata for a model based on a SQL question, and people in sandboxed groups could edit a SQL snippet used in a query that creates their sandbox. If the snippet contained logic that restricted which data that person could see, they could potentially edit that snippet and change their level of data access. The permissions model for SQL snippets has been fixed in Metabase versions 0.46.3, 0.45.4, 0.44.7, 1.46.3, 1.45.4, and 1.44.7. Users are advised to upgrade. Users unable to upgrade should ensure that SQL queries used to create sandboxes exclude SQL snippets.</description>
-      <guid isPermaLink="false">CVE-2023-32680|2024-08-02T15:25:36.349Z</guid>
-      <pubDate>Thu, 18 May 2023 22:55:30 +0000</pubDate>
+      <link>https://www.cve.org/CVERecord?id=CVE-2022-24855</link>
+      <description>Metabase is an open source business intelligence and analytics application. In affected versions Metabase ships with an internal development endpoint `/_internal` that can allow for cross site scripting (XSS) attacks, potentially leading to phishing attempts with malicious links that could lead to account takeover. Users are advised to either upgrade immediately, or block access in your firewall to `/_internal` endpoints for Metabase. The following patches (or greater versions) are available: 0.42.4 and 1.42.4, 0.41.7 and 1.41.7, 0.40.8 and 1.40.8.</description>
+      <guid isPermaLink="false">CVE-2022-24855|2024-08-03T04:20:50.503Z</guid>
+      <pubDate>Thu, 14 Apr 2022 21:35:11 +0000</pubDate>
     </item>
     <item>
-      <title>CVE-2023-23629|2024-08-02T10:35:33.616Z -- metabase -- metabase
+      <title>CVE-2022-24854|2024-08-03T04:20:50.469Z -- metabase -- metabase
 </title>
-      <link>https://www.cve.org/CVERecord?id=CVE-2023-23629</link>
-      <description>Metabase is an open source data analytics platform. Affected versions are subject to Improper Privilege Management. As intended, recipients of dashboards subscriptions can view the data as seen by the creator of that subscription. This allows someone with greater access to data to create a dashboard subscription, add people with fewer data privileges, and all recipients of that subscription receive the same data: the charts shown in the email would abide by the privileges of the user who created the subscription. The issue is users with fewer privileges who can view a dashboard are able to add themselves to a dashboard subscription created by someone with additional data privileges, and thus get access to more data via email. This issue is patched in versions 0.43.7.1, 1.43.7.1, 0.44.6.1, 1.44.6.1, 0.45.2.1, and 1.45.2.1. On Metabase instances running Enterprise Edition, admins can disable the "Subscriptions and Alerts" permission for groups that have restricted data permissions, as a workaround.
-</description>
-      <guid isPermaLink="false">CVE-2023-23629|2024-08-02T10:35:33.616Z</guid>
-      <pubDate>Sat, 28 Jan 2023 01:23:33 +0000</pubDate>
+      <link>https://www.cve.org/CVERecord?id=CVE-2022-24854</link>
+      <description>Metabase is an open source business intelligence and analytics application. SQLite has an FDW-like feature called `ATTACH DATABASE`, which allows connecting multiple SQLite databases via the initial connection. If the attacker has SQL permissions to at least one SQLite database, then it can attach this database to a second database, and then it can query across all the tables. To be able to do that the attacker also needs to know the file path to the second database. Users are advised to upgrade as soon as possible. If you're unable to upgrade, you can modify your SQLIte connection strings to contain the url argument `?limit_attached=0`, which will disallow making connections to other SQLite databases. Only users making use of SQLite are affected.</description>
+      <guid isPermaLink="false">CVE-2022-24854|2024-08-03T04:20:50.469Z</guid>
+      <pubDate>Thu, 14 Apr 2022 21:40:11 +0000</pubDate>
     </item>
     <item>
-      <title>CVE-2023-37470|2024-08-02T17:16:30.142Z -- metabase -- metabase
+      <title>CVE-2022-24853|2024-08-03T04:20:50.543Z -- metabase -- metabase
 </title>
-      <link>https://www.cve.org/CVERecord?id=CVE-2023-37470</link>
-      <description>Metabase is an open-source business intelligence and analytics platform. Prior to versions 0.43.7.3, 0.44.7.3, 0.45.4.3, 0.46.6.4, 1.43.7.3, 1.44.7.3, 1.45.4.3, and 1.46.6.4, a vulnerability could potentially allow remote code execution on one's Metabase server. The core issue is that one of the supported data warehouses (an embedded in-memory database H2), exposes a number of ways for a connection string to include code that is then executed by the process running the embedded database. Because Metabase allows users to connect to databases, this means that a user supplied string can be used to inject executable code. Metabase allows users to validate their connection string before adding a database (including on setup), and this validation API was the primary vector used as it can be called without validation. Versions 0.43.7.3, 0.44.7.3, 0.45.4.3, 0.46.6.4, 1.43.7.3, 1.44.7.3, 1.45.4.3, and 1.46.6.4 fix this issue by removing the ability of users to add H2 databases entirely. As a workaround, it is possible to block these vulnerabilities at the network level by blocking the endpoints `POST /api/database`, `PUT /api/database/:id`, and `POST /api/setup/validateuntil`. Those who use H2 as a file-based database should migrate to SQLite.</description>
-      <guid isPermaLink="false">CVE-2023-37470|2024-08-02T17:16:30.142Z</guid>
-      <pubDate>Fri, 04 Aug 2023 15:12:43 +0000</pubDate>
-    </item>
-    <item>
-      <title>CVE-2023-23628|2024-08-02T10:35:33.640Z -- metabase -- metabase
-</title>
-      <link>https://www.cve.org/CVERecord?id=CVE-2023-23628</link>
-      <description>Metabase is an open source data analytics platform. Affected versions are subject to Exposure of Sensitive Information to an Unauthorized Actor. Sandboxed users shouldn't be able to view data about other Metabase users anywhere in the Metabase application. However, when a sandbox user views the settings for a dashboard subscription, and another user has added users to that subscription, the sandboxed user is able to view the list of recipients for that subscription. This issue is patched in versions 0.43.7.1, 1.43.7.1, 0.44.6.1, 1.44.6.1, 0.45.2.1, and 1.45.2.1. There are no workarounds.
-</description>
-      <guid isPermaLink="false">CVE-2023-23628|2024-08-02T10:35:33.640Z</guid>
-      <pubDate>Sat, 28 Jan 2023 01:11:16 +0000</pubDate>
+      <link>https://www.cve.org/CVERecord?id=CVE-2022-24853</link>
+      <description>Metabase is an open source business intelligence and analytics application. Metabase has a proxy to load arbitrary URLs for JSON maps as part of our GeoJSON support. While we do validation to not return contents of arbitrary URLs, there is a case where a particularly crafted request could result in file access on windows, which allows enabling an `NTLM relay attack`, potentially allowing an attacker to receive the system password hash. If you use Windows and are on this version of Metabase, please upgrade immediately. The following patches (or greater versions) are available: 0.42.4 and 1.42.4, 0.41.7 and 1.41.7, 0.40.8 and 1.40.8.</description>
+      <guid isPermaLink="false">CVE-2022-24853|2024-08-03T04:20:50.543Z</guid>
+      <pubDate>Thu, 14 Apr 2022 21:45:16 +0000</pubDate>
     </item>
   </channel>
 </rss>

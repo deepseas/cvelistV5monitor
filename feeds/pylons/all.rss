@@ -6,15 +6,15 @@
     <description>The latest CVEs for Pylons -- all products</description>
     <docs>http://www.rssboard.org/rss-specification</docs>
     <generator>python-feedgen</generator>
-    <lastBuildDate>Fri, 02 Aug 2024 23:22:03 +0000</lastBuildDate>
+    <lastBuildDate>Sat, 03 Aug 2024 05:22:17 +0000</lastBuildDate>
     <ttl>60</ttl>
     <item>
-      <title>CVE-2023-40587|2024-08-02T18:38:50.767Z -- pylons -- pyramid
+      <title>CVE-2022-24761|2024-08-03T04:20:50.428Z -- pylons -- waitress
 </title>
-      <link>https://www.cve.org/CVERecord?id=CVE-2023-40587</link>
-      <description>Pyramid is an open source Python web framework. A path traversal vulnerability in Pyramid versions 2.0.0 and 2.0.1 impacts users of Python 3.11 that are using a Pyramid static view with a full filesystem path and have a `index.html` file that is located exactly one directory above the location of the static view's file system path. No further path traversal exists, and the only file that could be disclosed accidentally is `index.html`. Pyramid version 2.0.2 rejects any path that contains a null-byte out of caution. While valid in directory/file names, we would strongly consider it a mistake to use null-bytes in naming files/directories. Secondly, Python 3.11, and 3.12 has fixed the underlying issue in `os.path.normpath` to no longer truncate on the first `0x00` found, returning the behavior to pre-3.11 Python, un an as of yet unreleased version. Fixes will be available in:Python 3.12.0rc2 and 3.11.5. Some workarounds are available. Use a version of Python 3 that is not affected, downgrade to Python 3.10 series temporarily, or wait until Python 3.11.5 is released and upgrade to the latest version of Python 3.11 series.</description>
-      <guid isPermaLink="false">CVE-2023-40587|2024-08-02T18:38:50.767Z</guid>
-      <pubDate>Fri, 25 Aug 2023 20:46:35 +0000</pubDate>
+      <link>https://www.cve.org/CVERecord?id=CVE-2022-24761</link>
+      <description>Waitress is a Web Server Gateway Interface server for Python 2 and 3. When using Waitress versions 2.1.0 and prior behind a proxy that does not properly validate the incoming HTTP request matches the RFC7230 standard, Waitress and the frontend proxy may disagree on where one request starts and where it ends. This would allow requests to be smuggled via the front-end proxy to waitress and later behavior. There are two classes of vulnerability that may lead to request smuggling that are addressed by this advisory: The use of Python's `int()` to parse strings into integers, leading to `+10` to be parsed as `10`, or `0x01` to be parsed as `1`, where as the standard specifies that the string should contain only digits or hex digits; and Waitress does not support chunk extensions, however it was discarding them without validating that they did not contain illegal characters. This vulnerability has been patched in Waitress 2.1.1. A workaround is available. When deploying a proxy in front of waitress, turning on any and all functionality to make sure that the request matches the RFC7230 standard. Certain proxy servers may not have this functionality though and users are encouraged to upgrade to the latest version of waitress instead.</description>
+      <guid isPermaLink="false">CVE-2022-24761|2024-08-03T04:20:50.428Z</guid>
+      <pubDate>Thu, 17 Mar 2022 12:40:10 +0000</pubDate>
     </item>
   </channel>
 </rss>

@@ -6,7 +6,7 @@
     <description>The latest CVEs for containerd -- all products</description>
     <docs>http://www.rssboard.org/rss-specification</docs>
     <generator>python-feedgen</generator>
-    <lastBuildDate>Sat, 03 Aug 2024 04:24:00 +0000</lastBuildDate>
+    <lastBuildDate>Sat, 03 Aug 2024 05:22:18 +0000</lastBuildDate>
     <ttl>60</ttl>
     <item>
       <title>CVE-2022-23471|2024-08-03T03:43:46.038Z -- containerd -- containerd
@@ -23,6 +23,14 @@
       <description>containerd is a container runtime available as a daemon for Linux and Windows. A bug was found in containerd prior to versions 1.6.1, 1.5.10, and 1.14.12 where containers launched through containerd’s CRI implementation on Linux with a specially-crafted image configuration could gain access to read-only copies of arbitrary files and directories on the host. This may bypass any policy-based enforcement on container setup (including a Kubernetes Pod Security Policy) and expose potentially sensitive information. Kubernetes and crictl can both be configured to use containerd’s CRI implementation. This bug has been fixed in containerd 1.6.1, 1.5.10, and 1.4.12. Users should update to these versions to resolve the issue.</description>
       <guid isPermaLink="false">CVE-2022-23648|2024-08-03T03:51:45.829Z</guid>
       <pubDate>Thu, 03 Mar 2022 00:00:00 +0000</pubDate>
+    </item>
+    <item>
+      <title>CVE-2022-24778|2024-08-03T04:20:50.461Z -- containerd -- imgcrypt
+</title>
+      <link>https://www.cve.org/CVERecord?id=CVE-2022-24778</link>
+      <description>The imgcrypt library provides API exensions for containerd to support encrypted container images and implements the ctd-decoder command line tool for use by containerd to decrypt encrypted container images. The imgcrypt function `CheckAuthorization` is supposed to check whether the current used is authorized to access an encrypted image and prevent the user from running an image that another user previously decrypted on the same system. In versions prior to 1.1.4, a failure occurs when an image with a ManifestList is used and the architecture of the local host is not the first one in the ManifestList. Only the first architecture in the list was tested, which may not have its layers available locally since it could not be run on the host architecture. Therefore, the verdict on unavailable layers was that the image could be run anticipating that image run failure would occur later due to the layers not being available. However, this verdict to allow the image to run enabled other architectures in the ManifestList to run an image without providing keys if that image had previously been decrypted. A patch has been applied to imgcrypt 1.1.4. Workarounds may include usage of different namespaces for each remote user.</description>
+      <guid isPermaLink="false">CVE-2022-24778|2024-08-03T04:20:50.461Z</guid>
+      <pubDate>Fri, 25 Mar 2022 17:20:11 +0000</pubDate>
     </item>
   </channel>
 </rss>

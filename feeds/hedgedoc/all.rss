@@ -6,21 +6,15 @@
     <description>The latest CVEs for hedgedoc -- all products</description>
     <docs>http://www.rssboard.org/rss-specification</docs>
     <generator>python-feedgen</generator>
-    <lastBuildDate>Fri, 02 Aug 2024 23:22:03 +0000</lastBuildDate>
+    <lastBuildDate>Sat, 03 Aug 2024 05:22:20 +0000</lastBuildDate>
     <ttl>60</ttl>
     <item>
-      <title>CVE-2023-38487|2024-08-02T17:39:13.554Z -- hedgedoc -- hedgedoc
+      <title>CVE-2022-24837|2024-08-03T04:20:50.602Z -- hedgedoc -- hedgedoc
 </title>
-      <link>https://www.cve.org/CVERecord?id=CVE-2023-38487</link>
-      <description>HedgeDoc is software for creating real-time collaborative markdown notes. Prior to version 1.9.9, the API of HedgeDoc 1 can be used to create notes with an alias matching the ID of existing notes. The affected existing note can then not be accessed anymore and is effectively hidden by the new one.
-
-When the freeURL feature is enabled (by setting the `allowFreeURL` config option or the `CMD_ALLOW_FREEURL` environment variable to `true`), any user with the appropriate permissions can create a note by making a POST request to the `/new/&lt;ALIAS&gt;` API endpoint. The `&lt;ALIAS&gt;` parameter can be set to the ID of an existing note. HedgeDoc did not verify whether the provided `&lt;ALIAS&gt;` value corresponds to a valid ID of an existing note and always allowed creation of the new note. When a visitor tried to access the existing note, HedgeDoc will first search for a note with a matching alias before it searches using the ID, therefore only the new note can be accessed.
-
-Depending on the permission settings of the HedgeDoc instance, the issue can be exploited only by logged-in users or by all (including non-logged-in) users. The exploit requires knowledge of the ID of the target note. Attackers could use this issue to present a manipulated copy of the original note to the user, e.g. by replacing the links with malicious ones. Attackers can also use this issue to prevent access to the original note, causing a denial of service. No data is lost, as the original content of the affected notes is still present in the database.
-
-This issue was fixed in version 1.9.9. As a workaround, disabling freeURL mode prevents the exploitation of this issue. The impact can be limited by restricting freeURL note creation to trusted, logged-in users by enabling `requireFreeURLAuthentication`/`CMD_REQUIRE_FREEURL_AUTHENTICATION`.</description>
-      <guid isPermaLink="false">CVE-2023-38487|2024-08-02T17:39:13.554Z</guid>
-      <pubDate>Fri, 04 Aug 2023 15:40:16 +0000</pubDate>
+      <link>https://www.cve.org/CVERecord?id=CVE-2022-24837</link>
+      <description>HedgeDoc is an open-source, web-based, self-hosted, collaborative markdown editor. Images uploaded with HedgeDoc version 1.9.1 and later have an enumerable filename after the upload, resulting in potential information leakage of uploaded documents. This is especially relevant for private notes and affects all upload backends, except Lutim and imgur. This issue is patched in version 1.9.3 by replacing the filename generation with UUIDv4. If you cannot upgrade to HedgeDoc 1.9.3, it is possible to block POST requests to `/uploadimage`, which will disable future uploads.</description>
+      <guid isPermaLink="false">CVE-2022-24837|2024-08-03T04:20:50.602Z</guid>
+      <pubDate>Mon, 11 Apr 2022 20:20:26 +0000</pubDate>
     </item>
   </channel>
 </rss>

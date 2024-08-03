@@ -6,44 +6,28 @@
     <description>The latest CVEs for jupyter-server -- jupyter_server</description>
     <docs>http://www.rssboard.org/rss-specification</docs>
     <generator>python-feedgen</generator>
-    <lastBuildDate>Fri, 02 Aug 2024 23:22:15 +0000</lastBuildDate>
+    <lastBuildDate>Sat, 03 Aug 2024 05:22:20 +0000</lastBuildDate>
     <ttl>60</ttl>
     <item>
-      <title>CVE-2023-40170|2024-08-02T18:24:55.535Z -- jupyter-server -- jupyter_server
+      <title>CVE-2022-24757|2024-08-03T04:20:50.212Z -- jupyter-server -- jupyter_server
 </title>
-      <link>https://www.cve.org/CVERecord?id=CVE-2023-40170</link>
-      <description>jupyter-server is the backend for Jupyter web applications. Improper cross-site credential checks on `/files/` URLs could allow exposure of certain file contents, or accessing files when opening untrusted files via  "Open image in new tab". This issue has been addressed in commit `87a49272728` which has been included in release `2.7.2`. Users are advised to upgrade. Users unable to upgrade may use the lower performance `--ContentsManager.files_handler_class=jupyter_server.files.handlers.FilesHandler`, which implements the correct checks.</description>
-      <guid isPermaLink="false">CVE-2023-40170|2024-08-02T18:24:55.535Z</guid>
-      <pubDate>Mon, 28 Aug 2023 20:01:57 +0000</pubDate>
-    </item>
-    <item>
-      <title>CVE-2023-49080|2024-08-02T21:46:28.982Z -- jupyter-server -- jupyter_server
-</title>
-      <link>https://www.cve.org/CVERecord?id=CVE-2023-49080</link>
-      <description>The Jupyter Server provides the backend (i.e. the core services, APIs, and REST endpoints) for Jupyter web applications like Jupyter notebook, JupyterLab, and Voila. Unhandled errors in API requests coming from an authenticated user include traceback information, which can include path information. There is no known mechanism by which to trigger these errors without authentication, so the paths revealed are not considered particularly sensitive, given that the requesting user has arbitrary execution permissions already in the same environment. A fix has been introduced in commit `0056c3aa52` which no longer includes traceback information in JSON error responses. For compatibility, the traceback field is present, but always empty. This commit has been included in version 2.11.2. Users are advised to upgrade. There are no known workarounds for this vulnerability.</description>
-      <guid isPermaLink="false">CVE-2023-49080|2024-08-02T21:46:28.982Z</guid>
-      <pubDate>Mon, 04 Dec 2023 21:00:59 +0000</pubDate>
-    </item>
-    <item>
-      <title>CVE-2023-39968|2024-08-02T18:18:10.086Z -- jupyter-server -- jupyter_server
-</title>
-      <link>https://www.cve.org/CVERecord?id=CVE-2023-39968</link>
-      <description>jupyter-server is the backend for Jupyter web applications. Open Redirect Vulnerability. Maliciously crafted login links to known Jupyter Servers can cause successful login or an already logged-in session to be redirected to arbitrary sites, which should be restricted to Jupyter Server-served URLs. This issue has been addressed in commit `29036259` which is included in release 2.7.2. Users are advised to upgrade. There are no known workarounds for this vulnerability.</description>
-      <guid isPermaLink="false">CVE-2023-39968|2024-08-02T18:18:10.086Z</guid>
-      <pubDate>Mon, 28 Aug 2023 20:16:20 +0000</pubDate>
-    </item>
-    <item>
-      <title>CVE-2024-35178|2024-06-06T17:42:14.836Z -- jupyter-server -- jupyter_server</title>
-      <link>https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2024-35178</link>
-      <description>The Jupyter Server provides the backend for Jupyter web applications. Jupyter Server on Windows has a vulnerability that lets unauthenticated attackers leak the NTLMv2 password hash of the Windows user running the Jupyter server. An attacker can crack this password to gain access to the Windows machine hosting the Jupyter server, or access other network-accessible machines or 3rd party services using that credential. Or an attacker perform an NTLM relay attack without cracking the credential to gain access to other network-accessible machines. This vulnerability is fixed in 2.14.1.</description>
-      <guid isPermaLink="false">CVE-2024-35178|2024-06-06T17:42:14.836Z</guid>
-      <pubDate>Thu, 06 Jun 2024 15:37:10 +0000</pubDate>
+      <link>https://www.cve.org/CVERecord?id=CVE-2022-24757</link>
+      <description>The Jupyter Server provides the backend (i.e. the core services, APIs, and REST endpoints) for Jupyter web applications. Prior to version 1.15.4, unauthorized actors can access sensitive information from server logs. Anytime a 5xx error is triggered, the auth cookie and other header values are recorded in Jupyter Server logs by default. Considering these logs do not require root access, an attacker can monitor these logs, steal sensitive auth/cookie information, and gain access to the Jupyter server. Jupyter Server version 1.15.4 contains a patch for this issue. There are currently no known workarounds.</description>
+      <guid isPermaLink="false">CVE-2022-24757|2024-08-03T04:20:50.212Z</guid>
+      <pubDate>Wed, 23 Mar 2022 20:20:09 +0000</pubDate>
     </item>
     <item>
       <title>CVE-2024-35178|2024-08-02T03:07:46.873Z -- jupyter-server -- jupyter_server</title>
       <link>https://www.cve.org/CVERecord?id=CVE-2024-35178</link>
       <description>The Jupyter Server provides the backend for Jupyter web applications. Jupyter Server on Windows has a vulnerability that lets unauthenticated attackers leak the NTLMv2 password hash of the Windows user running the Jupyter server. An attacker can crack this password to gain access to the Windows machine hosting the Jupyter server, or access other network-accessible machines or 3rd party services using that credential. Or an attacker perform an NTLM relay attack without cracking the credential to gain access to other network-accessible machines. This vulnerability is fixed in 2.14.1.</description>
       <guid isPermaLink="false">CVE-2024-35178|2024-08-02T03:07:46.873Z</guid>
+      <pubDate>Thu, 06 Jun 2024 15:37:10 +0000</pubDate>
+    </item>
+    <item>
+      <title>CVE-2024-35178|2024-06-06T17:42:14.836Z -- jupyter-server -- jupyter_server</title>
+      <link>https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2024-35178</link>
+      <description>The Jupyter Server provides the backend for Jupyter web applications. Jupyter Server on Windows has a vulnerability that lets unauthenticated attackers leak the NTLMv2 password hash of the Windows user running the Jupyter server. An attacker can crack this password to gain access to the Windows machine hosting the Jupyter server, or access other network-accessible machines or 3rd party services using that credential. Or an attacker perform an NTLM relay attack without cracking the credential to gain access to other network-accessible machines. This vulnerability is fixed in 2.14.1.</description>
+      <guid isPermaLink="false">CVE-2024-35178|2024-06-06T17:42:14.836Z</guid>
       <pubDate>Thu, 06 Jun 2024 15:37:10 +0000</pubDate>
     </item>
   </channel>
