@@ -6,128 +6,62 @@
     <description>The latest CVEs for Apache Software Foundation -- Apache Tomcat</description>
     <docs>http://www.rssboard.org/rss-specification</docs>
     <generator>python-feedgen</generator>
-    <lastBuildDate>Fri, 02 Aug 2024 23:21:34 +0000</lastBuildDate>
+    <lastBuildDate>Sat, 03 Aug 2024 04:23:56 +0000</lastBuildDate>
     <ttl>60</ttl>
     <item>
-      <title>CVE-2023-34981|2024-08-02T16:17:04.269Z -- apache%20software%20foundation -- apache%20tomcat
+      <title>CVE-2022-23181|2024-08-03T03:36:20.071Z -- apache%20software%20foundation -- apache%20tomcat
 </title>
-      <link>https://www.cve.org/CVERecord?id=CVE-2023-34981</link>
-      <description>A regression in the fix for bug 66512 in Apache Tomcat 11.0.0-M5, 10.1.8, 9.0.74 and 8.5.88 meant that, if a response did not include any HTTP headers no AJP SEND_HEADERS messare woudl be sent for the response which in turn meant that at least one AJP proxy (mod_proxy_ajp) would use the response headers from the previous request leading to an information leak.</description>
-      <guid isPermaLink="false">CVE-2023-34981|2024-08-02T16:17:04.269Z</guid>
-      <pubDate>Wed, 21 Jun 2023 10:26:16 +0000</pubDate>
+      <link>https://www.cve.org/CVERecord?id=CVE-2022-23181</link>
+      <description>The fix for bug CVE-2020-9484 introduced a time of check, time of use vulnerability into Apache Tomcat 10.1.0-M1 to 10.1.0-M8, 10.0.0-M5 to 10.0.14, 9.0.35 to 9.0.56 and 8.5.55 to 8.5.73 that allowed a local attacker to perform actions with the privileges of the user that the Tomcat process is using. This issue is only exploitable when Tomcat is configured to persist sessions using the FileStore.</description>
+      <guid isPermaLink="false">CVE-2022-23181|2024-08-03T03:36:20.071Z</guid>
+      <pubDate>Thu, 27 Jan 2022 00:00:00 +0000</pubDate>
     </item>
     <item>
-      <title>CVE-2023-46589|2024-08-02T20:45:42.297Z -- apache%20software%20foundation -- apache%20tomcat
-</title>
-      <link>https://www.cve.org/CVERecord?id=CVE-2023-46589</link>
-      <description>Improper Input Validation vulnerability in Apache Tomcat.Tomcat from 11.0.0-M1 through 11.0.0-M10, from 10.1.0-M1 through 10.1.15, from 9.0.0-M1 through 9.0.82 and from 8.5.0 through 8.5.95 did not correctly parse HTTP trailer headers. A trailer header that exceeded the header size limit could cause Tomcat to treat a single 
-request as multiple requests leading to the possibility of request 
-smuggling when behind a reverse proxy.
-
-Users are recommended to upgrade to version 11.0.0-M11 onwards, 10.1.16 onwards, 9.0.83 onwards or 8.5.96 onwards, which fix the issue.
-
-</description>
-      <guid isPermaLink="false">CVE-2023-46589|2024-08-02T20:45:42.297Z</guid>
-      <pubDate>Tue, 28 Nov 2023 15:31:52 +0000</pubDate>
-    </item>
-    <item>
-      <title>CVE-2023-45648|2024-08-02T20:21:16.919Z -- apache%20software%20foundation -- apache%20tomcat
-</title>
-      <link>https://www.cve.org/CVERecord?id=CVE-2023-45648</link>
-      <description>Improper Input Validation vulnerability in Apache Tomcat.Tomcat from 11.0.0-M1 through 11.0.0-M11, from 10.1.0-M1 through 10.1.13, from 9.0.0-M1 through 9.0.81 and from 8.5.0 through 8.5.93 did not correctly parse HTTP trailer headers. A specially 
-crafted, invalid trailer header could cause Tomcat to treat a single 
-request as multiple requests leading to the possibility of request 
-smuggling when behind a reverse proxy.
-
-Users are recommended to upgrade to version 11.0.0-M12 onwards, 10.1.14 onwards, 9.0.81 onwards or 8.5.94 onwards, which fix the issue.
-
-</description>
-      <guid isPermaLink="false">CVE-2023-45648|2024-08-02T20:21:16.919Z</guid>
-      <pubDate>Tue, 10 Oct 2023 18:38:34 +0000</pubDate>
-    </item>
-    <item>
-      <title>CVE-2023-28708|2024-08-02T13:43:23.678Z -- apache%20software%20foundation -- apache%20tomcat
-</title>
-      <link>https://www.cve.org/CVERecord?id=CVE-2023-28708</link>
-      <description>
-When using the RemoteIpFilter with requests received from a    reverse proxy via HTTP that include the X-Forwarded-Proto    header set to https, session cookies created by Apache Tomcat 11.0.0-M1 to 11.0.0.-M2, 10.1.0-M1 to 10.1.5, 9.0.0-M1 to 9.0.71 and 8.5.0 to 8.5.85 did not include the secure attribute. This could result in the user agent transmitting the session cookie over an insecure channel.
-
-
-
-
-
-
-
-</description>
-      <guid isPermaLink="false">CVE-2023-28708|2024-08-02T13:43:23.678Z</guid>
-      <pubDate>Wed, 22 Mar 2023 10:10:58 +0000</pubDate>
-    </item>
-    <item>
-      <title>CVE-2023-42795|2024-08-02T19:30:24.387Z -- apache%20software%20foundation -- apache%20tomcat
-</title>
-      <link>https://www.cve.org/CVERecord?id=CVE-2023-42795</link>
-      <description>Incomplete Cleanup vulnerability in Apache Tomcat.When recycling various internal objects in Apache Tomcat from 11.0.0-M1 through 11.0.0-M11, from 10.1.0-M1 through 10.1.13, from 9.0.0-M1 through 9.0.80 and from 8.5.0 through 8.5.93, an error could 
-cause Tomcat to skip some parts of the recycling process leading to 
-information leaking from the current request/response to the next.
-
-Users are recommended to upgrade to version 11.0.0-M12 onwards, 10.1.14 onwards, 9.0.81 onwards or 8.5.94 onwards, which fixes the issue.
-
-</description>
-      <guid isPermaLink="false">CVE-2023-42795|2024-08-02T19:30:24.387Z</guid>
-      <pubDate>Tue, 10 Oct 2023 17:42:16 +0000</pubDate>
-    </item>
-    <item>
-      <title>CVE-2023-42794|2024-08-02T19:30:24.246Z -- apache%20software%20foundation -- apache%20tomcat
-</title>
-      <link>https://www.cve.org/CVERecord?id=CVE-2023-42794</link>
-      <description>Incomplete Cleanup vulnerability in Apache Tomcat.
-
-The internal fork of Commons FileUpload packaged with Apache Tomcat 9.0.70 through 9.0.80 and 8.5.85 through 8.5.93 included an unreleased, 
-in progress refactoring that exposed a potential denial of service on 
-Windows if a web application opened a stream for an uploaded file but 
-failed to close the stream. The file would never be deleted from disk 
-creating the possibility of an eventual denial of service due to the 
-disk being full.
-
-Users are recommended to upgrade to version 9.0.81 onwards or 8.5.94 onwards, which fixes the issue.
-
-</description>
-      <guid isPermaLink="false">CVE-2023-42794|2024-08-02T19:30:24.246Z</guid>
-      <pubDate>Tue, 10 Oct 2023 17:17:01 +0000</pubDate>
-    </item>
-    <item>
-      <title>CVE-2023-28709|2024-08-02T13:43:23.741Z -- apache%20software%20foundation -- apache%20tomcat
-</title>
-      <link>https://www.cve.org/CVERecord?id=CVE-2023-28709</link>
-      <description>The fix for CVE-2023-24998 was incomplete for Apache Tomcat 11.0.0-M2 to 11.0.0-M4, 10.1.5 to 10.1.7, 9.0.71 to 9.0.73 and 8.5.85 to 8.5.87. If non-default HTTP       connector settings were used such that the maxParameterCount could be reached using query string parameters and a request was       submitted that supplied exactly maxParameterCount parameters in the query string, the limit for uploaded request parts could be bypassed with the potential for a denial of service to occur.
-
-
-
-
-</description>
-      <guid isPermaLink="false">CVE-2023-28709|2024-08-02T13:43:23.741Z</guid>
-      <pubDate>Mon, 22 May 2023 10:08:49 +0000</pubDate>
-    </item>
-    <item>
-      <title>CVE-2023-41080|2024-08-02T18:46:11.691Z -- apache%20software%20foundation -- apache%20tomcat
-</title>
-      <link>https://www.cve.org/CVERecord?id=CVE-2023-41080</link>
-      <description>URL Redirection to Untrusted Site ('Open Redirect') vulnerability in FORM authentication feature Apache Tomcat.This issue affects Apache Tomcat: from 11.0.0-M1 through 11.0.0-M10, from 10.1.0-M1 through 10.0.12, from 9.0.0-M1 through 9.0.79 and from 8.5.0 through 8.5.92.
-
-The vulnerability is limited to the ROOT (default) web application.</description>
-      <guid isPermaLink="false">CVE-2023-41080|2024-08-02T18:46:11.691Z</guid>
-      <pubDate>Fri, 25 Aug 2023 20:39:36 +0000</pubDate>
-    </item>
-    <item>
-      <title>CVE-2024-34750|2024-08-02T02:59:22.608Z -- apache%20software%20foundation -- apache%20tomcat</title>
+      <title>CVE-2024-34750|2024-07-08T16:54:49.822Z -- apache%20software%20foundation -- apache%20tomcat</title>
       <link>https://www.cve.org/CVERecord?id=CVE-2024-34750</link>
       <description>Improper Handling of Exceptional Conditions, Uncontrolled Resource Consumption vulnerability in Apache Tomcat. When processing an HTTP/2 stream, Tomcat did not handle some cases of excessive HTTP headers correctly. This led to a miscounting of active HTTP/2 streams which in turn led to the use of an incorrect infinite timeout which allowed connections to remain open which should have been closed.
 
 This issue affects Apache Tomcat: from 11.0.0-M1 through 11.0.0-M20, from 10.1.0-M1 through 10.1.24, from 9.0.0-M1 through 9.0.89.
 
 Users are recommended to upgrade to version 11.0.0-M21, 10.1.25 or 9.0.90, which fixes the issue.</description>
-      <guid isPermaLink="false">CVE-2024-34750|2024-08-02T02:59:22.608Z</guid>
+      <guid isPermaLink="false">CVE-2024-34750|2024-07-08T16:54:49.822Z</guid>
       <pubDate>Wed, 03 Jul 2024 19:32:34 +0000</pubDate>
+    </item>
+    <item>
+      <title>CVE-2024-23672|2024-03-13T15:48:42.610Z -- apache%20software%20foundation -- apache%20tomcat</title>
+      <link>https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2024-23672</link>
+      <description>Denial of Service via incomplete cleanup vulnerability in Apache Tomcat. It was possible for WebSocket clients to keep WebSocket connections open leading to increased resource consumption.This issue affects Apache Tomcat: from 11.0.0-M1 through 11.0.0-M16, from 10.1.0-M1 through 10.1.18, from 9.0.0-M1 through 9.0.85, from 8.5.0 through 8.5.98.
+
+Users are recommended to upgrade to version 11.0.0-M17, 10.1.19, 9.0.86 or 8.5.99 which fix the issue.</description>
+      <guid isPermaLink="false">CVE-2024-23672|2024-03-13T15:48:42.610Z</guid>
+      <pubDate>Wed, 13 Mar 2024 15:48:42 +0000</pubDate>
+    </item>
+    <item>
+      <title>CVE-2024-24549|2024-03-13T15:46:53.085Z -- apache%20software%20foundation -- apache%20tomcat</title>
+      <link>https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2024-24549</link>
+      <description>Denial of Service due to improper input validation vulnerability for HTTP/2 requests in Apache Tomcat. When processing an HTTP/2 request, if the request exceeded any of the configured limits for headers, the associated HTTP/2 stream was not reset until after all of the headers had been processed.This issue affects Apache Tomcat: from 11.0.0-M1 through 11.0.0-M16, from 10.1.0-M1 through 10.1.18, from 9.0.0-M1 through 9.0.85, from 8.5.0 through 8.5.98.
+
+Users are recommended to upgrade to version 11.0.0-M17, 10.1.19, 9.0.86 or 8.5.99 which fix the issue.</description>
+      <guid isPermaLink="false">CVE-2024-24549|2024-03-13T15:46:53.085Z</guid>
+      <pubDate>Wed, 13 Mar 2024 15:46:53 +0000</pubDate>
+    </item>
+    <item>
+      <title>CVE-2024-24549|2024-06-04T17:43:38.348Z -- apache%20software%20foundation -- apache%20tomcat</title>
+      <link>https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2024-24549</link>
+      <description>Denial of Service due to improper input validation vulnerability for HTTP/2 requests in Apache Tomcat. When processing an HTTP/2 request, if the request exceeded any of the configured limits for headers, the associated HTTP/2 stream was not reset until after all of the headers had been processed.This issue affects Apache Tomcat: from 11.0.0-M1 through 11.0.0-M16, from 10.1.0-M1 through 10.1.18, from 9.0.0-M1 through 9.0.85, from 8.5.0 through 8.5.98.
+
+Users are recommended to upgrade to version 11.0.0-M17, 10.1.19, 9.0.86 or 8.5.99 which fix the issue.</description>
+      <guid isPermaLink="false">CVE-2024-24549|2024-06-04T17:43:38.348Z</guid>
+      <pubDate>Wed, 13 Mar 2024 15:46:53 +0000</pubDate>
+    </item>
+    <item>
+      <title>CVE-2024-23672|2024-06-04T17:46:12.648Z -- apache%20software%20foundation -- apache%20tomcat</title>
+      <link>https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2024-23672</link>
+      <description>Denial of Service via incomplete cleanup vulnerability in Apache Tomcat. It was possible for WebSocket clients to keep WebSocket connections open leading to increased resource consumption.This issue affects Apache Tomcat: from 11.0.0-M1 through 11.0.0-M16, from 10.1.0-M1 through 10.1.18, from 9.0.0-M1 through 9.0.85, from 8.5.0 through 8.5.98.
+
+Users are recommended to upgrade to version 11.0.0-M17, 10.1.19, 9.0.86 or 8.5.99 which fix the issue.</description>
+      <guid isPermaLink="false">CVE-2024-23672|2024-06-04T17:46:12.648Z</guid>
+      <pubDate>Wed, 13 Mar 2024 15:48:42 +0000</pubDate>
     </item>
     <item>
       <title>CVE-2024-34750|2024-07-03T19:32:34.695Z -- apache%20software%20foundation -- apache%20tomcat</title>
@@ -141,50 +75,14 @@ Users are recommended to upgrade to version 11.0.0-M21, 10.1.25 or 9.0.90, which
       <pubDate>Wed, 03 Jul 2024 19:32:34 +0000</pubDate>
     </item>
     <item>
-      <title>CVE-2024-23672|2024-06-04T17:46:12.648Z -- apache%20software%20foundation -- apache%20tomcat</title>
-      <link>https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2024-23672</link>
-      <description>Denial of Service via incomplete cleanup vulnerability in Apache Tomcat. It was possible for WebSocket clients to keep WebSocket connections open leading to increased resource consumption.This issue affects Apache Tomcat: from 11.0.0-M1 through 11.0.0-M16, from 10.1.0-M1 through 10.1.18, from 9.0.0-M1 through 9.0.85, from 8.5.0 through 8.5.98.
-
-Users are recommended to upgrade to version 11.0.0-M17, 10.1.19, 9.0.86 or 8.5.99 which fix the issue.</description>
-      <guid isPermaLink="false">CVE-2024-23672|2024-06-04T17:46:12.648Z</guid>
-      <pubDate>Wed, 13 Mar 2024 15:48:42 +0000</pubDate>
-    </item>
-    <item>
-      <title>CVE-2024-24549|2024-06-04T17:43:38.348Z -- apache%20software%20foundation -- apache%20tomcat</title>
-      <link>https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2024-24549</link>
-      <description>Denial of Service due to improper input validation vulnerability for HTTP/2 requests in Apache Tomcat. When processing an HTTP/2 request, if the request exceeded any of the configured limits for headers, the associated HTTP/2 stream was not reset until after all of the headers had been processed.This issue affects Apache Tomcat: from 11.0.0-M1 through 11.0.0-M16, from 10.1.0-M1 through 10.1.18, from 9.0.0-M1 through 9.0.85, from 8.5.0 through 8.5.98.
-
-Users are recommended to upgrade to version 11.0.0-M17, 10.1.19, 9.0.86 or 8.5.99 which fix the issue.</description>
-      <guid isPermaLink="false">CVE-2024-24549|2024-06-04T17:43:38.348Z</guid>
-      <pubDate>Wed, 13 Mar 2024 15:46:53 +0000</pubDate>
-    </item>
-    <item>
-      <title>CVE-2024-24549|2024-03-13T15:46:53.085Z -- apache%20software%20foundation -- apache%20tomcat</title>
-      <link>https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2024-24549</link>
-      <description>Denial of Service due to improper input validation vulnerability for HTTP/2 requests in Apache Tomcat. When processing an HTTP/2 request, if the request exceeded any of the configured limits for headers, the associated HTTP/2 stream was not reset until after all of the headers had been processed.This issue affects Apache Tomcat: from 11.0.0-M1 through 11.0.0-M16, from 10.1.0-M1 through 10.1.18, from 9.0.0-M1 through 9.0.85, from 8.5.0 through 8.5.98.
-
-Users are recommended to upgrade to version 11.0.0-M17, 10.1.19, 9.0.86 or 8.5.99 which fix the issue.</description>
-      <guid isPermaLink="false">CVE-2024-24549|2024-03-13T15:46:53.085Z</guid>
-      <pubDate>Wed, 13 Mar 2024 15:46:53 +0000</pubDate>
-    </item>
-    <item>
-      <title>CVE-2024-23672|2024-03-13T15:48:42.610Z -- apache%20software%20foundation -- apache%20tomcat</title>
-      <link>https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2024-23672</link>
-      <description>Denial of Service via incomplete cleanup vulnerability in Apache Tomcat. It was possible for WebSocket clients to keep WebSocket connections open leading to increased resource consumption.This issue affects Apache Tomcat: from 11.0.0-M1 through 11.0.0-M16, from 10.1.0-M1 through 10.1.18, from 9.0.0-M1 through 9.0.85, from 8.5.0 through 8.5.98.
-
-Users are recommended to upgrade to version 11.0.0-M17, 10.1.19, 9.0.86 or 8.5.99 which fix the issue.</description>
-      <guid isPermaLink="false">CVE-2024-23672|2024-03-13T15:48:42.610Z</guid>
-      <pubDate>Wed, 13 Mar 2024 15:48:42 +0000</pubDate>
-    </item>
-    <item>
-      <title>CVE-2024-34750|2024-07-08T16:54:49.822Z -- apache%20software%20foundation -- apache%20tomcat</title>
+      <title>CVE-2024-34750|2024-08-02T02:59:22.608Z -- apache%20software%20foundation -- apache%20tomcat</title>
       <link>https://www.cve.org/CVERecord?id=CVE-2024-34750</link>
       <description>Improper Handling of Exceptional Conditions, Uncontrolled Resource Consumption vulnerability in Apache Tomcat. When processing an HTTP/2 stream, Tomcat did not handle some cases of excessive HTTP headers correctly. This led to a miscounting of active HTTP/2 streams which in turn led to the use of an incorrect infinite timeout which allowed connections to remain open which should have been closed.
 
 This issue affects Apache Tomcat: from 11.0.0-M1 through 11.0.0-M20, from 10.1.0-M1 through 10.1.24, from 9.0.0-M1 through 9.0.89.
 
 Users are recommended to upgrade to version 11.0.0-M21, 10.1.25 or 9.0.90, which fixes the issue.</description>
-      <guid isPermaLink="false">CVE-2024-34750|2024-07-08T16:54:49.822Z</guid>
+      <guid isPermaLink="false">CVE-2024-34750|2024-08-02T02:59:22.608Z</guid>
       <pubDate>Wed, 03 Jul 2024 19:32:34 +0000</pubDate>
     </item>
   </channel>

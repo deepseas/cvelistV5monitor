@@ -6,23 +6,29 @@
     <description>The latest CVEs for DataDog -- all products</description>
     <docs>http://www.rssboard.org/rss-specification</docs>
     <generator>python-feedgen</generator>
-    <lastBuildDate>Fri, 02 Aug 2024 23:21:53 +0000</lastBuildDate>
+    <lastBuildDate>Sat, 03 Aug 2024 04:23:52 +0000</lastBuildDate>
     <ttl>60</ttl>
     <item>
-      <title>CVE-2023-38704|2024-08-02T17:46:56.904Z -- datadog -- import-in-the-middle
+      <title>CVE-2022-23530|2024-08-03T03:43:46.472Z -- datadog -- guarddog
 </title>
-      <link>https://www.cve.org/CVERecord?id=CVE-2023-38704</link>
-      <description>import-in-the-middle is a module loading interceptor specifically for ESM modules. The import-in-the-middle loader works by generating a wrapper module on the fly. The wrapper uses the module specifier to load the original module and add some wrapping code. Prior to version 1.4.2, it allows for remote code execution in cases where an application passes user-supplied input directly to the `import()` function. This vulnerability has been patched in import-in-the-middle version 1.4.2.
-
-Some workarounds are available. Do not pass any user-supplied input to `import()`. Instead, verify it against a set of allowed values. If using import-in-the-middle, directly or indirectly, and support for EcmaScript Modules is not needed, ensure that no options are set, either via command-line or the `NODE_OPTIONS` environment variable, that would enable loader hooks.</description>
-      <guid isPermaLink="false">CVE-2023-38704|2024-08-02T17:46:56.904Z</guid>
-      <pubDate>Mon, 07 Aug 2023 19:24:33 +0000</pubDate>
+      <link>https://www.cve.org/CVERecord?id=CVE-2022-23530</link>
+      <description>GuardDog is a CLI tool to identify malicious PyPI packages. Versions prior to v0.1.8 are vulnerable to arbitrary file write when scanning a specially-crafted remote PyPI package. Extracting files using shutil.unpack_archive() from a potentially malicious tarball without validating that the destination file path is within the intended destination directory can cause files outside the destination directory to be overwritten.  This issue is patched in version 0.1.8. Potential workarounds include using a safer module, like zipfile, and validating the location of the extracted files and discarding those with malicious paths.</description>
+      <guid isPermaLink="false">CVE-2022-23530|2024-08-03T03:43:46.472Z</guid>
+      <pubDate>Fri, 16 Dec 2022 22:56:33 +0000</pubDate>
     </item>
     <item>
-      <title>CVE-2024-38525|2024-08-02T04:12:25.118Z -- datadog -- dd-trace-cpp</title>
+      <title>CVE-2022-23531|2024-08-03T03:43:46.507Z -- datadog -- guarddog
+</title>
+      <link>https://www.cve.org/CVERecord?id=CVE-2022-23531</link>
+      <description>GuardDog is a CLI tool to identify malicious PyPI packages. Versions prior to 0.1.5 are vulnerable to Relative Path Traversal when scanning a specially-crafted local PyPI package. Running GuardDog against a specially-crafted package can allow an attacker to write an arbitrary file on the machine where GuardDog is executed due to a path traversal vulnerability when extracting the .tar.gz file of the package being scanned, which exists by design in the tarfile.TarFile.extractall function. This issue is patched in version 0.1.5.</description>
+      <guid isPermaLink="false">CVE-2022-23531|2024-08-03T03:43:46.507Z</guid>
+      <pubDate>Fri, 16 Dec 2022 23:41:15 +0000</pubDate>
+    </item>
+    <item>
+      <title>CVE-2024-38525|2024-07-02T15:54:07.148Z -- datadog -- dd-trace-cpp</title>
       <link>https://www.cve.org/CVERecord?id=CVE-2024-38525</link>
       <description>dd-trace-cpp is the Datadog distributed tracing for C++. When the library fails to extract trace context due to malformed unicode, it logs the list of audited headers and their values using the `nlohmann` JSON library. However, due to the way the JSON library is invoked, it throws an uncaught exception, which results in a crash. This vulnerability has been patched in version 0.2.2.</description>
-      <guid isPermaLink="false">CVE-2024-38525|2024-08-02T04:12:25.118Z</guid>
+      <guid isPermaLink="false">CVE-2024-38525|2024-07-02T15:54:07.148Z</guid>
       <pubDate>Fri, 28 Jun 2024 21:10:57 +0000</pubDate>
     </item>
     <item>
@@ -33,10 +39,10 @@ Some workarounds are available. Do not pass any user-supplied input to `import()
       <pubDate>Fri, 28 Jun 2024 21:10:57 +0000</pubDate>
     </item>
     <item>
-      <title>CVE-2024-38525|2024-07-02T15:54:07.148Z -- datadog -- dd-trace-cpp</title>
+      <title>CVE-2024-38525|2024-08-02T04:12:25.118Z -- datadog -- dd-trace-cpp</title>
       <link>https://www.cve.org/CVERecord?id=CVE-2024-38525</link>
       <description>dd-trace-cpp is the Datadog distributed tracing for C++. When the library fails to extract trace context due to malformed unicode, it logs the list of audited headers and their values using the `nlohmann` JSON library. However, due to the way the JSON library is invoked, it throws an uncaught exception, which results in a crash. This vulnerability has been patched in version 0.2.2.</description>
-      <guid isPermaLink="false">CVE-2024-38525|2024-07-02T15:54:07.148Z</guid>
+      <guid isPermaLink="false">CVE-2024-38525|2024-08-02T04:12:25.118Z</guid>
       <pubDate>Fri, 28 Jun 2024 21:10:57 +0000</pubDate>
     </item>
   </channel>

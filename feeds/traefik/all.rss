@@ -6,67 +6,29 @@
     <description>The latest CVEs for traefik -- all products</description>
     <docs>http://www.rssboard.org/rss-specification</docs>
     <generator>python-feedgen</generator>
-    <lastBuildDate>Fri, 02 Aug 2024 23:21:51 +0000</lastBuildDate>
+    <lastBuildDate>Sat, 03 Aug 2024 04:23:57 +0000</lastBuildDate>
     <ttl>60</ttl>
     <item>
-      <title>CVE-2023-47633|2024-08-02T21:16:42.656Z -- traefik -- traefik
+      <title>CVE-2022-23632|2024-08-03T03:51:46.023Z -- traefik -- traefik
 </title>
-      <link>https://www.cve.org/CVERecord?id=CVE-2023-47633</link>
-      <description>Traefik is an open source HTTP reverse proxy and load balancer. The traefik docker container uses 100% CPU when it serves as its own backend, which is an automatically generated route resulting from the Docker integration in the default configuration. This issue has been addressed in versions 2.10.6 and 3.0.0-beta5. Users are advised to upgrade. There are no known workarounds for this vulnerability.</description>
-      <guid isPermaLink="false">CVE-2023-47633|2024-08-02T21:16:42.656Z</guid>
-      <pubDate>Mon, 04 Dec 2023 20:36:19 +0000</pubDate>
+      <link>https://www.cve.org/CVERecord?id=CVE-2022-23632</link>
+      <description>Traefik is an HTTP reverse proxy and load balancer. Prior to version 2.6.1, Traefik skips the router transport layer security (TLS) configuration when the host header is a fully qualified domain name (FQDN). For a request, the TLS configuration choice can be different than the router choice, which implies the use of a wrong TLS configuration. When sending a request using FQDN handled by a router configured with a dedicated TLS configuration, the TLS configuration falls back to the default configuration that might not correspond to the configured one. If the CNAME flattening is enabled, the selected TLS configuration is the SNI one and the routing uses the CNAME value, so this can skip the expected TLS configuration. Version 2.6.1 contains a patch for this issue. As a workaround, one may add the FDQN to the host rule. However, there is no workaround if the CNAME flattening is enabled.</description>
+      <guid isPermaLink="false">CVE-2022-23632|2024-08-03T03:51:46.023Z</guid>
+      <pubDate>Thu, 17 Feb 2022 14:55:10 +0000</pubDate>
     </item>
     <item>
-      <title>CVE-2023-29013|2024-08-02T14:00:14.348Z -- traefik -- traefik
+      <title>CVE-2022-23469|2024-08-03T03:43:45.925Z -- traefik -- traefik
 </title>
-      <link>https://www.cve.org/CVERecord?id=CVE-2023-29013</link>
-      <description>Traefik (pronounced traffic) is a modern HTTP reverse proxy and load balancer for deploying microservices. There is a vulnerability in Go when parsing the HTTP headers, which impacts Traefik. HTTP header parsing could allocate substantially more memory than required to hold the parsed headers. This behavior could be exploited to cause a denial of service. This issue has been patched in versions 2.9.10 and 2.10.0-rc2.
-</description>
-      <guid isPermaLink="false">CVE-2023-29013|2024-08-02T14:00:14.348Z</guid>
-      <pubDate>Fri, 14 Apr 2023 18:15:12 +0000</pubDate>
+      <link>https://www.cve.org/CVERecord?id=CVE-2022-23469</link>
+      <description>Traefik is an open source HTTP reverse proxy and load balancer. Versions prior to 2.9.6 are subject to a potential vulnerability in Traefik displaying the Authorization header in its debug logs. In certain cases, if the log level is set to DEBUG, credentials provided using the Authorization header are displayed in the debug logs. Attackers must have access to a users logging system in order for credentials to be stolen. This issue has been addressed in version 2.9.6. Users are advised to upgrade. Users unable to upgrade may set the log level to `INFO`, `WARN`, or `ERROR`.</description>
+      <guid isPermaLink="false">CVE-2022-23469|2024-08-03T03:43:45.925Z</guid>
+      <pubDate>Thu, 08 Dec 2022 21:33:19 +0000</pubDate>
     </item>
     <item>
-      <title>CVE-2023-47124|2024-08-02T21:01:22.848Z -- traefik -- traefik
-</title>
-      <link>https://www.cve.org/CVERecord?id=CVE-2023-47124</link>
-      <description>Traefik is an open source HTTP reverse proxy and load balancer. When Traefik is configured to use the `HTTPChallenge` to generate and renew the Let's Encrypt TLS certificates, the delay authorized to solve the challenge (50 seconds) can be exploited by attackers to achieve a `slowloris attack`. This vulnerability has been patch in version 2.10.6 and 3.0.0-beta5. Users are advised to upgrade. Users unable to upgrade should replace the `HTTPChallenge` with the `TLSChallenge` or the `DNSChallenge`.</description>
-      <guid isPermaLink="false">CVE-2023-47124|2024-08-02T21:01:22.848Z</guid>
-      <pubDate>Mon, 04 Dec 2023 20:20:30 +0000</pubDate>
-    </item>
-    <item>
-      <title>CVE-2023-47106|2024-08-02T21:01:22.591Z -- traefik -- traefik
-</title>
-      <link>https://www.cve.org/CVERecord?id=CVE-2023-47106</link>
-      <description>Traefik is an open source HTTP reverse proxy and load balancer. When a request is sent to Traefik with a URL fragment, Traefik automatically URL encodes and forwards the fragment to the backend server. This violates RFC 7230 because in the origin-form the URL should only contain the absolute path and the query. When this is combined with another frontend proxy like Nginx, it can be used to bypass frontend proxy URI-based access control restrictions. This vulnerability has been addressed in versions 2.10.6 and 3.0.0-beta5. Users are advised to upgrade. There are no known workarounds for this vulnerability.</description>
-      <guid isPermaLink="false">CVE-2023-47106|2024-08-02T21:01:22.591Z</guid>
-      <pubDate>Mon, 04 Dec 2023 20:26:36 +0000</pubDate>
-    </item>
-    <item>
-      <title>CVE-2024-39321|2024-08-02T04:19:20.719Z -- traefik -- traefik</title>
-      <link>https://www.cve.org/CVERecord?id=CVE-2024-39321</link>
-      <description>Traefik is an HTTP reverse proxy and load balancer. Versions prior to 2.11.6, 3.0.4, and 3.1.0-rc3 have a vulnerability that allows bypassing IP allow-lists via HTTP/3 early data requests in QUIC 0-RTT handshakes sent with spoofed IP addresses. Versions 2.11.6, 3.0.4, and 3.1.0-rc3 contain a patch for this issue. No known workarounds are available.</description>
-      <guid isPermaLink="false">CVE-2024-39321|2024-08-02T04:19:20.719Z</guid>
-      <pubDate>Fri, 05 Jul 2024 17:32:06 +0000</pubDate>
-    </item>
-    <item>
-      <title>CVE-2024-39321|2024-07-05T20:07:14.424Z -- traefik -- traefik</title>
-      <link>https://www.cve.org/CVERecord?id=CVE-2024-39321</link>
-      <description>Traefik is an HTTP reverse proxy and load balancer. Versions prior to 2.11.6, 3.0.4, and 3.1.0-rc3 have a vulnerability that allows bypassing IP allow-lists via HTTP/3 early data requests in QUIC 0-RTT handshakes sent with spoofed IP addresses. Versions 2.11.6, 3.0.4, and 3.1.0-rc3 contain a patch for this issue. No known workarounds are available.</description>
-      <guid isPermaLink="false">CVE-2024-39321|2024-07-05T20:07:14.424Z</guid>
-      <pubDate>Fri, 05 Jul 2024 17:32:06 +0000</pubDate>
-    </item>
-    <item>
-      <title>CVE-2024-28869|2024-06-18T18:27:45.460Z -- traefik -- traefik</title>
+      <title>CVE-2024-28869|2024-08-02T00:56:58.412Z -- traefik -- traefik</title>
       <link>https://www.cve.org/CVERecord?id=CVE-2024-28869</link>
       <description>Traefik is an HTTP reverse proxy and load balancer. In affected versions sending a GET request to any Traefik endpoint with the "Content-length" request header results in an indefinite hang with the default configuration. This vulnerability can be exploited by attackers to induce a denial of service. This vulnerability has been addressed in version 2.11.2 and 3.0.0-rc5. Users are advised to upgrade. For affected versions, this vulnerability can be mitigated by configuring the readTimeout option.</description>
-      <guid isPermaLink="false">CVE-2024-28869|2024-06-18T18:27:45.460Z</guid>
-      <pubDate>Fri, 12 Apr 2024 21:08:36 +0000</pubDate>
-    </item>
-    <item>
-      <title>CVE-2024-28869|2024-04-12T21:08:36.288Z -- traefik -- traefik</title>
-      <link>https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2024-28869</link>
-      <description>Traefik is an HTTP reverse proxy and load balancer. In affected versions sending a GET request to any Traefik endpoint with the "Content-length" request header results in an indefinite hang with the default configuration. This vulnerability can be exploited by attackers to induce a denial of service. This vulnerability has been addressed in version 2.11.2 and 3.0.0-rc5. Users are advised to upgrade. For affected versions, this vulnerability can be mitigated by configuring the readTimeout option.</description>
-      <guid isPermaLink="false">CVE-2024-28869|2024-04-12T21:08:36.288Z</guid>
+      <guid isPermaLink="false">CVE-2024-28869|2024-08-02T00:56:58.412Z</guid>
       <pubDate>Fri, 12 Apr 2024 21:08:36 +0000</pubDate>
     </item>
     <item>
@@ -77,11 +39,32 @@
       <pubDate>Fri, 05 Jul 2024 17:32:06 +0000</pubDate>
     </item>
     <item>
-      <title>CVE-2024-28869|2024-08-02T00:56:58.412Z -- traefik -- traefik</title>
+      <title>CVE-2024-28869|2024-04-12T21:08:36.288Z -- traefik -- traefik</title>
+      <link>https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2024-28869</link>
+      <description>Traefik is an HTTP reverse proxy and load balancer. In affected versions sending a GET request to any Traefik endpoint with the "Content-length" request header results in an indefinite hang with the default configuration. This vulnerability can be exploited by attackers to induce a denial of service. This vulnerability has been addressed in version 2.11.2 and 3.0.0-rc5. Users are advised to upgrade. For affected versions, this vulnerability can be mitigated by configuring the readTimeout option.</description>
+      <guid isPermaLink="false">CVE-2024-28869|2024-04-12T21:08:36.288Z</guid>
+      <pubDate>Fri, 12 Apr 2024 21:08:36 +0000</pubDate>
+    </item>
+    <item>
+      <title>CVE-2024-28869|2024-06-18T18:27:45.460Z -- traefik -- traefik</title>
       <link>https://www.cve.org/CVERecord?id=CVE-2024-28869</link>
       <description>Traefik is an HTTP reverse proxy and load balancer. In affected versions sending a GET request to any Traefik endpoint with the "Content-length" request header results in an indefinite hang with the default configuration. This vulnerability can be exploited by attackers to induce a denial of service. This vulnerability has been addressed in version 2.11.2 and 3.0.0-rc5. Users are advised to upgrade. For affected versions, this vulnerability can be mitigated by configuring the readTimeout option.</description>
-      <guid isPermaLink="false">CVE-2024-28869|2024-08-02T00:56:58.412Z</guid>
+      <guid isPermaLink="false">CVE-2024-28869|2024-06-18T18:27:45.460Z</guid>
       <pubDate>Fri, 12 Apr 2024 21:08:36 +0000</pubDate>
+    </item>
+    <item>
+      <title>CVE-2024-39321|2024-07-05T20:07:14.424Z -- traefik -- traefik</title>
+      <link>https://www.cve.org/CVERecord?id=CVE-2024-39321</link>
+      <description>Traefik is an HTTP reverse proxy and load balancer. Versions prior to 2.11.6, 3.0.4, and 3.1.0-rc3 have a vulnerability that allows bypassing IP allow-lists via HTTP/3 early data requests in QUIC 0-RTT handshakes sent with spoofed IP addresses. Versions 2.11.6, 3.0.4, and 3.1.0-rc3 contain a patch for this issue. No known workarounds are available.</description>
+      <guid isPermaLink="false">CVE-2024-39321|2024-07-05T20:07:14.424Z</guid>
+      <pubDate>Fri, 05 Jul 2024 17:32:06 +0000</pubDate>
+    </item>
+    <item>
+      <title>CVE-2024-39321|2024-08-02T04:19:20.719Z -- traefik -- traefik</title>
+      <link>https://www.cve.org/CVERecord?id=CVE-2024-39321</link>
+      <description>Traefik is an HTTP reverse proxy and load balancer. Versions prior to 2.11.6, 3.0.4, and 3.1.0-rc3 have a vulnerability that allows bypassing IP allow-lists via HTTP/3 early data requests in QUIC 0-RTT handshakes sent with spoofed IP addresses. Versions 2.11.6, 3.0.4, and 3.1.0-rc3 contain a patch for this issue. No known workarounds are available.</description>
+      <guid isPermaLink="false">CVE-2024-39321|2024-08-02T04:19:20.719Z</guid>
+      <pubDate>Fri, 05 Jul 2024 17:32:06 +0000</pubDate>
     </item>
   </channel>
 </rss>

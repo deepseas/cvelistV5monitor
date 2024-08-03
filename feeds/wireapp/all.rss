@@ -6,23 +6,31 @@
     <description>The latest CVEs for wireapp -- all products</description>
     <docs>http://www.rssboard.org/rss-specification</docs>
     <generator>python-feedgen</generator>
-    <lastBuildDate>Fri, 02 Aug 2024 23:21:47 +0000</lastBuildDate>
+    <lastBuildDate>Sat, 03 Aug 2024 04:23:51 +0000</lastBuildDate>
     <ttl>60</ttl>
     <item>
-      <title>CVE-2023-22737|2024-08-02T10:20:30.226Z -- wireapp -- wire-server
+      <title>CVE-2022-23625|2024-08-03T03:51:45.474Z -- wireapp -- wire-ios
 </title>
-      <link>https://www.cve.org/CVERecord?id=CVE-2023-22737</link>
-      <description>wire-server provides back end services for Wire, a team communication and collaboration platform. Prior to version 2022-12-09, every member of a Conversation can remove a Bot from a Conversation due to a missing permissions check. Only Conversation admins should be able to remove Bots. Regular Conversations are not allowed to do so. The issue is fixed in wire-server 2022-12-09 and is already deployed on all Wire managed services. On-premise instances of wire-server need to be updated to 2022-12-09/Chart 4.29.0, so that their backends are no longer affected. There are no known workarounds.</description>
-      <guid isPermaLink="false">CVE-2023-22737|2024-08-02T10:20:30.226Z</guid>
-      <pubDate>Fri, 27 Jan 2023 23:14:33 +0000</pubDate>
+      <link>https://www.cve.org/CVERecord?id=CVE-2022-23625</link>
+      <description>Wire-ios is a messaging application using the wire protocol on apple's ios platform. In versions prior to 3.95 malformed resource identifiers may render the iOS Wire Client completely unusable by causing it to repeatedly crash on launch. These malformed resource identifiers can be generated and sent between Wire users. The root cause lies in [wireapp/wire-ios-transport](https://github.com/wireapp/wire-ios-transport), where code responsible for removing sensible tokens before logging may fail and lead to a crash (Swift exception) of the application. This causes undesirable behavior, however the (greater) Wire system is still functional. Users are advised to upgrade as soon as possible. There are no known workarounds for this issue.</description>
+      <guid isPermaLink="false">CVE-2022-23625|2024-08-03T03:51:45.474Z</guid>
+      <pubDate>Fri, 11 Mar 2022 18:00:15 +0000</pubDate>
     </item>
     <item>
-      <title>CVE-2023-48221|2024-08-02T21:23:39.025Z -- wireapp -- wire-avs
+      <title>CVE-2022-23610|2024-08-03T03:43:46.981Z -- wireapp -- wire-server
 </title>
-      <link>https://www.cve.org/CVERecord?id=CVE-2023-48221</link>
-      <description>wire-avs provides Audio, Visual, and Signaling (AVS) functionality sure the secure messaging software Wire. Prior to versions 9.2.22 and 9.3.5, a remote format string vulnerability could potentially allow an attacker to cause a denial of service or possibly execute arbitrary code. The issue has been fixed in wire-avs 9.2.22 &amp; 9.3.5 and is already included on all Wire products. No known workarounds are available.</description>
-      <guid isPermaLink="false">CVE-2023-48221|2024-08-02T21:23:39.025Z</guid>
-      <pubDate>Mon, 20 Nov 2023 17:18:19 +0000</pubDate>
+      <link>https://www.cve.org/CVERecord?id=CVE-2022-23610</link>
+      <description>wire-server provides back end services for Wire, an open source messenger. In versions of wire-server prior to the 2022-01-27 release, it was possible to craft DSA Signatures to bypass SAML SSO and impersonate any Wire user with SAML credentials. In teams with SAML, but without SCIM, it was possible to create new accounts with fake SAML credentials. Under certain conditions that can be established by an attacker, an upstream library for parsing, rendering, signing, and validating SAML XML data was accepting public keys as trusted that were provided by the attacker in the signature. As a consequence, the attacker could login as any user in any Wire team with SAML SSO enabled. If SCIM was not enabled, the attacker could also create new users with new SAML NameIDs. In order to exploit this vulnerability, the attacker needs to know the SSO login code (distributed to all team members with SAML credentials and visible in the Team Management app), the SAML EntityID identifying the IdP (a URL not considered sensitive, but usually hard to guess, also visible in Team Management), and the SAML NameID of the user (usually an email address or a nick). The issue has been fixed in wire-server `2022-01-27` and is already deployed on all Wire managed services. On premise instances of wire-server need to be updated to `2022-01-27`, so that their backends are no longer affected. There are currently no known workarounds. More detailed information about how to reproduce the vulnerability and mitigation strategies is available in the GitHub Security Advisory.</description>
+      <guid isPermaLink="false">CVE-2022-23610|2024-08-03T03:43:46.981Z</guid>
+      <pubDate>Wed, 16 Mar 2022 17:40:10 +0000</pubDate>
+    </item>
+    <item>
+      <title>CVE-2022-23605|2024-08-03T03:43:46.973Z -- wireapp -- wire-webapp
+</title>
+      <link>https://www.cve.org/CVERecord?id=CVE-2022-23605</link>
+      <description>Wire webapp is a web client for the wire messaging protocol. In versions prior to 2022-01-27-production.0 expired ephemeral messages were not reliably removed from local chat history of Wire Webapp. In versions before 2022-01-27-production.0 ephemeral messages and assets might still be accessible through the local search functionality. Any attempt to view one of these message in the chat view will then trigger the deletion. This issue only affects locally stored messages. On premise instances of wire-webapp need to be updated to 2022-01-27-production.0, so that their users are no longer affected. There are no known workarounds for this issue.</description>
+      <guid isPermaLink="false">CVE-2022-23605|2024-08-03T03:43:46.973Z</guid>
+      <pubDate>Fri, 04 Feb 2022 22:32:05 +0000</pubDate>
     </item>
   </channel>
 </rss>

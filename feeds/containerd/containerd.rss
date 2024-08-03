@@ -6,25 +6,23 @@
     <description>The latest CVEs for containerd -- containerd</description>
     <docs>http://www.rssboard.org/rss-specification</docs>
     <generator>python-feedgen</generator>
-    <lastBuildDate>Fri, 02 Aug 2024 23:22:03 +0000</lastBuildDate>
+    <lastBuildDate>Sat, 03 Aug 2024 04:24:00 +0000</lastBuildDate>
     <ttl>60</ttl>
     <item>
-      <title>CVE-2023-25173|2024-08-02T11:18:35.671Z -- containerd -- containerd
+      <title>CVE-2022-23471|2024-08-03T03:43:46.038Z -- containerd -- containerd
 </title>
-      <link>https://www.cve.org/CVERecord?id=CVE-2023-25173</link>
-      <description>containerd is an open source container runtime. A bug was found in containerd prior to versions 1.6.18 and 1.5.18 where supplementary groups are not set up properly inside a container. If an attacker has direct access to a container and manipulates their supplementary group access, they may be able to use supplementary group access to bypass primary group restrictions in some cases, potentially gaining access to sensitive information or gaining the ability to execute code in that container. Downstream applications that use the containerd client library may be affected as well.
-
-This bug has been fixed in containerd v1.6.18 and v.1.5.18. Users should update to these versions and recreate containers to resolve this issue. Users who rely on a downstream application that uses containerd's client library should check that application for a separate advisory and instructions. As a workaround, ensure that the `"USER $USERNAME"` Dockerfile instruction is not used. Instead, set the container entrypoint to a value similar to `ENTRYPOINT ["su", "-", "user"]` to allow `su` to properly set up supplementary groups.</description>
-      <guid isPermaLink="false">CVE-2023-25173|2024-08-02T11:18:35.671Z</guid>
-      <pubDate>Thu, 16 Feb 2023 14:09:12 +0000</pubDate>
+      <link>https://www.cve.org/CVERecord?id=CVE-2022-23471</link>
+      <description>containerd is an open source container runtime. A bug was found in containerd's CRI implementation where a user can exhaust memory on the host. In the CRI stream server, a goroutine is launched to handle terminal resize events if a TTY is requested. If the user's process fails to launch due to, for example, a faulty command, the goroutine will be stuck waiting to send without a receiver, resulting in a memory leak. Kubernetes and crictl can both be configured to use containerd's CRI implementation and the stream server is used for handling container IO. This bug has been fixed in containerd 1.6.12 and 1.5.16.  Users should update to these versions to resolve the issue. Users unable to upgrade should ensure that only trusted images and commands are used and that only trusted users have permissions to execute commands in running containers. </description>
+      <guid isPermaLink="false">CVE-2022-23471|2024-08-03T03:43:46.038Z</guid>
+      <pubDate>Wed, 07 Dec 2022 22:51:34 +0000</pubDate>
     </item>
     <item>
-      <title>CVE-2023-25153|2024-08-02T11:18:35.221Z -- containerd -- containerd
+      <title>CVE-2022-23648|2024-08-03T03:51:45.829Z -- containerd -- containerd
 </title>
-      <link>https://www.cve.org/CVERecord?id=CVE-2023-25153</link>
-      <description>containerd is an open source container runtime. Before versions 1.6.18 and 1.5.18, when importing an OCI image, there was no limit on the number of bytes read for certain files. A maliciously crafted image with a large file where a limit was not applied could cause a denial of service. This bug has been fixed in containerd 1.6.18 and 1.5.18.  Users should update to these versions to resolve the issue. As a workaround, ensure that only trusted images are used and that only trusted users have permissions to import images.</description>
-      <guid isPermaLink="false">CVE-2023-25153|2024-08-02T11:18:35.221Z</guid>
-      <pubDate>Thu, 16 Feb 2023 14:09:08 +0000</pubDate>
+      <link>https://www.cve.org/CVERecord?id=CVE-2022-23648</link>
+      <description>containerd is a container runtime available as a daemon for Linux and Windows. A bug was found in containerd prior to versions 1.6.1, 1.5.10, and 1.14.12 where containers launched through containerd’s CRI implementation on Linux with a specially-crafted image configuration could gain access to read-only copies of arbitrary files and directories on the host. This may bypass any policy-based enforcement on container setup (including a Kubernetes Pod Security Policy) and expose potentially sensitive information. Kubernetes and crictl can both be configured to use containerd’s CRI implementation. This bug has been fixed in containerd 1.6.1, 1.5.10, and 1.4.12. Users should update to these versions to resolve the issue.</description>
+      <guid isPermaLink="false">CVE-2022-23648|2024-08-03T03:51:45.829Z</guid>
+      <pubDate>Thu, 03 Mar 2022 00:00:00 +0000</pubDate>
     </item>
   </channel>
 </rss>

@@ -6,14 +6,46 @@
     <description>The latest CVEs for auth0 -- all products</description>
     <docs>http://www.rssboard.org/rss-specification</docs>
     <generator>python-feedgen</generator>
-    <lastBuildDate>Fri, 02 Aug 2024 09:23:43 +0000</lastBuildDate>
+    <lastBuildDate>Sat, 03 Aug 2024 04:23:50 +0000</lastBuildDate>
     <ttl>60</ttl>
     <item>
-      <title>CVE-2023-6813|2024-08-02T08:42:07.447Z -- auth0 -- login%20by%20auth0
+      <title>CVE-2022-23540|2024-08-03T03:43:46.466Z -- auth0 -- node-jsonwebtoken
 </title>
+      <link>https://www.cve.org/CVERecord?id=CVE-2022-23540</link>
+      <description>In versions `&lt;=8.5.1` of `jsonwebtoken` library, lack of algorithm definition in the `jwt.verify()` function can lead to signature validation bypass due to defaulting to the `none` algorithm for signature verification. Users are affected if you do not specify algorithms in the `jwt.verify()` function. This issue has been fixed, please update to version 9.0.0 which removes the default support for the none algorithm in the `jwt.verify()` method. There will be no impact, if you update to version 9.0.0 and you don’t need to allow for the `none` algorithm. If you need 'none' algorithm, you have to explicitly specify that in `jwt.verify()` options.
+</description>
+      <guid isPermaLink="false">CVE-2022-23540|2024-08-03T03:43:46.466Z</guid>
+      <pubDate>Thu, 22 Dec 2022 18:02:24 +0000</pubDate>
+    </item>
+    <item>
+      <title>CVE-2022-23505|2024-08-03T03:43:46.515Z -- auth0 -- passport-wsfed-saml2
+</title>
+      <link>https://www.cve.org/CVERecord?id=CVE-2022-23505</link>
+      <description>Passport-wsfed-saml2 is a ws-federation protocol and SAML2 tokens authentication provider for Passport. In versions prior to 4.6.3, a remote attacker may be able to bypass WSFed authentication on a website using passport-wsfed-saml2. A successful attack requires that the attacker is in possession of an arbitrary IDP signed assertion. Depending on the IDP used, fully unauthenticated attacks (e.g without access to a valid user) might also be feasible if generation of a signed message can be triggered. This issue is patched in version 4.6.3. Use of SAML2 authentication instead of WSFed is a workaround.</description>
+      <guid isPermaLink="false">CVE-2022-23505|2024-08-03T03:43:46.515Z</guid>
+      <pubDate>Tue, 13 Dec 2022 07:04:23 +0000</pubDate>
+    </item>
+    <item>
+      <title>CVE-2022-23541|2024-08-03T03:43:46.445Z -- auth0 -- node-jsonwebtoken
+</title>
+      <link>https://www.cve.org/CVERecord?id=CVE-2022-23541</link>
+      <description>jsonwebtoken is an implementation of JSON Web Tokens. Versions `&lt;= 8.5.1` of `jsonwebtoken` library can be misconfigured so that passing a poorly implemented key retrieval function referring to the `secretOrPublicKey` argument from the readme link will result in incorrect verification of tokens. There is a possibility of using a different algorithm and key combination in verification, other than the one that was used to sign the tokens. Specifically, tokens signed with an asymmetric public key could be verified with a symmetric HS256 algorithm. This can lead to successful validation of  forged tokens. If your application is supporting usage of both symmetric key and asymmetric key in jwt.verify() implementation with the same key retrieval function. This issue has been patched, please update to version 9.0.0.</description>
+      <guid isPermaLink="false">CVE-2022-23541|2024-08-03T03:43:46.445Z</guid>
+      <pubDate>Thu, 22 Dec 2022 17:52:22 +0000</pubDate>
+    </item>
+    <item>
+      <title>CVE-2022-23539|2024-08-03T03:43:46.551Z -- auth0 -- node-jsonwebtoken
+</title>
+      <link>https://www.cve.org/CVERecord?id=CVE-2022-23539</link>
+      <description>Versions `&lt;=8.5.1` of `jsonwebtoken` library could be misconfigured so that legacy, insecure key types are used for signature verification. For example, DSA keys could be used with the RS256 algorithm. You are affected if you are using an algorithm and a key type other than a combination listed in the GitHub Security Advisory as unaffected. This issue has been fixed, please update to version 9.0.0. This version validates for asymmetric key type and algorithm combinations. Please refer to the above mentioned algorithm / key type combinations for the valid secure configuration. After updating to version 9.0.0, if you still intend to continue with signing or verifying tokens using invalid key type/algorithm value combinations, you’ll need to set the `allowInvalidAsymmetricKeyTypes` option  to `true` in the `sign()` and/or `verify()` functions.</description>
+      <guid isPermaLink="false">CVE-2022-23539|2024-08-03T03:43:46.551Z</guid>
+      <pubDate>Thu, 22 Dec 2022 23:20:47 +0000</pubDate>
+    </item>
+    <item>
+      <title>CVE-2023-6813|2024-07-10T07:36:43.632Z -- auth0 -- login%20by%20auth0</title>
       <link>https://www.cve.org/CVERecord?id=CVE-2023-6813</link>
       <description>The Login by Auth0 plugin for WordPress is vulnerable to Reflected Cross-Site Scripting via the ‘wle’ parameter in all versions up to, and including, 4.6.0 due to insufficient input sanitization and output escaping. This makes it possible for unauthenticated attackers to inject arbitrary web scripts in pages that execute if they can successfully trick a user into performing an action such as clicking on a link.</description>
-      <guid isPermaLink="false">CVE-2023-6813|2024-08-02T08:42:07.447Z</guid>
+      <guid isPermaLink="false">CVE-2023-6813|2024-07-10T07:36:43.632Z</guid>
       <pubDate>Wed, 10 Jul 2024 07:36:43 +0000</pubDate>
     </item>
     <item>
@@ -24,10 +56,10 @@
       <pubDate>Wed, 10 Jul 2024 07:36:43 +0000</pubDate>
     </item>
     <item>
-      <title>CVE-2023-6813|2024-07-10T07:36:43.632Z -- auth0 -- login%20by%20auth0</title>
+      <title>CVE-2023-6813|2024-08-02T08:42:07.447Z -- auth0 -- login%20by%20auth0</title>
       <link>https://www.cve.org/CVERecord?id=CVE-2023-6813</link>
       <description>The Login by Auth0 plugin for WordPress is vulnerable to Reflected Cross-Site Scripting via the ‘wle’ parameter in all versions up to, and including, 4.6.0 due to insufficient input sanitization and output escaping. This makes it possible for unauthenticated attackers to inject arbitrary web scripts in pages that execute if they can successfully trick a user into performing an action such as clicking on a link.</description>
-      <guid isPermaLink="false">CVE-2023-6813|2024-07-10T07:36:43.632Z</guid>
+      <guid isPermaLink="false">CVE-2023-6813|2024-08-02T08:42:07.447Z</guid>
       <pubDate>Wed, 10 Jul 2024 07:36:43 +0000</pubDate>
     </item>
   </channel>

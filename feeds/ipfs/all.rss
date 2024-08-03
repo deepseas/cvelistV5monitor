@@ -6,42 +6,16 @@
     <description>The latest CVEs for ipfs -- all products</description>
     <docs>http://www.rssboard.org/rss-specification</docs>
     <generator>python-feedgen</generator>
-    <lastBuildDate>Fri, 02 Aug 2024 23:22:07 +0000</lastBuildDate>
+    <lastBuildDate>Sat, 03 Aug 2024 04:23:56 +0000</lastBuildDate>
     <ttl>60</ttl>
     <item>
-      <title>CVE-2023-23625|2024-08-02T10:35:33.626Z -- ipfs -- go-unixfs
+      <title>CVE-2022-23495|2024-08-03T03:43:46.142Z -- ipfs -- go-merkledag
 </title>
-      <link>https://www.cve.org/CVERecord?id=CVE-2023-23625</link>
-      <description>go-unixfs is an implementation of a unix-like filesystem on top of an ipld merkledag. Trying to read malformed HAMT sharded directories can cause panics and virtual memory leaks. If you are reading untrusted user input, an attacker can then trigger a panic. This is caused by bogus `fanout` parameter in the HAMT directory nodes. Users are advised to upgrade to version 0.4.3 to resolve this issue. Users unable to upgrade should not feed untrusted user data to the decoding functions.
+      <link>https://www.cve.org/CVERecord?id=CVE-2022-23495</link>
+      <description>go-merkledag implements the 'DAGService' interface and adds two ipld node types, Protobuf and Raw for the ipfs project. A `ProtoNode` may be modified in such a way as to cause various encode errors which will trigger a panic on common method calls that don't allow for error returns. A `ProtoNode` should only be able to encode to valid DAG-PB, attempting to encode invalid DAG-PB forms will result in an error from the codec. Manipulation of an existing (newly created or decoded) `ProtoNode` using the modifier methods did not account for certain states that would place the `ProtoNode` into an unencodeable form. Due to conformance with the [`github.com/ipfs/go-block-format#Block`](https://pkg.go.dev/github.com/ipfs/go-block-format#Block) and [`github.com/ipfs/go-ipld-format#Node`](https://pkg.go.dev/github.com/ipfs/go-ipld-format#Node) interfaces, certain methods, which internally require a re-encode if state has changed, will panic due to the inability to return an error. This issue has been addressed across a number of pull requests. Users are advised to upgrade to version 0.8.1 for a complete set of fixes. Users unable to upgrade may attempt to mitigate this issue by sanitising inputs when allowing user-input to set a new `CidBuilder` on a `ProtoNode` and by sanitising `Tsize` (`Link#Size`) values such that they are a reasonable byte-size for sub-DAGs where derived from user-input.
 </description>
-      <guid isPermaLink="false">CVE-2023-23625|2024-08-02T10:35:33.626Z</guid>
-      <pubDate>Thu, 09 Feb 2023 20:57:22 +0000</pubDate>
-    </item>
-    <item>
-      <title>CVE-2023-23626|2024-08-02T10:35:33.661Z -- ipfs -- go-bitfield
-</title>
-      <link>https://www.cve.org/CVERecord?id=CVE-2023-23626</link>
-      <description>go-bitfield is a simple bitfield package for the go language aiming to be more performant that the standard library. When feeding untrusted user input into the size parameter of `NewBitfield` and `FromBytes` functions, an attacker can trigger `panic`s. This happen when the `size` is a not a multiple of `8` or is negative. There were already a note in the `NewBitfield` documentation, however known users of this package are subject to this issue. Users are advised to upgrade. Users unable to upgrade should ensure that `size` is a multiple of 8 before calling `NewBitfield` or `FromBytes`.
-</description>
-      <guid isPermaLink="false">CVE-2023-23626|2024-08-02T10:35:33.661Z</guid>
-      <pubDate>Thu, 09 Feb 2023 20:54:07 +0000</pubDate>
-    </item>
-    <item>
-      <title>CVE-2023-25568|2024-08-02T11:25:19.272Z -- ipfs -- boxo
-</title>
-      <link>https://www.cve.org/CVERecord?id=CVE-2023-25568</link>
-      <description>Boxo, formerly known as go-libipfs, is a library for building IPFS applications and implementations. In versions 0.4.0 and 0.5.0, if an attacker is able allocate arbitrary many bytes in the Bitswap server, those allocations are lasting even if the connection is closed. This affects users accepting untrusted connections with the Bitswap server and also affects users using the old API stubs at `github.com/ipfs/go-libipfs/bitswap` because users then transitively import `github.com/ipfs/go-libipfs/bitswap/server`. Boxo versions 0.6.0 and 0.4.1 contain a patch for this issue. As a workaround, those who are using the stub object at `github.com/ipfs/go-libipfs/bitswap` not taking advantage of the features provided by the server can refactor their code to use the new split API that will allow them to run in a client only mode: `github.com/ipfs/go-libipfs/bitswap/client`.</description>
-      <guid isPermaLink="false">CVE-2023-25568|2024-08-02T11:25:19.272Z</guid>
-      <pubDate>Wed, 10 May 2023 00:00:00 +0000</pubDate>
-    </item>
-    <item>
-      <title>CVE-2023-23631|2024-08-02T10:35:33.625Z -- ipfs -- go-unixfsnode
-</title>
-      <link>https://www.cve.org/CVERecord?id=CVE-2023-23631</link>
-      <description>github.com/ipfs/go-unixfsnode is an ADL IPLD prime node that wraps go-codec-dagpb's implementation of protobuf to enable pathing. In versions priot to 1.5.2 trying to read malformed HAMT sharded directories can cause panics and virtual memory leaks.
-If you are reading untrusted user input, an attacker can then trigger a panic. This is caused by bogus fanout parameter in the HAMT directory nodes. Users are advised to upgrade. There are no known workarounds for this vulnerability.</description>
-      <guid isPermaLink="false">CVE-2023-23631|2024-08-02T10:35:33.625Z</guid>
-      <pubDate>Thu, 09 Feb 2023 20:46:22 +0000</pubDate>
+      <guid isPermaLink="false">CVE-2022-23495|2024-08-03T03:43:46.142Z</guid>
+      <pubDate>Thu, 08 Dec 2022 21:25:40 +0000</pubDate>
     </item>
   </channel>
 </rss>

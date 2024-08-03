@@ -6,15 +6,37 @@
     <description>The latest CVEs for weaveworks -- all products</description>
     <docs>http://www.rssboard.org/rss-specification</docs>
     <generator>python-feedgen</generator>
-    <lastBuildDate>Fri, 02 Aug 2024 23:22:14 +0000</lastBuildDate>
+    <lastBuildDate>Sat, 03 Aug 2024 04:23:50 +0000</lastBuildDate>
     <ttl>60</ttl>
     <item>
-      <title>CVE-2023-34236|2024-08-02T16:01:54.316Z -- weaveworks -- tf-controller
+      <title>CVE-2022-23508|2024-08-03T03:43:46.467Z -- weaveworks -- weave-gitops
 </title>
-      <link>https://www.cve.org/CVERecord?id=CVE-2023-34236</link>
-      <description>Weave GitOps Terraform Controller (aka Weave TF-controller) is a controller for Flux to reconcile Terraform resources in a GitOps way. A vulnerability has been identified in Weave GitOps Terraform Controller which could allow an authenticated remote attacker to view sensitive information. This vulnerability stems from Weave GitOps Terraform Runners (`tf-runner`), where sensitive data is inadvertently printed - potentially revealing sensitive user data in their pod logs. In particular, functions `tfexec.ShowPlan`, `tfexec.ShowPlanRaw`, and `tfexec.Output` are implicated when the `tfexec` object set its `Stdout` and `Stderr` to be `os.Stdout` and `os.Stderr`. An unauthorized remote attacker could exploit this vulnerability by accessing these prints of sensitive information, which may contain configurations or tokens that could be used to gain unauthorized control or access to resources managed by the Terraform controller. A successful exploit could allow the attacker to utilize this sensitive data, potentially leading to unauthorized access or control of the system. This vulnerability has been addressed in Weave GitOps Terraform Controller versions `v0.14.4` and `v0.15.0-rc.5`. Users are urged to upgrade to one of these versions to mitigate the vulnerability. As a temporary measure until the patch can be applied, users can add the environment variable `DISABLE_TF_LOGS` to the tf-runners via the runner pod template of the Terraform Custom Resource. This will prevent the logging of sensitive information and mitigate the risk of this vulnerability.</description>
-      <guid isPermaLink="false">CVE-2023-34236|2024-08-02T16:01:54.316Z</guid>
-      <pubDate>Fri, 14 Jul 2023 21:09:46 +0000</pubDate>
+      <link>https://www.cve.org/CVERecord?id=CVE-2022-23508</link>
+      <description>Weave GitOps is a simple open source developer platform for people who want cloud native applications, without needing Kubernetes expertise.  A vulnerability in GitOps run could allow a local user or process to alter a Kubernetes cluster's resources. GitOps run has a local S3 bucket which it uses for synchronizing files that are later applied against a Kubernetes cluster. Its endpoint had no security controls to block unauthorized access, therefore allowing local users (and processes) on the same machine to see and alter the bucket content. By leveraging this vulnerability, an attacker could pick a workload of their choosing and inject it into the S3 bucket, which resulted in the successful deployment in the target cluster, without the need to provide any credentials to either the S3 bucket nor the target Kubernetes cluster. There are no known workarounds for this issue, please upgrade. This vulnerability has been fixed by commits 75268c4 and 966823b. Users should upgrade to Weave GitOps version &gt;= v0.12.0 released on 08/12/2022.
+
+### Workarounds
+There is no workaround for this vulnerability.
+
+### References
+Disclosed by Paulo Gomes, Senior Software Engineer, Weaveworks.
+
+### For more information
+If you have any questions or comments about this advisory:
+
+- Open an issue in [Weave GitOps repository](https://github.com/weaveworks/weave-gitops)
+- Email us at [support@weave.works](mailto:support@weave.works)
+</description>
+      <guid isPermaLink="false">CVE-2022-23508|2024-08-03T03:43:46.467Z</guid>
+      <pubDate>Mon, 09 Jan 2023 12:56:01 +0000</pubDate>
+    </item>
+    <item>
+      <title>CVE-2022-23509|2024-08-03T03:43:46.115Z -- weaveworks -- weave-gitops
+</title>
+      <link>https://www.cve.org/CVERecord?id=CVE-2022-23509</link>
+      <description>Weave GitOps is a simple open source developer platform for people who want cloud native applications, without needing Kubernetes expertise. GitOps run has a local S3 bucket which it uses for synchronizing files that are later applied against a Kubernetes cluster. The communication between GitOps Run and the local S3 bucket is not encrypted. This allows privileged users or process to tap the local traffic to gain information permitting access to the s3 bucket. From that point, it would be possible to alter the bucket content, resulting in changes in the Kubernetes cluster's resources. There are no known workaround(s) for this vulnerability. This vulnerability has been fixed by commits ce2bbff and babd915. Users should upgrade to Weave GitOps version &gt;= v0.12.0 released on 08/12/2022.
+</description>
+      <guid isPermaLink="false">CVE-2022-23509|2024-08-03T03:43:46.115Z</guid>
+      <pubDate>Mon, 09 Jan 2023 13:01:08 +0000</pubDate>
     </item>
   </channel>
 </rss>

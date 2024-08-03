@@ -6,92 +6,36 @@
     <description>The latest CVEs for git -- git</description>
     <docs>http://www.rssboard.org/rss-specification</docs>
     <generator>python-feedgen</generator>
-    <lastBuildDate>Fri, 02 Aug 2024 23:21:48 +0000</lastBuildDate>
+    <lastBuildDate>Sat, 03 Aug 2024 04:24:00 +0000</lastBuildDate>
     <ttl>60</ttl>
     <item>
-      <title>CVE-2023-29007|2024-08-02T14:00:14.413Z -- git -- git
+      <title>CVE-2022-23521|2024-08-03T03:43:46.438Z -- git -- git
 </title>
-      <link>https://www.cve.org/CVERecord?id=CVE-2023-29007</link>
-      <description>Git is a revision control system. Prior to versions 2.30.9, 2.31.8, 2.32.7, 2.33.8, 2.34.8, 2.35.8, 2.36.6, 2.37.7, 2.38.5, 2.39.3, and 2.40.1, a specially crafted `.gitmodules` file with submodule URLs that are longer than 1024 characters can used to exploit a bug in `config.c::git_config_copy_or_rename_section_in_file()`. This bug can be used to inject arbitrary configuration into a user's `$GIT_DIR/config` when attempting to remove the configuration section associated with that submodule. When the attacker injects configuration values which specify executables to run (such as `core.pager`, `core.editor`, `core.sshCommand`, etc.) this can lead to a remote code execution. A fix A fix is available in versions 2.30.9, 2.31.8, 2.32.7, 2.33.8, 2.34.8, 2.35.8, 2.36.6, 2.37.7, 2.38.5, 2.39.3, and 2.40.1. As a workaround, avoid running `git submodule deinit` on untrusted repositories or without prior inspection of any submodule sections in `$GIT_DIR/config`.</description>
-      <guid isPermaLink="false">CVE-2023-29007|2024-08-02T14:00:14.413Z</guid>
-      <pubDate>Tue, 25 Apr 2023 20:09:52 +0000</pubDate>
+      <link>https://www.cve.org/CVERecord?id=CVE-2022-23521</link>
+      <description>Git is distributed revision control system. gitattributes are a mechanism to allow defining attributes for paths. These attributes can be defined by adding a `.gitattributes` file to the repository, which contains a set of file patterns and the attributes that should be set for paths matching this pattern. When parsing gitattributes, multiple integer overflows can occur when there is a huge number of path patterns, a huge number of attributes for a single pattern, or when the declared attribute names are huge. These overflows can be triggered via a crafted `.gitattributes` file that may be part of the commit history. Git silently splits lines longer than 2KB when parsing gitattributes from a file, but not when parsing them from the index. Consequentially, the failure mode depends on whether the file exists in the working tree, the index or both. This integer overflow can result in arbitrary heap reads and writes, which may result in remote code execution. The problem has been patched in the versions published on 2023-01-17, going back to v2.30.7. Users are advised to upgrade. There are no known workarounds for this issue.</description>
+      <guid isPermaLink="false">CVE-2022-23521|2024-08-03T03:43:46.438Z</guid>
+      <pubDate>Tue, 17 Jan 2023 22:17:17 +0000</pubDate>
     </item>
     <item>
-      <title>CVE-2023-23946|2024-08-02T10:49:07.949Z -- git -- git
-</title>
-      <link>https://www.cve.org/CVERecord?id=CVE-2023-23946</link>
-      <description>Git, a revision control system, is vulnerable to path traversal prior to versions 2.39.2, 2.38.4, 2.37.6, 2.36.5, 2.35.7, 2.34.7, 2.33.7, 2.32.6, 2.31.7, and 2.30.8. By feeding a crafted input to `git apply`, a path outside the working tree can be overwritten as the user who is running `git apply`. A fix has been prepared and will appear in v2.39.2, v2.38.4, v2.37.6, v2.36.5, v2.35.7, v2.34.7, v2.33.7, v2.32.6, v2.31.7, and v2.30.8. As a workaround, use `git apply --stat` to inspect a patch before applying; avoid applying one that creates a symbolic link and then creates a file beyond the symbolic link.</description>
-      <guid isPermaLink="false">CVE-2023-23946|2024-08-02T10:49:07.949Z</guid>
-      <pubDate>Tue, 14 Feb 2023 19:48:00 +0000</pubDate>
-    </item>
-    <item>
-      <title>CVE-2023-25652|2024-08-02T11:25:19.289Z -- git -- git
-</title>
-      <link>https://www.cve.org/CVERecord?id=CVE-2023-25652</link>
-      <description>Git is a revision control system. Prior to versions 2.30.9, 2.31.8, 2.32.7, 2.33.8, 2.34.8, 2.35.8, 2.36.6, 2.37.7, 2.38.5, 2.39.3, and 2.40.1, by feeding specially crafted input to `git apply --reject`, a path outside the working tree can be overwritten with partially controlled contents (corresponding to the rejected hunk(s) from the given patch). A fix is available in versions 2.30.9, 2.31.8, 2.32.7, 2.33.8, 2.34.8, 2.35.8, 2.36.6, 2.37.7, 2.38.5, 2.39.3, and 2.40.1. As a workaround, avoid using `git apply` with `--reject` when applying patches from an untrusted source. Use `git apply --stat` to inspect a patch before applying; avoid applying one that create a conflict where a link corresponding to the `*.rej` file exists.</description>
-      <guid isPermaLink="false">CVE-2023-25652|2024-08-02T11:25:19.289Z</guid>
-      <pubDate>Tue, 25 Apr 2023 19:17:35 +0000</pubDate>
-    </item>
-    <item>
-      <title>CVE-2023-22490|2024-08-02T10:13:48.515Z -- git -- git
-</title>
-      <link>https://www.cve.org/CVERecord?id=CVE-2023-22490</link>
-      <description>Git is a revision control system. Using a specially-crafted repository, Git prior to versions 2.39.2, 2.38.4, 2.37.6, 2.36.5, 2.35.7, 2.34.7, 2.33.7, 2.32.6, 2.31.7, and 2.30.8 can be tricked into using its local clone optimization even when using a non-local transport. Though Git will abort local clones whose source `$GIT_DIR/objects` directory contains symbolic links, the `objects` directory itself may still be a symbolic link. These two may be combined to include arbitrary files based on known paths on the victim's filesystem within the malicious repository's working copy, allowing for data exfiltration in a similar manner as CVE-2022-39253.
-
-A fix has been prepared and will appear in v2.39.2 v2.38.4 v2.37.6 v2.36.5 v2.35.7 v2.34.7 v2.33.7 v2.32.6, v2.31.7 and v2.30.8. If upgrading is impractical, two short-term workarounds are available. Avoid cloning repositories from untrusted sources with `--recurse-submodules`. Instead, consider cloning repositories without recursively cloning their submodules, and instead run `git submodule update` at each layer. Before doing so, inspect each new `.gitmodules` file to ensure that it does not contain suspicious module URLs.</description>
-      <guid isPermaLink="false">CVE-2023-22490|2024-08-02T10:13:48.515Z</guid>
-      <pubDate>Tue, 14 Feb 2023 19:47:56 +0000</pubDate>
-    </item>
-    <item>
-      <title>CVE-2024-32021|2024-05-14T19:15:28.534Z -- git -- git</title>
-      <link>https://www.cve.org/CVERecord?id=CVE-2024-32021</link>
-      <description>Git is a revision control system. Prior to versions 2.45.1, 2.44.1, 2.43.4, 2.42.2, 2.41.1, 2.40.2, and 2.39.4, when cloning a local source repository that contains symlinks via the filesystem, Git may create hardlinks to arbitrary user-readable files on the same filesystem as the target repository in the `objects/` directory. Cloning a local repository over the filesystem may creating hardlinks to arbitrary user-owned files on the same filesystem in the target Git repository's `objects/` directory. When cloning a repository over the filesystem (without explicitly specifying the `file://` protocol or `--no-local`), the optimizations for local cloning
-will be used, which include attempting to hard link the object files instead of copying them. While the code includes checks against symbolic links in the source repository, which were added during the fix for CVE-2022-39253, these checks can still be raced because the hard link operation ultimately follows symlinks. If the object on the filesystem appears as a file during the check, and then a symlink during the operation, this will allow the adversary to bypass the check and create hardlinks in the destination objects directory to arbitrary, user-readable files. The problem has been patched in versions 2.45.1, 2.44.1, 2.43.4, 2.42.2, 2.41.1, 2.40.2, and 2.39.4.</description>
-      <guid isPermaLink="false">CVE-2024-32021|2024-05-14T19:15:28.534Z</guid>
-      <pubDate>Tue, 14 May 2024 19:15:28 +0000</pubDate>
-    </item>
-    <item>
-      <title>CVE-2024-32021|2024-06-11T20:39:28.890Z -- git -- git</title>
-      <link>https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2024-32021</link>
-      <description>Git is a revision control system. Prior to versions 2.45.1, 2.44.1, 2.43.4, 2.42.2, 2.41.1, 2.40.2, and 2.39.4, when cloning a local source repository that contains symlinks via the filesystem, Git may create hardlinks to arbitrary user-readable files on the same filesystem as the target repository in the `objects/` directory. Cloning a local repository over the filesystem may creating hardlinks to arbitrary user-owned files on the same filesystem in the target Git repository's `objects/` directory. When cloning a repository over the filesystem (without explicitly specifying the `file://` protocol or `--no-local`), the optimizations for local cloning
-will be used, which include attempting to hard link the object files instead of copying them. While the code includes checks against symbolic links in the source repository, which were added during the fix for CVE-2022-39253, these checks can still be raced because the hard link operation ultimately follows symlinks. If the object on the filesystem appears as a file during the check, and then a symlink during the operation, this will allow the adversary to bypass the check and create hardlinks in the destination objects directory to arbitrary, user-readable files. The problem has been patched in versions 2.45.1, 2.44.1, 2.43.4, 2.42.2, 2.41.1, 2.40.2, and 2.39.4.</description>
-      <guid isPermaLink="false">CVE-2024-32021|2024-06-11T20:39:28.890Z</guid>
-      <pubDate>Tue, 14 May 2024 19:15:28 +0000</pubDate>
-    </item>
-    <item>
-      <title>CVE-2024-32020|2024-05-14T18:54:08.184Z -- git -- git</title>
-      <link>https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2024-32020</link>
+      <title>CVE-2024-32020|2024-08-02T01:59:50.905Z -- git -- git</title>
+      <link>https://www.cve.org/CVERecord?id=CVE-2024-32020</link>
       <description>Git is a revision control system. Prior to versions 2.45.1, 2.44.1, 2.43.4, 2.42.2, 2.41.1, 2.40.2, and 2.39.4, local clones may end up hardlinking files into the target repository's object database when source and target repository reside on the same disk. If the source repository is owned by a different user, then those hardlinked files may be rewritten at any point in time by the untrusted user. Cloning local repositories will cause Git to either copy or hardlink files of the source repository into the target repository. This significantly speeds up such local clones compared to doing a "proper" clone and saves both disk space and compute time. When cloning a repository located on the same disk that is owned by a different user than the current user we also end up creating such hardlinks. These files will continue to be owned and controlled by the potentially-untrusted user and can be rewritten by them at will in the future. The problem has been patched in versions 2.45.1, 2.44.1, 2.43.4, 2.42.2, 2.41.1, 2.40.2, and 2.39.4.</description>
-      <guid isPermaLink="false">CVE-2024-32020|2024-05-14T18:54:08.184Z</guid>
+      <guid isPermaLink="false">CVE-2024-32020|2024-08-02T01:59:50.905Z</guid>
       <pubDate>Tue, 14 May 2024 18:54:08 +0000</pubDate>
     </item>
     <item>
-      <title>CVE-2024-32004|2024-05-14T18:46:32.192Z -- git -- git</title>
-      <link>https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2024-32004</link>
-      <description>Git is a revision control system. Prior to versions 2.45.1, 2.44.1, 2.43.4, 2.42.2, 2.41.1, 2.40.2, and 2.39.4, an attacker can prepare a local repository in such a way that, when cloned, will execute arbitrary code during the operation. The problem has been patched in versions 2.45.1, 2.44.1, 2.43.4, 2.42.2, 2.41.1, 2.40.2, and 2.39.4. As a workaround, avoid cloning repositories from untrusted sources.</description>
-      <guid isPermaLink="false">CVE-2024-32004|2024-05-14T18:46:32.192Z</guid>
-      <pubDate>Tue, 14 May 2024 18:46:32 +0000</pubDate>
-    </item>
-    <item>
-      <title>CVE-2024-32465|2024-05-14T19:18:33.914Z -- git -- git</title>
-      <link>https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2024-32465</link>
+      <title>CVE-2024-32465|2024-08-02T02:13:39.839Z -- git -- git</title>
+      <link>https://www.cve.org/CVERecord?id=CVE-2024-32465</link>
       <description>Git is a revision control system. The Git project recommends to avoid working in untrusted repositories, and instead to clone it first with `git clone --no-local` to obtain a clean copy. Git has specific protections to make that a safe operation even with an untrusted source repository, but vulnerabilities allow those protections to be bypassed. In the context of cloning local repositories owned by other users, this vulnerability has been covered in CVE-2024-32004. But there are circumstances where the fixes for CVE-2024-32004 are not enough: For example, when obtaining a `.zip` file containing a full copy of a Git repository, it should not be trusted by default to be safe, as e.g. hooks could be configured to run within the context of that repository. The problem has been patched in versions 2.45.1, 2.44.1, 2.43.4, 2.42.2, 2.41.1, 2.40.2, and 2.39.4. As a workaround, avoid using Git in repositories that have been obtained via archives from untrusted sources.</description>
-      <guid isPermaLink="false">CVE-2024-32465|2024-05-14T19:18:33.914Z</guid>
+      <guid isPermaLink="false">CVE-2024-32465|2024-08-02T02:13:39.839Z</guid>
       <pubDate>Tue, 14 May 2024 19:18:33 +0000</pubDate>
     </item>
     <item>
-      <title>CVE-2024-32002|2024-05-14T18:44:50.559Z -- git -- git</title>
-      <link>https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2024-32002</link>
+      <title>CVE-2024-32002|2024-08-02T01:59:50.899Z -- git -- git</title>
+      <link>https://www.cve.org/CVERecord?id=CVE-2024-32002</link>
       <description>Git is a revision control system. Prior to versions 2.45.1, 2.44.1, 2.43.4, 2.42.2, 2.41.1, 2.40.2, and 2.39.4, repositories with submodules can be crafted in a way that exploits a bug in Git whereby it can be fooled into writing files not into the submodule's worktree but into a `.git/` directory. This allows writing a hook that will be executed while the clone operation is still running, giving the user no opportunity to inspect the code that is being executed. The problem has been patched in versions 2.45.1, 2.44.1, 2.43.4, 2.42.2, 2.41.1, 2.40.2, and 2.39.4. If symbolic link support is disabled in Git (e.g. via `git config --global core.symlinks false`), the described attack won't work. As always, it is best to avoid cloning repositories from untrusted sources.</description>
-      <guid isPermaLink="false">CVE-2024-32002|2024-05-14T18:44:50.559Z</guid>
+      <guid isPermaLink="false">CVE-2024-32002|2024-08-02T01:59:50.899Z</guid>
       <pubDate>Tue, 14 May 2024 18:40:46 +0000</pubDate>
-    </item>
-    <item>
-      <title>CVE-2024-32004|2024-08-02T01:59:50.824Z -- git -- git</title>
-      <link>https://www.cve.org/CVERecord?id=CVE-2024-32004</link>
-      <description>Git is a revision control system. Prior to versions 2.45.1, 2.44.1, 2.43.4, 2.42.2, 2.41.1, 2.40.2, and 2.39.4, an attacker can prepare a local repository in such a way that, when cloned, will execute arbitrary code during the operation. The problem has been patched in versions 2.45.1, 2.44.1, 2.43.4, 2.42.2, 2.41.1, 2.40.2, and 2.39.4. As a workaround, avoid cloning repositories from untrusted sources.</description>
-      <guid isPermaLink="false">CVE-2024-32004|2024-08-02T01:59:50.824Z</guid>
-      <pubDate>Tue, 14 May 2024 18:46:32 +0000</pubDate>
     </item>
     <item>
       <title>CVE-2024-32021|2024-08-02T01:59:50.833Z -- git -- git</title>
@@ -102,25 +46,55 @@ will be used, which include attempting to hard link the object files instead of 
       <pubDate>Tue, 14 May 2024 19:15:28 +0000</pubDate>
     </item>
     <item>
-      <title>CVE-2024-32002|2024-08-02T01:59:50.899Z -- git -- git</title>
-      <link>https://www.cve.org/CVERecord?id=CVE-2024-32002</link>
+      <title>CVE-2024-32004|2024-08-02T01:59:50.824Z -- git -- git</title>
+      <link>https://www.cve.org/CVERecord?id=CVE-2024-32004</link>
+      <description>Git is a revision control system. Prior to versions 2.45.1, 2.44.1, 2.43.4, 2.42.2, 2.41.1, 2.40.2, and 2.39.4, an attacker can prepare a local repository in such a way that, when cloned, will execute arbitrary code during the operation. The problem has been patched in versions 2.45.1, 2.44.1, 2.43.4, 2.42.2, 2.41.1, 2.40.2, and 2.39.4. As a workaround, avoid cloning repositories from untrusted sources.</description>
+      <guid isPermaLink="false">CVE-2024-32004|2024-08-02T01:59:50.824Z</guid>
+      <pubDate>Tue, 14 May 2024 18:46:32 +0000</pubDate>
+    </item>
+    <item>
+      <title>CVE-2024-32002|2024-05-14T18:44:50.559Z -- git -- git</title>
+      <link>https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2024-32002</link>
       <description>Git is a revision control system. Prior to versions 2.45.1, 2.44.1, 2.43.4, 2.42.2, 2.41.1, 2.40.2, and 2.39.4, repositories with submodules can be crafted in a way that exploits a bug in Git whereby it can be fooled into writing files not into the submodule's worktree but into a `.git/` directory. This allows writing a hook that will be executed while the clone operation is still running, giving the user no opportunity to inspect the code that is being executed. The problem has been patched in versions 2.45.1, 2.44.1, 2.43.4, 2.42.2, 2.41.1, 2.40.2, and 2.39.4. If symbolic link support is disabled in Git (e.g. via `git config --global core.symlinks false`), the described attack won't work. As always, it is best to avoid cloning repositories from untrusted sources.</description>
-      <guid isPermaLink="false">CVE-2024-32002|2024-08-02T01:59:50.899Z</guid>
+      <guid isPermaLink="false">CVE-2024-32002|2024-05-14T18:44:50.559Z</guid>
       <pubDate>Tue, 14 May 2024 18:40:46 +0000</pubDate>
     </item>
     <item>
-      <title>CVE-2024-32465|2024-08-02T02:13:39.839Z -- git -- git</title>
-      <link>https://www.cve.org/CVERecord?id=CVE-2024-32465</link>
+      <title>CVE-2024-32465|2024-05-14T19:18:33.914Z -- git -- git</title>
+      <link>https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2024-32465</link>
       <description>Git is a revision control system. The Git project recommends to avoid working in untrusted repositories, and instead to clone it first with `git clone --no-local` to obtain a clean copy. Git has specific protections to make that a safe operation even with an untrusted source repository, but vulnerabilities allow those protections to be bypassed. In the context of cloning local repositories owned by other users, this vulnerability has been covered in CVE-2024-32004. But there are circumstances where the fixes for CVE-2024-32004 are not enough: For example, when obtaining a `.zip` file containing a full copy of a Git repository, it should not be trusted by default to be safe, as e.g. hooks could be configured to run within the context of that repository. The problem has been patched in versions 2.45.1, 2.44.1, 2.43.4, 2.42.2, 2.41.1, 2.40.2, and 2.39.4. As a workaround, avoid using Git in repositories that have been obtained via archives from untrusted sources.</description>
-      <guid isPermaLink="false">CVE-2024-32465|2024-08-02T02:13:39.839Z</guid>
+      <guid isPermaLink="false">CVE-2024-32465|2024-05-14T19:18:33.914Z</guid>
       <pubDate>Tue, 14 May 2024 19:18:33 +0000</pubDate>
     </item>
     <item>
-      <title>CVE-2024-32020|2024-08-02T01:59:50.905Z -- git -- git</title>
-      <link>https://www.cve.org/CVERecord?id=CVE-2024-32020</link>
+      <title>CVE-2024-32004|2024-05-14T18:46:32.192Z -- git -- git</title>
+      <link>https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2024-32004</link>
+      <description>Git is a revision control system. Prior to versions 2.45.1, 2.44.1, 2.43.4, 2.42.2, 2.41.1, 2.40.2, and 2.39.4, an attacker can prepare a local repository in such a way that, when cloned, will execute arbitrary code during the operation. The problem has been patched in versions 2.45.1, 2.44.1, 2.43.4, 2.42.2, 2.41.1, 2.40.2, and 2.39.4. As a workaround, avoid cloning repositories from untrusted sources.</description>
+      <guid isPermaLink="false">CVE-2024-32004|2024-05-14T18:46:32.192Z</guid>
+      <pubDate>Tue, 14 May 2024 18:46:32 +0000</pubDate>
+    </item>
+    <item>
+      <title>CVE-2024-32020|2024-05-14T18:54:08.184Z -- git -- git</title>
+      <link>https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2024-32020</link>
       <description>Git is a revision control system. Prior to versions 2.45.1, 2.44.1, 2.43.4, 2.42.2, 2.41.1, 2.40.2, and 2.39.4, local clones may end up hardlinking files into the target repository's object database when source and target repository reside on the same disk. If the source repository is owned by a different user, then those hardlinked files may be rewritten at any point in time by the untrusted user. Cloning local repositories will cause Git to either copy or hardlink files of the source repository into the target repository. This significantly speeds up such local clones compared to doing a "proper" clone and saves both disk space and compute time. When cloning a repository located on the same disk that is owned by a different user than the current user we also end up creating such hardlinks. These files will continue to be owned and controlled by the potentially-untrusted user and can be rewritten by them at will in the future. The problem has been patched in versions 2.45.1, 2.44.1, 2.43.4, 2.42.2, 2.41.1, 2.40.2, and 2.39.4.</description>
-      <guid isPermaLink="false">CVE-2024-32020|2024-08-02T01:59:50.905Z</guid>
+      <guid isPermaLink="false">CVE-2024-32020|2024-05-14T18:54:08.184Z</guid>
       <pubDate>Tue, 14 May 2024 18:54:08 +0000</pubDate>
+    </item>
+    <item>
+      <title>CVE-2024-32021|2024-06-11T20:39:28.890Z -- git -- git</title>
+      <link>https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2024-32021</link>
+      <description>Git is a revision control system. Prior to versions 2.45.1, 2.44.1, 2.43.4, 2.42.2, 2.41.1, 2.40.2, and 2.39.4, when cloning a local source repository that contains symlinks via the filesystem, Git may create hardlinks to arbitrary user-readable files on the same filesystem as the target repository in the `objects/` directory. Cloning a local repository over the filesystem may creating hardlinks to arbitrary user-owned files on the same filesystem in the target Git repository's `objects/` directory. When cloning a repository over the filesystem (without explicitly specifying the `file://` protocol or `--no-local`), the optimizations for local cloning
+will be used, which include attempting to hard link the object files instead of copying them. While the code includes checks against symbolic links in the source repository, which were added during the fix for CVE-2022-39253, these checks can still be raced because the hard link operation ultimately follows symlinks. If the object on the filesystem appears as a file during the check, and then a symlink during the operation, this will allow the adversary to bypass the check and create hardlinks in the destination objects directory to arbitrary, user-readable files. The problem has been patched in versions 2.45.1, 2.44.1, 2.43.4, 2.42.2, 2.41.1, 2.40.2, and 2.39.4.</description>
+      <guid isPermaLink="false">CVE-2024-32021|2024-06-11T20:39:28.890Z</guid>
+      <pubDate>Tue, 14 May 2024 19:15:28 +0000</pubDate>
+    </item>
+    <item>
+      <title>CVE-2024-32021|2024-05-14T19:15:28.534Z -- git -- git</title>
+      <link>https://www.cve.org/CVERecord?id=CVE-2024-32021</link>
+      <description>Git is a revision control system. Prior to versions 2.45.1, 2.44.1, 2.43.4, 2.42.2, 2.41.1, 2.40.2, and 2.39.4, when cloning a local source repository that contains symlinks via the filesystem, Git may create hardlinks to arbitrary user-readable files on the same filesystem as the target repository in the `objects/` directory. Cloning a local repository over the filesystem may creating hardlinks to arbitrary user-owned files on the same filesystem in the target Git repository's `objects/` directory. When cloning a repository over the filesystem (without explicitly specifying the `file://` protocol or `--no-local`), the optimizations for local cloning
+will be used, which include attempting to hard link the object files instead of copying them. While the code includes checks against symbolic links in the source repository, which were added during the fix for CVE-2022-39253, these checks can still be raced because the hard link operation ultimately follows symlinks. If the object on the filesystem appears as a file during the check, and then a symlink during the operation, this will allow the adversary to bypass the check and create hardlinks in the destination objects directory to arbitrary, user-readable files. The problem has been patched in versions 2.45.1, 2.44.1, 2.43.4, 2.42.2, 2.41.1, 2.40.2, and 2.39.4.</description>
+      <guid isPermaLink="false">CVE-2024-32021|2024-05-14T19:15:28.534Z</guid>
+      <pubDate>Tue, 14 May 2024 19:15:28 +0000</pubDate>
     </item>
   </channel>
 </rss>
