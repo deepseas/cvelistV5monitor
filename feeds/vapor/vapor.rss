@@ -6,7 +6,7 @@
     <description>The latest CVEs for vapor -- vapor</description>
     <docs>http://www.rssboard.org/rss-specification</docs>
     <generator>python-feedgen</generator>
-    <lastBuildDate>Sat, 03 Aug 2024 18:24:42 +0000</lastBuildDate>
+    <lastBuildDate>Sat, 03 Aug 2024 19:19:43 +0000</lastBuildDate>
     <ttl>60</ttl>
     <item>
       <title>CVE-2022-31005|2024-08-03T07:03:40.287Z -- vapor -- vapor
@@ -23,6 +23,14 @@
       <description>Vapor is a server-side Swift HTTP web framework. When using automatic content decoding an attacker can craft a request body that can make the server crash with the following request: `curl -d "array[_0][0][array][_0][0][array]$(for f in $(seq 1100); do echo -n '[_0][0][array]'; done)[string][_0]=hello%20world" http://localhost:8080/foo`. The issue is unbounded, attacker controlled stack growth which will at some point lead to a stack overflow and a process crash. This issue has been fixed in version 4.61.1.</description>
       <guid isPermaLink="false">CVE-2022-31019|2024-08-03T07:03:40.210Z</guid>
       <pubDate>Mon, 06 Jun 2022 21:05:20 +0000</pubDate>
+    </item>
+    <item>
+      <title>CVE-2021-21328|2024-08-03T18:09:15.396Z -- vapor -- vapor
+</title>
+      <link>https://www.cve.org/CVERecord?id=CVE-2021-21328</link>
+      <description>Vapor is a web framework for Swift. In Vapor before version 4.40.1, there is a DoS attack against anyone who Bootstraps a metrics backend for their Vapor app. The following is the attack vector: 1. send unlimited requests against a vapor instance with different paths. this will create unlimited counters and timers, which will eventually drain the system. 2. downstream services might suffer from this attack as well by being spammed with error paths. This has been patched in 4.40.1. The `DefaultResponder` will rewrite any undefined route paths for to `vapor_route_undefined` to avoid unlimited counters.</description>
+      <guid isPermaLink="false">CVE-2021-21328|2024-08-03T18:09:15.396Z</guid>
+      <pubDate>Fri, 26 Feb 2021 01:45:23 +0000</pubDate>
     </item>
   </channel>
 </rss>

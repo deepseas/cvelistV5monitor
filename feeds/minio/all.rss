@@ -6,7 +6,7 @@
     <description>The latest CVEs for minio -- all products</description>
     <docs>http://www.rssboard.org/rss-specification</docs>
     <generator>python-feedgen</generator>
-    <lastBuildDate>Sat, 03 Aug 2024 18:24:35 +0000</lastBuildDate>
+    <lastBuildDate>Sat, 03 Aug 2024 19:19:41 +0000</lastBuildDate>
     <ttl>60</ttl>
     <item>
       <title>CVE-2022-35919|2024-08-03T09:51:58.534Z -- minio -- minio
@@ -25,6 +25,30 @@
       <pubDate>Fri, 03 Jun 2022 14:40:11 +0000</pubDate>
     </item>
     <item>
+      <title>CVE-2021-21362|2024-08-03T18:09:15.715Z -- minio -- minio
+</title>
+      <link>https://www.cve.org/CVERecord?id=CVE-2021-21362</link>
+      <description>MinIO is an open-source high performance object storage service and it is API compatible with Amazon S3 cloud storage service. In MinIO before version RELEASE.2021-03-04T00-53-13Z it is possible to bypass a readOnly policy by creating a temporary 'mc share upload' URL. Everyone is impacted who uses MinIO multi-users. This is fixed in version RELEASE.2021-03-04T00-53-13Z. As a workaround, one can disable uploads with `Content-Type: multipart/form-data` as mentioned in the S3 API RESTObjectPOST docs by using a proxy in front of MinIO.</description>
+      <guid isPermaLink="false">CVE-2021-21362|2024-08-03T18:09:15.715Z</guid>
+      <pubDate>Mon, 08 Mar 2021 18:40:34 +0000</pubDate>
+    </item>
+    <item>
+      <title>CVE-2021-21390|2024-08-03T18:09:16.085Z -- minio -- minio
+</title>
+      <link>https://www.cve.org/CVERecord?id=CVE-2021-21390</link>
+      <description>MinIO is an open-source high performance object storage service and it is API compatible with Amazon S3 cloud storage service. In MinIO before version RELEASE.2021-03-17T02-33-02Z, there is a vulnerability which enables MITM modification of request bodies that are meant to have integrity guaranteed by chunk signatures. In a PUT request using aws-chunked encoding, MinIO ordinarily verifies signatures at the end of a chunk. This check can be skipped if the client sends a false chunk size that is much greater than the actual data sent: the server accepts and completes the request without ever reaching the end of the chunk + thereby without ever checking the chunk signature. This is fixed in version RELEASE.2021-03-17T02-33-02Z. As a workaround one can avoid using "aws-chunked" encoding-based chunk signature upload requests instead use TLS. MinIO SDKs automatically disable chunked encoding signature when the server endpoint is configured with TLS.</description>
+      <guid isPermaLink="false">CVE-2021-21390|2024-08-03T18:09:16.085Z</guid>
+      <pubDate>Fri, 19 Mar 2021 16:00:17 +0000</pubDate>
+    </item>
+    <item>
+      <title>CVE-2021-21287|2024-08-03T18:09:15.757Z -- minio -- minio
+</title>
+      <link>https://www.cve.org/CVERecord?id=CVE-2021-21287</link>
+      <description>MinIO is a High Performance Object Storage released under Apache License v2.0. In MinIO before version RELEASE.2021-01-30T00-20-58Z there is a server-side request forgery vulnerability. The target application may have functionality for importing data from a URL, publishing data to a URL, or otherwise reading data from a URL that can be tampered with. The attacker modifies the calls to this functionality by supplying a completely different URL or by manipulating how URLs are built (path traversal etc.). In a Server-Side Request Forgery (SSRF) attack, the attacker can abuse functionality on the server to read or update internal resources. The attacker can supply or modify a URL which the code running on the server will read or submit data, and by carefully selecting the URLs, the attacker may be able to read server configuration such as AWS metadata, connect to internal services like HTTP enabled databases, or perform post requests towards internal services which are not intended to be exposed. This is fixed in version RELEASE.2021-01-30T00-20-58Z, all users are advised to upgrade. As a workaround you can disable the browser front-end with "MINIO_BROWSER=off" environment variable.</description>
+      <guid isPermaLink="false">CVE-2021-21287|2024-08-03T18:09:15.757Z</guid>
+      <pubDate>Mon, 01 Feb 2021 17:15:16 +0000</pubDate>
+    </item>
+    <item>
       <title>CVE-2022-24842|2024-08-03T04:20:50.468Z -- minio -- minio
 </title>
       <link>https://www.cve.org/CVERecord?id=CVE-2022-24842</link>
@@ -33,19 +57,19 @@
       <pubDate>Tue, 12 Apr 2022 17:20:18 +0000</pubDate>
     </item>
     <item>
-      <title>CVE-2024-36107|2024-08-02T03:30:13.046Z -- minio -- minio</title>
-      <link>https://www.cve.org/CVERecord?id=CVE-2024-36107</link>
-      <description>MinIO is a High Performance Object Storage released under GNU Affero General Public License v3.0. `If-Modified-Since` and `If-Unmodified-Since` headers when used with anonymous requests by sending a random object name requests can be used to determine if an object exists or not on the server on a specific bucket and also gain access to some amount of
-information such as  `Last-Modified (of the latest version)`, `Etag (of the latest version)`, `x-amz-version-id (of the latest version)`, `Expires (metadata value of the latest version)`, `Cache-Control (metadata value of the latest version)`. This conditional check was being honored before validating if the anonymous access is indeed allowed on the metadata of an object. This issue has been addressed in commit `e0fe7cc3917`. Users must upgrade to RELEASE.2024-05-27T19-17-46Z for the fix. There are no known workarounds for this issue.</description>
-      <guid isPermaLink="false">CVE-2024-36107|2024-08-02T03:30:13.046Z</guid>
-      <pubDate>Tue, 28 May 2024 18:50:51 +0000</pubDate>
-    </item>
-    <item>
       <title>CVE-2024-36107|2024-05-28T18:50:51.013Z -- minio -- minio</title>
       <link>https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2024-36107</link>
       <description>MinIO is a High Performance Object Storage released under GNU Affero General Public License v3.0. `If-Modified-Since` and `If-Unmodified-Since` headers when used with anonymous requests by sending a random object name requests can be used to determine if an object exists or not on the server on a specific bucket and also gain access to some amount of
 information such as  `Last-Modified (of the latest version)`, `Etag (of the latest version)`, `x-amz-version-id (of the latest version)`, `Expires (metadata value of the latest version)`, `Cache-Control (metadata value of the latest version)`. This conditional check was being honored before validating if the anonymous access is indeed allowed on the metadata of an object. This issue has been addressed in commit `e0fe7cc3917`. Users must upgrade to RELEASE.2024-05-27T19-17-46Z for the fix. There are no known workarounds for this issue.</description>
       <guid isPermaLink="false">CVE-2024-36107|2024-05-28T18:50:51.013Z</guid>
+      <pubDate>Tue, 28 May 2024 18:50:51 +0000</pubDate>
+    </item>
+    <item>
+      <title>CVE-2024-36107|2024-08-02T03:30:13.046Z -- minio -- minio</title>
+      <link>https://www.cve.org/CVERecord?id=CVE-2024-36107</link>
+      <description>MinIO is a High Performance Object Storage released under GNU Affero General Public License v3.0. `If-Modified-Since` and `If-Unmodified-Since` headers when used with anonymous requests by sending a random object name requests can be used to determine if an object exists or not on the server on a specific bucket and also gain access to some amount of
+information such as  `Last-Modified (of the latest version)`, `Etag (of the latest version)`, `x-amz-version-id (of the latest version)`, `Expires (metadata value of the latest version)`, `Cache-Control (metadata value of the latest version)`. This conditional check was being honored before validating if the anonymous access is indeed allowed on the metadata of an object. This issue has been addressed in commit `e0fe7cc3917`. Users must upgrade to RELEASE.2024-05-27T19-17-46Z for the fix. There are no known workarounds for this issue.</description>
+      <guid isPermaLink="false">CVE-2024-36107|2024-08-02T03:30:13.046Z</guid>
       <pubDate>Tue, 28 May 2024 18:50:51 +0000</pubDate>
     </item>
   </channel>

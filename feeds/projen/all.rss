@@ -1,0 +1,20 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<rss xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/" version="2.0">
+  <channel>
+    <title>CVE Feed for projen -- all</title>
+    <link>https://raw.githubusercontent.com/deepseas/cvelistV5monitor/main/feeds/projen/all.rss</link>
+    <description>The latest CVEs for projen -- all products</description>
+    <docs>http://www.rssboard.org/rss-specification</docs>
+    <generator>python-feedgen</generator>
+    <lastBuildDate>Sat, 03 Aug 2024 19:19:55 +0000</lastBuildDate>
+    <ttl>60</ttl>
+    <item>
+      <title>CVE-2021-21423|2024-08-03T18:09:16.091Z -- projen -- projen
+</title>
+      <link>https://www.cve.org/CVERecord?id=CVE-2021-21423</link>
+      <description>`projen` is a project generation tool that synthesizes project configuration files such as `package.json`, `tsconfig.json`, `.gitignore`, GitHub Workflows, `eslint`, `jest`, and more, from a well-typed definition written in JavaScript. Users of projen's `NodeProject` project type (including any project type derived from it) include a `.github/workflows/rebuild-bot.yml` workflow that may allow any GitHub user to trigger execution of un-trusted code in the context of the "main" repository (as opposed to that of a fork). In some situations, such untrusted code may potentially be able to commit to the "main" repository. The rebuild-bot workflow is triggered by comments including `@projen rebuild` on pull-request to trigger a re-build of the projen project, and updating the pull request with the updated files. This workflow is triggered by an `issue_comment` event, and thus always executes with a `GITHUB_TOKEN` belonging to the repository into which the pull-request is made (this is in contrast with workflows triggered by `pull_request` events, which always execute with a `GITHUB_TOKEN` belonging to the repository from which the pull-request is made). Repositories that do not have branch protection configured on their default branch (typically `main` or `master`) could possibly allow an untrusted user to gain access to secrets configured on the repository (such as NPM tokens, etc). Branch protection prohibits this escalation, as the managed `GITHUB_TOKEN` would not be able to modify the contents of a protected branch and affected workflows must be defined on the default branch.</description>
+      <guid isPermaLink="false">CVE-2021-21423|2024-08-03T18:09:16.091Z</guid>
+      <pubDate>Tue, 06 Apr 2021 18:35:14 +0000</pubDate>
+    </item>
+  </channel>
+</rss>

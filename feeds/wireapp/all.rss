@@ -6,7 +6,7 @@
     <description>The latest CVEs for wireapp -- all products</description>
     <docs>http://www.rssboard.org/rss-specification</docs>
     <generator>python-feedgen</generator>
-    <lastBuildDate>Sat, 03 Aug 2024 18:24:35 +0000</lastBuildDate>
+    <lastBuildDate>Sat, 03 Aug 2024 19:19:42 +0000</lastBuildDate>
     <ttl>60</ttl>
     <item>
       <title>CVE-2022-31122|2024-08-03T07:11:39.209Z -- wireapp -- wire-server
@@ -15,6 +15,22 @@
       <description>Wire is an encrypted communication and collaboration platform. Versions prior to 2022-07-12/Chart 4.19.0 are subject to Token Recipient Confusion. If an attacker has certain details of SAML IdP metadata, and configures their own SAML on the same backend, the attacker can delete all SAML authenticated accounts of a targeted team, Authenticate as a user of the attacked team and create arbitrary accounts in the context of the team if it is not managed by SCIM. This issue is fixed in wire-server 2022-07-12 and is already deployed on all Wire managed services. On-premise instances of wire-server need to be updated to 2022-07-12/Chart 4.19.0, so that their backends are no longer affected. As a workaround, the risk of an attack can be reduced by disabling SAML configuration for teams (galley.config.settings.featureFlags.sso). Helm overrides are located in `values/wire-server/values.yaml` Note that the ability to configure SAML SSO as a team is disabled by default for on-premise installations.</description>
       <guid isPermaLink="false">CVE-2022-31122|2024-08-03T07:11:39.209Z</guid>
       <pubDate>Tue, 18 Oct 2022 00:00:00 +0000</pubDate>
+    </item>
+    <item>
+      <title>CVE-2021-21382|2024-08-03T18:09:16.047Z -- wireapp -- restund
+</title>
+      <link>https://www.cve.org/CVERecord?id=CVE-2021-21382</link>
+      <description>Restund is an open source NAT traversal server. The restund TURN server can be instructed to open a relay to the loopback address range. This allows you to reach any other service running on localhost which you might consider private. In the configuration that we ship (https://github.com/wireapp/ansible-restund/blob/master/templates/restund.conf.j2#L40-L43) the `status` interface of restund is enabled and is listening on `127.0.0.1`.The `status` interface allows users to issue administrative commands to `restund` like listing open relays or draining connections. It would be possible for an attacker to contact the status interface and issue administrative commands by setting `XOR-PEER-ADDRESS` to `127.0.0.1:{{restund_udp_status_port}}` when opening a TURN channel. We now explicitly disallow relaying to loopback addresses, 'any' addresses, link local addresses, and the broadcast address. As a workaround disable the `status` module in your restund configuration. However there might still be other services running on `127.0.0.0/8` that you do not want to have exposed. The `turn` module can be disabled. Restund will still perform STUN and this might already be enough for initiating calls in your environments. TURN is only used as a last resort when other NAT traversal options do not work. One should also make sure that the TURN server is set up with firewall rules so that it cannot relay to other addresses that you don't want the TURN server to relay to. For example other services in the same VPC where the TURN server is running. Ideally TURN servers should be deployed in an isolated fashion where they can only reach what they need to reach to perform their task of assisting NAT-traversal.</description>
+      <guid isPermaLink="false">CVE-2021-21382|2024-08-03T18:09:16.047Z</guid>
+      <pubDate>Fri, 11 Jun 2021 20:50:14 +0000</pubDate>
+    </item>
+    <item>
+      <title>CVE-2021-21396|2024-08-03T18:09:16.005Z -- wireapp -- wire-server
+</title>
+      <link>https://www.cve.org/CVERecord?id=CVE-2021-21396</link>
+      <description>wire-server is an open-source back end for Wire, a secure collaboration platform. In wire-server from version 2021-02-16 and before version 2021-03-02, the client metadata of all users was exposed in the `GET /users/list-clients` endpoint. The endpoint could be used by any logged in user who could request client details of any other user (no connection required) as far as they can find their User ID. The exposed metadata included id, class, type, location, time, and cookie. A user on a Wire backend could use this endpoint to find registration time and location for each device for a given list of users. As a workaround, remove `/list-clients` from nginx config. This has been fixed in version 2021-03-02.</description>
+      <guid isPermaLink="false">CVE-2021-21396|2024-08-03T18:09:16.005Z</guid>
+      <pubDate>Fri, 26 Mar 2021 21:40:15 +0000</pubDate>
     </item>
     <item>
       <title>CVE-2022-31009|2024-08-03T07:03:40.199Z -- wireapp -- wire-ios
@@ -31,6 +47,22 @@
       <description>Wire web-app is part of Wire communications. Versions prior to 2022-11-02 are subject to Improper Handling of Exceptional Conditions. In the wire-webapp, certain combinations of Markdown formatting can trigger an unhandled error in the conversion to HTML representation. The error makes it impossible to display the affected chat history, other conversations are not affected. The issue has been fixed in version 2022-11-02 and is already deployed on all Wire managed services. On-premise instances of wire-webapp need to be updated to docker tag 2022-11-02-production.0-v0.31.9-0-337e400 or wire-server 2022-11-03 (chart/4.26.0), so that their applications are no longer affected. As a workaround, you may use an iOS or Android client and delete the corresponding message from the history OR write 30 or more messages into the affected conversation to prevent the client from further rendering of the corresponding message. When attempting to retrieve messages from the conversation history, the error will continue to occur once the malformed message is part of the result.</description>
       <guid isPermaLink="false">CVE-2022-39380|2024-08-03T12:00:44.181Z</guid>
       <pubDate>Fri, 27 Jan 2023 20:43:12 +0000</pubDate>
+    </item>
+    <item>
+      <title>CVE-2021-21400|2024-08-03T18:09:16.057Z -- wireapp -- wire-webapp
+</title>
+      <link>https://www.cve.org/CVERecord?id=CVE-2021-21400</link>
+      <description>wire-webapp is an open-source front end for Wire, a secure collaboration platform. In wire-webapp before version 2021-03-15-production.0, when being prompted to enter the app-lock passphrase, the typed passphrase will be sent into the most recently used chat when the user does not actively give focus to the input field. Input element focus is enforced programatically in version 2021-03-15-production.0.</description>
+      <guid isPermaLink="false">CVE-2021-21400|2024-08-03T18:09:16.057Z</guid>
+      <pubDate>Fri, 02 Apr 2021 14:50:13 +0000</pubDate>
+    </item>
+    <item>
+      <title>CVE-2021-21301|2024-08-03T18:09:15.618Z -- wireapp -- wire-ios
+</title>
+      <link>https://www.cve.org/CVERecord?id=CVE-2021-21301</link>
+      <description>Wire is an open-source collaboration platform. In Wire for iOS (iPhone and iPad) before version 3.75 there is a vulnerability where the video capture isn't stopped in a scenario where a user first has their camera enabled and then disables it. It's a privacy issue because video is streamed to the call when the user believes it is disabled. It impacts all users in video calls. This is fixed in version 3.75.</description>
+      <guid isPermaLink="false">CVE-2021-21301|2024-08-03T18:09:15.618Z</guid>
+      <pubDate>Thu, 11 Feb 2021 18:05:19 +0000</pubDate>
     </item>
     <item>
       <title>CVE-2022-24799|2024-08-03T04:20:50.462Z -- wireapp -- wire-webapp

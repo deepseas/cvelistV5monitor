@@ -6,8 +6,24 @@
     <description>The latest CVEs for netty -- netty</description>
     <docs>http://www.rssboard.org/rss-specification</docs>
     <generator>python-feedgen</generator>
-    <lastBuildDate>Sat, 03 Aug 2024 18:24:35 +0000</lastBuildDate>
+    <lastBuildDate>Sat, 03 Aug 2024 19:19:41 +0000</lastBuildDate>
     <ttl>60</ttl>
+    <item>
+      <title>CVE-2021-21290|2024-08-03T18:09:15.620Z -- netty -- netty
+</title>
+      <link>https://www.cve.org/CVERecord?id=CVE-2021-21290</link>
+      <description>Netty is an open-source, asynchronous event-driven network application framework for rapid development of maintainable high performance protocol servers &amp; clients. In Netty before version 4.1.59.Final there is a vulnerability on Unix-like systems involving an insecure temp file. When netty's multipart decoders are used local information disclosure can occur via the local system temporary directory if temporary storing uploads on the disk is enabled. On unix-like systems, the temporary directory is shared between all user. As such, writing to this directory using APIs that do not explicitly set the file/directory permissions can lead to information disclosure. Of note, this does not impact modern MacOS Operating Systems. The method "File.createTempFile" on unix-like systems creates a random file, but, by default will create this file with the permissions "-rw-r--r--". Thus, if sensitive information is written to this file, other local users can read this information. This is the case in netty's "AbstractDiskHttpData" is vulnerable. This has been fixed in version 4.1.59.Final. As a workaround, one may specify your own "java.io.tmpdir" when you start the JVM or use "DefaultHttpDataFactory.setBaseDir(...)" to set the directory to something that is only readable by the current user.</description>
+      <guid isPermaLink="false">CVE-2021-21290|2024-08-03T18:09:15.620Z</guid>
+      <pubDate>Mon, 08 Feb 2021 20:10:16 +0000</pubDate>
+    </item>
+    <item>
+      <title>CVE-2021-21409|2024-08-03T18:09:16.144Z -- netty -- netty
+</title>
+      <link>https://www.cve.org/CVERecord?id=CVE-2021-21409</link>
+      <description>Netty is an open-source, asynchronous event-driven network application framework for rapid development of maintainable high performance protocol servers &amp; clients. In Netty (io.netty:netty-codec-http2) before version 4.1.61.Final there is a vulnerability that enables request smuggling. The content-length header is not correctly validated if the request only uses a single Http2HeaderFrame with the endStream set to to true. This could lead to request smuggling if the request is proxied to a remote peer and translated to HTTP/1.1. This is a followup of GHSA-wm47-8v5p-wjpj/CVE-2021-21295 which did miss to fix this one case. This was fixed as part of 4.1.61.Final.</description>
+      <guid isPermaLink="false">CVE-2021-21409|2024-08-03T18:09:16.144Z</guid>
+      <pubDate>Tue, 30 Mar 2021 15:05:17 +0000</pubDate>
+    </item>
     <item>
       <title>CVE-2022-41881|2024-08-03T12:56:38.229Z -- netty -- netty
 </title>
@@ -33,10 +49,10 @@
       <pubDate>Fri, 06 May 2022 12:05:11 +0000</pubDate>
     </item>
     <item>
-      <title>CVE-2024-29025|2024-07-19T21:08:16.746Z -- netty -- netty</title>
+      <title>CVE-2024-29025|2024-08-02T01:03:51.668Z -- netty -- netty</title>
       <link>https://www.cve.org/CVERecord?id=CVE-2024-29025</link>
       <description>Netty is an asynchronous event-driven network application framework for rapid development of maintainable high performance protocol servers &amp; clients. The `HttpPostRequestDecoder` can be tricked to accumulate data. While the decoder can store items on the disk if configured so, there are no limits to the number of fields the form can have, an attacher can send a chunked post consisting of many small fields that will be accumulated in the `bodyListHttpData` list. The decoder cumulates bytes in the `undecodedChunk` buffer until it can decode a field, this field can cumulate data without limits. This vulnerability is fixed in 4.1.108.Final.</description>
-      <guid isPermaLink="false">CVE-2024-29025|2024-07-19T21:08:16.746Z</guid>
+      <guid isPermaLink="false">CVE-2024-29025|2024-08-02T01:03:51.668Z</guid>
       <pubDate>Mon, 25 Mar 2024 20:09:35 +0000</pubDate>
     </item>
     <item>
@@ -47,10 +63,10 @@
       <pubDate>Mon, 25 Mar 2024 20:09:35 +0000</pubDate>
     </item>
     <item>
-      <title>CVE-2024-29025|2024-08-02T01:03:51.668Z -- netty -- netty</title>
+      <title>CVE-2024-29025|2024-07-19T21:08:16.746Z -- netty -- netty</title>
       <link>https://www.cve.org/CVERecord?id=CVE-2024-29025</link>
       <description>Netty is an asynchronous event-driven network application framework for rapid development of maintainable high performance protocol servers &amp; clients. The `HttpPostRequestDecoder` can be tricked to accumulate data. While the decoder can store items on the disk if configured so, there are no limits to the number of fields the form can have, an attacher can send a chunked post consisting of many small fields that will be accumulated in the `bodyListHttpData` list. The decoder cumulates bytes in the `undecodedChunk` buffer until it can decode a field, this field can cumulate data without limits. This vulnerability is fixed in 4.1.108.Final.</description>
-      <guid isPermaLink="false">CVE-2024-29025|2024-08-02T01:03:51.668Z</guid>
+      <guid isPermaLink="false">CVE-2024-29025|2024-07-19T21:08:16.746Z</guid>
       <pubDate>Mon, 25 Mar 2024 20:09:35 +0000</pubDate>
     </item>
   </channel>

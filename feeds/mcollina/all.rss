@@ -1,0 +1,20 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<rss xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/" version="2.0">
+  <channel>
+    <title>CVE Feed for mcollina -- all</title>
+    <link>https://raw.githubusercontent.com/deepseas/cvelistV5monitor/main/feeds/mcollina/all.rss</link>
+    <description>The latest CVEs for mcollina -- all products</description>
+    <docs>http://www.rssboard.org/rss-specification</docs>
+    <generator>python-feedgen</generator>
+    <lastBuildDate>Sat, 03 Aug 2024 19:19:59 +0000</lastBuildDate>
+    <ttl>60</ttl>
+    <item>
+      <title>CVE-2021-21368|2024-08-03T18:09:15.915Z -- mcollina -- msgpack5
+</title>
+      <link>https://www.cve.org/CVERecord?id=CVE-2021-21368</link>
+      <description>msgpack5 is a msgpack v5 implementation for node.js and the browser. In msgpack5 before versions 3.6.1, 4.5.1, and 5.2.1 there is a "Prototype Poisoning" vulnerability. When msgpack5 decodes a map containing a key "__proto__", it assigns the decoded value to __proto__. Object.prototype.__proto__ is an accessor property for the receiver's prototype. If the value corresponding to the key __proto__ decodes to an object or null, msgpack5 sets the decoded object's prototype to that value. An attacker who can submit crafted MessagePack data to a service can use this to produce values that appear to be of other types; may have unexpected prototype properties and methods (for example length, numeric properties, and push et al if __proto__'s value decodes to an Array); and/or may throw unexpected exceptions when used (for example if the __proto__ value decodes to a Map or Date). Other unexpected behavior might be produced for other types. There is no effect on the global prototype. This "prototype poisoning" is sort of a very limited inversion of a prototype pollution attack. Only the decoded value's prototype is affected, and it can only be set to msgpack5 values (though if the victim makes use of custom codecs, anything could be a msgpack5 value). We have not found a way to escalate this to true prototype pollution (absent other bugs in the consumer's code). This has been fixed in msgpack5 version 3.6.1, 4.5.1, and 5.2.1. See the referenced GitHub Security Advisory for an example and more details.</description>
+      <guid isPermaLink="false">CVE-2021-21368|2024-08-03T18:09:15.915Z</guid>
+      <pubDate>Fri, 12 Mar 2021 17:00:19 +0000</pubDate>
+    </item>
+  </channel>
+</rss>

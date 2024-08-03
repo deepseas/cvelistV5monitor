@@ -1,0 +1,20 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<rss xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/" version="2.0">
+  <channel>
+    <title>CVE Feed for filecoin-project -- all</title>
+    <link>https://raw.githubusercontent.com/deepseas/cvelistV5monitor/main/feeds/filecoin-project/all.rss</link>
+    <description>The latest CVEs for filecoin-project -- all products</description>
+    <docs>http://www.rssboard.org/rss-specification</docs>
+    <generator>python-feedgen</generator>
+    <lastBuildDate>Sat, 03 Aug 2024 19:19:57 +0000</lastBuildDate>
+    <ttl>60</ttl>
+    <item>
+      <title>CVE-2021-21405|2024-08-03T18:09:16.079Z -- filecoin-project -- lotus
+</title>
+      <link>https://www.cve.org/CVERecord?id=CVE-2021-21405</link>
+      <description>Lotus is an Implementation of the Filecoin protocol written in Go. BLS signature validation in lotus uses blst library method VerifyCompressed. This method accepts signatures in 2 forms: "serialized", and "compressed", meaning that BLS signatures can be provided as either of 2 unique byte arrays. Lotus block validation functions perform a uniqueness check on provided blocks. Two blocks are considered distinct if the CIDs of their blockheader do not match. The CID method for blockheader includes the BlockSig of the block. The result of these issues is that it would be possible to punish miners for valid blocks, as there are two different valid block CIDs available for each block, even though this must be unique. By switching from the go based `blst` bindings over to the bindings in `filecoin-ffi`, the code paths now ensure that all signatures are compressed by size and the way they are deserialized. This happened in https://github.com/filecoin-project/lotus/pull/5393.</description>
+      <guid isPermaLink="false">CVE-2021-21405|2024-08-03T18:09:16.079Z</guid>
+      <pubDate>Thu, 15 Apr 2021 21:35:13 +0000</pubDate>
+    </item>
+  </channel>
+</rss>
