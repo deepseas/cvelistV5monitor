@@ -6,118 +6,53 @@
     <description>The latest CVEs for contiki-ng -- contiki-ng</description>
     <docs>http://www.rssboard.org/rss-specification</docs>
     <generator>python-feedgen</generator>
-    <lastBuildDate>Fri, 02 Aug 2024 23:21:56 +0000</lastBuildDate>
+    <lastBuildDate>Sat, 03 Aug 2024 10:22:53 +0000</lastBuildDate>
     <ttl>60</ttl>
     <item>
-      <title>CVE-2023-31129|2024-08-02T14:45:25.766Z -- contiki-ng -- contiki-ng
+      <title>CVE-2022-35927|2024-08-03T09:51:59.029Z -- contiki-ng -- contiki-ng
 </title>
-      <link>https://www.cve.org/CVERecord?id=CVE-2023-31129</link>
-      <description>The Contiki-NG operating system versions 4.8 and prior can be triggered to dereference a NULL pointer in the message handling code for IPv6 router solicitiations. Contiki-NG contains an implementation of IPv6 Neighbor Discovery (ND) in the module `os/net/ipv6/uip-nd6.c`. The ND protocol includes a message type called Router Solicitation (RS), which is used to locate routers and update their address information via the SLLAO (Source Link-Layer Address Option). If the indicated source address changes, a given neighbor entry is set to the STALE state.
-
-The message handler does not check for RS messages with an SLLAO that indicates a link-layer address change that a neighbor entry can actually be created for the indicated address. The resulting pointer is used without a check, leading to the dereference of a NULL pointer of type `uip_ds6_nbr_t`.
-
-The problem has been patched in the `develop` branch of Contiki-NG, and will be included in the upcoming 4.9 release. As a workaround, users can apply Contiki-NG pull request #2271 to patch the problem directly.</description>
-      <guid isPermaLink="false">CVE-2023-31129|2024-08-02T14:45:25.766Z</guid>
-      <pubDate>Mon, 08 May 2023 20:51:14 +0000</pubDate>
+      <link>https://www.cve.org/CVERecord?id=CVE-2022-35927</link>
+      <description>Contiki-NG is an open-source, cross-platform operating system for IoT devices. In the RPL-Classic routing protocol implementation in the Contiki-NG operating system, an incoming DODAG Information Option (DIO) control message can contain a prefix information option with a length parameter. The value of the length parameter is not validated, however, and it is possible to cause a buffer overflow when copying the prefix in the set_ip_from_prefix function. This vulnerability affects anyone running a Contiki-NG version prior to 4.7 that can receive RPL DIO messages from external parties. To obtain a patched version, users should upgrade to Contiki-NG 4.7 or later. There are no workarounds for this issue.</description>
+      <guid isPermaLink="false">CVE-2022-35927|2024-08-03T09:51:59.029Z</guid>
+      <pubDate>Thu, 04 Aug 2022 20:35:14 +0000</pubDate>
     </item>
     <item>
-      <title>CVE-2023-28116|2024-08-02T12:30:24.192Z -- contiki-ng -- contiki-ng
+      <title>CVE-2022-35926|2024-08-03T09:51:59.050Z -- contiki-ng -- contiki-ng
 </title>
-      <link>https://www.cve.org/CVERecord?id=CVE-2023-28116</link>
-      <description>Contiki-NG is an open-source, cross-platform operating system for internet of things (IoT) devices. In versions 4.8 and prior, an out-of-bounds write can occur in the BLE L2CAP module of the Contiki-NG operating system.  The network stack of Contiki-NG uses a global buffer (packetbuf) for processing of packets, with the size of PACKETBUF_SIZE. In particular, when using the BLE L2CAP module with the default configuration, the PACKETBUF_SIZE value becomes larger then the actual size of the packetbuf.  When large packets are processed by the L2CAP module, a buffer overflow can therefore occur when copying the packet data to the packetbuf. The vulnerability has been patched in the "develop" branch of Contiki-NG, and will be included in release 4.9. The problem can be worked around by applying the patch manually.</description>
-      <guid isPermaLink="false">CVE-2023-28116|2024-08-02T12:30:24.192Z</guid>
-      <pubDate>Fri, 17 Mar 2023 21:22:54 +0000</pubDate>
+      <link>https://www.cve.org/CVERecord?id=CVE-2022-35926</link>
+      <description>Contiki-NG is an open-source, cross-platform operating system for IoT devices. Because of insufficient validation of IPv6 neighbor discovery options in Contiki-NG, attackers can send neighbor solicitation packets that trigger an out-of-bounds read. The problem exists in the module os/net/ipv6/uip-nd6.c, where memory read operations from the main packet buffer, &lt;code&gt;uip_buf&lt;/code&gt;, are not checked if they go out of bounds. In particular, this problem can occur when attempting to read the 2-byte option header and the Source Link-Layer Address Option (SLLAO). This attack requires ipv6 be enabled for the network. The problem has been patched in the develop branch of Contiki-NG. The upcoming 4.8 release of Contiki-NG will include the patch.Users unable to upgrade may apply the patch in Contiki-NG PR #1654.</description>
+      <guid isPermaLink="false">CVE-2022-35926|2024-08-03T09:51:59.050Z</guid>
+      <pubDate>Thu, 04 Aug 2022 20:30:18 +0000</pubDate>
     </item>
     <item>
-      <title>CVE-2023-50926|2024-08-02T22:23:44.103Z -- contiki-ng -- contiki-ng
+      <title>CVE-2022-36052|2024-08-03T09:52:00.285Z -- contiki-ng -- contiki-ng
 </title>
-      <link>https://www.cve.org/CVERecord?id=CVE-2023-50926</link>
-      <description>Contiki-NG is an open-source, cross-platform operating system for Next-Generation IoT devices. An out-of-bounds read can be caused by an incoming DIO message when using the RPL-Lite implementation in the Contiki-NG operating system. More specifically, the prefix information of the DIO message contains a field that specifies the length of an IPv6 address prefix. The value of this field is not validated, which means that an attacker can set a value that is longer than the maximum prefix length. Subsequently, a memcmp function call that compares different prefixes can be called with a length argument that surpasses the boundary of the array allocated for the prefix, causing an out-of-bounds read. The problem has been patched in the "develop" branch of Contiki-NG, and is expected to be included in the next release. Users are advised to update as soon as they are able to or to manually apply the changes in Contiki-NG pull request #2721.</description>
-      <guid isPermaLink="false">CVE-2023-50926|2024-08-02T22:23:44.103Z</guid>
-      <pubDate>Wed, 14 Feb 2024 19:28:11 +0000</pubDate>
+      <link>https://www.cve.org/CVERecord?id=CVE-2022-36052</link>
+      <description>Contiki-NG is an open-source, cross-platform operating system for Next-Generation IoT devices. The 6LoWPAN implementation in Contiki-NG may cast a UDP header structure at a certain offset in a packet buffer. The code does not check whether the packet buffer is large enough to fit a full UDP header structure from the offset where the casting is made. Hence, it is possible to cause an out-of-bounds read beyond the packet buffer. The problem affects anyone running devices with Contiki-NG versions previous to 4.8, and which may receive 6LoWPAN packets from external parties. The problem has been patched in Contiki-NG version 4.8.</description>
+      <guid isPermaLink="false">CVE-2022-36052|2024-08-03T09:52:00.285Z</guid>
+      <pubDate>Thu, 01 Sep 2022 12:05:11 +0000</pubDate>
     </item>
     <item>
-      <title>CVE-2023-23609|2024-08-02T10:35:33.614Z -- contiki-ng -- contiki-ng
+      <title>CVE-2022-36053|2024-08-03T09:52:00.496Z -- contiki-ng -- contiki-ng
 </title>
-      <link>https://www.cve.org/CVERecord?id=CVE-2023-23609</link>
-      <description>Contiki-NG is an open-source, cross-platform operating system for Next-Generation IoT devices. Versions prior to and including 4.8 are vulnerable to an out-of-bounds write that can occur in the BLE-L2CAP module. The Bluetooth Low Energy - Logical Link Control and Adaptation Layer Protocol (BLE-L2CAP) module handles fragmentation of packets up the configured MTU size. When fragments are reassembled, they are stored in a packet buffer of a configurable size, but there is no check to verify that the packet buffer is large enough to hold the reassembled packet. In Contiki-NG's default configuration, it is possible that an out-of-bounds write of up to 1152 bytes occurs. The vulnerability has been patched in the "develop" branch of Contiki-NG, and will be included in release 4.9. The problem can be fixed by applying the patch in Contiki-NG pull request #2254 prior to the release of version 4.9.</description>
-      <guid isPermaLink="false">CVE-2023-23609|2024-08-02T10:35:33.614Z</guid>
-      <pubDate>Wed, 25 Jan 2023 06:15:34 +0000</pubDate>
+      <link>https://www.cve.org/CVERecord?id=CVE-2022-36053</link>
+      <description>Contiki-NG is an open-source, cross-platform operating system for Next-Generation IoT devices. The low-power IPv6 network stack of Contiki-NG has a buffer module (os/net/ipv6/uipbuf.c) that processes IPv6 extension headers in incoming data packets. As part of this processing, the function uipbuf_get_next_header casts a pointer to a uip_ext_hdr structure into the packet buffer at different offsets where extension headers are expected to be found, and then reads from this structure. Because of a lack of bounds checking, the casting can be done so that the structure extends beyond the packet's end. Hence, with a carefully crafted packet, it is possible to cause the Contiki-NG system to read data outside the packet buffer. A patch that fixes the vulnerability is included in Contiki-NG 4.8.</description>
+      <guid isPermaLink="false">CVE-2022-36053|2024-08-03T09:52:00.496Z</guid>
+      <pubDate>Thu, 01 Sep 2022 12:00:15 +0000</pubDate>
     </item>
     <item>
-      <title>CVE-2023-34101|2024-08-02T16:01:54.168Z -- contiki-ng -- contiki-ng
+      <title>CVE-2022-36054|2024-08-03T09:52:00.488Z -- contiki-ng -- contiki-ng
 </title>
-      <link>https://www.cve.org/CVERecord?id=CVE-2023-34101</link>
-      <description>Contiki-NG is an operating system for internet of things devices. In version 4.8 and prior, when processing ICMP DAO packets in the `dao_input_storing` function, the Contiki-NG OS does not verify that the packet buffer is big enough to contain the bytes it needs before accessing them. Up to 16 bytes can be read out of bounds in the `dao_input_storing` function. An attacker can truncate an ICMP packet so that it does not contain enough data, leading to an out-of-bounds read on these lines. The problem has been patched in the "develop" branch of Contiki-NG, and is expected to be included in release 4.9. As a workaround, one can apply the changes in Contiki-NG pull request #2435 to patch the system.</description>
-      <guid isPermaLink="false">CVE-2023-34101|2024-08-02T16:01:54.168Z</guid>
-      <pubDate>Wed, 14 Jun 2023 14:50:21 +0000</pubDate>
+      <link>https://www.cve.org/CVERecord?id=CVE-2022-36054</link>
+      <description>Contiki-NG is an open-source, cross-platform operating system for Next-Generation IoT devices. The 6LoWPAN implementation in the Contiki-NG operating system (file os/net/ipv6/sicslowpan.c) contains an input function that processes incoming packets and copies them into a packet buffer. Because of a missing length check in the input function, it is possible to write outside the packet buffer's boundary. The vulnerability can be exploited by anyone who has the possibility to send 6LoWPAN packets to a Contiki-NG system. In particular, the vulnerability is exposed when sending either of two types of 6LoWPAN packets: an unfragmented packet or the first fragment of a fragmented packet. If the packet is sufficiently large, a subsequent memory copy will cause an out-of-bounds write with data supplied by the attacker.</description>
+      <guid isPermaLink="false">CVE-2022-36054|2024-08-03T09:52:00.488Z</guid>
+      <pubDate>Thu, 01 Sep 2022 12:10:11 +0000</pubDate>
     </item>
     <item>
-      <title>CVE-2023-37281|2024-08-02T17:09:34.058Z -- contiki-ng -- contiki-ng
-</title>
-      <link>https://www.cve.org/CVERecord?id=CVE-2023-37281</link>
-      <description>Contiki-NG is an operating system for internet-of-things devices. In versions 4.9 and prior, when processing the various IPv6 header fields during IPHC header decompression, Contiki-NG confirms the received packet buffer contains enough data as needed for that field. But no similar check is done before decompressing the IPv6 address. Therefore, up to 16 bytes can be read out of bounds on the line with the statement `memcpy(&amp;ipaddr-&gt;u8[16 - postcount], iphc_ptr, postcount);`. The value of `postcount` depends on the address compression used in the received packet and can be controlled by the attacker. As a result, an attacker can inject a packet that causes an out-of-bound read. As of time of publication, a patched version is not available. As a workaround, one can apply the changes in Contiki-NG pull request #2509 to patch the system.</description>
-      <guid isPermaLink="false">CVE-2023-37281|2024-08-02T17:09:34.058Z</guid>
-      <pubDate>Fri, 15 Sep 2023 19:17:53 +0000</pubDate>
-    </item>
-    <item>
-      <title>CVE-2023-30546|2024-08-02T14:28:51.792Z -- contiki-ng -- contiki-ng
-</title>
-      <link>https://www.cve.org/CVERecord?id=CVE-2023-30546</link>
-      <description>Contiki-NG is an operating system for Internet of Things devices. An off-by-one error can be triggered in the Antelope database management system in the Contiki-NG operating system in versions 4.8 and prior. The problem exists in the Contiki File System (CFS) backend for the storage of data (file os/storage/antelope/storage-cfs.c). In the functions `storage_get_index` and `storage_put_index`, a buffer for merging two strings is allocated with one byte less than the maximum size of the merged strings, causing subsequent function calls to the cfs_open function to read from memory beyond the buffer size. The vulnerability has been patched in the "develop" branch of Contiki-NG, and is expected to be included in the next release. As a workaround, the problem can be fixed by applying the patch in Contiki-NG pull request #2425.</description>
-      <guid isPermaLink="false">CVE-2023-30546|2024-08-02T14:28:51.792Z</guid>
-      <pubDate>Wed, 26 Apr 2023 18:14:46 +0000</pubDate>
-    </item>
-    <item>
-      <title>CVE-2023-37459|2024-08-02T17:16:30.634Z -- contiki-ng -- contiki-ng
-</title>
-      <link>https://www.cve.org/CVERecord?id=CVE-2023-37459</link>
-      <description>Contiki-NG is an operating system for internet-of-things devices. In versions 4.9 and prior, when a packet is received, the Contiki-NG network stack attempts to start the periodic TCP timer if it is a TCP packet with the SYN flag set. But the implementation does not first verify that a full TCP header has been received. Specifically, the implementation attempts to access the flags field from the TCP buffer in the following conditional expression in the `check_for_tcp_syn` function. For this reason, an attacker can inject a truncated TCP packet, which will lead to an out-of-bound read from the packet buffer. As of time of publication, a patched version is not available. As a workaround, one can apply the changes in Contiki-NG pull request #2510 to patch the system.</description>
-      <guid isPermaLink="false">CVE-2023-37459|2024-08-02T17:16:30.634Z</guid>
-      <pubDate>Fri, 15 Sep 2023 19:19:30 +0000</pubDate>
-    </item>
-    <item>
-      <title>CVE-2023-50927|2024-08-02T22:23:43.859Z -- contiki-ng -- contiki-ng
-</title>
-      <link>https://www.cve.org/CVERecord?id=CVE-2023-50927</link>
-      <description>Contiki-NG is an open-source, cross-platform operating system for Next-Generation IoT devices. An attacker can trigger out-of-bounds reads in the RPL-Lite implementation of the RPL protocol in the Contiki-NG operating system. This vulnerability is caused by insufficient control of the lengths for DIO and DAO messages, in particular when they contain RPL sub-option headers. The problem has been patched in Contiki-NG 4.9. Users are advised to upgrade. Users unable to upgrade should manually apply the code changes in PR #2484.</description>
-      <guid isPermaLink="false">CVE-2023-50927|2024-08-02T22:23:43.859Z</guid>
-      <pubDate>Wed, 14 Feb 2024 19:22:05 +0000</pubDate>
-    </item>
-    <item>
-      <title>CVE-2023-34100|2024-08-02T16:01:53.442Z -- contiki-ng -- contiki-ng
-</title>
-      <link>https://www.cve.org/CVERecord?id=CVE-2023-34100</link>
-      <description>Contiki-NG is an open-source, cross-platform operating system for IoT devices. When reading the TCP MSS option value from an incoming packet, the Contiki-NG OS does not verify that certain buffer indices to read from are within the bounds of the IPv6 packet buffer, uip_buf. In particular, there is a 2-byte buffer read in the module os/net/ipv6/uip6.c. The buffer is indexed using 'UIP_IPTCPH_LEN + 2 + c' and 'UIP_IPTCPH_LEN + 3 + c', but the uip_buf buffer may not have enough data, resulting in a 2-byte read out of bounds. The problem has been patched in the "develop" branch of Contiki-NG, and is expected to be included in release 4.9. Users are advised to watch for the 4.9 release and to upgrade when it becomes available. There are no workarounds for this vulnerability aside from manually patching with the diff in commit `cde4e9839`.</description>
-      <guid isPermaLink="false">CVE-2023-34100|2024-08-02T16:01:53.442Z</guid>
-      <pubDate>Fri, 09 Jun 2023 17:30:50 +0000</pubDate>
-    </item>
-    <item>
-      <title>CVE-2023-50926|2024-07-16T18:23:16.224Z -- contiki-ng -- contiki-ng</title>
-      <link>https://www.cve.org/CVERecord?id=CVE-2023-50926</link>
-      <description>Contiki-NG is an open-source, cross-platform operating system for Next-Generation IoT devices. An out-of-bounds read can be caused by an incoming DIO message when using the RPL-Lite implementation in the Contiki-NG operating system. More specifically, the prefix information of the DIO message contains a field that specifies the length of an IPv6 address prefix. The value of this field is not validated, which means that an attacker can set a value that is longer than the maximum prefix length. Subsequently, a memcmp function call that compares different prefixes can be called with a length argument that surpasses the boundary of the array allocated for the prefix, causing an out-of-bounds read. The problem has been patched in the "develop" branch of Contiki-NG, and is expected to be included in the next release. Users are advised to update as soon as they are able to or to manually apply the changes in Contiki-NG pull request #2721.</description>
-      <guid isPermaLink="false">CVE-2023-50926|2024-07-16T18:23:16.224Z</guid>
-      <pubDate>Wed, 14 Feb 2024 19:28:11 +0000</pubDate>
-    </item>
-    <item>
-      <title>CVE-2023-50927|2024-02-14T19:22:05.243Z -- contiki-ng -- contiki-ng</title>
-      <link>https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2023-50927</link>
-      <description>Contiki-NG is an open-source, cross-platform operating system for Next-Generation IoT devices. An attacker can trigger out-of-bounds reads in the RPL-Lite implementation of the RPL protocol in the Contiki-NG operating system. This vulnerability is caused by insufficient control of the lengths for DIO and DAO messages, in particular when they contain RPL sub-option headers. The problem has been patched in Contiki-NG 4.9. Users are advised to upgrade. Users unable to upgrade should manually apply the code changes in PR #2484.</description>
-      <guid isPermaLink="false">CVE-2023-50927|2024-02-14T19:22:05.243Z</guid>
-      <pubDate>Wed, 14 Feb 2024 19:22:05 +0000</pubDate>
-    </item>
-    <item>
-      <title>CVE-2023-50926|2024-02-14T19:28:11.556Z -- contiki-ng -- contiki-ng</title>
-      <link>https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2023-50926</link>
-      <description>Contiki-NG is an open-source, cross-platform operating system for Next-Generation IoT devices. An out-of-bounds read can be caused by an incoming DIO message when using the RPL-Lite implementation in the Contiki-NG operating system. More specifically, the prefix information of the DIO message contains a field that specifies the length of an IPv6 address prefix. The value of this field is not validated, which means that an attacker can set a value that is longer than the maximum prefix length. Subsequently, a memcmp function call that compares different prefixes can be called with a length argument that surpasses the boundary of the array allocated for the prefix, causing an out-of-bounds read. The problem has been patched in the "develop" branch of Contiki-NG, and is expected to be included in the next release. Users are advised to update as soon as they are able to or to manually apply the changes in Contiki-NG pull request #2721.</description>
-      <guid isPermaLink="false">CVE-2023-50926|2024-02-14T19:28:11.556Z</guid>
-      <pubDate>Wed, 14 Feb 2024 19:28:11 +0000</pubDate>
-    </item>
-    <item>
-      <title>CVE-2023-48229|2024-06-04T17:27:39.833Z -- contiki-ng -- contiki-ng</title>
-      <link>https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2023-48229</link>
+      <title>CVE-2023-48229|2024-08-02T21:23:39.188Z -- contiki-ng -- contiki-ng</title>
+      <link>https://www.cve.org/CVERecord?id=CVE-2023-48229</link>
       <description>Contiki-NG is an open-source, cross-platform operating system for Next-Generation IoT devices. An out-of-bounds write exists in the driver for IEEE 802.15.4 radios on nRF platforms in the Contiki-NG operating system. The problem is triggered when parsing radio frames in the `read_frame` function in the `arch/cpu/nrf/net/nrf-ieee-driver-arch.c` module. More specifically, the `read_frame` function performs an incomplete validation of the payload length of the packet, which is a value that can be set by an external party that sends radio packets to a Contiki-NG system. Although the value is validated to be in the range of the MTU length, it is not validated to fit into the given buffer into which the packet will be copied. The problem has been patched in the "develop" branch of Contiki-NG and is expected to be included in subsequent releases. Users are advised to update their develop branch or to update to a subsequent release when available. Users unable to upgrade should consider manually applying the changes in PR #2741.</description>
-      <guid isPermaLink="false">CVE-2023-48229|2024-06-04T17:27:39.833Z</guid>
+      <guid isPermaLink="false">CVE-2023-48229|2024-08-02T21:23:39.188Z</guid>
       <pubDate>Wed, 14 Feb 2024 18:30:31 +0000</pubDate>
     </item>
     <item>
@@ -128,11 +63,46 @@ The problem has been patched in the `develop` branch of Contiki-NG, and will be 
       <pubDate>Wed, 14 Feb 2024 19:22:05 +0000</pubDate>
     </item>
     <item>
-      <title>CVE-2023-48229|2024-08-02T21:23:39.188Z -- contiki-ng -- contiki-ng</title>
-      <link>https://www.cve.org/CVERecord?id=CVE-2023-48229</link>
+      <title>CVE-2023-48229|2024-06-04T17:27:39.833Z -- contiki-ng -- contiki-ng</title>
+      <link>https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2023-48229</link>
       <description>Contiki-NG is an open-source, cross-platform operating system for Next-Generation IoT devices. An out-of-bounds write exists in the driver for IEEE 802.15.4 radios on nRF platforms in the Contiki-NG operating system. The problem is triggered when parsing radio frames in the `read_frame` function in the `arch/cpu/nrf/net/nrf-ieee-driver-arch.c` module. More specifically, the `read_frame` function performs an incomplete validation of the payload length of the packet, which is a value that can be set by an external party that sends radio packets to a Contiki-NG system. Although the value is validated to be in the range of the MTU length, it is not validated to fit into the given buffer into which the packet will be copied. The problem has been patched in the "develop" branch of Contiki-NG and is expected to be included in subsequent releases. Users are advised to update their develop branch or to update to a subsequent release when available. Users unable to upgrade should consider manually applying the changes in PR #2741.</description>
-      <guid isPermaLink="false">CVE-2023-48229|2024-08-02T21:23:39.188Z</guid>
+      <guid isPermaLink="false">CVE-2023-48229|2024-06-04T17:27:39.833Z</guid>
       <pubDate>Wed, 14 Feb 2024 18:30:31 +0000</pubDate>
+    </item>
+    <item>
+      <title>CVE-2023-50926|2024-02-14T19:28:11.556Z -- contiki-ng -- contiki-ng</title>
+      <link>https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2023-50926</link>
+      <description>Contiki-NG is an open-source, cross-platform operating system for Next-Generation IoT devices. An out-of-bounds read can be caused by an incoming DIO message when using the RPL-Lite implementation in the Contiki-NG operating system. More specifically, the prefix information of the DIO message contains a field that specifies the length of an IPv6 address prefix. The value of this field is not validated, which means that an attacker can set a value that is longer than the maximum prefix length. Subsequently, a memcmp function call that compares different prefixes can be called with a length argument that surpasses the boundary of the array allocated for the prefix, causing an out-of-bounds read. The problem has been patched in the "develop" branch of Contiki-NG, and is expected to be included in the next release. Users are advised to update as soon as they are able to or to manually apply the changes in Contiki-NG pull request #2721.</description>
+      <guid isPermaLink="false">CVE-2023-50926|2024-02-14T19:28:11.556Z</guid>
+      <pubDate>Wed, 14 Feb 2024 19:28:11 +0000</pubDate>
+    </item>
+    <item>
+      <title>CVE-2023-50927|2024-02-14T19:22:05.243Z -- contiki-ng -- contiki-ng</title>
+      <link>https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2023-50927</link>
+      <description>Contiki-NG is an open-source, cross-platform operating system for Next-Generation IoT devices. An attacker can trigger out-of-bounds reads in the RPL-Lite implementation of the RPL protocol in the Contiki-NG operating system. This vulnerability is caused by insufficient control of the lengths for DIO and DAO messages, in particular when they contain RPL sub-option headers. The problem has been patched in Contiki-NG 4.9. Users are advised to upgrade. Users unable to upgrade should manually apply the code changes in PR #2484.</description>
+      <guid isPermaLink="false">CVE-2023-50927|2024-02-14T19:22:05.243Z</guid>
+      <pubDate>Wed, 14 Feb 2024 19:22:05 +0000</pubDate>
+    </item>
+    <item>
+      <title>CVE-2023-50926|2024-07-16T18:23:16.224Z -- contiki-ng -- contiki-ng</title>
+      <link>https://www.cve.org/CVERecord?id=CVE-2023-50926</link>
+      <description>Contiki-NG is an open-source, cross-platform operating system for Next-Generation IoT devices. An out-of-bounds read can be caused by an incoming DIO message when using the RPL-Lite implementation in the Contiki-NG operating system. More specifically, the prefix information of the DIO message contains a field that specifies the length of an IPv6 address prefix. The value of this field is not validated, which means that an attacker can set a value that is longer than the maximum prefix length. Subsequently, a memcmp function call that compares different prefixes can be called with a length argument that surpasses the boundary of the array allocated for the prefix, causing an out-of-bounds read. The problem has been patched in the "develop" branch of Contiki-NG, and is expected to be included in the next release. Users are advised to update as soon as they are able to or to manually apply the changes in Contiki-NG pull request #2721.</description>
+      <guid isPermaLink="false">CVE-2023-50926|2024-07-16T18:23:16.224Z</guid>
+      <pubDate>Wed, 14 Feb 2024 19:28:11 +0000</pubDate>
+    </item>
+    <item>
+      <title>CVE-2023-50927|2024-08-02T22:23:43.859Z -- contiki-ng -- contiki-ng</title>
+      <link>https://www.cve.org/CVERecord?id=CVE-2023-50927</link>
+      <description>Contiki-NG is an open-source, cross-platform operating system for Next-Generation IoT devices. An attacker can trigger out-of-bounds reads in the RPL-Lite implementation of the RPL protocol in the Contiki-NG operating system. This vulnerability is caused by insufficient control of the lengths for DIO and DAO messages, in particular when they contain RPL sub-option headers. The problem has been patched in Contiki-NG 4.9. Users are advised to upgrade. Users unable to upgrade should manually apply the code changes in PR #2484.</description>
+      <guid isPermaLink="false">CVE-2023-50927|2024-08-02T22:23:43.859Z</guid>
+      <pubDate>Wed, 14 Feb 2024 19:22:05 +0000</pubDate>
+    </item>
+    <item>
+      <title>CVE-2023-50926|2024-08-02T22:23:44.103Z -- contiki-ng -- contiki-ng</title>
+      <link>https://www.cve.org/CVERecord?id=CVE-2023-50926</link>
+      <description>Contiki-NG is an open-source, cross-platform operating system for Next-Generation IoT devices. An out-of-bounds read can be caused by an incoming DIO message when using the RPL-Lite implementation in the Contiki-NG operating system. More specifically, the prefix information of the DIO message contains a field that specifies the length of an IPv6 address prefix. The value of this field is not validated, which means that an attacker can set a value that is longer than the maximum prefix length. Subsequently, a memcmp function call that compares different prefixes can be called with a length argument that surpasses the boundary of the array allocated for the prefix, causing an out-of-bounds read. The problem has been patched in the "develop" branch of Contiki-NG, and is expected to be included in the next release. Users are advised to update as soon as they are able to or to manually apply the changes in Contiki-NG pull request #2721.</description>
+      <guid isPermaLink="false">CVE-2023-50926|2024-08-02T22:23:44.103Z</guid>
+      <pubDate>Wed, 14 Feb 2024 19:28:11 +0000</pubDate>
     </item>
   </channel>
 </rss>

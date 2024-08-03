@@ -6,8 +6,16 @@
     <description>The latest CVEs for OpenZeppelin -- all products</description>
     <docs>http://www.rssboard.org/rss-specification</docs>
     <generator>python-feedgen</generator>
-    <lastBuildDate>Sat, 03 Aug 2024 09:23:38 +0000</lastBuildDate>
+    <lastBuildDate>Sat, 03 Aug 2024 10:22:50 +0000</lastBuildDate>
     <ttl>60</ttl>
+    <item>
+      <title>CVE-2022-35915|2024-08-03T09:44:22.215Z -- openzeppelin -- openzeppelin-contracts
+</title>
+      <link>https://www.cve.org/CVERecord?id=CVE-2022-35915</link>
+      <description>OpenZeppelin Contracts is a library for secure smart contract development. The target contract of an EIP-165 `supportsInterface` query can cause unbounded gas consumption by returning a lot of data, while it is generally assumed that this operation has a bounded cost. The issue has been fixed in v4.7.2. Users are advised to upgrade. There are no known workarounds for this issue.</description>
+      <guid isPermaLink="false">CVE-2022-35915|2024-08-03T09:44:22.215Z</guid>
+      <pubDate>Mon, 01 Aug 2022 21:05:11 +0000</pubDate>
+    </item>
     <item>
       <title>CVE-2022-31198|2024-08-03T07:11:39.767Z -- openzeppelin -- openzeppelin-contracts
 </title>
@@ -15,6 +23,14 @@
       <description>OpenZeppelin Contracts is a library for secure smart contract development. This issue concerns instances of Governor that use the module `GovernorVotesQuorumFraction`, a mechanism that determines quorum requirements as a percentage of the voting token's total supply. In affected instances, when a proposal is passed to lower the quorum requirements, past proposals may become executable if they had been defeated only due to lack of quorum, and the number of votes it received meets the new quorum requirement. Analysis of instances on chain found only one proposal that met this condition, and we are actively monitoring for new occurrences of this particular issue. This issue has been patched in v4.7.2. Users are advised to upgrade. Users unable to upgrade should consider avoiding lowering quorum requirements if a past proposal was defeated for lack of quorum.</description>
       <guid isPermaLink="false">CVE-2022-31198|2024-08-03T07:11:39.767Z</guid>
       <pubDate>Mon, 01 Aug 2022 21:00:17 +0000</pubDate>
+    </item>
+    <item>
+      <title>CVE-2022-35961|2024-08-03T09:51:59.403Z -- openzeppelin -- openzeppelin-contracts
+</title>
+      <link>https://www.cve.org/CVERecord?id=CVE-2022-35961</link>
+      <description>OpenZeppelin Contracts is a library for secure smart contract development. The functions `ECDSA.recover` and `ECDSA.tryRecover` are vulnerable to a kind of signature malleability due to accepting EIP-2098 compact signatures in addition to the traditional 65 byte signature format. This is only an issue for the functions that take a single `bytes` argument, and not the functions that take `r, v, s` or `r, vs` as separate arguments. The potentially affected contracts are those that implement signature reuse or replay protection by marking the signature itself as used rather than the signed message or a nonce included in it. A user may take a signature that has already been submitted, submit it again in a different form, and bypass this protection. The issue has been patched in 4.7.3.</description>
+      <guid isPermaLink="false">CVE-2022-35961|2024-08-03T09:51:59.403Z</guid>
+      <pubDate>Sun, 14 Aug 2022 00:05:09 +0000</pubDate>
     </item>
     <item>
       <title>CVE-2022-31153|2024-08-03T07:11:39.549Z -- openzeppelin -- cairo-contracts
@@ -41,10 +57,18 @@
       <pubDate>Thu, 21 Jul 2022 13:55:11 +0000</pubDate>
     </item>
     <item>
-      <title>CVE-2024-27094|2024-02-29T18:18:24.721Z -- openzeppelin -- openzeppelin-contracts</title>
-      <link>https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2024-27094</link>
+      <title>CVE-2022-35916|2024-08-03T09:51:59.077Z -- openzeppelin -- openzeppelin-contracts
+</title>
+      <link>https://www.cve.org/CVERecord?id=CVE-2022-35916</link>
+      <description>OpenZeppelin Contracts is a library for secure smart contract development. Contracts using the cross chain utilities for Arbitrum L2, `CrossChainEnabledArbitrumL2` or `LibArbitrumL2`, will classify direct interactions of externally owned accounts (EOAs) as cross chain calls, even though they are not started on L1. This issue has been patched in v4.7.2. Users are advised to upgrade. There are no known workarounds for this issue.</description>
+      <guid isPermaLink="false">CVE-2022-35916|2024-08-03T09:51:59.077Z</guid>
+      <pubDate>Mon, 01 Aug 2022 21:00:30 +0000</pubDate>
+    </item>
+    <item>
+      <title>CVE-2024-27094|2024-08-02T19:35:12.184Z -- openzeppelin -- openzeppelin-contracts</title>
+      <link>https://www.cve.org/CVERecord?id=CVE-2024-27094</link>
       <description>OpenZeppelin Contracts is a library for secure smart contract development. The `Base64.encode` function encodes a `bytes` input by iterating over it in chunks of 3 bytes. When this input is not a multiple of 3, the last iteration may read parts of the memory that are beyond the input buffer. The vulnerability is fixed in 5.0.2 and 4.9.6.</description>
-      <guid isPermaLink="false">CVE-2024-27094|2024-02-29T18:18:24.721Z</guid>
+      <guid isPermaLink="false">CVE-2024-27094|2024-08-02T19:35:12.184Z</guid>
       <pubDate>Thu, 29 Feb 2024 18:18:24 +0000</pubDate>
     </item>
     <item>
@@ -55,10 +79,10 @@
       <pubDate>Thu, 29 Feb 2024 18:18:24 +0000</pubDate>
     </item>
     <item>
-      <title>CVE-2024-27094|2024-08-02T19:35:12.184Z -- openzeppelin -- openzeppelin-contracts</title>
-      <link>https://www.cve.org/CVERecord?id=CVE-2024-27094</link>
+      <title>CVE-2024-27094|2024-02-29T18:18:24.721Z -- openzeppelin -- openzeppelin-contracts</title>
+      <link>https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2024-27094</link>
       <description>OpenZeppelin Contracts is a library for secure smart contract development. The `Base64.encode` function encodes a `bytes` input by iterating over it in chunks of 3 bytes. When this input is not a multiple of 3, the last iteration may read parts of the memory that are beyond the input buffer. The vulnerability is fixed in 5.0.2 and 4.9.6.</description>
-      <guid isPermaLink="false">CVE-2024-27094|2024-08-02T19:35:12.184Z</guid>
+      <guid isPermaLink="false">CVE-2024-27094|2024-02-29T18:18:24.721Z</guid>
       <pubDate>Thu, 29 Feb 2024 18:18:24 +0000</pubDate>
     </item>
   </channel>

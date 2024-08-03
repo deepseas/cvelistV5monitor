@@ -6,7 +6,7 @@
     <description>The latest CVEs for nextauthjs -- all products</description>
     <docs>http://www.rssboard.org/rss-specification</docs>
     <generator>python-feedgen</generator>
-    <lastBuildDate>Sat, 03 Aug 2024 09:23:21 +0000</lastBuildDate>
+    <lastBuildDate>Sat, 03 Aug 2024 10:22:45 +0000</lastBuildDate>
     <ttl>60</ttl>
     <item>
       <title>CVE-2022-31186|2024-08-03T07:11:39.595Z -- nextauthjs -- next-auth
@@ -39,6 +39,14 @@
       <description>next-auth v3 users before version 3.29.2 are impacted. next-auth version 4 users before version 4.3.2 are also impacted. Upgrading to 3.29.2 or 4.3.2 will patch this vulnerability. If you are not able to upgrade for any reason, you can add a configuration to your callbacks option. If you already have a `redirect` callback, make sure that you match the incoming `url` origin against the `baseUrl`.</description>
       <guid isPermaLink="false">CVE-2022-24858|2024-08-03T04:20:50.660Z</guid>
       <pubDate>Tue, 19 Apr 2022 22:25:10 +0000</pubDate>
+    </item>
+    <item>
+      <title>CVE-2022-35924|2024-08-03T09:51:58.503Z -- nextauthjs -- next-auth
+</title>
+      <link>https://www.cve.org/CVERecord?id=CVE-2022-35924</link>
+      <description>NextAuth.js is a complete open source authentication solution for Next.js applications. `next-auth` users who are using the `EmailProvider` either in versions before `4.10.3` or `3.29.10` are affected. If an attacker could forge a request that sent a comma-separated list of emails (eg.: `attacker@attacker.com,victim@victim.com`) to the sign-in endpoint, NextAuth.js would send emails to both the attacker and the victim's e-mail addresses. The attacker could then login as a newly created user with the email being `attacker@attacker.com,victim@victim.com`. This means that basic authorization like `email.endsWith("@victim.com")` in the `signIn` callback would fail to communicate a threat to the developer and would let the attacker bypass authorization, even with an `@attacker.com` address. This vulnerability has been patched in `v4.10.3` and `v3.29.10` by normalizing the email value that is sent to the sign-in endpoint before accessing it anywhere else. We also added a `normalizeIdentifier` callback on the `EmailProvider` configuration, where you can further tweak your requirements for what your system considers a valid e-mail address. (E.g.: strict RFC2821 compliance). Users are advised to upgrade. There are no known workarounds for this vulnerability. If for some reason you cannot upgrade, you can normalize the incoming request using Advanced Initialization.</description>
+      <guid isPermaLink="false">CVE-2022-35924|2024-08-03T09:51:58.503Z</guid>
+      <pubDate>Tue, 02 Aug 2022 17:55:13 +0000</pubDate>
     </item>
     <item>
       <title>CVE-2022-31127|2024-08-03T07:11:39.115Z -- nextauthjs -- next-auth

@@ -1,0 +1,20 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<rss xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/" version="2.0">
+  <channel>
+    <title>CVE Feed for gagliardetto -- binary</title>
+    <link>https://raw.githubusercontent.com/deepseas/cvelistV5monitor/main/feeds/gagliardetto/binary.rss</link>
+    <description>The latest CVEs for gagliardetto -- binary</description>
+    <docs>http://www.rssboard.org/rss-specification</docs>
+    <generator>python-feedgen</generator>
+    <lastBuildDate>Sat, 03 Aug 2024 10:23:10 +0000</lastBuildDate>
+    <ttl>60</ttl>
+    <item>
+      <title>CVE-2022-36078|2024-08-03T09:52:00.489Z -- gagliardetto -- binary
+</title>
+      <link>https://www.cve.org/CVERecord?id=CVE-2022-36078</link>
+      <description>Binary provides encoding/decoding in Borsh and other formats. The vulnerability is a memory allocation vulnerability that can be exploited to allocate slices in memory with (arbitrary) excessive size value, which can either exhaust available memory or crash the whole program. When using `github.com/gagliardetto/binary` to parse unchecked (or wrong type of) data from untrusted sources of input (e.g. the blockchain) into slices, it's possible to allocate memory with excessive size. When `dec.Decode(&amp;val)` method is used to parse data into a structure that is or contains slices of values, the length of the slice was previously read directly from the data itself without any checks on the size of it, and then a slice was allocated. This could lead to an overflow and an allocation of memory with excessive size value. Users should upgrade to `v0.7.1` or higher. A workaround is not to rely on the `dec.Decode(&amp;val)` function to parse the data, but to use a custom `UnmarshalWithDecoder()` method that reads and checks the length of any slice.</description>
+      <guid isPermaLink="false">CVE-2022-36078|2024-08-03T09:52:00.489Z</guid>
+      <pubDate>Fri, 02 Sep 2022 12:15:14 +0000</pubDate>
+    </item>
+  </channel>
+</rss>

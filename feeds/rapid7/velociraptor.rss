@@ -6,61 +6,39 @@
     <description>The latest CVEs for Rapid7 -- Velociraptor</description>
     <docs>http://www.rssboard.org/rss-specification</docs>
     <generator>python-feedgen</generator>
-    <lastBuildDate>Fri, 02 Aug 2024 23:22:06 +0000</lastBuildDate>
+    <lastBuildDate>Sat, 03 Aug 2024 10:22:57 +0000</lastBuildDate>
     <ttl>60</ttl>
     <item>
-      <title>CVE-2023-0242|2024-08-02T05:02:44.109Z -- rapid7 -- velociraptor
+      <title>CVE-2022-35629|2024-08-03T09:36:44.411Z -- rapid7 -- velociraptor
 </title>
-      <link>https://www.cve.org/CVERecord?id=CVE-2023-0242</link>
-      <description>Rapid7 Velociraptor allows users to be created with different privileges on the server. Administrators are generally allowed to run any command on the server including writing arbitrary files. However, lower privilege users are generally forbidden from writing or modifying files on the server.
-
-The VQL copy() function applies permission checks for reading files but does not check for permission to write files. This allows a low privilege user (usually, users with the Velociraptor "investigator" role) to overwrite files on the server, including Velociraptor configuration files.
-
-To exploit this vulnerability, the attacker must already have a Velociraptor user account at a low privilege level (at least "analyst") and be able to log into the GUI and create a notebook where they can run the VQL query invoking the copy() VQL function. Typically, most users deploy Velociraptor with limited access to a trusted group (most users will be administrators within the GUI).
-This vulnerability is associated with program files  https://github.Com/Velocidex/velociraptor/blob/master/vql/filesystem/copy.go https://github.Com/Velocidex/velociraptor/blob/master/vql/filesystem/copy.go  and program routines copy().
-
-This issue affects Velociraptor versions before 0.6.7-5. Version 0.6.7-5, released January 16, 2023, fixes the issue.
-
-</description>
-      <guid isPermaLink="false">CVE-2023-0242|2024-08-02T05:02:44.109Z</guid>
-      <pubDate>Wed, 18 Jan 2023 20:57:30 +0000</pubDate>
+      <link>https://www.cve.org/CVERecord?id=CVE-2022-35629</link>
+      <description>Due to a bug in the handling of the communication between the client and server, it was possible for one client, already registered with their own client ID, to send messages to the server claiming to come from another client ID. This issue was resolved in Velociraptor 0.6.5-2.</description>
+      <guid isPermaLink="false">CVE-2022-35629|2024-08-03T09:36:44.411Z</guid>
+      <pubDate>Tue, 26 Jul 2022 00:00:00 +0000</pubDate>
     </item>
     <item>
-      <title>CVE-2023-2226|2024-08-02T06:12:20.691Z -- rapid7 -- velociraptor
+      <title>CVE-2022-35631|2024-08-03T09:36:44.422Z -- rapid7 -- velociraptor
 </title>
-      <link>https://www.cve.org/CVERecord?id=CVE-2023-2226</link>
-      <description>Due to insufficient validation in the PE and OLE parsers in Rapid7's Velociraptor versions earlier than 0.6.8 allows attacker to crash Velociraptor during parsing of maliciously malformed files. 
-
-For this attack to succeed, the attacker needs to be able to introduce malicious files to the system at the same time that Velociraptor attempts to collect any artifacts that attempt to parse PE files, Authenticode signatures, or OLE files. After crashing, the Velociraptor service will restart and it will still be possible to collect other artifacts.
-
-</description>
-      <guid isPermaLink="false">CVE-2023-2226|2024-08-02T06:12:20.691Z</guid>
-      <pubDate>Fri, 21 Apr 2023 11:48:46 +0000</pubDate>
+      <link>https://www.cve.org/CVERecord?id=CVE-2022-35631</link>
+      <description>On MacOS and Linux, it may be possible to perform a symlink attack by replacing this predictable file name with a symlink to another file and have the Velociraptor client overwrite the other file. This issue was resolved in Velociraptor 0.6.5-2.</description>
+      <guid isPermaLink="false">CVE-2022-35631|2024-08-03T09:36:44.422Z</guid>
+      <pubDate>Tue, 26 Jul 2022 00:00:00 +0000</pubDate>
     </item>
     <item>
-      <title>CVE-2023-0290|2024-08-02T05:02:44.149Z -- rapid7 -- velociraptor
+      <title>CVE-2022-35632|2024-08-03T09:36:44.412Z -- rapid7 -- velociraptor
 </title>
-      <link>https://www.cve.org/CVERecord?id=CVE-2023-0290</link>
-      <description>Rapid7 Velociraptor did not properly sanitize the client ID parameter to the CreateCollection API, allowing a directory traversal in where the collection task could be written. It was possible to provide a client id of "../clients/server" to schedule the collection for the server (as a server artifact), but only require privileges to schedule collections on the client.
-
-Normally, to schedule an artifact on the server, the COLLECT_SERVER permission is required. This permission is normally only granted to "administrator" role. Due to this issue, it is sufficient to have the COLLECT_CLIENT privilege, which is normally granted to the "investigator" role.
-To exploit this vulnerability, the attacker must already have a Velociraptor user account at least "investigator" level, and be able to authenticate to the GUI and issue an API call to the backend. Typically, most users deploy Velociraptor with limited access to a trusted group, and most users will already be administrators within the GUI.
-
-This issue affects Velociraptor versions before 0.6.7-5. Version 0.6.7-5, released January 16, 2023, fixes the issue.
-
-</description>
-      <guid isPermaLink="false">CVE-2023-0290|2024-08-02T05:02:44.149Z</guid>
-      <pubDate>Wed, 18 Jan 2023 21:10:42 +0000</pubDate>
+      <link>https://www.cve.org/CVERecord?id=CVE-2022-35632</link>
+      <description>The Velociraptor GUI contains an editor suggestion feature that can display the description field of a VQL function, plugin or artifact. This field was not properly sanitized and can lead to cross-site scripting (XSS). This issue was resolved in Velociraptor 0.6.5-2.</description>
+      <guid isPermaLink="false">CVE-2022-35632|2024-08-03T09:36:44.412Z</guid>
+      <pubDate>Tue, 26 Jul 2022 00:00:00 +0000</pubDate>
     </item>
     <item>
-      <title>CVE-2023-5950|2024-08-02T08:14:25.134Z -- rapid7 -- velociraptor
+      <title>CVE-2022-35630|2024-08-03T09:36:44.427Z -- rapid7 -- velociraptor
 </title>
-      <link>https://www.cve.org/CVERecord?id=CVE-2023-5950</link>
-      <description>Rapid7 Velociraptor versions prior to 0.7.0-4 suffer from a reflected cross site scripting vulnerability. This vulnerability allows attackers to inject JS into the error path, potentially leading to unauthorized execution of scripts within a user's web browser. This vulnerability is fixed in version 0.7.0-04 and a patch is available to download. Patches are also available for version 0.6.9 (0.6.9-1).
-
-</description>
-      <guid isPermaLink="false">CVE-2023-5950|2024-08-02T08:14:25.134Z</guid>
-      <pubDate>Mon, 06 Nov 2023 14:30:28 +0000</pubDate>
+      <link>https://www.cve.org/CVERecord?id=CVE-2022-35630</link>
+      <description>A cross-site scripting (XSS) issue in generating a collection report made it possible for malicious clients to inject JavaScript code into the static HTML file. This issue was resolved in Velociraptor 0.6.5-2.</description>
+      <guid isPermaLink="false">CVE-2022-35630|2024-08-03T09:36:44.427Z</guid>
+      <pubDate>Tue, 26 Jul 2022 00:00:00 +0000</pubDate>
     </item>
   </channel>
 </rss>

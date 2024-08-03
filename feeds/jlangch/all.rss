@@ -1,0 +1,20 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<rss xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/" version="2.0">
+  <channel>
+    <title>CVE Feed for jlangch -- all</title>
+    <link>https://raw.githubusercontent.com/deepseas/cvelistV5monitor/main/feeds/jlangch/all.rss</link>
+    <description>The latest CVEs for jlangch -- all products</description>
+    <docs>http://www.rssboard.org/rss-specification</docs>
+    <generator>python-feedgen</generator>
+    <lastBuildDate>Sat, 03 Aug 2024 10:22:56 +0000</lastBuildDate>
+    <ttl>60</ttl>
+    <item>
+      <title>CVE-2022-36007|2024-08-03T09:51:59.845Z -- jlangch -- venice
+</title>
+      <link>https://www.cve.org/CVERecord?id=CVE-2022-36007</link>
+      <description>Venice is a Clojure inspired sandboxed Lisp dialect with excellent Java interoperability. A partial path traversal issue exists within the functions `load-file` and `load-resource`. These functions can be limited to load files from a list of load paths. Assuming Venice has been configured with the load paths: `[ "/Users/foo/resources" ]` When passing **relative** paths to these two vulnerable functions everything is fine: `(load-resource "test.png")` =&gt; loads the file "/Users/foo/resources/test.png" `(load-resource "../resources-alt/test.png")` =&gt; rejected, outside the load path When passing **absolute** paths to these two vulnerable functions Venice may return files outside the configured load paths: `(load-resource "/Users/foo/resources/test.png")` =&gt; loads the file "/Users/foo/resources/test.png" `(load-resource "/Users/foo/resources-alt/test.png")` =&gt; loads the file "/Users/foo/resources-alt/test.png" !!! The latter call suffers from the _Partial Path Traversal_ vulnerability. This issue’s scope is limited to absolute paths whose name prefix matches a load path. E.g. for a load-path `"/Users/foo/resources"`, the actor can cause loading a resource also from `"/Users/foo/resources-alt"`, but not from `"/Users/foo/images"`. Versions of Venice before and including v1.10.17 are affected by this issue. Upgrade to Venice &gt;= 1.10.18, if you are on a version &lt; 1.10.18. There are currently no known workarounds.</description>
+      <guid isPermaLink="false">CVE-2022-36007|2024-08-03T09:51:59.845Z</guid>
+      <pubDate>Sun, 14 Aug 2022 00:25:10 +0000</pubDate>
+    </item>
+  </channel>
+</rss>

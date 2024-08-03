@@ -1,0 +1,20 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<rss xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/" version="2.0">
+  <channel>
+    <title>CVE Feed for rust-osdev -- linked-list-allocator</title>
+    <link>https://raw.githubusercontent.com/deepseas/cvelistV5monitor/main/feeds/rust-osdev/linked-list-allocator.rss</link>
+    <description>The latest CVEs for rust-osdev -- linked-list-allocator</description>
+    <docs>http://www.rssboard.org/rss-specification</docs>
+    <generator>python-feedgen</generator>
+    <lastBuildDate>Sat, 03 Aug 2024 10:23:05 +0000</lastBuildDate>
+    <ttl>60</ttl>
+    <item>
+      <title>CVE-2022-36086|2024-08-03T09:52:00.524Z -- rust-osdev -- linked-list-allocator
+</title>
+      <link>https://www.cve.org/CVERecord?id=CVE-2022-36086</link>
+      <description>linked_list_allocator is an allocator usable for no_std systems. Prior to version 0.10.2, the heap initialization methods were missing a minimum size check for the given heap size argument. This could lead to out-of-bound writes when a heap was initialized with a size smaller than `3 * size_of::&lt;usize&gt;` because of metadata write operations. This vulnerability impacts all the initialization functions on the `Heap` and `LockedHeap` types, including `Heap::new`, `Heap::init`, `Heap::init_from_slice`, and `LockedHeap::new`. It also affects multiple uses of the `Heap::extend` method. Version 0.10.2 contains a patch for the issue. As a workaround, ensure that the heap is only initialized with a size larger than `3 * size_of::&lt;usize&gt;` and that the `Heap::extend` method is only called with sizes larger than `2 * size_of::&lt;usize&gt;()`. Also, ensure that the total heap size is (and stays) a multiple of `2 * size_of::&lt;usize&gt;()`.</description>
+      <guid isPermaLink="false">CVE-2022-36086|2024-08-03T09:52:00.524Z</guid>
+      <pubDate>Wed, 07 Sep 2022 22:50:09 +0000</pubDate>
+    </item>
+  </channel>
+</rss>

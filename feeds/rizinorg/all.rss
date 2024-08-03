@@ -6,23 +6,55 @@
     <description>The latest CVEs for rizinorg -- all products</description>
     <docs>http://www.rssboard.org/rss-specification</docs>
     <generator>python-feedgen</generator>
-    <lastBuildDate>Fri, 02 Aug 2024 23:22:20 +0000</lastBuildDate>
+    <lastBuildDate>Sat, 03 Aug 2024 10:22:54 +0000</lastBuildDate>
     <ttl>60</ttl>
     <item>
-      <title>CVE-2023-40022|2024-08-02T18:24:54.616Z -- rizinorg -- rizin
+      <title>CVE-2022-36043|2024-08-03T09:52:00.507Z -- rizinorg -- rizin
 </title>
-      <link>https://www.cve.org/CVERecord?id=CVE-2023-40022</link>
-      <description>Rizin is a UNIX-like reverse engineering framework and command-line toolset. Versions 0.6.0 and prior are vulnerable to integer overflow in `consume_count` of `src/gnu_v2/cplus-dem.c`. The overflow check is valid logic but, is missing the modulus if the block once compiled. The compiler sees this block as unreachable code since the prior statement is multiplication by 10 and fails to consider overflow assuming the count will always be a multiple of 10. Rizin version 0.6.1 contains a fix for the issue. A temporary workaround would be disabling C++ demangling using the configuration option `bin.demangle=false`.</description>
-      <guid isPermaLink="false">CVE-2023-40022|2024-08-02T18:24:54.616Z</guid>
-      <pubDate>Thu, 24 Aug 2023 22:50:57 +0000</pubDate>
+      <link>https://www.cve.org/CVERecord?id=CVE-2022-36043</link>
+      <description>Rizin is a UNIX-like reverse engineering framework and command-line toolset. Versions 0.4.0 and prior are vulnerable to a double free in bobj.c:rz_bin_reloc_storage_free() when freeing relocations generated from qnx binary plugin. A user opening a malicious qnx binary could be affected by this vulnerability, allowing an attacker to execute code on the user's machine. Commit number a3d50c1ea185f3f642f2d8180715f82d98840784 contains a patch for this issue.</description>
+      <guid isPermaLink="false">CVE-2022-36043|2024-08-03T09:52:00.507Z</guid>
+      <pubDate>Tue, 06 Sep 2022 00:00:00 +0000</pubDate>
     </item>
     <item>
-      <title>CVE-2023-27590|2024-08-02T12:16:35.898Z -- rizinorg -- rizin
+      <title>CVE-2022-36042|2024-08-03T09:52:00.511Z -- rizinorg -- rizin
 </title>
-      <link>https://www.cve.org/CVERecord?id=CVE-2023-27590</link>
-      <description>Rizin is a UNIX-like reverse engineering framework and command-line toolset. In version 0.5.1 and prior, converting a GDB registers profile file into a Rizin register profile can result in a stack-based buffer overflow when the `name`, `type`, or `groups` fields have longer values than expected. Users opening untrusted GDB registers files (e.g. with the `drpg` or `arpg` commands) are affected by this flaw. Commit d6196703d89c84467b600ba2692534579dc25ed4 contains a patch for this issue. As a workaround, review the GDB register profiles before loading them with `drpg`/`arpg` commands.</description>
-      <guid isPermaLink="false">CVE-2023-27590|2024-08-02T12:16:35.898Z</guid>
-      <pubDate>Tue, 14 Mar 2023 20:37:59 +0000</pubDate>
+      <link>https://www.cve.org/CVERecord?id=CVE-2022-36042</link>
+      <description>Rizin is a UNIX-like reverse engineering framework and command-line toolset. Versions 0.4.0 and prior are vulnerable to an out-of-bounds write when getting data from dyld cache files. A user opening a malicious dyld cache file could be affected by this vulnerability, allowing an attacker to execute code on the user's machine. Commit number 556ca2f9eef01ec0f4a76d1fbacfcf3a87a44810 contains a patch.</description>
+      <guid isPermaLink="false">CVE-2022-36042|2024-08-03T09:52:00.511Z</guid>
+      <pubDate>Tue, 06 Sep 2022 00:00:00 +0000</pubDate>
+    </item>
+    <item>
+      <title>CVE-2022-36041|2024-08-03T09:52:00.654Z -- rizinorg -- rizin
+</title>
+      <link>https://www.cve.org/CVERecord?id=CVE-2022-36041</link>
+      <description>Rizin is a UNIX-like reverse engineering framework and command-line toolset. Versions 0.4.0 and prior are vulnerable to an out-of-bounds write when parsing Mach-O files. A user opening a malicious Mach-O file could be affected by this vulnerability, allowing an attacker to execute code on the user's machine. Commit number 7323e64d68ecccfb0ed3ee480f704384c38676b2 contains a patch.</description>
+      <guid isPermaLink="false">CVE-2022-36041|2024-08-03T09:52:00.654Z</guid>
+      <pubDate>Tue, 06 Sep 2022 00:00:00 +0000</pubDate>
+    </item>
+    <item>
+      <title>CVE-2022-36044|2024-08-03T09:52:00.490Z -- rizinorg -- rizin
+</title>
+      <link>https://www.cve.org/CVERecord?id=CVE-2022-36044</link>
+      <description>Rizin is a UNIX-like reverse engineering framework and command-line toolset. Versions 0.4.0 and prior are vulnerable to an out-of-bounds write when getting data from Luac files. A user opening a malicious Luac file could be affected by this vulnerability, allowing an attacker to execute code on the user's machine. Commits 07b43bc8aa1ffebd9b68d60624c9610cf7e460c7 and 05bbd147caccc60162d6fba9baaaf24befa281cd contain fixes for the issue.</description>
+      <guid isPermaLink="false">CVE-2022-36044|2024-08-03T09:52:00.490Z</guid>
+      <pubDate>Tue, 06 Sep 2022 00:00:00 +0000</pubDate>
+    </item>
+    <item>
+      <title>CVE-2022-36040|2024-08-03T09:51:59.995Z -- rizinorg -- rizin
+</title>
+      <link>https://www.cve.org/CVERecord?id=CVE-2022-36040</link>
+      <description>Rizin is a UNIX-like reverse engineering framework and command-line toolset. Versions 0.4.0 and prior are vulnerable to an out-of-bounds write when getting data from PYC(python) files. A user opening a malicious PYC file could be affected by this vulnerability, allowing an attacker to execute code on the user's machine. Commit number 68948017423a12786704e54227b8b2f918c2fd27 contains a patch.</description>
+      <guid isPermaLink="false">CVE-2022-36040|2024-08-03T09:51:59.995Z</guid>
+      <pubDate>Tue, 06 Sep 2022 00:00:00 +0000</pubDate>
+    </item>
+    <item>
+      <title>CVE-2022-36039|2024-08-03T09:52:00.495Z -- rizinorg -- rizin
+</title>
+      <link>https://www.cve.org/CVERecord?id=CVE-2022-36039</link>
+      <description>Rizin is a UNIX-like reverse engineering framework and command-line toolset. Versions 0.4.0 and prior are vulnerable to out-of-bounds write when parsing DEX files. A user opening a malicious DEX file could be affected by this vulnerability, allowing an attacker to execute code on the user's machine. A patch is available on the `dev` branch of the repository.</description>
+      <guid isPermaLink="false">CVE-2022-36039|2024-08-03T09:52:00.495Z</guid>
+      <pubDate>Tue, 06 Sep 2022 19:05:11 +0000</pubDate>
     </item>
   </channel>
 </rss>

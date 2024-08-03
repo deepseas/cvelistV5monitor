@@ -6,14 +6,119 @@
     <description>The latest CVEs for evmos -- all products</description>
     <docs>http://www.rssboard.org/rss-specification</docs>
     <generator>python-feedgen</generator>
-    <lastBuildDate>Fri, 02 Aug 2024 05:23:14 +0000</lastBuildDate>
+    <lastBuildDate>Sat, 03 Aug 2024 10:23:07 +0000</lastBuildDate>
     <ttl>60</ttl>
     <item>
-      <title>CVE-2024-39696|2024-08-02T04:26:15.993Z -- evmos -- evmos
+      <title>CVE-2022-35936|2024-08-03T09:51:59.105Z -- evmos -- ethermint
 </title>
+      <link>https://www.cve.org/CVERecord?id=CVE-2022-35936</link>
+      <description>Ethermint is an Ethereum library. In Ethermint running versions before `v0.17.2`, the contract `selfdestruct` invocation permanently removes the corresponding bytecode from the internal database storage. However, due to a bug in the `DeleteAccount`function, all contracts that used the identical bytecode (i.e shared the same `CodeHash`) will also stop working once one contract invokes `selfdestruct`, even though the other contracts did not invoke the `selfdestruct` OPCODE. This vulnerability has been patched in Ethermint version v0.18.0. The patch has state machine-breaking changes for applications using Ethermint, so a coordinated upgrade procedure is required. A workaround is available. If a contract is subject to DoS due to this issue, the user can redeploy the same contract, i.e. with identical bytecode, so that the original contract's code is recovered. The new contract deployment restores the `bytecode hash -&gt; bytecode` entry in the internal state.</description>
+      <guid isPermaLink="false">CVE-2022-35936|2024-08-03T09:51:59.105Z</guid>
+      <pubDate>Fri, 05 Aug 2022 12:55:11 +0000</pubDate>
+    </item>
+    <item>
+      <title>CVE-2024-37153|2024-08-02T03:50:54.784Z -- evmos -- evmos</title>
+      <link>https://www.cve.org/CVERecord?id=CVE-2024-37153</link>
+      <description>Evmos is the Ethereum Virtual Machine (EVM) Hub on the Cosmos Network. There is an issue with how to liquid stake using Safe which itself is a contract. The bug only appears when there is a local state change together with an ICS20 transfer in the same function and uses the contract's balance, that is using the contract address as the sender parameter in an ICS20 transfer using the ICS20 precompile. This is in essence the "infinite money glitch" allowing contracts to double the supply of Evmos after each transaction.The issue has been patched in versions &gt;=V18.1.0.</description>
+      <guid isPermaLink="false">CVE-2024-37153|2024-08-02T03:50:54.784Z</guid>
+      <pubDate>Thu, 06 Jun 2024 18:51:30 +0000</pubDate>
+    </item>
+    <item>
+      <title>CVE-2024-37158|2024-08-02T03:50:54.802Z -- evmos -- evmos</title>
+      <link>https://www.cve.org/CVERecord?id=CVE-2024-37158</link>
+      <description>Evmos is the Ethereum Virtual Machine (EVM) Hub on the Cosmos Network. Preliminary checks on actions computed by the clawback vesting accounts are performed in the ante handler. Evmos core, implements two different ante handlers: one for Cosmos transactions and one for Ethereum transactions. Checks performed on the two implementation are different. The vulnerability discovered allowed a clawback account to bypass Cosmos ante handler checks by sending an Ethereum transaction targeting a precompile used to interact with a Cosmos SDK module. This vulnerability is fixed in 18.0.0.</description>
+      <guid isPermaLink="false">CVE-2024-37158|2024-08-02T03:50:54.802Z</guid>
+      <pubDate>Mon, 17 Jun 2024 14:03:22 +0000</pubDate>
+    </item>
+    <item>
+      <title>CVE-2024-37159|2024-08-02T03:50:55.078Z -- evmos -- evmos</title>
+      <link>https://www.cve.org/CVERecord?id=CVE-2024-37159</link>
+      <description>Evmos is the Ethereum Virtual Machine (EVM) Hub on the Cosmos Network. This vulnerability allowed a user to create a validator using vested tokens to deposit the self-bond. This vulnerability is fixed in 18.0.0.</description>
+      <guid isPermaLink="false">CVE-2024-37159|2024-08-02T03:50:55.078Z</guid>
+      <pubDate>Mon, 17 Jun 2024 14:03:29 +0000</pubDate>
+    </item>
+    <item>
+      <title>CVE-2024-37154|2024-08-02T03:50:55.197Z -- evmos -- evmos</title>
+      <link>https://www.cve.org/CVERecord?id=CVE-2024-37154</link>
+      <description>Evmos is the Ethereum Virtual Machine (EVM) Hub on the Cosmos Network. Users are able to delegate tokens that have not yet been vested. This affects employees and grantees who have funds managed via `ClawbackVestingAccount`. This affects 18.1.0 and earlier.</description>
+      <guid isPermaLink="false">CVE-2024-37154|2024-08-02T03:50:55.197Z</guid>
+      <pubDate>Thu, 06 Jun 2024 19:04:08 +0000</pubDate>
+    </item>
+    <item>
+      <title>CVE-2024-32644|2024-08-02T02:13:40.251Z -- evmos -- evmos</title>
+      <link>https://www.cve.org/CVERecord?id=CVE-2024-32644</link>
+      <description>Evmos is a scalable, high-throughput Proof-of-Stake EVM blockchain that is fully compatible and interoperable with Ethereum. Prior to 17.0.0, there is a way to mint arbitrary tokens due to the possibility to have two different states not in sync during the execution of a transaction. The exploit is based on the fact that to sync the Cosmos SDK state and the EVM one, we rely on the `stateDB.Commit()` method. When we call this method, we iterate though all the `dirtyStorage` and, **if and only if** it is different than the `originStorage`, we set the new state. Setting the new state means we update the Cosmos SDK KVStore.  If a contract storage state that is the same before and after a transaction, but is changed during the transaction and can call an external contract after the change, it can be exploited to make the transaction similar to non-atomic. The vulnerability is **critical** since this could lead to drain of funds through creative SC interactions.  The issue has been patched in versions &gt;=V17.0.0.</description>
+      <guid isPermaLink="false">CVE-2024-32644|2024-08-02T02:13:40.251Z</guid>
+      <pubDate>Fri, 19 Apr 2024 14:53:44 +0000</pubDate>
+    </item>
+    <item>
+      <title>CVE-2024-37159|2024-07-15T20:05:09.966Z -- evmos -- evmos</title>
+      <link>https://www.cve.org/CVERecord?id=CVE-2024-37159</link>
+      <description>Evmos is the Ethereum Virtual Machine (EVM) Hub on the Cosmos Network. This vulnerability allowed a user to create a validator using vested tokens to deposit the self-bond. This vulnerability is fixed in 18.0.0.</description>
+      <guid isPermaLink="false">CVE-2024-37159|2024-07-15T20:05:09.966Z</guid>
+      <pubDate>Mon, 17 Jun 2024 14:03:29 +0000</pubDate>
+    </item>
+    <item>
+      <title>CVE-2024-37158|2024-06-17T16:52:43.651Z -- evmos -- evmos</title>
+      <link>https://www.cve.org/CVERecord?id=CVE-2024-37158</link>
+      <description>Evmos is the Ethereum Virtual Machine (EVM) Hub on the Cosmos Network. Preliminary checks on actions computed by the clawback vesting accounts are performed in the ante handler. Evmos core, implements two different ante handlers: one for Cosmos transactions and one for Ethereum transactions. Checks performed on the two implementation are different. The vulnerability discovered allowed a clawback account to bypass Cosmos ante handler checks by sending an Ethereum transaction targeting a precompile used to interact with a Cosmos SDK module. This vulnerability is fixed in 18.0.0.</description>
+      <guid isPermaLink="false">CVE-2024-37158|2024-06-17T16:52:43.651Z</guid>
+      <pubDate>Mon, 17 Jun 2024 14:03:22 +0000</pubDate>
+    </item>
+    <item>
+      <title>CVE-2024-32644|2024-06-04T17:51:58.104Z -- evmos -- evmos</title>
+      <link>https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2024-32644</link>
+      <description>Evmos is a scalable, high-throughput Proof-of-Stake EVM blockchain that is fully compatible and interoperable with Ethereum. Prior to 17.0.0, there is a way to mint arbitrary tokens due to the possibility to have two different states not in sync during the execution of a transaction. The exploit is based on the fact that to sync the Cosmos SDK state and the EVM one, we rely on the `stateDB.Commit()` method. When we call this method, we iterate though all the `dirtyStorage` and, **if and only if** it is different than the `originStorage`, we set the new state. Setting the new state means we update the Cosmos SDK KVStore.  If a contract storage state that is the same before and after a transaction, but is changed during the transaction and can call an external contract after the change, it can be exploited to make the transaction similar to non-atomic. The vulnerability is **critical** since this could lead to drain of funds through creative SC interactions.  The issue has been patched in versions &gt;=V17.0.0.</description>
+      <guid isPermaLink="false">CVE-2024-32644|2024-06-04T17:51:58.104Z</guid>
+      <pubDate>Fri, 19 Apr 2024 14:53:44 +0000</pubDate>
+    </item>
+    <item>
+      <title>CVE-2024-32873|2024-06-07T13:53:01.761Z -- evmos -- evmos</title>
+      <link>https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2024-32873</link>
+      <description>Evmos is the Ethereum Virtual Machine (EVM) Hub on the Cosmos Network. The spendable balance is not updated properly when delegating vested tokens. The issue allows a clawback vesting account to anticipate the release of unvested tokens.  This vulnerability is fixed in 18.0.0.</description>
+      <guid isPermaLink="false">CVE-2024-32873|2024-06-07T13:53:01.761Z</guid>
+      <pubDate>Thu, 06 Jun 2024 18:13:54 +0000</pubDate>
+    </item>
+    <item>
+      <title>CVE-2024-37153|2024-06-06T19:45:46.180Z -- evmos -- evmos</title>
+      <link>https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2024-37153</link>
+      <description>Evmos is the Ethereum Virtual Machine (EVM) Hub on the Cosmos Network. There is an issue with how to liquid stake using Safe which itself is a contract. The bug only appears when there is a local state change together with an ICS20 transfer in the same function and uses the contract's balance, that is using the contract address as the sender parameter in an ICS20 transfer using the ICS20 precompile. This is in essence the "infinite money glitch" allowing contracts to double the supply of Evmos after each transaction.The issue has been patched in versions &gt;=V18.1.0.</description>
+      <guid isPermaLink="false">CVE-2024-37153|2024-06-06T19:45:46.180Z</guid>
+      <pubDate>Thu, 06 Jun 2024 18:51:30 +0000</pubDate>
+    </item>
+    <item>
+      <title>CVE-2024-37154|2024-06-07T14:58:54.212Z -- evmos -- evmos</title>
+      <link>https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2024-37154</link>
+      <description>Evmos is the Ethereum Virtual Machine (EVM) Hub on the Cosmos Network. Users are able to delegate tokens that have not yet been vested. This affects employees and grantees who have funds managed via `ClawbackVestingAccount`. This affects 18.1.0 and earlier.</description>
+      <guid isPermaLink="false">CVE-2024-37154|2024-06-07T14:58:54.212Z</guid>
+      <pubDate>Thu, 06 Jun 2024 19:04:08 +0000</pubDate>
+    </item>
+    <item>
+      <title>CVE-2024-37159|2024-06-17T14:03:29.684Z -- evmos -- evmos</title>
+      <link>https://www.cve.org/CVERecord?id=CVE-2024-37159</link>
+      <description>Evmos is the Ethereum Virtual Machine (EVM) Hub on the Cosmos Network. This vulnerability allowed a user to create a validator using vested tokens to deposit the self-bond. This vulnerability is fixed in 18.0.0.</description>
+      <guid isPermaLink="false">CVE-2024-37159|2024-06-17T14:03:29.684Z</guid>
+      <pubDate>Mon, 17 Jun 2024 14:03:29 +0000</pubDate>
+    </item>
+    <item>
+      <title>CVE-2024-37158|2024-06-17T14:03:22.635Z -- evmos -- evmos</title>
+      <link>https://www.cve.org/CVERecord?id=CVE-2024-37158</link>
+      <description>Evmos is the Ethereum Virtual Machine (EVM) Hub on the Cosmos Network. Preliminary checks on actions computed by the clawback vesting accounts are performed in the ante handler. Evmos core, implements two different ante handlers: one for Cosmos transactions and one for Ethereum transactions. Checks performed on the two implementation are different. The vulnerability discovered allowed a clawback account to bypass Cosmos ante handler checks by sending an Ethereum transaction targeting a precompile used to interact with a Cosmos SDK module. This vulnerability is fixed in 18.0.0.</description>
+      <guid isPermaLink="false">CVE-2024-37158|2024-06-17T14:03:22.635Z</guid>
+      <pubDate>Mon, 17 Jun 2024 14:03:22 +0000</pubDate>
+    </item>
+    <item>
+      <title>CVE-2024-39696|2024-07-05T18:49:22.153Z -- evmos -- evmos</title>
       <link>https://www.cve.org/CVERecord?id=CVE-2024-39696</link>
       <description>Evmos is a decentralized Ethereum Virtual Machine chain on the Cosmos Network. Prior to version 19.0.0, a user can create a vesting account with a 3rd party account (EOA or contract) as funder. Then, this user can create an authorization for the contract.CallerAddress, this is the authorization checked in the code. But the funds are taken from the funder address provided in the message. Consequently, the user can fund a vesting account with a 3rd party account without its permission. The funder address can be any address, so this vulnerability can be used to drain all the accounts in the chain. The issue has been patched in version 19.0.0.</description>
-      <guid isPermaLink="false">CVE-2024-39696|2024-08-02T04:26:15.993Z</guid>
+      <guid isPermaLink="false">CVE-2024-39696|2024-07-05T18:49:22.153Z</guid>
+      <pubDate>Fri, 05 Jul 2024 18:49:22 +0000</pubDate>
+    </item>
+    <item>
+      <title>CVE-2024-39696|2024-07-23T16:17:06.096Z -- evmos -- evmos</title>
+      <link>https://www.cve.org/CVERecord?id=CVE-2024-39696</link>
+      <description>Evmos is a decentralized Ethereum Virtual Machine chain on the Cosmos Network. Prior to version 19.0.0, a user can create a vesting account with a 3rd party account (EOA or contract) as funder. Then, this user can create an authorization for the contract.CallerAddress, this is the authorization checked in the code. But the funds are taken from the funder address provided in the message. Consequently, the user can fund a vesting account with a 3rd party account without its permission. The funder address can be any address, so this vulnerability can be used to drain all the accounts in the chain. The issue has been patched in version 19.0.0.</description>
+      <guid isPermaLink="false">CVE-2024-39696|2024-07-23T16:17:06.096Z</guid>
       <pubDate>Fri, 05 Jul 2024 18:49:22 +0000</pubDate>
     </item>
     <item>
@@ -24,109 +129,11 @@
       <pubDate>Thu, 06 Jun 2024 18:13:54 +0000</pubDate>
     </item>
     <item>
-      <title>CVE-2024-39696|2024-07-23T16:17:06.096Z -- evmos -- evmos</title>
+      <title>CVE-2024-39696|2024-08-02T04:26:15.993Z -- evmos -- evmos</title>
       <link>https://www.cve.org/CVERecord?id=CVE-2024-39696</link>
       <description>Evmos is a decentralized Ethereum Virtual Machine chain on the Cosmos Network. Prior to version 19.0.0, a user can create a vesting account with a 3rd party account (EOA or contract) as funder. Then, this user can create an authorization for the contract.CallerAddress, this is the authorization checked in the code. But the funds are taken from the funder address provided in the message. Consequently, the user can fund a vesting account with a 3rd party account without its permission. The funder address can be any address, so this vulnerability can be used to drain all the accounts in the chain. The issue has been patched in version 19.0.0.</description>
-      <guid isPermaLink="false">CVE-2024-39696|2024-07-23T16:17:06.096Z</guid>
+      <guid isPermaLink="false">CVE-2024-39696|2024-08-02T04:26:15.993Z</guid>
       <pubDate>Fri, 05 Jul 2024 18:49:22 +0000</pubDate>
-    </item>
-    <item>
-      <title>CVE-2024-39696|2024-07-05T18:49:22.153Z -- evmos -- evmos</title>
-      <link>https://www.cve.org/CVERecord?id=CVE-2024-39696</link>
-      <description>Evmos is a decentralized Ethereum Virtual Machine chain on the Cosmos Network. Prior to version 19.0.0, a user can create a vesting account with a 3rd party account (EOA or contract) as funder. Then, this user can create an authorization for the contract.CallerAddress, this is the authorization checked in the code. But the funds are taken from the funder address provided in the message. Consequently, the user can fund a vesting account with a 3rd party account without its permission. The funder address can be any address, so this vulnerability can be used to drain all the accounts in the chain. The issue has been patched in version 19.0.0.</description>
-      <guid isPermaLink="false">CVE-2024-39696|2024-07-05T18:49:22.153Z</guid>
-      <pubDate>Fri, 05 Jul 2024 18:49:22 +0000</pubDate>
-    </item>
-    <item>
-      <title>CVE-2024-37158|2024-06-17T14:03:22.635Z -- evmos -- evmos</title>
-      <link>https://www.cve.org/CVERecord?id=CVE-2024-37158</link>
-      <description>Evmos is the Ethereum Virtual Machine (EVM) Hub on the Cosmos Network. Preliminary checks on actions computed by the clawback vesting accounts are performed in the ante handler. Evmos core, implements two different ante handlers: one for Cosmos transactions and one for Ethereum transactions. Checks performed on the two implementation are different. The vulnerability discovered allowed a clawback account to bypass Cosmos ante handler checks by sending an Ethereum transaction targeting a precompile used to interact with a Cosmos SDK module. This vulnerability is fixed in 18.0.0.</description>
-      <guid isPermaLink="false">CVE-2024-37158|2024-06-17T14:03:22.635Z</guid>
-      <pubDate>Mon, 17 Jun 2024 14:03:22 +0000</pubDate>
-    </item>
-    <item>
-      <title>CVE-2024-37159|2024-06-17T14:03:29.684Z -- evmos -- evmos</title>
-      <link>https://www.cve.org/CVERecord?id=CVE-2024-37159</link>
-      <description>Evmos is the Ethereum Virtual Machine (EVM) Hub on the Cosmos Network. This vulnerability allowed a user to create a validator using vested tokens to deposit the self-bond. This vulnerability is fixed in 18.0.0.</description>
-      <guid isPermaLink="false">CVE-2024-37159|2024-06-17T14:03:29.684Z</guid>
-      <pubDate>Mon, 17 Jun 2024 14:03:29 +0000</pubDate>
-    </item>
-    <item>
-      <title>CVE-2024-37154|2024-06-07T14:58:54.212Z -- evmos -- evmos</title>
-      <link>https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2024-37154</link>
-      <description>Evmos is the Ethereum Virtual Machine (EVM) Hub on the Cosmos Network. Users are able to delegate tokens that have not yet been vested. This affects employees and grantees who have funds managed via `ClawbackVestingAccount`. This affects 18.1.0 and earlier.</description>
-      <guid isPermaLink="false">CVE-2024-37154|2024-06-07T14:58:54.212Z</guid>
-      <pubDate>Thu, 06 Jun 2024 19:04:08 +0000</pubDate>
-    </item>
-    <item>
-      <title>CVE-2024-37153|2024-06-06T19:45:46.180Z -- evmos -- evmos</title>
-      <link>https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2024-37153</link>
-      <description>Evmos is the Ethereum Virtual Machine (EVM) Hub on the Cosmos Network. There is an issue with how to liquid stake using Safe which itself is a contract. The bug only appears when there is a local state change together with an ICS20 transfer in the same function and uses the contract's balance, that is using the contract address as the sender parameter in an ICS20 transfer using the ICS20 precompile. This is in essence the "infinite money glitch" allowing contracts to double the supply of Evmos after each transaction.The issue has been patched in versions &gt;=V18.1.0.</description>
-      <guid isPermaLink="false">CVE-2024-37153|2024-06-06T19:45:46.180Z</guid>
-      <pubDate>Thu, 06 Jun 2024 18:51:30 +0000</pubDate>
-    </item>
-    <item>
-      <title>CVE-2024-32873|2024-06-07T13:53:01.761Z -- evmos -- evmos</title>
-      <link>https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2024-32873</link>
-      <description>Evmos is the Ethereum Virtual Machine (EVM) Hub on the Cosmos Network. The spendable balance is not updated properly when delegating vested tokens. The issue allows a clawback vesting account to anticipate the release of unvested tokens.  This vulnerability is fixed in 18.0.0.</description>
-      <guid isPermaLink="false">CVE-2024-32873|2024-06-07T13:53:01.761Z</guid>
-      <pubDate>Thu, 06 Jun 2024 18:13:54 +0000</pubDate>
-    </item>
-    <item>
-      <title>CVE-2024-32644|2024-06-04T17:51:58.104Z -- evmos -- evmos</title>
-      <link>https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2024-32644</link>
-      <description>Evmos is a scalable, high-throughput Proof-of-Stake EVM blockchain that is fully compatible and interoperable with Ethereum. Prior to 17.0.0, there is a way to mint arbitrary tokens due to the possibility to have two different states not in sync during the execution of a transaction. The exploit is based on the fact that to sync the Cosmos SDK state and the EVM one, we rely on the `stateDB.Commit()` method. When we call this method, we iterate though all the `dirtyStorage` and, **if and only if** it is different than the `originStorage`, we set the new state. Setting the new state means we update the Cosmos SDK KVStore.  If a contract storage state that is the same before and after a transaction, but is changed during the transaction and can call an external contract after the change, it can be exploited to make the transaction similar to non-atomic. The vulnerability is **critical** since this could lead to drain of funds through creative SC interactions.  The issue has been patched in versions &gt;=V17.0.0.</description>
-      <guid isPermaLink="false">CVE-2024-32644|2024-06-04T17:51:58.104Z</guid>
-      <pubDate>Fri, 19 Apr 2024 14:53:44 +0000</pubDate>
-    </item>
-    <item>
-      <title>CVE-2024-37158|2024-06-17T16:52:43.651Z -- evmos -- evmos</title>
-      <link>https://www.cve.org/CVERecord?id=CVE-2024-37158</link>
-      <description>Evmos is the Ethereum Virtual Machine (EVM) Hub on the Cosmos Network. Preliminary checks on actions computed by the clawback vesting accounts are performed in the ante handler. Evmos core, implements two different ante handlers: one for Cosmos transactions and one for Ethereum transactions. Checks performed on the two implementation are different. The vulnerability discovered allowed a clawback account to bypass Cosmos ante handler checks by sending an Ethereum transaction targeting a precompile used to interact with a Cosmos SDK module. This vulnerability is fixed in 18.0.0.</description>
-      <guid isPermaLink="false">CVE-2024-37158|2024-06-17T16:52:43.651Z</guid>
-      <pubDate>Mon, 17 Jun 2024 14:03:22 +0000</pubDate>
-    </item>
-    <item>
-      <title>CVE-2024-37159|2024-07-15T20:05:09.966Z -- evmos -- evmos</title>
-      <link>https://www.cve.org/CVERecord?id=CVE-2024-37159</link>
-      <description>Evmos is the Ethereum Virtual Machine (EVM) Hub on the Cosmos Network. This vulnerability allowed a user to create a validator using vested tokens to deposit the self-bond. This vulnerability is fixed in 18.0.0.</description>
-      <guid isPermaLink="false">CVE-2024-37159|2024-07-15T20:05:09.966Z</guid>
-      <pubDate>Mon, 17 Jun 2024 14:03:29 +0000</pubDate>
-    </item>
-    <item>
-      <title>CVE-2024-32644|2024-08-02T02:13:40.251Z -- evmos -- evmos</title>
-      <link>https://www.cve.org/CVERecord?id=CVE-2024-32644</link>
-      <description>Evmos is a scalable, high-throughput Proof-of-Stake EVM blockchain that is fully compatible and interoperable with Ethereum. Prior to 17.0.0, there is a way to mint arbitrary tokens due to the possibility to have two different states not in sync during the execution of a transaction. The exploit is based on the fact that to sync the Cosmos SDK state and the EVM one, we rely on the `stateDB.Commit()` method. When we call this method, we iterate though all the `dirtyStorage` and, **if and only if** it is different than the `originStorage`, we set the new state. Setting the new state means we update the Cosmos SDK KVStore.  If a contract storage state that is the same before and after a transaction, but is changed during the transaction and can call an external contract after the change, it can be exploited to make the transaction similar to non-atomic. The vulnerability is **critical** since this could lead to drain of funds through creative SC interactions.  The issue has been patched in versions &gt;=V17.0.0.</description>
-      <guid isPermaLink="false">CVE-2024-32644|2024-08-02T02:13:40.251Z</guid>
-      <pubDate>Fri, 19 Apr 2024 14:53:44 +0000</pubDate>
-    </item>
-    <item>
-      <title>CVE-2024-37154|2024-08-02T03:50:55.197Z -- evmos -- evmos</title>
-      <link>https://www.cve.org/CVERecord?id=CVE-2024-37154</link>
-      <description>Evmos is the Ethereum Virtual Machine (EVM) Hub on the Cosmos Network. Users are able to delegate tokens that have not yet been vested. This affects employees and grantees who have funds managed via `ClawbackVestingAccount`. This affects 18.1.0 and earlier.</description>
-      <guid isPermaLink="false">CVE-2024-37154|2024-08-02T03:50:55.197Z</guid>
-      <pubDate>Thu, 06 Jun 2024 19:04:08 +0000</pubDate>
-    </item>
-    <item>
-      <title>CVE-2024-37159|2024-08-02T03:50:55.078Z -- evmos -- evmos</title>
-      <link>https://www.cve.org/CVERecord?id=CVE-2024-37159</link>
-      <description>Evmos is the Ethereum Virtual Machine (EVM) Hub on the Cosmos Network. This vulnerability allowed a user to create a validator using vested tokens to deposit the self-bond. This vulnerability is fixed in 18.0.0.</description>
-      <guid isPermaLink="false">CVE-2024-37159|2024-08-02T03:50:55.078Z</guid>
-      <pubDate>Mon, 17 Jun 2024 14:03:29 +0000</pubDate>
-    </item>
-    <item>
-      <title>CVE-2024-37158|2024-08-02T03:50:54.802Z -- evmos -- evmos</title>
-      <link>https://www.cve.org/CVERecord?id=CVE-2024-37158</link>
-      <description>Evmos is the Ethereum Virtual Machine (EVM) Hub on the Cosmos Network. Preliminary checks on actions computed by the clawback vesting accounts are performed in the ante handler. Evmos core, implements two different ante handlers: one for Cosmos transactions and one for Ethereum transactions. Checks performed on the two implementation are different. The vulnerability discovered allowed a clawback account to bypass Cosmos ante handler checks by sending an Ethereum transaction targeting a precompile used to interact with a Cosmos SDK module. This vulnerability is fixed in 18.0.0.</description>
-      <guid isPermaLink="false">CVE-2024-37158|2024-08-02T03:50:54.802Z</guid>
-      <pubDate>Mon, 17 Jun 2024 14:03:22 +0000</pubDate>
-    </item>
-    <item>
-      <title>CVE-2024-37153|2024-08-02T03:50:54.784Z -- evmos -- evmos</title>
-      <link>https://www.cve.org/CVERecord?id=CVE-2024-37153</link>
-      <description>Evmos is the Ethereum Virtual Machine (EVM) Hub on the Cosmos Network. There is an issue with how to liquid stake using Safe which itself is a contract. The bug only appears when there is a local state change together with an ICS20 transfer in the same function and uses the contract's balance, that is using the contract address as the sender parameter in an ICS20 transfer using the ICS20 precompile. This is in essence the "infinite money glitch" allowing contracts to double the supply of Evmos after each transaction.The issue has been patched in versions &gt;=V18.1.0.</description>
-      <guid isPermaLink="false">CVE-2024-37153|2024-08-02T03:50:54.784Z</guid>
-      <pubDate>Thu, 06 Jun 2024 18:51:30 +0000</pubDate>
     </item>
   </channel>
 </rss>
