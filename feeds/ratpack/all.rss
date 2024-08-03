@@ -1,0 +1,44 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<rss xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/" version="2.0">
+  <channel>
+    <title>CVE Feed for ratpack -- all</title>
+    <link>https://raw.githubusercontent.com/deepseas/cvelistV5monitor/main/feeds/ratpack/all.rss</link>
+    <description>The latest CVEs for ratpack -- all products</description>
+    <docs>http://www.rssboard.org/rss-specification</docs>
+    <generator>python-feedgen</generator>
+    <lastBuildDate>Sat, 03 Aug 2024 23:23:15 +0000</lastBuildDate>
+    <ttl>60</ttl>
+    <item>
+      <title>CVE-2021-29480|2024-08-03T22:11:05.265Z -- ratpack -- ratpack
+</title>
+      <link>https://www.cve.org/CVERecord?id=CVE-2021-29480</link>
+      <description>Ratpack is a toolkit for creating web applications. In versions prior to 1.9.0, the client side session module uses the application startup time as the signing key by default. This means that if an attacker can determine this time, and if encryption is not also used (which is recommended, but is not on by default), the session data could be tampered with by someone with the ability to write cookies. The default configuration is unsuitable for production use as an application restart renders all sessions invalid and is not multi-host compatible, but its use is not actively prevented. As of Ratpack 1.9.0, the default value is a securely randomly generated value, generated at application startup time. As a workaround, supply an alternative signing key, as per the documentation's recommendation.</description>
+      <guid isPermaLink="false">CVE-2021-29480|2024-08-03T22:11:05.265Z</guid>
+      <pubDate>Tue, 29 Jun 2021 18:15:12 +0000</pubDate>
+    </item>
+    <item>
+      <title>CVE-2021-29485|2024-08-03T22:11:05.208Z -- ratpack -- ratpack
+</title>
+      <link>https://www.cve.org/CVERecord?id=CVE-2021-29485</link>
+      <description>Ratpack is a toolkit for creating web applications. In versions prior to 1.9.0, a malicious attacker can achieve Remote Code Execution (RCE) via a maliciously crafted Java deserialization gadget chain leveraged against the Ratpack session store. If one's application does not use Ratpack's session mechanism, it is not vulnerable. Ratpack 1.9.0 introduces a strict allow-list mechanism that mitigates this vulnerability when used. Two possible workarounds exist. The simplest mitigation for users of earlier versions is to reduce the likelihood of attackers being able to write to the session data store. Alternatively or additionally, the allow-list mechanism could be manually back ported by providing an alternative implementation of `SessionSerializer` that uses an allow-list.</description>
+      <guid isPermaLink="false">CVE-2021-29485|2024-08-03T22:11:05.208Z</guid>
+      <pubDate>Tue, 29 Jun 2021 18:35:11 +0000</pubDate>
+    </item>
+    <item>
+      <title>CVE-2021-29481|2024-08-03T22:11:05.773Z -- ratpack -- ratpack
+</title>
+      <link>https://www.cve.org/CVERecord?id=CVE-2021-29481</link>
+      <description>Ratpack is a toolkit for creating web applications. In versions prior to 1.9.0, the default configuration of client side sessions results in unencrypted, but signed, data being set as cookie values. This means that if something sensitive goes into the session, it could be read by something with access to the cookies. For this to be a vulnerability, some kind of sensitive data would need to be stored in the session and the session cookie would have to leak. For example, the cookies are not configured with httpOnly and an adjacent XSS vulnerability within the site allowed capture of the cookies. As of version 1.9.0, a securely randomly generated signing key is used. As a workaround, one may supply an encryption key, as per the documentation recommendation.</description>
+      <guid isPermaLink="false">CVE-2021-29481|2024-08-03T22:11:05.773Z</guid>
+      <pubDate>Tue, 29 Jun 2021 18:20:12 +0000</pubDate>
+    </item>
+    <item>
+      <title>CVE-2021-29479|2024-08-03T22:11:05.264Z -- ratpack -- ratpack
+</title>
+      <link>https://www.cve.org/CVERecord?id=CVE-2021-29479</link>
+      <description>Ratpack is a toolkit for creating web applications. In versions prior to 1.9.0, a user supplied `X-Forwarded-Host` header can be used to perform cache poisoning of a cache fronting a Ratpack server if the cache key does not include the `X-Forwarded-Host` header as a cache key. Users are only vulnerable if they do not configure a custom `PublicAddress` instance. For versions prior to 1.9.0, by default, Ratpack utilizes an inferring version of `PublicAddress` which is vulnerable. This can be used to perform redirect cache poisoning where an attacker can force a cached redirect to redirect to their site instead of the intended redirect location. The vulnerability was patched in Ratpack 1.9.0. As a workaround, ensure that `ServerConfigBuilder::publicAddress` correctly configures the server in production.</description>
+      <guid isPermaLink="false">CVE-2021-29479|2024-08-03T22:11:05.264Z</guid>
+      <pubDate>Tue, 29 Jun 2021 14:35:12 +0000</pubDate>
+    </item>
+  </channel>
+</rss>

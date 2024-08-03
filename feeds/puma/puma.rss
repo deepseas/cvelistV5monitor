@@ -6,7 +6,7 @@
     <description>The latest CVEs for puma -- puma</description>
     <docs>http://www.rssboard.org/rss-specification</docs>
     <generator>python-feedgen</generator>
-    <lastBuildDate>Sat, 03 Aug 2024 22:22:35 +0000</lastBuildDate>
+    <lastBuildDate>Sat, 03 Aug 2024 23:22:59 +0000</lastBuildDate>
     <ttl>60</ttl>
     <item>
       <title>CVE-2022-23634|2024-08-03T03:51:45.584Z -- puma -- puma
@@ -23,6 +23,14 @@
       <description>Puma is a simple, fast, multi-threaded, parallel HTTP 1.1 server for Ruby/Rack applications. When using Puma behind a proxy that does not properly validate that the incoming HTTP request matches the RFC7230 standard, Puma and the frontend proxy may disagree on where a request starts and ends. This would allow requests to be smuggled via the front-end proxy to Puma. The vulnerability has been fixed in 5.6.4 and 4.3.12. Users are advised to upgrade as soon as possible. Workaround: when deploying a proxy in front of Puma, turning on any and all functionality to make sure that the request matches the RFC7230 standard.</description>
       <guid isPermaLink="false">CVE-2022-24790|2024-08-03T04:20:50.515Z</guid>
       <pubDate>Wed, 30 Mar 2022 21:50:09 +0000</pubDate>
+    </item>
+    <item>
+      <title>CVE-2021-29509|2024-08-03T22:11:05.438Z -- puma -- puma
+</title>
+      <link>https://www.cve.org/CVERecord?id=CVE-2021-29509</link>
+      <description>Puma is a concurrent HTTP 1.1 server for Ruby/Rack applications. The fix for CVE-2019-16770 was incomplete. The original fix only protected existing connections that had already been accepted from having their requests starved by greedy persistent-connections saturating all threads in the same process. However, new connections may still be starved by greedy persistent-connections saturating all threads in all processes in the cluster. A `puma` server which received more concurrent `keep-alive` connections than the server had threads in its threadpool would service only a subset of connections, denying service to the unserved connections. This problem has been fixed in `puma` 4.3.8 and 5.3.1. Setting `queue_requests false` also fixes the issue. This is not advised when using `puma` without a reverse proxy, such as `nginx` or `apache`, because you will open yourself to slow client attacks (e.g. slowloris). The fix is very small and a git patch is available for those using unsupported versions of Puma.</description>
+      <guid isPermaLink="false">CVE-2021-29509|2024-08-03T22:11:05.438Z</guid>
+      <pubDate>Tue, 11 May 2021 16:50:11 +0000</pubDate>
     </item>
   </channel>
 </rss>

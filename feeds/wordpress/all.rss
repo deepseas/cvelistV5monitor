@@ -6,7 +6,7 @@
     <description>The latest CVEs for WordPress -- all products</description>
     <docs>http://www.rssboard.org/rss-specification</docs>
     <generator>python-feedgen</generator>
-    <lastBuildDate>Sat, 03 Aug 2024 22:22:30 +0000</lastBuildDate>
+    <lastBuildDate>Sat, 03 Aug 2024 23:23:06 +0000</lastBuildDate>
     <ttl>60</ttl>
     <item>
       <title>CVE-2022-21664|2024-08-03T02:46:39.401Z -- wordpress -- wordpress-develop
@@ -15,6 +15,14 @@
       <description>WordPress is a free and open-source content management system written in PHP and paired with a MariaDB database. Due to lack of proper sanitization in one of the classes, there's potential for unintended SQL queries to be executed. This has been patched in WordPress version 5.8.3. Older affected versions are also fixed via security release, that go back till 4.1.34. We strongly recommend that you keep auto-updates enabled. There are no known workarounds for this issue.</description>
       <guid isPermaLink="false">CVE-2022-21664|2024-08-03T02:46:39.401Z</guid>
       <pubDate>Thu, 06 Jan 2022 22:55:09 +0000</pubDate>
+    </item>
+    <item>
+      <title>CVE-2021-29447|2024-08-03T22:02:51.924Z -- wordpress -- wordpress-develop
+</title>
+      <link>https://www.cve.org/CVERecord?id=CVE-2021-29447</link>
+      <description>Wordpress is an open source CMS. A user with the ability to upload files (like an Author) can exploit an XML parsing issue in the Media Library leading to XXE attacks. This requires WordPress installation to be using PHP 8. Access to internal files is possible in a successful XXE attack. This has been patched in WordPress version 5.7.1, along with the older affected versions via a minor release. We strongly recommend you keep auto-updates enabled.</description>
+      <guid isPermaLink="false">CVE-2021-29447|2024-08-03T22:02:51.924Z</guid>
+      <pubDate>Thu, 15 Apr 2021 21:10:12 +0000</pubDate>
     </item>
     <item>
       <title>CVE-2022-21662|2024-08-03T02:46:39.402Z -- wordpress -- wordpress-develop
@@ -33,6 +41,14 @@
       <pubDate>Thu, 06 Jan 2022 23:00:11 +0000</pubDate>
     </item>
     <item>
+      <title>CVE-2021-29476|2024-08-03T22:11:05.121Z -- wordpress -- requests
+</title>
+      <link>https://www.cve.org/CVERecord?id=CVE-2021-29476</link>
+      <description>Requests is a HTTP library written in PHP. Requests mishandles deserialization in FilteredIterator. The issue has been patched and users of `Requests` 1.6.0, 1.6.1 and 1.7.0 should update to version 1.8.0.</description>
+      <guid isPermaLink="false">CVE-2021-29476|2024-08-03T22:11:05.121Z</guid>
+      <pubDate>Tue, 27 Apr 2021 20:55:13 +0000</pubDate>
+    </item>
+    <item>
       <title>CVE-2022-21661|2024-08-03T02:46:39.535Z -- wordpress -- wordpress-develop
 </title>
       <link>https://www.cve.org/CVERecord?id=CVE-2022-21661</link>
@@ -49,17 +65,25 @@
       <pubDate>Wed, 14 Dec 2022 08:33:40 +0000</pubDate>
     </item>
     <item>
-      <title>CVE-2024-31211|2024-08-02T01:46:04.743Z -- wordpress -- wordpress-develop</title>
-      <link>https://www.cve.org/CVERecord?id=CVE-2024-31211</link>
-      <description>WordPress is an open publishing platform for the Web. Unserialization of instances of the `WP_HTML_Token` class allows for code execution via its `__destruct()` magic method. This issue was fixed in WordPress 6.4.2 on December 6th, 2023. Versions prior to 6.4.0 are not affected.</description>
-      <guid isPermaLink="false">CVE-2024-31211|2024-08-02T01:46:04.743Z</guid>
-      <pubDate>Thu, 04 Apr 2024 23:00:17 +0000</pubDate>
+      <title>CVE-2021-29450|2024-08-03T22:02:51.863Z -- wordpress -- wordpress-develop
+</title>
+      <link>https://www.cve.org/CVERecord?id=CVE-2021-29450</link>
+      <description>Wordpress is an open source CMS. One of the blocks in the WordPress editor can be exploited in a way that exposes password-protected posts and pages. This requires at least contributor privileges. This has been patched in WordPress 5.7.1, along with the older affected versions via minor releases. It's strongly recommended that you keep auto-updates enabled to receive the fix.</description>
+      <guid isPermaLink="false">CVE-2021-29450|2024-08-03T22:02:51.863Z</guid>
+      <pubDate>Thu, 15 Apr 2021 21:20:10 +0000</pubDate>
     </item>
     <item>
-      <title>CVE-2024-31210|2024-08-02T01:46:04.580Z -- wordpress -- wordpress-develop</title>
+      <title>CVE-2024-31210|2024-07-31T19:47:42.302Z -- wordpress -- wordpress-develop</title>
       <link>https://www.cve.org/CVERecord?id=CVE-2024-31210</link>
       <description>WordPress is an open publishing platform for the Web. It's possible for a file of a type other than a zip file to be submitted as a new plugin by an administrative user on the Plugins -&gt; Add New -&gt; Upload Plugin screen in WordPress. If FTP credentials are requested for installation (in order to move the file into place outside of the `uploads` directory) then the uploaded file remains temporary available in the Media Library despite it not being allowed. If the `DISALLOW_FILE_EDIT` constant is set to `true` on the site _and_ FTP credentials are required when uploading a new theme or plugin, then this technically allows an RCE when the user would otherwise have no means of executing arbitrary PHP code. This issue _only_ affects Administrator level users on single site installations, and Super Admin level users on Multisite installations where it's otherwise expected that the user does not have permission to upload or execute arbitrary PHP code. Lower level users are not affected. Sites where the `DISALLOW_FILE_MODS` constant is set to `true` are not affected. Sites where an administrative user either does not need to enter FTP credentials or they have access to the valid FTP credentials, are not affected. The issue was fixed in WordPress 6.4.3 on January 30, 2024 and backported to versions 6.3.3, 6.2.4, 6.1.5, 6.0.7, 5.9.9, 5.8.9, 5.7.11, 5.6.13, 5.5.14, 5.4.15, 5.3.17, 5.2.20, 5.1.18, 5.0.21, 4.9.25, 2.8.24, 4.7.28, 4.6.28, 4.5.31, 4.4.32, 4.3.33, 4.2.37, and 4.1.40. A workaround is available. If the `DISALLOW_FILE_MODS` constant is defined as `true` then it will not be possible for any user to upload a plugin and therefore this issue will not be exploitable.</description>
-      <guid isPermaLink="false">CVE-2024-31210|2024-08-02T01:46:04.580Z</guid>
+      <guid isPermaLink="false">CVE-2024-31210|2024-07-31T19:47:42.302Z</guid>
+      <pubDate>Thu, 04 Apr 2024 22:59:28 +0000</pubDate>
+    </item>
+    <item>
+      <title>CVE-2024-31210|2024-04-04T22:59:28.955Z -- wordpress -- wordpress-develop</title>
+      <link>https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2024-31210</link>
+      <description>WordPress is an open publishing platform for the Web. It's possible for a file of a type other than a zip file to be submitted as a new plugin by an administrative user on the Plugins -&gt; Add New -&gt; Upload Plugin screen in WordPress. If FTP credentials are requested for installation (in order to move the file into place outside of the `uploads` directory) then the uploaded file remains temporary available in the Media Library despite it not being allowed. If the `DISALLOW_FILE_EDIT` constant is set to `true` on the site _and_ FTP credentials are required when uploading a new theme or plugin, then this technically allows an RCE when the user would otherwise have no means of executing arbitrary PHP code. This issue _only_ affects Administrator level users on single site installations, and Super Admin level users on Multisite installations where it's otherwise expected that the user does not have permission to upload or execute arbitrary PHP code. Lower level users are not affected. Sites where the `DISALLOW_FILE_MODS` constant is set to `true` are not affected. Sites where an administrative user either does not need to enter FTP credentials or they have access to the valid FTP credentials, are not affected. The issue was fixed in WordPress 6.4.3 on January 30, 2024 and backported to versions 6.3.3, 6.2.4, 6.1.5, 6.0.7, 5.9.9, 5.8.9, 5.7.11, 5.6.13, 5.5.14, 5.4.15, 5.3.17, 5.2.20, 5.1.18, 5.0.21, 4.9.25, 2.8.24, 4.7.28, 4.6.28, 4.5.31, 4.4.32, 4.3.33, 4.2.37, and 4.1.40. A workaround is available. If the `DISALLOW_FILE_MODS` constant is defined as `true` then it will not be possible for any user to upload a plugin and therefore this issue will not be exploitable.</description>
+      <guid isPermaLink="false">CVE-2024-31210|2024-04-04T22:59:28.955Z</guid>
       <pubDate>Thu, 04 Apr 2024 22:59:28 +0000</pubDate>
     </item>
     <item>
@@ -70,18 +94,18 @@
       <pubDate>Thu, 04 Apr 2024 23:00:17 +0000</pubDate>
     </item>
     <item>
-      <title>CVE-2024-31210|2024-04-04T22:59:28.955Z -- wordpress -- wordpress-develop</title>
-      <link>https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2024-31210</link>
+      <title>CVE-2024-31210|2024-08-02T01:46:04.580Z -- wordpress -- wordpress-develop</title>
+      <link>https://www.cve.org/CVERecord?id=CVE-2024-31210</link>
       <description>WordPress is an open publishing platform for the Web. It's possible for a file of a type other than a zip file to be submitted as a new plugin by an administrative user on the Plugins -&gt; Add New -&gt; Upload Plugin screen in WordPress. If FTP credentials are requested for installation (in order to move the file into place outside of the `uploads` directory) then the uploaded file remains temporary available in the Media Library despite it not being allowed. If the `DISALLOW_FILE_EDIT` constant is set to `true` on the site _and_ FTP credentials are required when uploading a new theme or plugin, then this technically allows an RCE when the user would otherwise have no means of executing arbitrary PHP code. This issue _only_ affects Administrator level users on single site installations, and Super Admin level users on Multisite installations where it's otherwise expected that the user does not have permission to upload or execute arbitrary PHP code. Lower level users are not affected. Sites where the `DISALLOW_FILE_MODS` constant is set to `true` are not affected. Sites where an administrative user either does not need to enter FTP credentials or they have access to the valid FTP credentials, are not affected. The issue was fixed in WordPress 6.4.3 on January 30, 2024 and backported to versions 6.3.3, 6.2.4, 6.1.5, 6.0.7, 5.9.9, 5.8.9, 5.7.11, 5.6.13, 5.5.14, 5.4.15, 5.3.17, 5.2.20, 5.1.18, 5.0.21, 4.9.25, 2.8.24, 4.7.28, 4.6.28, 4.5.31, 4.4.32, 4.3.33, 4.2.37, and 4.1.40. A workaround is available. If the `DISALLOW_FILE_MODS` constant is defined as `true` then it will not be possible for any user to upload a plugin and therefore this issue will not be exploitable.</description>
-      <guid isPermaLink="false">CVE-2024-31210|2024-04-04T22:59:28.955Z</guid>
+      <guid isPermaLink="false">CVE-2024-31210|2024-08-02T01:46:04.580Z</guid>
       <pubDate>Thu, 04 Apr 2024 22:59:28 +0000</pubDate>
     </item>
     <item>
-      <title>CVE-2024-31210|2024-07-31T19:47:42.302Z -- wordpress -- wordpress-develop</title>
-      <link>https://www.cve.org/CVERecord?id=CVE-2024-31210</link>
-      <description>WordPress is an open publishing platform for the Web. It's possible for a file of a type other than a zip file to be submitted as a new plugin by an administrative user on the Plugins -&gt; Add New -&gt; Upload Plugin screen in WordPress. If FTP credentials are requested for installation (in order to move the file into place outside of the `uploads` directory) then the uploaded file remains temporary available in the Media Library despite it not being allowed. If the `DISALLOW_FILE_EDIT` constant is set to `true` on the site _and_ FTP credentials are required when uploading a new theme or plugin, then this technically allows an RCE when the user would otherwise have no means of executing arbitrary PHP code. This issue _only_ affects Administrator level users on single site installations, and Super Admin level users on Multisite installations where it's otherwise expected that the user does not have permission to upload or execute arbitrary PHP code. Lower level users are not affected. Sites where the `DISALLOW_FILE_MODS` constant is set to `true` are not affected. Sites where an administrative user either does not need to enter FTP credentials or they have access to the valid FTP credentials, are not affected. The issue was fixed in WordPress 6.4.3 on January 30, 2024 and backported to versions 6.3.3, 6.2.4, 6.1.5, 6.0.7, 5.9.9, 5.8.9, 5.7.11, 5.6.13, 5.5.14, 5.4.15, 5.3.17, 5.2.20, 5.1.18, 5.0.21, 4.9.25, 2.8.24, 4.7.28, 4.6.28, 4.5.31, 4.4.32, 4.3.33, 4.2.37, and 4.1.40. A workaround is available. If the `DISALLOW_FILE_MODS` constant is defined as `true` then it will not be possible for any user to upload a plugin and therefore this issue will not be exploitable.</description>
-      <guid isPermaLink="false">CVE-2024-31210|2024-07-31T19:47:42.302Z</guid>
-      <pubDate>Thu, 04 Apr 2024 22:59:28 +0000</pubDate>
+      <title>CVE-2024-31211|2024-08-02T01:46:04.743Z -- wordpress -- wordpress-develop</title>
+      <link>https://www.cve.org/CVERecord?id=CVE-2024-31211</link>
+      <description>WordPress is an open publishing platform for the Web. Unserialization of instances of the `WP_HTML_Token` class allows for code execution via its `__destruct()` magic method. This issue was fixed in WordPress 6.4.2 on December 6th, 2023. Versions prior to 6.4.0 are not affected.</description>
+      <guid isPermaLink="false">CVE-2024-31211|2024-08-02T01:46:04.743Z</guid>
+      <pubDate>Thu, 04 Apr 2024 23:00:17 +0000</pubDate>
     </item>
   </channel>
 </rss>

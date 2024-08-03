@@ -6,7 +6,7 @@
     <description>The latest CVEs for hedgedoc -- hedgedoc</description>
     <docs>http://www.rssboard.org/rss-specification</docs>
     <generator>python-feedgen</generator>
-    <lastBuildDate>Sat, 03 Aug 2024 22:22:39 +0000</lastBuildDate>
+    <lastBuildDate>Sat, 03 Aug 2024 23:23:05 +0000</lastBuildDate>
     <ttl>60</ttl>
     <item>
       <title>CVE-2021-21259|2024-08-03T18:09:14.988Z -- hedgedoc -- hedgedoc
@@ -23,6 +23,30 @@
       <description>HedgeDoc is an open-source, web-based, self-hosted, collaborative markdown editor. Images uploaded with HedgeDoc version 1.9.1 and later have an enumerable filename after the upload, resulting in potential information leakage of uploaded documents. This is especially relevant for private notes and affects all upload backends, except Lutim and imgur. This issue is patched in version 1.9.3 by replacing the filename generation with UUIDv4. If you cannot upgrade to HedgeDoc 1.9.3, it is possible to block POST requests to `/uploadimage`, which will disable future uploads.</description>
       <guid isPermaLink="false">CVE-2022-24837|2024-08-03T04:20:50.602Z</guid>
       <pubDate>Mon, 11 Apr 2022 20:20:26 +0000</pubDate>
+    </item>
+    <item>
+      <title>CVE-2021-29503|2024-08-03T22:11:05.313Z -- hedgedoc -- hedgedoc
+</title>
+      <link>https://www.cve.org/CVERecord?id=CVE-2021-29503</link>
+      <description>HedgeDoc is a platform to write and share markdown. HedgeDoc before version 1.8.2 is vulnerable to a cross-site scripting attack using the YAML-metadata of a note. An attacker with write access to a note can embed HTML tags in the Open Graph metadata section of the note, resulting in the frontend rendering the script tag as part of the `&lt;head&gt;` section. Unless your instance prevents guests from editing notes, this vulnerability allows unauthenticated attackers to inject JavaScript into notes that allow guest edits. If your instance prevents guests from editing notes, this vulnerability allows authenticated attackers to inject JavaScript into any note pages they have write-access to. This vulnerability is patched in version 1.8.2. As a workaround, one can disable guest edits until the next update.</description>
+      <guid isPermaLink="false">CVE-2021-29503|2024-08-03T22:11:05.313Z</guid>
+      <pubDate>Wed, 19 May 2021 19:55:10 +0000</pubDate>
+    </item>
+    <item>
+      <title>CVE-2021-29475|2024-08-03T22:11:05.355Z -- hedgedoc -- hedgedoc
+</title>
+      <link>https://www.cve.org/CVERecord?id=CVE-2021-29475</link>
+      <description>HedgeDoc (formerly known as CodiMD) is an open-source collaborative markdown editor. An attacker is able to receive arbitrary files from the file system when exporting a note to PDF. Since the code injection has to take place as note content, there fore this exploit requires the attackers ability to modify a note. This will affect all instances, which have pdf export enabled. This issue has been fixed by https://github.com/hedgedoc/hedgedoc/commit/c1789474020a6d668d616464cb2da5e90e123f65 and is available in version 1.5.0. Starting the CodiMD/HedgeDoc instance with `CMD_ALLOW_PDF_EXPORT=false` or set `"allowPDFExport": false` in config.json can mitigate this issue for those who cannot upgrade. This exploit works because while PhantomJS doesn't actually render the `file:///` references to the PDF file itself, it still uses them internally, and exfiltration is possible, and easy through JavaScript rendering. The impact is pretty bad, as the attacker is able to read the CodiMD/HedgeDoc `config.json` file as well any other files on the filesystem. Even though the suggested Docker deploy option doesn't have many interesting files itself, the `config.json` still often contains sensitive information, database credentials, and maybe OAuth secrets among other things.</description>
+      <guid isPermaLink="false">CVE-2021-29475|2024-08-03T22:11:05.355Z</guid>
+      <pubDate>Mon, 26 Apr 2021 18:58:07 +0000</pubDate>
+    </item>
+    <item>
+      <title>CVE-2021-29474|2024-08-03T22:11:05.268Z -- hedgedoc -- hedgedoc
+</title>
+      <link>https://www.cve.org/CVERecord?id=CVE-2021-29474</link>
+      <description>HedgeDoc (formerly known as CodiMD) is an open-source collaborative markdown editor. An attacker can read arbitrary `.md` files from the server's filesystem due to an improper input validation, which results in the ability to perform a relative path traversal. To verify if you are affected, you can try to open the following URL: `http://localhost:3000/..%2F..%2FREADME#` (replace `http://localhost:3000` with your instance's base-URL e.g. `https://demo.hedgedoc.org/..%2F..%2FREADME#`). If you see a README page being rendered, you run an affected version. The attack works due the fact that the internal router passes the url-encoded alias to the `noteController.showNote`-function. This function passes the input directly to findNote() utility function, that will pass it on the the parseNoteId()-function, that tries to make sense out of the noteId/alias and check if a note already exists and if so, if a corresponding file on disk was updated. If no note exists the note creation-function is called, which pass this unvalidated alias, with a `.md` appended, into a path.join()-function which is read from the filesystem in the follow up routine and provides the pre-filled content of the new note. This allows an attacker to not only read arbitrary `.md` files from the filesystem, but also observes changes to them. The usefulness of this attack can be considered limited, since mainly markdown files are use the file-ending `.md` and all markdown files contained in the hedgedoc project, like the README, are public anyway. If other protections such as a chroot or container or proper file permissions are in place, this attack's usefulness is rather limited. On a reverse-proxy level one can force a URL-decode, which will prevent this attack because the router will not accept such a path.</description>
+      <guid isPermaLink="false">CVE-2021-29474|2024-08-03T22:11:05.268Z</guid>
+      <pubDate>Mon, 26 Apr 2021 21:37:29 +0000</pubDate>
     </item>
   </channel>
 </rss>
