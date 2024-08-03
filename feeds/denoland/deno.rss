@@ -6,7 +6,7 @@
     <description>The latest CVEs for denoland -- deno</description>
     <docs>http://www.rssboard.org/rss-specification</docs>
     <generator>python-feedgen</generator>
-    <lastBuildDate>Sat, 03 Aug 2024 08:24:18 +0000</lastBuildDate>
+    <lastBuildDate>Sat, 03 Aug 2024 09:23:41 +0000</lastBuildDate>
     <ttl>60</ttl>
     <item>
       <title>CVE-2022-24783|2024-08-03T04:20:50.451Z -- denoland -- deno
@@ -17,49 +17,7 @@
       <pubDate>Fri, 25 Mar 2022 21:15:12 +0000</pubDate>
     </item>
     <item>
-      <title>CVE-2024-27935|2024-08-02T20:12:42.832Z -- denoland -- deno</title>
-      <link>https://www.cve.org/CVERecord?id=CVE-2024-27935</link>
-      <description>Deno is a JavaScript, TypeScript, and WebAssembly runtime. Starting in version 1.35.1 and prior to version 1.36.3, a vulnerability in Deno's Node.js compatibility runtime allows for cross-session data contamination during simultaneous asynchronous reads from Node.js streams sourced from sockets or files. The issue arises from the re-use of a global buffer (BUF) in stream_wrap.ts used as a performance optimization to limit allocations during these asynchronous read operations. This can lead to data intended for one session being received by another session, potentially resulting in data corruption and unexpected behavior. This affects all users of Deno that use the node.js compatibility layer for network communication or other streams, including packages that may require node.js libraries indirectly. Version 1.36.3 contains a patch for this issue.</description>
-      <guid isPermaLink="false">CVE-2024-27935|2024-08-02T20:12:42.832Z</guid>
-      <pubDate>Wed, 06 Mar 2024 21:02:14 +0000</pubDate>
-    </item>
-    <item>
-      <title>CVE-2024-34346|2024-08-02T02:51:11.237Z -- denoland -- deno</title>
-      <link>https://www.cve.org/CVERecord?id=CVE-2024-34346</link>
-      <description>Deno is a JavaScript, TypeScript, and WebAssembly runtime with secure defaults. The Deno sandbox may be unexpectedly weakened by allowing file read/write access to privileged files in various locations on Unix and Windows platforms. For example, reading `/proc/self/environ` may provide access equivalent to `--allow-env`, and writing `/proc/self/mem` may provide access equivalent to `--allow-all`. Users who grant read and write access to the entire filesystem may not realize that these access to these files may have additional, unintended consequences. The documentation did not reflect that this practice should be undertaken to increase the strength of the security sandbox. Users who run code with `--allow-read` or `--allow-write` may unexpectedly end up granting additional permissions via file-system operations. Deno 1.43 and above require explicit `--allow-all` access to read or write `/etc`, `/dev` on unix platform (as well as `/proc` and `/sys` on linux platforms), and any path starting with `\\` on Windows.</description>
-      <guid isPermaLink="false">CVE-2024-34346|2024-08-02T02:51:11.237Z</guid>
-      <pubDate>Tue, 07 May 2024 21:02:16 +0000</pubDate>
-    </item>
-    <item>
-      <title>CVE-2024-27935|2024-08-02T00:41:55.847Z -- denoland -- deno</title>
-      <link>https://www.cve.org/CVERecord?id=CVE-2024-27935</link>
-      <description>Deno is a JavaScript, TypeScript, and WebAssembly runtime. Starting in version 1.35.1 and prior to version 1.36.3, a vulnerability in Deno's Node.js compatibility runtime allows for cross-session data contamination during simultaneous asynchronous reads from Node.js streams sourced from sockets or files. The issue arises from the re-use of a global buffer (BUF) in stream_wrap.ts used as a performance optimization to limit allocations during these asynchronous read operations. This can lead to data intended for one session being received by another session, potentially resulting in data corruption and unexpected behavior. This affects all users of Deno that use the node.js compatibility layer for network communication or other streams, including packages that may require node.js libraries indirectly. Version 1.36.3 contains a patch for this issue.</description>
-      <guid isPermaLink="false">CVE-2024-27935|2024-08-02T00:41:55.847Z</guid>
-      <pubDate>Wed, 06 Mar 2024 21:02:14 +0000</pubDate>
-    </item>
-    <item>
-      <title>CVE-2024-27936|2024-08-02T00:41:55.809Z -- denoland -- deno</title>
-      <link>https://www.cve.org/CVERecord?id=CVE-2024-27936</link>
-      <description>Deno is a JavaScript, TypeScript, and WebAssembly runtime with secure defaults. Starting in version 1.32.1 and prior to version 1.41.0 of the deno library, maliciously crafted permission request can show the spoofed permission prompt by inserting a broken ANSI escape sequence into the request contents. Deno is stripping any ANSI escape sequences from the permission prompt, but permissions given to the program are based on the contents that contain the ANSI escape sequences. Any Deno program can spoof the content of the interactive permission prompt by inserting a broken ANSI code, which allows a malicious Deno program to display the wrong file path or program name to the user. Version 1.41.0 of the deno library contains a patch for the issue.</description>
-      <guid isPermaLink="false">CVE-2024-27936|2024-08-02T00:41:55.809Z</guid>
-      <pubDate>Wed, 06 Mar 2024 21:05:59 +0000</pubDate>
-    </item>
-    <item>
-      <title>CVE-2024-27934|2024-08-02T00:41:55.960Z -- denoland -- deno</title>
-      <link>https://www.cve.org/CVERecord?id=CVE-2024-27934</link>
-      <description>Deno is a JavaScript, TypeScript, and WebAssembly runtime. Starting in version 1.36.2 and prior to version 1.40.3, use of inherently unsafe `*const c_void` and `ExternalPointer` leads to use-after-free access of the underlying structure, resulting in arbitrary code execution. Use of inherently unsafe `*const c_void` and `ExternalPointer` leads to use-after-free access of the underlying structure, which is exploitable by an attacker controlling the code executed inside a Deno runtime to obtain arbitrary code execution on the host machine regardless of permissions. This bug is known to be exploitable for both `*const c_void` and `ExternalPointer` implementations. Version 1.40.3 fixes this issue.</description>
-      <guid isPermaLink="false">CVE-2024-27934|2024-08-02T00:41:55.960Z</guid>
-      <pubDate>Wed, 06 Mar 2024 20:56:39 +0000</pubDate>
-    </item>
-    <item>
-      <title>CVE-2024-27932|2024-08-02T00:41:55.783Z -- denoland -- deno</title>
-      <link>https://www.cve.org/CVERecord?id=CVE-2024-27932</link>
-      <description>Deno is a JavaScript, TypeScript, and WebAssembly runtime. Starting in version 1.8.0 and prior to version 1.40.4, Deno improperly checks that an import specifier's hostname is equal to or a child of a token's hostname, which can cause tokens to be sent to servers they shouldn't be sent to. An auth token intended for `example[.]com` may be sent to `notexample[.]com`. Anyone who uses DENO_AUTH_TOKENS and imports potentially untrusted code is affected. Version 1.40.0 contains a patch for this issue</description>
-      <guid isPermaLink="false">CVE-2024-27932|2024-08-02T00:41:55.783Z</guid>
-      <pubDate>Wed, 06 Mar 2024 20:45:16 +0000</pubDate>
-    </item>
-    <item>
-      <title>CVE-2024-27933|2024-08-02T00:41:55.828Z -- denoland -- deno</title>
+      <title>CVE-2024-27933|2024-08-02T19:55:09.948Z -- denoland -- deno</title>
       <link>https://www.cve.org/CVERecord?id=CVE-2024-27933</link>
       <description>Deno is a JavaScript, TypeScript, and WebAssembly runtime. In version 1.39.0, use of raw file descriptors in `op_node_ipc_pipe()` leads to premature close of arbitrary file descriptors, allowing standard input to be re-opened as a different resource resulting in permission prompt bypass. Node child_process IPC relies on the JS side to pass the raw IPC file descriptor to `op_node_ipc_pipe()`, which returns a `IpcJsonStreamResource` ID associated with the file descriptor. On closing the resource, the raw file descriptor is closed together.
 
@@ -68,50 +26,64 @@ Use of raw file descriptors in `op_node_ipc_pipe()` leads to premature close of 
 This bug is known to be exploitable. There is a working exploit that achieves arbitrary code execution by bypassing prompts from zero permissions, additionally abusing the fact that Cache API lacks filesystem permission checks. The attack can be conducted silently as stderr can also be closed, suppressing all prompt outputs.
 
 Version 1.39.1 fixes the bug.</description>
-      <guid isPermaLink="false">CVE-2024-27933|2024-08-02T00:41:55.828Z</guid>
+      <guid isPermaLink="false">CVE-2024-27933|2024-08-02T19:55:09.948Z</guid>
       <pubDate>Wed, 06 Mar 2024 20:52:17 +0000</pubDate>
     </item>
     <item>
-      <title>CVE-2024-27931|2024-08-02T00:41:55.851Z -- denoland -- deno</title>
-      <link>https://www.cve.org/CVERecord?id=CVE-2024-27931</link>
-      <description>Deno is a JavaScript, TypeScript, and WebAssembly runtime with secure defaults. Insufficient validation of parameters in `Deno.makeTemp*` APIs would allow for creation of files outside of the allowed directories. This may allow the user to overwrite important files on the system that may affect other systems. A user may provide a prefix or suffix to a `Deno.makeTemp*` API containing path traversal characters. This is fixed in Deno 1.41.1.</description>
-      <guid isPermaLink="false">CVE-2024-27931|2024-08-02T00:41:55.851Z</guid>
-      <pubDate>Tue, 05 Mar 2024 16:43:11 +0000</pubDate>
+      <title>CVE-2024-27934|2024-08-02T19:24:42.692Z -- denoland -- deno</title>
+      <link>https://www.cve.org/CVERecord?id=CVE-2024-27934</link>
+      <description>Deno is a JavaScript, TypeScript, and WebAssembly runtime. Starting in version 1.36.2 and prior to version 1.40.3, use of inherently unsafe `*const c_void` and `ExternalPointer` leads to use-after-free access of the underlying structure, resulting in arbitrary code execution. Use of inherently unsafe `*const c_void` and `ExternalPointer` leads to use-after-free access of the underlying structure, which is exploitable by an attacker controlling the code executed inside a Deno runtime to obtain arbitrary code execution on the host machine regardless of permissions. This bug is known to be exploitable for both `*const c_void` and `ExternalPointer` implementations. Version 1.40.3 fixes this issue.</description>
+      <guid isPermaLink="false">CVE-2024-27934|2024-08-02T19:24:42.692Z</guid>
+      <pubDate>Wed, 06 Mar 2024 20:56:39 +0000</pubDate>
     </item>
     <item>
-      <title>CVE-2024-27936|2024-07-09T20:26:36.870Z -- denoland -- deno</title>
-      <link>https://www.cve.org/CVERecord?id=CVE-2024-27936</link>
-      <description>Deno is a JavaScript, TypeScript, and WebAssembly runtime with secure defaults. Starting in version 1.32.1 and prior to version 1.41.0 of the deno library, maliciously crafted permission request can show the spoofed permission prompt by inserting a broken ANSI escape sequence into the request contents. Deno is stripping any ANSI escape sequences from the permission prompt, but permissions given to the program are based on the contents that contain the ANSI escape sequences. Any Deno program can spoof the content of the interactive permission prompt by inserting a broken ANSI code, which allows a malicious Deno program to display the wrong file path or program name to the user. Version 1.41.0 of the deno library contains a patch for the issue.</description>
-      <guid isPermaLink="false">CVE-2024-27936|2024-07-09T20:26:36.870Z</guid>
-      <pubDate>Wed, 06 Mar 2024 21:05:59 +0000</pubDate>
-    </item>
-    <item>
-      <title>CVE-2024-34346|2024-06-06T18:25:43.423Z -- denoland -- deno</title>
-      <link>https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2024-34346</link>
-      <description>Deno is a JavaScript, TypeScript, and WebAssembly runtime with secure defaults. The Deno sandbox may be unexpectedly weakened by allowing file read/write access to privileged files in various locations on Unix and Windows platforms. For example, reading `/proc/self/environ` may provide access equivalent to `--allow-env`, and writing `/proc/self/mem` may provide access equivalent to `--allow-all`. Users who grant read and write access to the entire filesystem may not realize that these access to these files may have additional, unintended consequences. The documentation did not reflect that this practice should be undertaken to increase the strength of the security sandbox. Users who run code with `--allow-read` or `--allow-write` may unexpectedly end up granting additional permissions via file-system operations. Deno 1.43 and above require explicit `--allow-all` access to read or write `/etc`, `/dev` on unix platform (as well as `/proc` and `/sys` on linux platforms), and any path starting with `\\` on Windows.</description>
-      <guid isPermaLink="false">CVE-2024-34346|2024-06-06T18:25:43.423Z</guid>
-      <pubDate>Tue, 07 May 2024 21:02:16 +0000</pubDate>
-    </item>
-    <item>
-      <title>CVE-2024-37150|2024-06-06T17:33:35.582Z -- denoland -- deno</title>
-      <link>https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2024-37150</link>
+      <title>CVE-2024-37150|2024-08-02T03:50:54.672Z -- denoland -- deno</title>
+      <link>https://www.cve.org/CVERecord?id=CVE-2024-37150</link>
       <description>An issue in `.npmrc` support in Deno 1.44.0 was discovered where Deno would send `.npmrc` credentials for the scope to the tarball URL when the registry provided URLs for a tarball on a different domain. All users relying on .npmrc are potentially affected by this vulnerability if their private registry references tarball URLs at a different domain. This includes usage of deno install subcommand, auto-install for npm: specifiers and LSP usage. It is recommended to upgrade to Deno 1.44.1 and if your private registry ever serves tarballs at a different domain to rotate your registry credentials.</description>
-      <guid isPermaLink="false">CVE-2024-37150|2024-06-06T17:33:35.582Z</guid>
+      <guid isPermaLink="false">CVE-2024-37150|2024-08-02T03:50:54.672Z</guid>
       <pubDate>Thu, 06 Jun 2024 15:28:14 +0000</pubDate>
     </item>
     <item>
-      <title>CVE-2024-27936|2024-06-10T12:42:08.776Z -- denoland -- deno</title>
-      <link>https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2024-27936</link>
-      <description>Deno is a JavaScript, TypeScript, and WebAssembly runtime with secure defaults. Starting in version 1.32.1 and prior to version 1.41.0 of the deno library, maliciously crafted permission request can show the spoofed permission prompt by inserting a broken ANSI escape sequence into the request contents. Deno is stripping any ANSI escape sequences from the permission prompt, but permissions given to the program are based on the contents that contain the ANSI escape sequences. Any Deno program can spoof the content of the interactive permission prompt by inserting a broken ANSI code, which allows a malicious Deno program to display the wrong file path or program name to the user. Version 1.41.0 of the deno library contains a patch for the issue.</description>
-      <guid isPermaLink="false">CVE-2024-27936|2024-06-10T12:42:08.776Z</guid>
-      <pubDate>Wed, 06 Mar 2024 21:05:59 +0000</pubDate>
+      <title>CVE-2024-32477|2024-08-02T02:13:39.109Z -- denoland -- deno</title>
+      <link>https://www.cve.org/CVERecord?id=CVE-2024-32477</link>
+      <description>Deno is a JavaScript, TypeScript, and WebAssembly runtime with secure defaults. By using ANSI escape sequences and a race between `libc::tcflush(0, libc::TCIFLUSH)` and reading standard input, it's possible to manipulate the permission prompt and force it to allow an unsafe action regardless of the user input. Some ANSI escape sequences act as a info request to the master terminal emulator and the terminal emulator sends back the reply in the PTY channel. standard streams also use this channel to send and get data. For example the `\033[6n` sequence requests the current cursor position. These sequences allow us to append data to the standard input of Deno. This vulnerability allows an attacker to bypass Deno permission policy.  This vulnerability is fixed in 1.42.2.</description>
+      <guid isPermaLink="false">CVE-2024-32477|2024-08-02T02:13:39.109Z</guid>
+      <pubDate>Thu, 18 Apr 2024 19:58:25 +0000</pubDate>
     </item>
     <item>
-      <title>CVE-2024-27931|2024-03-05T16:43:11.934Z -- denoland -- deno</title>
-      <link>https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2024-27931</link>
+      <title>CVE-2024-27931|2024-07-23T17:52:12.034Z -- denoland -- deno</title>
+      <link>https://www.cve.org/CVERecord?id=CVE-2024-27931</link>
       <description>Deno is a JavaScript, TypeScript, and WebAssembly runtime with secure defaults. Insufficient validation of parameters in `Deno.makeTemp*` APIs would allow for creation of files outside of the allowed directories. This may allow the user to overwrite important files on the system that may affect other systems. A user may provide a prefix or suffix to a `Deno.makeTemp*` API containing path traversal characters. This is fixed in Deno 1.41.1.</description>
-      <guid isPermaLink="false">CVE-2024-27931|2024-03-05T16:43:11.934Z</guid>
+      <guid isPermaLink="false">CVE-2024-27931|2024-07-23T17:52:12.034Z</guid>
       <pubDate>Tue, 05 Mar 2024 16:43:11 +0000</pubDate>
+    </item>
+    <item>
+      <title>CVE-2024-32477|2024-06-04T17:50:38.033Z -- denoland -- deno</title>
+      <link>https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2024-32477</link>
+      <description>Deno is a JavaScript, TypeScript, and WebAssembly runtime with secure defaults. By using ANSI escape sequences and a race between `libc::tcflush(0, libc::TCIFLUSH)` and reading standard input, it's possible to manipulate the permission prompt and force it to allow an unsafe action regardless of the user input. Some ANSI escape sequences act as a info request to the master terminal emulator and the terminal emulator sends back the reply in the PTY channel. standard streams also use this channel to send and get data. For example the `\033[6n` sequence requests the current cursor position. These sequences allow us to append data to the standard input of Deno. This vulnerability allows an attacker to bypass Deno permission policy.  This vulnerability is fixed in 1.42.2.</description>
+      <guid isPermaLink="false">CVE-2024-32477|2024-06-04T17:50:38.033Z</guid>
+      <pubDate>Thu, 18 Apr 2024 19:58:25 +0000</pubDate>
+    </item>
+    <item>
+      <title>CVE-2024-27934|2024-03-06T20:56:39.368Z -- denoland -- deno</title>
+      <link>https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2024-27934</link>
+      <description>Deno is a JavaScript, TypeScript, and WebAssembly runtime. Starting in version 1.36.2 and prior to version 1.40.3, use of inherently unsafe `*const c_void` and `ExternalPointer` leads to use-after-free access of the underlying structure, resulting in arbitrary code execution. Use of inherently unsafe `*const c_void` and `ExternalPointer` leads to use-after-free access of the underlying structure, which is exploitable by an attacker controlling the code executed inside a Deno runtime to obtain arbitrary code execution on the host machine regardless of permissions. This bug is known to be exploitable for both `*const c_void` and `ExternalPointer` implementations. Version 1.40.3 fixes this issue.</description>
+      <guid isPermaLink="false">CVE-2024-27934|2024-03-06T20:56:39.368Z</guid>
+      <pubDate>Wed, 06 Mar 2024 20:56:39 +0000</pubDate>
+    </item>
+    <item>
+      <title>CVE-2024-27935|2024-03-06T21:02:14.359Z -- denoland -- deno</title>
+      <link>https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2024-27935</link>
+      <description>Deno is a JavaScript, TypeScript, and WebAssembly runtime. Starting in version 1.35.1 and prior to version 1.36.3, a vulnerability in Deno's Node.js compatibility runtime allows for cross-session data contamination during simultaneous asynchronous reads from Node.js streams sourced from sockets or files. The issue arises from the re-use of a global buffer (BUF) in stream_wrap.ts used as a performance optimization to limit allocations during these asynchronous read operations. This can lead to data intended for one session being received by another session, potentially resulting in data corruption and unexpected behavior. This affects all users of Deno that use the node.js compatibility layer for network communication or other streams, including packages that may require node.js libraries indirectly. Version 1.36.3 contains a patch for this issue.</description>
+      <guid isPermaLink="false">CVE-2024-27935|2024-03-06T21:02:14.359Z</guid>
+      <pubDate>Wed, 06 Mar 2024 21:02:14 +0000</pubDate>
+    </item>
+    <item>
+      <title>CVE-2024-27932|2024-03-06T20:45:16.373Z -- denoland -- deno</title>
+      <link>https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2024-27932</link>
+      <description>Deno is a JavaScript, TypeScript, and WebAssembly runtime. Starting in version 1.8.0 and prior to version 1.40.4, Deno improperly checks that an import specifier's hostname is equal to or a child of a token's hostname, which can cause tokens to be sent to servers they shouldn't be sent to. An auth token intended for `example[.]com` may be sent to `notexample[.]com`. Anyone who uses DENO_AUTH_TOKENS and imports potentially untrusted code is affected. Version 1.40.0 contains a patch for this issue</description>
+      <guid isPermaLink="false">CVE-2024-27932|2024-03-06T20:45:16.373Z</guid>
+      <pubDate>Wed, 06 Mar 2024 20:45:16 +0000</pubDate>
     </item>
     <item>
       <title>CVE-2024-27933|2024-03-06T20:52:17.599Z -- denoland -- deno</title>
@@ -127,63 +99,49 @@ Version 1.39.1 fixes the bug.</description>
       <pubDate>Wed, 06 Mar 2024 20:52:17 +0000</pubDate>
     </item>
     <item>
-      <title>CVE-2024-27932|2024-03-06T20:45:16.373Z -- denoland -- deno</title>
-      <link>https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2024-27932</link>
-      <description>Deno is a JavaScript, TypeScript, and WebAssembly runtime. Starting in version 1.8.0 and prior to version 1.40.4, Deno improperly checks that an import specifier's hostname is equal to or a child of a token's hostname, which can cause tokens to be sent to servers they shouldn't be sent to. An auth token intended for `example[.]com` may be sent to `notexample[.]com`. Anyone who uses DENO_AUTH_TOKENS and imports potentially untrusted code is affected. Version 1.40.0 contains a patch for this issue</description>
-      <guid isPermaLink="false">CVE-2024-27932|2024-03-06T20:45:16.373Z</guid>
-      <pubDate>Wed, 06 Mar 2024 20:45:16 +0000</pubDate>
-    </item>
-    <item>
-      <title>CVE-2024-27935|2024-03-06T21:02:14.359Z -- denoland -- deno</title>
-      <link>https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2024-27935</link>
-      <description>Deno is a JavaScript, TypeScript, and WebAssembly runtime. Starting in version 1.35.1 and prior to version 1.36.3, a vulnerability in Deno's Node.js compatibility runtime allows for cross-session data contamination during simultaneous asynchronous reads from Node.js streams sourced from sockets or files. The issue arises from the re-use of a global buffer (BUF) in stream_wrap.ts used as a performance optimization to limit allocations during these asynchronous read operations. This can lead to data intended for one session being received by another session, potentially resulting in data corruption and unexpected behavior. This affects all users of Deno that use the node.js compatibility layer for network communication or other streams, including packages that may require node.js libraries indirectly. Version 1.36.3 contains a patch for this issue.</description>
-      <guid isPermaLink="false">CVE-2024-27935|2024-03-06T21:02:14.359Z</guid>
-      <pubDate>Wed, 06 Mar 2024 21:02:14 +0000</pubDate>
-    </item>
-    <item>
-      <title>CVE-2024-27934|2024-03-06T20:56:39.368Z -- denoland -- deno</title>
-      <link>https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2024-27934</link>
-      <description>Deno is a JavaScript, TypeScript, and WebAssembly runtime. Starting in version 1.36.2 and prior to version 1.40.3, use of inherently unsafe `*const c_void` and `ExternalPointer` leads to use-after-free access of the underlying structure, resulting in arbitrary code execution. Use of inherently unsafe `*const c_void` and `ExternalPointer` leads to use-after-free access of the underlying structure, which is exploitable by an attacker controlling the code executed inside a Deno runtime to obtain arbitrary code execution on the host machine regardless of permissions. This bug is known to be exploitable for both `*const c_void` and `ExternalPointer` implementations. Version 1.40.3 fixes this issue.</description>
-      <guid isPermaLink="false">CVE-2024-27934|2024-03-06T20:56:39.368Z</guid>
-      <pubDate>Wed, 06 Mar 2024 20:56:39 +0000</pubDate>
-    </item>
-    <item>
-      <title>CVE-2024-32477|2024-06-04T17:50:38.033Z -- denoland -- deno</title>
-      <link>https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2024-32477</link>
-      <description>Deno is a JavaScript, TypeScript, and WebAssembly runtime with secure defaults. By using ANSI escape sequences and a race between `libc::tcflush(0, libc::TCIFLUSH)` and reading standard input, it's possible to manipulate the permission prompt and force it to allow an unsafe action regardless of the user input. Some ANSI escape sequences act as a info request to the master terminal emulator and the terminal emulator sends back the reply in the PTY channel. standard streams also use this channel to send and get data. For example the `\033[6n` sequence requests the current cursor position. These sequences allow us to append data to the standard input of Deno. This vulnerability allows an attacker to bypass Deno permission policy.  This vulnerability is fixed in 1.42.2.</description>
-      <guid isPermaLink="false">CVE-2024-32477|2024-06-04T17:50:38.033Z</guid>
-      <pubDate>Thu, 18 Apr 2024 19:58:25 +0000</pubDate>
-    </item>
-    <item>
-      <title>CVE-2024-27931|2024-07-23T17:52:12.034Z -- denoland -- deno</title>
-      <link>https://www.cve.org/CVERecord?id=CVE-2024-27931</link>
+      <title>CVE-2024-27931|2024-03-05T16:43:11.934Z -- denoland -- deno</title>
+      <link>https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2024-27931</link>
       <description>Deno is a JavaScript, TypeScript, and WebAssembly runtime with secure defaults. Insufficient validation of parameters in `Deno.makeTemp*` APIs would allow for creation of files outside of the allowed directories. This may allow the user to overwrite important files on the system that may affect other systems. A user may provide a prefix or suffix to a `Deno.makeTemp*` API containing path traversal characters. This is fixed in Deno 1.41.1.</description>
-      <guid isPermaLink="false">CVE-2024-27931|2024-07-23T17:52:12.034Z</guid>
+      <guid isPermaLink="false">CVE-2024-27931|2024-03-05T16:43:11.934Z</guid>
       <pubDate>Tue, 05 Mar 2024 16:43:11 +0000</pubDate>
     </item>
     <item>
-      <title>CVE-2024-32477|2024-08-02T02:13:39.109Z -- denoland -- deno</title>
-      <link>https://www.cve.org/CVERecord?id=CVE-2024-32477</link>
-      <description>Deno is a JavaScript, TypeScript, and WebAssembly runtime with secure defaults. By using ANSI escape sequences and a race between `libc::tcflush(0, libc::TCIFLUSH)` and reading standard input, it's possible to manipulate the permission prompt and force it to allow an unsafe action regardless of the user input. Some ANSI escape sequences act as a info request to the master terminal emulator and the terminal emulator sends back the reply in the PTY channel. standard streams also use this channel to send and get data. For example the `\033[6n` sequence requests the current cursor position. These sequences allow us to append data to the standard input of Deno. This vulnerability allows an attacker to bypass Deno permission policy.  This vulnerability is fixed in 1.42.2.</description>
-      <guid isPermaLink="false">CVE-2024-32477|2024-08-02T02:13:39.109Z</guid>
-      <pubDate>Thu, 18 Apr 2024 19:58:25 +0000</pubDate>
+      <title>CVE-2024-27936|2024-06-10T12:42:08.776Z -- denoland -- deno</title>
+      <link>https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2024-27936</link>
+      <description>Deno is a JavaScript, TypeScript, and WebAssembly runtime with secure defaults. Starting in version 1.32.1 and prior to version 1.41.0 of the deno library, maliciously crafted permission request can show the spoofed permission prompt by inserting a broken ANSI escape sequence into the request contents. Deno is stripping any ANSI escape sequences from the permission prompt, but permissions given to the program are based on the contents that contain the ANSI escape sequences. Any Deno program can spoof the content of the interactive permission prompt by inserting a broken ANSI code, which allows a malicious Deno program to display the wrong file path or program name to the user. Version 1.41.0 of the deno library contains a patch for the issue.</description>
+      <guid isPermaLink="false">CVE-2024-27936|2024-06-10T12:42:08.776Z</guid>
+      <pubDate>Wed, 06 Mar 2024 21:05:59 +0000</pubDate>
     </item>
     <item>
-      <title>CVE-2024-37150|2024-08-02T03:50:54.672Z -- denoland -- deno</title>
-      <link>https://www.cve.org/CVERecord?id=CVE-2024-37150</link>
+      <title>CVE-2024-37150|2024-06-06T17:33:35.582Z -- denoland -- deno</title>
+      <link>https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2024-37150</link>
       <description>An issue in `.npmrc` support in Deno 1.44.0 was discovered where Deno would send `.npmrc` credentials for the scope to the tarball URL when the registry provided URLs for a tarball on a different domain. All users relying on .npmrc are potentially affected by this vulnerability if their private registry references tarball URLs at a different domain. This includes usage of deno install subcommand, auto-install for npm: specifiers and LSP usage. It is recommended to upgrade to Deno 1.44.1 and if your private registry ever serves tarballs at a different domain to rotate your registry credentials.</description>
-      <guid isPermaLink="false">CVE-2024-37150|2024-08-02T03:50:54.672Z</guid>
+      <guid isPermaLink="false">CVE-2024-37150|2024-06-06T17:33:35.582Z</guid>
       <pubDate>Thu, 06 Jun 2024 15:28:14 +0000</pubDate>
     </item>
     <item>
-      <title>CVE-2024-27934|2024-08-02T19:24:42.692Z -- denoland -- deno</title>
-      <link>https://www.cve.org/CVERecord?id=CVE-2024-27934</link>
-      <description>Deno is a JavaScript, TypeScript, and WebAssembly runtime. Starting in version 1.36.2 and prior to version 1.40.3, use of inherently unsafe `*const c_void` and `ExternalPointer` leads to use-after-free access of the underlying structure, resulting in arbitrary code execution. Use of inherently unsafe `*const c_void` and `ExternalPointer` leads to use-after-free access of the underlying structure, which is exploitable by an attacker controlling the code executed inside a Deno runtime to obtain arbitrary code execution on the host machine regardless of permissions. This bug is known to be exploitable for both `*const c_void` and `ExternalPointer` implementations. Version 1.40.3 fixes this issue.</description>
-      <guid isPermaLink="false">CVE-2024-27934|2024-08-02T19:24:42.692Z</guid>
-      <pubDate>Wed, 06 Mar 2024 20:56:39 +0000</pubDate>
+      <title>CVE-2024-34346|2024-06-06T18:25:43.423Z -- denoland -- deno</title>
+      <link>https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2024-34346</link>
+      <description>Deno is a JavaScript, TypeScript, and WebAssembly runtime with secure defaults. The Deno sandbox may be unexpectedly weakened by allowing file read/write access to privileged files in various locations on Unix and Windows platforms. For example, reading `/proc/self/environ` may provide access equivalent to `--allow-env`, and writing `/proc/self/mem` may provide access equivalent to `--allow-all`. Users who grant read and write access to the entire filesystem may not realize that these access to these files may have additional, unintended consequences. The documentation did not reflect that this practice should be undertaken to increase the strength of the security sandbox. Users who run code with `--allow-read` or `--allow-write` may unexpectedly end up granting additional permissions via file-system operations. Deno 1.43 and above require explicit `--allow-all` access to read or write `/etc`, `/dev` on unix platform (as well as `/proc` and `/sys` on linux platforms), and any path starting with `\\` on Windows.</description>
+      <guid isPermaLink="false">CVE-2024-34346|2024-06-06T18:25:43.423Z</guid>
+      <pubDate>Tue, 07 May 2024 21:02:16 +0000</pubDate>
     </item>
     <item>
-      <title>CVE-2024-27933|2024-08-02T19:55:09.948Z -- denoland -- deno</title>
+      <title>CVE-2024-27936|2024-07-09T20:26:36.870Z -- denoland -- deno</title>
+      <link>https://www.cve.org/CVERecord?id=CVE-2024-27936</link>
+      <description>Deno is a JavaScript, TypeScript, and WebAssembly runtime with secure defaults. Starting in version 1.32.1 and prior to version 1.41.0 of the deno library, maliciously crafted permission request can show the spoofed permission prompt by inserting a broken ANSI escape sequence into the request contents. Deno is stripping any ANSI escape sequences from the permission prompt, but permissions given to the program are based on the contents that contain the ANSI escape sequences. Any Deno program can spoof the content of the interactive permission prompt by inserting a broken ANSI code, which allows a malicious Deno program to display the wrong file path or program name to the user. Version 1.41.0 of the deno library contains a patch for the issue.</description>
+      <guid isPermaLink="false">CVE-2024-27936|2024-07-09T20:26:36.870Z</guid>
+      <pubDate>Wed, 06 Mar 2024 21:05:59 +0000</pubDate>
+    </item>
+    <item>
+      <title>CVE-2024-27931|2024-08-02T00:41:55.851Z -- denoland -- deno</title>
+      <link>https://www.cve.org/CVERecord?id=CVE-2024-27931</link>
+      <description>Deno is a JavaScript, TypeScript, and WebAssembly runtime with secure defaults. Insufficient validation of parameters in `Deno.makeTemp*` APIs would allow for creation of files outside of the allowed directories. This may allow the user to overwrite important files on the system that may affect other systems. A user may provide a prefix or suffix to a `Deno.makeTemp*` API containing path traversal characters. This is fixed in Deno 1.41.1.</description>
+      <guid isPermaLink="false">CVE-2024-27931|2024-08-02T00:41:55.851Z</guid>
+      <pubDate>Tue, 05 Mar 2024 16:43:11 +0000</pubDate>
+    </item>
+    <item>
+      <title>CVE-2024-27933|2024-08-02T00:41:55.828Z -- denoland -- deno</title>
       <link>https://www.cve.org/CVERecord?id=CVE-2024-27933</link>
       <description>Deno is a JavaScript, TypeScript, and WebAssembly runtime. In version 1.39.0, use of raw file descriptors in `op_node_ipc_pipe()` leads to premature close of arbitrary file descriptors, allowing standard input to be re-opened as a different resource resulting in permission prompt bypass. Node child_process IPC relies on the JS side to pass the raw IPC file descriptor to `op_node_ipc_pipe()`, which returns a `IpcJsonStreamResource` ID associated with the file descriptor. On closing the resource, the raw file descriptor is closed together.
 
@@ -192,8 +150,50 @@ Use of raw file descriptors in `op_node_ipc_pipe()` leads to premature close of 
 This bug is known to be exploitable. There is a working exploit that achieves arbitrary code execution by bypassing prompts from zero permissions, additionally abusing the fact that Cache API lacks filesystem permission checks. The attack can be conducted silently as stderr can also be closed, suppressing all prompt outputs.
 
 Version 1.39.1 fixes the bug.</description>
-      <guid isPermaLink="false">CVE-2024-27933|2024-08-02T19:55:09.948Z</guid>
+      <guid isPermaLink="false">CVE-2024-27933|2024-08-02T00:41:55.828Z</guid>
       <pubDate>Wed, 06 Mar 2024 20:52:17 +0000</pubDate>
+    </item>
+    <item>
+      <title>CVE-2024-27932|2024-08-02T00:41:55.783Z -- denoland -- deno</title>
+      <link>https://www.cve.org/CVERecord?id=CVE-2024-27932</link>
+      <description>Deno is a JavaScript, TypeScript, and WebAssembly runtime. Starting in version 1.8.0 and prior to version 1.40.4, Deno improperly checks that an import specifier's hostname is equal to or a child of a token's hostname, which can cause tokens to be sent to servers they shouldn't be sent to. An auth token intended for `example[.]com` may be sent to `notexample[.]com`. Anyone who uses DENO_AUTH_TOKENS and imports potentially untrusted code is affected. Version 1.40.0 contains a patch for this issue</description>
+      <guid isPermaLink="false">CVE-2024-27932|2024-08-02T00:41:55.783Z</guid>
+      <pubDate>Wed, 06 Mar 2024 20:45:16 +0000</pubDate>
+    </item>
+    <item>
+      <title>CVE-2024-27934|2024-08-02T00:41:55.960Z -- denoland -- deno</title>
+      <link>https://www.cve.org/CVERecord?id=CVE-2024-27934</link>
+      <description>Deno is a JavaScript, TypeScript, and WebAssembly runtime. Starting in version 1.36.2 and prior to version 1.40.3, use of inherently unsafe `*const c_void` and `ExternalPointer` leads to use-after-free access of the underlying structure, resulting in arbitrary code execution. Use of inherently unsafe `*const c_void` and `ExternalPointer` leads to use-after-free access of the underlying structure, which is exploitable by an attacker controlling the code executed inside a Deno runtime to obtain arbitrary code execution on the host machine regardless of permissions. This bug is known to be exploitable for both `*const c_void` and `ExternalPointer` implementations. Version 1.40.3 fixes this issue.</description>
+      <guid isPermaLink="false">CVE-2024-27934|2024-08-02T00:41:55.960Z</guid>
+      <pubDate>Wed, 06 Mar 2024 20:56:39 +0000</pubDate>
+    </item>
+    <item>
+      <title>CVE-2024-27936|2024-08-02T00:41:55.809Z -- denoland -- deno</title>
+      <link>https://www.cve.org/CVERecord?id=CVE-2024-27936</link>
+      <description>Deno is a JavaScript, TypeScript, and WebAssembly runtime with secure defaults. Starting in version 1.32.1 and prior to version 1.41.0 of the deno library, maliciously crafted permission request can show the spoofed permission prompt by inserting a broken ANSI escape sequence into the request contents. Deno is stripping any ANSI escape sequences from the permission prompt, but permissions given to the program are based on the contents that contain the ANSI escape sequences. Any Deno program can spoof the content of the interactive permission prompt by inserting a broken ANSI code, which allows a malicious Deno program to display the wrong file path or program name to the user. Version 1.41.0 of the deno library contains a patch for the issue.</description>
+      <guid isPermaLink="false">CVE-2024-27936|2024-08-02T00:41:55.809Z</guid>
+      <pubDate>Wed, 06 Mar 2024 21:05:59 +0000</pubDate>
+    </item>
+    <item>
+      <title>CVE-2024-27935|2024-08-02T00:41:55.847Z -- denoland -- deno</title>
+      <link>https://www.cve.org/CVERecord?id=CVE-2024-27935</link>
+      <description>Deno is a JavaScript, TypeScript, and WebAssembly runtime. Starting in version 1.35.1 and prior to version 1.36.3, a vulnerability in Deno's Node.js compatibility runtime allows for cross-session data contamination during simultaneous asynchronous reads from Node.js streams sourced from sockets or files. The issue arises from the re-use of a global buffer (BUF) in stream_wrap.ts used as a performance optimization to limit allocations during these asynchronous read operations. This can lead to data intended for one session being received by another session, potentially resulting in data corruption and unexpected behavior. This affects all users of Deno that use the node.js compatibility layer for network communication or other streams, including packages that may require node.js libraries indirectly. Version 1.36.3 contains a patch for this issue.</description>
+      <guid isPermaLink="false">CVE-2024-27935|2024-08-02T00:41:55.847Z</guid>
+      <pubDate>Wed, 06 Mar 2024 21:02:14 +0000</pubDate>
+    </item>
+    <item>
+      <title>CVE-2024-34346|2024-08-02T02:51:11.237Z -- denoland -- deno</title>
+      <link>https://www.cve.org/CVERecord?id=CVE-2024-34346</link>
+      <description>Deno is a JavaScript, TypeScript, and WebAssembly runtime with secure defaults. The Deno sandbox may be unexpectedly weakened by allowing file read/write access to privileged files in various locations on Unix and Windows platforms. For example, reading `/proc/self/environ` may provide access equivalent to `--allow-env`, and writing `/proc/self/mem` may provide access equivalent to `--allow-all`. Users who grant read and write access to the entire filesystem may not realize that these access to these files may have additional, unintended consequences. The documentation did not reflect that this practice should be undertaken to increase the strength of the security sandbox. Users who run code with `--allow-read` or `--allow-write` may unexpectedly end up granting additional permissions via file-system operations. Deno 1.43 and above require explicit `--allow-all` access to read or write `/etc`, `/dev` on unix platform (as well as `/proc` and `/sys` on linux platforms), and any path starting with `\\` on Windows.</description>
+      <guid isPermaLink="false">CVE-2024-34346|2024-08-02T02:51:11.237Z</guid>
+      <pubDate>Tue, 07 May 2024 21:02:16 +0000</pubDate>
+    </item>
+    <item>
+      <title>CVE-2024-27935|2024-08-02T20:12:42.832Z -- denoland -- deno</title>
+      <link>https://www.cve.org/CVERecord?id=CVE-2024-27935</link>
+      <description>Deno is a JavaScript, TypeScript, and WebAssembly runtime. Starting in version 1.35.1 and prior to version 1.36.3, a vulnerability in Deno's Node.js compatibility runtime allows for cross-session data contamination during simultaneous asynchronous reads from Node.js streams sourced from sockets or files. The issue arises from the re-use of a global buffer (BUF) in stream_wrap.ts used as a performance optimization to limit allocations during these asynchronous read operations. This can lead to data intended for one session being received by another session, potentially resulting in data corruption and unexpected behavior. This affects all users of Deno that use the node.js compatibility layer for network communication or other streams, including packages that may require node.js libraries indirectly. Version 1.36.3 contains a patch for this issue.</description>
+      <guid isPermaLink="false">CVE-2024-27935|2024-08-02T20:12:42.832Z</guid>
+      <pubDate>Wed, 06 Mar 2024 21:02:14 +0000</pubDate>
     </item>
   </channel>
 </rss>
