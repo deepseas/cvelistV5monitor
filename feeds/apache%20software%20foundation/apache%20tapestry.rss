@@ -6,7 +6,7 @@
     <description>The latest CVEs for Apache Software Foundation -- Apache Tapestry</description>
     <docs>http://www.rssboard.org/rss-specification</docs>
     <generator>python-feedgen</generator>
-    <lastBuildDate>Sat, 03 Aug 2024 21:21:30 +0000</lastBuildDate>
+    <lastBuildDate>Sat, 03 Aug 2024 22:22:22 +0000</lastBuildDate>
     <ttl>60</ttl>
     <item>
       <title>CVE-2022-31781|2024-08-03T07:26:01.066Z -- apache%20software%20foundation -- apache%20tapestry
@@ -23,6 +23,14 @@
       <description>Apache Tapestry 3.x allows deserialization of untrusted data, leading to remote code execution. This issue is similar to but distinct from CVE-2020-17531, which applies the the (also unsupported) 4.x version line. NOTE: This vulnerability only affects Apache Tapestry version line 3.x, which is no longer supported by the maintainer. Users are recommended to upgrade to a supported version line of Apache Tapestry.</description>
       <guid isPermaLink="false">CVE-2022-46366|2024-08-03T14:31:46.317Z</guid>
       <pubDate>Fri, 02 Dec 2022 00:00:00 +0000</pubDate>
+    </item>
+    <item>
+      <title>CVE-2021-27850|2024-08-03T21:33:15.996Z -- apache%20software%20foundation -- apache%20tapestry
+</title>
+      <link>https://www.cve.org/CVERecord?id=CVE-2021-27850</link>
+      <description>A critical unauthenticated remote code execution vulnerability was found all recent versions of Apache Tapestry. The affected versions include 5.4.5, 5.5.0, 5.6.2 and 5.7.0. The vulnerability I have found is a bypass of the fix for CVE-2019-0195. Recap: Before the fix of CVE-2019-0195 it was possible to download arbitrary class files from the classpath by providing a crafted asset file URL. An attacker was able to download the file `AppModule.class` by requesting the URL `http://localhost:8080/assets/something/services/AppModule.class` which contains a HMAC secret key. The fix for that bug was a blacklist filter that checks if the URL ends with `.class`, `.properties` or `.xml`. Bypass: Unfortunately, the blacklist solution can simply be bypassed by appending a `/` at the end of the URL: `http://localhost:8080/assets/something/services/AppModule.class/` The slash is stripped after the blacklist check and the file `AppModule.class` is loaded into the response. This class usually contains the HMAC secret key which is used to sign serialized Java objects. With the knowledge of that key an attacker can sign a Java gadget chain that leads to RCE (e.g. CommonsBeanUtils1 from ysoserial). Solution for this vulnerability: * For Apache Tapestry 5.4.0 to 5.6.1, upgrade to 5.6.2 or later. * For Apache Tapestry 5.7.0, upgrade to 5.7.1 or later.</description>
+      <guid isPermaLink="false">CVE-2021-27850|2024-08-03T21:33:15.996Z</guid>
+      <pubDate>Thu, 15 Apr 2021 07:40:11 +0000</pubDate>
     </item>
   </channel>
 </rss>
