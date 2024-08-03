@@ -6,8 +6,16 @@
     <description>The latest CVEs for nextauthjs -- next-auth</description>
     <docs>http://www.rssboard.org/rss-specification</docs>
     <generator>python-feedgen</generator>
-    <lastBuildDate>Sat, 03 Aug 2024 07:20:27 +0000</lastBuildDate>
+    <lastBuildDate>Sat, 03 Aug 2024 08:23:59 +0000</lastBuildDate>
     <ttl>60</ttl>
+    <item>
+      <title>CVE-2022-31186|2024-08-03T07:11:39.595Z -- nextauthjs -- next-auth
+</title>
+      <link>https://www.cve.org/CVERecord?id=CVE-2022-31186</link>
+      <description>NextAuth.js is a complete open source authentication solution for Next.js applications. An information disclosure vulnerability in `next-auth` before `v4.10.2` and `v3.29.9` allows an attacker with log access privilege to obtain excessive information such as an identity provider's secret in the log (which is thrown during OAuth error handling) and use it to leverage further attacks on the system, like impersonating the client to ask for extensive permissions. This issue has been patched in `v4.10.2` and `v3.29.9` by moving the log for `provider` information to the debug level. In addition, we added a warning for having the `debug: true` option turned on in production. If for some reason you cannot upgrade, you can user the `logger` configuration option by sanitizing the logs.</description>
+      <guid isPermaLink="false">CVE-2022-31186|2024-08-03T07:11:39.595Z</guid>
+      <pubDate>Mon, 01 Aug 2022 19:25:24 +0000</pubDate>
+    </item>
     <item>
       <title>CVE-2022-29214|2024-08-03T06:17:54.257Z -- nextauthjs -- next-auth
 </title>
@@ -17,12 +25,28 @@
       <pubDate>Fri, 20 May 2022 23:45:11 +0000</pubDate>
     </item>
     <item>
+      <title>CVE-2022-31093|2024-08-03T07:11:39.437Z -- nextauthjs -- next-auth
+</title>
+      <link>https://www.cve.org/CVERecord?id=CVE-2022-31093</link>
+      <description>NextAuth.js is a complete open source authentication solution for Next.js applications. In affected versions an attacker can send a request to an app using NextAuth.js with an invalid `callbackUrl` query parameter, which internally is converted to a `URL` object. The URL instantiation would fail due to a malformed URL being passed into the constructor, causing it to throw an unhandled error which led to the **API route handler timing out and logging in to fail**. This has been remedied in versions 3.29.5 and 4.5.0. If for some reason you cannot upgrade, the workaround requires you to rely on Advanced Initialization. Please see the documentation for more.</description>
+      <guid isPermaLink="false">CVE-2022-31093|2024-08-03T07:11:39.437Z</guid>
+      <pubDate>Mon, 27 Jun 2022 21:30:20 +0000</pubDate>
+    </item>
+    <item>
       <title>CVE-2022-24858|2024-08-03T04:20:50.660Z -- nextauthjs -- next-auth
 </title>
       <link>https://www.cve.org/CVERecord?id=CVE-2022-24858</link>
       <description>next-auth v3 users before version 3.29.2 are impacted. next-auth version 4 users before version 4.3.2 are also impacted. Upgrading to 3.29.2 or 4.3.2 will patch this vulnerability. If you are not able to upgrade for any reason, you can add a configuration to your callbacks option. If you already have a `redirect` callback, make sure that you match the incoming `url` origin against the `baseUrl`.</description>
       <guid isPermaLink="false">CVE-2022-24858|2024-08-03T04:20:50.660Z</guid>
       <pubDate>Tue, 19 Apr 2022 22:25:10 +0000</pubDate>
+    </item>
+    <item>
+      <title>CVE-2022-31127|2024-08-03T07:11:39.115Z -- nextauthjs -- next-auth
+</title>
+      <link>https://www.cve.org/CVERecord?id=CVE-2022-31127</link>
+      <description>NextAuth.js is a complete open source authentication solution for Next.js applications. An attacker can pass a compromised input to the e-mail [signin endpoint](https://next-auth.js.org/getting-started/rest-api#post-apiauthsigninprovider) that contains some malicious HTML, tricking the e-mail server to send it to the user, so they can perform a phishing attack. Eg.: `balazs@email.com, &lt;a href="http://attacker.com"&gt;Before signing in, claim your money!&lt;/a&gt;`. This was previously sent to `balazs@email.com`, and the content of the email containing a link to the attacker's site was rendered in the HTML. This has been remedied in the following releases, by simply not rendering that e-mail in the HTML, since it should be obvious to the receiver what e-mail they used: next-auth v3 users before version 3.29.8 are impacted. (We recommend upgrading to v4, as v3 is considered unmaintained. next-auth v4 users before version 4.9.0 are impacted. If for some reason you cannot upgrade, the workaround requires you to sanitize the `email` parameter that is passed to `sendVerificationRequest` and rendered in the HTML. If you haven't created a custom `sendVerificationRequest`, you only need to upgrade. Otherwise, make sure to either exclude `email` from the HTML body or efficiently sanitize it.</description>
+      <guid isPermaLink="false">CVE-2022-31127|2024-08-03T07:11:39.115Z</guid>
+      <pubDate>Wed, 06 Jul 2022 18:00:16 +0000</pubDate>
     </item>
   </channel>
 </rss>

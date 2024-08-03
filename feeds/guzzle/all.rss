@@ -6,8 +6,40 @@
     <description>The latest CVEs for guzzle -- all products</description>
     <docs>http://www.rssboard.org/rss-specification</docs>
     <generator>python-feedgen</generator>
-    <lastBuildDate>Sat, 03 Aug 2024 07:20:26 +0000</lastBuildDate>
+    <lastBuildDate>Sat, 03 Aug 2024 08:24:16 +0000</lastBuildDate>
     <ttl>60</ttl>
+    <item>
+      <title>CVE-2022-31043|2024-08-03T07:03:40.241Z -- guzzle -- guzzle
+</title>
+      <link>https://www.cve.org/CVERecord?id=CVE-2022-31043</link>
+      <description>Guzzle is an open source PHP HTTP client. In affected versions `Authorization` headers on requests are sensitive information. On making a request using the `https` scheme to a server which responds with a redirect to a URI with the `http` scheme, we should not forward the `Authorization` header on. This is much the same as to how we don't forward on the header if the host changes. Prior to this fix, `https` to `http` downgrades did not result in the `Authorization` header being removed, only changes to the host. Affected Guzzle 7 users should upgrade to Guzzle 7.4.4 as soon as possible. Affected users using any earlier series of Guzzle should upgrade to Guzzle 6.5.7 or 7.4.4. Users unable to upgrade may consider an alternative approach which would be to use their own redirect middleware. Alternately users may simply disable redirects all together if redirects are not expected or required.</description>
+      <guid isPermaLink="false">CVE-2022-31043|2024-08-03T07:03:40.241Z</guid>
+      <pubDate>Thu, 09 Jun 2022 00:00:00 +0000</pubDate>
+    </item>
+    <item>
+      <title>CVE-2022-31042|2024-08-03T07:03:40.287Z -- guzzle -- guzzle
+</title>
+      <link>https://www.cve.org/CVERecord?id=CVE-2022-31042</link>
+      <description>Guzzle is an open source PHP HTTP client. In affected versions the `Cookie` headers on requests are sensitive information. On making a request using the `https` scheme to a server which responds with a redirect to a URI with the `http` scheme, or on making a request to a server which responds with a redirect to a a URI to a different host, we should not forward the `Cookie` header on. Prior to this fix, only cookies that were managed by our cookie middleware would be safely removed, and any `Cookie` header manually added to the initial request would not be stripped. We now always strip it, and allow the cookie middleware to re-add any cookies that it deems should be there. Affected Guzzle 7 users should upgrade to Guzzle 7.4.4 as soon as possible. Affected users using any earlier series of Guzzle should upgrade to Guzzle 6.5.7 or 7.4.4. Users unable to upgrade may consider an alternative approach to use your own redirect middleware, rather than ours. If you do not require or expect redirects to be followed, one should simply disable redirects all together.</description>
+      <guid isPermaLink="false">CVE-2022-31042|2024-08-03T07:03:40.287Z</guid>
+      <pubDate>Thu, 09 Jun 2022 00:00:00 +0000</pubDate>
+    </item>
+    <item>
+      <title>CVE-2022-31091|2024-08-03T07:11:39.362Z -- guzzle -- guzzle
+</title>
+      <link>https://www.cve.org/CVERecord?id=CVE-2022-31091</link>
+      <description>Guzzle, an extensible PHP HTTP client. `Authorization` and `Cookie` headers on requests are sensitive information. In affected versions on making a request which responds with a redirect to a URI with a different port, if we choose to follow it, we should remove the `Authorization` and `Cookie` headers from the request, before containing. Previously, we would only consider a change in host or scheme. Affected Guzzle 7 users should upgrade to Guzzle 7.4.5 as soon as possible. Affected users using any earlier series of Guzzle should upgrade to Guzzle 6.5.8 or 7.4.5. Note that a partial fix was implemented in Guzzle 7.4.2, where a change in host would trigger removal of the curl-added Authorization header, however this earlier fix did not cover change in scheme or change in port. An alternative approach would be to use your own redirect middleware, rather than ours, if you are unable to upgrade. If you do not require or expect redirects to be followed, one should simply disable redirects all together.</description>
+      <guid isPermaLink="false">CVE-2022-31091|2024-08-03T07:11:39.362Z</guid>
+      <pubDate>Mon, 27 Jun 2022 00:00:00 +0000</pubDate>
+    </item>
+    <item>
+      <title>CVE-2022-31090|2024-08-03T07:11:39.360Z -- guzzle -- guzzle
+</title>
+      <link>https://www.cve.org/CVERecord?id=CVE-2022-31090</link>
+      <description>Guzzle, an extensible PHP HTTP client. `Authorization` headers on requests are sensitive information. In affected versions when using our Curl handler, it is possible to use the `CURLOPT_HTTPAUTH` option to specify an `Authorization` header. On making a request which responds with a redirect to a URI with a different origin (change in host, scheme or port), if we choose to follow it, we should remove the `CURLOPT_HTTPAUTH` option before continuing, stopping curl from appending the `Authorization` header to the new request. Affected Guzzle 7 users should upgrade to Guzzle 7.4.5 as soon as possible. Affected users using any earlier series of Guzzle should upgrade to Guzzle 6.5.8 or 7.4.5. Note that a partial fix was implemented in Guzzle 7.4.2, where a change in host would trigger removal of the curl-added Authorization header, however this earlier fix did not cover change in scheme or change in port. If you do not require or expect redirects to be followed, one should simply disable redirects all together. Alternatively, one can specify to use the Guzzle steam handler backend, rather than curl.</description>
+      <guid isPermaLink="false">CVE-2022-31090|2024-08-03T07:11:39.360Z</guid>
+      <pubDate>Mon, 27 Jun 2022 00:00:00 +0000</pubDate>
+    </item>
     <item>
       <title>CVE-2022-24775|2024-08-03T04:20:50.472Z -- guzzle -- psr7
 </title>

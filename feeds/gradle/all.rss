@@ -6,7 +6,7 @@
     <description>The latest CVEs for gradle -- all products</description>
     <docs>http://www.rssboard.org/rss-specification</docs>
     <generator>python-feedgen</generator>
-    <lastBuildDate>Sat, 03 Aug 2024 07:20:26 +0000</lastBuildDate>
+    <lastBuildDate>Sat, 03 Aug 2024 08:24:15 +0000</lastBuildDate>
     <ttl>60</ttl>
     <item>
       <title>CVE-2022-23630|2024-08-03T03:51:45.670Z -- gradle -- gradle
@@ -15,6 +15,14 @@
       <description>Gradle is a build tool with a focus on build automation and support for multi-language development. In some cases, Gradle may skip that verification and accept a dependency that would otherwise fail the build as an untrusted external artifact. This occurs when dependency verification is disabled on one or more configurations and those configurations have common dependencies with other configurations that have dependency verification enabled. If the configuration that has dependency verification disabled is resolved first, Gradle does not verify the common dependencies for the configuration that has dependency verification enabled. Gradle 7.4 fixes that issue by validating artifacts at least once if they are present in a resolved configuration that has dependency verification active. For users who cannot update either do not use `ResolutionStrategy.disableDependencyVerification()` and do not use plugins that use that method to disable dependency verification for a single configuration or make sure resolution of configuration that disable that feature do not happen in builds that resolve configuration where the feature is enabled.</description>
       <guid isPermaLink="false">CVE-2022-23630|2024-08-03T03:51:45.670Z</guid>
       <pubDate>Thu, 10 Feb 2022 20:10:09 +0000</pubDate>
+    </item>
+    <item>
+      <title>CVE-2022-31156|2024-08-03T07:11:39.622Z -- gradle -- gradle
+</title>
+      <link>https://www.cve.org/CVERecord?id=CVE-2022-31156</link>
+      <description>Gradle is a build tool. Dependency verification is a security feature in Gradle Build Tool that was introduced to allow validation of external dependencies either through their checksum or cryptographic signatures. In versions 6.2 through 7.4.2, there are some cases in which Gradle may skip that verification and accept a dependency that would otherwise fail the build as an untrusted external artifact. This can occur in two ways. When signature verification is disabled but the verification metadata contains entries for dependencies that only have a `gpg` element but no `checksum` element. When signature verification is enabled, the verification metadata contains entries for dependencies with a `gpg` element but there is no signature file on the remote repository. In both cases, the verification will accept the dependency, skipping signature verification and not complaining that the dependency has no checksum entry. For builds that are vulnerable, there are two risks. Gradle could download a malicious binary from a repository outside your organization due to name squatting. For those still using HTTP only and not HTTPS for downloading dependencies, the build could download a malicious library instead of the expected one. Gradle 7.5 patches this issue by making sure to run checksum verification if signature verification cannot be completed, whatever the reason. Two workarounds are available: Remove all `gpg` elements from dependency verification metadata if you disable signature validation and/or avoid adding `gpg` entries for dependencies that do not have signature files.</description>
+      <guid isPermaLink="false">CVE-2022-31156|2024-08-03T07:11:39.622Z</guid>
+      <pubDate>Thu, 14 Jul 2022 20:05:11 +0000</pubDate>
     </item>
   </channel>
 </rss>

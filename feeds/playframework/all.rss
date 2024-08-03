@@ -1,0 +1,28 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<rss xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/" version="2.0">
+  <channel>
+    <title>CVE Feed for playframework -- all</title>
+    <link>https://raw.githubusercontent.com/deepseas/cvelistV5monitor/main/feeds/playframework/all.rss</link>
+    <description>The latest CVEs for playframework -- all products</description>
+    <docs>http://www.rssboard.org/rss-specification</docs>
+    <generator>python-feedgen</generator>
+    <lastBuildDate>Sat, 03 Aug 2024 08:24:16 +0000</lastBuildDate>
+    <ttl>60</ttl>
+    <item>
+      <title>CVE-2022-31023|2024-08-03T07:03:40.340Z -- playframework -- playframework
+</title>
+      <link>https://www.cve.org/CVERecord?id=CVE-2022-31023</link>
+      <description>Play Framework is a web framework for Java and Scala. Verions prior to 2.8.16 are vulnerable to generation of error messages containing sensitive information. Play Framework, when run in dev mode, shows verbose errors for easy debugging, including an exception stack trace. Play does this by configuring its `DefaultHttpErrorHandler` to do so based on the application mode. In its Scala API Play also provides a static object `DefaultHttpErrorHandler` that is configured to always show verbose errors. This is used as a default value in some Play APIs, so it is possible to inadvertently use this version in production. It is also possible to improperly configure the `DefaultHttpErrorHandler` object instance as the injected error handler. Both of these situations could result in verbose errors displaying to users in a production application, which could expose sensitive information from the application. In particular, the constructor for `CORSFilter` and `apply` method for `CORSActionBuilder` use the static object `DefaultHttpErrorHandler` as a default value. This is patched in Play Framework 2.8.16. The `DefaultHttpErrorHandler` object has been changed to use the prod-mode behavior, and `DevHttpErrorHandler` has been introduced for the dev-mode behavior. A workaround is available. When constructing a `CORSFilter` or `CORSActionBuilder`, ensure that a properly-configured error handler is passed. Generally this should be done by using the `HttpErrorHandler` instance provided through dependency injection or through Play's `BuiltInComponents`. Ensure that the application is not using the `DefaultHttpErrorHandler` static object in any code that may be run in production.</description>
+      <guid isPermaLink="false">CVE-2022-31023|2024-08-03T07:03:40.340Z</guid>
+      <pubDate>Thu, 02 Jun 2022 18:05:11 +0000</pubDate>
+    </item>
+    <item>
+      <title>CVE-2022-31018|2024-08-03T07:03:40.288Z -- playframework -- playframework
+</title>
+      <link>https://www.cve.org/CVERecord?id=CVE-2022-31018</link>
+      <description>Play Framework is a web framework for Java and Scala. A denial of service vulnerability has been discovered in verions 2.8.3 through 2.8.15 of Play's forms library, in both the Scala and Java APIs. This can occur when using either the `Form#bindFromRequest` method on a JSON request body or the `Form#bind` method directly on a JSON value. If the JSON data being bound to the form contains a deeply-nested JSON object or array, the form binding implementation may consume all available heap space and cause an `OutOfMemoryError`. If executing on the default dispatcher and `akka.jvm-exit-on-fatal-error` is enabled—as it is by default—then this can crash the application process. `Form.bindFromRequest` is vulnerable when using any body parser that produces a type of `AnyContent` or `JsValue` in Scala, or one that can produce a `JsonNode` in Java. This includes Play's default body parser. This vulnerability been patched in version 2.8.16. There is now a global limit on the depth of a JSON object that can be parsed, which can be configured by the user if necessary. As a workaround, applications that do not need to parse a request body of type `application/json` can switch from the default body parser to another body parser that supports only the specific type of body they expect.</description>
+      <guid isPermaLink="false">CVE-2022-31018|2024-08-03T07:03:40.288Z</guid>
+      <pubDate>Thu, 02 Jun 2022 16:45:13 +0000</pubDate>
+    </item>
+  </channel>
+</rss>

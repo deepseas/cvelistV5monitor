@@ -6,15 +6,39 @@
     <description>The latest CVEs for hyperledger -- all products</description>
     <docs>http://www.rssboard.org/rss-specification</docs>
     <generator>python-feedgen</generator>
-    <lastBuildDate>Fri, 02 Aug 2024 23:22:18 +0000</lastBuildDate>
+    <lastBuildDate>Sat, 03 Aug 2024 08:24:07 +0000</lastBuildDate>
     <ttl>60</ttl>
     <item>
-      <title>CVE-2023-46132|2024-08-02T20:37:39.905Z -- hyperledger -- fabric
+      <title>CVE-2022-31020|2024-08-03T07:03:40.339Z -- hyperledger -- indy-node
 </title>
-      <link>https://www.cve.org/CVERecord?id=CVE-2023-46132</link>
-      <description>Hyperledger Fabric is an open source permissioned distributed ledger framework. Combining two molecules to one another, called "cross-linking" results in a molecule with a chemical formula that is composed of all atoms of the original two molecules. In Fabric, one can take a block of transactions and cross-link the transactions in a way that alters the way the peers parse the transactions. If a first peer receives a block B and a second peer receives a block identical to B but with the transactions being cross-linked, the second peer will parse transactions in a different way and thus its world state will deviate from the first peer. Orderers or peers cannot detect that a block has its transactions cross-linked, because there is a vulnerability in the way Fabric hashes the transactions of blocks. It simply and naively concatenates them, which is insecure and lets an adversary craft a "cross-linked block" (block with cross-linked transactions) which alters the way peers process transactions. For example, it is possible to select a transaction and manipulate a peer to completely avoid processing it, without changing the computed hash of the block. Additional validations have been added in v2.2.14 and v2.5.5 to detect potential cross-linking issues before processing blocks. Users are advised to upgrade. There are no known workarounds for this vulnerability.</description>
-      <guid isPermaLink="false">CVE-2023-46132|2024-08-02T20:37:39.905Z</guid>
-      <pubDate>Tue, 14 Nov 2023 20:23:15 +0000</pubDate>
+      <link>https://www.cve.org/CVERecord?id=CVE-2022-31020</link>
+      <description>Indy Node is the server portion of a distributed ledger purpose-built for decentralized identity. In versions 1.12.4 and prior, the `pool-upgrade` request handler in Indy-Node allows an improperly authenticated attacker to remotely execute code on nodes within the network. The `pool-upgrade` request handler in Indy-Node 1.12.5 has been updated to properly authenticate pool-upgrade transactions before any processing is performed by the request handler. The transactions are further sanitized to prevent remote code execution. As a workaround, endorsers should not create DIDs for untrusted users. A vulnerable ledger should configure `auth_rules` to prevent new DIDs from being written to the ledger until the network can be upgraded.</description>
+      <guid isPermaLink="false">CVE-2022-31020|2024-08-03T07:03:40.339Z</guid>
+      <pubDate>Tue, 06 Sep 2022 16:30:19 +0000</pubDate>
+    </item>
+    <item>
+      <title>CVE-2022-31006|2024-08-03T07:03:40.302Z -- hyperledger -- indy-node
+</title>
+      <link>https://www.cve.org/CVERecord?id=CVE-2022-31006</link>
+      <description>indy-node is the server portion of Hyperledger Indy, a distributed ledger purpose-built for decentralized identity. In vulnerable versions of indy-node, an attacker can max out the number of client connections allowed by the ledger, leaving the ledger unable to be used for its intended purpose. However, the ledger content will not be impacted and the ledger will resume functioning after the attack. This attack exploits the trade-off between resilience and availability. Any protection against abusive client connections will also prevent the network being accessed by certain legitimate users. As a result, validator nodes must tune their firewall rules to ensure the right trade-off for their network's expected users. The guidance to network operators for the use of firewall rules in the deployment of Indy networks has been modified to better protect against denial of service attacks by increasing the cost and complexity in mounting such attacks. The mitigation for this vulnerability is not in the Hyperledger Indy code per se, but rather in the individual deployments of Indy. The mitigations should be applied to all deployments of Indy, and are not related to a particular release.</description>
+      <guid isPermaLink="false">CVE-2022-31006|2024-08-03T07:03:40.302Z</guid>
+      <pubDate>Fri, 09 Sep 2022 19:10:10 +0000</pubDate>
+    </item>
+    <item>
+      <title>CVE-2022-31121|2024-08-03T07:11:39.115Z -- hyperledger -- fabric
+</title>
+      <link>https://www.cve.org/CVERecord?id=CVE-2022-31121</link>
+      <description>Hyperledger Fabric is a permissioned distributed ledger framework. In affected versions if a consensus client sends a malformed consensus request to an orderer it may crash the orderer node. A fix has been added in commit 0f1835949 which checks for missing consensus messages and returns an error to the consensus client should the message be missing. Users are advised to upgrade to versions 2.2.7 or v2.4.5. There are no known workarounds for this issue.</description>
+      <guid isPermaLink="false">CVE-2022-31121|2024-08-03T07:11:39.115Z</guid>
+      <pubDate>Thu, 07 Jul 2022 18:00:14 +0000</pubDate>
+    </item>
+    <item>
+      <title>CVE-2022-31021|2024-08-03T07:03:40.258Z -- hyperledger -- ursa
+</title>
+      <link>https://www.cve.org/CVERecord?id=CVE-2022-31021</link>
+      <description>Ursa is a cryptographic library for use with blockchains. A weakness in the Hyperledger AnonCreds specification that is not mitigated in the Ursa and AnonCreds implementations is that the Issuer does not publish a key correctness proof demonstrating that a generated private key is sufficient to meet the unlinkability guarantees of AnonCreds. The Ursa and AnonCreds CL-Signatures implementations always generate a sufficient private key. A malicious issuer could in theory create a custom CL Signature implementation (derived from the Ursa or AnonCreds CL-Signatures implementations) that uses weakened private keys such that presentations from holders could be shared by verifiers to the issuer who could determine the holder to which the credential was issued. This vulnerability could impact holders of AnonCreds credentials implemented using the CL-signature scheme in the Ursa and AnonCreds implementations of CL Signatures. The ursa project has has moved to end-of-life status and no fix is expected.</description>
+      <guid isPermaLink="false">CVE-2022-31021|2024-08-03T07:03:40.258Z</guid>
+      <pubDate>Tue, 16 Jan 2024 21:35:31 +0000</pubDate>
     </item>
   </channel>
 </rss>

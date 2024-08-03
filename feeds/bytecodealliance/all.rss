@@ -6,8 +6,16 @@
     <description>The latest CVEs for bytecodealliance -- all products</description>
     <docs>http://www.rssboard.org/rss-specification</docs>
     <generator>python-feedgen</generator>
-    <lastBuildDate>Sat, 03 Aug 2024 07:20:11 +0000</lastBuildDate>
+    <lastBuildDate>Sat, 03 Aug 2024 08:24:00 +0000</lastBuildDate>
     <ttl>60</ttl>
+    <item>
+      <title>CVE-2022-31146|2024-08-03T07:11:39.649Z -- bytecodealliance -- wasmtime
+</title>
+      <link>https://www.cve.org/CVERecord?id=CVE-2022-31146</link>
+      <description>Wasmtime is a standalone runtime for WebAssembly. There is a bug in the Wasmtime's code generator, Cranelift, where functions using reference types may be incorrectly missing metadata required for runtime garbage collection. This means that if a GC happens at runtime then the GC pass will mistakenly think these functions do not have live references to GC'd values, reclaiming them and deallocating them. The function will then subsequently continue to use the values assuming they had not been GC'd, leading later to a use-after-free. This bug was introduced in the migration to the `regalloc2` register allocator that occurred in the Wasmtime 0.37.0 release on 2022-05-20. This bug has been patched and users should upgrade to Wasmtime version 0.38.2. Mitigations for this issue can be achieved by disabling the reference types proposal by passing `false` to `wasmtime::Config::wasm_reference_types` or downgrading to Wasmtime 0.36.0 or prior.</description>
+      <guid isPermaLink="false">CVE-2022-31146|2024-08-03T07:11:39.649Z</guid>
+      <pubDate>Wed, 20 Jul 2022 22:30:16 +0000</pubDate>
+    </item>
     <item>
       <title>CVE-2022-23636|2024-08-03T03:51:46.018Z -- bytecodealliance -- wasmtime
 </title>
@@ -15,6 +23,22 @@
       <description>Wasmtime is an open source runtime for WebAssembly &amp; WASI. Prior to versions 0.34.1 and 0.33.1, there exists a bug in the pooling instance allocator in Wasmtime's runtime where a failure to instantiate an instance for a module that defines an `externref` global will result in an invalid drop of a `VMExternRef` via an uninitialized pointer. A number of conditions listed in the GitHub Security Advisory must be true in order for an instance to be vulnerable to this issue. Maintainers believe that the effective impact of this bug is relatively small because the usage of `externref` is still uncommon and without a resource limiter configured on the `Store`, which is not the default configuration, it is only possible to trigger the bug from an error returned by `mprotect` or `VirtualAlloc`. Note that on Linux with the `uffd` feature enabled, it is only possible to trigger the bug from a resource limiter as the call to `mprotect` is skipped. The bug has been fixed in 0.34.1 and 0.33.1 and users are encouraged to upgrade as soon as possible. If it is not possible to upgrade to version 0.34.1 or 0.33.1 of the `wasmtime` crate, it is recommend that support for the reference types proposal be disabled by passing `false` to `Config::wasm_reference_types`. Doing so will prevent modules that use `externref` from being loaded entirely.</description>
       <guid isPermaLink="false">CVE-2022-23636|2024-08-03T03:51:46.018Z</guid>
       <pubDate>Wed, 16 Feb 2022 22:00:10 +0000</pubDate>
+    </item>
+    <item>
+      <title>CVE-2022-31169|2024-08-03T07:11:39.608Z -- bytecodealliance -- wasmtime
+</title>
+      <link>https://www.cve.org/CVERecord?id=CVE-2022-31169</link>
+      <description>Wasmtime is a standalone runtime for WebAssembly. There is a bug in Wasmtime's code generator, Cranelift, for AArch64 targets where constant divisors can result in incorrect division results at runtime. This affects Wasmtime prior to version 0.38.2 and Cranelift prior to 0.85.2. This issue only affects the AArch64 platform. Other platforms are not affected. The translation rules for constants did not take into account whether sign or zero-extension should happen which resulted in an incorrect value being placed into a register when a division was encountered. The impact of this bug is that programs executing within the WebAssembly sandbox would not behave according to the WebAssembly specification. This means that it is hypothetically possible for execution within the sandbox to go awry and WebAssembly programs could produce unexpected results. This should not impact hosts executing WebAssembly but does affect the correctness of guest programs. This bug has been patched in Wasmtime version 0.38.2 and cranelift-codegen 0.85.2. There are no known workarounds.</description>
+      <guid isPermaLink="false">CVE-2022-31169|2024-08-03T07:11:39.608Z</guid>
+      <pubDate>Thu, 21 Jul 2022 13:50:11 +0000</pubDate>
+    </item>
+    <item>
+      <title>CVE-2022-31104|2024-08-03T07:11:39.222Z -- bytecodealliance -- wasmtime
+</title>
+      <link>https://www.cve.org/CVERecord?id=CVE-2022-31104</link>
+      <description>Wasmtime is a standalone runtime for WebAssembly. In affected versions wasmtime's implementation of the SIMD proposal for WebAssembly on x86_64 contained two distinct bugs in the instruction lowerings implemented in Cranelift. The aarch64 implementation of the simd proposal is not affected. The bugs were presented in the `i8x16.swizzle` and `select` WebAssembly instructions. The `select` instruction is only affected when the inputs are of `v128` type. The correspondingly affected Cranelift instructions were `swizzle` and `select`. The `swizzle` instruction lowering in Cranelift erroneously overwrote the mask input register which could corrupt a constant value, for example. This means that future uses of the same constant may see a different value than the constant itself. The `select` instruction lowering in Cranelift wasn't correctly implemented for vector types that are 128-bits wide. When the condition was 0 the wrong instruction was used to move the correct input to the output of the instruction meaning that only the low 32 bits were moved and the upper 96 bits of the result were left as whatever the register previously contained (instead of the input being moved from). The `select` instruction worked correctly if the condition was nonzero, however. This bug in Wasmtime's implementation of these instructions on x86_64 represents an incorrect implementation of the specified semantics of these instructions according to the WebAssembly specification. The impact of this is benign for hosts running WebAssembly but represents possible vulnerabilities within the execution of a guest program. For example a WebAssembly program could take unintended branches or materialize incorrect values internally which runs the risk of exposing the program itself to other related vulnerabilities which can occur from miscompilations. We have released Wasmtime 0.38.1 and cranelift-codegen (and other associated cranelift crates) 0.85.1 which contain the corrected implementations of these two instructions in Cranelift. If upgrading is not an option for you at this time, you can avoid the vulnerability by disabling the Wasm simd proposal. Additionally the bug is only present on x86_64 hosts. Other aarch64 hosts are not affected. Note that s390x hosts don't yet implement the simd proposal and are not affected.</description>
+      <guid isPermaLink="false">CVE-2022-31104|2024-08-03T07:11:39.222Z</guid>
+      <pubDate>Mon, 27 Jun 2022 23:20:13 +0000</pubDate>
     </item>
     <item>
       <title>CVE-2022-24791|2024-08-03T04:20:50.505Z -- bytecodealliance -- wasmtime
@@ -25,17 +49,17 @@
       <pubDate>Thu, 31 Mar 2022 23:00:15 +0000</pubDate>
     </item>
     <item>
-      <title>CVE-2024-30266|2024-08-02T01:32:07.072Z -- bytecodealliance -- wasmtime</title>
-      <link>https://www.cve.org/CVERecord?id=CVE-2024-30266</link>
-      <description>wasmtime is a runtime for WebAssembly. The 19.0.0 release of Wasmtime contains a regression introduced during its development which can lead to a guest WebAssembly module causing a panic in the host runtime. A valid WebAssembly module, when executed at runtime, may cause this panic. This vulnerability has been patched in version 19.0.1.</description>
-      <guid isPermaLink="false">CVE-2024-30266|2024-08-02T01:32:07.072Z</guid>
-      <pubDate>Thu, 04 Apr 2024 15:42:00 +0000</pubDate>
-    </item>
-    <item>
       <title>CVE-2024-30266|2024-06-04T17:38:20.190Z -- bytecodealliance -- wasmtime</title>
       <link>https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2024-30266</link>
       <description>wasmtime is a runtime for WebAssembly. The 19.0.0 release of Wasmtime contains a regression introduced during its development which can lead to a guest WebAssembly module causing a panic in the host runtime. A valid WebAssembly module, when executed at runtime, may cause this panic. This vulnerability has been patched in version 19.0.1.</description>
       <guid isPermaLink="false">CVE-2024-30266|2024-06-04T17:38:20.190Z</guid>
+      <pubDate>Thu, 04 Apr 2024 15:42:00 +0000</pubDate>
+    </item>
+    <item>
+      <title>CVE-2024-30266|2024-08-02T01:32:07.072Z -- bytecodealliance -- wasmtime</title>
+      <link>https://www.cve.org/CVERecord?id=CVE-2024-30266</link>
+      <description>wasmtime is a runtime for WebAssembly. The 19.0.0 release of Wasmtime contains a regression introduced during its development which can lead to a guest WebAssembly module causing a panic in the host runtime. A valid WebAssembly module, when executed at runtime, may cause this panic. This vulnerability has been patched in version 19.0.1.</description>
+      <guid isPermaLink="false">CVE-2024-30266|2024-08-02T01:32:07.072Z</guid>
       <pubDate>Thu, 04 Apr 2024 15:42:00 +0000</pubDate>
     </item>
   </channel>

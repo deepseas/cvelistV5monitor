@@ -6,8 +6,16 @@
     <description>The latest CVEs for typelevel -- all products</description>
     <docs>http://www.rssboard.org/rss-specification</docs>
     <generator>python-feedgen</generator>
-    <lastBuildDate>Sat, 03 Aug 2024 07:20:27 +0000</lastBuildDate>
+    <lastBuildDate>Sat, 03 Aug 2024 08:24:18 +0000</lastBuildDate>
     <ttl>60</ttl>
+    <item>
+      <title>CVE-2022-31183|2024-08-03T07:11:39.653Z -- typelevel -- fs2
+</title>
+      <link>https://www.cve.org/CVERecord?id=CVE-2022-31183</link>
+      <description>fs2 is a compositional, streaming I/O library for Scala. When establishing a server-mode `TLSSocket` using `fs2-io` on Node.js, the parameter `requestCert = true` is ignored, peer certificate verification is skipped, and the connection proceeds. The vulnerability is limited to: 1. `fs2-io` running on Node.js. The JVM TLS implementation is completely independent. 2. `TLSSocket`s in server-mode. Client-mode `TLSSocket`s are implemented via a different API. 3. mTLS as enabled via `requestCert = true` in `TLSParameters`. The default setting is `false` for server-mode `TLSSocket`s. It was introduced with the initial Node.js implementation of fs2-io in 3.1.0. A patch is released in v3.2.11. The requestCert = true parameter is respected and the peer certificate is verified. If verification fails, a SSLException is raised. If using an unpatched version on Node.js, do not use a server-mode TLSSocket with requestCert = true to establish a mTLS connection.</description>
+      <guid isPermaLink="false">CVE-2022-31183|2024-08-03T07:11:39.653Z</guid>
+      <pubDate>Mon, 01 Aug 2022 19:50:11 +0000</pubDate>
+    </item>
     <item>
       <title>CVE-2022-21653|2024-08-03T02:46:39.225Z -- typelevel -- jawn
 </title>

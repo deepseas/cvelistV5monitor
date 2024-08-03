@@ -6,21 +6,36 @@
     <description>The latest CVEs for open-formulieren -- all products</description>
     <docs>http://www.rssboard.org/rss-specification</docs>
     <generator>python-feedgen</generator>
-    <lastBuildDate>Fri, 05 Jul 2024 18:24:06 +0000</lastBuildDate>
+    <lastBuildDate>Sat, 03 Aug 2024 08:24:10 +0000</lastBuildDate>
     <ttl>60</ttl>
     <item>
-      <title>CVE-2024-24771|2024-07-05T17:21:41.057Z -- open-formulieren -- open-forms
+      <title>CVE-2022-31041|2024-08-03T07:03:40.250Z -- open-formulieren -- open-forms
 </title>
-      <link>https://www.cve.org/CVERecord?id=CVE-2024-24771</link>
-      <description>Open Forms allows users create and publish smart forms. Versions prior to 2.2.9, 2.3.7, 2.4.5, and 2.5.2 contain a non-exploitable multi-factor authentication weakness. Superusers who have their credentials (username + password) compromised could potentially have the second-factor authentication bypassed if an attacker somehow managed to authenticate to Open Forms. The maintainers of Open Forms do not believe it is or has been possible to perform this login. However, if this were possible, the victim's account may be abused to view (potentially sensitive) submission data or have been used to impersonate other staff accounts to view and/or modify data. Three mitigating factors to help prevent exploitation include: the usual login page (at `/admin/login/`) does not fully log in the user until the second factor was succesfully provided; the additional non-MFA protected login page at `/api/v2/api-authlogin/` was misconfigured and could not be used to log in; and there are no additional ways to log in. This also requires credentials of a superuser to be compromised to be exploitable. Versions 2.2.9, 2.3.7, 2.4.5, and 2.5.2 contain the following patches to address these weaknesses: Move and only enable the API auth endpoints (`/api/v2/api-auth/login/`) with `settings.DEBUG = True`. `settings.DEBUG = True` is insecure and should never be applied in production settings. Additionally, apply a custom permission check to the hijack flow to only allow second-factor-verified superusers to perform user hijacking.</description>
-      <guid isPermaLink="false">CVE-2024-24771|2024-07-05T17:21:41.057Z</guid>
-      <pubDate>Wed, 07 Feb 2024 14:51:10 +0000</pubDate>
+      <link>https://www.cve.org/CVERecord?id=CVE-2022-31041</link>
+      <description>Open Forms is an application for creating and publishing smart forms. Open Forms supports file uploads as one of the form field types. These fields can be configured to allow only certain file extensions to be uploaded by end users (e.g. only PDF / Excel / ...). The input validation of uploaded files is insufficient in versions prior to 1.0.9 and 1.1.1. Users could alter or strip file extensions to bypass this validation. This results in files being uploaded to the server that are of a different file type than indicated by the file name extension. These files may be downloaded (manually or automatically) by staff and/or other applications for further processing. Malicious files can therefore find their way into internal/trusted networks. Versions 1.0.9 and 1.1.1 contain patches for this issue. As a workaround, an API gateway or intrusion detection solution in front of open-forms may be able to scan for and block malicious content before it reaches the Open Forms application.</description>
+      <guid isPermaLink="false">CVE-2022-31041|2024-08-03T07:03:40.250Z</guid>
+      <pubDate>Mon, 13 Jun 2022 12:35:11 +0000</pubDate>
+    </item>
+    <item>
+      <title>CVE-2022-31040|2024-08-03T07:03:40.295Z -- open-formulieren -- open-forms
+</title>
+      <link>https://www.cve.org/CVERecord?id=CVE-2022-31040</link>
+      <description>Open Forms is an application for creating and publishing smart forms. Prior to versions 1.0.9 and 1.1.1, the cookie consent page in Open Forms contains an open redirect by injecting a `referer` querystring parameter and failing to validate the value. A malicious actor is able to redirect users to a website under their control, opening them up for phishing attacks. The redirect is initiated by the open forms backend which is a legimate page, making it less obvious to end users they are being redirected to a malicious website. Versions 1.0.9 and 1.1.1 contain patches for this issue. There are no known workarounds avaialble.</description>
+      <guid isPermaLink="false">CVE-2022-31040|2024-08-03T07:03:40.295Z</guid>
+      <pubDate>Mon, 13 Jun 2022 12:10:10 +0000</pubDate>
     </item>
     <item>
       <title>CVE-2024-24771|2024-02-07T14:51:10.303Z -- open-formulieren -- open-forms</title>
       <link>https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2024-24771</link>
       <description>Open Forms allows users create and publish smart forms. Versions prior to 2.2.9, 2.3.7, 2.4.5, and 2.5.2 contain a non-exploitable multi-factor authentication weakness. Superusers who have their credentials (username + password) compromised could potentially have the second-factor authentication bypassed if an attacker somehow managed to authenticate to Open Forms. The maintainers of Open Forms do not believe it is or has been possible to perform this login. However, if this were possible, the victim's account may be abused to view (potentially sensitive) submission data or have been used to impersonate other staff accounts to view and/or modify data. Three mitigating factors to help prevent exploitation include: the usual login page (at `/admin/login/`) does not fully log in the user until the second factor was succesfully provided; the additional non-MFA protected login page at `/api/v2/api-authlogin/` was misconfigured and could not be used to log in; and there are no additional ways to log in. This also requires credentials of a superuser to be compromised to be exploitable. Versions 2.2.9, 2.3.7, 2.4.5, and 2.5.2 contain the following patches to address these weaknesses: Move and only enable the API auth endpoints (`/api/v2/api-auth/login/`) with `settings.DEBUG = True`. `settings.DEBUG = True` is insecure and should never be applied in production settings. Additionally, apply a custom permission check to the hijack flow to only allow second-factor-verified superusers to perform user hijacking.</description>
       <guid isPermaLink="false">CVE-2024-24771|2024-02-07T14:51:10.303Z</guid>
+      <pubDate>Wed, 07 Feb 2024 14:51:10 +0000</pubDate>
+    </item>
+    <item>
+      <title>CVE-2024-24771|2024-07-05T17:21:41.057Z -- open-formulieren -- open-forms</title>
+      <link>https://www.cve.org/CVERecord?id=CVE-2024-24771</link>
+      <description>Open Forms allows users create and publish smart forms. Versions prior to 2.2.9, 2.3.7, 2.4.5, and 2.5.2 contain a non-exploitable multi-factor authentication weakness. Superusers who have their credentials (username + password) compromised could potentially have the second-factor authentication bypassed if an attacker somehow managed to authenticate to Open Forms. The maintainers of Open Forms do not believe it is or has been possible to perform this login. However, if this were possible, the victim's account may be abused to view (potentially sensitive) submission data or have been used to impersonate other staff accounts to view and/or modify data. Three mitigating factors to help prevent exploitation include: the usual login page (at `/admin/login/`) does not fully log in the user until the second factor was succesfully provided; the additional non-MFA protected login page at `/api/v2/api-authlogin/` was misconfigured and could not be used to log in; and there are no additional ways to log in. This also requires credentials of a superuser to be compromised to be exploitable. Versions 2.2.9, 2.3.7, 2.4.5, and 2.5.2 contain the following patches to address these weaknesses: Move and only enable the API auth endpoints (`/api/v2/api-auth/login/`) with `settings.DEBUG = True`. `settings.DEBUG = True` is insecure and should never be applied in production settings. Additionally, apply a custom permission check to the hijack flow to only allow second-factor-verified superusers to perform user hijacking.</description>
+      <guid isPermaLink="false">CVE-2024-24771|2024-07-05T17:21:41.057Z</guid>
       <pubDate>Wed, 07 Feb 2024 14:51:10 +0000</pubDate>
     </item>
   </channel>
