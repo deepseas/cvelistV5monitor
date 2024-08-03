@@ -6,7 +6,7 @@
     <description>The latest CVEs for Apache Software Foundation -- Apache CloudStack</description>
     <docs>http://www.rssboard.org/rss-specification</docs>
     <generator>python-feedgen</generator>
-    <lastBuildDate>Sat, 03 Aug 2024 15:23:07 +0000</lastBuildDate>
+    <lastBuildDate>Sat, 03 Aug 2024 16:24:38 +0000</lastBuildDate>
     <ttl>60</ttl>
     <item>
       <title>CVE-2022-35741|2024-08-03T09:44:21.691Z -- apache%20software%20foundation -- apache%20cloudstack
@@ -25,21 +25,110 @@
       <pubDate>Tue, 15 Mar 2022 15:40:11 +0000</pubDate>
     </item>
     <item>
-      <title>CVE-2024-39864|2024-08-02T04:33:10.752Z -- apache%20software%20foundation -- apache%20cloudstack</title>
-      <link>https://www.cve.org/CVERecord?id=CVE-2024-39864</link>
-      <description>The CloudStack integration API service allows running its unauthenticated API server (usually on port 8096 when configured and enabled via integration.api.port global setting) for internal portal integrations and for testing purposes. By default, the integration API service port is disabled and is considered disabled when integration.api.port is set to 0 or negative. Due to an improper initialisation logic, the integration API service would listen on a random port when its port value is set to 0 (default value). An attacker that can access the CloudStack management network could scan and find the randomised integration API service port and exploit it to perform unauthorised administrative actions and perform remote code execution on CloudStack managed hosts and result in complete compromise of the confidentiality, integrity, and availability of CloudStack managed infrastructure.
+      <title>CVE-2024-29008|2024-08-02T01:03:51.645Z -- apache%20software%20foundation -- apache%20cloudstack</title>
+      <link>https://www.cve.org/CVERecord?id=CVE-2024-29008</link>
+      <description>A problem has been identified in the CloudStack additional VM configuration (extraconfig) feature which can be misused by anyone who has privilege to deploy a VM instance or configure settings of an already deployed VM instance, to configure additional VM configuration even when the feature is not explicitly enabled by the administrator. In a KVM based CloudStack environment, an attacker can exploit this issue to attach host devices such as storage disks, and PCI and USB devices such as network adapters and GPUs, in a regular VM instance that can be further exploited to gain access to the underlying network and storage infrastructure resources, and access any VM instance disks on the local storage.
 
-Users are recommended to restrict the network access on the CloudStack management server hosts to only essential ports. Users are recommended to upgrade to version 4.18.2.1, 4.19.0.2 or later, which addresses this issue.</description>
-      <guid isPermaLink="false">CVE-2024-39864|2024-08-02T04:33:10.752Z</guid>
-      <pubDate>Fri, 05 Jul 2024 13:40:37 +0000</pubDate>
+Users are advised to upgrade to version 4.18.1.1 or 4.19.0.1, which fixes this issue.</description>
+      <guid isPermaLink="false">CVE-2024-29008|2024-08-02T01:03:51.645Z</guid>
+      <pubDate>Thu, 04 Apr 2024 07:51:05 +0000</pubDate>
     </item>
     <item>
-      <title>CVE-2024-41107|2024-08-02T04:46:52.354Z -- apache%20software%20foundation -- apache%20cloudstack</title>
+      <title>CVE-2024-29007|2024-08-02T01:03:51.463Z -- apache%20software%20foundation -- apache%20cloudstack</title>
+      <link>https://www.cve.org/CVERecord?id=CVE-2024-29007</link>
+      <description>The CloudStack management server and secondary storage VM could be tricked into making requests to restricted or random resources by means of following 301 HTTP redirects presented by external servers when downloading templates or ISOs. Users are recommended to upgrade to version 4.18.1.1 or 4.19.0.1, which fixes this issue.</description>
+      <guid isPermaLink="false">CVE-2024-29007|2024-08-02T01:03:51.463Z</guid>
+      <pubDate>Thu, 04 Apr 2024 07:49:57 +0000</pubDate>
+    </item>
+    <item>
+      <title>CVE-2024-29006|2024-08-02T01:03:51.677Z -- apache%20software%20foundation -- apache%20cloudstack</title>
+      <link>https://www.cve.org/CVERecord?id=CVE-2024-29006</link>
+      <description>By default the CloudStack management server honours the x-forwarded-for HTTP header and logs it as the source IP of an API request. This could lead to authentication bypass and other operational problems should an attacker decide to spoof their IP address this way. Users are recommended to upgrade to CloudStack version 4.18.1.1 or 4.19.0.1, which fixes this issue.</description>
+      <guid isPermaLink="false">CVE-2024-29006|2024-08-02T01:03:51.677Z</guid>
+      <pubDate>Thu, 04 Apr 2024 07:48:54 +0000</pubDate>
+    </item>
+    <item>
+      <title>CVE-2024-41107|2024-07-19T10:19:53.995Z -- apache%20software%20foundation -- apache%20cloudstack</title>
       <link>https://www.cve.org/CVERecord?id=CVE-2024-41107</link>
       <description>The CloudStack SAML authentication (disabled by default) does not enforce signature check. In CloudStack environments where SAML authentication is enabled, an attacker that initiates CloudStack SAML single sign-on authentication can bypass SAML authentication by submitting a spoofed SAML response with no signature and known or guessed username and other user details of a SAML-enabled CloudStack user-account. In such environments, this can result in a complete compromise of the resources owned and/or accessible by a SAML enabled user-account.
 
 Affected users are recommended to disable the SAML authentication plugin by setting the "saml2.enabled" global setting to "false", or upgrade to version 4.18.2.2, 4.19.1.0 or later, which addresses this issue.</description>
-      <guid isPermaLink="false">CVE-2024-41107|2024-08-02T04:46:52.354Z</guid>
+      <guid isPermaLink="false">CVE-2024-41107|2024-07-19T10:19:53.995Z</guid>
+      <pubDate>Fri, 19 Jul 2024 10:19:53 +0000</pubDate>
+    </item>
+    <item>
+      <title>CVE-2024-39864|2024-07-08T13:44:39.748Z -- apache%20software%20foundation -- apache%20cloudstack</title>
+      <link>https://www.cve.org/CVERecord?id=CVE-2024-39864</link>
+      <description>The CloudStack integration API service allows running its unauthenticated API server (usually on port 8096 when configured and enabled via integration.api.port global setting) for internal portal integrations and for testing purposes. By default, the integration API service port is disabled and is considered disabled when integration.api.port is set to 0 or negative. Due to an improper initialisation logic, the integration API service would listen on a random port when its port value is set to 0 (default value). An attacker that can access the CloudStack management network could scan and find the randomised integration API service port and exploit it to perform unauthorised administrative actions and perform remote code execution on CloudStack managed hosts and result in complete compromise of the confidentiality, integrity, and availability of CloudStack managed infrastructure.
+
+Users are recommended to restrict the network access on the CloudStack management server hosts to only essential ports. Users are recommended to upgrade to version 4.18.2.1, 4.19.0.2 or later, which addresses this issue.</description>
+      <guid isPermaLink="false">CVE-2024-39864|2024-07-08T13:44:39.748Z</guid>
+      <pubDate>Fri, 05 Jul 2024 13:40:37 +0000</pubDate>
+    </item>
+    <item>
+      <title>CVE-2024-38346|2024-07-08T13:54:00.246Z -- apache%20software%20foundation -- apache%20cloudstack</title>
+      <link>https://www.cve.org/CVERecord?id=CVE-2024-38346</link>
+      <description>The CloudStack cluster service runs on unauthenticated port (default 9090) that can be misused to run arbitrary commands on targeted hypervisors and CloudStack management server hosts. Some of these commands were found to have command injection vulnerabilities that can result in arbitrary code execution via agents on the hosts that may run as a privileged user. An attacker that can reach the cluster service on the unauthenticated port (default 9090), can exploit this to perform remote code execution on CloudStack managed hosts and result in complete compromise of the confidentiality, integrity, and availability of CloudStack managed infrastructure.
+
+Users are recommended to restrict the network access to the cluster service port (default 9090) on a CloudStack management server host to only its peer CloudStack management server hosts. Users are recommended to upgrade to version 4.18.2.1, 4.19.0.2 or later, which addresses this issue.</description>
+      <guid isPermaLink="false">CVE-2024-38346|2024-07-08T13:54:00.246Z</guid>
+      <pubDate>Fri, 05 Jul 2024 13:40:57 +0000</pubDate>
+    </item>
+    <item>
+      <title>CVE-2024-29008|2024-04-04T07:51:05.423Z -- apache%20software%20foundation -- apache%20cloudstack</title>
+      <link>https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2024-29008</link>
+      <description>A problem has been identified in the CloudStack additional VM configuration (extraconfig) feature which can be misused by anyone who has privilege to deploy a VM instance or configure settings of an already deployed VM instance, to configure additional VM configuration even when the feature is not explicitly enabled by the administrator. In a KVM based CloudStack environment, an attacker can exploit this issue to attach host devices such as storage disks, and PCI and USB devices such as network adapters and GPUs, in a regular VM instance that can be further exploited to gain access to the underlying network and storage infrastructure resources, and access any VM instance disks on the local storage.
+
+Users are advised to upgrade to version 4.18.1.1 or 4.19.0.1, which fixes this issue.</description>
+      <guid isPermaLink="false">CVE-2024-29008|2024-04-04T07:51:05.423Z</guid>
+      <pubDate>Thu, 04 Apr 2024 07:51:05 +0000</pubDate>
+    </item>
+    <item>
+      <title>CVE-2024-29007|2024-04-04T07:49:57.831Z -- apache%20software%20foundation -- apache%20cloudstack</title>
+      <link>https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2024-29007</link>
+      <description>The CloudStack management server and secondary storage VM could be tricked into making requests to restricted or random resources by means of following 301 HTTP redirects presented by external servers when downloading templates or ISOs. Users are recommended to upgrade to version 4.18.1.1 or 4.19.0.1, which fixes this issue.</description>
+      <guid isPermaLink="false">CVE-2024-29007|2024-04-04T07:49:57.831Z</guid>
+      <pubDate>Thu, 04 Apr 2024 07:49:57 +0000</pubDate>
+    </item>
+    <item>
+      <title>CVE-2024-29006|2024-06-04T17:56:43.725Z -- apache%20software%20foundation -- apache%20cloudstack</title>
+      <link>https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2024-29006</link>
+      <description>By default the CloudStack management server honours the x-forwarded-for HTTP header and logs it as the source IP of an API request. This could lead to authentication bypass and other operational problems should an attacker decide to spoof their IP address this way. Users are recommended to upgrade to CloudStack version 4.18.1.1 or 4.19.0.1, which fixes this issue.</description>
+      <guid isPermaLink="false">CVE-2024-29006|2024-06-04T17:56:43.725Z</guid>
+      <pubDate>Thu, 04 Apr 2024 07:48:54 +0000</pubDate>
+    </item>
+    <item>
+      <title>CVE-2024-38346|2024-07-05T13:40:57.246Z -- apache%20software%20foundation -- apache%20cloudstack</title>
+      <link>https://www.cve.org/CVERecord?id=CVE-2024-38346</link>
+      <description>The CloudStack cluster service runs on unauthenticated port (default 9090) that can be misused to run arbitrary commands on targeted hypervisors and CloudStack management server hosts. Some of these commands were found to have command injection vulnerabilities that can result in arbitrary code execution via agents on the hosts that may run as a privileged user. An attacker that can reach the cluster service on the unauthenticated port (default 9090), can exploit this to perform remote code execution on CloudStack managed hosts and result in complete compromise of the confidentiality, integrity, and availability of CloudStack managed infrastructure.
+
+Users are recommended to restrict the network access to the cluster service port (default 9090) on a CloudStack management server host to only its peer CloudStack management server hosts. Users are recommended to upgrade to version 4.18.2.1, 4.19.0.2 or later, which addresses this issue.</description>
+      <guid isPermaLink="false">CVE-2024-38346|2024-07-05T13:40:57.246Z</guid>
+      <pubDate>Fri, 05 Jul 2024 13:40:57 +0000</pubDate>
+    </item>
+    <item>
+      <title>CVE-2024-39864|2024-07-05T13:40:37.937Z -- apache%20software%20foundation -- apache%20cloudstack</title>
+      <link>https://www.cve.org/CVERecord?id=CVE-2024-39864</link>
+      <description>The CloudStack integration API service allows running its unauthenticated API server (usually on port 8096 when configured and enabled via integration.api.port global setting) for internal portal integrations and for testing purposes. By default, the integration API service port is disabled and is considered disabled when integration.api.port is set to 0 or negative. Due to an improper initialisation logic, the integration API service would listen on a random port when its port value is set to 0 (default value). An attacker that can access the CloudStack management network could scan and find the randomised integration API service port and exploit it to perform unauthorised administrative actions and perform remote code execution on CloudStack managed hosts and result in complete compromise of the confidentiality, integrity, and availability of CloudStack managed infrastructure.
+
+Users are recommended to restrict the network access on the CloudStack management server hosts to only essential ports. Users are recommended to upgrade to version 4.18.2.1, 4.19.0.2 or later, which addresses this issue.</description>
+      <guid isPermaLink="false">CVE-2024-39864|2024-07-05T13:40:37.937Z</guid>
+      <pubDate>Fri, 05 Jul 2024 13:40:37 +0000</pubDate>
+    </item>
+    <item>
+      <title>CVE-2024-29007|2024-07-16T19:54:52.441Z -- apache%20software%20foundation -- apache%20cloudstack</title>
+      <link>https://www.cve.org/CVERecord?id=CVE-2024-29007</link>
+      <description>The CloudStack management server and secondary storage VM could be tricked into making requests to restricted or random resources by means of following 301 HTTP redirects presented by external servers when downloading templates or ISOs. Users are recommended to upgrade to version 4.18.1.1 or 4.19.0.1, which fixes this issue.</description>
+      <guid isPermaLink="false">CVE-2024-29007|2024-07-16T19:54:52.441Z</guid>
+      <pubDate>Thu, 04 Apr 2024 07:49:57 +0000</pubDate>
+    </item>
+    <item>
+      <title>CVE-2024-41107|2024-07-19T14:49:16.846Z -- apache%20software%20foundation -- apache%20cloudstack</title>
+      <link>https://www.cve.org/CVERecord?id=CVE-2024-41107</link>
+      <description>The CloudStack SAML authentication (disabled by default) does not enforce signature check. In CloudStack environments where SAML authentication is enabled, an attacker that initiates CloudStack SAML single sign-on authentication can bypass SAML authentication by submitting a spoofed SAML response with no signature and known or guessed username and other user details of a SAML-enabled CloudStack user-account. In such environments, this can result in a complete compromise of the resources owned and/or accessible by a SAML enabled user-account.
+
+Affected users are recommended to disable the SAML authentication plugin by setting the "saml2.enabled" global setting to "false", or upgrade to version 4.18.2.2, 4.19.1.0 or later, which addresses this issue.</description>
+      <guid isPermaLink="false">CVE-2024-41107|2024-07-19T14:49:16.846Z</guid>
       <pubDate>Fri, 19 Jul 2024 10:19:53 +0000</pubDate>
     </item>
     <item>
@@ -52,111 +141,22 @@ Users are recommended to restrict the network access to the cluster service port
       <pubDate>Fri, 05 Jul 2024 13:40:57 +0000</pubDate>
     </item>
     <item>
-      <title>CVE-2024-41107|2024-07-19T14:49:16.846Z -- apache%20software%20foundation -- apache%20cloudstack</title>
+      <title>CVE-2024-41107|2024-08-02T04:46:52.354Z -- apache%20software%20foundation -- apache%20cloudstack</title>
       <link>https://www.cve.org/CVERecord?id=CVE-2024-41107</link>
       <description>The CloudStack SAML authentication (disabled by default) does not enforce signature check. In CloudStack environments where SAML authentication is enabled, an attacker that initiates CloudStack SAML single sign-on authentication can bypass SAML authentication by submitting a spoofed SAML response with no signature and known or guessed username and other user details of a SAML-enabled CloudStack user-account. In such environments, this can result in a complete compromise of the resources owned and/or accessible by a SAML enabled user-account.
 
 Affected users are recommended to disable the SAML authentication plugin by setting the "saml2.enabled" global setting to "false", or upgrade to version 4.18.2.2, 4.19.1.0 or later, which addresses this issue.</description>
-      <guid isPermaLink="false">CVE-2024-41107|2024-07-19T14:49:16.846Z</guid>
+      <guid isPermaLink="false">CVE-2024-41107|2024-08-02T04:46:52.354Z</guid>
       <pubDate>Fri, 19 Jul 2024 10:19:53 +0000</pubDate>
     </item>
     <item>
-      <title>CVE-2024-29007|2024-07-16T19:54:52.441Z -- apache%20software%20foundation -- apache%20cloudstack</title>
-      <link>https://www.cve.org/CVERecord?id=CVE-2024-29007</link>
-      <description>The CloudStack management server and secondary storage VM could be tricked into making requests to restricted or random resources by means of following 301 HTTP redirects presented by external servers when downloading templates or ISOs. Users are recommended to upgrade to version 4.18.1.1 or 4.19.0.1, which fixes this issue.</description>
-      <guid isPermaLink="false">CVE-2024-29007|2024-07-16T19:54:52.441Z</guid>
-      <pubDate>Thu, 04 Apr 2024 07:49:57 +0000</pubDate>
-    </item>
-    <item>
-      <title>CVE-2024-39864|2024-07-05T13:40:37.937Z -- apache%20software%20foundation -- apache%20cloudstack</title>
+      <title>CVE-2024-39864|2024-08-02T04:33:10.752Z -- apache%20software%20foundation -- apache%20cloudstack</title>
       <link>https://www.cve.org/CVERecord?id=CVE-2024-39864</link>
       <description>The CloudStack integration API service allows running its unauthenticated API server (usually on port 8096 when configured and enabled via integration.api.port global setting) for internal portal integrations and for testing purposes. By default, the integration API service port is disabled and is considered disabled when integration.api.port is set to 0 or negative. Due to an improper initialisation logic, the integration API service would listen on a random port when its port value is set to 0 (default value). An attacker that can access the CloudStack management network could scan and find the randomised integration API service port and exploit it to perform unauthorised administrative actions and perform remote code execution on CloudStack managed hosts and result in complete compromise of the confidentiality, integrity, and availability of CloudStack managed infrastructure.
 
 Users are recommended to restrict the network access on the CloudStack management server hosts to only essential ports. Users are recommended to upgrade to version 4.18.2.1, 4.19.0.2 or later, which addresses this issue.</description>
-      <guid isPermaLink="false">CVE-2024-39864|2024-07-05T13:40:37.937Z</guid>
+      <guid isPermaLink="false">CVE-2024-39864|2024-08-02T04:33:10.752Z</guid>
       <pubDate>Fri, 05 Jul 2024 13:40:37 +0000</pubDate>
-    </item>
-    <item>
-      <title>CVE-2024-38346|2024-07-05T13:40:57.246Z -- apache%20software%20foundation -- apache%20cloudstack</title>
-      <link>https://www.cve.org/CVERecord?id=CVE-2024-38346</link>
-      <description>The CloudStack cluster service runs on unauthenticated port (default 9090) that can be misused to run arbitrary commands on targeted hypervisors and CloudStack management server hosts. Some of these commands were found to have command injection vulnerabilities that can result in arbitrary code execution via agents on the hosts that may run as a privileged user. An attacker that can reach the cluster service on the unauthenticated port (default 9090), can exploit this to perform remote code execution on CloudStack managed hosts and result in complete compromise of the confidentiality, integrity, and availability of CloudStack managed infrastructure.
-
-Users are recommended to restrict the network access to the cluster service port (default 9090) on a CloudStack management server host to only its peer CloudStack management server hosts. Users are recommended to upgrade to version 4.18.2.1, 4.19.0.2 or later, which addresses this issue.</description>
-      <guid isPermaLink="false">CVE-2024-38346|2024-07-05T13:40:57.246Z</guid>
-      <pubDate>Fri, 05 Jul 2024 13:40:57 +0000</pubDate>
-    </item>
-    <item>
-      <title>CVE-2024-29006|2024-06-04T17:56:43.725Z -- apache%20software%20foundation -- apache%20cloudstack</title>
-      <link>https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2024-29006</link>
-      <description>By default the CloudStack management server honours the x-forwarded-for HTTP header and logs it as the source IP of an API request. This could lead to authentication bypass and other operational problems should an attacker decide to spoof their IP address this way. Users are recommended to upgrade to CloudStack version 4.18.1.1 or 4.19.0.1, which fixes this issue.</description>
-      <guid isPermaLink="false">CVE-2024-29006|2024-06-04T17:56:43.725Z</guid>
-      <pubDate>Thu, 04 Apr 2024 07:48:54 +0000</pubDate>
-    </item>
-    <item>
-      <title>CVE-2024-29007|2024-04-04T07:49:57.831Z -- apache%20software%20foundation -- apache%20cloudstack</title>
-      <link>https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2024-29007</link>
-      <description>The CloudStack management server and secondary storage VM could be tricked into making requests to restricted or random resources by means of following 301 HTTP redirects presented by external servers when downloading templates or ISOs. Users are recommended to upgrade to version 4.18.1.1 or 4.19.0.1, which fixes this issue.</description>
-      <guid isPermaLink="false">CVE-2024-29007|2024-04-04T07:49:57.831Z</guid>
-      <pubDate>Thu, 04 Apr 2024 07:49:57 +0000</pubDate>
-    </item>
-    <item>
-      <title>CVE-2024-29008|2024-04-04T07:51:05.423Z -- apache%20software%20foundation -- apache%20cloudstack</title>
-      <link>https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2024-29008</link>
-      <description>A problem has been identified in the CloudStack additional VM configuration (extraconfig) feature which can be misused by anyone who has privilege to deploy a VM instance or configure settings of an already deployed VM instance, to configure additional VM configuration even when the feature is not explicitly enabled by the administrator. In a KVM based CloudStack environment, an attacker can exploit this issue to attach host devices such as storage disks, and PCI and USB devices such as network adapters and GPUs, in a regular VM instance that can be further exploited to gain access to the underlying network and storage infrastructure resources, and access any VM instance disks on the local storage.
-
-Users are advised to upgrade to version 4.18.1.1 or 4.19.0.1, which fixes this issue.</description>
-      <guid isPermaLink="false">CVE-2024-29008|2024-04-04T07:51:05.423Z</guid>
-      <pubDate>Thu, 04 Apr 2024 07:51:05 +0000</pubDate>
-    </item>
-    <item>
-      <title>CVE-2024-38346|2024-07-08T13:54:00.246Z -- apache%20software%20foundation -- apache%20cloudstack</title>
-      <link>https://www.cve.org/CVERecord?id=CVE-2024-38346</link>
-      <description>The CloudStack cluster service runs on unauthenticated port (default 9090) that can be misused to run arbitrary commands on targeted hypervisors and CloudStack management server hosts. Some of these commands were found to have command injection vulnerabilities that can result in arbitrary code execution via agents on the hosts that may run as a privileged user. An attacker that can reach the cluster service on the unauthenticated port (default 9090), can exploit this to perform remote code execution on CloudStack managed hosts and result in complete compromise of the confidentiality, integrity, and availability of CloudStack managed infrastructure.
-
-Users are recommended to restrict the network access to the cluster service port (default 9090) on a CloudStack management server host to only its peer CloudStack management server hosts. Users are recommended to upgrade to version 4.18.2.1, 4.19.0.2 or later, which addresses this issue.</description>
-      <guid isPermaLink="false">CVE-2024-38346|2024-07-08T13:54:00.246Z</guid>
-      <pubDate>Fri, 05 Jul 2024 13:40:57 +0000</pubDate>
-    </item>
-    <item>
-      <title>CVE-2024-39864|2024-07-08T13:44:39.748Z -- apache%20software%20foundation -- apache%20cloudstack</title>
-      <link>https://www.cve.org/CVERecord?id=CVE-2024-39864</link>
-      <description>The CloudStack integration API service allows running its unauthenticated API server (usually on port 8096 when configured and enabled via integration.api.port global setting) for internal portal integrations and for testing purposes. By default, the integration API service port is disabled and is considered disabled when integration.api.port is set to 0 or negative. Due to an improper initialisation logic, the integration API service would listen on a random port when its port value is set to 0 (default value). An attacker that can access the CloudStack management network could scan and find the randomised integration API service port and exploit it to perform unauthorised administrative actions and perform remote code execution on CloudStack managed hosts and result in complete compromise of the confidentiality, integrity, and availability of CloudStack managed infrastructure.
-
-Users are recommended to restrict the network access on the CloudStack management server hosts to only essential ports. Users are recommended to upgrade to version 4.18.2.1, 4.19.0.2 or later, which addresses this issue.</description>
-      <guid isPermaLink="false">CVE-2024-39864|2024-07-08T13:44:39.748Z</guid>
-      <pubDate>Fri, 05 Jul 2024 13:40:37 +0000</pubDate>
-    </item>
-    <item>
-      <title>CVE-2024-41107|2024-07-19T10:19:53.995Z -- apache%20software%20foundation -- apache%20cloudstack</title>
-      <link>https://www.cve.org/CVERecord?id=CVE-2024-41107</link>
-      <description>The CloudStack SAML authentication (disabled by default) does not enforce signature check. In CloudStack environments where SAML authentication is enabled, an attacker that initiates CloudStack SAML single sign-on authentication can bypass SAML authentication by submitting a spoofed SAML response with no signature and known or guessed username and other user details of a SAML-enabled CloudStack user-account. In such environments, this can result in a complete compromise of the resources owned and/or accessible by a SAML enabled user-account.
-
-Affected users are recommended to disable the SAML authentication plugin by setting the "saml2.enabled" global setting to "false", or upgrade to version 4.18.2.2, 4.19.1.0 or later, which addresses this issue.</description>
-      <guid isPermaLink="false">CVE-2024-41107|2024-07-19T10:19:53.995Z</guid>
-      <pubDate>Fri, 19 Jul 2024 10:19:53 +0000</pubDate>
-    </item>
-    <item>
-      <title>CVE-2024-29006|2024-08-02T01:03:51.677Z -- apache%20software%20foundation -- apache%20cloudstack</title>
-      <link>https://www.cve.org/CVERecord?id=CVE-2024-29006</link>
-      <description>By default the CloudStack management server honours the x-forwarded-for HTTP header and logs it as the source IP of an API request. This could lead to authentication bypass and other operational problems should an attacker decide to spoof their IP address this way. Users are recommended to upgrade to CloudStack version 4.18.1.1 or 4.19.0.1, which fixes this issue.</description>
-      <guid isPermaLink="false">CVE-2024-29006|2024-08-02T01:03:51.677Z</guid>
-      <pubDate>Thu, 04 Apr 2024 07:48:54 +0000</pubDate>
-    </item>
-    <item>
-      <title>CVE-2024-29007|2024-08-02T01:03:51.463Z -- apache%20software%20foundation -- apache%20cloudstack</title>
-      <link>https://www.cve.org/CVERecord?id=CVE-2024-29007</link>
-      <description>The CloudStack management server and secondary storage VM could be tricked into making requests to restricted or random resources by means of following 301 HTTP redirects presented by external servers when downloading templates or ISOs. Users are recommended to upgrade to version 4.18.1.1 or 4.19.0.1, which fixes this issue.</description>
-      <guid isPermaLink="false">CVE-2024-29007|2024-08-02T01:03:51.463Z</guid>
-      <pubDate>Thu, 04 Apr 2024 07:49:57 +0000</pubDate>
-    </item>
-    <item>
-      <title>CVE-2024-29008|2024-08-02T01:03:51.645Z -- apache%20software%20foundation -- apache%20cloudstack</title>
-      <link>https://www.cve.org/CVERecord?id=CVE-2024-29008</link>
-      <description>A problem has been identified in the CloudStack additional VM configuration (extraconfig) feature which can be misused by anyone who has privilege to deploy a VM instance or configure settings of an already deployed VM instance, to configure additional VM configuration even when the feature is not explicitly enabled by the administrator. In a KVM based CloudStack environment, an attacker can exploit this issue to attach host devices such as storage disks, and PCI and USB devices such as network adapters and GPUs, in a regular VM instance that can be further exploited to gain access to the underlying network and storage infrastructure resources, and access any VM instance disks on the local storage.
-
-Users are advised to upgrade to version 4.18.1.1 or 4.19.0.1, which fixes this issue.</description>
-      <guid isPermaLink="false">CVE-2024-29008|2024-08-02T01:03:51.645Z</guid>
-      <pubDate>Thu, 04 Apr 2024 07:51:05 +0000</pubDate>
     </item>
   </channel>
 </rss>
