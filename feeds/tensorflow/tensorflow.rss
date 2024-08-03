@@ -6,8 +6,40 @@
     <description>The latest CVEs for tensorflow -- tensorflow</description>
     <docs>http://www.rssboard.org/rss-specification</docs>
     <generator>python-feedgen</generator>
-    <lastBuildDate>Sat, 03 Aug 2024 06:24:32 +0000</lastBuildDate>
+    <lastBuildDate>Sat, 03 Aug 2024 07:20:14 +0000</lastBuildDate>
     <ttl>60</ttl>
+    <item>
+      <title>CVE-2022-29199|2024-08-03T06:17:54.045Z -- tensorflow -- tensorflow
+</title>
+      <link>https://www.cve.org/CVERecord?id=CVE-2022-29199</link>
+      <description>TensorFlow is an open source platform for machine learning. Prior to versions 2.9.0, 2.8.1, 2.7.2, and 2.6.4, the implementation of `tf.raw_ops.LoadAndRemapMatrix does not fully validate the input arguments. This results in a `CHECK`-failure which can be used to trigger a denial of service attack. The code assumes `initializing_values` is a vector but there is no validation for this before accessing its value. Versions 2.9.0, 2.8.1, 2.7.2, and 2.6.4 contain a patch for this issue.</description>
+      <guid isPermaLink="false">CVE-2022-29199|2024-08-03T06:17:54.045Z</guid>
+      <pubDate>Fri, 20 May 2022 21:40:12 +0000</pubDate>
+    </item>
+    <item>
+      <title>CVE-2022-29210|2024-08-03T06:17:54.137Z -- tensorflow -- tensorflow
+</title>
+      <link>https://www.cve.org/CVERecord?id=CVE-2022-29210</link>
+      <description>TensorFlow is an open source platform for machine learning. In version 2.8.0, the `TensorKey` hash function used total estimated `AllocatedBytes()`, which (a) is an estimate per tensor, and (b) is a very poor hash function for constants (e.g. `int32_t`). It also tried to access individual tensor bytes through `tensor.data()` of size `AllocatedBytes()`. This led to ASAN failures because the `AllocatedBytes()` is an estimate of total bytes allocated by a tensor, including any pointed-to constructs (e.g. strings), and does not refer to contiguous bytes in the `.data()` buffer. The discoverers could not use this byte vector anyway because types such as `tstring` include pointers, whereas they needed to hash the string values themselves. This issue is patched in Tensorflow versions 2.9.0 and 2.8.1.</description>
+      <guid isPermaLink="false">CVE-2022-29210|2024-08-03T06:17:54.137Z</guid>
+      <pubDate>Fri, 20 May 2022 23:25:21 +0000</pubDate>
+    </item>
+    <item>
+      <title>CVE-2022-29207|2024-08-03T06:17:54.201Z -- tensorflow -- tensorflow
+</title>
+      <link>https://www.cve.org/CVERecord?id=CVE-2022-29207</link>
+      <description>TensorFlow is an open source platform for machine learning. Prior to versions 2.9.0, 2.8.1, 2.7.2, and 2.6.4, multiple TensorFlow operations misbehave in eager mode when the resource handle provided to them is invalid. In graph mode, it would have been impossible to perform these API calls, but migration to TF 2.x eager mode opened up this vulnerability. If the resource handle is empty, then a reference is bound to a null pointer inside TensorFlow codebase (various codepaths). This is undefined behavior. Versions 2.9.0, 2.8.1, 2.7.2, and 2.6.4 contain a patch for this issue.</description>
+      <guid isPermaLink="false">CVE-2022-29207|2024-08-03T06:17:54.201Z</guid>
+      <pubDate>Fri, 20 May 2022 22:10:12 +0000</pubDate>
+    </item>
+    <item>
+      <title>CVE-2022-29200|2024-08-03T06:17:54.123Z -- tensorflow -- tensorflow
+</title>
+      <link>https://www.cve.org/CVERecord?id=CVE-2022-29200</link>
+      <description>TensorFlow is an open source platform for machine learning. Prior to versions 2.9.0, 2.8.1, 2.7.2, and 2.6.4, the implementation of `tf.raw_ops.LSTMBlockCell` does not fully validate the input arguments. This results in a `CHECK`-failure which can be used to trigger a denial of service attack. The code does not validate the ranks of any of the arguments to this API call. This results in `CHECK`-failures when the elements of the tensor are accessed. Versions 2.9.0, 2.8.1, 2.7.2, and 2.6.4 contain a patch for this issue.</description>
+      <guid isPermaLink="false">CVE-2022-29200|2024-08-03T06:17:54.123Z</guid>
+      <pubDate>Fri, 20 May 2022 21:30:14 +0000</pubDate>
+    </item>
     <item>
       <title>CVE-2022-23585|2024-08-03T03:43:46.959Z -- tensorflow -- tensorflow
 </title>
@@ -31,6 +63,14 @@
       <description>Tensorflow is an Open Source Machine Learning Framework. A malicious user can cause a denial of service by altering a `SavedModel` such that any binary op would trigger `CHECK` failures. This occurs when the protobuf part corresponding to the tensor arguments is modified such that the `dtype` no longer matches the `dtype` expected by the op. In that case, calling the templated binary operator for the binary op would receive corrupted data, due to the type confusion involved. If `Tin` and `Tout` don't match the type of data in `out` and `input_*` tensors then `flat&lt;*&gt;` would interpret it wrongly. In most cases, this would be a silent failure, but we have noticed scenarios where this results in a `CHECK` crash, hence a denial of service. The fix will be included in TensorFlow 2.8.0. We will also cherrypick this commit on TensorFlow 2.7.1, TensorFlow 2.6.3, and TensorFlow 2.5.3, as these are also affected and still in supported range.</description>
       <guid isPermaLink="false">CVE-2022-23583|2024-08-03T03:43:46.960Z</guid>
       <pubDate>Fri, 04 Feb 2022 22:32:18 +0000</pubDate>
+    </item>
+    <item>
+      <title>CVE-2022-29209|2024-08-03T06:17:54.118Z -- tensorflow -- tensorflow
+</title>
+      <link>https://www.cve.org/CVERecord?id=CVE-2022-29209</link>
+      <description>TensorFlow is an open source platform for machine learning. Prior to versions 2.9.0, 2.8.1, 2.7.2, and 2.6.4, the macros that TensorFlow uses for writing assertions (e.g., `CHECK_LT`, `CHECK_GT`, etc.) have an incorrect logic when comparing `size_t` and `int` values. Due to type conversion rules, several of the macros would trigger incorrectly. Versions 2.9.0, 2.8.1, 2.7.2, and 2.6.4 contain a patch for this issue.</description>
+      <guid isPermaLink="false">CVE-2022-29209|2024-08-03T06:17:54.118Z</guid>
+      <pubDate>Fri, 20 May 2022 23:25:14 +0000</pubDate>
     </item>
     <item>
       <title>CVE-2022-23580|2024-08-03T03:43:46.550Z -- tensorflow -- tensorflow
@@ -73,12 +113,52 @@
       <pubDate>Fri, 04 Feb 2022 22:32:38 +0000</pubDate>
     </item>
     <item>
+      <title>CVE-2022-29208|2024-08-03T06:17:54.350Z -- tensorflow -- tensorflow
+</title>
+      <link>https://www.cve.org/CVERecord?id=CVE-2022-29208</link>
+      <description>TensorFlow is an open source platform for machine learning. Prior to versions 2.9.0, 2.8.1, 2.7.2, and 2.6.4, the implementation of `tf.raw_ops.EditDistance` has incomplete validation. Users can pass negative values to cause a segmentation fault based denial of service. In multiple places throughout the code, one may compute an index for a write operation. However, the existing validation only checks against the upper bound of the array. Hence, it is possible to write before the array by massaging the input to generate negative values for `loc`. Versions 2.9.0, 2.8.1, 2.7.2, and 2.6.4 contain a patch for this issue.</description>
+      <guid isPermaLink="false">CVE-2022-29208|2024-08-03T06:17:54.350Z</guid>
+      <pubDate>Fri, 20 May 2022 22:30:13 +0000</pubDate>
+    </item>
+    <item>
       <title>CVE-2022-23581|2024-08-03T03:43:46.546Z -- tensorflow -- tensorflow
 </title>
       <link>https://www.cve.org/CVERecord?id=CVE-2022-23581</link>
       <description>Tensorflow is an Open Source Machine Learning Framework. The Grappler optimizer in TensorFlow can be used to cause a denial of service by altering a `SavedModel` such that `IsSimplifiableReshape` would trigger `CHECK` failures. The fix will be included in TensorFlow 2.8.0. We will also cherrypick this commit on TensorFlow 2.7.1, TensorFlow 2.6.3, and TensorFlow 2.5.3, as these are also affected and still in supported range.</description>
       <guid isPermaLink="false">CVE-2022-23581|2024-08-03T03:43:46.546Z</guid>
       <pubDate>Fri, 04 Feb 2022 22:32:24 +0000</pubDate>
+    </item>
+    <item>
+      <title>CVE-2022-29193|2024-08-03T06:17:54.253Z -- tensorflow -- tensorflow
+</title>
+      <link>https://www.cve.org/CVERecord?id=CVE-2022-29193</link>
+      <description>TensorFlow is an open source platform for machine learning. Prior to versions 2.9.0, 2.8.1, 2.7.2, and 2.6.4, the implementation of `tf.raw_ops.TensorSummaryV2` does not fully validate the input arguments. This results in a `CHECK`-failure which can be used to trigger a denial of service attack. Versions 2.9.0, 2.8.1, 2.7.2, and 2.6.4 contain a patch for this issue.</description>
+      <guid isPermaLink="false">CVE-2022-29193|2024-08-03T06:17:54.253Z</guid>
+      <pubDate>Fri, 20 May 2022 21:20:14 +0000</pubDate>
+    </item>
+    <item>
+      <title>CVE-2022-29192|2024-08-03T06:17:53.991Z -- tensorflow -- tensorflow
+</title>
+      <link>https://www.cve.org/CVERecord?id=CVE-2022-29192</link>
+      <description>TensorFlow is an open source platform for machine learning. Prior to versions 2.9.0, 2.8.1, 2.7.2, and 2.6.4, the implementation of `tf.raw_ops.QuantizeAndDequantizeV4Grad` does not fully validate the input arguments. This results in a `CHECK`-failure which can be used to trigger a denial of service attack. Versions 2.9.0, 2.8.1, 2.7.2, and 2.6.4 contain a patch for this issue.</description>
+      <guid isPermaLink="false">CVE-2022-29192|2024-08-03T06:17:53.991Z</guid>
+      <pubDate>Fri, 20 May 2022 20:30:14 +0000</pubDate>
+    </item>
+    <item>
+      <title>CVE-2022-29216|2024-08-03T06:17:54.261Z -- tensorflow -- tensorflow
+</title>
+      <link>https://www.cve.org/CVERecord?id=CVE-2022-29216</link>
+      <description>TensorFlow is an open source platform for machine learning. Prior to versions 2.9.0, 2.8.1, 2.7.2, and 2.6.4, TensorFlow's `saved_model_cli` tool is vulnerable to a code injection. This can be used to open a reverse shell. This code path was maintained for compatibility reasons as the maintainers had several test cases where numpy expressions were used as arguments. However, given that the tool is always run manually, the impact of this is still not severe. The maintainers have now removed the `safe=False` argument, so all parsing is done without calling `eval`. The patch is available in versions 2.9.0, 2.8.1, 2.7.2, and 2.6.4.</description>
+      <guid isPermaLink="false">CVE-2022-29216|2024-08-03T06:17:54.261Z</guid>
+      <pubDate>Fri, 20 May 2022 23:35:13 +0000</pubDate>
+    </item>
+    <item>
+      <title>CVE-2022-29197|2024-08-03T06:17:54.098Z -- tensorflow -- tensorflow
+</title>
+      <link>https://www.cve.org/CVERecord?id=CVE-2022-29197</link>
+      <description>TensorFlow is an open source platform for machine learning. Prior to versions 2.9.0, 2.8.1, 2.7.2, and 2.6.4, the implementation of `tf.raw_ops.UnsortedSegmentJoin` does not fully validate the input arguments. This results in a `CHECK`-failure which can be used to trigger a denial of service attack. The code assumes `num_segments` is a scalar but there is no validation for this before accessing its value. Versions 2.9.0, 2.8.1, 2.7.2, and 2.6.4 contain a patch for this issue.</description>
+      <guid isPermaLink="false">CVE-2022-29197|2024-08-03T06:17:54.098Z</guid>
+      <pubDate>Fri, 20 May 2022 21:55:18 +0000</pubDate>
     </item>
     <item>
       <title>CVE-2022-23584|2024-08-03T03:43:47.079Z -- tensorflow -- tensorflow
@@ -89,12 +169,68 @@
       <pubDate>Fri, 04 Feb 2022 22:32:16 +0000</pubDate>
     </item>
     <item>
+      <title>CVE-2022-29201|2024-08-03T06:17:54.111Z -- tensorflow -- tensorflow
+</title>
+      <link>https://www.cve.org/CVERecord?id=CVE-2022-29201</link>
+      <description>TensorFlow is an open source platform for machine learning. Prior to versions 2.9.0, 2.8.1, 2.7.2, and 2.6.4, the implementation of `tf.raw_ops.QuantizedConv2D` does not fully validate the input arguments. In this case, references get bound to `nullptr` for each argument that is empty. Versions 2.9.0, 2.8.1, 2.7.2, and 2.6.4 contain a patch for this issue.</description>
+      <guid isPermaLink="false">CVE-2022-29201|2024-08-03T06:17:54.111Z</guid>
+      <pubDate>Fri, 20 May 2022 23:00:15 +0000</pubDate>
+    </item>
+    <item>
+      <title>CVE-2022-29212|2024-08-03T06:17:54.081Z -- tensorflow -- tensorflow
+</title>
+      <link>https://www.cve.org/CVERecord?id=CVE-2022-29212</link>
+      <description>TensorFlow is an open source platform for machine learning. Prior to versions 2.9.0, 2.8.1, 2.7.2, and 2.6.4, certain TFLite models that were created using TFLite model converter would crash when loaded in the TFLite interpreter. The culprit is that during quantization the scale of values could be greater than 1 but code was always assuming sub-unit scaling. Thus, since code was calling `QuantizeMultiplierSmallerThanOneExp`, the `TFLITE_CHECK_LT` assertion would trigger and abort the process. Versions 2.9.0, 2.8.1, 2.7.2, and 2.6.4 contain a patch for this issue.</description>
+      <guid isPermaLink="false">CVE-2022-29212|2024-08-03T06:17:54.081Z</guid>
+      <pubDate>Fri, 20 May 2022 23:15:15 +0000</pubDate>
+    </item>
+    <item>
+      <title>CVE-2022-29191|2024-08-03T06:17:54.087Z -- tensorflow -- tensorflow
+</title>
+      <link>https://www.cve.org/CVERecord?id=CVE-2022-29191</link>
+      <description>TensorFlow is an open source platform for machine learning. Prior to versions 2.9.0, 2.8.1, 2.7.2, and 2.6.4, the implementation of `tf.raw_ops.GetSessionTensor` does not fully validate the input arguments. This results in a `CHECK`-failure which can be used to trigger a denial of service attack. Versions 2.9.0, 2.8.1, 2.7.2, and 2.6.4 contain a patch for this issue.</description>
+      <guid isPermaLink="false">CVE-2022-29191|2024-08-03T06:17:54.087Z</guid>
+      <pubDate>Fri, 20 May 2022 20:50:11 +0000</pubDate>
+    </item>
+    <item>
+      <title>CVE-2022-29195|2024-08-03T06:17:54.372Z -- tensorflow -- tensorflow
+</title>
+      <link>https://www.cve.org/CVERecord?id=CVE-2022-29195</link>
+      <description>TensorFlow is an open source platform for machine learning. Prior to versions 2.9.0, 2.8.1, 2.7.2, and 2.6.4, the implementation of `tf.raw_ops.StagePeek` does not fully validate the input arguments. This results in a `CHECK`-failure which can be used to trigger a denial of service attack. The code assumes `index` is a scalar but there is no validation for this before accessing its value. Versions 2.9.0, 2.8.1, 2.7.2, and 2.6.4 contain a patch for this issue.</description>
+      <guid isPermaLink="false">CVE-2022-29195|2024-08-03T06:17:54.372Z</guid>
+      <pubDate>Fri, 20 May 2022 22:00:15 +0000</pubDate>
+    </item>
+    <item>
+      <title>CVE-2022-29206|2024-08-03T06:17:54.022Z -- tensorflow -- tensorflow
+</title>
+      <link>https://www.cve.org/CVERecord?id=CVE-2022-29206</link>
+      <description>TensorFlow is an open source platform for machine learning. Prior to versions 2.9.0, 2.8.1, 2.7.2, and 2.6.4, the implementation of `tf.raw_ops.SparseTensorDenseAdd` does not fully validate the input arguments. In this case, a reference gets bound to a `nullptr` during kernel execution. This is undefined behavior. Versions 2.9.0, 2.8.1, 2.7.2, and 2.6.4 contain a patch for this issue.</description>
+      <guid isPermaLink="false">CVE-2022-29206|2024-08-03T06:17:54.022Z</guid>
+      <pubDate>Fri, 20 May 2022 22:15:13 +0000</pubDate>
+    </item>
+    <item>
+      <title>CVE-2022-29196|2024-08-03T06:17:54.117Z -- tensorflow -- tensorflow
+</title>
+      <link>https://www.cve.org/CVERecord?id=CVE-2022-29196</link>
+      <description>TensorFlow is an open source platform for machine learning. Prior to versions 2.9.0, 2.8.1, 2.7.2, and 2.6.4, the implementation of `tf.raw_ops.Conv3DBackpropFilterV2` does not fully validate the input arguments. This results in a `CHECK`-failure which can be used to trigger a denial of service attack. The code does not validate that the `filter_sizes` argument is a vector. Versions 2.9.0, 2.8.1, 2.7.2, and 2.6.4 contain a patch for this issue.</description>
+      <guid isPermaLink="false">CVE-2022-29196|2024-08-03T06:17:54.117Z</guid>
+      <pubDate>Fri, 20 May 2022 21:55:12 +0000</pubDate>
+    </item>
+    <item>
       <title>CVE-2022-23578|2024-08-03T03:43:46.557Z -- tensorflow -- tensorflow
 </title>
       <link>https://www.cve.org/CVERecord?id=CVE-2022-23578</link>
       <description>Tensorflow is an Open Source Machine Learning Framework. If a graph node is invalid, TensorFlow can leak memory in the implementation of `ImmutableExecutorState::Initialize`. Here, we set `item-&gt;kernel` to `nullptr` but it is a simple `OpKernel*` pointer so the memory that was previously allocated to it would leak. The fix will be included in TensorFlow 2.8.0. We will also cherrypick this commit on TensorFlow 2.7.1, TensorFlow 2.6.3, and TensorFlow 2.5.3, as these are also affected and still in supported range.</description>
       <guid isPermaLink="false">CVE-2022-23578|2024-08-03T03:43:46.557Z</guid>
       <pubDate>Fri, 04 Feb 2022 22:32:30 +0000</pubDate>
+    </item>
+    <item>
+      <title>CVE-2022-29213|2024-08-03T06:17:54.052Z -- tensorflow -- tensorflow
+</title>
+      <link>https://www.cve.org/CVERecord?id=CVE-2022-29213</link>
+      <description>TensorFlow is an open source platform for machine learning. Prior to versions 2.9.0, 2.8.1, 2.7.2, and 2.6.4, the `tf.compat.v1.signal.rfft2d` and `tf.compat.v1.signal.rfft3d` lack input validation and under certain condition can result in crashes (due to `CHECK`-failures). Versions 2.9.0, 2.8.1, 2.7.2, and 2.6.4 contain a patch for this issue.</description>
+      <guid isPermaLink="false">CVE-2022-29213|2024-08-03T06:17:54.052Z</guid>
+      <pubDate>Fri, 20 May 2022 23:30:15 +0000</pubDate>
     </item>
     <item>
       <title>CVE-2022-23560|2024-08-03T03:43:46.562Z -- tensorflow -- tensorflow
@@ -201,6 +337,22 @@
       <pubDate>Fri, 04 Feb 2022 22:32:33 +0000</pubDate>
     </item>
     <item>
+      <title>CVE-2022-29202|2024-08-03T06:17:54.103Z -- tensorflow -- tensorflow
+</title>
+      <link>https://www.cve.org/CVERecord?id=CVE-2022-29202</link>
+      <description>TensorFlow is an open source platform for machine learning. Prior to versions 2.9.0, 2.8.1, 2.7.2, and 2.6.4, the implementation of `tf.ragged.constant` does not fully validate the input arguments. This results in a denial of service by consuming all available memory. Versions 2.9.0, 2.8.1, 2.7.2, and 2.6.4 contain a patch for this issue.</description>
+      <guid isPermaLink="false">CVE-2022-29202|2024-08-03T06:17:54.103Z</guid>
+      <pubDate>Fri, 20 May 2022 22:55:13 +0000</pubDate>
+    </item>
+    <item>
+      <title>CVE-2022-29198|2024-08-03T06:17:54.186Z -- tensorflow -- tensorflow
+</title>
+      <link>https://www.cve.org/CVERecord?id=CVE-2022-29198</link>
+      <description>TensorFlow is an open source platform for machine learning. Prior to versions 2.9.0, 2.8.1, 2.7.2, and 2.6.4, the implementation of `tf.raw_ops.SparseTensorToCSRSparseMatrix` does not fully validate the input arguments. This results in a `CHECK`-failure which can be used to trigger a denial of service attack. The code assumes `dense_shape` is a vector and `indices` is a matrix (as part of requirements for sparse tensors) but there is no validation for this. Versions 2.9.0, 2.8.1, 2.7.2, and 2.6.4 contain a patch for this issue.</description>
+      <guid isPermaLink="false">CVE-2022-29198|2024-08-03T06:17:54.186Z</guid>
+      <pubDate>Fri, 20 May 2022 21:50:12 +0000</pubDate>
+    </item>
+    <item>
       <title>CVE-2022-23559|2024-08-03T03:43:46.566Z -- tensorflow -- tensorflow
 </title>
       <link>https://www.cve.org/CVERecord?id=CVE-2022-23559</link>
@@ -209,12 +361,28 @@
       <pubDate>Fri, 04 Feb 2022 22:32:37 +0000</pubDate>
     </item>
     <item>
+      <title>CVE-2022-29205|2024-08-03T06:17:54.256Z -- tensorflow -- tensorflow
+</title>
+      <link>https://www.cve.org/CVERecord?id=CVE-2022-29205</link>
+      <description>TensorFlow is an open source platform for machine learning. Prior to versions 2.9.0, 2.8.1, 2.7.2, and 2.6.4, there is a potential for segfault / denial of service in TensorFlow by calling `tf.compat.v1.*` ops which don't yet have support for quantized types, which was added after migration to TensorFlow 2.x. In these scenarios, since the kernel is missing, a `nullptr` value is passed to `ParseDimensionValue` for the `py_value` argument. Then, this is dereferenced, resulting in segfault. Versions 2.9.0, 2.8.1, 2.7.2, and 2.6.4 contain a patch for this issue.</description>
+      <guid isPermaLink="false">CVE-2022-29205|2024-08-03T06:17:54.256Z</guid>
+      <pubDate>Fri, 20 May 2022 22:25:14 +0000</pubDate>
+    </item>
+    <item>
       <title>CVE-2022-23558|2024-08-03T03:43:46.558Z -- tensorflow -- tensorflow
 </title>
       <link>https://www.cve.org/CVERecord?id=CVE-2022-23558</link>
       <description>Tensorflow is an Open Source Machine Learning Framework. An attacker can craft a TFLite model that would cause an integer overflow in `TfLiteIntArrayCreate`. The `TfLiteIntArrayGetSizeInBytes` returns an `int` instead of a `size_t. An attacker can control model inputs such that `computed_size` overflows the size of `int` datatype. The fix will be included in TensorFlow 2.8.0. We will also cherrypick this commit on TensorFlow 2.7.1, TensorFlow 2.6.3, and TensorFlow 2.5.3, as these are also affected and still in supported range.</description>
       <guid isPermaLink="false">CVE-2022-23558|2024-08-03T03:43:46.558Z</guid>
       <pubDate>Fri, 04 Feb 2022 22:32:43 +0000</pubDate>
+    </item>
+    <item>
+      <title>CVE-2022-29211|2024-08-03T06:17:54.256Z -- tensorflow -- tensorflow
+</title>
+      <link>https://www.cve.org/CVERecord?id=CVE-2022-29211</link>
+      <description>TensorFlow is an open source platform for machine learning. Prior to versions 2.9.0, 2.8.1, 2.7.2, and 2.6.4, the implementation of `tf.histogram_fixed_width` is vulnerable to a crash when the values array contain `Not a Number` (`NaN`) elements. The implementation assumes that all floating point operations are defined and then converts a floating point result to an integer index. If `values` contains `NaN` then the result of the division is still `NaN` and the cast to `int32` would result in a crash. This only occurs on the CPU implementation. Versions 2.9.0, 2.8.1, 2.7.2, and 2.6.4 contain a patch for this issue.</description>
+      <guid isPermaLink="false">CVE-2022-29211|2024-08-03T06:17:54.256Z</guid>
+      <pubDate>Fri, 20 May 2022 23:20:15 +0000</pubDate>
     </item>
     <item>
       <title>CVE-2022-23594|2024-08-03T03:43:46.930Z -- tensorflow -- tensorflow
@@ -239,6 +407,14 @@
       <description>Tensorflow is an Open Source Machine Learning Framework. A malicious user can cause a denial of service by altering a `SavedModel` such that assertions in `function.cc` would be falsified and crash the Python interpreter. The fix will be included in TensorFlow 2.8.0. We will also cherrypick this commit on TensorFlow 2.7.1, TensorFlow 2.6.3, and TensorFlow 2.5.3, as these are also affected and still in supported range.</description>
       <guid isPermaLink="false">CVE-2022-23586|2024-08-03T03:43:46.905Z</guid>
       <pubDate>Fri, 04 Feb 2022 22:32:19 +0000</pubDate>
+    </item>
+    <item>
+      <title>CVE-2022-29204|2024-08-03T06:17:54.286Z -- tensorflow -- tensorflow
+</title>
+      <link>https://www.cve.org/CVERecord?id=CVE-2022-29204</link>
+      <description>TensorFlow is an open source platform for machine learning. Prior to versions 2.9.0, 2.8.1, 2.7.2, and 2.6.4, the implementation of `tf.raw_ops.UnsortedSegmentJoin` does not fully validate the input arguments. This results in a `CHECK`-failure which can be used to trigger a denial of service attack. The code assumes `num_segments` is a positive scalar but there is no validation. Since this value is used to allocate the output tensor, a negative value would result in a `CHECK`-failure (assertion failure), as per TFSA-2021-198. Versions 2.9.0, 2.8.1, 2.7.2, and 2.6.4 contain a patch for this issue.</description>
+      <guid isPermaLink="false">CVE-2022-29204|2024-08-03T06:17:54.286Z</guid>
+      <pubDate>Fri, 20 May 2022 22:40:13 +0000</pubDate>
     </item>
     <item>
       <title>CVE-2022-23564|2024-08-03T03:43:46.543Z -- tensorflow -- tensorflow
@@ -289,6 +465,22 @@
       <pubDate>Fri, 04 Feb 2022 22:32:21 +0000</pubDate>
     </item>
     <item>
+      <title>CVE-2022-29203|2024-08-03T06:17:54.162Z -- tensorflow -- tensorflow
+</title>
+      <link>https://www.cve.org/CVERecord?id=CVE-2022-29203</link>
+      <description>TensorFlow is an open source platform for machine learning. Prior to versions 2.9.0, 2.8.1, 2.7.2, and 2.6.4, the implementation of `tf.raw_ops.SpaceToBatchND` (in all backends such as XLA and handwritten kernels) is vulnerable to an integer overflow: The result of this integer overflow is used to allocate the output tensor, hence we get a denial of service via a `CHECK`-failure (assertion failure), as in TFSA-2021-198. Versions 2.9.0, 2.8.1, 2.7.2, and 2.6.4 contain a patch for this issue.</description>
+      <guid isPermaLink="false">CVE-2022-29203|2024-08-03T06:17:54.162Z</guid>
+      <pubDate>Fri, 20 May 2022 22:50:11 +0000</pubDate>
+    </item>
+    <item>
+      <title>CVE-2022-29194|2024-08-03T06:17:54.237Z -- tensorflow -- tensorflow
+</title>
+      <link>https://www.cve.org/CVERecord?id=CVE-2022-29194</link>
+      <description>TensorFlow is an open source platform for machine learning. Prior to versions 2.9.0, 2.8.1, 2.7.2, and 2.6.4, the implementation of `tf.raw_ops.DeleteSessionTensor` does not fully validate the input arguments. This results in a `CHECK`-failure which can be used to trigger a denial of service attack. Versions 2.9.0, 2.8.1, 2.7.2, and 2.6.4 contain a patch for this issue.</description>
+      <guid isPermaLink="false">CVE-2022-29194|2024-08-03T06:17:54.237Z</guid>
+      <pubDate>Fri, 20 May 2022 21:10:12 +0000</pubDate>
+    </item>
+    <item>
       <title>CVE-2022-23592|2024-08-03T03:43:46.895Z -- tensorflow -- tensorflow
 </title>
       <link>https://www.cve.org/CVERecord?id=CVE-2022-23592</link>
@@ -297,10 +489,10 @@
       <pubDate>Fri, 04 Feb 2022 22:32:14 +0000</pubDate>
     </item>
     <item>
-      <title>CVE-2023-33976|2024-08-02T15:54:14.208Z -- tensorflow -- tensorflow</title>
+      <title>CVE-2023-33976|2024-08-01T20:14:02.779Z -- tensorflow -- tensorflow</title>
       <link>https://www.cve.org/CVERecord?id=CVE-2023-33976</link>
       <description>TensorFlow is an end-to-end open source platform for machine learning. `array_ops.upper_bound` causes a segfault when not given a rank 2 tensor. The fix will be included in TensorFlow 2.13 and will also cherrypick this commit on TensorFlow 2.12.</description>
-      <guid isPermaLink="false">CVE-2023-33976|2024-08-02T15:54:14.208Z</guid>
+      <guid isPermaLink="false">CVE-2023-33976|2024-08-01T20:14:02.779Z</guid>
       <pubDate>Tue, 30 Jul 2024 19:27:14 +0000</pubDate>
     </item>
     <item>
@@ -311,10 +503,10 @@
       <pubDate>Tue, 30 Jul 2024 19:27:14 +0000</pubDate>
     </item>
     <item>
-      <title>CVE-2023-33976|2024-08-01T20:14:02.779Z -- tensorflow -- tensorflow</title>
+      <title>CVE-2023-33976|2024-08-02T15:54:14.208Z -- tensorflow -- tensorflow</title>
       <link>https://www.cve.org/CVERecord?id=CVE-2023-33976</link>
       <description>TensorFlow is an end-to-end open source platform for machine learning. `array_ops.upper_bound` causes a segfault when not given a rank 2 tensor. The fix will be included in TensorFlow 2.13 and will also cherrypick this commit on TensorFlow 2.12.</description>
-      <guid isPermaLink="false">CVE-2023-33976|2024-08-01T20:14:02.779Z</guid>
+      <guid isPermaLink="false">CVE-2023-33976|2024-08-02T15:54:14.208Z</guid>
       <pubDate>Tue, 30 Jul 2024 19:27:14 +0000</pubDate>
     </item>
   </channel>

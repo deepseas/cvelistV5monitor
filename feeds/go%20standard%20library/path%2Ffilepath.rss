@@ -6,23 +6,23 @@
     <description>The latest CVEs for Go standard library -- path/filepath</description>
     <docs>http://www.rssboard.org/rss-specification</docs>
     <generator>python-feedgen</generator>
-    <lastBuildDate>Fri, 02 Aug 2024 23:21:48 +0000</lastBuildDate>
+    <lastBuildDate>Sat, 03 Aug 2024 07:20:26 +0000</lastBuildDate>
     <ttl>60</ttl>
     <item>
-      <title>CVE-2023-45284|2024-08-02T20:21:15.204Z -- go%20standard%20library -- path%2Ffilepath
+      <title>CVE-2022-30632|2024-08-03T06:56:13.251Z -- go%20standard%20library -- path%2Ffilepath
 </title>
-      <link>https://www.cve.org/CVERecord?id=CVE-2023-45284</link>
-      <description>On Windows, The IsLocal function does not correctly detect reserved device names in some cases. Reserved names followed by spaces, such as "COM1 ", and reserved names "COM" and "LPT" followed by superscript 1, 2, or 3, are incorrectly reported as local. With fix, IsLocal now correctly reports these names as non-local.</description>
-      <guid isPermaLink="false">CVE-2023-45284|2024-08-02T20:21:15.204Z</guid>
-      <pubDate>Thu, 09 Nov 2023 16:30:15 +0000</pubDate>
+      <link>https://www.cve.org/CVERecord?id=CVE-2022-30632</link>
+      <description>Uncontrolled recursion in Glob in path/filepath before Go 1.17.12 and Go 1.18.4 allows an attacker to cause a panic due to stack exhaustion via a path containing a large number of path separators.</description>
+      <guid isPermaLink="false">CVE-2022-30632|2024-08-03T06:56:13.251Z</guid>
+      <pubDate>Tue, 09 Aug 2022 20:15:37 +0000</pubDate>
     </item>
     <item>
-      <title>CVE-2023-45283|2024-08-02T20:21:15.278Z -- go%20standard%20library -- path%2Ffilepath
+      <title>CVE-2022-29804|2024-08-03T06:33:42.804Z -- go%20standard%20library -- path%2Ffilepath
 </title>
-      <link>https://www.cve.org/CVERecord?id=CVE-2023-45283</link>
-      <description>The filepath package does not recognize paths with a \??\ prefix as special. On Windows, a path beginning with \??\ is a Root Local Device path equivalent to a path beginning with \\?\. Paths with a \??\ prefix may be used to access arbitrary locations on the system. For example, the path \??\c:\x is equivalent to the more common path c:\x. Before fix, Clean could convert a rooted path such as \a\..\??\b into the root local device path \??\b. Clean will now convert this to .\??\b. Similarly, Join(\, ??, b) could convert a seemingly innocent sequence of path elements into the root local device path \??\b. Join will now convert this to \.\??\b. In addition, with fix, IsAbs now correctly reports paths beginning with \??\ as absolute, and VolumeName correctly reports the \??\ prefix as a volume name. UPDATE: Go 1.20.11 and Go 1.21.4 inadvertently changed the definition of the volume name in Windows paths starting with \?, resulting in filepath.Clean(\?\c:) returning \?\c: rather than \?\c:\ (among other effects). The previous behavior has been restored.</description>
-      <guid isPermaLink="false">CVE-2023-45283|2024-08-02T20:21:15.278Z</guid>
-      <pubDate>Thu, 09 Nov 2023 16:30:12 +0000</pubDate>
+      <link>https://www.cve.org/CVERecord?id=CVE-2022-29804</link>
+      <description>Incorrect conversion of certain invalid paths to valid, absolute paths in Clean in path/filepath before Go 1.17.11 and Go 1.18.3 on Windows allows potential directory traversal attack.</description>
+      <guid isPermaLink="false">CVE-2022-29804|2024-08-03T06:33:42.804Z</guid>
+      <pubDate>Tue, 09 Aug 2022 00:00:00 +0000</pubDate>
     </item>
   </channel>
 </rss>

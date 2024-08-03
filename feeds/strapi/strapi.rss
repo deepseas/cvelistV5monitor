@@ -6,82 +6,58 @@
     <description>The latest CVEs for strapi -- strapi</description>
     <docs>http://www.rssboard.org/rss-specification</docs>
     <generator>python-feedgen</generator>
-    <lastBuildDate>Fri, 02 Aug 2024 23:21:50 +0000</lastBuildDate>
+    <lastBuildDate>Sat, 03 Aug 2024 07:20:27 +0000</lastBuildDate>
     <ttl>60</ttl>
     <item>
-      <title>CVE-2023-36472|2024-08-02T16:45:56.648Z -- strapi -- strapi
+      <title>CVE-2022-29894|2024-08-03T06:33:42.954Z -- strapi -- strapi
 </title>
-      <link>https://www.cve.org/CVERecord?id=CVE-2023-36472</link>
-      <description>Strapi is an open-source headless content management system. Prior to version 4.11.7, an unauthorized actor can get access to user reset password tokens if they have the configure view permissions. The `/content-manager/relations` route does not remove private fields or ensure that they can't be selected. This issue is fixed in version 4.11.7.</description>
-      <guid isPermaLink="false">CVE-2023-36472|2024-08-02T16:45:56.648Z</guid>
-      <pubDate>Fri, 15 Sep 2023 18:54:34 +0000</pubDate>
+      <link>https://www.cve.org/CVERecord?id=CVE-2022-29894</link>
+      <description>Strapi v3.x.x versions and earlier contain a stored cross-site scripting vulnerability in file upload function. By exploiting this vulnerability, an arbitrary script may be executed on the web browser of the user who is logging in to the product with the administrative privilege.</description>
+      <guid isPermaLink="false">CVE-2022-29894|2024-08-03T06:33:42.954Z</guid>
+      <pubDate>Mon, 13 Jun 2022 04:50:35 +0000</pubDate>
     </item>
     <item>
-      <title>CVE-2023-34235|2024-08-02T16:01:54.326Z -- strapi -- strapi
+      <title>CVE-2022-30618|2024-08-03T06:56:13.298Z -- strapi -- strapi
 </title>
-      <link>https://www.cve.org/CVERecord?id=CVE-2023-34235</link>
-      <description>Strapi is an open-source headless content management system. Prior to version 4.10.8, it is possible to leak private fields if one is using the `t(number)` prefix. Knex query allows users to change the default prefix. For example, if someone changes the prefix to be the same as it was before or to another table they want to query, the query changes from `password` to `t1.password`. `password` is protected by filtering protections but `t1.password` is not protected. This can lead to filtering attacks on everything related to the object again, including admin passwords and reset-tokens. Version 4.10.8 fixes this issue.</description>
-      <guid isPermaLink="false">CVE-2023-34235|2024-08-02T16:01:54.326Z</guid>
-      <pubDate>Tue, 25 Jul 2023 17:24:19 +0000</pubDate>
+      <link>https://www.cve.org/CVERecord?id=CVE-2022-30618</link>
+      <description>An authenticated user with access to the Strapi admin panel can view private and sensitive data, such as email and password reset tokens, for API users if content types accessible to the authenticated user contain relationships to API users (from:users-permissions). There are many scenarios in which such details from API users can leak in the JSON response within the admin panel, either through a direct or indirect relationship. Access to this information enables a user to compromise these users’ accounts if the password reset API endpoints have been enabled. In a worst-case scenario, a low-privileged user could get access to a high-privileged API account, and could read and modify any data as well as block access to both the admin panel and API by revoking privileges for all other users.</description>
+      <guid isPermaLink="false">CVE-2022-30618|2024-08-03T06:56:13.298Z</guid>
+      <pubDate>Thu, 19 May 2022 17:08:47 +0000</pubDate>
     </item>
     <item>
-      <title>CVE-2023-37263|2024-08-02T17:09:33.930Z -- strapi -- strapi
+      <title>CVE-2022-30617|2024-08-03T06:56:12.964Z -- strapi -- strapi
 </title>
-      <link>https://www.cve.org/CVERecord?id=CVE-2023-37263</link>
-      <description>Strapi is the an open-source headless content management system. Prior to version 4.12.1, field level permissions are not respected in the relationship title. If an actor has relationship title and the relationship shows a field they don't have permission to see, the field will still be visible. Version 4.12.1 has a fix for this issue.</description>
-      <guid isPermaLink="false">CVE-2023-37263|2024-08-02T17:09:33.930Z</guid>
-      <pubDate>Fri, 15 Sep 2023 18:57:09 +0000</pubDate>
+      <link>https://www.cve.org/CVERecord?id=CVE-2022-30617</link>
+      <description>An authenticated user with access to the Strapi admin panel can view private and sensitive data, such as email and password reset tokens, for other admin panel users that have a relationship (e.g., created by, updated by) with content accessible to the authenticated user. For example, a low-privileged “author” role account can view these details in the JSON response for an “editor” or “super admin” that has updated one of the author’s blog posts. There are also many other scenarios where such details from other users can leak in the JSON response, either through a direct or indirect relationship. Access to this information enables a user to compromise other users’ accounts by successfully invoking the password reset workflow. In a worst-case scenario, a low-privileged user could get access to a “super admin” account with full control over the Strapi instance, and could read and modify any data as well as block access to both the admin panel and API by revoking privileges for all other users.</description>
+      <guid isPermaLink="false">CVE-2022-30617|2024-08-03T06:56:12.964Z</guid>
+      <pubDate>Thu, 19 May 2022 17:07:36 +0000</pubDate>
     </item>
     <item>
-      <title>CVE-2023-34093|2024-08-02T16:01:53.662Z -- strapi -- strapi
-</title>
-      <link>https://www.cve.org/CVERecord?id=CVE-2023-34093</link>
-      <description>Strapi is an open-source headless content management system. Prior to version 4.10.8, anyone (Strapi developers, users, plugins) can make every attribute of a Content-Type public without knowing it. The vulnerability only affects the handling of content types by Strapi, not the actual content types themselves. Users can use plugins or modify their own content types without realizing that the `privateAttributes` getter is being removed, which can result in any attribute becoming public. This can lead to sensitive information being exposed or the entire system being taken control of by an attacker(having access to password hashes). Anyone can be impacted, depending on how people are using/extending content-types. If the users are mutating the content-type, they will not be affected. Version 4.10.8 contains a patch for this issue.</description>
-      <guid isPermaLink="false">CVE-2023-34093|2024-08-02T16:01:53.662Z</guid>
-      <pubDate>Tue, 25 Jul 2023 14:54:42 +0000</pubDate>
+      <title>CVE-2024-31217|2024-08-02T01:46:04.759Z -- strapi -- strapi</title>
+      <link>https://www.cve.org/CVERecord?id=CVE-2024-31217</link>
+      <description>Strapi is an open-source content management system. Prior to version 4.22.0, a denial-of-service vulnerability is present in the media upload process causing the server to crash without restarting, affecting either development and production environments. Usually, errors in the application cause it to log the error and keep it running for other clients. This behavior, in contrast, stops the server execution, making it unavailable for any clients until it's manually restarted. Any user with access to the file upload functionality is able to exploit this vulnerability, affecting applications running in both development mode and production mode as well. Users should upgrade @strapi/plugin-upload to version 4.22.0 to receive a patch.</description>
+      <guid isPermaLink="false">CVE-2024-31217|2024-08-02T01:46:04.759Z</guid>
+      <pubDate>Wed, 12 Jun 2024 14:50:37 +0000</pubDate>
     </item>
     <item>
-      <title>CVE-2023-38507|2024-08-02T17:46:55.754Z -- strapi -- strapi
-</title>
-      <link>https://www.cve.org/CVERecord?id=CVE-2023-38507</link>
-      <description>Strapi is the an open-source headless content management system. Prior to version 4.12.1, there is a rate limit on the login function of Strapi's admin screen, but it is possible to circumvent it. Therefore, the possibility of unauthorized login by login brute force attack increases. Version 4.12.1 has a fix for this issue.</description>
-      <guid isPermaLink="false">CVE-2023-38507|2024-08-02T17:46:55.754Z</guid>
-      <pubDate>Fri, 15 Sep 2023 19:15:06 +0000</pubDate>
-    </item>
-    <item>
-      <title>CVE-2023-39345|2024-08-02T18:02:06.930Z -- strapi -- strapi
-</title>
-      <link>https://www.cve.org/CVERecord?id=CVE-2023-39345</link>
-      <description>strapi is an open-source headless CMS. Versions prior to 4.13.1 did not properly restrict write access to fielded marked as private in the user registration endpoint. As such malicious users may be able to errantly modify their user records. This issue has been addressed in version 4.13.1. Users are advised to upgrade. There are no known workarounds for this vulnerability.</description>
-      <guid isPermaLink="false">CVE-2023-39345|2024-08-02T18:02:06.930Z</guid>
-      <pubDate>Mon, 06 Nov 2023 18:26:20 +0000</pubDate>
-    </item>
-    <item>
-      <title>CVE-2024-34065|2024-08-02T02:42:59.898Z -- strapi -- strapi</title>
-      <link>https://www.cve.org/CVERecord?id=CVE-2024-34065</link>
+      <title>CVE-2024-34065|2024-06-12T16:10:44.870Z -- strapi -- strapi</title>
+      <link>https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2024-34065</link>
       <description>Strapi is an open-source content management system. By combining two vulnerabilities (an `Open Redirect` and `session token sent as URL query parameter`) in @strapi/plugin-users-permissions before version 4.24.2, is its possible of an unauthenticated attacker to bypass authentication mechanisms and retrieve the 3rd party tokens. The attack requires user interaction (one click). Unauthenticated attackers can leverage two vulnerabilities to obtain an 3rd party token and the bypass authentication of Strapi apps. Users should upgrade @strapi/plugin-users-permissions to version 4.24.2 to receive a patch.</description>
-      <guid isPermaLink="false">CVE-2024-34065|2024-08-02T02:42:59.898Z</guid>
+      <guid isPermaLink="false">CVE-2024-34065|2024-06-12T16:10:44.870Z</guid>
       <pubDate>Wed, 12 Jun 2024 14:54:46 +0000</pubDate>
     </item>
     <item>
-      <title>CVE-2024-29181|2024-08-02T01:10:54.079Z -- strapi -- strapi</title>
-      <link>https://www.cve.org/CVERecord?id=CVE-2024-29181</link>
-      <description>Strapi is an open-source content management system. Prior to version 4.19.1, a super admin can create a collection where an item in the collection has an association to another collection. When this happens, another user with Author Role can see the list of associated items they did not create. They should see nothing but their own items they created not all items ever created. Users should upgrade @strapi/plugin-content-manager to version 4.19.1 to receive a patch.</description>
-      <guid isPermaLink="false">CVE-2024-29181|2024-08-02T01:10:54.079Z</guid>
-      <pubDate>Wed, 12 Jun 2024 14:46:04 +0000</pubDate>
-    </item>
-    <item>
-      <title>CVE-2024-29181|2024-06-12T15:36:12.536Z -- strapi -- strapi</title>
+      <title>CVE-2024-29181|2024-06-12T14:51:04.145Z -- strapi -- strapi</title>
       <link>https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2024-29181</link>
       <description>Strapi is an open-source content management system. Prior to version 4.19.1, a super admin can create a collection where an item in the collection has an association to another collection. When this happens, another user with Author Role can see the list of associated items they did not create. They should see nothing but their own items they created not all items ever created. Users should upgrade @strapi/plugin-content-manager to version 4.19.1 to receive a patch.</description>
-      <guid isPermaLink="false">CVE-2024-29181|2024-06-12T15:36:12.536Z</guid>
+      <guid isPermaLink="false">CVE-2024-29181|2024-06-12T14:51:04.145Z</guid>
       <pubDate>Wed, 12 Jun 2024 14:46:04 +0000</pubDate>
     </item>
     <item>
-      <title>CVE-2024-31217|2024-06-12T15:55:51.664Z -- strapi -- strapi</title>
+      <title>CVE-2024-31217|2024-06-12T14:50:37.999Z -- strapi -- strapi</title>
       <link>https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2024-31217</link>
       <description>Strapi is an open-source content management system. Prior to version 4.22.0, a denial-of-service vulnerability is present in the media upload process causing the server to crash without restarting, affecting either development and production environments. Usually, errors in the application cause it to log the error and keep it running for other clients. This behavior, in contrast, stops the server execution, making it unavailable for any clients until it's manually restarted. Any user with access to the file upload functionality is able to exploit this vulnerability, affecting applications running in both development mode and production mode as well. Users should upgrade @strapi/plugin-upload to version 4.22.0 to receive a patch.</description>
-      <guid isPermaLink="false">CVE-2024-31217|2024-06-12T15:55:51.664Z</guid>
+      <guid isPermaLink="false">CVE-2024-31217|2024-06-12T14:50:37.999Z</guid>
       <pubDate>Wed, 12 Jun 2024 14:50:37 +0000</pubDate>
     </item>
     <item>
@@ -92,32 +68,32 @@
       <pubDate>Wed, 12 Jun 2024 14:54:46 +0000</pubDate>
     </item>
     <item>
-      <title>CVE-2024-31217|2024-06-12T14:50:37.999Z -- strapi -- strapi</title>
+      <title>CVE-2024-31217|2024-06-12T15:55:51.664Z -- strapi -- strapi</title>
       <link>https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2024-31217</link>
       <description>Strapi is an open-source content management system. Prior to version 4.22.0, a denial-of-service vulnerability is present in the media upload process causing the server to crash without restarting, affecting either development and production environments. Usually, errors in the application cause it to log the error and keep it running for other clients. This behavior, in contrast, stops the server execution, making it unavailable for any clients until it's manually restarted. Any user with access to the file upload functionality is able to exploit this vulnerability, affecting applications running in both development mode and production mode as well. Users should upgrade @strapi/plugin-upload to version 4.22.0 to receive a patch.</description>
-      <guid isPermaLink="false">CVE-2024-31217|2024-06-12T14:50:37.999Z</guid>
+      <guid isPermaLink="false">CVE-2024-31217|2024-06-12T15:55:51.664Z</guid>
       <pubDate>Wed, 12 Jun 2024 14:50:37 +0000</pubDate>
     </item>
     <item>
-      <title>CVE-2024-29181|2024-06-12T14:51:04.145Z -- strapi -- strapi</title>
+      <title>CVE-2024-29181|2024-06-12T15:36:12.536Z -- strapi -- strapi</title>
       <link>https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2024-29181</link>
       <description>Strapi is an open-source content management system. Prior to version 4.19.1, a super admin can create a collection where an item in the collection has an association to another collection. When this happens, another user with Author Role can see the list of associated items they did not create. They should see nothing but their own items they created not all items ever created. Users should upgrade @strapi/plugin-content-manager to version 4.19.1 to receive a patch.</description>
-      <guid isPermaLink="false">CVE-2024-29181|2024-06-12T14:51:04.145Z</guid>
+      <guid isPermaLink="false">CVE-2024-29181|2024-06-12T15:36:12.536Z</guid>
       <pubDate>Wed, 12 Jun 2024 14:46:04 +0000</pubDate>
     </item>
     <item>
-      <title>CVE-2024-34065|2024-06-12T16:10:44.870Z -- strapi -- strapi</title>
-      <link>https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2024-34065</link>
-      <description>Strapi is an open-source content management system. By combining two vulnerabilities (an `Open Redirect` and `session token sent as URL query parameter`) in @strapi/plugin-users-permissions before version 4.24.2, is its possible of an unauthenticated attacker to bypass authentication mechanisms and retrieve the 3rd party tokens. The attack requires user interaction (one click). Unauthenticated attackers can leverage two vulnerabilities to obtain an 3rd party token and the bypass authentication of Strapi apps. Users should upgrade @strapi/plugin-users-permissions to version 4.24.2 to receive a patch.</description>
-      <guid isPermaLink="false">CVE-2024-34065|2024-06-12T16:10:44.870Z</guid>
-      <pubDate>Wed, 12 Jun 2024 14:54:46 +0000</pubDate>
+      <title>CVE-2024-29181|2024-08-02T01:10:54.079Z -- strapi -- strapi</title>
+      <link>https://www.cve.org/CVERecord?id=CVE-2024-29181</link>
+      <description>Strapi is an open-source content management system. Prior to version 4.19.1, a super admin can create a collection where an item in the collection has an association to another collection. When this happens, another user with Author Role can see the list of associated items they did not create. They should see nothing but their own items they created not all items ever created. Users should upgrade @strapi/plugin-content-manager to version 4.19.1 to receive a patch.</description>
+      <guid isPermaLink="false">CVE-2024-29181|2024-08-02T01:10:54.079Z</guid>
+      <pubDate>Wed, 12 Jun 2024 14:46:04 +0000</pubDate>
     </item>
     <item>
-      <title>CVE-2024-31217|2024-08-02T01:46:04.759Z -- strapi -- strapi</title>
-      <link>https://www.cve.org/CVERecord?id=CVE-2024-31217</link>
-      <description>Strapi is an open-source content management system. Prior to version 4.22.0, a denial-of-service vulnerability is present in the media upload process causing the server to crash without restarting, affecting either development and production environments. Usually, errors in the application cause it to log the error and keep it running for other clients. This behavior, in contrast, stops the server execution, making it unavailable for any clients until it's manually restarted. Any user with access to the file upload functionality is able to exploit this vulnerability, affecting applications running in both development mode and production mode as well. Users should upgrade @strapi/plugin-upload to version 4.22.0 to receive a patch.</description>
-      <guid isPermaLink="false">CVE-2024-31217|2024-08-02T01:46:04.759Z</guid>
-      <pubDate>Wed, 12 Jun 2024 14:50:37 +0000</pubDate>
+      <title>CVE-2024-34065|2024-08-02T02:42:59.898Z -- strapi -- strapi</title>
+      <link>https://www.cve.org/CVERecord?id=CVE-2024-34065</link>
+      <description>Strapi is an open-source content management system. By combining two vulnerabilities (an `Open Redirect` and `session token sent as URL query parameter`) in @strapi/plugin-users-permissions before version 4.24.2, is its possible of an unauthenticated attacker to bypass authentication mechanisms and retrieve the 3rd party tokens. The attack requires user interaction (one click). Unauthenticated attackers can leverage two vulnerabilities to obtain an 3rd party token and the bypass authentication of Strapi apps. Users should upgrade @strapi/plugin-users-permissions to version 4.24.2 to receive a patch.</description>
+      <guid isPermaLink="false">CVE-2024-34065|2024-08-02T02:42:59.898Z</guid>
+      <pubDate>Wed, 12 Jun 2024 14:54:46 +0000</pubDate>
     </item>
   </channel>
 </rss>

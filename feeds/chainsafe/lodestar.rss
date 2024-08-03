@@ -1,0 +1,20 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<rss xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/" version="2.0">
+  <channel>
+    <title>CVE Feed for ChainSafe -- lodestar</title>
+    <link>https://raw.githubusercontent.com/deepseas/cvelistV5monitor/main/feeds/chainsafe/lodestar.rss</link>
+    <description>The latest CVEs for ChainSafe -- lodestar</description>
+    <docs>http://www.rssboard.org/rss-specification</docs>
+    <generator>python-feedgen</generator>
+    <lastBuildDate>Sat, 03 Aug 2024 07:20:19 +0000</lastBuildDate>
+    <ttl>60</ttl>
+    <item>
+      <title>CVE-2022-29219|2024-08-03T06:17:54.286Z -- chainsafe -- lodestar
+</title>
+      <link>https://www.cve.org/CVERecord?id=CVE-2022-29219</link>
+      <description>Lodestar is a TypeScript implementation of the Ethereum Consensus specification. Prior to version 0.36.0, there is a possible consensus split given maliciously-crafted `AttesterSlashing` or `ProposerSlashing` being included on-chain. Because the developers represent `uint64` values as native javascript `number`s, there is an issue when those variables with large (greater than 2^53) `uint64` values are included on chain. In those cases, Lodestar may view valid_`AttesterSlashing` or `ProposerSlashing` as invalid, due to rounding errors in large `number` values. This causes a consensus split, where Lodestar nodes are forked away from the main network. Similarly, Lodestar may consider invalid `ProposerSlashing` as valid, thus including in proposed blocks that will be considered invalid by the network. Version 0.36.0 contains a fix for this issue. As a workaround, use `BigInt` to represent `Slot` and `Epoch` values in `AttesterSlashing` and `ProposerSlashing` objects. `BigInt` is too slow to be used in all `Slot` and `Epoch` cases, so one may carefully use `BigInt` just where necessary for consensus.</description>
+      <guid isPermaLink="false">CVE-2022-29219|2024-08-03T06:17:54.286Z</guid>
+      <pubDate>Tue, 24 May 2022 14:15:14 +0000</pubDate>
+    </item>
+  </channel>
+</rss>

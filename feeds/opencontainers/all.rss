@@ -6,26 +6,15 @@
     <description>The latest CVEs for opencontainers -- all products</description>
     <docs>http://www.rssboard.org/rss-specification</docs>
     <generator>python-feedgen</generator>
-    <lastBuildDate>Fri, 02 Aug 2024 23:22:08 +0000</lastBuildDate>
+    <lastBuildDate>Sat, 03 Aug 2024 07:20:27 +0000</lastBuildDate>
     <ttl>60</ttl>
     <item>
-      <title>CVE-2023-25809|2024-08-02T11:32:12.344Z -- opencontainers -- runc
+      <title>CVE-2022-29162|2024-08-03T06:10:59.359Z -- opencontainers -- runc
 </title>
-      <link>https://www.cve.org/CVERecord?id=CVE-2023-25809</link>
-      <description>runc is a CLI tool for spawning and running containers according to the OCI specification. In affected versions it was found that rootless runc makes `/sys/fs/cgroup` writable in following conditons: 1. when runc is executed inside the user namespace, and the `config.json` does not specify the cgroup namespace to be unshared (e.g.., `(docker|podman|nerdctl) run --cgroupns=host`, with Rootless Docker/Podman/nerdctl) or 2. when runc is executed outside the user namespace, and `/sys` is mounted with `rbind, ro` (e.g., `runc spec --rootless`; this condition is very rare). A container may gain the write access to user-owned cgroup hierarchy `/sys/fs/cgroup/user.slice/...` on the host . Other users's cgroup hierarchies are not affected. Users are advised to upgrade to version 1.1.5. Users unable to upgrade may unshare the cgroup namespace (`(docker|podman|nerdctl) run --cgroupns=private)`. This is the default behavior of Docker/Podman/nerdctl on cgroup v2 hosts. or add `/sys/fs/cgroup` to `maskedPaths`.
-</description>
-      <guid isPermaLink="false">CVE-2023-25809|2024-08-02T11:32:12.344Z</guid>
-      <pubDate>Wed, 29 Mar 2023 18:22:56 +0000</pubDate>
-    </item>
-    <item>
-      <title>CVE-2023-28642|2024-08-02T13:43:23.241Z -- opencontainers -- runc
-</title>
-      <link>https://www.cve.org/CVERecord?id=CVE-2023-28642</link>
-      <description>runc is a CLI tool for spawning and running containers according to the OCI specification. It was found that AppArmor can be bypassed when `/proc` inside the container is symlinked with a specific mount configuration. This issue has been fixed in runc version 1.1.5, by prohibiting symlinked `/proc`. See PR #3785 for details. users are advised to upgrade. Users unable to upgrade should avoid using an untrusted container image.
-
-</description>
-      <guid isPermaLink="false">CVE-2023-28642|2024-08-02T13:43:23.241Z</guid>
-      <pubDate>Wed, 29 Mar 2023 18:15:48 +0000</pubDate>
+      <link>https://www.cve.org/CVERecord?id=CVE-2022-29162</link>
+      <description>runc is a CLI tool for spawning and running containers on Linux according to the OCI specification. A bug was found in runc prior to version 1.1.2 where `runc exec --cap` created processes with non-empty inheritable Linux process capabilities, creating an atypical Linux environment and enabling programs with inheritable file capabilities to elevate those capabilities to the permitted set during execve(2). This bug did not affect the container security sandbox as the inheritable set never contained more capabilities than were included in the container's bounding set. This bug has been fixed in runc 1.1.2. This fix changes `runc exec --cap` behavior such that the additional capabilities granted to the process being executed (as specified via `--cap` arguments) do not include inheritable capabilities. In addition, `runc spec` is changed to not set any inheritable capabilities in the created example OCI spec (`config.json`) file.</description>
+      <guid isPermaLink="false">CVE-2022-29162|2024-08-03T06:10:59.359Z</guid>
+      <pubDate>Tue, 17 May 2022 00:00:00 +0000</pubDate>
     </item>
   </channel>
 </rss>

@@ -6,8 +6,32 @@
     <description>The latest CVEs for gocd -- gocd</description>
     <docs>http://www.rssboard.org/rss-specification</docs>
     <generator>python-feedgen</generator>
-    <lastBuildDate>Sat, 03 Aug 2024 06:24:28 +0000</lastBuildDate>
+    <lastBuildDate>Sat, 03 Aug 2024 07:20:10 +0000</lastBuildDate>
     <ttl>60</ttl>
+    <item>
+      <title>CVE-2022-29184|2024-08-03T06:17:53.908Z -- gocd -- gocd
+</title>
+      <link>https://www.cve.org/CVERecord?id=CVE-2022-29184</link>
+      <description>GoCD is a continuous delivery server. In GoCD versions prior to 22.1.0, it is possible for existing authenticated users who have permissions to edit or create pipeline materials or pipeline configuration repositories to get remote code execution capability on the GoCD server via configuring a malicious branch name which abuses Mercurial hooks/aliases to exploit a command injection weakness. An attacker would require access to an account with existing GoCD administration permissions to either create/edit (`hg`-based) configuration repositories; create/edit pipelines and their (`hg`-based) materials; or, where "pipelines-as-code" configuration repositories are used, to commit malicious configuration to such an external repository which will be automatically parsed into a pipeline configuration and (`hg`) material definition by the GoCD server. This issue is fixed in GoCD 22.1.0. As a workaround, users who do not use/rely upon Mercurial materials can uninstall/remove the `hg`/Mercurial binary from the underlying GoCD Server operating system or Docker image.</description>
+      <guid isPermaLink="false">CVE-2022-29184|2024-08-03T06:17:53.908Z</guid>
+      <pubDate>Fri, 20 May 2022 19:25:14 +0000</pubDate>
+    </item>
+    <item>
+      <title>CVE-2022-29182|2024-08-03T06:17:54.073Z -- gocd -- gocd
+</title>
+      <link>https://www.cve.org/CVERecord?id=CVE-2022-29182</link>
+      <description>GoCD is a continuous delivery server. GoCD versions 19.11.0 through 21.4.0 (inclusive) are vulnerable to a Document Object Model (DOM)-based cross-site scripting attack via a pipeline run's Stage Details &gt; Graphs tab. It is possible for a malicious script on a attacker-hosted site to execute script that will run within the user's browser context and GoCD session via abuse of a messaging channel used for communication between with the parent page and the stage details graph's iframe. This could allow an attacker to steal a GoCD user's session cookies and/or execute malicious code in the user's context. This issue is fixed in GoCD 22.1.0. There are currently no known workarounds.</description>
+      <guid isPermaLink="false">CVE-2022-29182|2024-08-03T06:17:54.073Z</guid>
+      <pubDate>Fri, 20 May 2022 19:05:12 +0000</pubDate>
+    </item>
+    <item>
+      <title>CVE-2022-29183|2024-08-03T06:17:54.350Z -- gocd -- gocd
+</title>
+      <link>https://www.cve.org/CVERecord?id=CVE-2022-29183</link>
+      <description>GoCD is a continuous delivery server. GoCD versions 20.2.0 until 21.4.0 are vulnerable to reflected cross-site scripting via abuse of the pipeline comparison function's error handling to render arbitrary HTML into the returned page. This could allow an attacker to trick a victim into executing code which would allow the attacker to operate on, or gain control over the same resources as the victim had access to. This issue is fixed in GoCD 21.4.0. As a workaround, block access to `/go/compare/.*` prior to GoCD Server via a reverse proxy, web application firewall or equivalent, which would prevent use of the pipeline comparison function.</description>
+      <guid isPermaLink="false">CVE-2022-29183|2024-08-03T06:17:54.350Z</guid>
+      <pubDate>Fri, 20 May 2022 19:10:11 +0000</pubDate>
+    </item>
     <item>
       <title>CVE-2022-24832|2024-08-03T04:20:50.566Z -- gocd -- gocd
 </title>
@@ -15,17 +39,6 @@
       <description>GoCD is an open source a continuous delivery server. The bundled gocd-ldap-authentication-plugin included with the GoCD Server fails to correctly escape special characters when using the username to construct LDAP queries. While this does not directly allow arbitrary LDAP data exfiltration, it can allow an existing LDAP-authenticated GoCD user with malicious intent to construct and execute malicious queries, allowing them to deduce facts about other users or entries within the LDAP database (e.g alternate fields, usernames, hashed passwords etc) through brute force mechanisms. This only affects users who have a working LDAP authorization configuration enabled on their GoCD server, and only is exploitable by users authenticating using such an LDAP configuration. This issue has been fixed in GoCD 22.1.0, which is bundled with gocd-ldap-authentication-plugin v2.2.0-144.</description>
       <guid isPermaLink="false">CVE-2022-24832|2024-08-03T04:20:50.566Z</guid>
       <pubDate>Mon, 11 Apr 2022 20:20:18 +0000</pubDate>
-    </item>
-    <item>
-      <title>CVE-2024-28866|2024-08-02T00:56:58.190Z -- gocd -- gocd</title>
-      <link>https://www.cve.org/CVERecord?id=CVE-2024-28866</link>
-      <description>GoCD is a continuous delivery server. GoCD versions from 19.4.0 to 23.5.0 (inclusive) are potentially vulnerable to a reflected cross-site scripting vulnerability on the loading page displayed while GoCD is starting, via abuse of a `redirect_to` query parameter with inadequate validation.
-
-Attackers could theoretically abuse the query parameter to steal session tokens or other values from the user's browser. In practice exploiting this to perform privileged actions is likely rather difficult to exploit because the target user would need to be triggered to open an attacker-crafted link in the period where the server is starting up (but not completely started), requiring chaining with a separate denial-of-service vulnerability. Additionally, GoCD server restarts invalidate earlier session tokens (i.e GoCD does not support persistent sessions), so a stolen session token would be unusable once the server has completed restart, and executed XSS would be done within a logged-out context.
-
-The issue is fixed in GoCD 24.1.0. As a workaround, it is technically possible in earlier GoCD versions to override the loading page with an earlier version which is not vulnerable, by starting GoCD with the Java system property override as either `-Dloading.page.resource.path=/loading_pages/default.loading.page.html` (simpler early version of loading page without GoCD introduction) or `-Dloading.page.resource.path=/does_not_exist.html` (to display a simple message with no interactivity).</description>
-      <guid isPermaLink="false">CVE-2024-28866|2024-08-02T00:56:58.190Z</guid>
-      <pubDate>Mon, 13 May 2024 13:53:30 +0000</pubDate>
     </item>
     <item>
       <title>CVE-2024-28866|2024-06-04T18:03:33.107Z -- gocd -- gocd</title>
@@ -36,6 +49,17 @@ Attackers could theoretically abuse the query parameter to steal session tokens 
 
 The issue is fixed in GoCD 24.1.0. As a workaround, it is technically possible in earlier GoCD versions to override the loading page with an earlier version which is not vulnerable, by starting GoCD with the Java system property override as either `-Dloading.page.resource.path=/loading_pages/default.loading.page.html` (simpler early version of loading page without GoCD introduction) or `-Dloading.page.resource.path=/does_not_exist.html` (to display a simple message with no interactivity).</description>
       <guid isPermaLink="false">CVE-2024-28866|2024-06-04T18:03:33.107Z</guid>
+      <pubDate>Mon, 13 May 2024 13:53:30 +0000</pubDate>
+    </item>
+    <item>
+      <title>CVE-2024-28866|2024-08-02T00:56:58.190Z -- gocd -- gocd</title>
+      <link>https://www.cve.org/CVERecord?id=CVE-2024-28866</link>
+      <description>GoCD is a continuous delivery server. GoCD versions from 19.4.0 to 23.5.0 (inclusive) are potentially vulnerable to a reflected cross-site scripting vulnerability on the loading page displayed while GoCD is starting, via abuse of a `redirect_to` query parameter with inadequate validation.
+
+Attackers could theoretically abuse the query parameter to steal session tokens or other values from the user's browser. In practice exploiting this to perform privileged actions is likely rather difficult to exploit because the target user would need to be triggered to open an attacker-crafted link in the period where the server is starting up (but not completely started), requiring chaining with a separate denial-of-service vulnerability. Additionally, GoCD server restarts invalidate earlier session tokens (i.e GoCD does not support persistent sessions), so a stolen session token would be unusable once the server has completed restart, and executed XSS would be done within a logged-out context.
+
+The issue is fixed in GoCD 24.1.0. As a workaround, it is technically possible in earlier GoCD versions to override the loading page with an earlier version which is not vulnerable, by starting GoCD with the Java system property override as either `-Dloading.page.resource.path=/loading_pages/default.loading.page.html` (simpler early version of loading page without GoCD introduction) or `-Dloading.page.resource.path=/does_not_exist.html` (to display a simple message with no interactivity).</description>
+      <guid isPermaLink="false">CVE-2024-28866|2024-08-02T00:56:58.190Z</guid>
       <pubDate>Mon, 13 May 2024 13:53:30 +0000</pubDate>
     </item>
   </channel>

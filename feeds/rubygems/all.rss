@@ -6,28 +6,36 @@
     <description>The latest CVEs for rubygems -- all products</description>
     <docs>http://www.rssboard.org/rss-specification</docs>
     <generator>python-feedgen</generator>
-    <lastBuildDate>Fri, 02 Aug 2024 23:21:57 +0000</lastBuildDate>
+    <lastBuildDate>Sat, 03 Aug 2024 07:20:26 +0000</lastBuildDate>
     <ttl>60</ttl>
     <item>
-      <title>CVE-2023-40165|2024-08-02T18:24:55.791Z -- rubygems -- rubygems.org
+      <title>CVE-2022-29218|2024-08-03T06:17:54.351Z -- rubygems -- rubygems.org
 </title>
-      <link>https://www.cve.org/CVERecord?id=CVE-2023-40165</link>
-      <description>rubygems.org is the Ruby community's primary gem (library) hosting service. Insufficient input validation allowed malicious actors to replace any uploaded gem version that had a platform, version number, or gem name matching `/-\d/`, permanently replacing the legitimate upload in the canonical gem storage bucket, and triggering an immediate CDN purge so that the malicious gem would be served immediately. The maintainers have checked all gems matching the `/-\d/` pattern and can confirm that no unexpected `.gem`s were found. As a result, we believe this vulnerability was _not_ exploited. The easiest way to ensure that a user's applications were not exploited by this vulnerability is to check that all of your downloaded .gems have a checksum that matches the checksum recorded in the RubyGems.org database. RubyGems contributor Maciej Mensfeld wrote a tool to automatically check that all downloaded .gem files match the checksums recorded in the RubyGems.org database. You can use it by running: `bundle add bundler-integrity` followed by `bundle exec bundler-integrity`. Neither this tool nor anything else can prove you were not exploited, but the can assist your investigation by quickly comparing RubyGems API-provided checksums with the checksums of files on your disk. The issue has been patched with improved input validation and the changes are live. No action is required on the part of the user. Users are advised to validate their local gems.</description>
-      <guid isPermaLink="false">CVE-2023-40165|2024-08-02T18:24:55.791Z</guid>
-      <pubDate>Thu, 17 Aug 2023 17:06:32 +0000</pubDate>
+      <link>https://www.cve.org/CVERecord?id=CVE-2022-29218</link>
+      <description>RubyGems is a package registry used to supply software for the Ruby language ecosystem. An ordering mistake in the code that accepts gem uploads allowed some gems (with platforms ending in numbers, like `arm64-darwin-21`) to be temporarily replaced in the CDN cache by a malicious package. The bug has been patched, and is believed to have never been exploited, based on an extensive review of logs and existing gems by rubygems. The easiest way to ensure that an application has not been exploited by this vulnerability is to verify all downloaded .gems checksums match the checksum recorded in the RubyGems.org database. RubyGems.org has been patched and is no longer vulnerable to this issue.</description>
+      <guid isPermaLink="false">CVE-2022-29218|2024-08-03T06:17:54.351Z</guid>
+      <pubDate>Thu, 12 May 2022 23:55:08 +0000</pubDate>
     </item>
     <item>
-      <title>CVE-2024-35221|2024-06-06T18:59:30.878Z -- rubygems -- rubygems.org</title>
-      <link>https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2024-35221</link>
-      <description>Rubygems.org is the Ruby community's gem hosting service. A Gem publisher can cause a Remote DoS when publishing a Gem. This is due to how Ruby reads the Manifest of Gem files when using Gem::Specification.from_yaml. from_yaml makes use of SafeYAML.load which allows YAML aliases inside the YAML-based metadata of a gem. YAML aliases allow for Denial of Service attacks with so-called `YAML-bombs` (comparable to Billion laughs attacks). This was patched. There is is no action required by users. This issue is also tracked as GHSL-2024-001 and was discovered by the GitHub security lab.</description>
-      <guid isPermaLink="false">CVE-2024-35221|2024-06-06T18:59:30.878Z</guid>
-      <pubDate>Wed, 29 May 2024 20:18:06 +0000</pubDate>
+      <title>CVE-2022-29176|2024-08-03T06:17:53.919Z -- rubygems -- rubygems.org
+</title>
+      <link>https://www.cve.org/CVERecord?id=CVE-2022-29176</link>
+      <description>Rubygems is a package registry used to supply software for the Ruby language ecosystem. Due to a bug in the yank action, it was possible for any RubyGems.org user to remove and replace certain gems even if that user was not authorized to do so. To be vulnerable, a gem needed: one or more dashes in its name creation within 30 days OR no updates for over 100 days At present, we believe this vulnerability has not been exploited. RubyGems.org sends an email to all gem owners when a gem version is published or yanked. We have not received any support emails from gem owners indicating that their gem has been yanked without authorization. An audit of gem changes for the last 18 months did not find any examples of this vulnerability being used in a malicious way. A deeper audit for any possible use of this exploit is ongoing, and we will update this advisory once it is complete. Using Bundler in --frozen or --deployment mode in CI and during deploys, as the Bundler team has always recommended, will guarantee that your application does not silently switch to versions created using this exploit. To audit your application history for possible past exploits, review your Gemfile.lock and look for gems whose platform changed when the version number did not change. For example, gemname-3.1.2 updating to gemname-3.1.2-java could indicate a possible abuse of this vulnerability. RubyGems.org has been patched and is no longer vulnerable to this issue as of the 5th of May 2022.</description>
+      <guid isPermaLink="false">CVE-2022-29176|2024-08-03T06:17:53.919Z</guid>
+      <pubDate>Thu, 05 May 2022 22:05:10 +0000</pubDate>
     </item>
     <item>
       <title>CVE-2024-35221|2024-08-02T03:07:46.784Z -- rubygems -- rubygems.org</title>
       <link>https://www.cve.org/CVERecord?id=CVE-2024-35221</link>
       <description>Rubygems.org is the Ruby community's gem hosting service. A Gem publisher can cause a Remote DoS when publishing a Gem. This is due to how Ruby reads the Manifest of Gem files when using Gem::Specification.from_yaml. from_yaml makes use of SafeYAML.load which allows YAML aliases inside the YAML-based metadata of a gem. YAML aliases allow for Denial of Service attacks with so-called `YAML-bombs` (comparable to Billion laughs attacks). This was patched. There is is no action required by users. This issue is also tracked as GHSL-2024-001 and was discovered by the GitHub security lab.</description>
       <guid isPermaLink="false">CVE-2024-35221|2024-08-02T03:07:46.784Z</guid>
+      <pubDate>Wed, 29 May 2024 20:18:06 +0000</pubDate>
+    </item>
+    <item>
+      <title>CVE-2024-35221|2024-06-06T18:59:30.878Z -- rubygems -- rubygems.org</title>
+      <link>https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2024-35221</link>
+      <description>Rubygems.org is the Ruby community's gem hosting service. A Gem publisher can cause a Remote DoS when publishing a Gem. This is due to how Ruby reads the Manifest of Gem files when using Gem::Specification.from_yaml. from_yaml makes use of SafeYAML.load which allows YAML aliases inside the YAML-based metadata of a gem. YAML aliases allow for Denial of Service attacks with so-called `YAML-bombs` (comparable to Billion laughs attacks). This was patched. There is is no action required by users. This issue is also tracked as GHSL-2024-001 and was discovered by the GitHub security lab.</description>
+      <guid isPermaLink="false">CVE-2024-35221|2024-06-06T18:59:30.878Z</guid>
       <pubDate>Wed, 29 May 2024 20:18:06 +0000</pubDate>
     </item>
   </channel>

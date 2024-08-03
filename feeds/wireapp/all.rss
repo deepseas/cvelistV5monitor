@@ -6,7 +6,7 @@
     <description>The latest CVEs for wireapp -- all products</description>
     <docs>http://www.rssboard.org/rss-specification</docs>
     <generator>python-feedgen</generator>
-    <lastBuildDate>Sat, 03 Aug 2024 06:24:37 +0000</lastBuildDate>
+    <lastBuildDate>Sat, 03 Aug 2024 07:20:19 +0000</lastBuildDate>
     <ttl>60</ttl>
     <item>
       <title>CVE-2022-24799|2024-08-03T04:20:50.462Z -- wireapp -- wire-webapp
@@ -31,6 +31,14 @@
       <description>wire-server provides back end services for Wire, an open source messenger. In versions of wire-server prior to the 2022-01-27 release, it was possible to craft DSA Signatures to bypass SAML SSO and impersonate any Wire user with SAML credentials. In teams with SAML, but without SCIM, it was possible to create new accounts with fake SAML credentials. Under certain conditions that can be established by an attacker, an upstream library for parsing, rendering, signing, and validating SAML XML data was accepting public keys as trusted that were provided by the attacker in the signature. As a consequence, the attacker could login as any user in any Wire team with SAML SSO enabled. If SCIM was not enabled, the attacker could also create new users with new SAML NameIDs. In order to exploit this vulnerability, the attacker needs to know the SSO login code (distributed to all team members with SAML credentials and visible in the Team Management app), the SAML EntityID identifying the IdP (a URL not considered sensitive, but usually hard to guess, also visible in Team Management), and the SAML NameID of the user (usually an email address or a nick). The issue has been fixed in wire-server `2022-01-27` and is already deployed on all Wire managed services. On premise instances of wire-server need to be updated to `2022-01-27`, so that their backends are no longer affected. There are currently no known workarounds. More detailed information about how to reproduce the vulnerability and mitigation strategies is available in the GitHub Security Advisory.</description>
       <guid isPermaLink="false">CVE-2022-23610|2024-08-03T03:43:46.981Z</guid>
       <pubDate>Wed, 16 Mar 2022 17:40:10 +0000</pubDate>
+    </item>
+    <item>
+      <title>CVE-2022-29168|2024-08-03T06:17:54.056Z -- wireapp -- wire-webapp
+</title>
+      <link>https://www.cve.org/CVERecord?id=CVE-2022-29168</link>
+      <description>Wire is a secure messaging application. Wire is vulnerable to arbitrary HTML and Javascript execution via insufficient escaping when rendering `@mentions` in the wire-webapp. If a user receives and views a malicious message, arbitrary code is injected and executed in the context of the victim allowing the attacker to fully control the user account. Wire-desktop clients that are connected to a vulnerable wire-webapp version are also vulnerable to this attack. The issue has been fixed in wire-webapp 2022-05-04-production.0 and is already deployed on all Wire managed services. On-premise instances of wire-webapp need to be updated to docker tag 2022-05-04-production.0-v0.29.7-0-a6f2ded or wire-server 2022-05-04 (chart/4.11.0) or later. No known workarounds exist.</description>
+      <guid isPermaLink="false">CVE-2022-29168|2024-08-03T06:17:54.056Z</guid>
+      <pubDate>Sat, 25 Jun 2022 07:05:09 +0000</pubDate>
     </item>
     <item>
       <title>CVE-2022-23605|2024-08-03T03:43:46.973Z -- wireapp -- wire-webapp

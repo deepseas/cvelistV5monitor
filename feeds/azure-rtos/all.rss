@@ -6,87 +6,23 @@
     <description>The latest CVEs for azure-rtos -- all products</description>
     <docs>http://www.rssboard.org/rss-specification</docs>
     <generator>python-feedgen</generator>
-    <lastBuildDate>Fri, 02 Aug 2024 23:21:47 +0000</lastBuildDate>
+    <lastBuildDate>Sat, 03 Aug 2024 07:20:28 +0000</lastBuildDate>
     <ttl>60</ttl>
     <item>
-      <title>CVE-2023-48693|2024-08-02T21:37:54.427Z -- azure-rtos -- threadx
+      <title>CVE-2022-29246|2024-08-03T06:17:54.435Z -- azure-rtos -- usbx
 </title>
-      <link>https://www.cve.org/CVERecord?id=CVE-2023-48693</link>
-      <description> Azure RTOS ThreadX is an advanced real-time operating system (RTOS) designed specifically for deeply embedded applications. An attacker can cause arbitrary read and write due to vulnerability in parameter checking mechanism in Azure RTOS ThreadX, which may lead to privilege escalation. The affected components include RTOS ThreadX v6.2.1 and below. The fixes have been included in ThreadX release 6.3.0. Users are advised to upgrade. There are no known workarounds for this vulnerability.</description>
-      <guid isPermaLink="false">CVE-2023-48693|2024-08-02T21:37:54.427Z</guid>
-      <pubDate>Tue, 05 Dec 2023 00:24:47 +0000</pubDate>
+      <link>https://www.cve.org/CVERecord?id=CVE-2022-29246</link>
+      <description>Azure RTOS USBX is a USB host, device, and on-the-go (OTG) embedded stack. Prior to version 6.1.11, he USBX DFU UPLOAD functionality may be utilized to introduce a buffer overflow resulting in overwrite of memory contents. In particular cases this may allow an attacker to bypass security features or execute arbitrary code. The implementation of `ux_device_class_dfu_control_request` function does not assure that a buffer overflow will not occur during handling of the DFU UPLOAD command. When an attacker issues the `UX_SLAVE_CLASS_DFU_COMMAND_UPLOAD` control transfer request with `wLenght` larger than the buffer size (`UX_SLAVE_REQUEST_CONTROL_MAX_LENGTH`, 256 bytes), depending on the actual implementation of `dfu -&gt; ux_slave_class_dfu_read`, a buffer overflow may occur. In example `ux_slave_class_dfu_read` may read 4096 bytes (or more up to 65k) to a 256 byte buffer ultimately resulting in an overflow. Furthermore in case an attacker has some control over the read flash memory, this may result in execution of arbitrary code and platform compromise. A fix for this issue has been included in USBX release 6.1.11. As a workaround, align request and buffer size to assure that buffer boundaries are respected.</description>
+      <guid isPermaLink="false">CVE-2022-29246|2024-08-03T06:17:54.435Z</guid>
+      <pubDate>Tue, 24 May 2022 15:00:16 +0000</pubDate>
     </item>
     <item>
-      <title>CVE-2023-48691|2024-08-02T21:37:54.592Z -- azure-rtos -- netxduo
+      <title>CVE-2022-29223|2024-08-03T06:17:54.276Z -- azure-rtos -- usbx
 </title>
-      <link>https://www.cve.org/CVERecord?id=CVE-2023-48691</link>
-      <description>Azure RTOS NetX Duo is a TCP/IP network stack designed specifically for deeply embedded real-time and IoT applications. An attacker can cause an out-of-bounds write in Azure RTOS NETX Duo, that could lead to remote code execution. The affected components include process related to IGMP protocol in RTOS v6.2.1 and below. The fix has been included in NetX Duo release 6.3.0. Users are advised to upgrade. There are no known workarounds for this vulnerability.</description>
-      <guid isPermaLink="false">CVE-2023-48691|2024-08-02T21:37:54.592Z</guid>
-      <pubDate>Tue, 05 Dec 2023 00:24:41 +0000</pubDate>
-    </item>
-    <item>
-      <title>CVE-2023-48316|2024-08-02T21:23:39.510Z -- azure-rtos -- netxduo
-</title>
-      <link>https://www.cve.org/CVERecord?id=CVE-2023-48316</link>
-      <description>Azure RTOS NetX Duo is a TCP/IP network stack designed specifically for deeply embedded real-time and IoT applications. An attacker can cause remote code execution due to memory overflow vulnerabilities in Azure RTOS NETX Duo. The affected components include processes/functions related to snmp, smtp, ftp and dtls in RTOS v6.2.1 and below. The fixes have been included in NetX Duo release 6.3.0. Users are advised to upgrade. There are no known workarounds for this vulnerability.</description>
-      <guid isPermaLink="false">CVE-2023-48316|2024-08-02T21:23:39.510Z</guid>
-      <pubDate>Tue, 05 Dec 2023 00:24:38 +0000</pubDate>
-    </item>
-    <item>
-      <title>CVE-2023-48694|2024-08-02T21:37:54.419Z -- azure-rtos -- usbx
-</title>
-      <link>https://www.cve.org/CVERecord?id=CVE-2023-48694</link>
-      <description>Azure RTOS USBX is a USB host, device, and on-the-go (OTG) embedded stack, that is fully integrated with Azure RTOS ThreadX. An attacker can cause remote code execution due to expired pointer dereference and type confusion vulnerabilities in Azure RTOS USBX. The affected components include functions/processes in host stack and host class, related to device linked classes, ASIX, Prolific, SWAR, audio, CDC ECM in RTOS v6.2.1 and below. The fixes have been included in USBX release 6.3.0. Users are advised to upgrade. There are no known workarounds for this vulnerability.</description>
-      <guid isPermaLink="false">CVE-2023-48694|2024-08-02T21:37:54.419Z</guid>
-      <pubDate>Tue, 05 Dec 2023 00:24:51 +0000</pubDate>
-    </item>
-    <item>
-      <title>CVE-2023-48692|2024-08-02T21:37:54.428Z -- azure-rtos -- netxduo
-</title>
-      <link>https://www.cve.org/CVERecord?id=CVE-2023-48692</link>
-      <description>Azure RTOS NetX Duo is a TCP/IP network stack designed specifically for deeply embedded real-time and IoT applications. An attacker can cause remote code execution due to memory overflow vulnerabilities in Azure RTOS NETX Duo. The affected components include processes/functions related to icmp, tcp, snmp, dhcp, nat and ftp in RTOS v6.2.1 and below. The fixes have been included in NetX Duo release 6.3.0. Users are advised to upgrade. There are no known workarounds for this vulnerability.</description>
-      <guid isPermaLink="false">CVE-2023-48692|2024-08-02T21:37:54.428Z</guid>
-      <pubDate>Tue, 05 Dec 2023 00:24:44 +0000</pubDate>
-    </item>
-    <item>
-      <title>CVE-2023-48315|2024-08-02T21:23:39.562Z -- azure-rtos -- netxduo
-</title>
-      <link>https://www.cve.org/CVERecord?id=CVE-2023-48315</link>
-      <description>Azure RTOS NetX Duo is a TCP/IP network stack designed specifically for deeply embedded real-time and IoT applications. An attacker can cause remote code execution due to memory overflow vulnerabilities in Azure RTOS NETX Duo. The affected components include processes/functions related to ftp and sntp in RTOS v6.2.1 and below. The fixes have been included in NetX Duo release 6.3.0. Users are advised to upgrade. There are no known workarounds for this vulnerability.</description>
-      <guid isPermaLink="false">CVE-2023-48315|2024-08-02T21:23:39.562Z</guid>
-      <pubDate>Tue, 05 Dec 2023 00:24:35 +0000</pubDate>
-    </item>
-    <item>
-      <title>CVE-2023-48695|2024-08-02T21:37:54.227Z -- azure-rtos -- usbx
-</title>
-      <link>https://www.cve.org/CVERecord?id=CVE-2023-48695</link>
-      <description>Azure RTOS USBX is a USB host, device, and on-the-go (OTG) embedded stack, that is fully integrated with Azure RTOS ThreadX. An attacker can cause remote code execution due to out of bounds write vulnerabilities in Azure RTOS USBX. The affected components include functions/processes in host and device classes, related to CDC ECM and RNDIS in RTOS v6.2.1 and below. The fixes have been included in USBX release 6.3.0. Users are advised to upgrade. There are no known workarounds for this vulnerability.</description>
-      <guid isPermaLink="false">CVE-2023-48695|2024-08-02T21:37:54.227Z</guid>
-      <pubDate>Tue, 05 Dec 2023 00:24:54 +0000</pubDate>
-    </item>
-    <item>
-      <title>CVE-2023-48697|2024-08-02T21:37:54.279Z -- azure-rtos -- usbx
-</title>
-      <link>https://www.cve.org/CVERecord?id=CVE-2023-48697</link>
-      <description>Azure RTOS USBX is a USB host, device, and on-the-go (OTG) embedded stack, that is fully integrated with Azure RTOS ThreadX. An attacker can cause remote code execution due to memory buffer and pointer vulnerabilities in Azure RTOS USBX. The affected components include functions/processes in pictbridge and host class, related to PIMA, storage, CDC ACM, ECM, audio, hub in RTOS v6.2.1 and below. The fixes have been included in USBX release 6.3.0. Users are advised to upgrade. There are no known workarounds for this vulnerability.</description>
-      <guid isPermaLink="false">CVE-2023-48697|2024-08-02T21:37:54.279Z</guid>
-      <pubDate>Tue, 05 Dec 2023 00:25:00 +0000</pubDate>
-    </item>
-    <item>
-      <title>CVE-2023-48698|2024-08-02T21:37:54.401Z -- azure-rtos -- usbx
-</title>
-      <link>https://www.cve.org/CVERecord?id=CVE-2023-48698</link>
-      <description>Azure RTOS USBX is a USB host, device, and on-the-go (OTG) embedded stack, that is fully integrated with Azure RTOS ThreadX. An attacker can cause remote code execution due to expired pointer dereference vulnerabilities in Azure RTOS USBX. The affected components include functions/processes in host stack and host classes, related to device linked classes, GSER and HID in RTOS v6.2.1 and below. The fixes have been included in USBX release 6.3.0. Users are advised to upgrade. There are no known workarounds for this vulnerability.</description>
-      <guid isPermaLink="false">CVE-2023-48698|2024-08-02T21:37:54.401Z</guid>
-      <pubDate>Tue, 05 Dec 2023 00:25:03 +0000</pubDate>
-    </item>
-    <item>
-      <title>CVE-2023-48696|2024-08-02T21:37:53.616Z -- azure-rtos -- usbx
-</title>
-      <link>https://www.cve.org/CVERecord?id=CVE-2023-48696</link>
-      <description>Azure RTOS USBX is a USB host, device, and on-the-go (OTG) embedded stack, that is fully integrated with Azure RTOS ThreadX. An attacker can cause remote code execution due to expired pointer dereference vulnerabilities in Azure RTOS USBX. The affected components include components in host class, related to CDC ACM in RTOS v6.2.1 and below. The fixes have been included in USBX release 6.3.0. Users are advised to upgrade. There are no known workarounds for this vulnerability.</description>
-      <guid isPermaLink="false">CVE-2023-48696|2024-08-02T21:37:53.616Z</guid>
-      <pubDate>Tue, 05 Dec 2023 00:24:57 +0000</pubDate>
+      <link>https://www.cve.org/CVERecord?id=CVE-2022-29223</link>
+      <description>Azure RTOS USBX is a USB host, device, and on-the-go (OTG) embedded stack. In versions prior to 6.1.10, an attacker can cause a buffer overflow by providing the Azure RTOS USBX host stack a HUB descriptor with `bNbPorts` set to a value greater than `UX_MAX_TT` which defaults to 8. For a `bNbPorts` value of 255, the implementation of `ux_host_class_hub_descriptor_get` function will modify the contents of `hub` -&gt; `ux_host_class_hub_device` -&gt; `ux_device_hub_tt` array violating the end boundary by 255 - `UX_MAX_TT` items. The USB host stack needs to validate the number of ports reported by the hub, and if the value is larger than UX_MAX_TT, USB stack needs to reject the request. This fix has been included in USBX release 6.1.10.</description>
+      <guid isPermaLink="false">CVE-2022-29223|2024-08-03T06:17:54.276Z</guid>
+      <pubDate>Tue, 24 May 2022 14:25:10 +0000</pubDate>
     </item>
   </channel>
 </rss>

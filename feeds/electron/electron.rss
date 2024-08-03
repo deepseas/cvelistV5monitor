@@ -6,7 +6,7 @@
     <description>The latest CVEs for electron -- electron</description>
     <docs>http://www.rssboard.org/rss-specification</docs>
     <generator>python-feedgen</generator>
-    <lastBuildDate>Sat, 03 Aug 2024 06:24:46 +0000</lastBuildDate>
+    <lastBuildDate>Sat, 03 Aug 2024 07:20:17 +0000</lastBuildDate>
     <ttl>60</ttl>
     <item>
       <title>CVE-2022-21718|2024-08-03T02:53:35.432Z -- electron -- electron
@@ -15,6 +15,22 @@
       <description>Electron is a framework for writing cross-platform desktop applications using JavaScript, HTML and CSS. A vulnerability in versions prior to `17.0.0-alpha.6`, `16.0.6`, `15.3.5`, `14.2.4`, and `13.6.6` allows renderers to obtain access to a bluetooth device via the web bluetooth API if the app has not configured a custom `select-bluetooth-device` event handler. This has been patched and Electron versions `17.0.0-alpha.6`, `16.0.6`, `15.3.5`, `14.2.4`, and `13.6.6` contain the fix. Code from the GitHub Security Advisory can be added to the app to work around the issue.</description>
       <guid isPermaLink="false">CVE-2022-21718|2024-08-03T02:53:35.432Z</guid>
       <pubDate>Tue, 22 Mar 2022 16:25:12 +0000</pubDate>
+    </item>
+    <item>
+      <title>CVE-2022-29257|2024-08-03T06:17:54.538Z -- electron -- electron
+</title>
+      <link>https://www.cve.org/CVERecord?id=CVE-2022-29257</link>
+      <description>Electron is a framework for writing cross-platform desktop applications using JavaScript (JS), HTML, and CSS. A vulnerability in versions prior to 18.0.0-beta.6, 17.2.0, 16.2.6, and 15.5.5 allows attackers who have control over a given apps update server / update storage to serve maliciously crafted update packages that pass the code signing validation check but contain malicious code in some components. This kind of attack would require significant privileges in a potential victim's own auto updating infrastructure and the ease of that attack entirely depends on the potential victim's infrastructure security. Electron versions 18.0.0-beta.6, 17.2.0, 16.2.6, and 15.5.5 contain a fix for this issue. There are no known workarounds.</description>
+      <guid isPermaLink="false">CVE-2022-29257|2024-08-03T06:17:54.538Z</guid>
+      <pubDate>Mon, 13 Jun 2022 21:25:10 +0000</pubDate>
+    </item>
+    <item>
+      <title>CVE-2022-29247|2024-08-03T06:17:54.477Z -- electron -- electron
+</title>
+      <link>https://www.cve.org/CVERecord?id=CVE-2022-29247</link>
+      <description>Electron is a framework for writing cross-platform desktop applications using JavaScript (JS), HTML, and CSS. A vulnerability in versions prior to 18.0.0-beta.6, 17.2.0, 16.2.6, and 15.5.5 allows a renderer with JS execution to obtain access to a new renderer process with `nodeIntegrationInSubFrames` enabled which in turn allows effective access to `ipcRenderer`. The `nodeIntegrationInSubFrames` option does not implicitly grant Node.js access. Rather, it depends on the existing sandbox setting. If an application is sandboxed, then `nodeIntegrationInSubFrames` just gives access to the sandboxed renderer APIs, which include `ipcRenderer`. If the application then additionally exposes IPC messages without IPC `senderFrame` validation that perform privileged actions or return confidential data this access to `ipcRenderer` can in turn compromise your application / user even with the sandbox enabled. Electron versions 18.0.0-beta.6, 17.2.0, 16.2.6, and 15.5.5 contain a fix for this issue. As a workaround, ensure that all IPC message handlers appropriately validate `senderFrame`.</description>
+      <guid isPermaLink="false">CVE-2022-29247|2024-08-03T06:17:54.477Z</guid>
+      <pubDate>Mon, 13 Jun 2022 21:05:10 +0000</pubDate>
     </item>
   </channel>
 </rss>

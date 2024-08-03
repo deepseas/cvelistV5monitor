@@ -6,7 +6,7 @@
     <description>The latest CVEs for ChainSafe -- all products</description>
     <docs>http://www.rssboard.org/rss-specification</docs>
     <generator>python-feedgen</generator>
-    <lastBuildDate>Sat, 03 Aug 2024 06:24:48 +0000</lastBuildDate>
+    <lastBuildDate>Sat, 03 Aug 2024 07:20:19 +0000</lastBuildDate>
     <ttl>60</ttl>
     <item>
       <title>CVE-2022-24759|2024-08-03T04:20:50.504Z -- chainsafe -- js-libp2p-noise
@@ -15,6 +15,14 @@
       <description>`@chainsafe/libp2p-noise` contains TypeScript implementation of noise protocol, an encryption protocol used in libp2p. `@chainsafe/libp2p-noise` before 4.1.2 and 5.0.3 does not correctly validate signatures during the handshake process. This may allow a man-in-the-middle to pose as other peers and get those peers banned. Users should upgrade to version 4.1.2 or 5.0.3 to receive a patch. There are currently no known workarounds.</description>
       <guid isPermaLink="false">CVE-2022-24759|2024-08-03T04:20:50.504Z</guid>
       <pubDate>Thu, 17 Mar 2022 16:40:11 +0000</pubDate>
+    </item>
+    <item>
+      <title>CVE-2022-29219|2024-08-03T06:17:54.286Z -- chainsafe -- lodestar
+</title>
+      <link>https://www.cve.org/CVERecord?id=CVE-2022-29219</link>
+      <description>Lodestar is a TypeScript implementation of the Ethereum Consensus specification. Prior to version 0.36.0, there is a possible consensus split given maliciously-crafted `AttesterSlashing` or `ProposerSlashing` being included on-chain. Because the developers represent `uint64` values as native javascript `number`s, there is an issue when those variables with large (greater than 2^53) `uint64` values are included on chain. In those cases, Lodestar may view valid_`AttesterSlashing` or `ProposerSlashing` as invalid, due to rounding errors in large `number` values. This causes a consensus split, where Lodestar nodes are forked away from the main network. Similarly, Lodestar may consider invalid `ProposerSlashing` as valid, thus including in proposed blocks that will be considered invalid by the network. Version 0.36.0 contains a fix for this issue. As a workaround, use `BigInt` to represent `Slot` and `Epoch` values in `AttesterSlashing` and `ProposerSlashing` objects. `BigInt` is too slow to be used in all `Slot` and `Epoch` cases, so one may carefully use `BigInt` just where necessary for consensus.</description>
+      <guid isPermaLink="false">CVE-2022-29219|2024-08-03T06:17:54.286Z</guid>
+      <pubDate>Tue, 24 May 2022 14:15:14 +0000</pubDate>
     </item>
   </channel>
 </rss>
