@@ -6,49 +6,93 @@
     <description>The latest CVEs for Cloudflare -- WARP</description>
     <docs>http://www.rssboard.org/rss-specification</docs>
     <generator>python-feedgen</generator>
-    <lastBuildDate>Fri, 02 Aug 2024 23:22:06 +0000</lastBuildDate>
+    <lastBuildDate>Sat, 03 Aug 2024 01:42:07 +0000</lastBuildDate>
     <ttl>60</ttl>
     <item>
-      <title>CVE-2023-1412|2024-08-02T05:49:11.409Z -- cloudflare -- warp
+      <title>CVE-2022-2147|2024-08-03T00:24:44.346Z -- cloudflare -- warp
 </title>
-      <link>https://www.cve.org/CVERecord?id=CVE-2023-1412</link>
-      <description>An unprivileged (non-admin) user can exploit an Improper Access Control vulnerability in the Cloudflare WARP Client for Windows (&lt;= 2022.12.582.0) to perform privileged operations with SYSTEM context by working with a combination of opportunistic locks (oplock) and symbolic links (which can both be created by an unprivileged user).
-
-After installing the Cloudflare WARP Client (admin privileges required), an MSI-Installer is placed under C:\Windows\Installer. The vulnerability lies in the repair function of this MSI.
-
-ImpactAn unprivileged (non-admin) user can exploit this vulnerability to perform privileged operations with SYSTEM context, including deleting arbitrary files and reading arbitrary file content. This can lead to a variety of attacks, including the manipulation of system files and privilege escalation.
-
-PatchesA new installer with a fix that addresses this vulnerability was released in version 2023.3.381.0. While the WARP Client itself is not vulnerable (only the installer), users are encouraged to upgrade to the latest version and delete any older installers present in their systems.
-
-
-
-
-</description>
-      <guid isPermaLink="false">CVE-2023-1412|2024-08-02T05:49:11.409Z</guid>
-      <pubDate>Wed, 05 Apr 2023 15:22:56 +0000</pubDate>
+      <link>https://www.cve.org/CVERecord?id=CVE-2022-2147</link>
+      <description>Cloudflare Warp for Windows from version 2022.2.95.0 contained an unquoted service path which enables arbitrary code execution leading to privilege escalation. The fix was released in version 2022.3.186.0.</description>
+      <guid isPermaLink="false">CVE-2022-2147|2024-08-03T00:24:44.346Z</guid>
+      <pubDate>Thu, 23 Jun 2022 21:00:16 +0000</pubDate>
     </item>
     <item>
-      <title>CVE-2023-2754|2024-08-02T06:33:05.480Z -- cloudflare -- warp
+      <title>CVE-2022-3512|2024-08-03T01:14:02.071Z -- cloudflare -- warp
 </title>
-      <link>https://www.cve.org/CVERecord?id=CVE-2023-2754</link>
-      <description>The Cloudflare WARP client for Windows assigns loopback IPv4 addresses for the DNS Servers, since WARP acts as local DNS server that performs DNS queries in a secure manner, however, if a user is connected to WARP over an IPv6-capable network, te WARP client did not assign loopback IPv6 addresses but Unique Local Addresses, which under certain conditions could point towards unknown devices in the same local network which enables an Attacker to view DNS queries made by the device.
-
+      <link>https://www.cve.org/CVERecord?id=CVE-2022-3512</link>
+      <description>Using warp-cli command "add-trusted-ssid", a user was able to disconnect WARP client and bypass the "Lock WARP switch" feature resulting in Zero Trust policies not being enforced on an affected endpoint.
 
 </description>
-      <guid isPermaLink="false">CVE-2023-2754|2024-08-02T06:33:05.480Z</guid>
-      <pubDate>Thu, 03 Aug 2023 13:53:00 +0000</pubDate>
+      <guid isPermaLink="false">CVE-2022-3512|2024-08-03T01:14:02.071Z</guid>
+      <pubDate>Fri, 28 Oct 2022 09:22:08 +0000</pubDate>
     </item>
     <item>
-      <title>CVE-2023-0652|2024-08-02T05:17:50.356Z -- cloudflare -- warp
+      <title>CVE-2022-3320|2024-08-03T01:07:06.479Z -- cloudflare -- warp
 </title>
-      <link>https://www.cve.org/CVERecord?id=CVE-2023-0652</link>
-      <description>Due to a hardlink created in the ProgramData folder during the repair process of the software, the installer (MSI) of WARP Client for Windows (&lt;= 2022.12.582.0) allowed a malicious attacker to forge the destination of the hardlink and escalate privileges, overwriting SYSTEM protected files.
-As Cloudflare WARP client for Windows (up to version 2022.5.309.0) allowed creation of mount points from its ProgramData folder, during installation of the WARP client, it was possible to escalate privileges and overwrite SYSTEM protected files.
+      <link>https://www.cve.org/CVERecord?id=CVE-2022-3320</link>
+      <description>It was possible to bypass policies configured for Zero Trust Secure Web Gateway by using warp-cli 'set-custom-endpoint' subcommand. Using this command with an unreachable endpoint caused the WARP Client to disconnect and allowed bypassing administrative restrictions on a Zero Trust enrolled endpoint. 
+
+
+
 
 
 </description>
-      <guid isPermaLink="false">CVE-2023-0652|2024-08-02T05:17:50.356Z</guid>
-      <pubDate>Thu, 06 Apr 2023 09:42:33 +0000</pubDate>
+      <guid isPermaLink="false">CVE-2022-3320|2024-08-03T01:07:06.479Z</guid>
+      <pubDate>Fri, 28 Oct 2022 09:30:17 +0000</pubDate>
+    </item>
+    <item>
+      <title>CVE-2022-3322|2024-08-03T01:07:06.465Z -- cloudflare -- warp
+</title>
+      <link>https://www.cve.org/CVERecord?id=CVE-2022-3322</link>
+      <description>Lock Warp switch is a feature of Zero Trust platform which, when
+ enabled, prevents users of enrolled devices from disabling WARP client.
+ Due to insufficient policy verification by WARP iOS client, this 
+feature could be bypassed by using the "Disable WARP" quick action.
+
+
+
+</description>
+      <guid isPermaLink="false">CVE-2022-3322|2024-08-03T01:07:06.465Z</guid>
+      <pubDate>Fri, 28 Oct 2022 09:25:55 +0000</pubDate>
+    </item>
+    <item>
+      <title>CVE-2022-3337|2024-08-03T01:07:06.580Z -- cloudflare -- warp
+</title>
+      <link>https://www.cve.org/CVERecord?id=CVE-2022-3337</link>
+      <description>It was possible for a user to delete a VPN profile from WARP mobile client on iOS platform despite the  Lock WARP switch https://developers.cloudflare.com/cloudflare-one/connections/connect-devices/warp/warp-settings/#lock-warp-switch  feature
+ being enabled on Zero Trust Platform. This led to bypassing policies 
+and restrictions enforced for enrolled devices by the Zero Trust 
+platform.
+
+
+
+</description>
+      <guid isPermaLink="false">CVE-2022-3337|2024-08-03T01:07:06.580Z</guid>
+      <pubDate>Fri, 28 Oct 2022 09:25:31 +0000</pubDate>
+    </item>
+    <item>
+      <title>CVE-2022-3321|2024-08-03T01:07:06.458Z -- cloudflare -- warp
+</title>
+      <link>https://www.cve.org/CVERecord?id=CVE-2022-3321</link>
+      <description>It was possible to bypass  Lock WARP switch feature https://developers.cloudflare.com/cloudflare-one/connections/connect-devices/warp/warp-settings/#lock-warp-switch  on the WARP iOS mobile client by enabling both "Disable for cellular networks" and "Disable for Wi-Fi networks" switches at once in the application settings. Such configuration caused the WARP client to disconnect and allowed the user to bypass restrictions and policies enforced by the Zero Trust platform.</description>
+      <guid isPermaLink="false">CVE-2022-3321|2024-08-03T01:07:06.458Z</guid>
+      <pubDate>Fri, 28 Oct 2022 09:24:40 +0000</pubDate>
+    </item>
+    <item>
+      <title>CVE-2022-2145|2024-08-03T00:24:44.183Z -- cloudflare -- warp
+</title>
+      <link>https://www.cve.org/CVERecord?id=CVE-2022-2145</link>
+      <description>Cloudflare WARP client for Windows (up to v. 2022.5.309.0) allowed creation of mount points from its ProgramData folder. During installation of the WARP client, it was possible to escalate privileges and overwrite SYSTEM protected files.</description>
+      <guid isPermaLink="false">CVE-2022-2145|2024-08-03T00:24:44.183Z</guid>
+      <pubDate>Tue, 28 Jun 2022 17:45:20 +0000</pubDate>
+    </item>
+    <item>
+      <title>CVE-2022-2225|2024-08-03T00:32:09.058Z -- cloudflare -- warp
+</title>
+      <link>https://www.cve.org/CVERecord?id=CVE-2022-2225</link>
+      <description>By using warp-cli subcommands (disable-ethernet, disable-wifi), it was possible for a user without admin privileges to bypass configured Zero Trust security policies (e.g. Secure Web Gateway policies) and features such as 'Lock WARP switch'.</description>
+      <guid isPermaLink="false">CVE-2022-2225|2024-08-03T00:32:09.058Z</guid>
+      <pubDate>Tue, 26 Jul 2022 11:35:10 +0000</pubDate>
     </item>
   </channel>
 </rss>

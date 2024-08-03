@@ -6,54 +6,15 @@
     <description>The latest CVEs for dompdf -- all products</description>
     <docs>http://www.rssboard.org/rss-specification</docs>
     <generator>python-feedgen</generator>
-    <lastBuildDate>Fri, 02 Aug 2024 23:22:17 +0000</lastBuildDate>
+    <lastBuildDate>Sat, 03 Aug 2024 01:42:13 +0000</lastBuildDate>
     <ttl>60</ttl>
     <item>
-      <title>CVE-2023-50251|2024-08-02T22:16:46.252Z -- dompdf -- php-svg-lib
+      <title>CVE-2022-2400|2024-08-03T00:39:06.372Z -- dompdf -- dompdf%2Fdompdf
 </title>
-      <link>https://www.cve.org/CVERecord?id=CVE-2023-50251</link>
-      <description>php-svg-lib is an SVG file parsing / rendering library. Prior to version 0.5.1, when parsing the attributes passed to a `use` tag inside an svg document, an attacker can cause the system to go to an infinite recursion. Depending on the system configuration and attack pattern this could exhaust the memory available to the executing process and/or to the server itself. An attacker sending multiple request to a system to render the above payload can potentially cause resource exhaustion to the point that the system is unable to handle incoming request. Version 0.5.1 contains a patch for this issue.</description>
-      <guid isPermaLink="false">CVE-2023-50251|2024-08-02T22:16:46.252Z</guid>
-      <pubDate>Tue, 12 Dec 2023 20:37:23 +0000</pubDate>
-    </item>
-    <item>
-      <title>CVE-2023-23924|2024-08-02T10:42:27.102Z -- dompdf -- dompdf
-</title>
-      <link>https://www.cve.org/CVERecord?id=CVE-2023-23924</link>
-      <description>Dompdf is an HTML to PDF converter. The URI validation on dompdf 2.0.1 can be bypassed on SVG parsing by passing `&lt;image&gt;` tags with uppercase letters. This may lead to arbitrary object unserialize on PHP &lt; 8, through the `phar` URL wrapper. An attacker can exploit the vulnerability to call arbitrary URL with arbitrary protocols, if they can provide a SVG file to dompdf. In PHP versions before 8.0.0, it leads to arbitrary unserialize, that will lead to the very least to an arbitrary file deletion and even remote code execution, depending on classes that are available.
-</description>
-      <guid isPermaLink="false">CVE-2023-23924|2024-08-02T10:42:27.102Z</guid>
-      <pubDate>Tue, 31 Jan 2023 23:54:30 +0000</pubDate>
-    </item>
-    <item>
-      <title>CVE-2023-24813|2024-08-02T11:03:19.250Z -- dompdf -- dompdf
-</title>
-      <link>https://www.cve.org/CVERecord?id=CVE-2023-24813</link>
-      <description>Dompdf is an HTML to PDF converter written in php. Due to the difference in the attribute parser of Dompdf and php-svg-lib, an attacker can still call arbitrary URLs with arbitrary protocols. Dompdf parses the href attribute of `image` tags and respects `xlink:href` even if `href` is specified. However, php-svg-lib, which is later used to parse the svg file, parses the href attribute. Since `href` is respected if both `xlink:href` and `href` is specified, it's possible to bypass the protection on the Dompdf side by providing an empty `xlink:href` attribute. An attacker can exploit the vulnerability to call arbitrary URLs with arbitrary protocols if they provide an SVG file to the Dompdf. In PHP versions before 8.0.0, it leads to arbitrary unserialize, which will lead, at the very least, to arbitrary file deletion and might lead to remote code execution, depending on available classes. This vulnerability has been addressed in commit `95009ea98` which has been included in release version 2.0.3. Users are advised to upgrade. There are no known workarounds for this vulnerability.</description>
-      <guid isPermaLink="false">CVE-2023-24813|2024-08-02T11:03:19.250Z</guid>
-      <pubDate>Tue, 07 Feb 2023 18:05:14 +0000</pubDate>
-    </item>
-    <item>
-      <title>CVE-2023-50262|2024-08-02T22:16:46.642Z -- dompdf -- dompdf
-</title>
-      <link>https://www.cve.org/CVERecord?id=CVE-2023-50262</link>
-      <description>Dompdf is an HTML to PDF converter for PHP. When parsing SVG images Dompdf performs an initial validation to ensure that paths within the SVG are allowed. One of the validations is that the SVG document does not reference itself. However, prior to version 2.0.4, a recursive chained using two or more SVG documents is not correctly validated. Depending on the system configuration and attack pattern this could exhaust the memory available to the executing process and/or to the server itself.
-
-php-svg-lib, when run in isolation, does not support SVG references for `image` elements. However, when used in combination with Dompdf, php-svg-lib will process SVG images referenced by an `image` element. Dompdf currently includes validation to prevent self-referential `image` references, but a chained reference is not checked. A malicious actor may thus trigger infinite recursion by chaining references between two or more SVG images.
-
-When Dompdf parses a malicious payload, it will crash due after exceeding the allowed execution time or memory usage. An attacker sending multiple request to a system can potentially cause resource exhaustion to the point that the system is unable to handle incoming request.
-
-Version 2.0.4 contains a fix for this issue.</description>
-      <guid isPermaLink="false">CVE-2023-50262|2024-08-02T22:16:46.642Z</guid>
-      <pubDate>Wed, 13 Dec 2023 20:52:56 +0000</pubDate>
-    </item>
-    <item>
-      <title>CVE-2023-50252|2024-08-02T22:16:46.251Z -- dompdf -- php-svg-lib
-</title>
-      <link>https://www.cve.org/CVERecord?id=CVE-2023-50252</link>
-      <description>php-svg-lib is an SVG file parsing / rendering library. Prior to version 0.5.1, when handling `&lt;use&gt;` tag that references an `&lt;image&gt;` tag, it merges the attributes from the `&lt;use&gt;` tag to the `&lt;image&gt;` tag. The problem pops up especially when the `href` attribute from the `&lt;use&gt;` tag has not been sanitized. This can lead to an unsafe file read that can cause PHAR Deserialization vulnerability in PHP prior to version 8. Version 0.5.1 contains a patch for this issue. </description>
-      <guid isPermaLink="false">CVE-2023-50252|2024-08-02T22:16:46.251Z</guid>
-      <pubDate>Tue, 12 Dec 2023 20:39:17 +0000</pubDate>
+      <link>https://www.cve.org/CVERecord?id=CVE-2022-2400</link>
+      <description>External Control of File Name or Path in GitHub repository dompdf/dompdf prior to 2.0.0.</description>
+      <guid isPermaLink="false">CVE-2022-2400|2024-08-03T00:39:06.372Z</guid>
+      <pubDate>Mon, 18 Jul 2022 00:00:00 +0000</pubDate>
     </item>
     <item>
       <title>CVE-2024-25117|2024-02-21T16:25:17.970Z -- dompdf -- php-svg-lib</title>
