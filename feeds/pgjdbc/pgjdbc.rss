@@ -6,7 +6,7 @@
     <description>The latest CVEs for pgjdbc -- pgjdbc</description>
     <docs>http://www.rssboard.org/rss-specification</docs>
     <generator>python-feedgen</generator>
-    <lastBuildDate>Sat, 03 Aug 2024 12:25:50 +0000</lastBuildDate>
+    <lastBuildDate>Sat, 03 Aug 2024 13:22:18 +0000</lastBuildDate>
     <ttl>60</ttl>
     <item>
       <title>CVE-2022-31197|2024-08-03T07:11:39.725Z -- pgjdbc -- pgjdbc
@@ -17,10 +17,18 @@
       <pubDate>Wed, 03 Aug 2022 00:00:00 +0000</pubDate>
     </item>
     <item>
-      <title>CVE-2024-1597|2024-07-30T16:53:44.796Z -- pgjdbc -- pgjdbc</title>
+      <title>CVE-2022-41946|2024-08-03T12:56:38.648Z -- pgjdbc -- pgjdbc
+</title>
+      <link>https://www.cve.org/CVERecord?id=CVE-2022-41946</link>
+      <description>pgjdbc is an open source postgresql JDBC Driver. In affected versions a prepared statement using either `PreparedStatement.setText(int, InputStream)` or `PreparedStatemet.setBytea(int, InputStream)` will create a temporary file if the InputStream is larger than 2k. This will create a temporary file which is readable by other users on Unix like systems, but not MacOS. On Unix like systems, the system's temporary directory is shared between all users on that system. Because of this, when files and directories are written into this directory they are, by default, readable by other users on that same system. This vulnerability does not allow other users to overwrite the contents of these directories or files. This is purely an information disclosure vulnerability. Because certain JDK file system APIs were only added in JDK 1.7, this this fix is dependent upon the version of the JDK you are using. Java 1.7 and higher users: this vulnerability is fixed in 4.5.0. Java 1.6 and lower users: no patch is available. If you are unable to patch, or are stuck running on Java 1.6, specifying the java.io.tmpdir system environment variable to a directory that is exclusively owned by the executing user will mitigate this vulnerability.</description>
+      <guid isPermaLink="false">CVE-2022-41946|2024-08-03T12:56:38.648Z</guid>
+      <pubDate>Wed, 23 Nov 2022 00:00:00 +0000</pubDate>
+    </item>
+    <item>
+      <title>CVE-2024-1597|2024-08-01T18:48:20.658Z -- pgjdbc -- pgjdbc</title>
       <link>https://www.cve.org/CVERecord?id=CVE-2024-1597</link>
       <description>pgjdbc, the PostgreSQL JDBC Driver, allows attacker to inject SQL if using PreferQueryMode=SIMPLE. Note this is not the default. In the default mode there is no vulnerability. A placeholder for a numeric value must be immediately preceded by a minus. There must be a second placeholder for a string value after the first placeholder; both must be on the same line. By constructing a matching string payload, the attacker can inject SQL to alter the query,bypassing the protections that parameterized queries bring against SQL Injection attacks. Versions before 42.7.2, 42.6.1, 42.5.5, 42.4.4, 42.3.9, and 42.2.28 are affected.</description>
-      <guid isPermaLink="false">CVE-2024-1597|2024-07-30T16:53:44.796Z</guid>
+      <guid isPermaLink="false">CVE-2024-1597|2024-08-01T18:48:20.658Z</guid>
       <pubDate>Mon, 19 Feb 2024 12:58:48 +0000</pubDate>
     </item>
     <item>
@@ -31,10 +39,10 @@
       <pubDate>Mon, 19 Feb 2024 12:58:48 +0000</pubDate>
     </item>
     <item>
-      <title>CVE-2024-1597|2024-08-01T18:48:20.658Z -- pgjdbc -- pgjdbc</title>
+      <title>CVE-2024-1597|2024-07-30T16:53:44.796Z -- pgjdbc -- pgjdbc</title>
       <link>https://www.cve.org/CVERecord?id=CVE-2024-1597</link>
       <description>pgjdbc, the PostgreSQL JDBC Driver, allows attacker to inject SQL if using PreferQueryMode=SIMPLE. Note this is not the default. In the default mode there is no vulnerability. A placeholder for a numeric value must be immediately preceded by a minus. There must be a second placeholder for a string value after the first placeholder; both must be on the same line. By constructing a matching string payload, the attacker can inject SQL to alter the query,bypassing the protections that parameterized queries bring against SQL Injection attacks. Versions before 42.7.2, 42.6.1, 42.5.5, 42.4.4, 42.3.9, and 42.2.28 are affected.</description>
-      <guid isPermaLink="false">CVE-2024-1597|2024-08-01T18:48:20.658Z</guid>
+      <guid isPermaLink="false">CVE-2024-1597|2024-07-30T16:53:44.796Z</guid>
       <pubDate>Mon, 19 Feb 2024 12:58:48 +0000</pubDate>
     </item>
   </channel>

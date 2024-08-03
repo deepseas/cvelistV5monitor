@@ -6,8 +6,24 @@
     <description>The latest CVEs for xwiki -- xwiki-platform</description>
     <docs>http://www.rssboard.org/rss-specification</docs>
     <generator>python-feedgen</generator>
-    <lastBuildDate>Sat, 03 Aug 2024 12:25:21 +0000</lastBuildDate>
+    <lastBuildDate>Sat, 03 Aug 2024 13:22:07 +0000</lastBuildDate>
     <ttl>60</ttl>
+    <item>
+      <title>CVE-2022-41929|2024-08-03T12:56:38.586Z -- xwiki -- xwiki-platform
+</title>
+      <link>https://www.cve.org/CVERecord?id=CVE-2022-41929</link>
+      <description>org.xwiki.platform:xwiki-platform-oldcore is missing authorization in User#setDisabledStatus, which may allow an incorrectly authorized user with only Script rights to enable or disable a user. This operation is meant to only be available for users with admin rights. This problem has been patched in XWiki 13.10.7, 14.4.2 and 14.5RC1.</description>
+      <guid isPermaLink="false">CVE-2022-41929|2024-08-03T12:56:38.586Z</guid>
+      <pubDate>Wed, 23 Nov 2022 00:00:00 +0000</pubDate>
+    </item>
+    <item>
+      <title>CVE-2022-41931|2024-08-03T12:56:38.585Z -- xwiki -- xwiki-platform
+</title>
+      <link>https://www.cve.org/CVERecord?id=CVE-2022-41931</link>
+      <description>xwiki-platform-icon-ui is vulnerable to Improper Neutralization of Directives in Dynamically Evaluated Code ('Eval Injection'). Any user with view rights on commonly accessible documents including the icon picker macro can execute arbitrary Groovy, Python or Velocity code in XWiki due to improper neutralization of the macro parameters of the icon picker macro. The problem has been patched in XWiki 13.10.7, 14.5 and 14.4.2. Workarounds: The [patch](https://github.com/xwiki/xwiki-platform/commit/47eb8a5fba550f477944eb6da8ca91b87eaf1d01) can be manually applied by editing `IconThemesCode.IconPickerMacro` in the object editor. The whole document can also be replaced by the current version by importing the document from the XAR archive of a fixed version as the only changes to the document have been security fixes and small formatting changes.</description>
+      <guid isPermaLink="false">CVE-2022-41931|2024-08-03T12:56:38.585Z</guid>
+      <pubDate>Wed, 23 Nov 2022 00:00:00 +0000</pubDate>
+    </item>
     <item>
       <title>CVE-2022-36099|2024-08-03T09:52:00.678Z -- xwiki -- xwiki-platform
 </title>
@@ -23,6 +39,14 @@
       <description>XWiki Platform is a generic wiki platform offering runtime services for applications built on top of it. In affected versions there is a cross site scripting (XSS) vector in the `registerinline.vm` template related to the `xredirect` hidden field. This template is only used in the following conditions: 1. The wiki must be open to registration for anyone. 2. The wiki must be closed to view for Guest users or more specifically the XWiki.Registration page must be forbidden in View for guest user. A way to obtain the second condition is when administrators checked the "Prevent unregistered users from viewing pages, regardless of the page rights" box in the administration rights. This issue is patched in versions 12.10.11, 14.0-rc-1, 13.4.7, 13.10.3. There are two main ways for protecting against this vulnerability, the easiest and the best one is by applying a patch in the `registerinline.vm` template, the patch consists in checking the value of the xredirect field to ensure it matches: `&lt;input type="hidden" name="xredirect" value="$escapetool.xml($!request.xredirect)" /&gt;`. If for some reason it's not possible to patch this file, another workaround is to ensure "Prevent unregistered users from viewing pages, regardless of the page rights" is not checked in the rights and apply a better right scheme using groups and rights on spaces.</description>
       <guid isPermaLink="false">CVE-2022-23622|2024-08-03T03:51:45.598Z</guid>
       <pubDate>Wed, 09 Feb 2022 21:40:10 +0000</pubDate>
+    </item>
+    <item>
+      <title>CVE-2022-41937|2024-08-03T12:56:38.552Z -- xwiki -- xwiki-platform
+</title>
+      <link>https://www.cve.org/CVERecord?id=CVE-2022-41937</link>
+      <description>XWiki Platform is a generic wiki platform offering runtime services for applications built on top of it. The application allows anyone with view access to modify any page of the wiki by importing a crafted XAR package. The problem has been patched in XWiki 14.6RC1, 14.6 and 13.10.8. As a workaround, setting the right of the page Filter.WebHome and making sure only the main wiki administrators can view the application installed on main wiki or edit the page and apply the changed described in commit fb49b4f.</description>
+      <guid isPermaLink="false">CVE-2022-41937|2024-08-03T12:56:38.552Z</guid>
+      <pubDate>Tue, 22 Nov 2022 00:00:00 +0000</pubDate>
     </item>
     <item>
       <title>CVE-2022-29251|2024-08-03T06:17:54.500Z -- xwiki -- xwiki-platform
@@ -129,6 +153,30 @@
       <pubDate>Thu, 08 Sep 2022 21:10:10 +0000</pubDate>
     </item>
     <item>
+      <title>CVE-2022-41927|2024-08-03T12:56:38.542Z -- xwiki -- xwiki-platform
+</title>
+      <link>https://www.cve.org/CVERecord?id=CVE-2022-41927</link>
+      <description>XWiki Platform is vulnerable to Cross-Site Request Forgery (CSRF) that may allow attackers to delete or rename tags without needing any confirmation. The problem has been patched in XWiki 13.10.7, 14.4.1 and 14.5RC1. Workarounds: It's possible to patch existing instances directly by editing the page Main.Tags and add this kind of check, in the code for renaming and for deleting: ``` #if (!$services.csrf.isTokenValid($request.get('form_token'))) #set ($discard = $response.sendError(401, "Wrong CSRF token")) #end ```</description>
+      <guid isPermaLink="false">CVE-2022-41927|2024-08-03T12:56:38.542Z</guid>
+      <pubDate>Wed, 23 Nov 2022 00:00:00 +0000</pubDate>
+    </item>
+    <item>
+      <title>CVE-2022-41934|2024-08-03T12:56:38.543Z -- xwiki -- xwiki-platform
+</title>
+      <link>https://www.cve.org/CVERecord?id=CVE-2022-41934</link>
+      <description>XWiki Platform is a generic wiki platform offering runtime services for applications built on top of it. Any user with view rights on commonly accessible documents including the menu macro can execute arbitrary Groovy, Python or Velocity code in XWiki leading to full access to the XWiki installation due to improper escaping of the macro content and parameters of the menu macro. The problem has been patched in XWiki 14.6RC1, 13.10.8 and 14.4.3. The patch (commit `2fc20891`) for the document `Menu.MenuMacro` can be manually applied or a XAR archive of a patched version can be imported. The menu macro was basically unchanged since XWiki 11.6 so on XWiki 11.6 or later the patch for version of 13.10.8 (commit `59ccca24a`) can most likely be applied, on XWiki version 14.0 and later the versions in XWiki 14.6 and 14.4.3 should be appropriate.</description>
+      <guid isPermaLink="false">CVE-2022-41934|2024-08-03T12:56:38.543Z</guid>
+      <pubDate>Wed, 23 Nov 2022 00:00:00 +0000</pubDate>
+    </item>
+    <item>
+      <title>CVE-2022-41930|2024-08-03T12:56:38.544Z -- xwiki -- xwiki-platform
+</title>
+      <link>https://www.cve.org/CVERecord?id=CVE-2022-41930</link>
+      <description>org.xwiki.platform:xwiki-platform-user-profile-ui is missing authorization to enable or disable users. Any user (logged in or not) with access to the page XWiki.XWikiUserProfileSheet can enable or disable any user profile. This might allow to a disabled user to re-enable themselves, or to an attacker to disable any user of the wiki. The problem has been patched in XWiki 13.10.7, 14.5RC1 and 14.4.2. Workarounds: The problem can be patched immediately by editing the page `XWiki.XWikiUserProfileSheet` in the wiki and by performing the changes contained in https://github.com/xwiki/xwiki-platform/commit/5be1cc0adf917bf10899c47723fa451e950271fa.</description>
+      <guid isPermaLink="false">CVE-2022-41930|2024-08-03T12:56:38.544Z</guid>
+      <pubDate>Wed, 23 Nov 2022 00:00:00 +0000</pubDate>
+    </item>
+    <item>
       <title>CVE-2022-23615|2024-08-03T03:43:46.758Z -- xwiki -- xwiki-platform
 </title>
       <link>https://www.cve.org/CVERecord?id=CVE-2022-23615</link>
@@ -177,6 +225,22 @@
       <pubDate>Wed, 09 Feb 2022 21:10:11 +0000</pubDate>
     </item>
     <item>
+      <title>CVE-2022-41928|2024-08-03T12:56:38.588Z -- xwiki -- xwiki-platform
+</title>
+      <link>https://www.cve.org/CVERecord?id=CVE-2022-41928</link>
+      <description>XWiki Platform vulnerable to Improper Neutralization of Directives in Dynamically Evaluated Code ('Eval Injection') in AttachmentSelector.xml. The issue can also be reproduced by inserting the dangerous payload in the `height` or `alt` macro properties. This has been patched in versions 13.10.7, 14.4.2, and 14.5. The issue can be fixed on a running wiki by updating `XWiki.AttachmentSelector` with the versions below: - 14.5-rc-1+: https://github.com/xwiki/xwiki-platform/commit/eb15147adf94bddb92626f862c1710d45bcd64a7#diff-e1513599ab698991f6cbba55d38f3f464432ced8d137a668b1f7618c7e747e23 - 14.4.2+: https://github.com/xwiki/xwiki-platform/commit/c02f8eb1f3c953d124f2c097021536f8bc00fa8d#diff-e1513599ab698991f6cbba55d38f3f464432ced8d137a668b1f7618c7e747e23 - 13.10.7+: https://github.com/xwiki/xwiki-platform/commit/efd0df0468d46149ba68b66660b93f31b6318515#diff-e1513599ab698991f6cbba55d38f3f464432ced8d137a668b1f7618c7e747e23</description>
+      <guid isPermaLink="false">CVE-2022-41928|2024-08-03T12:56:38.588Z</guid>
+      <pubDate>Wed, 23 Nov 2022 00:00:00 +0000</pubDate>
+    </item>
+    <item>
+      <title>CVE-2022-41935|2024-08-03T12:56:38.587Z -- xwiki -- xwiki-platform
+</title>
+      <link>https://www.cve.org/CVERecord?id=CVE-2022-41935</link>
+      <description>XWiki Platform is a generic wiki platform offering runtime services for applications built on top of it. Users without the right to view documents can deduce their existence by repeated Livetable queries. The issue has been patched in XWiki 14.6RC1, 13.10.8, and 14.4.3, the response is not properly cleaned up of obfuscated entries. As a workaround, The patch for the document `XWiki.LiveTableResultsMacros` can be manually applied or a XAR archive of a patched version can be imported, on versions 12.10.11, 13.9-rc-1, and 13.4.4. There are no known workarounds for this issue.</description>
+      <guid isPermaLink="false">CVE-2022-41935|2024-08-03T12:56:38.587Z</guid>
+      <pubDate>Wed, 23 Nov 2022 00:00:00 +0000</pubDate>
+    </item>
+    <item>
       <title>CVE-2022-29253|2024-08-03T06:17:54.535Z -- xwiki -- xwiki-platform
 </title>
       <link>https://www.cve.org/CVERecord?id=CVE-2022-29253</link>
@@ -185,12 +249,28 @@
       <pubDate>Wed, 25 May 2022 20:55:10 +0000</pubDate>
     </item>
     <item>
+      <title>CVE-2022-41936|2024-08-03T12:56:38.536Z -- xwiki -- xwiki-platform
+</title>
+      <link>https://www.cve.org/CVERecord?id=CVE-2022-41936</link>
+      <description>XWiki Platform is a generic wiki platform offering runtime services for applications built on top of it. The `modifications` rest endpoint does not filter out entries according to the user's rights. Therefore, information hidden from unauthorized users are exposed though the `modifications` rest endpoint (comments and page names etc). Users should upgrade to XWiki 14.6+, 14.4.3+, or 13.10.8+. Older versions have not been patched. There are no known workarounds.</description>
+      <guid isPermaLink="false">CVE-2022-41936|2024-08-03T12:56:38.536Z</guid>
+      <pubDate>Tue, 22 Nov 2022 00:00:00 +0000</pubDate>
+    </item>
+    <item>
       <title>CVE-2022-36093|2024-08-03T09:52:00.546Z -- xwiki -- xwiki-platform
 </title>
       <link>https://www.cve.org/CVERecord?id=CVE-2022-36093</link>
       <description>XWiki Platform Web Templates are templates for XWiki Platform, a generic wiki platform. By passing a template of the distribution wizard to the xpart template, user accounts can be created even when user registration is disabled. This also circumvents any email verification. Before versions 14.2 and 13.10.4, this can also be exploited on a private wiki, thus potentially giving the attacker access to the wiki. Depending on the configured default rights of users, this could also give attackers write access to an otherwise read-only public wiki. Users can also be created when an external authentication system like LDAP is configured, but authentication fails unless the authentication system supports a bypass/local accounts are enabled in addition to the external authentication system. This issue has been patched in XWiki 13.10.5 and 14.3RC1. As a workaround, one may replace `xpart.vm`, the entry point for this attack, by a patched version from the patch without updating XWiki.</description>
       <guid isPermaLink="false">CVE-2022-36093|2024-08-03T09:52:00.546Z</guid>
       <pubDate>Thu, 08 Sep 2022 17:25:10 +0000</pubDate>
+    </item>
+    <item>
+      <title>CVE-2022-41932|2024-08-03T12:56:38.534Z -- xwiki -- xwiki-platform
+</title>
+      <link>https://www.cve.org/CVERecord?id=CVE-2022-41932</link>
+      <description>XWiki Platform is a generic wiki platform offering runtime services for applications built on top of it. It's possible to make XWiki create many new schemas and fill them with tables just by using a crafted user identifier in the login form. This may lead to degraded database performance. The problem has been patched in XWiki 13.10.8, 14.6RC1 and 14.4.2. Users are advised to upgrade. There are no known workarounds for this issue.</description>
+      <guid isPermaLink="false">CVE-2022-41932|2024-08-03T12:56:38.534Z</guid>
+      <pubDate>Wed, 23 Nov 2022 00:00:00 +0000</pubDate>
     </item>
     <item>
       <title>CVE-2022-31167|2024-08-03T07:11:39.531Z -- xwiki -- xwiki-platform
@@ -207,6 +287,14 @@
       <description>XWiki Platform is a generic wiki platform offering runtime services for applications built on top of it. In affected versions any user with SCRIPT right can read any file located in the XWiki WAR (for example xwiki.cfg and xwiki.properties) through XWiki#invokeServletAndReturnAsString as `$xwiki.invokeServletAndReturnAsString("/WEB-INF/xwiki.cfg")`. This issue has been patched in XWiki versions 12.10.9, 13.4.3 and 13.7-rc-1. Users are advised to update. The only workaround is to limit SCRIPT right.</description>
       <guid isPermaLink="false">CVE-2022-23621|2024-08-03T03:51:44.128Z</guid>
       <pubDate>Wed, 09 Feb 2022 21:25:11 +0000</pubDate>
+    </item>
+    <item>
+      <title>CVE-2022-41933|2024-08-03T12:56:38.576Z -- xwiki -- xwiki-platform
+</title>
+      <link>https://www.cve.org/CVERecord?id=CVE-2022-41933</link>
+      <description>XWiki Platform is a generic wiki platform offering runtime services for applications built on top of it. When the `reset a forgotten password` feature of XWiki was used, the password was then stored in plain text in database. This only concerns XWiki 13.1RC1 and newer versions. Note that it only concerns the reset password feature available from the "Forgot your password" link in the login view: the features allowing a user to change their password, or for an admin to change a user password are not impacted. This vulnerability is particularly dangerous in combination with other vulnerabilities allowing to perform data leak of personal data from users, such as GHSA-599v-w48h-rjrm. Note that this vulnerability only concerns the users of the main wiki: in case of farms, the users registered on subwiki are not impacted thanks to a bug we discovered when investigating this. The problem has been patched in version 14.6RC1, 14.4.3 and 13.10.8. The patch involves a migration of the impacted users as well as the history of the page, to ensure no password remains in plain text in the database. This migration also involves to inform the users about the possible disclosure of their passwords: by default, two emails are automatically sent to the impacted users. A first email to inform about the possibility that their password have been leaked, and a second email using the reset password feature to ask them to set a new password. It's also possible for administrators to set some properties for the migration: it's possible to decide if the user password should be reset (default) or if the passwords should be kept but only hashed. Note that in the first option, the users won't be able to login anymore until they set a new password if they were impacted. Note that in both options, mails will be sent to users to inform them and encourage them to change their passwords.</description>
+      <guid isPermaLink="false">CVE-2022-41933|2024-08-03T12:56:38.576Z</guid>
+      <pubDate>Wed, 23 Nov 2022 00:00:00 +0000</pubDate>
     </item>
     <item>
       <title>CVE-2022-36092|2024-08-03T09:52:00.519Z -- xwiki -- xwiki-platform
@@ -241,279 +329,11 @@
       <pubDate>Wed, 09 Feb 2022 21:15:12 +0000</pubDate>
     </item>
     <item>
-      <title>CVE-2024-31987|2024-08-02T01:59:50.698Z -- xwiki -- xwiki-platform</title>
-      <link>https://www.cve.org/CVERecord?id=CVE-2024-31987</link>
-      <description>XWiki Platform is a generic wiki platform. Starting in version 6.4-milestone-1 and prior to versions 4.10.19, 15.5.4, and 15.10-rc-1, any user who can edit any page like their profile can create a custom skin with a template override that is executed with programming right, thus allowing remote code execution. This has been patched in XWiki 14.10.19, 15.5.4 and 15.10RC1. No known workarounds are available except for upgrading.</description>
-      <guid isPermaLink="false">CVE-2024-31987|2024-08-02T01:59:50.698Z</guid>
-      <pubDate>Wed, 10 Apr 2024 20:32:39 +0000</pubDate>
-    </item>
-    <item>
-      <title>CVE-2024-31984|2024-08-02T01:59:50.883Z -- xwiki -- xwiki-platform</title>
-      <link>https://www.cve.org/CVERecord?id=CVE-2024-31984</link>
-      <description>XWiki Platform is a generic wiki platform. Starting in version 7.2-rc-1 and prior to versions 4.10.20, 15.5.4, and 15.10-rc-1, by creating a document with a specially crafted title, it is possible to trigger remote code execution in the (Solr-based) search in XWiki. This allows any user who can edit the title of a space (all users by default) to execute any Groovy code in the XWiki installation which compromises the confidentiality, integrity and availability of the whole XWiki installation. This has been patched in XWiki 14.10.20, 15.5.4 and 15.10 RC1. As a workaround, manually apply the patch to the `Main.SolrSpaceFacet` page.</description>
-      <guid isPermaLink="false">CVE-2024-31984|2024-08-02T01:59:50.883Z</guid>
-      <pubDate>Wed, 10 Apr 2024 19:53:50 +0000</pubDate>
-    </item>
-    <item>
-      <title>CVE-2024-31982|2024-08-02T01:59:50.834Z -- xwiki -- xwiki-platform</title>
-      <link>https://www.cve.org/CVERecord?id=CVE-2024-31982</link>
-      <description>XWiki Platform is a generic wiki platform. Starting in version 2.4-milestone-1 and prior to versions 4.10.20, 15.5.4, and 15.10-rc-1, XWiki's database search allows remote code execution through the search text. This allows remote code execution for any visitor of a public wiki or user of a closed wiki as the database search is by default accessible for all users. This impacts the confidentiality, integrity and availability of the whole XWiki installation. This vulnerability has been patched in XWiki 14.10.20, 15.5.4 and 15.10RC1. As a workaround, one may manually apply the patch to the page `Main.DatabaseSearch`. Alternatively, unless database search is explicitly used by users, this page can be deleted as this is not the default search interface of XWiki.</description>
-      <guid isPermaLink="false">CVE-2024-31982|2024-08-02T01:59:50.834Z</guid>
-      <pubDate>Wed, 10 Apr 2024 19:38:01 +0000</pubDate>
-    </item>
-    <item>
-      <title>CVE-2024-31983|2024-08-02T01:59:50.829Z -- xwiki -- xwiki-platform</title>
-      <link>https://www.cve.org/CVERecord?id=CVE-2024-31983</link>
-      <description>XWiki Platform is a generic wiki platform. In multilingual wikis, translations can be edited by any user who has edit right, circumventing the rights that are normally required for authoring translations (script right for user-scope translations, wiki admin for translations on the wiki). Starting in version 4.3-milestone-2 and prior to versions 4.10.20, 15.5.4, and 15.10-rc-1, this can be exploited for remote code execution if the translation value is not properly escaped where it is used. This has been patched in XWiki 14.10.20, 15.5.4 and 15.10RC1. As a workaround, one may restrict edit rights on documents that contain translations.</description>
-      <guid isPermaLink="false">CVE-2024-31983|2024-08-02T01:59:50.829Z</guid>
-      <pubDate>Wed, 10 Apr 2024 19:44:48 +0000</pubDate>
-    </item>
-    <item>
-      <title>CVE-2024-31465|2024-08-02T01:52:57.115Z -- xwiki -- xwiki-platform</title>
-      <link>https://www.cve.org/CVERecord?id=CVE-2024-31465</link>
-      <description>XWiki Platform is a generic wiki platform. Starting in version 5.0-rc-1 and prior to versions 14.10.20, 15.5.4, and 15.9-rc-1, any user with edit right on any page can execute any code on the server by adding an object of type `XWiki.SearchSuggestSourceClass` to their user profile or any other page. This compromises the confidentiality, integrity and availability of the whole XWiki installation. This vulnerability has been patched in XWiki 14.10.20, 15.5.4 and 15.10 RC1. As a workaround, manually apply the patch to the document `XWiki.SearchSuggestSourceSheet`.</description>
-      <guid isPermaLink="false">CVE-2024-31465|2024-08-02T01:52:57.115Z</guid>
-      <pubDate>Wed, 10 Apr 2024 19:12:35 +0000</pubDate>
-    </item>
-    <item>
-      <title>CVE-2024-31988|2024-08-02T01:59:50.859Z -- xwiki -- xwiki-platform</title>
-      <link>https://www.cve.org/CVERecord?id=CVE-2024-31988</link>
-      <description>XWiki Platform is a generic wiki platform. Starting in version 13.9-rc-1 and prior to versions 4.10.19, 15.5.4, and 15.10-rc-1, when the realtime editor is installed in XWiki, it allows arbitrary remote code execution with the interaction of an admin user with programming right. More precisely, by getting an admin user to either visit a crafted URL or to view an image with this URL that could be in a comment, the attacker can get the admin to execute arbitrary XWiki syntax including scripting macros with Groovy or Python code. This compromises the confidentiality, integrity and availability of the whole XWiki installation. This vulnerability has been patched in XWiki 14.10.19, 15.5.4 and 15.9. As a workaround, one may update `RTFrontend.ConvertHTML` manually with the patch. This will, however, break some synchronization processes in the realtime editor, so upgrading should be the preferred way on installations where this editor is used.</description>
-      <guid isPermaLink="false">CVE-2024-31988|2024-08-02T01:59:50.859Z</guid>
-      <pubDate>Wed, 10 Apr 2024 20:40:36 +0000</pubDate>
-    </item>
-    <item>
-      <title>CVE-2024-31986|2024-08-02T01:59:50.842Z -- xwiki -- xwiki-platform</title>
-      <link>https://www.cve.org/CVERecord?id=CVE-2024-31986</link>
-      <description>XWiki Platform is a generic wiki platform. Starting in version 3.1 and prior to versions 4.10.19, 15.5.4, and 15.10-rc-1, by creating a document with a special crafted documented reference and an `XWiki.SchedulerJobClass` XObject, it is possible to execute arbitrary code on the server whenever an admin visits the scheduler page or the scheduler page is referenced, e.g., via an image in a comment on a page in the wiki. The vulnerability has been fixed in XWiki 14.10.19, 15.5.5, and 15.9. As a workaround, apply the patch manually by modifying the `Scheduler.WebHome` page.</description>
-      <guid isPermaLink="false">CVE-2024-31986|2024-08-02T01:59:50.842Z</guid>
-      <pubDate>Wed, 10 Apr 2024 20:27:29 +0000</pubDate>
-    </item>
-    <item>
-      <title>CVE-2024-31997|2024-08-02T01:59:50.826Z -- xwiki -- xwiki-platform</title>
-      <link>https://www.cve.org/CVERecord?id=CVE-2024-31997</link>
-      <description>XWiki Platform is a generic wiki platform. Prior to versions 4.10.19, 15.5.4, and 15.10-rc-1, parameters of UI extensions are always interpreted as Velocity code and executed with programming rights. Any user with edit right on any document like the user's own profile can create UI extensions. This allows remote code execution and thereby impacts the confidentiality, integrity and availability of the whole XWiki installation. This vulnerability has been patched in XWiki 14.10.19, 15.5.4 and 15.9-RC1. No known workarounds are available.</description>
-      <guid isPermaLink="false">CVE-2024-31997|2024-08-02T01:59:50.826Z</guid>
-      <pubDate>Wed, 10 Apr 2024 21:55:43 +0000</pubDate>
-    </item>
-    <item>
-      <title>CVE-2024-31464|2024-08-02T01:52:57.144Z -- xwiki -- xwiki-platform</title>
-      <link>https://www.cve.org/CVERecord?id=CVE-2024-31464</link>
-      <description>XWiki Platform is a generic wiki platform. Starting in version 5.0-rc-1 and prior to versions 14.10.19, 15.5.4, and 15.9-rc-1, it is possible to access the hash of a password by using the diff feature of the history whenever the object storing the password is deleted. Using that vulnerability it's possible for an attacker to have access to the hash password of a user if they have rights to edit the users' page.  With the default right scheme in XWiki this vulnerability is normally prevented on user profiles, except by users with Admin rights. Note that this vulnerability also impacts any extensions that might use passwords stored in xobjects: for those usecases it depends on the right of those pages. There is currently no way to be 100% sure that this vulnerability has been exploited, as an attacker with enough privilege could have deleted the revision where the xobject was deleted after rolling-back the deletion. But again, this operation requires high privileges on the target page (Admin right). A page with a user password xobject which have in its history a revision where the object has been deleted should be considered at risk and the password should be changed there. a diff, to ensure it's not coming from a password field. As another mitigation, admins should ensure that the user pages are properly protected: the edit right shouldn't be allowed for other users than Admin and owner of the profile (which is the default right). There is not much workaround possible for a privileged user other than upgrading XWiki.</description>
-      <guid isPermaLink="false">CVE-2024-31464|2024-08-02T01:52:57.144Z</guid>
-      <pubDate>Wed, 10 Apr 2024 18:14:37 +0000</pubDate>
-    </item>
-    <item>
-      <title>CVE-2024-31981|2024-08-02T01:59:50.691Z -- xwiki -- xwiki-platform</title>
-      <link>https://www.cve.org/CVERecord?id=CVE-2024-31981</link>
-      <description>XWiki Platform is a generic wiki platform. Starting in version 3.0.1 and prior to versions 4.10.20, 15.5.4, and 15.10-rc-1, remote code execution is possible via PDF export templates. This vulnerability has been patched in XWiki 14.10.20, 15.5.4 and 15.10-rc-1. If PDF templates are not typically used on the instance, an administrator can create the document `XWiki.PDFClass` and block its edition, after making sure that it does not contain a `style` attribute. Otherwise, there are no known workarounds aside from upgrading.</description>
-      <guid isPermaLink="false">CVE-2024-31981|2024-08-02T01:59:50.691Z</guid>
-      <pubDate>Wed, 10 Apr 2024 19:22:57 +0000</pubDate>
-    </item>
-    <item>
-      <title>CVE-2024-31985|2024-08-02T01:59:50.770Z -- xwiki -- xwiki-platform</title>
-      <link>https://www.cve.org/CVERecord?id=CVE-2024-31985</link>
-      <description>XWiki Platform is a generic wiki platform. Starting in version 3.1 and prior to versions 4.10.20, 15.5.4, and 15.10-rc-1, it is possible to schedule/trigger/unschedule existing jobs by having an admin visit the Job Scheduler page through a predictable URL, for example by embedding such an URL in any content as an image. The vulnerability has been fixed in XWiki 14.10.19, 15.5.5, and 15.9. As a workaround, manually apply the patch by modifying the `Scheduler.WebHome` page.</description>
-      <guid isPermaLink="false">CVE-2024-31985|2024-08-02T01:59:50.770Z</guid>
-      <pubDate>Wed, 10 Apr 2024 20:11:53 +0000</pubDate>
-    </item>
-    <item>
-      <title>CVE-2024-37900|2024-08-01T14:50:10.293Z -- xwiki -- xwiki-platform</title>
-      <link>https://www.cve.org/CVERecord?id=CVE-2024-37900</link>
-      <description>XWiki Platform is a generic wiki platform offering runtime services for applications built on top of it. When uploading an attachment with a malicious filename, malicious JavaScript code could be executed. This requires a social engineering attack to get the victim into uploading a file with a malicious name. The malicious code is solely executed during the upload and affects only the user uploading the attachment. While this allows performing actions in the name of that user, it seems unlikely that a user wouldn't notice the malicious filename while uploading the attachment. This has been patched in XWiki 14.10.21, 15.5.5, 15.10.6 and 16.0.0.</description>
-      <guid isPermaLink="false">CVE-2024-37900|2024-08-01T14:50:10.293Z</guid>
-      <pubDate>Wed, 31 Jul 2024 15:15:31 +0000</pubDate>
-    </item>
-    <item>
-      <title>CVE-2024-37900|2024-07-31T15:15:31.013Z -- xwiki -- xwiki-platform</title>
-      <link>https://www.cve.org/CVERecord?id=CVE-2024-37900</link>
-      <description>XWiki Platform is a generic wiki platform offering runtime services for applications built on top of it. When uploading an attachment with a malicious filename, malicious JavaScript code could be executed. This requires a social engineering attack to get the victim into uploading a file with a malicious name. The malicious code is solely executed during the upload and affects only the user uploading the attachment. While this allows performing actions in the name of that user, it seems unlikely that a user wouldn't notice the malicious filename while uploading the attachment. This has been patched in XWiki 14.10.21, 15.5.5, 15.10.6 and 16.0.0.</description>
-      <guid isPermaLink="false">CVE-2024-37900|2024-07-31T15:15:31.013Z</guid>
-      <pubDate>Wed, 31 Jul 2024 15:15:31 +0000</pubDate>
-    </item>
-    <item>
-      <title>CVE-2024-41947|2024-07-31T15:58:35.101Z -- xwiki -- xwiki-platform</title>
-      <link>https://www.cve.org/CVERecord?id=CVE-2024-41947</link>
-      <description>XWiki Platform is a generic wiki platform offering runtime services for applications built on top of it. By creating a conflict when another user with more rights is currently editing a page, it is possible to execute JavaScript snippets on the side of the other user, which compromises the confidentiality, integrity and availability of the whole XWiki installation. This has been patched in XWiki 15.10.8 and 16.3.0RC1.</description>
-      <guid isPermaLink="false">CVE-2024-41947|2024-07-31T15:58:35.101Z</guid>
-      <pubDate>Wed, 31 Jul 2024 15:24:20 +0000</pubDate>
-    </item>
-    <item>
-      <title>CVE-2024-37898|2024-07-31T15:12:22.468Z -- xwiki -- xwiki-platform</title>
-      <link>https://www.cve.org/CVERecord?id=CVE-2024-37898</link>
-      <description>XWiki Platform is a generic wiki platform offering runtime services for applications built on top of it. When a user has view but not edit right on a page in XWiki, that user can delete the page and replace it by a page with new content without having delete right. The previous version of the page is moved into the recycle bin and can be restored from there by an admin. As the user is recorded as deleter, the user would in theory also be able to view the deleted content, but this is not directly possible as rights of the previous version are transferred to the new page and thus the user still doesn't have view right on the page. It therefore doesn't seem to be possible to exploit this to gain any rights. This has been patched in XWiki 14.10.21, 15.5.5 and 15.10.6 by cancelling save operations by users when a new document shall be saved despite the document's existing already.</description>
-      <guid isPermaLink="false">CVE-2024-37898|2024-07-31T15:12:22.468Z</guid>
-      <pubDate>Wed, 31 Jul 2024 15:12:22 +0000</pubDate>
-    </item>
-    <item>
-      <title>CVE-2024-37901|2024-07-31T15:19:36.588Z -- xwiki -- xwiki-platform</title>
-      <link>https://www.cve.org/CVERecord?id=CVE-2024-37901</link>
-      <description>XWiki Platform is a generic wiki platform offering runtime services for applications built on top of it. Any user with edit right on any page can perform arbitrary remote code execution by adding instances of `XWiki.SearchSuggestConfig` and `XWiki.SearchSuggestSourceClass` to their user profile or any other page. This compromises the confidentiality, integrity and availability of the whole XWiki installation. This vulnerability has been patched in XWiki 14.10.21, 15.5.5 and 15.10.2.</description>
-      <guid isPermaLink="false">CVE-2024-37901|2024-07-31T15:19:36.588Z</guid>
-      <pubDate>Wed, 31 Jul 2024 15:19:36 +0000</pubDate>
-    </item>
-    <item>
-      <title>CVE-2024-31986|2024-07-19T21:06:21.946Z -- xwiki -- xwiki-platform</title>
-      <link>https://www.cve.org/CVERecord?id=CVE-2024-31986</link>
-      <description>XWiki Platform is a generic wiki platform. Starting in version 3.1 and prior to versions 4.10.19, 15.5.4, and 15.10-rc-1, by creating a document with a special crafted documented reference and an `XWiki.SchedulerJobClass` XObject, it is possible to execute arbitrary code on the server whenever an admin visits the scheduler page or the scheduler page is referenced, e.g., via an image in a comment on a page in the wiki. The vulnerability has been fixed in XWiki 14.10.19, 15.5.5, and 15.9. As a workaround, apply the patch manually by modifying the `Scheduler.WebHome` page.</description>
-      <guid isPermaLink="false">CVE-2024-31986|2024-07-19T21:06:21.946Z</guid>
-      <pubDate>Wed, 10 Apr 2024 20:27:29 +0000</pubDate>
-    </item>
-    <item>
-      <title>CVE-2024-31984|2024-07-05T12:48:25.074Z -- xwiki -- xwiki-platform</title>
-      <link>https://www.cve.org/CVERecord?id=CVE-2024-31984</link>
-      <description>XWiki Platform is a generic wiki platform. Starting in version 7.2-rc-1 and prior to versions 4.10.20, 15.5.4, and 15.10-rc-1, by creating a document with a specially crafted title, it is possible to trigger remote code execution in the (Solr-based) search in XWiki. This allows any user who can edit the title of a space (all users by default) to execute any Groovy code in the XWiki installation which compromises the confidentiality, integrity and availability of the whole XWiki installation. This has been patched in XWiki 14.10.20, 15.5.4 and 15.10 RC1. As a workaround, manually apply the patch to the `Main.SolrSpaceFacet` page.</description>
-      <guid isPermaLink="false">CVE-2024-31984|2024-07-05T12:48:25.074Z</guid>
-      <pubDate>Wed, 10 Apr 2024 19:53:50 +0000</pubDate>
-    </item>
-    <item>
-      <title>CVE-2024-31981|2024-06-26T17:36:02.483Z -- xwiki -- xwiki-platform</title>
-      <link>https://www.cve.org/CVERecord?id=CVE-2024-31981</link>
-      <description>XWiki Platform is a generic wiki platform. Starting in version 3.0.1 and prior to versions 4.10.20, 15.5.4, and 15.10-rc-1, remote code execution is possible via PDF export templates. This vulnerability has been patched in XWiki 14.10.20, 15.5.4 and 15.10-rc-1. If PDF templates are not typically used on the instance, an administrator can create the document `XWiki.PDFClass` and block its edition, after making sure that it does not contain a `style` attribute. Otherwise, there are no known workarounds aside from upgrading.</description>
-      <guid isPermaLink="false">CVE-2024-31981|2024-06-26T17:36:02.483Z</guid>
-      <pubDate>Wed, 10 Apr 2024 19:22:57 +0000</pubDate>
-    </item>
-    <item>
-      <title>CVE-2024-38369|2024-06-24T16:39:37.695Z -- xwiki -- xwiki-platform</title>
+      <title>CVE-2024-38369|2024-08-02T04:04:25.248Z -- xwiki -- xwiki-platform</title>
       <link>https://www.cve.org/CVERecord?id=CVE-2024-38369</link>
       <description>XWiki Platform is a generic wiki platform offering runtime services for applications built on top of it. The content of a document included using `{{include reference="targetdocument"/}}` is executed with the right of the includer and not with the right of its author. This means that any user able to modify the target document can impersonate the author of the content which used the `include` macro. This vulnerability has been patched in XWiki 15.0 RC1 by making the default behavior safe.</description>
-      <guid isPermaLink="false">CVE-2024-38369|2024-06-24T16:39:37.695Z</guid>
+      <guid isPermaLink="false">CVE-2024-38369|2024-08-02T04:04:25.248Z</guid>
       <pubDate>Mon, 24 Jun 2024 16:39:37 +0000</pubDate>
-    </item>
-    <item>
-      <title>CVE-2024-31985|2024-06-04T17:37:18.406Z -- xwiki -- xwiki-platform</title>
-      <link>https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2024-31985</link>
-      <description>XWiki Platform is a generic wiki platform. Starting in version 3.1 and prior to versions 4.10.20, 15.5.4, and 15.10-rc-1, it is possible to schedule/trigger/unschedule existing jobs by having an admin visit the Job Scheduler page through a predictable URL, for example by embedding such an URL in any content as an image. The vulnerability has been fixed in XWiki 14.10.19, 15.5.5, and 15.9. As a workaround, manually apply the patch by modifying the `Scheduler.WebHome` page.</description>
-      <guid isPermaLink="false">CVE-2024-31985|2024-06-04T17:37:18.406Z</guid>
-      <pubDate>Wed, 10 Apr 2024 20:11:53 +0000</pubDate>
-    </item>
-    <item>
-      <title>CVE-2024-31984|2024-04-10T20:11:03.857Z -- xwiki -- xwiki-platform</title>
-      <link>https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2024-31984</link>
-      <description>XWiki Platform is a generic wiki platform. Starting in version 7.2-rc-1 and prior to versions 4.10.20, 15.5.4, and 15.10-rc-1, by creating a document with a specially crafted title, it is possible to trigger remote code execution in the (Solr-based) search in XWiki. This allows any user who can edit the title of a space (all users by default) to execute any Groovy code in the XWiki installation which compromises the confidentiality, integrity and availability of the whole XWiki installation. This has been patched in XWiki 14.10.20, 15.5.4 and 15.10 RC1. As a workaround, manually apply the patch to the `Main.SolrSpaceFacet` page.</description>
-      <guid isPermaLink="false">CVE-2024-31984|2024-04-10T20:11:03.857Z</guid>
-      <pubDate>Wed, 10 Apr 2024 19:53:50 +0000</pubDate>
-    </item>
-    <item>
-      <title>CVE-2024-31988|2024-04-10T20:40:36.954Z -- xwiki -- xwiki-platform</title>
-      <link>https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2024-31988</link>
-      <description>XWiki Platform is a generic wiki platform. Starting in version 13.9-rc-1 and prior to versions 4.10.19, 15.5.4, and 15.10-rc-1, when the realtime editor is installed in XWiki, it allows arbitrary remote code execution with the interaction of an admin user with programming right. More precisely, by getting an admin user to either visit a crafted URL or to view an image with this URL that could be in a comment, the attacker can get the admin to execute arbitrary XWiki syntax including scripting macros with Groovy or Python code. This compromises the confidentiality, integrity and availability of the whole XWiki installation. This vulnerability has been patched in XWiki 14.10.19, 15.5.4 and 15.9. As a workaround, one may update `RTFrontend.ConvertHTML` manually with the patch. This will, however, break some synchronization processes in the realtime editor, so upgrading should be the preferred way on installations where this editor is used.</description>
-      <guid isPermaLink="false">CVE-2024-31988|2024-04-10T20:40:36.954Z</guid>
-      <pubDate>Wed, 10 Apr 2024 20:40:36 +0000</pubDate>
-    </item>
-    <item>
-      <title>CVE-2024-31983|2024-06-04T17:36:56.997Z -- xwiki -- xwiki-platform</title>
-      <link>https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2024-31983</link>
-      <description>XWiki Platform is a generic wiki platform. In multilingual wikis, translations can be edited by any user who has edit right, circumventing the rights that are normally required for authoring translations (script right for user-scope translations, wiki admin for translations on the wiki). Starting in version 4.3-milestone-2 and prior to versions 4.10.20, 15.5.4, and 15.10-rc-1, this can be exploited for remote code execution if the translation value is not properly escaped where it is used. This has been patched in XWiki 14.10.20, 15.5.4 and 15.10RC1. As a workaround, one may restrict edit rights on documents that contain translations.</description>
-      <guid isPermaLink="false">CVE-2024-31983|2024-06-04T17:36:56.997Z</guid>
-      <pubDate>Wed, 10 Apr 2024 19:44:48 +0000</pubDate>
-    </item>
-    <item>
-      <title>CVE-2024-31464|2024-04-10T18:14:37.224Z -- xwiki -- xwiki-platform</title>
-      <link>https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2024-31464</link>
-      <description>XWiki Platform is a generic wiki platform. Starting in version 5.0-rc-1 and prior to versions 14.10.19, 15.5.4, and 15.9-rc-1, it is possible to access the hash of a password by using the diff feature of the history whenever the object storing the password is deleted. Using that vulnerability it's possible for an attacker to have access to the hash password of a user if they have rights to edit the users' page.  With the default right scheme in XWiki this vulnerability is normally prevented on user profiles, except by users with Admin rights. Note that this vulnerability also impacts any extensions that might use passwords stored in xobjects: for those usecases it depends on the right of those pages. There is currently no way to be 100% sure that this vulnerability has been exploited, as an attacker with enough privilege could have deleted the revision where the xobject was deleted after rolling-back the deletion. But again, this operation requires high privileges on the target page (Admin right). A page with a user password xobject which have in its history a revision where the object has been deleted should be considered at risk and the password should be changed there. a diff, to ensure it's not coming from a password field. As another mitigation, admins should ensure that the user pages are properly protected: the edit right shouldn't be allowed for other users than Admin and owner of the profile (which is the default right). There is not much workaround possible for a privileged user other than upgrading XWiki.</description>
-      <guid isPermaLink="false">CVE-2024-31464|2024-04-10T18:14:37.224Z</guid>
-      <pubDate>Wed, 10 Apr 2024 18:14:37 +0000</pubDate>
-    </item>
-    <item>
-      <title>CVE-2024-31465|2024-06-04T17:36:47.631Z -- xwiki -- xwiki-platform</title>
-      <link>https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2024-31465</link>
-      <description>XWiki Platform is a generic wiki platform. Starting in version 5.0-rc-1 and prior to versions 14.10.20, 15.5.4, and 15.9-rc-1, any user with edit right on any page can execute any code on the server by adding an object of type `XWiki.SearchSuggestSourceClass` to their user profile or any other page. This compromises the confidentiality, integrity and availability of the whole XWiki installation. This vulnerability has been patched in XWiki 14.10.20, 15.5.4 and 15.10 RC1. As a workaround, manually apply the patch to the document `XWiki.SearchSuggestSourceSheet`.</description>
-      <guid isPermaLink="false">CVE-2024-31465|2024-06-04T17:36:47.631Z</guid>
-      <pubDate>Wed, 10 Apr 2024 19:12:35 +0000</pubDate>
-    </item>
-    <item>
-      <title>CVE-2024-31982|2024-04-10T19:38:01.879Z -- xwiki -- xwiki-platform</title>
-      <link>https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2024-31982</link>
-      <description>XWiki Platform is a generic wiki platform. Starting in version 2.4-milestone-1 and prior to versions 4.10.20, 15.5.4, and 15.10-rc-1, XWiki's database search allows remote code execution through the search text. This allows remote code execution for any visitor of a public wiki or user of a closed wiki as the database search is by default accessible for all users. This impacts the confidentiality, integrity and availability of the whole XWiki installation. This vulnerability has been patched in XWiki 14.10.20, 15.5.4 and 15.10RC1. As a workaround, one may manually apply the patch to the page `Main.DatabaseSearch`. Alternatively, unless database search is explicitly used by users, this page can be deleted as this is not the default search interface of XWiki.</description>
-      <guid isPermaLink="false">CVE-2024-31982|2024-04-10T19:38:01.879Z</guid>
-      <pubDate>Wed, 10 Apr 2024 19:38:01 +0000</pubDate>
-    </item>
-    <item>
-      <title>CVE-2024-31997|2024-04-10T21:55:43.475Z -- xwiki -- xwiki-platform</title>
-      <link>https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2024-31997</link>
-      <description>XWiki Platform is a generic wiki platform. Prior to versions 4.10.19, 15.5.4, and 15.10-rc-1, parameters of UI extensions are always interpreted as Velocity code and executed with programming rights. Any user with edit right on any document like the user's own profile can create UI extensions. This allows remote code execution and thereby impacts the confidentiality, integrity and availability of the whole XWiki installation. This vulnerability has been patched in XWiki 14.10.19, 15.5.4 and 15.9-RC1. No known workarounds are available.</description>
-      <guid isPermaLink="false">CVE-2024-31997|2024-04-10T21:55:43.475Z</guid>
-      <pubDate>Wed, 10 Apr 2024 21:55:43 +0000</pubDate>
-    </item>
-    <item>
-      <title>CVE-2024-31981|2024-04-10T19:22:57.494Z -- xwiki -- xwiki-platform</title>
-      <link>https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2024-31981</link>
-      <description>XWiki Platform is a generic wiki platform. Starting in version 3.0.1 and prior to versions 4.10.20, 15.5.4, and 15.10-rc-1, remote code execution is possible via PDF export templates. This vulnerability has been patched in XWiki 14.10.20, 15.5.4 and 15.10-rc-1. If PDF templates are not typically used on the instance, an administrator can create the document `XWiki.PDFClass` and block its edition, after making sure that it does not contain a `style` attribute. Otherwise, there are no known workarounds aside from upgrading.</description>
-      <guid isPermaLink="false">CVE-2024-31981|2024-04-10T19:22:57.494Z</guid>
-      <pubDate>Wed, 10 Apr 2024 19:22:57 +0000</pubDate>
-    </item>
-    <item>
-      <title>CVE-2024-31987|2024-04-10T20:32:39.317Z -- xwiki -- xwiki-platform</title>
-      <link>https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2024-31987</link>
-      <description>XWiki Platform is a generic wiki platform. Starting in version 6.4-milestone-1 and prior to versions 4.10.19, 15.5.4, and 15.10-rc-1, any user who can edit any page like their profile can create a custom skin with a template override that is executed with programming right, thus allowing remote code execution. This has been patched in XWiki 14.10.19, 15.5.4 and 15.10RC1. No known workarounds are available except for upgrading.</description>
-      <guid isPermaLink="false">CVE-2024-31987|2024-04-10T20:32:39.317Z</guid>
-      <pubDate>Wed, 10 Apr 2024 20:32:39 +0000</pubDate>
-    </item>
-    <item>
-      <title>CVE-2024-31986|2024-04-10T20:27:29.600Z -- xwiki -- xwiki-platform</title>
-      <link>https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2024-31986</link>
-      <description>XWiki Platform is a generic wiki platform. Starting in version 3.1 and prior to versions 4.10.19, 15.5.4, and 15.10-rc-1, by creating a document with a special crafted documented reference and an `XWiki.SchedulerJobClass` XObject, it is possible to execute arbitrary code on the server whenever an admin visits the scheduler page or the scheduler page is referenced, e.g., via an image in a comment on a page in the wiki. The vulnerability has been fixed in XWiki 14.10.19, 15.5.5, and 15.9. As a workaround, apply the patch manually by modifying the `Scheduler.WebHome` page.</description>
-      <guid isPermaLink="false">CVE-2024-31986|2024-04-10T20:27:29.600Z</guid>
-      <pubDate>Wed, 10 Apr 2024 20:27:29 +0000</pubDate>
-    </item>
-    <item>
-      <title>CVE-2024-37899|2024-06-20T22:13:59.450Z -- xwiki -- xwiki-platform</title>
-      <link>https://www.cve.org/CVERecord?id=CVE-2024-37899</link>
-      <description>XWiki Platform is a generic wiki platform offering runtime services for applications built on top of it. When an admin disables a user account, the user's profile is executed with the admin's rights. This allows a user to place malicious code in the user profile before getting an admin to disable the user account. To reproduce, as a user without script nor programming rights, edit the about section of your user profile and add `{{groovy}}services.logging.getLogger("attacker").error("Hello from Groovy!"){{/groovy}}`.
-As an admin, go to the user profile and click the "Disable this account" button. Then, reload the page. If the logs show `attacker - Hello from Groovy!` then the instance is vulnerable. This has been patched in XWiki 14.10.21, 15.5.5, 15.10.6 and 16.0.0. Users are advised to upgrade. There are no known workarounds for this vulnerability.
-
-### Workarounds
-We're not aware of any workaround except upgrading.
-
-### References
-* https://jira.xwiki.org/browse/XWIKI-21611
-* https://github.com/xwiki/xwiki-platform/commit/f89c8f47fad6e5cc7e68c69a7e0acde07f5eed5a</description>
-      <guid isPermaLink="false">CVE-2024-37899|2024-06-20T22:13:59.450Z</guid>
-      <pubDate>Thu, 20 Jun 2024 22:13:59 +0000</pubDate>
-    </item>
-    <item>
-      <title>CVE-2024-38369|2024-06-24T20:36:42.653Z -- xwiki -- xwiki-platform</title>
-      <link>https://www.cve.org/CVERecord?id=CVE-2024-38369</link>
-      <description>XWiki Platform is a generic wiki platform offering runtime services for applications built on top of it. The content of a document included using `{{include reference="targetdocument"/}}` is executed with the right of the includer and not with the right of its author. This means that any user able to modify the target document can impersonate the author of the content which used the `include` macro. This vulnerability has been patched in XWiki 15.0 RC1 by making the default behavior safe.</description>
-      <guid isPermaLink="false">CVE-2024-38369|2024-06-24T20:36:42.653Z</guid>
-      <pubDate>Mon, 24 Jun 2024 16:39:37 +0000</pubDate>
-    </item>
-    <item>
-      <title>CVE-2024-37899|2024-07-01T18:34:54.198Z -- xwiki -- xwiki-platform</title>
-      <link>https://www.cve.org/CVERecord?id=CVE-2024-37899</link>
-      <description>XWiki Platform is a generic wiki platform offering runtime services for applications built on top of it. When an admin disables a user account, the user's profile is executed with the admin's rights. This allows a user to place malicious code in the user profile before getting an admin to disable the user account. To reproduce, as a user without script nor programming rights, edit the about section of your user profile and add `{{groovy}}services.logging.getLogger("attacker").error("Hello from Groovy!"){{/groovy}}`.
-As an admin, go to the user profile and click the "Disable this account" button. Then, reload the page. If the logs show `attacker - Hello from Groovy!` then the instance is vulnerable. This has been patched in XWiki 14.10.21, 15.5.5, 15.10.6 and 16.0.0. Users are advised to upgrade. There are no known workarounds for this vulnerability.
-
-### Workarounds
-We're not aware of any workaround except upgrading.
-
-### References
-* https://jira.xwiki.org/browse/XWIKI-21611
-* https://github.com/xwiki/xwiki-platform/commit/f89c8f47fad6e5cc7e68c69a7e0acde07f5eed5a</description>
-      <guid isPermaLink="false">CVE-2024-37899|2024-07-01T18:34:54.198Z</guid>
-      <pubDate>Thu, 20 Jun 2024 22:13:59 +0000</pubDate>
-    </item>
-    <item>
-      <title>CVE-2024-31988|2024-07-08T15:17:30.185Z -- xwiki -- xwiki-platform</title>
-      <link>https://www.cve.org/CVERecord?id=CVE-2024-31988</link>
-      <description>XWiki Platform is a generic wiki platform. Starting in version 13.9-rc-1 and prior to versions 4.10.19, 15.5.4, and 15.10-rc-1, when the realtime editor is installed in XWiki, it allows arbitrary remote code execution with the interaction of an admin user with programming right. More precisely, by getting an admin user to either visit a crafted URL or to view an image with this URL that could be in a comment, the attacker can get the admin to execute arbitrary XWiki syntax including scripting macros with Groovy or Python code. This compromises the confidentiality, integrity and availability of the whole XWiki installation. This vulnerability has been patched in XWiki 14.10.19, 15.5.4 and 15.9. As a workaround, one may update `RTFrontend.ConvertHTML` manually with the patch. This will, however, break some synchronization processes in the realtime editor, so upgrading should be the preferred way on installations where this editor is used.</description>
-      <guid isPermaLink="false">CVE-2024-31988|2024-07-08T15:17:30.185Z</guid>
-      <pubDate>Wed, 10 Apr 2024 20:40:36 +0000</pubDate>
-    </item>
-    <item>
-      <title>CVE-2024-31464|2024-07-31T14:35:44.503Z -- xwiki -- xwiki-platform</title>
-      <link>https://www.cve.org/CVERecord?id=CVE-2024-31464</link>
-      <description>XWiki Platform is a generic wiki platform. Starting in version 5.0-rc-1 and prior to versions 14.10.19, 15.5.4, and 15.9-rc-1, it is possible to access the hash of a password by using the diff feature of the history whenever the object storing the password is deleted. Using that vulnerability it's possible for an attacker to have access to the hash password of a user if they have rights to edit the users' page.  With the default right scheme in XWiki this vulnerability is normally prevented on user profiles, except by users with Admin rights. Note that this vulnerability also impacts any extensions that might use passwords stored in xobjects: for those usecases it depends on the right of those pages. There is currently no way to be 100% sure that this vulnerability has been exploited, as an attacker with enough privilege could have deleted the revision where the xobject was deleted after rolling-back the deletion. But again, this operation requires high privileges on the target page (Admin right). A page with a user password xobject which have in its history a revision where the object has been deleted should be considered at risk and the password should be changed there. a diff, to ensure it's not coming from a password field. As another mitigation, admins should ensure that the user pages are properly protected: the edit right shouldn't be allowed for other users than Admin and owner of the profile (which is the default right). There is not much workaround possible for a privileged user other than upgrading XWiki.</description>
-      <guid isPermaLink="false">CVE-2024-31464|2024-07-31T14:35:44.503Z</guid>
-      <pubDate>Wed, 10 Apr 2024 18:14:37 +0000</pubDate>
-    </item>
-    <item>
-      <title>CVE-2024-37898|2024-07-31T17:36:54.705Z -- xwiki -- xwiki-platform</title>
-      <link>https://www.cve.org/CVERecord?id=CVE-2024-37898</link>
-      <description>XWiki Platform is a generic wiki platform offering runtime services for applications built on top of it. When a user has view but not edit right on a page in XWiki, that user can delete the page and replace it by a page with new content without having delete right. The previous version of the page is moved into the recycle bin and can be restored from there by an admin. As the user is recorded as deleter, the user would in theory also be able to view the deleted content, but this is not directly possible as rights of the previous version are transferred to the new page and thus the user still doesn't have view right on the page. It therefore doesn't seem to be possible to exploit this to gain any rights. This has been patched in XWiki 14.10.21, 15.5.5 and 15.10.6 by cancelling save operations by users when a new document shall be saved despite the document's existing already.</description>
-      <guid isPermaLink="false">CVE-2024-37898|2024-07-31T17:36:54.705Z</guid>
-      <pubDate>Wed, 31 Jul 2024 15:12:22 +0000</pubDate>
     </item>
     <item>
       <title>CVE-2024-37899|2024-08-02T04:04:23.403Z -- xwiki -- xwiki-platform</title>
@@ -531,11 +351,279 @@ We're not aware of any workaround except upgrading.
       <pubDate>Thu, 20 Jun 2024 22:13:59 +0000</pubDate>
     </item>
     <item>
-      <title>CVE-2024-38369|2024-08-02T04:04:25.248Z -- xwiki -- xwiki-platform</title>
+      <title>CVE-2024-37898|2024-07-31T17:36:54.705Z -- xwiki -- xwiki-platform</title>
+      <link>https://www.cve.org/CVERecord?id=CVE-2024-37898</link>
+      <description>XWiki Platform is a generic wiki platform offering runtime services for applications built on top of it. When a user has view but not edit right on a page in XWiki, that user can delete the page and replace it by a page with new content without having delete right. The previous version of the page is moved into the recycle bin and can be restored from there by an admin. As the user is recorded as deleter, the user would in theory also be able to view the deleted content, but this is not directly possible as rights of the previous version are transferred to the new page and thus the user still doesn't have view right on the page. It therefore doesn't seem to be possible to exploit this to gain any rights. This has been patched in XWiki 14.10.21, 15.5.5 and 15.10.6 by cancelling save operations by users when a new document shall be saved despite the document's existing already.</description>
+      <guid isPermaLink="false">CVE-2024-37898|2024-07-31T17:36:54.705Z</guid>
+      <pubDate>Wed, 31 Jul 2024 15:12:22 +0000</pubDate>
+    </item>
+    <item>
+      <title>CVE-2024-31464|2024-07-31T14:35:44.503Z -- xwiki -- xwiki-platform</title>
+      <link>https://www.cve.org/CVERecord?id=CVE-2024-31464</link>
+      <description>XWiki Platform is a generic wiki platform. Starting in version 5.0-rc-1 and prior to versions 14.10.19, 15.5.4, and 15.9-rc-1, it is possible to access the hash of a password by using the diff feature of the history whenever the object storing the password is deleted. Using that vulnerability it's possible for an attacker to have access to the hash password of a user if they have rights to edit the users' page.  With the default right scheme in XWiki this vulnerability is normally prevented on user profiles, except by users with Admin rights. Note that this vulnerability also impacts any extensions that might use passwords stored in xobjects: for those usecases it depends on the right of those pages. There is currently no way to be 100% sure that this vulnerability has been exploited, as an attacker with enough privilege could have deleted the revision where the xobject was deleted after rolling-back the deletion. But again, this operation requires high privileges on the target page (Admin right). A page with a user password xobject which have in its history a revision where the object has been deleted should be considered at risk and the password should be changed there. a diff, to ensure it's not coming from a password field. As another mitigation, admins should ensure that the user pages are properly protected: the edit right shouldn't be allowed for other users than Admin and owner of the profile (which is the default right). There is not much workaround possible for a privileged user other than upgrading XWiki.</description>
+      <guid isPermaLink="false">CVE-2024-31464|2024-07-31T14:35:44.503Z</guid>
+      <pubDate>Wed, 10 Apr 2024 18:14:37 +0000</pubDate>
+    </item>
+    <item>
+      <title>CVE-2024-31988|2024-07-08T15:17:30.185Z -- xwiki -- xwiki-platform</title>
+      <link>https://www.cve.org/CVERecord?id=CVE-2024-31988</link>
+      <description>XWiki Platform is a generic wiki platform. Starting in version 13.9-rc-1 and prior to versions 4.10.19, 15.5.4, and 15.10-rc-1, when the realtime editor is installed in XWiki, it allows arbitrary remote code execution with the interaction of an admin user with programming right. More precisely, by getting an admin user to either visit a crafted URL or to view an image with this URL that could be in a comment, the attacker can get the admin to execute arbitrary XWiki syntax including scripting macros with Groovy or Python code. This compromises the confidentiality, integrity and availability of the whole XWiki installation. This vulnerability has been patched in XWiki 14.10.19, 15.5.4 and 15.9. As a workaround, one may update `RTFrontend.ConvertHTML` manually with the patch. This will, however, break some synchronization processes in the realtime editor, so upgrading should be the preferred way on installations where this editor is used.</description>
+      <guid isPermaLink="false">CVE-2024-31988|2024-07-08T15:17:30.185Z</guid>
+      <pubDate>Wed, 10 Apr 2024 20:40:36 +0000</pubDate>
+    </item>
+    <item>
+      <title>CVE-2024-37899|2024-07-01T18:34:54.198Z -- xwiki -- xwiki-platform</title>
+      <link>https://www.cve.org/CVERecord?id=CVE-2024-37899</link>
+      <description>XWiki Platform is a generic wiki platform offering runtime services for applications built on top of it. When an admin disables a user account, the user's profile is executed with the admin's rights. This allows a user to place malicious code in the user profile before getting an admin to disable the user account. To reproduce, as a user without script nor programming rights, edit the about section of your user profile and add `{{groovy}}services.logging.getLogger("attacker").error("Hello from Groovy!"){{/groovy}}`.
+As an admin, go to the user profile and click the "Disable this account" button. Then, reload the page. If the logs show `attacker - Hello from Groovy!` then the instance is vulnerable. This has been patched in XWiki 14.10.21, 15.5.5, 15.10.6 and 16.0.0. Users are advised to upgrade. There are no known workarounds for this vulnerability.
+
+### Workarounds
+We're not aware of any workaround except upgrading.
+
+### References
+* https://jira.xwiki.org/browse/XWIKI-21611
+* https://github.com/xwiki/xwiki-platform/commit/f89c8f47fad6e5cc7e68c69a7e0acde07f5eed5a</description>
+      <guid isPermaLink="false">CVE-2024-37899|2024-07-01T18:34:54.198Z</guid>
+      <pubDate>Thu, 20 Jun 2024 22:13:59 +0000</pubDate>
+    </item>
+    <item>
+      <title>CVE-2024-38369|2024-06-24T20:36:42.653Z -- xwiki -- xwiki-platform</title>
       <link>https://www.cve.org/CVERecord?id=CVE-2024-38369</link>
       <description>XWiki Platform is a generic wiki platform offering runtime services for applications built on top of it. The content of a document included using `{{include reference="targetdocument"/}}` is executed with the right of the includer and not with the right of its author. This means that any user able to modify the target document can impersonate the author of the content which used the `include` macro. This vulnerability has been patched in XWiki 15.0 RC1 by making the default behavior safe.</description>
-      <guid isPermaLink="false">CVE-2024-38369|2024-08-02T04:04:25.248Z</guid>
+      <guid isPermaLink="false">CVE-2024-38369|2024-06-24T20:36:42.653Z</guid>
       <pubDate>Mon, 24 Jun 2024 16:39:37 +0000</pubDate>
+    </item>
+    <item>
+      <title>CVE-2024-37899|2024-06-20T22:13:59.450Z -- xwiki -- xwiki-platform</title>
+      <link>https://www.cve.org/CVERecord?id=CVE-2024-37899</link>
+      <description>XWiki Platform is a generic wiki platform offering runtime services for applications built on top of it. When an admin disables a user account, the user's profile is executed with the admin's rights. This allows a user to place malicious code in the user profile before getting an admin to disable the user account. To reproduce, as a user without script nor programming rights, edit the about section of your user profile and add `{{groovy}}services.logging.getLogger("attacker").error("Hello from Groovy!"){{/groovy}}`.
+As an admin, go to the user profile and click the "Disable this account" button. Then, reload the page. If the logs show `attacker - Hello from Groovy!` then the instance is vulnerable. This has been patched in XWiki 14.10.21, 15.5.5, 15.10.6 and 16.0.0. Users are advised to upgrade. There are no known workarounds for this vulnerability.
+
+### Workarounds
+We're not aware of any workaround except upgrading.
+
+### References
+* https://jira.xwiki.org/browse/XWIKI-21611
+* https://github.com/xwiki/xwiki-platform/commit/f89c8f47fad6e5cc7e68c69a7e0acde07f5eed5a</description>
+      <guid isPermaLink="false">CVE-2024-37899|2024-06-20T22:13:59.450Z</guid>
+      <pubDate>Thu, 20 Jun 2024 22:13:59 +0000</pubDate>
+    </item>
+    <item>
+      <title>CVE-2024-31986|2024-04-10T20:27:29.600Z -- xwiki -- xwiki-platform</title>
+      <link>https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2024-31986</link>
+      <description>XWiki Platform is a generic wiki platform. Starting in version 3.1 and prior to versions 4.10.19, 15.5.4, and 15.10-rc-1, by creating a document with a special crafted documented reference and an `XWiki.SchedulerJobClass` XObject, it is possible to execute arbitrary code on the server whenever an admin visits the scheduler page or the scheduler page is referenced, e.g., via an image in a comment on a page in the wiki. The vulnerability has been fixed in XWiki 14.10.19, 15.5.5, and 15.9. As a workaround, apply the patch manually by modifying the `Scheduler.WebHome` page.</description>
+      <guid isPermaLink="false">CVE-2024-31986|2024-04-10T20:27:29.600Z</guid>
+      <pubDate>Wed, 10 Apr 2024 20:27:29 +0000</pubDate>
+    </item>
+    <item>
+      <title>CVE-2024-31987|2024-04-10T20:32:39.317Z -- xwiki -- xwiki-platform</title>
+      <link>https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2024-31987</link>
+      <description>XWiki Platform is a generic wiki platform. Starting in version 6.4-milestone-1 and prior to versions 4.10.19, 15.5.4, and 15.10-rc-1, any user who can edit any page like their profile can create a custom skin with a template override that is executed with programming right, thus allowing remote code execution. This has been patched in XWiki 14.10.19, 15.5.4 and 15.10RC1. No known workarounds are available except for upgrading.</description>
+      <guid isPermaLink="false">CVE-2024-31987|2024-04-10T20:32:39.317Z</guid>
+      <pubDate>Wed, 10 Apr 2024 20:32:39 +0000</pubDate>
+    </item>
+    <item>
+      <title>CVE-2024-31981|2024-04-10T19:22:57.494Z -- xwiki -- xwiki-platform</title>
+      <link>https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2024-31981</link>
+      <description>XWiki Platform is a generic wiki platform. Starting in version 3.0.1 and prior to versions 4.10.20, 15.5.4, and 15.10-rc-1, remote code execution is possible via PDF export templates. This vulnerability has been patched in XWiki 14.10.20, 15.5.4 and 15.10-rc-1. If PDF templates are not typically used on the instance, an administrator can create the document `XWiki.PDFClass` and block its edition, after making sure that it does not contain a `style` attribute. Otherwise, there are no known workarounds aside from upgrading.</description>
+      <guid isPermaLink="false">CVE-2024-31981|2024-04-10T19:22:57.494Z</guid>
+      <pubDate>Wed, 10 Apr 2024 19:22:57 +0000</pubDate>
+    </item>
+    <item>
+      <title>CVE-2024-31997|2024-04-10T21:55:43.475Z -- xwiki -- xwiki-platform</title>
+      <link>https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2024-31997</link>
+      <description>XWiki Platform is a generic wiki platform. Prior to versions 4.10.19, 15.5.4, and 15.10-rc-1, parameters of UI extensions are always interpreted as Velocity code and executed with programming rights. Any user with edit right on any document like the user's own profile can create UI extensions. This allows remote code execution and thereby impacts the confidentiality, integrity and availability of the whole XWiki installation. This vulnerability has been patched in XWiki 14.10.19, 15.5.4 and 15.9-RC1. No known workarounds are available.</description>
+      <guid isPermaLink="false">CVE-2024-31997|2024-04-10T21:55:43.475Z</guid>
+      <pubDate>Wed, 10 Apr 2024 21:55:43 +0000</pubDate>
+    </item>
+    <item>
+      <title>CVE-2024-31982|2024-04-10T19:38:01.879Z -- xwiki -- xwiki-platform</title>
+      <link>https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2024-31982</link>
+      <description>XWiki Platform is a generic wiki platform. Starting in version 2.4-milestone-1 and prior to versions 4.10.20, 15.5.4, and 15.10-rc-1, XWiki's database search allows remote code execution through the search text. This allows remote code execution for any visitor of a public wiki or user of a closed wiki as the database search is by default accessible for all users. This impacts the confidentiality, integrity and availability of the whole XWiki installation. This vulnerability has been patched in XWiki 14.10.20, 15.5.4 and 15.10RC1. As a workaround, one may manually apply the patch to the page `Main.DatabaseSearch`. Alternatively, unless database search is explicitly used by users, this page can be deleted as this is not the default search interface of XWiki.</description>
+      <guid isPermaLink="false">CVE-2024-31982|2024-04-10T19:38:01.879Z</guid>
+      <pubDate>Wed, 10 Apr 2024 19:38:01 +0000</pubDate>
+    </item>
+    <item>
+      <title>CVE-2024-31465|2024-06-04T17:36:47.631Z -- xwiki -- xwiki-platform</title>
+      <link>https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2024-31465</link>
+      <description>XWiki Platform is a generic wiki platform. Starting in version 5.0-rc-1 and prior to versions 14.10.20, 15.5.4, and 15.9-rc-1, any user with edit right on any page can execute any code on the server by adding an object of type `XWiki.SearchSuggestSourceClass` to their user profile or any other page. This compromises the confidentiality, integrity and availability of the whole XWiki installation. This vulnerability has been patched in XWiki 14.10.20, 15.5.4 and 15.10 RC1. As a workaround, manually apply the patch to the document `XWiki.SearchSuggestSourceSheet`.</description>
+      <guid isPermaLink="false">CVE-2024-31465|2024-06-04T17:36:47.631Z</guid>
+      <pubDate>Wed, 10 Apr 2024 19:12:35 +0000</pubDate>
+    </item>
+    <item>
+      <title>CVE-2024-31464|2024-04-10T18:14:37.224Z -- xwiki -- xwiki-platform</title>
+      <link>https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2024-31464</link>
+      <description>XWiki Platform is a generic wiki platform. Starting in version 5.0-rc-1 and prior to versions 14.10.19, 15.5.4, and 15.9-rc-1, it is possible to access the hash of a password by using the diff feature of the history whenever the object storing the password is deleted. Using that vulnerability it's possible for an attacker to have access to the hash password of a user if they have rights to edit the users' page.  With the default right scheme in XWiki this vulnerability is normally prevented on user profiles, except by users with Admin rights. Note that this vulnerability also impacts any extensions that might use passwords stored in xobjects: for those usecases it depends on the right of those pages. There is currently no way to be 100% sure that this vulnerability has been exploited, as an attacker with enough privilege could have deleted the revision where the xobject was deleted after rolling-back the deletion. But again, this operation requires high privileges on the target page (Admin right). A page with a user password xobject which have in its history a revision where the object has been deleted should be considered at risk and the password should be changed there. a diff, to ensure it's not coming from a password field. As another mitigation, admins should ensure that the user pages are properly protected: the edit right shouldn't be allowed for other users than Admin and owner of the profile (which is the default right). There is not much workaround possible for a privileged user other than upgrading XWiki.</description>
+      <guid isPermaLink="false">CVE-2024-31464|2024-04-10T18:14:37.224Z</guid>
+      <pubDate>Wed, 10 Apr 2024 18:14:37 +0000</pubDate>
+    </item>
+    <item>
+      <title>CVE-2024-31983|2024-06-04T17:36:56.997Z -- xwiki -- xwiki-platform</title>
+      <link>https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2024-31983</link>
+      <description>XWiki Platform is a generic wiki platform. In multilingual wikis, translations can be edited by any user who has edit right, circumventing the rights that are normally required for authoring translations (script right for user-scope translations, wiki admin for translations on the wiki). Starting in version 4.3-milestone-2 and prior to versions 4.10.20, 15.5.4, and 15.10-rc-1, this can be exploited for remote code execution if the translation value is not properly escaped where it is used. This has been patched in XWiki 14.10.20, 15.5.4 and 15.10RC1. As a workaround, one may restrict edit rights on documents that contain translations.</description>
+      <guid isPermaLink="false">CVE-2024-31983|2024-06-04T17:36:56.997Z</guid>
+      <pubDate>Wed, 10 Apr 2024 19:44:48 +0000</pubDate>
+    </item>
+    <item>
+      <title>CVE-2024-31988|2024-04-10T20:40:36.954Z -- xwiki -- xwiki-platform</title>
+      <link>https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2024-31988</link>
+      <description>XWiki Platform is a generic wiki platform. Starting in version 13.9-rc-1 and prior to versions 4.10.19, 15.5.4, and 15.10-rc-1, when the realtime editor is installed in XWiki, it allows arbitrary remote code execution with the interaction of an admin user with programming right. More precisely, by getting an admin user to either visit a crafted URL or to view an image with this URL that could be in a comment, the attacker can get the admin to execute arbitrary XWiki syntax including scripting macros with Groovy or Python code. This compromises the confidentiality, integrity and availability of the whole XWiki installation. This vulnerability has been patched in XWiki 14.10.19, 15.5.4 and 15.9. As a workaround, one may update `RTFrontend.ConvertHTML` manually with the patch. This will, however, break some synchronization processes in the realtime editor, so upgrading should be the preferred way on installations where this editor is used.</description>
+      <guid isPermaLink="false">CVE-2024-31988|2024-04-10T20:40:36.954Z</guid>
+      <pubDate>Wed, 10 Apr 2024 20:40:36 +0000</pubDate>
+    </item>
+    <item>
+      <title>CVE-2024-31984|2024-04-10T20:11:03.857Z -- xwiki -- xwiki-platform</title>
+      <link>https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2024-31984</link>
+      <description>XWiki Platform is a generic wiki platform. Starting in version 7.2-rc-1 and prior to versions 4.10.20, 15.5.4, and 15.10-rc-1, by creating a document with a specially crafted title, it is possible to trigger remote code execution in the (Solr-based) search in XWiki. This allows any user who can edit the title of a space (all users by default) to execute any Groovy code in the XWiki installation which compromises the confidentiality, integrity and availability of the whole XWiki installation. This has been patched in XWiki 14.10.20, 15.5.4 and 15.10 RC1. As a workaround, manually apply the patch to the `Main.SolrSpaceFacet` page.</description>
+      <guid isPermaLink="false">CVE-2024-31984|2024-04-10T20:11:03.857Z</guid>
+      <pubDate>Wed, 10 Apr 2024 19:53:50 +0000</pubDate>
+    </item>
+    <item>
+      <title>CVE-2024-31985|2024-06-04T17:37:18.406Z -- xwiki -- xwiki-platform</title>
+      <link>https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2024-31985</link>
+      <description>XWiki Platform is a generic wiki platform. Starting in version 3.1 and prior to versions 4.10.20, 15.5.4, and 15.10-rc-1, it is possible to schedule/trigger/unschedule existing jobs by having an admin visit the Job Scheduler page through a predictable URL, for example by embedding such an URL in any content as an image. The vulnerability has been fixed in XWiki 14.10.19, 15.5.5, and 15.9. As a workaround, manually apply the patch by modifying the `Scheduler.WebHome` page.</description>
+      <guid isPermaLink="false">CVE-2024-31985|2024-06-04T17:37:18.406Z</guid>
+      <pubDate>Wed, 10 Apr 2024 20:11:53 +0000</pubDate>
+    </item>
+    <item>
+      <title>CVE-2024-38369|2024-06-24T16:39:37.695Z -- xwiki -- xwiki-platform</title>
+      <link>https://www.cve.org/CVERecord?id=CVE-2024-38369</link>
+      <description>XWiki Platform is a generic wiki platform offering runtime services for applications built on top of it. The content of a document included using `{{include reference="targetdocument"/}}` is executed with the right of the includer and not with the right of its author. This means that any user able to modify the target document can impersonate the author of the content which used the `include` macro. This vulnerability has been patched in XWiki 15.0 RC1 by making the default behavior safe.</description>
+      <guid isPermaLink="false">CVE-2024-38369|2024-06-24T16:39:37.695Z</guid>
+      <pubDate>Mon, 24 Jun 2024 16:39:37 +0000</pubDate>
+    </item>
+    <item>
+      <title>CVE-2024-31981|2024-06-26T17:36:02.483Z -- xwiki -- xwiki-platform</title>
+      <link>https://www.cve.org/CVERecord?id=CVE-2024-31981</link>
+      <description>XWiki Platform is a generic wiki platform. Starting in version 3.0.1 and prior to versions 4.10.20, 15.5.4, and 15.10-rc-1, remote code execution is possible via PDF export templates. This vulnerability has been patched in XWiki 14.10.20, 15.5.4 and 15.10-rc-1. If PDF templates are not typically used on the instance, an administrator can create the document `XWiki.PDFClass` and block its edition, after making sure that it does not contain a `style` attribute. Otherwise, there are no known workarounds aside from upgrading.</description>
+      <guid isPermaLink="false">CVE-2024-31981|2024-06-26T17:36:02.483Z</guid>
+      <pubDate>Wed, 10 Apr 2024 19:22:57 +0000</pubDate>
+    </item>
+    <item>
+      <title>CVE-2024-31984|2024-07-05T12:48:25.074Z -- xwiki -- xwiki-platform</title>
+      <link>https://www.cve.org/CVERecord?id=CVE-2024-31984</link>
+      <description>XWiki Platform is a generic wiki platform. Starting in version 7.2-rc-1 and prior to versions 4.10.20, 15.5.4, and 15.10-rc-1, by creating a document with a specially crafted title, it is possible to trigger remote code execution in the (Solr-based) search in XWiki. This allows any user who can edit the title of a space (all users by default) to execute any Groovy code in the XWiki installation which compromises the confidentiality, integrity and availability of the whole XWiki installation. This has been patched in XWiki 14.10.20, 15.5.4 and 15.10 RC1. As a workaround, manually apply the patch to the `Main.SolrSpaceFacet` page.</description>
+      <guid isPermaLink="false">CVE-2024-31984|2024-07-05T12:48:25.074Z</guid>
+      <pubDate>Wed, 10 Apr 2024 19:53:50 +0000</pubDate>
+    </item>
+    <item>
+      <title>CVE-2024-31986|2024-07-19T21:06:21.946Z -- xwiki -- xwiki-platform</title>
+      <link>https://www.cve.org/CVERecord?id=CVE-2024-31986</link>
+      <description>XWiki Platform is a generic wiki platform. Starting in version 3.1 and prior to versions 4.10.19, 15.5.4, and 15.10-rc-1, by creating a document with a special crafted documented reference and an `XWiki.SchedulerJobClass` XObject, it is possible to execute arbitrary code on the server whenever an admin visits the scheduler page or the scheduler page is referenced, e.g., via an image in a comment on a page in the wiki. The vulnerability has been fixed in XWiki 14.10.19, 15.5.5, and 15.9. As a workaround, apply the patch manually by modifying the `Scheduler.WebHome` page.</description>
+      <guid isPermaLink="false">CVE-2024-31986|2024-07-19T21:06:21.946Z</guid>
+      <pubDate>Wed, 10 Apr 2024 20:27:29 +0000</pubDate>
+    </item>
+    <item>
+      <title>CVE-2024-37901|2024-07-31T15:19:36.588Z -- xwiki -- xwiki-platform</title>
+      <link>https://www.cve.org/CVERecord?id=CVE-2024-37901</link>
+      <description>XWiki Platform is a generic wiki platform offering runtime services for applications built on top of it. Any user with edit right on any page can perform arbitrary remote code execution by adding instances of `XWiki.SearchSuggestConfig` and `XWiki.SearchSuggestSourceClass` to their user profile or any other page. This compromises the confidentiality, integrity and availability of the whole XWiki installation. This vulnerability has been patched in XWiki 14.10.21, 15.5.5 and 15.10.2.</description>
+      <guid isPermaLink="false">CVE-2024-37901|2024-07-31T15:19:36.588Z</guid>
+      <pubDate>Wed, 31 Jul 2024 15:19:36 +0000</pubDate>
+    </item>
+    <item>
+      <title>CVE-2024-37898|2024-07-31T15:12:22.468Z -- xwiki -- xwiki-platform</title>
+      <link>https://www.cve.org/CVERecord?id=CVE-2024-37898</link>
+      <description>XWiki Platform is a generic wiki platform offering runtime services for applications built on top of it. When a user has view but not edit right on a page in XWiki, that user can delete the page and replace it by a page with new content without having delete right. The previous version of the page is moved into the recycle bin and can be restored from there by an admin. As the user is recorded as deleter, the user would in theory also be able to view the deleted content, but this is not directly possible as rights of the previous version are transferred to the new page and thus the user still doesn't have view right on the page. It therefore doesn't seem to be possible to exploit this to gain any rights. This has been patched in XWiki 14.10.21, 15.5.5 and 15.10.6 by cancelling save operations by users when a new document shall be saved despite the document's existing already.</description>
+      <guid isPermaLink="false">CVE-2024-37898|2024-07-31T15:12:22.468Z</guid>
+      <pubDate>Wed, 31 Jul 2024 15:12:22 +0000</pubDate>
+    </item>
+    <item>
+      <title>CVE-2024-41947|2024-07-31T15:58:35.101Z -- xwiki -- xwiki-platform</title>
+      <link>https://www.cve.org/CVERecord?id=CVE-2024-41947</link>
+      <description>XWiki Platform is a generic wiki platform offering runtime services for applications built on top of it. By creating a conflict when another user with more rights is currently editing a page, it is possible to execute JavaScript snippets on the side of the other user, which compromises the confidentiality, integrity and availability of the whole XWiki installation. This has been patched in XWiki 15.10.8 and 16.3.0RC1.</description>
+      <guid isPermaLink="false">CVE-2024-41947|2024-07-31T15:58:35.101Z</guid>
+      <pubDate>Wed, 31 Jul 2024 15:24:20 +0000</pubDate>
+    </item>
+    <item>
+      <title>CVE-2024-37900|2024-07-31T15:15:31.013Z -- xwiki -- xwiki-platform</title>
+      <link>https://www.cve.org/CVERecord?id=CVE-2024-37900</link>
+      <description>XWiki Platform is a generic wiki platform offering runtime services for applications built on top of it. When uploading an attachment with a malicious filename, malicious JavaScript code could be executed. This requires a social engineering attack to get the victim into uploading a file with a malicious name. The malicious code is solely executed during the upload and affects only the user uploading the attachment. While this allows performing actions in the name of that user, it seems unlikely that a user wouldn't notice the malicious filename while uploading the attachment. This has been patched in XWiki 14.10.21, 15.5.5, 15.10.6 and 16.0.0.</description>
+      <guid isPermaLink="false">CVE-2024-37900|2024-07-31T15:15:31.013Z</guid>
+      <pubDate>Wed, 31 Jul 2024 15:15:31 +0000</pubDate>
+    </item>
+    <item>
+      <title>CVE-2024-37900|2024-08-01T14:50:10.293Z -- xwiki -- xwiki-platform</title>
+      <link>https://www.cve.org/CVERecord?id=CVE-2024-37900</link>
+      <description>XWiki Platform is a generic wiki platform offering runtime services for applications built on top of it. When uploading an attachment with a malicious filename, malicious JavaScript code could be executed. This requires a social engineering attack to get the victim into uploading a file with a malicious name. The malicious code is solely executed during the upload and affects only the user uploading the attachment. While this allows performing actions in the name of that user, it seems unlikely that a user wouldn't notice the malicious filename while uploading the attachment. This has been patched in XWiki 14.10.21, 15.5.5, 15.10.6 and 16.0.0.</description>
+      <guid isPermaLink="false">CVE-2024-37900|2024-08-01T14:50:10.293Z</guid>
+      <pubDate>Wed, 31 Jul 2024 15:15:31 +0000</pubDate>
+    </item>
+    <item>
+      <title>CVE-2024-31985|2024-08-02T01:59:50.770Z -- xwiki -- xwiki-platform</title>
+      <link>https://www.cve.org/CVERecord?id=CVE-2024-31985</link>
+      <description>XWiki Platform is a generic wiki platform. Starting in version 3.1 and prior to versions 4.10.20, 15.5.4, and 15.10-rc-1, it is possible to schedule/trigger/unschedule existing jobs by having an admin visit the Job Scheduler page through a predictable URL, for example by embedding such an URL in any content as an image. The vulnerability has been fixed in XWiki 14.10.19, 15.5.5, and 15.9. As a workaround, manually apply the patch by modifying the `Scheduler.WebHome` page.</description>
+      <guid isPermaLink="false">CVE-2024-31985|2024-08-02T01:59:50.770Z</guid>
+      <pubDate>Wed, 10 Apr 2024 20:11:53 +0000</pubDate>
+    </item>
+    <item>
+      <title>CVE-2024-31981|2024-08-02T01:59:50.691Z -- xwiki -- xwiki-platform</title>
+      <link>https://www.cve.org/CVERecord?id=CVE-2024-31981</link>
+      <description>XWiki Platform is a generic wiki platform. Starting in version 3.0.1 and prior to versions 4.10.20, 15.5.4, and 15.10-rc-1, remote code execution is possible via PDF export templates. This vulnerability has been patched in XWiki 14.10.20, 15.5.4 and 15.10-rc-1. If PDF templates are not typically used on the instance, an administrator can create the document `XWiki.PDFClass` and block its edition, after making sure that it does not contain a `style` attribute. Otherwise, there are no known workarounds aside from upgrading.</description>
+      <guid isPermaLink="false">CVE-2024-31981|2024-08-02T01:59:50.691Z</guid>
+      <pubDate>Wed, 10 Apr 2024 19:22:57 +0000</pubDate>
+    </item>
+    <item>
+      <title>CVE-2024-31464|2024-08-02T01:52:57.144Z -- xwiki -- xwiki-platform</title>
+      <link>https://www.cve.org/CVERecord?id=CVE-2024-31464</link>
+      <description>XWiki Platform is a generic wiki platform. Starting in version 5.0-rc-1 and prior to versions 14.10.19, 15.5.4, and 15.9-rc-1, it is possible to access the hash of a password by using the diff feature of the history whenever the object storing the password is deleted. Using that vulnerability it's possible for an attacker to have access to the hash password of a user if they have rights to edit the users' page.  With the default right scheme in XWiki this vulnerability is normally prevented on user profiles, except by users with Admin rights. Note that this vulnerability also impacts any extensions that might use passwords stored in xobjects: for those usecases it depends on the right of those pages. There is currently no way to be 100% sure that this vulnerability has been exploited, as an attacker with enough privilege could have deleted the revision where the xobject was deleted after rolling-back the deletion. But again, this operation requires high privileges on the target page (Admin right). A page with a user password xobject which have in its history a revision where the object has been deleted should be considered at risk and the password should be changed there. a diff, to ensure it's not coming from a password field. As another mitigation, admins should ensure that the user pages are properly protected: the edit right shouldn't be allowed for other users than Admin and owner of the profile (which is the default right). There is not much workaround possible for a privileged user other than upgrading XWiki.</description>
+      <guid isPermaLink="false">CVE-2024-31464|2024-08-02T01:52:57.144Z</guid>
+      <pubDate>Wed, 10 Apr 2024 18:14:37 +0000</pubDate>
+    </item>
+    <item>
+      <title>CVE-2024-31997|2024-08-02T01:59:50.826Z -- xwiki -- xwiki-platform</title>
+      <link>https://www.cve.org/CVERecord?id=CVE-2024-31997</link>
+      <description>XWiki Platform is a generic wiki platform. Prior to versions 4.10.19, 15.5.4, and 15.10-rc-1, parameters of UI extensions are always interpreted as Velocity code and executed with programming rights. Any user with edit right on any document like the user's own profile can create UI extensions. This allows remote code execution and thereby impacts the confidentiality, integrity and availability of the whole XWiki installation. This vulnerability has been patched in XWiki 14.10.19, 15.5.4 and 15.9-RC1. No known workarounds are available.</description>
+      <guid isPermaLink="false">CVE-2024-31997|2024-08-02T01:59:50.826Z</guid>
+      <pubDate>Wed, 10 Apr 2024 21:55:43 +0000</pubDate>
+    </item>
+    <item>
+      <title>CVE-2024-31986|2024-08-02T01:59:50.842Z -- xwiki -- xwiki-platform</title>
+      <link>https://www.cve.org/CVERecord?id=CVE-2024-31986</link>
+      <description>XWiki Platform is a generic wiki platform. Starting in version 3.1 and prior to versions 4.10.19, 15.5.4, and 15.10-rc-1, by creating a document with a special crafted documented reference and an `XWiki.SchedulerJobClass` XObject, it is possible to execute arbitrary code on the server whenever an admin visits the scheduler page or the scheduler page is referenced, e.g., via an image in a comment on a page in the wiki. The vulnerability has been fixed in XWiki 14.10.19, 15.5.5, and 15.9. As a workaround, apply the patch manually by modifying the `Scheduler.WebHome` page.</description>
+      <guid isPermaLink="false">CVE-2024-31986|2024-08-02T01:59:50.842Z</guid>
+      <pubDate>Wed, 10 Apr 2024 20:27:29 +0000</pubDate>
+    </item>
+    <item>
+      <title>CVE-2024-31988|2024-08-02T01:59:50.859Z -- xwiki -- xwiki-platform</title>
+      <link>https://www.cve.org/CVERecord?id=CVE-2024-31988</link>
+      <description>XWiki Platform is a generic wiki platform. Starting in version 13.9-rc-1 and prior to versions 4.10.19, 15.5.4, and 15.10-rc-1, when the realtime editor is installed in XWiki, it allows arbitrary remote code execution with the interaction of an admin user with programming right. More precisely, by getting an admin user to either visit a crafted URL or to view an image with this URL that could be in a comment, the attacker can get the admin to execute arbitrary XWiki syntax including scripting macros with Groovy or Python code. This compromises the confidentiality, integrity and availability of the whole XWiki installation. This vulnerability has been patched in XWiki 14.10.19, 15.5.4 and 15.9. As a workaround, one may update `RTFrontend.ConvertHTML` manually with the patch. This will, however, break some synchronization processes in the realtime editor, so upgrading should be the preferred way on installations where this editor is used.</description>
+      <guid isPermaLink="false">CVE-2024-31988|2024-08-02T01:59:50.859Z</guid>
+      <pubDate>Wed, 10 Apr 2024 20:40:36 +0000</pubDate>
+    </item>
+    <item>
+      <title>CVE-2024-31465|2024-08-02T01:52:57.115Z -- xwiki -- xwiki-platform</title>
+      <link>https://www.cve.org/CVERecord?id=CVE-2024-31465</link>
+      <description>XWiki Platform is a generic wiki platform. Starting in version 5.0-rc-1 and prior to versions 14.10.20, 15.5.4, and 15.9-rc-1, any user with edit right on any page can execute any code on the server by adding an object of type `XWiki.SearchSuggestSourceClass` to their user profile or any other page. This compromises the confidentiality, integrity and availability of the whole XWiki installation. This vulnerability has been patched in XWiki 14.10.20, 15.5.4 and 15.10 RC1. As a workaround, manually apply the patch to the document `XWiki.SearchSuggestSourceSheet`.</description>
+      <guid isPermaLink="false">CVE-2024-31465|2024-08-02T01:52:57.115Z</guid>
+      <pubDate>Wed, 10 Apr 2024 19:12:35 +0000</pubDate>
+    </item>
+    <item>
+      <title>CVE-2024-31983|2024-08-02T01:59:50.829Z -- xwiki -- xwiki-platform</title>
+      <link>https://www.cve.org/CVERecord?id=CVE-2024-31983</link>
+      <description>XWiki Platform is a generic wiki platform. In multilingual wikis, translations can be edited by any user who has edit right, circumventing the rights that are normally required for authoring translations (script right for user-scope translations, wiki admin for translations on the wiki). Starting in version 4.3-milestone-2 and prior to versions 4.10.20, 15.5.4, and 15.10-rc-1, this can be exploited for remote code execution if the translation value is not properly escaped where it is used. This has been patched in XWiki 14.10.20, 15.5.4 and 15.10RC1. As a workaround, one may restrict edit rights on documents that contain translations.</description>
+      <guid isPermaLink="false">CVE-2024-31983|2024-08-02T01:59:50.829Z</guid>
+      <pubDate>Wed, 10 Apr 2024 19:44:48 +0000</pubDate>
+    </item>
+    <item>
+      <title>CVE-2024-31982|2024-08-02T01:59:50.834Z -- xwiki -- xwiki-platform</title>
+      <link>https://www.cve.org/CVERecord?id=CVE-2024-31982</link>
+      <description>XWiki Platform is a generic wiki platform. Starting in version 2.4-milestone-1 and prior to versions 4.10.20, 15.5.4, and 15.10-rc-1, XWiki's database search allows remote code execution through the search text. This allows remote code execution for any visitor of a public wiki or user of a closed wiki as the database search is by default accessible for all users. This impacts the confidentiality, integrity and availability of the whole XWiki installation. This vulnerability has been patched in XWiki 14.10.20, 15.5.4 and 15.10RC1. As a workaround, one may manually apply the patch to the page `Main.DatabaseSearch`. Alternatively, unless database search is explicitly used by users, this page can be deleted as this is not the default search interface of XWiki.</description>
+      <guid isPermaLink="false">CVE-2024-31982|2024-08-02T01:59:50.834Z</guid>
+      <pubDate>Wed, 10 Apr 2024 19:38:01 +0000</pubDate>
+    </item>
+    <item>
+      <title>CVE-2024-31984|2024-08-02T01:59:50.883Z -- xwiki -- xwiki-platform</title>
+      <link>https://www.cve.org/CVERecord?id=CVE-2024-31984</link>
+      <description>XWiki Platform is a generic wiki platform. Starting in version 7.2-rc-1 and prior to versions 4.10.20, 15.5.4, and 15.10-rc-1, by creating a document with a specially crafted title, it is possible to trigger remote code execution in the (Solr-based) search in XWiki. This allows any user who can edit the title of a space (all users by default) to execute any Groovy code in the XWiki installation which compromises the confidentiality, integrity and availability of the whole XWiki installation. This has been patched in XWiki 14.10.20, 15.5.4 and 15.10 RC1. As a workaround, manually apply the patch to the `Main.SolrSpaceFacet` page.</description>
+      <guid isPermaLink="false">CVE-2024-31984|2024-08-02T01:59:50.883Z</guid>
+      <pubDate>Wed, 10 Apr 2024 19:53:50 +0000</pubDate>
+    </item>
+    <item>
+      <title>CVE-2024-31987|2024-08-02T01:59:50.698Z -- xwiki -- xwiki-platform</title>
+      <link>https://www.cve.org/CVERecord?id=CVE-2024-31987</link>
+      <description>XWiki Platform is a generic wiki platform. Starting in version 6.4-milestone-1 and prior to versions 4.10.19, 15.5.4, and 15.10-rc-1, any user who can edit any page like their profile can create a custom skin with a template override that is executed with programming right, thus allowing remote code execution. This has been patched in XWiki 14.10.19, 15.5.4 and 15.10RC1. No known workarounds are available except for upgrading.</description>
+      <guid isPermaLink="false">CVE-2024-31987|2024-08-02T01:59:50.698Z</guid>
+      <pubDate>Wed, 10 Apr 2024 20:32:39 +0000</pubDate>
     </item>
   </channel>
 </rss>

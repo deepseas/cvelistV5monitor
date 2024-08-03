@@ -6,8 +6,16 @@
     <description>The latest CVEs for bytecodealliance -- all products</description>
     <docs>http://www.rssboard.org/rss-specification</docs>
     <generator>python-feedgen</generator>
-    <lastBuildDate>Sat, 03 Aug 2024 12:25:25 +0000</lastBuildDate>
+    <lastBuildDate>Sat, 03 Aug 2024 13:22:12 +0000</lastBuildDate>
     <ttl>60</ttl>
+    <item>
+      <title>CVE-2022-39393|2024-08-03T12:07:42.224Z -- bytecodealliance -- wasmtime
+</title>
+      <link>https://www.cve.org/CVERecord?id=CVE-2022-39393</link>
+      <description>Wasmtime is a standalone runtime for WebAssembly. Prior to version 2.0.2, there is a bug in Wasmtime's implementation of its pooling instance allocator where when a linear memory is reused for another instance the initial heap snapshot of the prior instance can be visible, erroneously to the next instance. This bug has been patched and users should upgrade to Wasmtime 2.0.2. Other mitigations include disabling the pooling allocator and disabling the `memory-init-cow`.</description>
+      <guid isPermaLink="false">CVE-2022-39393|2024-08-03T12:07:42.224Z</guid>
+      <pubDate>Thu, 10 Nov 2022 00:00:00 +0000</pubDate>
+    </item>
     <item>
       <title>CVE-2022-31146|2024-08-03T07:11:39.649Z -- bytecodealliance -- wasmtime
 </title>
@@ -23,6 +31,22 @@
       <description>Wasmtime is an open source runtime for WebAssembly &amp; WASI. Prior to versions 0.34.1 and 0.33.1, there exists a bug in the pooling instance allocator in Wasmtime's runtime where a failure to instantiate an instance for a module that defines an `externref` global will result in an invalid drop of a `VMExternRef` via an uninitialized pointer. A number of conditions listed in the GitHub Security Advisory must be true in order for an instance to be vulnerable to this issue. Maintainers believe that the effective impact of this bug is relatively small because the usage of `externref` is still uncommon and without a resource limiter configured on the `Store`, which is not the default configuration, it is only possible to trigger the bug from an error returned by `mprotect` or `VirtualAlloc`. Note that on Linux with the `uffd` feature enabled, it is only possible to trigger the bug from a resource limiter as the call to `mprotect` is skipped. The bug has been fixed in 0.34.1 and 0.33.1 and users are encouraged to upgrade as soon as possible. If it is not possible to upgrade to version 0.34.1 or 0.33.1 of the `wasmtime` crate, it is recommend that support for the reference types proposal be disabled by passing `false` to `Config::wasm_reference_types`. Doing so will prevent modules that use `externref` from being loaded entirely.</description>
       <guid isPermaLink="false">CVE-2022-23636|2024-08-03T03:51:46.018Z</guid>
       <pubDate>Wed, 16 Feb 2022 22:00:10 +0000</pubDate>
+    </item>
+    <item>
+      <title>CVE-2022-39392|2024-08-03T12:07:41.880Z -- bytecodealliance -- wasmtime
+</title>
+      <link>https://www.cve.org/CVERecord?id=CVE-2022-39392</link>
+      <description>Wasmtime is a standalone runtime for WebAssembly. Prior to version 2.0.2, there is a bug in Wasmtime's implementation of its pooling instance allocator when the allocator is configured to give WebAssembly instances a maximum of zero pages of memory. In this configuration, the virtual memory mapping for WebAssembly memories did not meet the compiler-required configuration requirements for safely executing WebAssembly modules. Wasmtime's default settings require virtual memory page faults to indicate that wasm reads/writes are out-of-bounds, but the pooling allocator's configuration would not create an appropriate virtual memory mapping for this meaning out of bounds reads/writes can successfully read/write memory unrelated to the wasm sandbox within range of the base address of the memory mapping created by the pooling allocator. This bug is not applicable with the default settings of the `wasmtime` crate. This bug can only be triggered by setting `InstanceLimits::memory_pages` to zero. This is expected to be a very rare configuration since this means that wasm modules cannot allocate any pages of linear memory. All wasm modules produced by all current toolchains are highly likely to use linear memory, so it's expected to be unlikely that this configuration is set to zero by any production embedding of Wasmtime. This bug has been patched and users should upgrade to Wasmtime 2.0.2. This bug can be worked around by increasing the `memory_pages` allotment when configuring the pooling allocator to a value greater than zero. If an embedding wishes to still prevent memory from actually being used then the `Store::limiter` method can be used to dynamically disallow growth of memory beyond 0 bytes large. Note that the default `memory_pages` value is greater than zero.</description>
+      <guid isPermaLink="false">CVE-2022-39392|2024-08-03T12:07:41.880Z</guid>
+      <pubDate>Thu, 10 Nov 2022 00:00:00 +0000</pubDate>
+    </item>
+    <item>
+      <title>CVE-2022-39394|2024-08-03T12:07:41.252Z -- bytecodealliance -- wasmtime
+</title>
+      <link>https://www.cve.org/CVERecord?id=CVE-2022-39394</link>
+      <description>Wasmtime is a standalone runtime for WebAssembly. Prior to version 2.0.2, there is a bug in Wasmtime's C API implementation where the definition of the `wasmtime_trap_code` does not match its declared signature in the `wasmtime/trap.h` header file. This discrepancy causes the function implementation to perform a 4-byte write into a 1-byte buffer provided by the caller. This can lead to three zero bytes being written beyond the 1-byte location provided by the caller. This bug has been patched and users should upgrade to Wasmtime 2.0.2. This bug can be worked around by providing a 4-byte buffer casted to a 1-byte buffer when calling `wasmtime_trap_code`. Users of the `wasmtime` crate are not affected by this issue, only users of the C API function `wasmtime_trap_code` are affected.</description>
+      <guid isPermaLink="false">CVE-2022-39394|2024-08-03T12:07:41.252Z</guid>
+      <pubDate>Thu, 10 Nov 2022 00:00:00 +0000</pubDate>
     </item>
     <item>
       <title>CVE-2022-31169|2024-08-03T07:11:39.608Z -- bytecodealliance -- wasmtime
@@ -49,17 +73,17 @@
       <pubDate>Thu, 31 Mar 2022 23:00:15 +0000</pubDate>
     </item>
     <item>
-      <title>CVE-2024-30266|2024-06-04T17:38:20.190Z -- bytecodealliance -- wasmtime</title>
-      <link>https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2024-30266</link>
-      <description>wasmtime is a runtime for WebAssembly. The 19.0.0 release of Wasmtime contains a regression introduced during its development which can lead to a guest WebAssembly module causing a panic in the host runtime. A valid WebAssembly module, when executed at runtime, may cause this panic. This vulnerability has been patched in version 19.0.1.</description>
-      <guid isPermaLink="false">CVE-2024-30266|2024-06-04T17:38:20.190Z</guid>
-      <pubDate>Thu, 04 Apr 2024 15:42:00 +0000</pubDate>
-    </item>
-    <item>
       <title>CVE-2024-30266|2024-08-02T01:32:07.072Z -- bytecodealliance -- wasmtime</title>
       <link>https://www.cve.org/CVERecord?id=CVE-2024-30266</link>
       <description>wasmtime is a runtime for WebAssembly. The 19.0.0 release of Wasmtime contains a regression introduced during its development which can lead to a guest WebAssembly module causing a panic in the host runtime. A valid WebAssembly module, when executed at runtime, may cause this panic. This vulnerability has been patched in version 19.0.1.</description>
       <guid isPermaLink="false">CVE-2024-30266|2024-08-02T01:32:07.072Z</guid>
+      <pubDate>Thu, 04 Apr 2024 15:42:00 +0000</pubDate>
+    </item>
+    <item>
+      <title>CVE-2024-30266|2024-06-04T17:38:20.190Z -- bytecodealliance -- wasmtime</title>
+      <link>https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2024-30266</link>
+      <description>wasmtime is a runtime for WebAssembly. The 19.0.0 release of Wasmtime contains a regression introduced during its development which can lead to a guest WebAssembly module causing a panic in the host runtime. A valid WebAssembly module, when executed at runtime, may cause this panic. This vulnerability has been patched in version 19.0.1.</description>
+      <guid isPermaLink="false">CVE-2024-30266|2024-06-04T17:38:20.190Z</guid>
       <pubDate>Thu, 04 Apr 2024 15:42:00 +0000</pubDate>
     </item>
   </channel>

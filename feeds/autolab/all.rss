@@ -6,31 +6,23 @@
     <description>The latest CVEs for autolab -- all products</description>
     <docs>http://www.rssboard.org/rss-specification</docs>
     <generator>python-feedgen</generator>
-    <lastBuildDate>Fri, 02 Aug 2024 23:21:57 +0000</lastBuildDate>
+    <lastBuildDate>Sat, 03 Aug 2024 13:22:31 +0000</lastBuildDate>
     <ttl>60</ttl>
     <item>
-      <title>CVE-2023-32317|2024-08-02T15:10:24.879Z -- autolab -- autolab
+      <title>CVE-2022-41955|2024-08-03T12:56:38.649Z -- autolab -- autolab
 </title>
-      <link>https://www.cve.org/CVERecord?id=CVE-2023-32317</link>
-      <description>Autolab is a course management service that enables auto-graded programming assignments. A Tar slip vulnerability was found in the MOSS cheat checker functionality of Autolab. To exploit this vulnerability an authenticated attacker with instructor permissions needs to upload a specially crafted Tar file. Both "Base File Tar" and "Additional file archive" can be fed with Tar files that contain paths outside their target directories (e.g.,  `../../../../tmp/tarslipped2.sh`). When the MOSS cheat checker is started the files inside of the archives are expanded to the attacker-chosen locations. This issue may lead to arbitrary file write within the scope of the running process.  This issue has been addressed in version 2.11.0. Users are advised to upgrade.</description>
-      <guid isPermaLink="false">CVE-2023-32317|2024-08-02T15:10:24.879Z</guid>
-      <pubDate>Fri, 26 May 2023 22:42:09 +0000</pubDate>
+      <link>https://www.cve.org/CVERecord?id=CVE-2022-41955</link>
+      <description>Autolab is a course management service, initially developed by a team of students at Carnegie Mellon University, that enables instructors to offer autograded programming assignments to their students over the Web. A remote code execution vulnerability was discovered in Autolab's MOSS functionality, whereby an instructor with access to the feature might be able to execute code on the server hosting Autolab. This vulnerability has been patched in version 2.10.0. As a workaround, disable the MOSS feature if it is unneeded by replacing the body of `run_moss` in `app/controllers/courses_controller.rb` with `render(plain: "Feature disabled", status: :bad_request) &amp;&amp; return`.</description>
+      <guid isPermaLink="false">CVE-2022-41955|2024-08-03T12:56:38.649Z</guid>
+      <pubDate>Sat, 14 Jan 2023 00:09:07 +0000</pubDate>
     </item>
     <item>
-      <title>CVE-2023-32676|2024-08-02T15:25:36.413Z -- autolab -- autolab
+      <title>CVE-2022-41956|2024-08-03T12:56:38.655Z -- autolab -- autolab
 </title>
-      <link>https://www.cve.org/CVERecord?id=CVE-2023-32676</link>
-      <description>Autolab is a course management service that enables auto-graded programming assignments. A Tar slip vulnerability was found in the Install assessment functionality of Autolab. To exploit this vulnerability an authenticated attacker with instructor permissions needs to upload a specially crafted Tar file. Using the install assessment functionality an attacker can feed a Tar file that contain files with paths pointing outside of the target directory (e.g.,  `../../../../tmp/tarslipped1.sh`). When the Install assessment form is submitted the files inside of the archives are expanded to the attacker-chosen locations. This issue has been addressed in version 2.11.0. Users are advised to upgrade.</description>
-      <guid isPermaLink="false">CVE-2023-32676|2024-08-02T15:25:36.413Z</guid>
-      <pubDate>Fri, 26 May 2023 22:44:09 +0000</pubDate>
-    </item>
-    <item>
-      <title>CVE-2023-44395|2024-08-02T20:07:33.190Z -- autolab -- autolab
-</title>
-      <link>https://www.cve.org/CVERecord?id=CVE-2023-44395</link>
-      <description>Autolab is a course management service that enables instructors to offer autograded programming assignments to their students over the Web. Path traversal vulnerabilities were discovered in Autolab's assessment functionality in versions of Autolab prior to 2.12.0, whereby instructors can perform arbitrary file reads. Version 2.12.0 contains a patch. There are no feasible workarounds for this issue.</description>
-      <guid isPermaLink="false">CVE-2023-44395|2024-08-02T20:07:33.190Z</guid>
-      <pubDate>Mon, 22 Jan 2024 14:51:14 +0000</pubDate>
+      <link>https://www.cve.org/CVERecord?id=CVE-2022-41956</link>
+      <description>Autolab is a course management service, initially developed by a team of students at Carnegie Mellon University, that enables instructors to offer autograded programming assignments to their students over the Web. A file disclosure vulnerability was discovered in Autolab's remote handin feature, whereby users are able to hand-in assignments using paths outside their submission directory. Users can then view the submission to view the file's contents. The vulnerability has been patched in version 2.10.0. As a workaround, ensure that the field for the remote handin feature is empty (Edit Assessment &gt; Advanced &gt; Remote handin path), and that you are not running Autolab as `root` (or any user that has write access to `/`). Alternatively, disable the remote handin feature if it is unneeded by replacing the body of `local_submit` in `app/controllers/assessment/handin.rb` with `render(plain: "Feature disabled", status: :bad_request) &amp;&amp; return`.</description>
+      <guid isPermaLink="false">CVE-2022-41956|2024-08-03T12:56:38.655Z</guid>
+      <pubDate>Sat, 14 Jan 2023 00:40:32 +0000</pubDate>
     </item>
   </channel>
 </rss>

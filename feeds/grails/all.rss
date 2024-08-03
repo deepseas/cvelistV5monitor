@@ -6,16 +6,15 @@
     <description>The latest CVEs for grails -- all products</description>
     <docs>http://www.rssboard.org/rss-specification</docs>
     <generator>python-feedgen</generator>
-    <lastBuildDate>Fri, 02 Aug 2024 23:22:21 +0000</lastBuildDate>
+    <lastBuildDate>Sat, 03 Aug 2024 13:22:34 +0000</lastBuildDate>
     <ttl>60</ttl>
     <item>
-      <title>CVE-2023-46131|2024-08-02T20:37:39.816Z -- grails -- grails-core
+      <title>CVE-2022-41923|2024-08-03T12:56:38.671Z -- grails -- grails-spring-security-core
 </title>
-      <link>https://www.cve.org/CVERecord?id=CVE-2023-46131</link>
-      <description>Grails is a framework used to build web applications with the Groovy programming language. A specially crafted web request can lead to a JVM crash or denial of service. Any Grails framework application using Grails data binding is vulnerable. This issue has been patched in version 3.3.17, 4.1.3, 5.3.4, 6.1.0.
-</description>
-      <guid isPermaLink="false">CVE-2023-46131|2024-08-02T20:37:39.816Z</guid>
-      <pubDate>Wed, 20 Dec 2023 23:24:27 +0000</pubDate>
+      <link>https://www.cve.org/CVERecord?id=CVE-2022-41923</link>
+      <description>Grails Spring Security Core plugin is vulnerable to privilege escalation. The vulnerability allows an attacker access to one endpoint (i.e. the targeted endpoint) using the authorization requirements of a different endpoint (i.e. the donor endpoint). In some Grails framework applications, access to the targeted endpoint will be granted based on meeting the authorization requirements of the donor endpoint, which can result in a privilege escalation attack. This vulnerability has been patched in grails-spring-security-core versions 3.3.2, 4.0.5 and 5.1.1. Impacted Applications: Grails Spring Security Core plugin versions: 1.x 2.x &gt;=3.0.0 &lt;3.3.2 &gt;=4.0.0 &lt;4.0.5 &gt;=5.0.0 &lt;5.1.1 We strongly suggest that all Grails framework applications using the Grails Spring Security Core plugin be updated to a patched release of the plugin. Workarounds: Users should create a subclass extending one of the following classes from the `grails.plugin.springsecurity.web.access.intercept` package, depending on their security configuration: * `AnnotationFilterInvocationDefinition` * `InterceptUrlMapFilterInvocationDefinition` * `RequestmapFilterInvocationDefinition` In each case, the subclass should override the `calculateUri` method like so: ``` @Override protected String calculateUri(HttpServletRequest request) { UrlPathHelper.defaultInstance.getRequestUri(request) } ``` This should be considered a temporary measure, as the patched versions of grails-spring-security-core deprecates the `calculateUri` method. Once upgraded to a patched version of the plugin, this workaround is no longer needed. The workaround is especially important for version 2.x, as no patch is available version 2.x of the GSSC plugin.</description>
+      <guid isPermaLink="false">CVE-2022-41923|2024-08-03T12:56:38.671Z</guid>
+      <pubDate>Wed, 23 Nov 2022 00:00:00 +0000</pubDate>
     </item>
   </channel>
 </rss>

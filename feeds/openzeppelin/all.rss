@@ -6,7 +6,7 @@
     <description>The latest CVEs for OpenZeppelin -- all products</description>
     <docs>http://www.rssboard.org/rss-specification</docs>
     <generator>python-feedgen</generator>
-    <lastBuildDate>Sat, 03 Aug 2024 12:25:29 +0000</lastBuildDate>
+    <lastBuildDate>Sat, 03 Aug 2024 13:22:16 +0000</lastBuildDate>
     <ttl>60</ttl>
     <item>
       <title>CVE-2022-35915|2024-08-03T09:44:22.215Z -- openzeppelin -- openzeppelin-contracts
@@ -31,6 +31,14 @@
       <description>OpenZeppelin Contracts is a library for secure smart contract development. The functions `ECDSA.recover` and `ECDSA.tryRecover` are vulnerable to a kind of signature malleability due to accepting EIP-2098 compact signatures in addition to the traditional 65 byte signature format. This is only an issue for the functions that take a single `bytes` argument, and not the functions that take `r, v, s` or `r, vs` as separate arguments. The potentially affected contracts are those that implement signature reuse or replay protection by marking the signature itself as used rather than the signed message or a nonce included in it. A user may take a signature that has already been submitted, submit it again in a different form, and bypass this protection. The issue has been patched in 4.7.3.</description>
       <guid isPermaLink="false">CVE-2022-35961|2024-08-03T09:51:59.403Z</guid>
       <pubDate>Sun, 14 Aug 2022 00:05:09 +0000</pubDate>
+    </item>
+    <item>
+      <title>CVE-2022-39384|2024-08-03T12:07:41.237Z -- openzeppelin -- openzeppelin-contracts
+</title>
+      <link>https://www.cve.org/CVERecord?id=CVE-2022-39384</link>
+      <description>OpenZeppelin Contracts is a library for secure smart contract development. Before version 4.4.1 but after 3.2.0, initializer functions that are invoked separate from contract creation (the most prominent example being minimal proxies) may be reentered if they make an untrusted non-view external call. Once an initializer has finished running it can never be re-executed. However, an exception put in place to support multiple inheritance made reentrancy possible in the scenario described above, breaking the expectation that there is a single execution. Note that upgradeable proxies are commonly initialized together with contract creation, where reentrancy is not feasible, so the impact of this issue is believed to be minor. This issue has been patched, please upgrade to version 4.4.1. As a workaround, avoid untrusted external calls during initialization.</description>
+      <guid isPermaLink="false">CVE-2022-39384|2024-08-03T12:07:41.237Z</guid>
+      <pubDate>Fri, 04 Nov 2022 00:00:00 +0000</pubDate>
     </item>
     <item>
       <title>CVE-2022-31153|2024-08-03T07:11:39.549Z -- openzeppelin -- cairo-contracts
@@ -65,10 +73,10 @@
       <pubDate>Mon, 01 Aug 2022 21:00:30 +0000</pubDate>
     </item>
     <item>
-      <title>CVE-2024-27094|2024-08-02T19:35:12.184Z -- openzeppelin -- openzeppelin-contracts</title>
-      <link>https://www.cve.org/CVERecord?id=CVE-2024-27094</link>
+      <title>CVE-2024-27094|2024-02-29T18:18:24.721Z -- openzeppelin -- openzeppelin-contracts</title>
+      <link>https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2024-27094</link>
       <description>OpenZeppelin Contracts is a library for secure smart contract development. The `Base64.encode` function encodes a `bytes` input by iterating over it in chunks of 3 bytes. When this input is not a multiple of 3, the last iteration may read parts of the memory that are beyond the input buffer. The vulnerability is fixed in 5.0.2 and 4.9.6.</description>
-      <guid isPermaLink="false">CVE-2024-27094|2024-08-02T19:35:12.184Z</guid>
+      <guid isPermaLink="false">CVE-2024-27094|2024-02-29T18:18:24.721Z</guid>
       <pubDate>Thu, 29 Feb 2024 18:18:24 +0000</pubDate>
     </item>
     <item>
@@ -79,10 +87,10 @@
       <pubDate>Thu, 29 Feb 2024 18:18:24 +0000</pubDate>
     </item>
     <item>
-      <title>CVE-2024-27094|2024-02-29T18:18:24.721Z -- openzeppelin -- openzeppelin-contracts</title>
-      <link>https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2024-27094</link>
+      <title>CVE-2024-27094|2024-08-02T19:35:12.184Z -- openzeppelin -- openzeppelin-contracts</title>
+      <link>https://www.cve.org/CVERecord?id=CVE-2024-27094</link>
       <description>OpenZeppelin Contracts is a library for secure smart contract development. The `Base64.encode` function encodes a `bytes` input by iterating over it in chunks of 3 bytes. When this input is not a multiple of 3, the last iteration may read parts of the memory that are beyond the input buffer. The vulnerability is fixed in 5.0.2 and 4.9.6.</description>
-      <guid isPermaLink="false">CVE-2024-27094|2024-02-29T18:18:24.721Z</guid>
+      <guid isPermaLink="false">CVE-2024-27094|2024-08-02T19:35:12.184Z</guid>
       <pubDate>Thu, 29 Feb 2024 18:18:24 +0000</pubDate>
     </item>
   </channel>

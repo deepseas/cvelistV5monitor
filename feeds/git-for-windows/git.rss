@@ -6,7 +6,7 @@
     <description>The latest CVEs for git-for-windows -- git</description>
     <docs>http://www.rssboard.org/rss-specification</docs>
     <generator>python-feedgen</generator>
-    <lastBuildDate>Sat, 03 Aug 2024 12:25:42 +0000</lastBuildDate>
+    <lastBuildDate>Sat, 03 Aug 2024 13:22:29 +0000</lastBuildDate>
     <ttl>60</ttl>
     <item>
       <title>CVE-2022-31012|2024-08-03T07:03:40.249Z -- git-for-windows -- git
@@ -15,6 +15,14 @@
       <description>Git for Windows is a fork of Git that contains Windows-specific patches. This vulnerability in versions prior to 2.37.1 lets Git for Windows' installer execute a binary into `C:\mingw64\bin\git.exe` by mistake. This only happens upon a fresh install, not when upgrading Git for Windows. A patch is included in version 2.37.1. Two workarounds are available. Create the `C:\mingw64` folder and remove read/write access from this folder, or disallow arbitrary authenticated users to create folders in `C:\`.</description>
       <guid isPermaLink="false">CVE-2022-31012|2024-08-03T07:03:40.249Z</guid>
       <pubDate>Tue, 12 Jul 2022 20:35:15 +0000</pubDate>
+    </item>
+    <item>
+      <title>CVE-2022-41953|2024-08-03T12:56:38.563Z -- git-for-windows -- git
+</title>
+      <link>https://www.cve.org/CVERecord?id=CVE-2022-41953</link>
+      <description>Git GUI is a convenient graphical tool that comes with Git for Windows. Its target audience is users who are uncomfortable with using Git on the command-line. Git GUI has a function to clone repositories. Immediately after the local clone is available, Git GUI will automatically post-process it, among other things running a spell checker called `aspell.exe` if it was found. Git GUI is implemented as a Tcl/Tk script. Due to the unfortunate design of Tcl on Windows, the search path when looking for an executable _always includes the current directory_. Therefore, malicious repositories can ship with an `aspell.exe` in their top-level directory which is executed by Git GUI without giving the user a chance to inspect it first, i.e. running untrusted code. This issue has been addressed in version 2.39.1. Users are advised to upgrade. Users unable to upgrade should avoid using Git GUI for cloning. If that is not a viable option, at least avoid cloning from untrusted sources.</description>
+      <guid isPermaLink="false">CVE-2022-41953|2024-08-03T12:56:38.563Z</guid>
+      <pubDate>Tue, 17 Jan 2023 21:03:14 +0000</pubDate>
     </item>
     <item>
       <title>CVE-2022-24765|2024-08-03T04:20:50.377Z -- git-for-windows -- git
