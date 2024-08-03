@@ -1,0 +1,37 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<rss xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/" version="2.0">
+  <channel>
+    <title>CVE Feed for Microsoft -- Package Manager Configurations</title>
+    <link>https://raw.githubusercontent.com/deepseas/cvelistV5monitor/main/feeds/microsoft/package%20manager%20configurations.rss</link>
+    <description>The latest CVEs for Microsoft -- Package Manager Configurations</description>
+    <docs>http://www.rssboard.org/rss-specification</docs>
+    <generator>python-feedgen</generator>
+    <lastBuildDate>Sat, 03 Aug 2024 20:22:13 +0000</lastBuildDate>
+    <ttl>60</ttl>
+    <item>
+      <title>CVE-2021-24105|2024-08-03T19:21:18.208Z -- microsoft -- package%20manager%20configurations
+</title>
+      <link>https://www.cve.org/CVERecord?id=CVE-2021-24105</link>
+      <description>&lt;p&gt;Depending on configuration of various package managers it is possible for an attacker to insert a malicious package into a package manager's repository which can be retrieved and used during development, build, and release processes. This insertion could lead to remote code execution. We believe this vulnerability affects multiple package managers across multiple languages, including but not limited to: Python/pip, .NET/NuGet, Java/Maven, JavaScript/npm.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Attack scenarios&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;An attacker could take advantage of this ecosystem-wide issue to cause harm in a variety of ways. The original attack scenarios were discovered by Alex Birsan and are detailed in their whitepaper, &lt;a href="https://medium.com/@alex.birsan/dependency-confusion-4a5d60fec610"&gt;Dependency Confusion: How I Hacked Into Apple, Microsoft and Dozens of Other Companies&lt;/a&gt;.&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;p&gt;With basic knowledge of the target ecosystems, an attacker could create an empty shell for a package and insert malicious code in the install scripts, give it a high version, and publish it to the public repository. Vulnerable victim machines will download the higher version of the package between the public and private repositories and attempt to install it. Due to code incompatibility it will probably error out upon import or upon compilation, making it easier to detect; however the attacker would have gained code execution by that point.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;An advanced attacker with some inside knowledge of the target could take a copy of a working package, insert the malicious code (in the package itself or in the install), and then publish it to a public repository. The package will likely install and import correctly, granting the attacker an initial foothold and persistence.&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;These two methods could affect target organizations at any of these various levels:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Developer machines&lt;/li&gt;
+&lt;li&gt;An entire team if the configuration to import the malicious package is uploaded to a code repository&lt;/li&gt;
+&lt;li&gt;Continuous integration pipelines if they pull the malicious packages during the build, test, and/or deploy stages&lt;/li&gt;
+&lt;li&gt;Customers, download servers, production services if the malicious code has not been detected&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;This remote code execution vulnerability can only be addressed by reconfiguring installation tools and workflows, and not by correcting anything in the package repositories themselves. See the &lt;strong&gt;FAQ&lt;/strong&gt; section of this CVE for configuration guidance.&lt;/p&gt;
+</description>
+      <guid isPermaLink="false">CVE-2021-24105|2024-08-03T19:21:18.208Z</guid>
+      <pubDate>Thu, 25 Feb 2021 23:01:55 +0000</pubDate>
+    </item>
+  </channel>
+</rss>

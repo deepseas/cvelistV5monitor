@@ -6,7 +6,7 @@
     <description>The latest CVEs for ISC -- ISC DHCP</description>
     <docs>http://www.rssboard.org/rss-specification</docs>
     <generator>python-feedgen</generator>
-    <lastBuildDate>Sat, 03 Aug 2024 19:19:17 +0000</lastBuildDate>
+    <lastBuildDate>Sat, 03 Aug 2024 20:21:41 +0000</lastBuildDate>
     <ttl>60</ttl>
     <item>
       <title>CVE-2022-2928|2024-08-03T00:53:00.326Z -- isc -- isc%20dhcp
@@ -15,6 +15,14 @@
       <description>In ISC DHCP 4.4.0 -&gt; 4.4.3, ISC DHCP 4.1-ESV-R1 -&gt; 4.1-ESV-R16-P1, when the function option_code_hash_lookup() is called from add_option(), it increases the option's refcount field. However, there is not a corresponding call to option_dereference() to decrement the refcount field. The function add_option() is only used in server responses to lease query packets. Each lease query response calls this function for several options, so eventually, the reference counters could overflow and cause the server to abort.</description>
       <guid isPermaLink="false">CVE-2022-2928|2024-08-03T00:53:00.326Z</guid>
       <pubDate>Fri, 07 Oct 2022 00:00:00 +0000</pubDate>
+    </item>
+    <item>
+      <title>CVE-2021-25217|2024-08-03T19:56:11.067Z -- isc -- isc%20dhcp
+</title>
+      <link>https://www.cve.org/CVERecord?id=CVE-2021-25217</link>
+      <description>In ISC DHCP 4.1-ESV-R1 -&gt; 4.1-ESV-R16, ISC DHCP 4.4.0 -&gt; 4.4.2 (Other branches of ISC DHCP (i.e., releases in the 4.0.x series or lower and releases in the 4.3.x series) are beyond their End-of-Life (EOL) and no longer supported by ISC. From inspection it is clear that the defect is also present in releases from those series, but they have not been officially tested for the vulnerability), The outcome of encountering the defect while reading a lease that will trigger it varies, according to: the component being affected (i.e., dhclient or dhcpd) whether the package was built as a 32-bit or 64-bit binary whether the compiler flag -fstack-protection-strong was used when compiling In dhclient, ISC has not successfully reproduced the error on a 64-bit system. However, on a 32-bit system it is possible to cause dhclient to crash when reading an improper lease, which could cause network connectivity problems for an affected system due to the absence of a running DHCP client process. In dhcpd, when run in DHCPv4 or DHCPv6 mode: if the dhcpd server binary was built for a 32-bit architecture AND the -fstack-protection-strong flag was specified to the compiler, dhcpd may exit while parsing a lease file containing an objectionable lease, resulting in lack of service to clients. Additionally, the offending lease and the lease immediately following it in the lease database may be improperly deleted. if the dhcpd server binary was built for a 64-bit architecture OR if the -fstack-protection-strong compiler flag was NOT specified, the crash will not occur, but it is possible for the offending lease and the lease which immediately followed it to be improperly deleted.</description>
+      <guid isPermaLink="false">CVE-2021-25217|2024-08-03T19:56:11.067Z</guid>
+      <pubDate>Wed, 26 May 2021 00:00:00 +0000</pubDate>
     </item>
     <item>
       <title>CVE-2022-2929|2024-08-03T00:52:59.819Z -- isc -- isc%20dhcp
