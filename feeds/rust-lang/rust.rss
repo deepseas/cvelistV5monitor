@@ -6,11 +6,18 @@
     <description>The latest CVEs for rust-lang -- rust</description>
     <docs>http://www.rssboard.org/rss-specification</docs>
     <generator>python-feedgen</generator>
-    <lastBuildDate>Wed, 12 Jun 2024 11:24:21 +0000</lastBuildDate>
+    <lastBuildDate>Sat, 03 Aug 2024 03:22:56 +0000</lastBuildDate>
     <ttl>60</ttl>
     <item>
-      <title>CVE-2024-24576|2024-06-06T14:12:09.344Z -- rust-lang -- rust
+      <title>CVE-2022-21658|2024-08-03T02:46:39.244Z -- rust-lang -- rust
 </title>
+      <link>https://www.cve.org/CVERecord?id=CVE-2022-21658</link>
+      <description>Rust is a multi-paradigm, general-purpose programming language designed for performance and safety, especially safe concurrency. The Rust Security Response WG was notified that the `std::fs::remove_dir_all` standard library function is vulnerable a race condition enabling symlink following (CWE-363). An attacker could use this security issue to trick a privileged program into deleting files and directories the attacker couldn't otherwise access or delete. Rust 1.0.0 through Rust 1.58.0 is affected by this vulnerability with 1.58.1 containing a patch. Note that the following build targets don't have usable APIs to properly mitigate the attack, and are thus still vulnerable even with a patched toolchain: macOS before version 10.10 (Yosemite) and REDOX. We recommend everyone to update to Rust 1.58.1 as soon as possible, especially people developing programs expected to run in privileged contexts (including system daemons and setuid binaries), as those have the highest risk of being affected by this. Note that adding checks in your codebase before calling remove_dir_all will not mitigate the vulnerability, as they would also be vulnerable to race conditions like remove_dir_all itself. The existing mitigation is working as intended outside of race conditions.</description>
+      <guid isPermaLink="false">CVE-2022-21658|2024-08-03T02:46:39.244Z</guid>
+      <pubDate>Thu, 20 Jan 2022 00:00:00 +0000</pubDate>
+    </item>
+    <item>
+      <title>CVE-2024-24576|2024-06-06T14:12:09.344Z -- rust-lang -- rust</title>
       <link>https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2024-24576</link>
       <description>Rust is a programming language. The Rust Security Response WG was notified that the Rust standard library prior to version 1.77.2 did not properly escape arguments when invoking batch files (with the `bat` and `cmd` extensions) on Windows using the `Command`. An attacker able to control the arguments passed to the spawned process could execute arbitrary shell commands by bypassing the escaping. The severity of this vulnerability is critical for those who invoke batch files on Windows with untrusted arguments. No other platform or use is affected.
 
@@ -22,7 +29,7 @@ One exception though is `cmd.exe` (used among other things to execute batch file
 
 Due to the complexity of `cmd.exe`, we didn't identify a solution that would correctly escape arguments in all cases. To maintain our API guarantees, we improved the robustness of the escaping code, and changed the `Command` API to return an `InvalidInput` error when it cannot safely escape an argument. This error will be emitted when spawning the process.
 
-The fix is included in Rust 1.77.2. Note that the new escaping logic for batch files errs on the conservative side, and could reject valid arguments. Those who implement the escaping themselves or only handle trusted inputs on Windows can also use the `CommandExt::raw_arg` method to bypass the standard library's escaping logic. </description>
+The fix is included in Rust 1.77.2. Note that the new escaping logic for batch files errs on the conservative side, and could reject valid arguments. Those who implement the escaping themselves or only handle trusted inputs on Windows can also use the `CommandExt::raw_arg` method to bypass the standard library's escaping logic.</description>
       <guid isPermaLink="false">CVE-2024-24576|2024-06-06T14:12:09.344Z</guid>
       <pubDate>Tue, 09 Apr 2024 17:28:41 +0000</pubDate>
     </item>

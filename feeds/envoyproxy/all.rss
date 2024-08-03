@@ -6,375 +6,46 @@
     <description>The latest CVEs for envoyproxy -- all products</description>
     <docs>http://www.rssboard.org/rss-specification</docs>
     <generator>python-feedgen</generator>
-    <lastBuildDate>Fri, 02 Aug 2024 23:21:51 +0000</lastBuildDate>
+    <lastBuildDate>Sat, 03 Aug 2024 03:22:54 +0000</lastBuildDate>
     <ttl>60</ttl>
     <item>
-      <title>CVE-2023-27487|2024-08-02T12:09:43.442Z -- envoyproxy -- envoy
+      <title>CVE-2022-21657|2024-08-03T02:46:39.291Z -- envoyproxy -- envoy
 </title>
-      <link>https://www.cve.org/CVERecord?id=CVE-2023-27487</link>
-      <description>Envoy is an open source edge and service proxy designed for cloud-native applications. Prior to versions 1.26.0, 1.25.3, 1.24.4, 1.23.6, and 1.22.9, the client may bypass JSON Web Token (JWT) checks and forge fake original paths. The header `x-envoy-original-path` should be an internal header, but Envoy does not remove this header from the request at the beginning of request processing when it is sent from an untrusted client. The faked header would then be used for trace logs and grpc logs, as well as used in the URL used for `jwt_authn` checks if the `jwt_authn` filter is used, and any other upstream use of the x-envoy-original-path header. Attackers may forge a trusted `x-envoy-original-path` header. Versions 1.26.0, 1.25.3, 1.24.4, 1.23.6, and 1.22.9 have patches for this issue.</description>
-      <guid isPermaLink="false">CVE-2023-27487|2024-08-02T12:09:43.442Z</guid>
-      <pubDate>Tue, 04 Apr 2023 15:42:34 +0000</pubDate>
+      <link>https://www.cve.org/CVERecord?id=CVE-2022-21657</link>
+      <description>Envoy is an open source edge and service proxy, designed for cloud-native applications. In affected versions Envoy does not restrict the set of certificates it accepts from the peer, either as a TLS client or a TLS server, to only those certificates that contain the necessary extendedKeyUsage (id-kp-serverAuth and id-kp-clientAuth, respectively). This means that a peer may present an e-mail certificate (e.g. id-kp-emailProtection), either as a leaf certificate or as a CA in the chain, and it will be accepted for TLS. This is particularly bad when combined with the issue described in pull request #630, in that it allows a Web PKI CA that is intended only for use with S/MIME, and thus exempted from audit or supervision, to issue TLS certificates that will be accepted by Envoy. As a result Envoy will trust upstream certificates that should not be trusted. There are no known workarounds to this issue. Users are advised to upgrade.</description>
+      <guid isPermaLink="false">CVE-2022-21657|2024-08-03T02:46:39.291Z</guid>
+      <pubDate>Tue, 22 Feb 2022 22:30:12 +0000</pubDate>
     </item>
     <item>
-      <title>CVE-2023-27496|2024-08-02T12:16:35.397Z -- envoyproxy -- envoy
+      <title>CVE-2022-21654|2024-08-03T02:46:39.224Z -- envoyproxy -- envoy
 </title>
-      <link>https://www.cve.org/CVERecord?id=CVE-2023-27496</link>
-      <description>Envoy is an open source edge and service proxy designed for cloud-native applications. Prior to versions 1.26.0, 1.25.3, 1.24.4, 1.23.6, and 1.22.9, the OAuth filter assumes that a `state` query param is present on any response that looks like an OAuth redirect response. Sending it a request with the URI path equivalent to the redirect path, without the `state` parameter, will lead to abnormal termination of Envoy process. Versions 1.26.0, 1.25.3, 1.24.4, 1.23.6, and 1.22.9 contain a patch. The issue can also be mitigated by locking down OAuth traffic, disabling the filter, or by filtering traffic before it reaches the OAuth filter (e.g. via a lua script). 
-</description>
-      <guid isPermaLink="false">CVE-2023-27496|2024-08-02T12:16:35.397Z</guid>
-      <pubDate>Tue, 04 Apr 2023 19:48:56 +0000</pubDate>
+      <link>https://www.cve.org/CVERecord?id=CVE-2022-21654</link>
+      <description>Envoy is an open source edge and service proxy, designed for cloud-native applications. Envoy's tls allows re-use when some cert validation settings have changed from their default configuration. The only workaround for this issue is to ensure that default tls settings are used. Users are advised to upgrade.</description>
+      <guid isPermaLink="false">CVE-2022-21654|2024-08-03T02:46:39.224Z</guid>
+      <pubDate>Tue, 22 Feb 2022 22:35:11 +0000</pubDate>
     </item>
     <item>
-      <title>CVE-2023-27493|2024-08-02T12:16:35.263Z -- envoyproxy -- envoy
+      <title>CVE-2022-21656|2024-08-03T02:46:39.567Z -- envoyproxy -- envoy
 </title>
-      <link>https://www.cve.org/CVERecord?id=CVE-2023-27493</link>
-      <description>Envoy is an open source edge and service proxy designed for cloud-native applications. Prior to versions 1.26.0, 1.25.3, 1.24.4, 1.23.6, and 1.22.9, Envoy does not sanitize or escape request properties when generating request headers. This can lead to characters that are illegal in header values to be sent to the upstream service. In the worst case, it can cause upstream service to interpret the original request as two pipelined requests, possibly bypassing the intent of Envoy’s security policy. Versions 1.26.0, 1.25.3, 1.24.4, 1.23.6, and 1.22.9 contain a patch. As a workaround, disable adding request headers based on the downstream request properties, such as downstream certificate properties.</description>
-      <guid isPermaLink="false">CVE-2023-27493|2024-08-02T12:16:35.263Z</guid>
-      <pubDate>Tue, 04 Apr 2023 19:46:57 +0000</pubDate>
+      <link>https://www.cve.org/CVERecord?id=CVE-2022-21656</link>
+      <description>Envoy is an open source edge and service proxy, designed for cloud-native applications. The default_validator.cc implementation used to implement the default certificate validation routines has a "type confusion" bug when processing subjectAltNames. This processing allows, for example, an rfc822Name or uniformResourceIndicator to be authenticated as a domain name. This confusion allows for the bypassing of nameConstraints, as processed by the underlying OpenSSL/BoringSSL implementation, exposing the possibility of impersonation of arbitrary servers. As a result Envoy will trust upstream certificates that should not be trusted.</description>
+      <guid isPermaLink="false">CVE-2022-21656|2024-08-03T02:46:39.567Z</guid>
+      <pubDate>Tue, 22 Feb 2022 22:25:11 +0000</pubDate>
     </item>
     <item>
-      <title>CVE-2023-27491|2024-08-02T12:16:35.377Z -- envoyproxy -- envoy
+      <title>CVE-2022-21655|2024-08-03T02:46:39.410Z -- envoyproxy -- envoy
 </title>
-      <link>https://www.cve.org/CVERecord?id=CVE-2023-27491</link>
-      <description>Envoy is an open source edge and service proxy designed for cloud-native applications. Compliant HTTP/1 service should reject malformed request lines. Prior to versions 1.26.0, 1.25.3, 1.24.4, 1.23.6, and 1.22.9, There is a possibility that non compliant HTTP/1 service may allow malformed requests, potentially leading to a bypass of security policies. This issue is fixed in versions 1.26.0, 1.25.3, 1.24.4, 1.23.6, and 1.22.9.</description>
-      <guid isPermaLink="false">CVE-2023-27491|2024-08-02T12:16:35.377Z</guid>
-      <pubDate>Tue, 04 Apr 2023 18:18:23 +0000</pubDate>
+      <link>https://www.cve.org/CVERecord?id=CVE-2022-21655</link>
+      <description>Envoy is an open source edge and service proxy, designed for cloud-native applications. The envoy common router will segfault if an internal redirect selects a route configured with direct response or redirect actions. This will result in a denial of service. As a workaround turn off internal redirects if direct response entries are configured on the same listener.</description>
+      <guid isPermaLink="false">CVE-2022-21655|2024-08-03T02:46:39.410Z</guid>
+      <pubDate>Tue, 22 Feb 2022 22:40:11 +0000</pubDate>
     </item>
     <item>
-      <title>CVE-2023-35943|2024-08-02T16:37:40.034Z -- envoyproxy -- envoy
-</title>
-      <link>https://www.cve.org/CVERecord?id=CVE-2023-35943</link>
-      <description>Envoy is an open source edge and service proxy designed for cloud-native applications. Prior to versions 1.27.0, 1.26.4, 1.25.9, 1.24.10, and 1.23.12, the CORS filter will segfault and crash Envoy when the `origin` header is removed and deleted between `decodeHeaders`and `encodeHeaders`. Versions 1.27.0, 1.26.4, 1.25.9, 1.24.10, and 1.23.12 have a fix for this issue. As a workaround, do not remove the `origin` header in the Envoy configuration.</description>
-      <guid isPermaLink="false">CVE-2023-35943|2024-08-02T16:37:40.034Z</guid>
-      <pubDate>Tue, 25 Jul 2023 18:26:23 +0000</pubDate>
-    </item>
-    <item>
-      <title>CVE-2023-35941|2024-08-02T16:37:40.557Z -- envoyproxy -- envoy
-</title>
-      <link>https://www.cve.org/CVERecord?id=CVE-2023-35941</link>
-      <description>Envoy is an open source edge and service proxy designed for cloud-native applications. Prior to versions 1.27.0, 1.26.4, 1.25.9, 1.24.10, and 1.23.12, a malicious client is able to construct credentials with permanent validity in some specific scenarios. This is caused by the some rare scenarios in which HMAC payload can be always valid in OAuth2 filter's check. Versions 1.27.0, 1.26.4, 1.25.9, 1.24.10, and 1.23.12 have a fix for this issue. As a workaround, avoid wildcards/prefix domain wildcards in the host's domain configuration.</description>
-      <guid isPermaLink="false">CVE-2023-35941|2024-08-02T16:37:40.557Z</guid>
-      <pubDate>Tue, 25 Jul 2023 17:40:56 +0000</pubDate>
-    </item>
-    <item>
-      <title>CVE-2023-27488|2024-08-02T12:09:43.514Z -- envoyproxy -- envoy
-</title>
-      <link>https://www.cve.org/CVERecord?id=CVE-2023-27488</link>
-      <description>Envoy is an open source edge and service proxy designed for cloud-native applications. Prior to versions 1.26.0, 1.25.3, 1.24.4, 1.23.6, and 1.22.9, escalation of privileges is possible when `failure_mode_allow: true` is configured for `ext_authz` filter. For affected components that are used for logging and/or visibility, requests may not be logged by the receiving service.
-
-When Envoy was configured to use ext_authz, ext_proc, tap, ratelimit filters, and grpc access log service and an http header with non-UTF-8 data was received, Envoy would generate an invalid protobuf message and send it to the configured service. The receiving service would typically generate an error when decoding the protobuf message. For ext_authz that was configured with ``failure_mode_allow: true``, the request would have been allowed in this case. For the other services, this could have resulted in other unforeseen errors such as a lack of visibility into requests. 
-
-As of versions 1.26.0, 1.25.3, 1.24.4, 1.23.6, and 1.22.9, Envoy by default sanitizes the values sent in gRPC service calls to be valid UTF-8, replacing data that is not valid UTF-8 with a `!` character. This behavioral change can be temporarily reverted by setting runtime guard `envoy.reloadable_features.service_sanitize_non_utf8_strings` to false. As a workaround, one may set `failure_mode_allow: false` for `ext_authz`.</description>
-      <guid isPermaLink="false">CVE-2023-27488|2024-08-02T12:09:43.514Z</guid>
-      <pubDate>Tue, 04 Apr 2023 17:57:17 +0000</pubDate>
-    </item>
-    <item>
-      <title>CVE-2023-35945|2024-08-02T16:37:40.544Z -- envoyproxy -- envoy
-</title>
-      <link>https://www.cve.org/CVERecord?id=CVE-2023-35945</link>
-      <description>Envoy is a cloud-native high-performance edge/middle/service proxy. Envoy’s HTTP/2 codec may leak a header map and bookkeeping structures upon receiving `RST_STREAM` immediately followed by the `GOAWAY` frames from an upstream server. In nghttp2, cleanup of pending requests due to receipt of the `GOAWAY` frame skips de-allocation of the bookkeeping structure and pending compressed header. The error return [code path] is taken if connection is already marked for not sending more requests due to `GOAWAY` frame. The clean-up code is right after the return statement, causing memory leak. Denial of service through memory exhaustion. This vulnerability was patched in versions(s) 1.26.3, 1.25.8, 1.24.9, 1.23.11.</description>
-      <guid isPermaLink="false">CVE-2023-35945|2024-08-02T16:37:40.544Z</guid>
-      <pubDate>Thu, 13 Jul 2023 20:41:15 +0000</pubDate>
-    </item>
-    <item>
-      <title>CVE-2023-35944|2024-08-02T16:37:40.606Z -- envoyproxy -- envoy
-</title>
-      <link>https://www.cve.org/CVERecord?id=CVE-2023-35944</link>
-      <description>Envoy is an open source edge and service proxy designed for cloud-native applications. Envoy allows mixed-case schemes in HTTP/2, however, some internal scheme checks are case-sensitive. Prior to versions 1.27.0, 1.26.4, 1.25.9, 1.24.10, and 1.23.12, this can lead to the rejection of requests with mixed-case schemes such as `htTp` or `htTps`, or the bypassing of some requests such as `https` in unencrypted connections. With a fix in versions 1.27.0, 1.26.4, 1.25.9, 1.24.10, and 1.23.12, Envoy will now lowercase scheme values by default, and change the internal scheme checks that were case-sensitive to be case-insensitive. There are no known workarounds for this issue.</description>
-      <guid isPermaLink="false">CVE-2023-35944|2024-08-02T16:37:40.606Z</guid>
-      <pubDate>Tue, 25 Jul 2023 18:35:59 +0000</pubDate>
-    </item>
-    <item>
-      <title>CVE-2023-27492|2024-08-02T12:16:35.324Z -- envoyproxy -- envoy
-</title>
-      <link>https://www.cve.org/CVERecord?id=CVE-2023-27492</link>
-      <description>Envoy is an open source edge and service proxy designed for cloud-native applications. Prior to versions 1.26.0, 1.25.3, 1.24.4, 1.23.6, and 1.22.9, the Lua filter is vulnerable to denial of service. Attackers can send large request bodies for routes that have Lua filter enabled and trigger crashes.
-
-As of versions versions 1.26.0, 1.25.3, 1.24.4, 1.23.6, and 1.22.9, Envoy no longer invokes the Lua coroutine if the filter has been reset. As a workaround for those whose Lua filter is buffering all requests/ responses, mitigate by using the buffer filter to avoid triggering the local reply in the Lua filter.</description>
-      <guid isPermaLink="false">CVE-2023-27492|2024-08-02T12:16:35.324Z</guid>
-      <pubDate>Tue, 04 Apr 2023 18:34:44 +0000</pubDate>
-    </item>
-    <item>
-      <title>CVE-2023-35942|2024-08-02T16:37:40.039Z -- envoyproxy -- envoy
-</title>
-      <link>https://www.cve.org/CVERecord?id=CVE-2023-35942</link>
-      <description>Envoy is an open source edge and service proxy designed for cloud-native applications. Prior to versions 1.27.0, 1.26.4, 1.25.9, 1.24.10, and 1.23.12, gRPC access loggers using listener's global scope can cause a `use-after-free` crash when the listener is drained. Versions 1.27.0, 1.26.4, 1.25.9, 1.24.10, and 1.23.12 have a fix for this issue. As a workaround, disable gRPC access log or stop listener update.</description>
-      <guid isPermaLink="false">CVE-2023-35942|2024-08-02T16:37:40.039Z</guid>
-      <pubDate>Tue, 25 Jul 2023 18:24:11 +0000</pubDate>
-    </item>
-    <item>
-      <title>CVE-2024-34364|2024-08-02T02:51:10.805Z -- envoyproxy -- envoy</title>
-      <link>https://www.cve.org/CVERecord?id=CVE-2024-34364</link>
-      <description>Envoy is a cloud-native, open source edge and service proxy. Envoy exposed an out-of-memory (OOM) vector from the mirror response, since async HTTP client will buffer the response with an unbounded buffer.</description>
-      <guid isPermaLink="false">CVE-2024-34364|2024-08-02T02:51:10.805Z</guid>
-      <pubDate>Tue, 04 Jun 2024 20:59:48 +0000</pubDate>
-    </item>
-    <item>
-      <title>CVE-2024-32975|2024-08-02T02:27:53.295Z -- envoyproxy -- envoy</title>
-      <link>https://www.cve.org/CVERecord?id=CVE-2024-32975</link>
-      <description>Envoy is a cloud-native, open source edge and service proxy. There is a crash at `QuicheDataReader::PeekVarInt62Length()`. It is caused by integer underflow in the `QuicStreamSequencerBuffer::PeekRegion()` implementation.</description>
-      <guid isPermaLink="false">CVE-2024-32975|2024-08-02T02:27:53.295Z</guid>
-      <pubDate>Tue, 04 Jun 2024 21:00:03 +0000</pubDate>
-    </item>
-    <item>
-      <title>CVE-2024-34362|2024-08-02T02:51:10.938Z -- envoyproxy -- envoy</title>
-      <link>https://www.cve.org/CVERecord?id=CVE-2024-34362</link>
-      <description>Envoy is a cloud-native, open source edge and service proxy. There is a use-after-free in `HttpConnectionManager` (HCM) with `EnvoyQuicServerStream` that can crash Envoy. An attacker can exploit this vulnerability by sending a request without `FIN`, then a `RESET_STREAM` frame, and then after receiving the response, closing the connection.</description>
-      <guid isPermaLink="false">CVE-2024-34362|2024-08-02T02:51:10.938Z</guid>
-      <pubDate>Tue, 04 Jun 2024 20:59:56 +0000</pubDate>
-    </item>
-    <item>
-      <title>CVE-2024-32976|2024-08-02T02:27:53.632Z -- envoyproxy -- envoy</title>
-      <link>https://www.cve.org/CVERecord?id=CVE-2024-32976</link>
-      <description>Envoy is a cloud-native, open source edge and service proxy. Envoyproxy with a Brotli filter can get into an endless loop during decompression of Brotli data with extra input.</description>
-      <guid isPermaLink="false">CVE-2024-32976|2024-08-02T02:27:53.632Z</guid>
-      <pubDate>Tue, 04 Jun 2024 20:59:59 +0000</pubDate>
-    </item>
-    <item>
-      <title>CVE-2024-32974|2024-08-02T02:27:53.474Z -- envoyproxy -- envoy</title>
-      <link>https://www.cve.org/CVERecord?id=CVE-2024-32974</link>
-      <description>Envoy is a cloud-native, open source edge and service proxy. A crash was observed in `EnvoyQuicServerStream::OnInitialHeadersComplete()` with following call stack. It is a use-after-free caused by QUICHE continuing push request headers after `StopReading()` being called on the stream. As after `StopReading()`, the HCM's `ActiveStream` might have already be destroyed and any up calls from QUICHE could potentially cause use after free.</description>
-      <guid isPermaLink="false">CVE-2024-32974|2024-08-02T02:27:53.474Z</guid>
-      <pubDate>Tue, 04 Jun 2024 21:00:07 +0000</pubDate>
-    </item>
-    <item>
-      <title>CVE-2024-34363|2024-08-02T02:51:11.160Z -- envoyproxy -- envoy</title>
-      <link>https://www.cve.org/CVERecord?id=CVE-2024-34363</link>
-      <description>Envoy is a cloud-native, open source edge and service proxy. Due to how Envoy invoked the nlohmann JSON library, the library could throw an uncaught exception from downstream data if incomplete UTF-8 strings were serialized. The uncaught exception would cause Envoy to crash.</description>
-      <guid isPermaLink="false">CVE-2024-34363|2024-08-02T02:51:11.160Z</guid>
-      <pubDate>Tue, 04 Jun 2024 20:59:52 +0000</pubDate>
-    </item>
-    <item>
-      <title>CVE-2024-27919|2024-08-02T00:41:55.832Z -- envoyproxy -- envoy</title>
-      <link>https://www.cve.org/CVERecord?id=CVE-2024-27919</link>
-      <description>Envoy is a cloud-native, open-source edge and service proxy. In versions 1.29.0 and 1.29.1, theEnvoy HTTP/2 protocol stack is vulnerable to the flood of CONTINUATION frames. Envoy's HTTP/2 codec does not reset a request when header map limits have been exceeded. This allows an attacker to send an sequence of CONTINUATION frames without the END_HEADERS bit set causing unlimited memory consumption. This can lead to denial of service through memory exhaustion. Users should upgrade to versions 1.29.2 to mitigate the effects of the CONTINUATION flood. Note that this vulnerability is a regression in Envoy version 1.29.0 and 1.29.1 only. As a workaround, downgrade to version 1.28.1 or earlier or disable HTTP/2 protocol for downstream connections.</description>
-      <guid isPermaLink="false">CVE-2024-27919|2024-08-02T00:41:55.832Z</guid>
-      <pubDate>Thu, 04 Apr 2024 14:30:11 +0000</pubDate>
-    </item>
-    <item>
-      <title>CVE-2024-39305|2024-07-31T20:34:09.900Z -- envoyproxy -- envoy</title>
+      <title>CVE-2024-39305|2024-08-02T04:19:20.740Z -- envoyproxy -- envoy</title>
       <link>https://www.cve.org/CVERecord?id=CVE-2024-39305</link>
       <description>Envoy is a cloud-native, open source edge and service proxy. Prior to versions 1.30.4, 1.29.7, 1.28.5, and 1.27.7. Envoy references already freed memory when route hash policy is configured with cookie attributes. Note that this vulnerability has been fixed in the open as the effect would be immediately apparent if it was configured. Memory allocated for holding attribute values is freed after configuration was parsed. During request processing Envoy will attempt to copy content of de-allocated memory into request cookie header. This can lead to arbitrary content of Envoy's memory to be sent to the upstream service or abnormal process termination. This vulnerability is fixed in Envoy versions v1.30.4, v1.29.7, v1.28.5, and v1.27.7. As a workaround, do not use cookie attributes in route action hash policy.</description>
-      <guid isPermaLink="false">CVE-2024-39305|2024-07-31T20:34:09.900Z</guid>
+      <guid isPermaLink="false">CVE-2024-39305|2024-08-02T04:19:20.740Z</guid>
       <pubDate>Mon, 01 Jul 2024 21:10:23 +0000</pubDate>
-    </item>
-    <item>
-      <title>CVE-2024-32974|2024-07-19T18:30:25.520Z -- envoyproxy -- envoy</title>
-      <link>https://www.cve.org/CVERecord?id=CVE-2024-32974</link>
-      <description>Envoy is a cloud-native, open source edge and service proxy. A crash was observed in `EnvoyQuicServerStream::OnInitialHeadersComplete()` with following call stack. It is a use-after-free caused by QUICHE continuing push request headers after `StopReading()` being called on the stream. As after `StopReading()`, the HCM's `ActiveStream` might have already be destroyed and any up calls from QUICHE could potentially cause use after free.</description>
-      <guid isPermaLink="false">CVE-2024-32974|2024-07-19T18:30:25.520Z</guid>
-      <pubDate>Tue, 04 Jun 2024 21:00:07 +0000</pubDate>
-    </item>
-    <item>
-      <title>CVE-2024-23322|2024-07-05T17:20:52.000Z -- envoyproxy -- envoy</title>
-      <link>https://www.cve.org/CVERecord?id=CVE-2024-23322</link>
-      <description>Envoy is a high-performance edge/middle/service proxy. Envoy will crash when certain timeouts happen within the same interval. The crash occurs when the following are true: 1. hedge_on_per_try_timeout is enabled, 2. per_try_idle_timeout is enabled (it can only be done in configuration), 3. per-try-timeout is enabled, either through headers or configuration and its value is equal, or within the backoff interval of the per_try_idle_timeout. This issue has been addressed in released 1.29.1, 1.28.1, 1.27.3, and 1.26.7. Users are advised to upgrade. There are no known workarounds for this vulnerability.</description>
-      <guid isPermaLink="false">CVE-2024-23322|2024-07-05T17:20:52.000Z</guid>
-      <pubDate>Fri, 09 Feb 2024 22:51:53 +0000</pubDate>
-    </item>
-    <item>
-      <title>CVE-2024-23323|2024-07-05T17:20:51.446Z -- envoyproxy -- envoy</title>
-      <link>https://www.cve.org/CVERecord?id=CVE-2024-23323</link>
-      <description>Envoy is a high-performance edge/middle/service proxy. The regex expression is compiled for every request and can result in high CPU usage and increased request latency when multiple routes are configured with such matchers. This issue has been addressed in released 1.29.1, 1.28.1, 1.27.3, and 1.26.7. Users are advised to upgrade. There are no known workarounds for this vulnerability.</description>
-      <guid isPermaLink="false">CVE-2024-23323|2024-07-05T17:20:51.446Z</guid>
-      <pubDate>Fri, 09 Feb 2024 22:50:18 +0000</pubDate>
-    </item>
-    <item>
-      <title>CVE-2024-34364|2024-06-25T18:21:22.154Z -- envoyproxy -- envoy</title>
-      <link>https://www.cve.org/CVERecord?id=CVE-2024-34364</link>
-      <description>Envoy is a cloud-native, open source edge and service proxy. Envoy exposed an out-of-memory (OOM) vector from the mirror response, since async HTTP client will buffer the response with an unbounded buffer.</description>
-      <guid isPermaLink="false">CVE-2024-34364|2024-06-25T18:21:22.154Z</guid>
-      <pubDate>Tue, 04 Jun 2024 20:59:48 +0000</pubDate>
-    </item>
-    <item>
-      <title>CVE-2024-32975|2024-06-20T15:30:20.292Z -- envoyproxy -- envoy</title>
-      <link>https://www.cve.org/CVERecord?id=CVE-2024-32975</link>
-      <description>Envoy is a cloud-native, open source edge and service proxy. There is a crash at `QuicheDataReader::PeekVarInt62Length()`. It is caused by integer underflow in the `QuicStreamSequencerBuffer::PeekRegion()` implementation.</description>
-      <guid isPermaLink="false">CVE-2024-32975|2024-06-20T15:30:20.292Z</guid>
-      <pubDate>Tue, 04 Jun 2024 21:00:03 +0000</pubDate>
-    </item>
-    <item>
-      <title>CVE-2024-30255|2024-04-04T19:41:02.634Z -- envoyproxy -- envoy</title>
-      <link>https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2024-30255</link>
-      <description>Envoy is a cloud-native, open source edge and service proxy. The HTTP/2 protocol stack in Envoy versions prior to 1.29.3, 1.28.2, 1.27.4, and 1.26.8 are vulnerable to CPU exhaustion due to flood of CONTINUATION frames. Envoy's HTTP/2 codec allows the client to send an unlimited number of CONTINUATION frames even after exceeding Envoy's header map limits. This allows an attacker to send a sequence of CONTINUATION frames without the END_HEADERS bit set causing CPU utilization, consuming approximately 1 core per 300Mbit/s of traffic and culminating in denial of service through CPU exhaustion. Users should upgrade to version 1.29.3, 1.28.2, 1.27.4, or 1.26.8 to mitigate the effects of the CONTINUATION flood. As a workaround, disable HTTP/2 protocol for downstream connections.</description>
-      <guid isPermaLink="false">CVE-2024-30255|2024-04-04T19:41:02.634Z</guid>
-      <pubDate>Thu, 04 Apr 2024 19:41:02 +0000</pubDate>
-    </item>
-    <item>
-      <title>CVE-2024-34364|2024-06-04T20:59:48.968Z -- envoyproxy -- envoy</title>
-      <link>https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2024-34364</link>
-      <description>Envoy is a cloud-native, open source edge and service proxy. Envoy exposed an out-of-memory (OOM) vector from the mirror response, since async HTTP client will buffer the response with an unbounded buffer.</description>
-      <guid isPermaLink="false">CVE-2024-34364|2024-06-04T20:59:48.968Z</guid>
-      <pubDate>Tue, 04 Jun 2024 20:59:48 +0000</pubDate>
-    </item>
-    <item>
-      <title>CVE-2024-34362|2024-06-04T20:59:56.390Z -- envoyproxy -- envoy</title>
-      <link>https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2024-34362</link>
-      <description>Envoy is a cloud-native, open source edge and service proxy. There is a use-after-free in `HttpConnectionManager` (HCM) with `EnvoyQuicServerStream` that can crash Envoy. An attacker can exploit this vulnerability by sending a request without `FIN`, then a `RESET_STREAM` frame, and then after receiving the response, closing the connection.</description>
-      <guid isPermaLink="false">CVE-2024-34362|2024-06-04T20:59:56.390Z</guid>
-      <pubDate>Tue, 04 Jun 2024 20:59:56 +0000</pubDate>
-    </item>
-    <item>
-      <title>CVE-2024-34363|2024-06-04T20:59:52.773Z -- envoyproxy -- envoy</title>
-      <link>https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2024-34363</link>
-      <description>Envoy is a cloud-native, open source edge and service proxy. Due to how Envoy invoked the nlohmann JSON library, the library could throw an uncaught exception from downstream data if incomplete UTF-8 strings were serialized. The uncaught exception would cause Envoy to crash.</description>
-      <guid isPermaLink="false">CVE-2024-34363|2024-06-04T20:59:52.773Z</guid>
-      <pubDate>Tue, 04 Jun 2024 20:59:52 +0000</pubDate>
-    </item>
-    <item>
-      <title>CVE-2024-23325|2024-02-09T22:47:13.048Z -- envoyproxy -- envoy</title>
-      <link>https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2024-23325</link>
-      <description>Envoy is a high-performance edge/middle/service proxy. Envoy crashes in Proxy protocol when using an address type that isn’t supported by the OS. Envoy is susceptible to crashing on a host with IPv6 disabled and a listener config with proxy protocol enabled when it receives a request where the client presents its IPv6 address.  It is valid for a client to present its IPv6 address to a target server even though the whole chain is connected via IPv4. This issue has been addressed in released 1.29.1, 1.28.1, 1.27.3, and 1.26.7. Users are advised to upgrade. There are no known workarounds for this vulnerability.</description>
-      <guid isPermaLink="false">CVE-2024-23325|2024-02-09T22:47:13.048Z</guid>
-      <pubDate>Fri, 09 Feb 2024 22:47:13 +0000</pubDate>
-    </item>
-    <item>
-      <title>CVE-2024-23324|2024-02-09T22:48:26.889Z -- envoyproxy -- envoy</title>
-      <link>https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2024-23324</link>
-      <description>Envoy is a high-performance edge/middle/service proxy. External authentication can be bypassed by downstream connections. Downstream clients can force invalid gRPC requests to be sent to ext_authz, circumventing ext_authz checks when failure_mode_allow is set to true. This issue has been addressed in released 1.29.1, 1.28.1, 1.27.3, and 1.26.7. Users are advised to upgrade. There are no known workarounds for this vulnerability.</description>
-      <guid isPermaLink="false">CVE-2024-23324|2024-02-09T22:48:26.889Z</guid>
-      <pubDate>Fri, 09 Feb 2024 22:48:26 +0000</pubDate>
-    </item>
-    <item>
-      <title>CVE-2024-23323|2024-02-09T22:50:18.938Z -- envoyproxy -- envoy</title>
-      <link>https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2024-23323</link>
-      <description>Envoy is a high-performance edge/middle/service proxy. The regex expression is compiled for every request and can result in high CPU usage and increased request latency when multiple routes are configured with such matchers. This issue has been addressed in released 1.29.1, 1.28.1, 1.27.3, and 1.26.7. Users are advised to upgrade. There are no known workarounds for this vulnerability.</description>
-      <guid isPermaLink="false">CVE-2024-23323|2024-02-09T22:50:18.938Z</guid>
-      <pubDate>Fri, 09 Feb 2024 22:50:18 +0000</pubDate>
-    </item>
-    <item>
-      <title>CVE-2024-23322|2024-02-09T22:51:53.539Z -- envoyproxy -- envoy</title>
-      <link>https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2024-23322</link>
-      <description>Envoy is a high-performance edge/middle/service proxy. Envoy will crash when certain timeouts happen within the same interval. The crash occurs when the following are true: 1. hedge_on_per_try_timeout is enabled, 2. per_try_idle_timeout is enabled (it can only be done in configuration), 3. per-try-timeout is enabled, either through headers or configuration and its value is equal, or within the backoff interval of the per_try_idle_timeout. This issue has been addressed in released 1.29.1, 1.28.1, 1.27.3, and 1.26.7. Users are advised to upgrade. There are no known workarounds for this vulnerability.</description>
-      <guid isPermaLink="false">CVE-2024-23322|2024-02-09T22:51:53.539Z</guid>
-      <pubDate>Fri, 09 Feb 2024 22:51:53 +0000</pubDate>
-    </item>
-    <item>
-      <title>CVE-2024-23327|2024-02-09T22:41:54.896Z -- envoyproxy -- envoy</title>
-      <link>https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2024-23327</link>
-      <description>Envoy is a high-performance edge/middle/service proxy. When PPv2 is enabled both on a listener and subsequent cluster, the Envoy instance will segfault when attempting to craft the upstream PPv2 header. This occurs when the downstream request has a command type of LOCAL and does not have the protocol block. This issue has been addressed in releases 1.29.1, 1.28.1, 1.27.3, and 1.26.7. Users are advised to upgrade. There are no known workarounds for this vulnerability.</description>
-      <guid isPermaLink="false">CVE-2024-23327|2024-02-09T22:41:54.896Z</guid>
-      <pubDate>Fri, 09 Feb 2024 22:41:54 +0000</pubDate>
-    </item>
-    <item>
-      <title>CVE-2024-23326|2024-06-04T20:05:48.230Z -- envoyproxy -- envoy</title>
-      <link>https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2024-23326</link>
-      <description>Envoy is a cloud-native, open source edge and service proxy. A theoretical request smuggling vulnerability exists through Envoy if a server can be tricked into adding an upgrade header into a response. Per RFC https://www.rfc-editor.org/rfc/rfc7230#section-6.7 a server sends 101 when switching protocols. Envoy incorrectly accepts a 200 response from a server when requesting a protocol upgrade, but 200 does not indicate protocol switch. This opens up the possibility of request smuggling through Envoy if the server can be tricked into adding the upgrade header to the response.</description>
-      <guid isPermaLink="false">CVE-2024-23326|2024-06-04T20:05:48.230Z</guid>
-      <pubDate>Tue, 04 Jun 2024 20:05:48 +0000</pubDate>
-    </item>
-    <item>
-      <title>CVE-2024-27919|2024-04-04T14:30:11.144Z -- envoyproxy -- envoy</title>
-      <link>https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2024-27919</link>
-      <description>Envoy is a cloud-native, open-source edge and service proxy. In versions 1.29.0 and 1.29.1, theEnvoy HTTP/2 protocol stack is vulnerable to the flood of CONTINUATION frames. Envoy's HTTP/2 codec does not reset a request when header map limits have been exceeded. This allows an attacker to send an sequence of CONTINUATION frames without the END_HEADERS bit set causing unlimited memory consumption. This can lead to denial of service through memory exhaustion. Users should upgrade to versions 1.29.2 to mitigate the effects of the CONTINUATION flood. Note that this vulnerability is a regression in Envoy version 1.29.0 and 1.29.1 only. As a workaround, downgrade to version 1.28.1 or earlier or disable HTTP/2 protocol for downstream connections.</description>
-      <guid isPermaLink="false">CVE-2024-27919|2024-04-04T14:30:11.144Z</guid>
-      <pubDate>Thu, 04 Apr 2024 14:30:11 +0000</pubDate>
-    </item>
-    <item>
-      <title>CVE-2024-32975|2024-06-04T21:00:03.208Z -- envoyproxy -- envoy</title>
-      <link>https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2024-32975</link>
-      <description>Envoy is a cloud-native, open source edge and service proxy. There is a crash at `QuicheDataReader::PeekVarInt62Length()`. It is caused by integer underflow in the `QuicStreamSequencerBuffer::PeekRegion()` implementation.</description>
-      <guid isPermaLink="false">CVE-2024-32975|2024-06-04T21:00:03.208Z</guid>
-      <pubDate>Tue, 04 Jun 2024 21:00:03 +0000</pubDate>
-    </item>
-    <item>
-      <title>CVE-2024-32974|2024-06-04T21:00:07.788Z -- envoyproxy -- envoy</title>
-      <link>https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2024-32974</link>
-      <description>Envoy is a cloud-native, open source edge and service proxy. A crash was observed in `EnvoyQuicServerStream::OnInitialHeadersComplete()` with following call stack. It is a use-after-free caused by QUICHE continuing push request headers after `StopReading()` being called on the stream. As after `StopReading()`, the HCM's `ActiveStream` might have already be destroyed and any up calls from QUICHE could potentially cause use after free.</description>
-      <guid isPermaLink="false">CVE-2024-32974|2024-06-04T21:00:07.788Z</guid>
-      <pubDate>Tue, 04 Jun 2024 21:00:07 +0000</pubDate>
-    </item>
-    <item>
-      <title>CVE-2024-32475|2024-06-04T17:51:20.709Z -- envoyproxy -- envoy</title>
-      <link>https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2024-32475</link>
-      <description>Envoy is a cloud-native, open source edge and service proxy. When an upstream TLS cluster is used with `auto_sni` enabled, a request containing a `host`/`:authority` header longer than 255 characters triggers an abnormal termination of Envoy process. Envoy does not gracefully handle an error when setting SNI for outbound TLS connection. The error can occur when Envoy attempts to use the `host`/`:authority` header value longer than 255 characters as SNI for outbound TLS connection. SNI length is limited to 255 characters per the standard. Envoy always expects this operation to succeed and abnormally aborts the process when it fails. This vulnerability is fixed in 1.30.1, 1.29.4, 1.28.3, and 1.27.5.</description>
-      <guid isPermaLink="false">CVE-2024-32475|2024-06-04T17:51:20.709Z</guid>
-      <pubDate>Thu, 18 Apr 2024 14:18:18 +0000</pubDate>
-    </item>
-    <item>
-      <title>CVE-2024-32976|2024-06-04T20:59:59.683Z -- envoyproxy -- envoy</title>
-      <link>https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2024-32976</link>
-      <description>Envoy is a cloud-native, open source edge and service proxy. Envoyproxy with a Brotli filter can get into an endless loop during decompression of Brotli data with extra input.</description>
-      <guid isPermaLink="false">CVE-2024-32976|2024-06-04T20:59:59.683Z</guid>
-      <pubDate>Tue, 04 Jun 2024 20:59:59 +0000</pubDate>
-    </item>
-    <item>
-      <title>CVE-2024-34363|2024-06-21T17:23:47.147Z -- envoyproxy -- envoy</title>
-      <link>https://www.cve.org/CVERecord?id=CVE-2024-34363</link>
-      <description>Envoy is a cloud-native, open source edge and service proxy. Due to how Envoy invoked the nlohmann JSON library, the library could throw an uncaught exception from downstream data if incomplete UTF-8 strings were serialized. The uncaught exception would cause Envoy to crash.</description>
-      <guid isPermaLink="false">CVE-2024-34363|2024-06-21T17:23:47.147Z</guid>
-      <pubDate>Tue, 04 Jun 2024 20:59:52 +0000</pubDate>
-    </item>
-    <item>
-      <title>CVE-2024-39305|2024-07-01T21:10:23.566Z -- envoyproxy -- envoy</title>
-      <link>https://www.cve.org/CVERecord?id=CVE-2024-39305</link>
-      <description>Envoy is a cloud-native, open source edge and service proxy. Prior to versions 1.30.4, 1.29.7, 1.28.5, and 1.27.7. Envoy references already freed memory when route hash policy is configured with cookie attributes. Note that this vulnerability has been fixed in the open as the effect would be immediately apparent if it was configured. Memory allocated for holding attribute values is freed after configuration was parsed. During request processing Envoy will attempt to copy content of de-allocated memory into request cookie header. This can lead to arbitrary content of Envoy's memory to be sent to the upstream service or abnormal process termination. This vulnerability is fixed in Envoy versions v1.30.4, v1.29.7, v1.28.5, and v1.27.7. As a workaround, do not use cookie attributes in route action hash policy.</description>
-      <guid isPermaLink="false">CVE-2024-39305|2024-07-01T21:10:23.566Z</guid>
-      <pubDate>Mon, 01 Jul 2024 21:10:23 +0000</pubDate>
-    </item>
-    <item>
-      <title>CVE-2024-30255|2024-07-16T13:47:51.426Z -- envoyproxy -- envoy</title>
-      <link>https://www.cve.org/CVERecord?id=CVE-2024-30255</link>
-      <description>Envoy is a cloud-native, open source edge and service proxy. The HTTP/2 protocol stack in Envoy versions prior to 1.29.3, 1.28.2, 1.27.4, and 1.26.8 are vulnerable to CPU exhaustion due to flood of CONTINUATION frames. Envoy's HTTP/2 codec allows the client to send an unlimited number of CONTINUATION frames even after exceeding Envoy's header map limits. This allows an attacker to send a sequence of CONTINUATION frames without the END_HEADERS bit set causing CPU utilization, consuming approximately 1 core per 300Mbit/s of traffic and culminating in denial of service through CPU exhaustion. Users should upgrade to version 1.29.3, 1.28.2, 1.27.4, or 1.26.8 to mitigate the effects of the CONTINUATION flood. As a workaround, disable HTTP/2 protocol for downstream connections.</description>
-      <guid isPermaLink="false">CVE-2024-30255|2024-07-16T13:47:51.426Z</guid>
-      <pubDate>Thu, 04 Apr 2024 19:41:02 +0000</pubDate>
-    </item>
-    <item>
-      <title>CVE-2024-23326|2024-07-23T15:53:07.177Z -- envoyproxy -- envoy</title>
-      <link>https://www.cve.org/CVERecord?id=CVE-2024-23326</link>
-      <description>Envoy is a cloud-native, open source edge and service proxy. A theoretical request smuggling vulnerability exists through Envoy if a server can be tricked into adding an upgrade header into a response. Per RFC https://www.rfc-editor.org/rfc/rfc7230#section-6.7 a server sends 101 when switching protocols. Envoy incorrectly accepts a 200 response from a server when requesting a protocol upgrade, but 200 does not indicate protocol switch. This opens up the possibility of request smuggling through Envoy if the server can be tricked into adding the upgrade header to the response.</description>
-      <guid isPermaLink="false">CVE-2024-23326|2024-07-23T15:53:07.177Z</guid>
-      <pubDate>Tue, 04 Jun 2024 20:05:48 +0000</pubDate>
-    </item>
-    <item>
-      <title>CVE-2024-23325|2024-08-01T22:59:32.344Z -- envoyproxy -- envoy</title>
-      <link>https://www.cve.org/CVERecord?id=CVE-2024-23325</link>
-      <description>Envoy is a high-performance edge/middle/service proxy. Envoy crashes in Proxy protocol when using an address type that isn’t supported by the OS. Envoy is susceptible to crashing on a host with IPv6 disabled and a listener config with proxy protocol enabled when it receives a request where the client presents its IPv6 address.  It is valid for a client to present its IPv6 address to a target server even though the whole chain is connected via IPv4. This issue has been addressed in released 1.29.1, 1.28.1, 1.27.3, and 1.26.7. Users are advised to upgrade. There are no known workarounds for this vulnerability.</description>
-      <guid isPermaLink="false">CVE-2024-23325|2024-08-01T22:59:32.344Z</guid>
-      <pubDate>Fri, 09 Feb 2024 22:47:13 +0000</pubDate>
-    </item>
-    <item>
-      <title>CVE-2024-23322|2024-08-01T22:59:32.223Z -- envoyproxy -- envoy</title>
-      <link>https://www.cve.org/CVERecord?id=CVE-2024-23322</link>
-      <description>Envoy is a high-performance edge/middle/service proxy. Envoy will crash when certain timeouts happen within the same interval. The crash occurs when the following are true: 1. hedge_on_per_try_timeout is enabled, 2. per_try_idle_timeout is enabled (it can only be done in configuration), 3. per-try-timeout is enabled, either through headers or configuration and its value is equal, or within the backoff interval of the per_try_idle_timeout. This issue has been addressed in released 1.29.1, 1.28.1, 1.27.3, and 1.26.7. Users are advised to upgrade. There are no known workarounds for this vulnerability.</description>
-      <guid isPermaLink="false">CVE-2024-23322|2024-08-01T22:59:32.223Z</guid>
-      <pubDate>Fri, 09 Feb 2024 22:51:53 +0000</pubDate>
-    </item>
-    <item>
-      <title>CVE-2024-23326|2024-08-01T22:59:32.189Z -- envoyproxy -- envoy</title>
-      <link>https://www.cve.org/CVERecord?id=CVE-2024-23326</link>
-      <description>Envoy is a cloud-native, open source edge and service proxy. A theoretical request smuggling vulnerability exists through Envoy if a server can be tricked into adding an upgrade header into a response. Per RFC https://www.rfc-editor.org/rfc/rfc7230#section-6.7 a server sends 101 when switching protocols. Envoy incorrectly accepts a 200 response from a server when requesting a protocol upgrade, but 200 does not indicate protocol switch. This opens up the possibility of request smuggling through Envoy if the server can be tricked into adding the upgrade header to the response.</description>
-      <guid isPermaLink="false">CVE-2024-23326|2024-08-01T22:59:32.189Z</guid>
-      <pubDate>Tue, 04 Jun 2024 20:05:48 +0000</pubDate>
-    </item>
-    <item>
-      <title>CVE-2024-23323|2024-08-01T22:59:32.269Z -- envoyproxy -- envoy</title>
-      <link>https://www.cve.org/CVERecord?id=CVE-2024-23323</link>
-      <description>Envoy is a high-performance edge/middle/service proxy. The regex expression is compiled for every request and can result in high CPU usage and increased request latency when multiple routes are configured with such matchers. This issue has been addressed in released 1.29.1, 1.28.1, 1.27.3, and 1.26.7. Users are advised to upgrade. There are no known workarounds for this vulnerability.</description>
-      <guid isPermaLink="false">CVE-2024-23323|2024-08-01T22:59:32.269Z</guid>
-      <pubDate>Fri, 09 Feb 2024 22:50:18 +0000</pubDate>
-    </item>
-    <item>
-      <title>CVE-2024-23324|2024-08-01T22:59:32.308Z -- envoyproxy -- envoy</title>
-      <link>https://www.cve.org/CVERecord?id=CVE-2024-23324</link>
-      <description>Envoy is a high-performance edge/middle/service proxy. External authentication can be bypassed by downstream connections. Downstream clients can force invalid gRPC requests to be sent to ext_authz, circumventing ext_authz checks when failure_mode_allow is set to true. This issue has been addressed in released 1.29.1, 1.28.1, 1.27.3, and 1.26.7. Users are advised to upgrade. There are no known workarounds for this vulnerability.</description>
-      <guid isPermaLink="false">CVE-2024-23324|2024-08-01T22:59:32.308Z</guid>
-      <pubDate>Fri, 09 Feb 2024 22:48:26 +0000</pubDate>
-    </item>
-    <item>
-      <title>CVE-2024-23327|2024-08-01T22:59:32.196Z -- envoyproxy -- envoy</title>
-      <link>https://www.cve.org/CVERecord?id=CVE-2024-23327</link>
-      <description>Envoy is a high-performance edge/middle/service proxy. When PPv2 is enabled both on a listener and subsequent cluster, the Envoy instance will segfault when attempting to craft the upstream PPv2 header. This occurs when the downstream request has a command type of LOCAL and does not have the protocol block. This issue has been addressed in releases 1.29.1, 1.28.1, 1.27.3, and 1.26.7. Users are advised to upgrade. There are no known workarounds for this vulnerability.</description>
-      <guid isPermaLink="false">CVE-2024-23327|2024-08-01T22:59:32.196Z</guid>
-      <pubDate>Fri, 09 Feb 2024 22:41:54 +0000</pubDate>
-    </item>
-    <item>
-      <title>CVE-2024-30255|2024-08-02T01:32:05.423Z -- envoyproxy -- envoy</title>
-      <link>https://www.cve.org/CVERecord?id=CVE-2024-30255</link>
-      <description>Envoy is a cloud-native, open source edge and service proxy. The HTTP/2 protocol stack in Envoy versions prior to 1.29.3, 1.28.2, 1.27.4, and 1.26.8 are vulnerable to CPU exhaustion due to flood of CONTINUATION frames. Envoy's HTTP/2 codec allows the client to send an unlimited number of CONTINUATION frames even after exceeding Envoy's header map limits. This allows an attacker to send a sequence of CONTINUATION frames without the END_HEADERS bit set causing CPU utilization, consuming approximately 1 core per 300Mbit/s of traffic and culminating in denial of service through CPU exhaustion. Users should upgrade to version 1.29.3, 1.28.2, 1.27.4, or 1.26.8 to mitigate the effects of the CONTINUATION flood. As a workaround, disable HTTP/2 protocol for downstream connections.</description>
-      <guid isPermaLink="false">CVE-2024-30255|2024-08-02T01:32:05.423Z</guid>
-      <pubDate>Thu, 04 Apr 2024 19:41:02 +0000</pubDate>
     </item>
     <item>
       <title>CVE-2024-32475|2024-08-02T02:13:39.139Z -- envoyproxy -- envoy</title>
@@ -384,11 +55,277 @@ As of versions versions 1.26.0, 1.25.3, 1.24.4, 1.23.6, and 1.22.9, Envoy no lon
       <pubDate>Thu, 18 Apr 2024 14:18:18 +0000</pubDate>
     </item>
     <item>
-      <title>CVE-2024-39305|2024-08-02T04:19:20.740Z -- envoyproxy -- envoy</title>
+      <title>CVE-2024-30255|2024-08-02T01:32:05.423Z -- envoyproxy -- envoy</title>
+      <link>https://www.cve.org/CVERecord?id=CVE-2024-30255</link>
+      <description>Envoy is a cloud-native, open source edge and service proxy. The HTTP/2 protocol stack in Envoy versions prior to 1.29.3, 1.28.2, 1.27.4, and 1.26.8 are vulnerable to CPU exhaustion due to flood of CONTINUATION frames. Envoy's HTTP/2 codec allows the client to send an unlimited number of CONTINUATION frames even after exceeding Envoy's header map limits. This allows an attacker to send a sequence of CONTINUATION frames without the END_HEADERS bit set causing CPU utilization, consuming approximately 1 core per 300Mbit/s of traffic and culminating in denial of service through CPU exhaustion. Users should upgrade to version 1.29.3, 1.28.2, 1.27.4, or 1.26.8 to mitigate the effects of the CONTINUATION flood. As a workaround, disable HTTP/2 protocol for downstream connections.</description>
+      <guid isPermaLink="false">CVE-2024-30255|2024-08-02T01:32:05.423Z</guid>
+      <pubDate>Thu, 04 Apr 2024 19:41:02 +0000</pubDate>
+    </item>
+    <item>
+      <title>CVE-2024-23327|2024-08-01T22:59:32.196Z -- envoyproxy -- envoy</title>
+      <link>https://www.cve.org/CVERecord?id=CVE-2024-23327</link>
+      <description>Envoy is a high-performance edge/middle/service proxy. When PPv2 is enabled both on a listener and subsequent cluster, the Envoy instance will segfault when attempting to craft the upstream PPv2 header. This occurs when the downstream request has a command type of LOCAL and does not have the protocol block. This issue has been addressed in releases 1.29.1, 1.28.1, 1.27.3, and 1.26.7. Users are advised to upgrade. There are no known workarounds for this vulnerability.</description>
+      <guid isPermaLink="false">CVE-2024-23327|2024-08-01T22:59:32.196Z</guid>
+      <pubDate>Fri, 09 Feb 2024 22:41:54 +0000</pubDate>
+    </item>
+    <item>
+      <title>CVE-2024-23324|2024-08-01T22:59:32.308Z -- envoyproxy -- envoy</title>
+      <link>https://www.cve.org/CVERecord?id=CVE-2024-23324</link>
+      <description>Envoy is a high-performance edge/middle/service proxy. External authentication can be bypassed by downstream connections. Downstream clients can force invalid gRPC requests to be sent to ext_authz, circumventing ext_authz checks when failure_mode_allow is set to true. This issue has been addressed in released 1.29.1, 1.28.1, 1.27.3, and 1.26.7. Users are advised to upgrade. There are no known workarounds for this vulnerability.</description>
+      <guid isPermaLink="false">CVE-2024-23324|2024-08-01T22:59:32.308Z</guid>
+      <pubDate>Fri, 09 Feb 2024 22:48:26 +0000</pubDate>
+    </item>
+    <item>
+      <title>CVE-2024-23323|2024-08-01T22:59:32.269Z -- envoyproxy -- envoy</title>
+      <link>https://www.cve.org/CVERecord?id=CVE-2024-23323</link>
+      <description>Envoy is a high-performance edge/middle/service proxy. The regex expression is compiled for every request and can result in high CPU usage and increased request latency when multiple routes are configured with such matchers. This issue has been addressed in released 1.29.1, 1.28.1, 1.27.3, and 1.26.7. Users are advised to upgrade. There are no known workarounds for this vulnerability.</description>
+      <guid isPermaLink="false">CVE-2024-23323|2024-08-01T22:59:32.269Z</guid>
+      <pubDate>Fri, 09 Feb 2024 22:50:18 +0000</pubDate>
+    </item>
+    <item>
+      <title>CVE-2024-23326|2024-08-01T22:59:32.189Z -- envoyproxy -- envoy</title>
+      <link>https://www.cve.org/CVERecord?id=CVE-2024-23326</link>
+      <description>Envoy is a cloud-native, open source edge and service proxy. A theoretical request smuggling vulnerability exists through Envoy if a server can be tricked into adding an upgrade header into a response. Per RFC https://www.rfc-editor.org/rfc/rfc7230#section-6.7 a server sends 101 when switching protocols. Envoy incorrectly accepts a 200 response from a server when requesting a protocol upgrade, but 200 does not indicate protocol switch. This opens up the possibility of request smuggling through Envoy if the server can be tricked into adding the upgrade header to the response.</description>
+      <guid isPermaLink="false">CVE-2024-23326|2024-08-01T22:59:32.189Z</guid>
+      <pubDate>Tue, 04 Jun 2024 20:05:48 +0000</pubDate>
+    </item>
+    <item>
+      <title>CVE-2024-23322|2024-08-01T22:59:32.223Z -- envoyproxy -- envoy</title>
+      <link>https://www.cve.org/CVERecord?id=CVE-2024-23322</link>
+      <description>Envoy is a high-performance edge/middle/service proxy. Envoy will crash when certain timeouts happen within the same interval. The crash occurs when the following are true: 1. hedge_on_per_try_timeout is enabled, 2. per_try_idle_timeout is enabled (it can only be done in configuration), 3. per-try-timeout is enabled, either through headers or configuration and its value is equal, or within the backoff interval of the per_try_idle_timeout. This issue has been addressed in released 1.29.1, 1.28.1, 1.27.3, and 1.26.7. Users are advised to upgrade. There are no known workarounds for this vulnerability.</description>
+      <guid isPermaLink="false">CVE-2024-23322|2024-08-01T22:59:32.223Z</guid>
+      <pubDate>Fri, 09 Feb 2024 22:51:53 +0000</pubDate>
+    </item>
+    <item>
+      <title>CVE-2024-23325|2024-08-01T22:59:32.344Z -- envoyproxy -- envoy</title>
+      <link>https://www.cve.org/CVERecord?id=CVE-2024-23325</link>
+      <description>Envoy is a high-performance edge/middle/service proxy. Envoy crashes in Proxy protocol when using an address type that isn’t supported by the OS. Envoy is susceptible to crashing on a host with IPv6 disabled and a listener config with proxy protocol enabled when it receives a request where the client presents its IPv6 address.  It is valid for a client to present its IPv6 address to a target server even though the whole chain is connected via IPv4. This issue has been addressed in released 1.29.1, 1.28.1, 1.27.3, and 1.26.7. Users are advised to upgrade. There are no known workarounds for this vulnerability.</description>
+      <guid isPermaLink="false">CVE-2024-23325|2024-08-01T22:59:32.344Z</guid>
+      <pubDate>Fri, 09 Feb 2024 22:47:13 +0000</pubDate>
+    </item>
+    <item>
+      <title>CVE-2024-23326|2024-07-23T15:53:07.177Z -- envoyproxy -- envoy</title>
+      <link>https://www.cve.org/CVERecord?id=CVE-2024-23326</link>
+      <description>Envoy is a cloud-native, open source edge and service proxy. A theoretical request smuggling vulnerability exists through Envoy if a server can be tricked into adding an upgrade header into a response. Per RFC https://www.rfc-editor.org/rfc/rfc7230#section-6.7 a server sends 101 when switching protocols. Envoy incorrectly accepts a 200 response from a server when requesting a protocol upgrade, but 200 does not indicate protocol switch. This opens up the possibility of request smuggling through Envoy if the server can be tricked into adding the upgrade header to the response.</description>
+      <guid isPermaLink="false">CVE-2024-23326|2024-07-23T15:53:07.177Z</guid>
+      <pubDate>Tue, 04 Jun 2024 20:05:48 +0000</pubDate>
+    </item>
+    <item>
+      <title>CVE-2024-30255|2024-07-16T13:47:51.426Z -- envoyproxy -- envoy</title>
+      <link>https://www.cve.org/CVERecord?id=CVE-2024-30255</link>
+      <description>Envoy is a cloud-native, open source edge and service proxy. The HTTP/2 protocol stack in Envoy versions prior to 1.29.3, 1.28.2, 1.27.4, and 1.26.8 are vulnerable to CPU exhaustion due to flood of CONTINUATION frames. Envoy's HTTP/2 codec allows the client to send an unlimited number of CONTINUATION frames even after exceeding Envoy's header map limits. This allows an attacker to send a sequence of CONTINUATION frames without the END_HEADERS bit set causing CPU utilization, consuming approximately 1 core per 300Mbit/s of traffic and culminating in denial of service through CPU exhaustion. Users should upgrade to version 1.29.3, 1.28.2, 1.27.4, or 1.26.8 to mitigate the effects of the CONTINUATION flood. As a workaround, disable HTTP/2 protocol for downstream connections.</description>
+      <guid isPermaLink="false">CVE-2024-30255|2024-07-16T13:47:51.426Z</guid>
+      <pubDate>Thu, 04 Apr 2024 19:41:02 +0000</pubDate>
+    </item>
+    <item>
+      <title>CVE-2024-39305|2024-07-01T21:10:23.566Z -- envoyproxy -- envoy</title>
       <link>https://www.cve.org/CVERecord?id=CVE-2024-39305</link>
       <description>Envoy is a cloud-native, open source edge and service proxy. Prior to versions 1.30.4, 1.29.7, 1.28.5, and 1.27.7. Envoy references already freed memory when route hash policy is configured with cookie attributes. Note that this vulnerability has been fixed in the open as the effect would be immediately apparent if it was configured. Memory allocated for holding attribute values is freed after configuration was parsed. During request processing Envoy will attempt to copy content of de-allocated memory into request cookie header. This can lead to arbitrary content of Envoy's memory to be sent to the upstream service or abnormal process termination. This vulnerability is fixed in Envoy versions v1.30.4, v1.29.7, v1.28.5, and v1.27.7. As a workaround, do not use cookie attributes in route action hash policy.</description>
-      <guid isPermaLink="false">CVE-2024-39305|2024-08-02T04:19:20.740Z</guid>
+      <guid isPermaLink="false">CVE-2024-39305|2024-07-01T21:10:23.566Z</guid>
       <pubDate>Mon, 01 Jul 2024 21:10:23 +0000</pubDate>
+    </item>
+    <item>
+      <title>CVE-2024-34363|2024-06-21T17:23:47.147Z -- envoyproxy -- envoy</title>
+      <link>https://www.cve.org/CVERecord?id=CVE-2024-34363</link>
+      <description>Envoy is a cloud-native, open source edge and service proxy. Due to how Envoy invoked the nlohmann JSON library, the library could throw an uncaught exception from downstream data if incomplete UTF-8 strings were serialized. The uncaught exception would cause Envoy to crash.</description>
+      <guid isPermaLink="false">CVE-2024-34363|2024-06-21T17:23:47.147Z</guid>
+      <pubDate>Tue, 04 Jun 2024 20:59:52 +0000</pubDate>
+    </item>
+    <item>
+      <title>CVE-2024-32976|2024-06-04T20:59:59.683Z -- envoyproxy -- envoy</title>
+      <link>https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2024-32976</link>
+      <description>Envoy is a cloud-native, open source edge and service proxy. Envoyproxy with a Brotli filter can get into an endless loop during decompression of Brotli data with extra input.</description>
+      <guid isPermaLink="false">CVE-2024-32976|2024-06-04T20:59:59.683Z</guid>
+      <pubDate>Tue, 04 Jun 2024 20:59:59 +0000</pubDate>
+    </item>
+    <item>
+      <title>CVE-2024-32475|2024-06-04T17:51:20.709Z -- envoyproxy -- envoy</title>
+      <link>https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2024-32475</link>
+      <description>Envoy is a cloud-native, open source edge and service proxy. When an upstream TLS cluster is used with `auto_sni` enabled, a request containing a `host`/`:authority` header longer than 255 characters triggers an abnormal termination of Envoy process. Envoy does not gracefully handle an error when setting SNI for outbound TLS connection. The error can occur when Envoy attempts to use the `host`/`:authority` header value longer than 255 characters as SNI for outbound TLS connection. SNI length is limited to 255 characters per the standard. Envoy always expects this operation to succeed and abnormally aborts the process when it fails. This vulnerability is fixed in 1.30.1, 1.29.4, 1.28.3, and 1.27.5.</description>
+      <guid isPermaLink="false">CVE-2024-32475|2024-06-04T17:51:20.709Z</guid>
+      <pubDate>Thu, 18 Apr 2024 14:18:18 +0000</pubDate>
+    </item>
+    <item>
+      <title>CVE-2024-32974|2024-06-04T21:00:07.788Z -- envoyproxy -- envoy</title>
+      <link>https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2024-32974</link>
+      <description>Envoy is a cloud-native, open source edge and service proxy. A crash was observed in `EnvoyQuicServerStream::OnInitialHeadersComplete()` with following call stack. It is a use-after-free caused by QUICHE continuing push request headers after `StopReading()` being called on the stream. As after `StopReading()`, the HCM's `ActiveStream` might have already be destroyed and any up calls from QUICHE could potentially cause use after free.</description>
+      <guid isPermaLink="false">CVE-2024-32974|2024-06-04T21:00:07.788Z</guid>
+      <pubDate>Tue, 04 Jun 2024 21:00:07 +0000</pubDate>
+    </item>
+    <item>
+      <title>CVE-2024-32975|2024-06-04T21:00:03.208Z -- envoyproxy -- envoy</title>
+      <link>https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2024-32975</link>
+      <description>Envoy is a cloud-native, open source edge and service proxy. There is a crash at `QuicheDataReader::PeekVarInt62Length()`. It is caused by integer underflow in the `QuicStreamSequencerBuffer::PeekRegion()` implementation.</description>
+      <guid isPermaLink="false">CVE-2024-32975|2024-06-04T21:00:03.208Z</guid>
+      <pubDate>Tue, 04 Jun 2024 21:00:03 +0000</pubDate>
+    </item>
+    <item>
+      <title>CVE-2024-27919|2024-04-04T14:30:11.144Z -- envoyproxy -- envoy</title>
+      <link>https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2024-27919</link>
+      <description>Envoy is a cloud-native, open-source edge and service proxy. In versions 1.29.0 and 1.29.1, theEnvoy HTTP/2 protocol stack is vulnerable to the flood of CONTINUATION frames. Envoy's HTTP/2 codec does not reset a request when header map limits have been exceeded. This allows an attacker to send an sequence of CONTINUATION frames without the END_HEADERS bit set causing unlimited memory consumption. This can lead to denial of service through memory exhaustion. Users should upgrade to versions 1.29.2 to mitigate the effects of the CONTINUATION flood. Note that this vulnerability is a regression in Envoy version 1.29.0 and 1.29.1 only. As a workaround, downgrade to version 1.28.1 or earlier or disable HTTP/2 protocol for downstream connections.</description>
+      <guid isPermaLink="false">CVE-2024-27919|2024-04-04T14:30:11.144Z</guid>
+      <pubDate>Thu, 04 Apr 2024 14:30:11 +0000</pubDate>
+    </item>
+    <item>
+      <title>CVE-2024-23326|2024-06-04T20:05:48.230Z -- envoyproxy -- envoy</title>
+      <link>https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2024-23326</link>
+      <description>Envoy is a cloud-native, open source edge and service proxy. A theoretical request smuggling vulnerability exists through Envoy if a server can be tricked into adding an upgrade header into a response. Per RFC https://www.rfc-editor.org/rfc/rfc7230#section-6.7 a server sends 101 when switching protocols. Envoy incorrectly accepts a 200 response from a server when requesting a protocol upgrade, but 200 does not indicate protocol switch. This opens up the possibility of request smuggling through Envoy if the server can be tricked into adding the upgrade header to the response.</description>
+      <guid isPermaLink="false">CVE-2024-23326|2024-06-04T20:05:48.230Z</guid>
+      <pubDate>Tue, 04 Jun 2024 20:05:48 +0000</pubDate>
+    </item>
+    <item>
+      <title>CVE-2024-23327|2024-02-09T22:41:54.896Z -- envoyproxy -- envoy</title>
+      <link>https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2024-23327</link>
+      <description>Envoy is a high-performance edge/middle/service proxy. When PPv2 is enabled both on a listener and subsequent cluster, the Envoy instance will segfault when attempting to craft the upstream PPv2 header. This occurs when the downstream request has a command type of LOCAL and does not have the protocol block. This issue has been addressed in releases 1.29.1, 1.28.1, 1.27.3, and 1.26.7. Users are advised to upgrade. There are no known workarounds for this vulnerability.</description>
+      <guid isPermaLink="false">CVE-2024-23327|2024-02-09T22:41:54.896Z</guid>
+      <pubDate>Fri, 09 Feb 2024 22:41:54 +0000</pubDate>
+    </item>
+    <item>
+      <title>CVE-2024-23322|2024-02-09T22:51:53.539Z -- envoyproxy -- envoy</title>
+      <link>https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2024-23322</link>
+      <description>Envoy is a high-performance edge/middle/service proxy. Envoy will crash when certain timeouts happen within the same interval. The crash occurs when the following are true: 1. hedge_on_per_try_timeout is enabled, 2. per_try_idle_timeout is enabled (it can only be done in configuration), 3. per-try-timeout is enabled, either through headers or configuration and its value is equal, or within the backoff interval of the per_try_idle_timeout. This issue has been addressed in released 1.29.1, 1.28.1, 1.27.3, and 1.26.7. Users are advised to upgrade. There are no known workarounds for this vulnerability.</description>
+      <guid isPermaLink="false">CVE-2024-23322|2024-02-09T22:51:53.539Z</guid>
+      <pubDate>Fri, 09 Feb 2024 22:51:53 +0000</pubDate>
+    </item>
+    <item>
+      <title>CVE-2024-23323|2024-02-09T22:50:18.938Z -- envoyproxy -- envoy</title>
+      <link>https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2024-23323</link>
+      <description>Envoy is a high-performance edge/middle/service proxy. The regex expression is compiled for every request and can result in high CPU usage and increased request latency when multiple routes are configured with such matchers. This issue has been addressed in released 1.29.1, 1.28.1, 1.27.3, and 1.26.7. Users are advised to upgrade. There are no known workarounds for this vulnerability.</description>
+      <guid isPermaLink="false">CVE-2024-23323|2024-02-09T22:50:18.938Z</guid>
+      <pubDate>Fri, 09 Feb 2024 22:50:18 +0000</pubDate>
+    </item>
+    <item>
+      <title>CVE-2024-23324|2024-02-09T22:48:26.889Z -- envoyproxy -- envoy</title>
+      <link>https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2024-23324</link>
+      <description>Envoy is a high-performance edge/middle/service proxy. External authentication can be bypassed by downstream connections. Downstream clients can force invalid gRPC requests to be sent to ext_authz, circumventing ext_authz checks when failure_mode_allow is set to true. This issue has been addressed in released 1.29.1, 1.28.1, 1.27.3, and 1.26.7. Users are advised to upgrade. There are no known workarounds for this vulnerability.</description>
+      <guid isPermaLink="false">CVE-2024-23324|2024-02-09T22:48:26.889Z</guid>
+      <pubDate>Fri, 09 Feb 2024 22:48:26 +0000</pubDate>
+    </item>
+    <item>
+      <title>CVE-2024-23325|2024-02-09T22:47:13.048Z -- envoyproxy -- envoy</title>
+      <link>https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2024-23325</link>
+      <description>Envoy is a high-performance edge/middle/service proxy. Envoy crashes in Proxy protocol when using an address type that isn’t supported by the OS. Envoy is susceptible to crashing on a host with IPv6 disabled and a listener config with proxy protocol enabled when it receives a request where the client presents its IPv6 address.  It is valid for a client to present its IPv6 address to a target server even though the whole chain is connected via IPv4. This issue has been addressed in released 1.29.1, 1.28.1, 1.27.3, and 1.26.7. Users are advised to upgrade. There are no known workarounds for this vulnerability.</description>
+      <guid isPermaLink="false">CVE-2024-23325|2024-02-09T22:47:13.048Z</guid>
+      <pubDate>Fri, 09 Feb 2024 22:47:13 +0000</pubDate>
+    </item>
+    <item>
+      <title>CVE-2024-34363|2024-06-04T20:59:52.773Z -- envoyproxy -- envoy</title>
+      <link>https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2024-34363</link>
+      <description>Envoy is a cloud-native, open source edge and service proxy. Due to how Envoy invoked the nlohmann JSON library, the library could throw an uncaught exception from downstream data if incomplete UTF-8 strings were serialized. The uncaught exception would cause Envoy to crash.</description>
+      <guid isPermaLink="false">CVE-2024-34363|2024-06-04T20:59:52.773Z</guid>
+      <pubDate>Tue, 04 Jun 2024 20:59:52 +0000</pubDate>
+    </item>
+    <item>
+      <title>CVE-2024-34362|2024-06-04T20:59:56.390Z -- envoyproxy -- envoy</title>
+      <link>https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2024-34362</link>
+      <description>Envoy is a cloud-native, open source edge and service proxy. There is a use-after-free in `HttpConnectionManager` (HCM) with `EnvoyQuicServerStream` that can crash Envoy. An attacker can exploit this vulnerability by sending a request without `FIN`, then a `RESET_STREAM` frame, and then after receiving the response, closing the connection.</description>
+      <guid isPermaLink="false">CVE-2024-34362|2024-06-04T20:59:56.390Z</guid>
+      <pubDate>Tue, 04 Jun 2024 20:59:56 +0000</pubDate>
+    </item>
+    <item>
+      <title>CVE-2024-34364|2024-06-04T20:59:48.968Z -- envoyproxy -- envoy</title>
+      <link>https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2024-34364</link>
+      <description>Envoy is a cloud-native, open source edge and service proxy. Envoy exposed an out-of-memory (OOM) vector from the mirror response, since async HTTP client will buffer the response with an unbounded buffer.</description>
+      <guid isPermaLink="false">CVE-2024-34364|2024-06-04T20:59:48.968Z</guid>
+      <pubDate>Tue, 04 Jun 2024 20:59:48 +0000</pubDate>
+    </item>
+    <item>
+      <title>CVE-2024-30255|2024-04-04T19:41:02.634Z -- envoyproxy -- envoy</title>
+      <link>https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2024-30255</link>
+      <description>Envoy is a cloud-native, open source edge and service proxy. The HTTP/2 protocol stack in Envoy versions prior to 1.29.3, 1.28.2, 1.27.4, and 1.26.8 are vulnerable to CPU exhaustion due to flood of CONTINUATION frames. Envoy's HTTP/2 codec allows the client to send an unlimited number of CONTINUATION frames even after exceeding Envoy's header map limits. This allows an attacker to send a sequence of CONTINUATION frames without the END_HEADERS bit set causing CPU utilization, consuming approximately 1 core per 300Mbit/s of traffic and culminating in denial of service through CPU exhaustion. Users should upgrade to version 1.29.3, 1.28.2, 1.27.4, or 1.26.8 to mitigate the effects of the CONTINUATION flood. As a workaround, disable HTTP/2 protocol for downstream connections.</description>
+      <guid isPermaLink="false">CVE-2024-30255|2024-04-04T19:41:02.634Z</guid>
+      <pubDate>Thu, 04 Apr 2024 19:41:02 +0000</pubDate>
+    </item>
+    <item>
+      <title>CVE-2024-32975|2024-06-20T15:30:20.292Z -- envoyproxy -- envoy</title>
+      <link>https://www.cve.org/CVERecord?id=CVE-2024-32975</link>
+      <description>Envoy is a cloud-native, open source edge and service proxy. There is a crash at `QuicheDataReader::PeekVarInt62Length()`. It is caused by integer underflow in the `QuicStreamSequencerBuffer::PeekRegion()` implementation.</description>
+      <guid isPermaLink="false">CVE-2024-32975|2024-06-20T15:30:20.292Z</guid>
+      <pubDate>Tue, 04 Jun 2024 21:00:03 +0000</pubDate>
+    </item>
+    <item>
+      <title>CVE-2024-34364|2024-06-25T18:21:22.154Z -- envoyproxy -- envoy</title>
+      <link>https://www.cve.org/CVERecord?id=CVE-2024-34364</link>
+      <description>Envoy is a cloud-native, open source edge and service proxy. Envoy exposed an out-of-memory (OOM) vector from the mirror response, since async HTTP client will buffer the response with an unbounded buffer.</description>
+      <guid isPermaLink="false">CVE-2024-34364|2024-06-25T18:21:22.154Z</guid>
+      <pubDate>Tue, 04 Jun 2024 20:59:48 +0000</pubDate>
+    </item>
+    <item>
+      <title>CVE-2024-23323|2024-07-05T17:20:51.446Z -- envoyproxy -- envoy</title>
+      <link>https://www.cve.org/CVERecord?id=CVE-2024-23323</link>
+      <description>Envoy is a high-performance edge/middle/service proxy. The regex expression is compiled for every request and can result in high CPU usage and increased request latency when multiple routes are configured with such matchers. This issue has been addressed in released 1.29.1, 1.28.1, 1.27.3, and 1.26.7. Users are advised to upgrade. There are no known workarounds for this vulnerability.</description>
+      <guid isPermaLink="false">CVE-2024-23323|2024-07-05T17:20:51.446Z</guid>
+      <pubDate>Fri, 09 Feb 2024 22:50:18 +0000</pubDate>
+    </item>
+    <item>
+      <title>CVE-2024-23322|2024-07-05T17:20:52.000Z -- envoyproxy -- envoy</title>
+      <link>https://www.cve.org/CVERecord?id=CVE-2024-23322</link>
+      <description>Envoy is a high-performance edge/middle/service proxy. Envoy will crash when certain timeouts happen within the same interval. The crash occurs when the following are true: 1. hedge_on_per_try_timeout is enabled, 2. per_try_idle_timeout is enabled (it can only be done in configuration), 3. per-try-timeout is enabled, either through headers or configuration and its value is equal, or within the backoff interval of the per_try_idle_timeout. This issue has been addressed in released 1.29.1, 1.28.1, 1.27.3, and 1.26.7. Users are advised to upgrade. There are no known workarounds for this vulnerability.</description>
+      <guid isPermaLink="false">CVE-2024-23322|2024-07-05T17:20:52.000Z</guid>
+      <pubDate>Fri, 09 Feb 2024 22:51:53 +0000</pubDate>
+    </item>
+    <item>
+      <title>CVE-2024-32974|2024-07-19T18:30:25.520Z -- envoyproxy -- envoy</title>
+      <link>https://www.cve.org/CVERecord?id=CVE-2024-32974</link>
+      <description>Envoy is a cloud-native, open source edge and service proxy. A crash was observed in `EnvoyQuicServerStream::OnInitialHeadersComplete()` with following call stack. It is a use-after-free caused by QUICHE continuing push request headers after `StopReading()` being called on the stream. As after `StopReading()`, the HCM's `ActiveStream` might have already be destroyed and any up calls from QUICHE could potentially cause use after free.</description>
+      <guid isPermaLink="false">CVE-2024-32974|2024-07-19T18:30:25.520Z</guid>
+      <pubDate>Tue, 04 Jun 2024 21:00:07 +0000</pubDate>
+    </item>
+    <item>
+      <title>CVE-2024-39305|2024-07-31T20:34:09.900Z -- envoyproxy -- envoy</title>
+      <link>https://www.cve.org/CVERecord?id=CVE-2024-39305</link>
+      <description>Envoy is a cloud-native, open source edge and service proxy. Prior to versions 1.30.4, 1.29.7, 1.28.5, and 1.27.7. Envoy references already freed memory when route hash policy is configured with cookie attributes. Note that this vulnerability has been fixed in the open as the effect would be immediately apparent if it was configured. Memory allocated for holding attribute values is freed after configuration was parsed. During request processing Envoy will attempt to copy content of de-allocated memory into request cookie header. This can lead to arbitrary content of Envoy's memory to be sent to the upstream service or abnormal process termination. This vulnerability is fixed in Envoy versions v1.30.4, v1.29.7, v1.28.5, and v1.27.7. As a workaround, do not use cookie attributes in route action hash policy.</description>
+      <guid isPermaLink="false">CVE-2024-39305|2024-07-31T20:34:09.900Z</guid>
+      <pubDate>Mon, 01 Jul 2024 21:10:23 +0000</pubDate>
+    </item>
+    <item>
+      <title>CVE-2024-27919|2024-08-02T00:41:55.832Z -- envoyproxy -- envoy</title>
+      <link>https://www.cve.org/CVERecord?id=CVE-2024-27919</link>
+      <description>Envoy is a cloud-native, open-source edge and service proxy. In versions 1.29.0 and 1.29.1, theEnvoy HTTP/2 protocol stack is vulnerable to the flood of CONTINUATION frames. Envoy's HTTP/2 codec does not reset a request when header map limits have been exceeded. This allows an attacker to send an sequence of CONTINUATION frames without the END_HEADERS bit set causing unlimited memory consumption. This can lead to denial of service through memory exhaustion. Users should upgrade to versions 1.29.2 to mitigate the effects of the CONTINUATION flood. Note that this vulnerability is a regression in Envoy version 1.29.0 and 1.29.1 only. As a workaround, downgrade to version 1.28.1 or earlier or disable HTTP/2 protocol for downstream connections.</description>
+      <guid isPermaLink="false">CVE-2024-27919|2024-08-02T00:41:55.832Z</guid>
+      <pubDate>Thu, 04 Apr 2024 14:30:11 +0000</pubDate>
+    </item>
+    <item>
+      <title>CVE-2024-34363|2024-08-02T02:51:11.160Z -- envoyproxy -- envoy</title>
+      <link>https://www.cve.org/CVERecord?id=CVE-2024-34363</link>
+      <description>Envoy is a cloud-native, open source edge and service proxy. Due to how Envoy invoked the nlohmann JSON library, the library could throw an uncaught exception from downstream data if incomplete UTF-8 strings were serialized. The uncaught exception would cause Envoy to crash.</description>
+      <guid isPermaLink="false">CVE-2024-34363|2024-08-02T02:51:11.160Z</guid>
+      <pubDate>Tue, 04 Jun 2024 20:59:52 +0000</pubDate>
+    </item>
+    <item>
+      <title>CVE-2024-32974|2024-08-02T02:27:53.474Z -- envoyproxy -- envoy</title>
+      <link>https://www.cve.org/CVERecord?id=CVE-2024-32974</link>
+      <description>Envoy is a cloud-native, open source edge and service proxy. A crash was observed in `EnvoyQuicServerStream::OnInitialHeadersComplete()` with following call stack. It is a use-after-free caused by QUICHE continuing push request headers after `StopReading()` being called on the stream. As after `StopReading()`, the HCM's `ActiveStream` might have already be destroyed and any up calls from QUICHE could potentially cause use after free.</description>
+      <guid isPermaLink="false">CVE-2024-32974|2024-08-02T02:27:53.474Z</guid>
+      <pubDate>Tue, 04 Jun 2024 21:00:07 +0000</pubDate>
+    </item>
+    <item>
+      <title>CVE-2024-32976|2024-08-02T02:27:53.632Z -- envoyproxy -- envoy</title>
+      <link>https://www.cve.org/CVERecord?id=CVE-2024-32976</link>
+      <description>Envoy is a cloud-native, open source edge and service proxy. Envoyproxy with a Brotli filter can get into an endless loop during decompression of Brotli data with extra input.</description>
+      <guid isPermaLink="false">CVE-2024-32976|2024-08-02T02:27:53.632Z</guid>
+      <pubDate>Tue, 04 Jun 2024 20:59:59 +0000</pubDate>
+    </item>
+    <item>
+      <title>CVE-2024-34362|2024-08-02T02:51:10.938Z -- envoyproxy -- envoy</title>
+      <link>https://www.cve.org/CVERecord?id=CVE-2024-34362</link>
+      <description>Envoy is a cloud-native, open source edge and service proxy. There is a use-after-free in `HttpConnectionManager` (HCM) with `EnvoyQuicServerStream` that can crash Envoy. An attacker can exploit this vulnerability by sending a request without `FIN`, then a `RESET_STREAM` frame, and then after receiving the response, closing the connection.</description>
+      <guid isPermaLink="false">CVE-2024-34362|2024-08-02T02:51:10.938Z</guid>
+      <pubDate>Tue, 04 Jun 2024 20:59:56 +0000</pubDate>
+    </item>
+    <item>
+      <title>CVE-2024-32975|2024-08-02T02:27:53.295Z -- envoyproxy -- envoy</title>
+      <link>https://www.cve.org/CVERecord?id=CVE-2024-32975</link>
+      <description>Envoy is a cloud-native, open source edge and service proxy. There is a crash at `QuicheDataReader::PeekVarInt62Length()`. It is caused by integer underflow in the `QuicStreamSequencerBuffer::PeekRegion()` implementation.</description>
+      <guid isPermaLink="false">CVE-2024-32975|2024-08-02T02:27:53.295Z</guid>
+      <pubDate>Tue, 04 Jun 2024 21:00:03 +0000</pubDate>
+    </item>
+    <item>
+      <title>CVE-2024-34364|2024-08-02T02:51:10.805Z -- envoyproxy -- envoy</title>
+      <link>https://www.cve.org/CVERecord?id=CVE-2024-34364</link>
+      <description>Envoy is a cloud-native, open source edge and service proxy. Envoy exposed an out-of-memory (OOM) vector from the mirror response, since async HTTP client will buffer the response with an unbounded buffer.</description>
+      <guid isPermaLink="false">CVE-2024-34364|2024-08-02T02:51:10.805Z</guid>
+      <pubDate>Tue, 04 Jun 2024 20:59:48 +0000</pubDate>
     </item>
   </channel>
 </rss>

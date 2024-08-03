@@ -6,19 +6,15 @@
     <description>The latest CVEs for typelevel -- all products</description>
     <docs>http://www.rssboard.org/rss-specification</docs>
     <generator>python-feedgen</generator>
-    <lastBuildDate>Fri, 02 Aug 2024 23:22:22 +0000</lastBuildDate>
+    <lastBuildDate>Sat, 03 Aug 2024 03:23:02 +0000</lastBuildDate>
     <ttl>60</ttl>
     <item>
-      <title>CVE-2023-50730|2024-08-02T22:16:47.266Z -- typelevel -- grackle
+      <title>CVE-2022-21653|2024-08-03T02:46:39.225Z -- typelevel -- jawn
 </title>
-      <link>https://www.cve.org/CVERecord?id=CVE-2023-50730</link>
-      <description>Grackle is a GraphQL server written in functional Scala, built on the Typelevel stack. The GraphQL specification requires that GraphQL fragments must not form cycles, either directly or indirectly. Prior to Grackle version 0.18.0, that requirement wasn't checked, and queries with cyclic fragments would have been accepted for type checking and compilation. The attempted compilation of such fragments would result in a JVM `StackOverflowError` being thrown. Some knowledge of an applications GraphQL schema would be required to construct such a query, however no knowledge of any application-specific performance or other behavioural characteristics would be needed.
-
-Grackle uses the cats-parse library for parsing GraphQL queries. Prior to version 0.18.0, Grackle made use of the cats-parse `recursive` operator. However, `recursive` is not currently stack safe. `recursive` was used in three places in the parser: nested selection sets, nested input values (lists and objects), and nested list type declarations. Consequently, queries with deeply nested selection sets, input values or list types could be constructed which exploited this, causing a JVM `StackOverflowException` to be thrown during parsing. Because this happens very early in query processing, no specific knowledge of an applications GraphQL schema would be required to construct such a query.
-
-The possibility of small queries resulting in stack overflow is a potential denial of service vulnerability. This potentially affects all applications using Grackle which have untrusted users. Both stack overflow issues have been resolved in the v0.18.0 release of Grackle. As a workaround, users could interpose a sanitizing layer in between untrusted input and Grackle query processing.</description>
-      <guid isPermaLink="false">CVE-2023-50730|2024-08-02T22:16:47.266Z</guid>
-      <pubDate>Fri, 22 Dec 2023 20:36:11 +0000</pubDate>
+      <link>https://www.cve.org/CVERecord?id=CVE-2022-21653</link>
+      <description>Jawn is an open source JSON parser. Extenders of the `org.typelevel.jawn.SimpleFacade` and `org.typelevel.jawn.MutableFacade` who don't override `objectContext()` are vulnerable to a hash collision attack which may result in a denial of service. Most applications do not implement these traits directly, but inherit from a library. `jawn-parser-1.3.1` fixes this issue and users are advised to upgrade. For users unable to upgrade override `objectContext()` to use a collision-safe collection.</description>
+      <guid isPermaLink="false">CVE-2022-21653|2024-08-03T02:46:39.225Z</guid>
+      <pubDate>Wed, 05 Jan 2022 21:00:12 +0000</pubDate>
     </item>
   </channel>
 </rss>

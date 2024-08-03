@@ -1,0 +1,20 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<rss xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/" version="2.0">
+  <channel>
+    <title>CVE Feed for prometheus -- client_golang</title>
+    <link>https://raw.githubusercontent.com/deepseas/cvelistV5monitor/main/feeds/prometheus/client_golang.rss</link>
+    <description>The latest CVEs for prometheus -- client_golang</description>
+    <docs>http://www.rssboard.org/rss-specification</docs>
+    <generator>python-feedgen</generator>
+    <lastBuildDate>Sat, 03 Aug 2024 03:22:56 +0000</lastBuildDate>
+    <ttl>60</ttl>
+    <item>
+      <title>CVE-2022-21698|2024-08-03T02:53:34.814Z -- prometheus -- client_golang
+</title>
+      <link>https://www.cve.org/CVERecord?id=CVE-2022-21698</link>
+      <description>client_golang is the instrumentation library for Go applications in Prometheus, and the promhttp package in client_golang provides tooling around HTTP servers and clients. In client_golang prior to version 1.11.1, HTTP server is susceptible to a Denial of Service through unbounded cardinality, and potential memory exhaustion, when handling requests with non-standard HTTP methods. In order to be affected, an instrumented software must use any of `promhttp.InstrumentHandler*` middleware except `RequestsInFlight`; not filter any specific methods (e.g GET) before middleware; pass metric with `method` label name to our middleware; and not have any firewall/LB/proxy that filters away requests with unknown `method`. client_golang version 1.11.1 contains a patch for this issue. Several workarounds are available, including removing the `method` label name from counter/gauge used in the InstrumentHandler; turning off affected promhttp handlers; adding custom middleware before promhttp handler that will sanitize the request method given by Go http.Request; and using a reverse proxy or web application firewall, configured to only allow a limited set of methods.</description>
+      <guid isPermaLink="false">CVE-2022-21698|2024-08-03T02:53:34.814Z</guid>
+      <pubDate>Tue, 15 Feb 2022 00:00:00 +0000</pubDate>
+    </item>
+  </channel>
+</rss>

@@ -6,16 +6,15 @@
     <description>The latest CVEs for micronaut-projects -- all products</description>
     <docs>http://www.rssboard.org/rss-specification</docs>
     <generator>python-feedgen</generator>
-    <lastBuildDate>Fri, 02 Aug 2024 23:22:28 +0000</lastBuildDate>
+    <lastBuildDate>Sat, 03 Aug 2024 03:23:04 +0000</lastBuildDate>
     <ttl>60</ttl>
     <item>
-      <title>CVE-2023-36820|2024-08-02T17:01:09.850Z -- micronaut-projects -- micronaut-security
+      <title>CVE-2022-21700|2024-08-03T02:53:34.717Z -- micronaut-projects -- micronaut-core
 </title>
-      <link>https://www.cve.org/CVERecord?id=CVE-2023-36820</link>
-      <description>Micronaut Security is a security solution for applications. Prior to versions 3.1.2, 3.2.4, 3.3.2, 3.4.3, 3.5.3, 3.6.6, 3.7.4, 3.8.4, 3.9.6, 3.10.2, and 3.11.1, IdTokenClaimsValidator skips `aud` claim validation if token is issued by same identity issuer/provider. Any OIDC setup using Micronaut where multiple OIDC applications exists for the same issuer but token auth are not meant to be shared. This issue has been patched in versions 3.1.2, 3.2.4, 3.3.2, 3.4.3, 3.5.3, 3.6.6, 3.7.4, 3.8.4, 3.9.6, 3.10.2, and 3.11.1.
-</description>
-      <guid isPermaLink="false">CVE-2023-36820|2024-08-02T17:01:09.850Z</guid>
-      <pubDate>Mon, 09 Oct 2023 13:30:26 +0000</pubDate>
+      <link>https://www.cve.org/CVERecord?id=CVE-2022-21700</link>
+      <description>Micronaut is a JVM-based, full stack Java framework designed for building JVM web applications with support for Java, Kotlin and the Groovy language. In affected versions sending an invalid Content Type header leads to memory leak in DefaultArgumentConversionContext as this type is erroneously used in static state. ### Impact Sending an invalid Content Type header leads to memory leak in `DefaultArgumentConversionContext` as this type is erroneously used in static state. ### Patches The problem is patched in Micronaut 3.2.7 and above. ### Workarounds The default content type binder can be replaced in an existing Micronaut application to mitigate the issue: ```java package example; import java.util.List; import io.micronaut.context.annotation.Replaces; import io.micronaut.core.convert.ConversionService; import io.micronaut.http.MediaType; import io.micronaut.http.bind.DefaultRequestBinderRegistry; import io.micronaut.http.bind.binders.RequestArgumentBinder; import jakarta.inject.Singleton; @Singleton @Replaces(DefaultRequestBinderRegistry.class) class FixedRequestBinderRegistry extends DefaultRequestBinderRegistry { public FixedRequestBinderRegistry(ConversionService conversionService, List&lt;RequestArgumentBinder&gt; binders) { super(conversionService, binders); } @Override protected void registerDefaultConverters(ConversionService&lt;?&gt; conversionService) { super.registerDefaultConverters(conversionService); conversionService.addConverter(CharSequence.class, MediaType.class, charSequence -&gt; { try { return MediaType.of(charSequence); } catch (IllegalArgumentException e) { return null; } }); } } ``` ### References Commit that introduced the vulnerability https://github.com/micronaut-projects/micronaut-core/commit/b8ec32c311689667c69ae7d9f9c3b3a8abc96fe3 ### For more information If you have any questions or comments about this advisory: * Open an issue in [Micronaut Core](https://github.com/micronaut-projects/micronaut-core/issues) * Email us at [info@micronaut.io](mailto:info@micronaut.io)</description>
+      <guid isPermaLink="false">CVE-2022-21700|2024-08-03T02:53:34.717Z</guid>
+      <pubDate>Tue, 18 Jan 2022 22:15:13 +0000</pubDate>
     </item>
     <item>
       <title>CVE-2024-23639|2024-06-04T17:46:04.323Z -- micronaut-projects -- micronaut-core</title>
