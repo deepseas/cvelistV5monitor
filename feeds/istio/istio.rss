@@ -6,63 +6,23 @@
     <description>The latest CVEs for istio -- istio</description>
     <docs>http://www.rssboard.org/rss-specification</docs>
     <generator>python-feedgen</generator>
-    <lastBuildDate>Sat, 03 Aug 2024 23:23:04 +0000</lastBuildDate>
+    <lastBuildDate>Sun, 04 Aug 2024 02:30:55 +0000</lastBuildDate>
     <ttl>60</ttl>
     <item>
-      <title>CVE-2022-21679|2024-08-03T02:46:39.336Z -- istio -- istio
+      <title>CVE-2021-39155|2024-08-04T01:58:18.140Z -- istio -- istio
 </title>
-      <link>https://www.cve.org/CVERecord?id=CVE-2022-21679</link>
-      <description>Istio is an open platform to connect, manage, and secure microservices. In Istio 1.12.0 and 1.12.1 The authorization policy with hosts and notHosts might be accidentally bypassed for ALLOW action or rejected unexpectedly for DENY action during the upgrade from 1.11 to 1.12.0/1.12.1. Istio 1.12 supports the hosts and notHosts fields in authorization policy with a new Envoy API shipped with the 1.12 data plane. A bug in the 1.12.0 and 1.12.1 incorrectly uses the new Envoy API with the 1.11 data plane. This will cause the hosts and notHosts fields to be always matched regardless of the actual value of the host header when mixing 1.12.0/1.12.1 control plane and 1.11 data plane. Users are advised to upgrade or to not mix the 1.12.0/1.12.1 control plane with 1.11 data plane if using hosts or notHosts field in authorization policy.</description>
-      <guid isPermaLink="false">CVE-2022-21679|2024-08-03T02:46:39.336Z</guid>
-      <pubDate>Wed, 19 Jan 2022 21:35:10 +0000</pubDate>
+      <link>https://www.cve.org/CVERecord?id=CVE-2021-39155</link>
+      <description>Istio is an open source platform for providing a uniform way to integrate microservices, manage traffic flow across microservices, enforce policies and aggregate telemetry data. According to [RFC 4343](https://datatracker.ietf.org/doc/html/rfc4343), Istio authorization policy should compare the hostname in the HTTP Host header in a case insensitive way, but currently the comparison is case sensitive. The proxy will route the request hostname in a case-insensitive way which means the authorization policy could be bypassed. As an example, the user may have an authorization policy that rejects request with hostname "httpbin.foo" for some source IPs, but the attacker can bypass this by sending the request with hostname "Httpbin.Foo". Patches are available in Istio 1.11.1, Istio 1.10.4 and Istio 1.9.8. As a work around a Lua filter may be written to normalize Host header before the authorization check. This is similar to the Path normalization presented in the [Security Best Practices](https://istio.io/latest/docs/ops/best-practices/security/#case-normalization) guide.</description>
+      <guid isPermaLink="false">CVE-2021-39155|2024-08-04T01:58:18.140Z</guid>
+      <pubDate>Tue, 24 Aug 2021 22:25:18 +0000</pubDate>
     </item>
     <item>
-      <title>CVE-2022-24726|2024-08-03T04:20:49.823Z -- istio -- istio
+      <title>CVE-2021-39156|2024-08-04T01:58:18.136Z -- istio -- istio
 </title>
-      <link>https://www.cve.org/CVERecord?id=CVE-2022-24726</link>
-      <description>Istio is an open platform to connect, manage, and secure microservices. In affected versions the Istio control plane, istiod, is vulnerable to a request processing error, allowing a malicious attacker that sends a specially crafted message which results in the control plane crashing when the validating webhook for a cluster is exposed publicly. This endpoint is served over TLS port 15017, but does not require any authentication from the attacker. For simple installations, Istiod is typically only reachable from within the cluster, limiting the blast radius. However, for some deployments, especially [external istiod](https://istio.io/latest/docs/setup/install/external-controlplane/) topologies, this port is exposed over the public internet. This issue has been patched in versions 1.13.2, 1.12.5 and 1.11.8. Users are advised to upgrade. Users unable to upgrade should disable access to a validating webhook that is exposed to the public internet or restrict the set of IP addresses that can query it to a set of known, trusted entities.</description>
-      <guid isPermaLink="false">CVE-2022-24726|2024-08-03T04:20:49.823Z</guid>
-      <pubDate>Thu, 10 Mar 2022 20:45:12 +0000</pubDate>
-    </item>
-    <item>
-      <title>CVE-2022-21701|2024-08-03T02:53:34.796Z -- istio -- istio
-</title>
-      <link>https://www.cve.org/CVERecord?id=CVE-2022-21701</link>
-      <description>Istio is an open platform to connect, manage, and secure microservices. In versions 1.12.0 and 1.12.1 Istio is vulnerable to a privilege escalation attack. Users who have `CREATE` permission for `gateways.gateway.networking.k8s.io` objects can escalate this privilege to create other resources that they may not have access to, such as `Pod`. This vulnerability impacts only an Alpha level feature, the Kubernetes Gateway API. This is not the same as the Istio Gateway type (gateways.networking.istio.io), which is not vulnerable. Users are advised to upgrade to resolve this issue. Users unable to upgrade should implement any of the following which will prevent this vulnerability: Remove the gateways.gateway.networking.k8s.io CustomResourceDefinition, set PILOT_ENABLE_GATEWAY_API_DEPLOYMENT_CONTROLLER=true environment variable in Istiod, or remove CREATE permissions for gateways.gateway.networking.k8s.io objects from untrusted users.</description>
-      <guid isPermaLink="false">CVE-2022-21701|2024-08-03T02:53:34.796Z</guid>
-      <pubDate>Wed, 19 Jan 2022 21:40:10 +0000</pubDate>
-    </item>
-    <item>
-      <title>CVE-2022-31045|2024-08-03T07:03:40.330Z -- istio -- istio
-</title>
-      <link>https://www.cve.org/CVERecord?id=CVE-2022-31045</link>
-      <description>Istio is an open platform to connect, manage, and secure microservices. In affected versions ill-formed headers sent to Envoy in certain configurations can lead to unexpected memory access resulting in undefined behavior or crashing. Users are most likely at risk if they have an Istio ingress Gateway exposed to external traffic. This vulnerability has been resolved in versions 1.12.8, 1.13.5, and 1.14.1. Users are advised to upgrade. There are no known workarounds for this issue.</description>
-      <guid isPermaLink="false">CVE-2022-31045|2024-08-03T07:03:40.330Z</guid>
-      <pubDate>Thu, 09 Jun 2022 20:55:10 +0000</pubDate>
-    </item>
-    <item>
-      <title>CVE-2022-23635|2024-08-03T03:51:45.891Z -- istio -- istio
-</title>
-      <link>https://www.cve.org/CVERecord?id=CVE-2022-23635</link>
-      <description>Istio is an open platform to connect, manage, and secure microservices. In affected versions the Istio control plane, `istiod`, is vulnerable to a request processing error, allowing a malicious attacker that sends a specially crafted message which results in the control plane crashing. This endpoint is served over TLS port 15012, but does not require any authentication from the attacker. For simple installations, Istiod is typically only reachable from within the cluster, limiting the blast radius. However, for some deployments, especially [multicluster](https://istio.io/latest/docs/setup/install/multicluster/primary-remote/) topologies, this port is exposed over the public internet. There are no effective workarounds, beyond upgrading. Limiting network access to Istiod to the minimal set of clients can help lessen the scope of the vulnerability to some extent.</description>
-      <guid isPermaLink="false">CVE-2022-23635|2024-08-03T03:51:45.891Z</guid>
-      <pubDate>Tue, 22 Feb 2022 22:00:13 +0000</pubDate>
-    </item>
-    <item>
-      <title>CVE-2022-39278|2024-08-03T12:00:43.519Z -- istio -- istio
-</title>
-      <link>https://www.cve.org/CVERecord?id=CVE-2022-39278</link>
-      <description>Istio is an open platform-independent service mesh that provides traffic management, policy enforcement, and telemetry collection. Prior to versions 1.15.2, 1.14.5, and 1.13.9, the Istio control plane, istiod, is vulnerable to a request processing error, allowing a malicious attacker that sends a specially crafted or oversized message which results in the control plane crashing when the Kubernetes validating or mutating webhook service is exposed publicly. This endpoint is served over TLS port 15017, but does not require any authentication from the attacker. For simple installations, Istiod is typically only reachable from within the cluster, limiting the blast radius. However, for some deployments, especially external istiod topologies, this port is exposed over the public internet. Versions 1.15.2, 1.14.5, and 1.13.9 contain patches for this issue. There are no effective workarounds, beyond upgrading. This bug is due to an error in `regexp.Compile` in Go.</description>
-      <guid isPermaLink="false">CVE-2022-39278|2024-08-03T12:00:43.519Z</guid>
-      <pubDate>Thu, 13 Oct 2022 00:00:00 +0000</pubDate>
-    </item>
-    <item>
-      <title>CVE-2022-39388|2024-08-03T12:07:41.233Z -- istio -- istio
-</title>
-      <link>https://www.cve.org/CVERecord?id=CVE-2022-39388</link>
-      <description>Istio is an open platform to connect, manage, and secure microservices. In versions on the 1.15.x branch prior to 1.15.3, a user can impersonate any workload identity within the service mesh if they have localhost access to the Istiod control plane. Version 1.15.3 contains a patch for this issue. There are no known workarounds.</description>
-      <guid isPermaLink="false">CVE-2022-39388|2024-08-03T12:07:41.233Z</guid>
-      <pubDate>Thu, 10 Nov 2022 00:00:00 +0000</pubDate>
+      <link>https://www.cve.org/CVERecord?id=CVE-2021-39156</link>
+      <description>Istio is an open source platform for providing a uniform way to integrate microservices, manage traffic flow across microservices, enforce policies and aggregate telemetry data. Istio 1.11.0, 1.10.3 and below, and 1.9.7 and below contain a remotely exploitable vulnerability where an HTTP request with `#fragment` in the path may bypass Istio’s URI path based authorization policies. Patches are available in Istio 1.11.1, Istio 1.10.4 and Istio 1.9.8. As a work around a Lua filter may be written to normalize the path.</description>
+      <guid isPermaLink="false">CVE-2021-39156|2024-08-04T01:58:18.136Z</guid>
+      <pubDate>Tue, 24 Aug 2021 22:30:12 +0000</pubDate>
     </item>
   </channel>
 </rss>

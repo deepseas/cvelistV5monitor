@@ -6,8 +6,16 @@
     <description>The latest CVEs for npm -- all products</description>
     <docs>http://www.rssboard.org/rss-specification</docs>
     <generator>python-feedgen</generator>
-    <lastBuildDate>Sun, 04 Aug 2024 01:47:46 +0000</lastBuildDate>
+    <lastBuildDate>Sun, 04 Aug 2024 02:30:54 +0000</lastBuildDate>
     <ttl>60</ttl>
+    <item>
+      <title>CVE-2021-39135|2024-08-04T01:58:18.069Z -- npm -- arborist
+</title>
+      <link>https://www.cve.org/CVERecord?id=CVE-2021-39135</link>
+      <description>`@npmcli/arborist`, the library that calculates dependency trees and manages the node_modules folder hierarchy for the npm command line interface, aims to guarantee that package dependency contracts will be met, and the extraction of package contents will always be performed into the expected folder. This is accomplished by extracting package contents into a project's `node_modules` folder. If the `node_modules` folder of the root project or any of its dependencies is somehow replaced with a symbolic link, it could allow Arborist to write package dependencies to any arbitrary location on the file system. Note that symbolic links contained within package artifact contents are filtered out, so another means of creating a `node_modules` symbolic link would have to be employed. 1. A `preinstall` script could replace `node_modules` with a symlink. (This is prevented by using `--ignore-scripts`.) 2. An attacker could supply the target with a git repository, instructing them to run `npm install --ignore-scripts` in the root. This may be successful, because `npm install --ignore-scripts` is typically not capable of making changes outside of the project directory, so it may be deemed safe. This is patched in @npmcli/arborist 2.8.2 which is included in npm v7.20.7 and above. For more information including workarounds please see the referenced GHSA-gmw6-94gg-2rc2.</description>
+      <guid isPermaLink="false">CVE-2021-39135|2024-08-04T01:58:18.069Z</guid>
+      <pubDate>Tue, 31 Aug 2021 17:10:10 +0000</pubDate>
+    </item>
     <item>
       <title>CVE-2021-37701|2024-08-04T01:23:01.526Z -- npm -- node-tar
 </title>
@@ -23,6 +31,14 @@
       <description>The npm package "tar" (aka node-tar) before versions 4.4.18, 5.0.10, and 6.1.9 has an arbitrary file creation/overwrite and arbitrary code execution vulnerability. node-tar aims to guarantee that any file whose location would be modified by a symbolic link is not extracted. This is, in part, achieved by ensuring that extracted directories are not symlinks. Additionally, in order to prevent unnecessary stat calls to determine whether a given path is a directory, paths are cached when directories are created. This logic was insufficient when extracting tar files that contained both a directory and a symlink with names containing unicode values that normalized to the same value. Additionally, on Windows systems, long path portions would resolve to the same file system entities as their 8.3 "short path" counterparts. A specially crafted tar archive could thus include a directory with one form of the path, followed by a symbolic link with a different string that resolves to the same file system entity, followed by a file using the first form. By first creating a directory, and then replacing that directory with a symlink that had a different apparent name that resolved to the same entry in the filesystem, it was thus possible to bypass node-tar symlink checks on directories, essentially allowing an untrusted tar file to symlink into an arbitrary location and subsequently extracting arbitrary files into that location, thus allowing arbitrary file creation and overwrite. These issues were addressed in releases 4.4.18, 5.0.10 and 6.1.9. The v3 branch of node-tar has been deprecated and did not receive patches for these issues. If you are still using a v3 release we recommend you update to a more recent version of node-tar. If this is not possible, a workaround is available in the referenced GHSA-qq89-hq3f-393p.</description>
       <guid isPermaLink="false">CVE-2021-37712|2024-08-04T01:23:01.507Z</guid>
       <pubDate>Tue, 31 Aug 2021 00:00:00 +0000</pubDate>
+    </item>
+    <item>
+      <title>CVE-2021-39134|2024-08-04T01:58:17.840Z -- npm -- arborist
+</title>
+      <link>https://www.cve.org/CVERecord?id=CVE-2021-39134</link>
+      <description>`@npmcli/arborist`, the library that calculates dependency trees and manages the `node_modules` folder hierarchy for the npm command line interface, aims to guarantee that package dependency contracts will be met, and the extraction of package contents will always be performed into the expected folder. This is, in part, accomplished by resolving dependency specifiers defined in `package.json` manifests for dependencies with a specific name, and nesting folders to resolve conflicting dependencies. When multiple dependencies differ only in the case of their name, Arborist's internal data structure saw them as separate items that could coexist within the same level in the `node_modules` hierarchy. However, on case-insensitive file systems (such as macOS and Windows), this is not the case. Combined with a symlink dependency such as `file:/some/path`, this allowed an attacker to create a situation in which arbitrary contents could be written to any location on the filesystem. For example, a package `pwn-a` could define a dependency in their `package.json` file such as `"foo": "file:/some/path"`. Another package, `pwn-b` could define a dependency such as `FOO: "file:foo.tgz"`. On case-insensitive file systems, if `pwn-a` was installed, and then `pwn-b` was installed afterwards, the contents of `foo.tgz` would be written to `/some/path`, and any existing contents of `/some/path` would be removed. Anyone using npm v7.20.6 or earlier on a case-insensitive filesystem is potentially affected. This is patched in @npmcli/arborist 2.8.2 which is included in npm v7.20.7 and above.</description>
+      <guid isPermaLink="false">CVE-2021-39134|2024-08-04T01:58:17.840Z</guid>
+      <pubDate>Tue, 31 Aug 2021 16:55:11 +0000</pubDate>
     </item>
     <item>
       <title>CVE-2021-37713|2024-08-04T01:23:01.533Z -- npm -- node-tar

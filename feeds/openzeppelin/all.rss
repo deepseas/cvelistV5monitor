@@ -6,77 +6,29 @@
     <description>The latest CVEs for OpenZeppelin -- all products</description>
     <docs>http://www.rssboard.org/rss-specification</docs>
     <generator>python-feedgen</generator>
-    <lastBuildDate>Sat, 03 Aug 2024 23:22:56 +0000</lastBuildDate>
+    <lastBuildDate>Sun, 04 Aug 2024 02:30:59 +0000</lastBuildDate>
     <ttl>60</ttl>
     <item>
-      <title>CVE-2022-35915|2024-08-03T09:44:22.215Z -- openzeppelin -- openzeppelin-contracts
+      <title>CVE-2021-39167|2024-08-04T01:58:18.229Z -- openzeppelin -- openzeppelin-contracts
 </title>
-      <link>https://www.cve.org/CVERecord?id=CVE-2022-35915</link>
-      <description>OpenZeppelin Contracts is a library for secure smart contract development. The target contract of an EIP-165 `supportsInterface` query can cause unbounded gas consumption by returning a lot of data, while it is generally assumed that this operation has a bounded cost. The issue has been fixed in v4.7.2. Users are advised to upgrade. There are no known workarounds for this issue.</description>
-      <guid isPermaLink="false">CVE-2022-35915|2024-08-03T09:44:22.215Z</guid>
-      <pubDate>Mon, 01 Aug 2022 21:05:11 +0000</pubDate>
+      <link>https://www.cve.org/CVERecord?id=CVE-2021-39167</link>
+      <description>OpenZepplin is a library for smart contract development. In affected versions a vulnerability in TimelockController allowed an actor with the executor role to escalate privileges. Further details about the vulnerability will be disclosed at a later date. As a workaround revoke the executor role from accounts not strictly under the team's control. We recommend revoking all executors that are not also proposers. When applying this mitigation, ensure there is at least one proposer and executor remaining.</description>
+      <guid isPermaLink="false">CVE-2021-39167|2024-08-04T01:58:18.229Z</guid>
+      <pubDate>Thu, 26 Aug 2021 23:35:16 +0000</pubDate>
     </item>
     <item>
-      <title>CVE-2022-31198|2024-08-03T07:11:39.767Z -- openzeppelin -- openzeppelin-contracts
+      <title>CVE-2021-39168|2024-08-04T01:58:18.167Z -- openzeppelin -- openzeppelin-contracts-upgradeable
 </title>
-      <link>https://www.cve.org/CVERecord?id=CVE-2022-31198</link>
-      <description>OpenZeppelin Contracts is a library for secure smart contract development. This issue concerns instances of Governor that use the module `GovernorVotesQuorumFraction`, a mechanism that determines quorum requirements as a percentage of the voting token's total supply. In affected instances, when a proposal is passed to lower the quorum requirements, past proposals may become executable if they had been defeated only due to lack of quorum, and the number of votes it received meets the new quorum requirement. Analysis of instances on chain found only one proposal that met this condition, and we are actively monitoring for new occurrences of this particular issue. This issue has been patched in v4.7.2. Users are advised to upgrade. Users unable to upgrade should consider avoiding lowering quorum requirements if a past proposal was defeated for lack of quorum.</description>
-      <guid isPermaLink="false">CVE-2022-31198|2024-08-03T07:11:39.767Z</guid>
-      <pubDate>Mon, 01 Aug 2022 21:00:17 +0000</pubDate>
+      <link>https://www.cve.org/CVERecord?id=CVE-2021-39168</link>
+      <description>OpenZepplin is a library for smart contract development. In affected versions a vulnerability in TimelockController allowed an actor with the executor role to escalate privileges. Further details about the vulnerability will be disclosed at a later date. As a workaround revoke the executor role from accounts not strictly under the team's control. We recommend revoking all executors that are not also proposers. When applying this mitigation, ensure there is at least one proposer and executor remaining.</description>
+      <guid isPermaLink="false">CVE-2021-39168|2024-08-04T01:58:18.167Z</guid>
+      <pubDate>Thu, 26 Aug 2021 23:35:11 +0000</pubDate>
     </item>
     <item>
-      <title>CVE-2022-35961|2024-08-03T09:51:59.403Z -- openzeppelin -- openzeppelin-contracts
-</title>
-      <link>https://www.cve.org/CVERecord?id=CVE-2022-35961</link>
-      <description>OpenZeppelin Contracts is a library for secure smart contract development. The functions `ECDSA.recover` and `ECDSA.tryRecover` are vulnerable to a kind of signature malleability due to accepting EIP-2098 compact signatures in addition to the traditional 65 byte signature format. This is only an issue for the functions that take a single `bytes` argument, and not the functions that take `r, v, s` or `r, vs` as separate arguments. The potentially affected contracts are those that implement signature reuse or replay protection by marking the signature itself as used rather than the signed message or a nonce included in it. A user may take a signature that has already been submitted, submit it again in a different form, and bypass this protection. The issue has been patched in 4.7.3.</description>
-      <guid isPermaLink="false">CVE-2022-35961|2024-08-03T09:51:59.403Z</guid>
-      <pubDate>Sun, 14 Aug 2022 00:05:09 +0000</pubDate>
-    </item>
-    <item>
-      <title>CVE-2022-39384|2024-08-03T12:07:41.237Z -- openzeppelin -- openzeppelin-contracts
-</title>
-      <link>https://www.cve.org/CVERecord?id=CVE-2022-39384</link>
-      <description>OpenZeppelin Contracts is a library for secure smart contract development. Before version 4.4.1 but after 3.2.0, initializer functions that are invoked separate from contract creation (the most prominent example being minimal proxies) may be reentered if they make an untrusted non-view external call. Once an initializer has finished running it can never be re-executed. However, an exception put in place to support multiple inheritance made reentrancy possible in the scenario described above, breaking the expectation that there is a single execution. Note that upgradeable proxies are commonly initialized together with contract creation, where reentrancy is not feasible, so the impact of this issue is believed to be minor. This issue has been patched, please upgrade to version 4.4.1. As a workaround, avoid untrusted external calls during initialization.</description>
-      <guid isPermaLink="false">CVE-2022-39384|2024-08-03T12:07:41.237Z</guid>
-      <pubDate>Fri, 04 Nov 2022 00:00:00 +0000</pubDate>
-    </item>
-    <item>
-      <title>CVE-2022-31153|2024-08-03T07:11:39.549Z -- openzeppelin -- cairo-contracts
-</title>
-      <link>https://www.cve.org/CVERecord?id=CVE-2022-31153</link>
-      <description>OpenZeppelin Contracts for Cairo is a library for contract development written in Cairo for StarkNet, a decentralized ZK Rollup. Version 0.2.0 is vulnerable to an error that renders account contracts unusable on live networks. This issue affects all accounts (vanilla and ethereum flavors) in the v0.2.0 release of OpenZeppelin Contracts for Cairo, which are not whitelisted on StarkNet mainnet. Only goerli deployments of v0.2.0 accounts are affected. This faulty behavior is not observed in StarkNet's testing framework. This bug has been patched in v0.2.1.</description>
-      <guid isPermaLink="false">CVE-2022-31153|2024-08-03T07:11:39.549Z</guid>
-      <pubDate>Fri, 15 Jul 2022 17:50:14 +0000</pubDate>
-    </item>
-    <item>
-      <title>CVE-2022-31170|2024-08-03T07:11:39.603Z -- openzeppelin -- openzeppelin-contracts
-</title>
-      <link>https://www.cve.org/CVERecord?id=CVE-2022-31170</link>
-      <description>OpenZeppelin Contracts is a library for smart contract development. Versions 4.0.0 until 4.7.1 are vulnerable to ERC165Checker reverting instead of returning `false`. `ERC165Checker.supportsInterface` is designed to always successfully return a boolean, and under no circumstance revert. However, an incorrect assumption about Solidity 0.8's `abi.decode` allows some cases to revert, given a target contract that doesn't implement EIP-165 as expected, specifically if it returns a value other than 0 or 1. The contracts that may be affected are those that use `ERC165Checker` to check for support for an interface and then handle the lack of support in a way other than reverting. The issue was patched in version 4.7.1.</description>
-      <guid isPermaLink="false">CVE-2022-31170|2024-08-03T07:11:39.603Z</guid>
-      <pubDate>Thu, 21 Jul 2022 14:00:18 +0000</pubDate>
-    </item>
-    <item>
-      <title>CVE-2022-31172|2024-08-03T07:11:39.637Z -- openzeppelin -- openzeppelin-contracts
-</title>
-      <link>https://www.cve.org/CVERecord?id=CVE-2022-31172</link>
-      <description>OpenZeppelin Contracts is a library for smart contract development. Versions 4.1.0 until 4.7.1 are vulnerable to the SignatureChecker reverting. `SignatureChecker.isValidSignatureNow` is not expected to revert. However, an incorrect assumption about Solidity 0.8's `abi.decode` allows some cases to revert, given a target contract that doesn't implement EIP-1271 as expected. The contracts that may be affected are those that use `SignatureChecker` to check the validity of a signature and handle invalid signatures in a way other than reverting. The issue was patched in version 4.7.1.</description>
-      <guid isPermaLink="false">CVE-2022-31172|2024-08-03T07:11:39.637Z</guid>
-      <pubDate>Thu, 21 Jul 2022 13:55:11 +0000</pubDate>
-    </item>
-    <item>
-      <title>CVE-2022-35916|2024-08-03T09:51:59.077Z -- openzeppelin -- openzeppelin-contracts
-</title>
-      <link>https://www.cve.org/CVERecord?id=CVE-2022-35916</link>
-      <description>OpenZeppelin Contracts is a library for secure smart contract development. Contracts using the cross chain utilities for Arbitrum L2, `CrossChainEnabledArbitrumL2` or `LibArbitrumL2`, will classify direct interactions of externally owned accounts (EOAs) as cross chain calls, even though they are not started on L1. This issue has been patched in v4.7.2. Users are advised to upgrade. There are no known workarounds for this issue.</description>
-      <guid isPermaLink="false">CVE-2022-35916|2024-08-03T09:51:59.077Z</guid>
-      <pubDate>Mon, 01 Aug 2022 21:00:30 +0000</pubDate>
-    </item>
-    <item>
-      <title>CVE-2024-27094|2024-02-29T18:18:24.721Z -- openzeppelin -- openzeppelin-contracts</title>
-      <link>https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2024-27094</link>
+      <title>CVE-2024-27094|2024-08-02T19:35:12.184Z -- openzeppelin -- openzeppelin-contracts</title>
+      <link>https://www.cve.org/CVERecord?id=CVE-2024-27094</link>
       <description>OpenZeppelin Contracts is a library for secure smart contract development. The `Base64.encode` function encodes a `bytes` input by iterating over it in chunks of 3 bytes. When this input is not a multiple of 3, the last iteration may read parts of the memory that are beyond the input buffer. The vulnerability is fixed in 5.0.2 and 4.9.6.</description>
-      <guid isPermaLink="false">CVE-2024-27094|2024-02-29T18:18:24.721Z</guid>
+      <guid isPermaLink="false">CVE-2024-27094|2024-08-02T19:35:12.184Z</guid>
       <pubDate>Thu, 29 Feb 2024 18:18:24 +0000</pubDate>
     </item>
     <item>
@@ -87,10 +39,10 @@
       <pubDate>Thu, 29 Feb 2024 18:18:24 +0000</pubDate>
     </item>
     <item>
-      <title>CVE-2024-27094|2024-08-02T19:35:12.184Z -- openzeppelin -- openzeppelin-contracts</title>
-      <link>https://www.cve.org/CVERecord?id=CVE-2024-27094</link>
+      <title>CVE-2024-27094|2024-02-29T18:18:24.721Z -- openzeppelin -- openzeppelin-contracts</title>
+      <link>https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2024-27094</link>
       <description>OpenZeppelin Contracts is a library for secure smart contract development. The `Base64.encode` function encodes a `bytes` input by iterating over it in chunks of 3 bytes. When this input is not a multiple of 3, the last iteration may read parts of the memory that are beyond the input buffer. The vulnerability is fixed in 5.0.2 and 4.9.6.</description>
-      <guid isPermaLink="false">CVE-2024-27094|2024-08-02T19:35:12.184Z</guid>
+      <guid isPermaLink="false">CVE-2024-27094|2024-02-29T18:18:24.721Z</guid>
       <pubDate>Thu, 29 Feb 2024 18:18:24 +0000</pubDate>
     </item>
   </channel>

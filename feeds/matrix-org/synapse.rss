@@ -6,113 +6,23 @@
     <description>The latest CVEs for matrix-org -- synapse</description>
     <docs>http://www.rssboard.org/rss-specification</docs>
     <generator>python-feedgen</generator>
-    <lastBuildDate>Sat, 03 Aug 2024 23:22:53 +0000</lastBuildDate>
+    <lastBuildDate>Sun, 04 Aug 2024 02:30:59 +0000</lastBuildDate>
     <ttl>60</ttl>
     <item>
-      <title>CVE-2021-21273|2024-08-03T18:09:15.293Z -- matrix-org -- synapse
+      <title>CVE-2021-39163|2024-08-04T01:58:18.227Z -- matrix-org -- synapse
 </title>
-      <link>https://www.cve.org/CVERecord?id=CVE-2021-21273</link>
-      <description>Synapse is a Matrix reference homeserver written in python (pypi package matrix-synapse). Matrix is an ecosystem for open federated Instant Messaging and VoIP. In Synapse before version 1.25.0, requests to user provided domains were not restricted to external IP addresses when calculating the key validity for third-party invite events and sending push notifications. This could cause Synapse to make requests to internal infrastructure. The type of request was not controlled by the user, although limited modification of request bodies was possible. For the most thorough protection server administrators should remove the deprecated `federation_ip_range_blacklist` from their settings after upgrading to Synapse v1.25.0 which will result in Synapse using the improved default IP address restrictions. See the new `ip_range_blacklist` and `ip_range_whitelist` settings if more specific control is necessary.</description>
-      <guid isPermaLink="false">CVE-2021-21273|2024-08-03T18:09:15.293Z</guid>
-      <pubDate>Fri, 26 Feb 2021 17:25:29 +0000</pubDate>
+      <link>https://www.cve.org/CVERecord?id=CVE-2021-39163</link>
+      <description>Matrix is an ecosystem for open federated Instant Messaging and Voice over IP. In versions 1.41.0 and prior, unauthorised users can access the name, avatar, topic and number of members of a room if they know the ID of the room. This vulnerability is limited to homeservers where the vulnerable homeserver is in the room and untrusted users are permitted to create groups (communities). By default, only homeserver administrators can create groups. However, homeserver administrators can already access this information in the database or using the admin API. As a result, only homeservers where the configuration setting `enable_group_creation` has been set to `true` are impacted. Server administrators should upgrade to 1.41.1 or higher to patch the vulnerability. There are two potential workarounds. Server administrators can set `enable_group_creation` to `false` in their homeserver configuration (this is the default value) to prevent creation of groups by non-administrators. Administrators that are using a reverse proxy could, with partial loss of group functionality, block the endpoints `/_matrix/client/r0/groups/{group_id}/rooms` and `/_matrix/client/unstable/groups/{group_id}/rooms`.</description>
+      <guid isPermaLink="false">CVE-2021-39163|2024-08-04T01:58:18.227Z</guid>
+      <pubDate>Tue, 31 Aug 2021 16:00:11 +0000</pubDate>
     </item>
     <item>
-      <title>CVE-2022-41952|2024-08-03T12:56:38.580Z -- matrix-org -- synapse
+      <title>CVE-2021-39164|2024-08-04T01:58:18.118Z -- matrix-org -- synapse
 </title>
-      <link>https://www.cve.org/CVERecord?id=CVE-2022-41952</link>
-      <description>Synapse before 1.52.0 with URL preview functionality enabled will attempt to generate URL previews for media stream URLs without properly limiting connection time. Connections will only be terminated after `max_spider_size` (default: 10M) bytes have been downloaded, which can in some cases lead to long-lived connections towards the streaming media server (for instance, Icecast). This can cause excessive traffic and connections toward such servers if their stream URL is, for example, posted to a large room with many Synapse instances with URL preview enabled. Version 1.52.0 implements a timeout mechanism which will terminate URL preview connections after 30 seconds. Since generating URL previews for media streams is not supported and always fails, 1.53.0 additionally implements an allow list for content types for which Synapse will even attempt to generate a URL preview. Upgrade to 1.53.0 to fully resolve the issue. As a workaround, turn off URL preview functionality by setting `url_preview_enabled: false` in the Synapse configuration file.</description>
-      <guid isPermaLink="false">CVE-2022-41952|2024-08-03T12:56:38.580Z</guid>
-      <pubDate>Tue, 22 Nov 2022 00:00:00 +0000</pubDate>
-    </item>
-    <item>
-      <title>CVE-2021-21274|2024-08-03T18:09:15.070Z -- matrix-org -- synapse
-</title>
-      <link>https://www.cve.org/CVERecord?id=CVE-2021-21274</link>
-      <description>Synapse is a Matrix reference homeserver written in python (pypi package matrix-synapse). Matrix is an ecosystem for open federated Instant Messaging and VoIP. In Synapse before version 1.25.0, a malicious homeserver could redirect requests to their .well-known file to a large file. This can lead to a denial of service attack where homeservers will consume significantly more resources when requesting the .well-known file of a malicious homeserver. This affects any server which accepts federation requests from untrusted servers. Issue is resolved in version 1.25.0. As a workaround the `federation_domain_whitelist` setting can be used to restrict the homeservers communicated with over federation.</description>
-      <guid isPermaLink="false">CVE-2021-21274|2024-08-03T18:09:15.070Z</guid>
-      <pubDate>Fri, 26 Feb 2021 17:25:16 +0000</pubDate>
-    </item>
-    <item>
-      <title>CVE-2021-21333|2024-08-03T18:09:15.578Z -- matrix-org -- synapse
-</title>
-      <link>https://www.cve.org/CVERecord?id=CVE-2021-21333</link>
-      <description>Synapse is a Matrix reference homeserver written in python (pypi package matrix-synapse). Matrix is an ecosystem for open federated Instant Messaging and VoIP. In Synapse before version 1.27.0, the notification emails sent for notifications for missed messages or for an expiring account are subject to HTML injection. In the case of the notification for missed messages, this could allow an attacker to insert forged content into the email. The account expiry feature is not enabled by default and the HTML injection is not controllable by an attacker. This is fixed in version 1.27.0.</description>
-      <guid isPermaLink="false">CVE-2021-21333|2024-08-03T18:09:15.578Z</guid>
-      <pubDate>Fri, 26 Mar 2021 20:00:19 +0000</pubDate>
-    </item>
-    <item>
-      <title>CVE-2022-39374|2024-08-03T12:00:44.179Z -- matrix-org -- synapse
-</title>
-      <link>https://www.cve.org/CVERecord?id=CVE-2022-39374</link>
-      <description>Synapse is an open-source Matrix homeserver written and maintained by the Matrix.org Foundation. If Synapse and a malicious homeserver are both joined to the same room, the malicious homeserver can trick Synapse into accepting previously rejected events into its view of the current state of that room. This can be exploited in a way that causes all further messages and state changes sent in that room from the vulnerable homeserver to be rejected. This issue has been patched in version 1.68.0
-
-</description>
-      <guid isPermaLink="false">CVE-2022-39374|2024-08-03T12:00:44.179Z</guid>
-      <pubDate>Fri, 26 May 2023 13:44:44 +0000</pubDate>
-    </item>
-    <item>
-      <title>CVE-2021-21394|2024-08-03T18:09:16.108Z -- matrix-org -- synapse
-</title>
-      <link>https://www.cve.org/CVERecord?id=CVE-2021-21394</link>
-      <description>Synapse is a Matrix reference homeserver written in python (pypi package matrix-synapse). Matrix is an ecosystem for open federated Instant Messaging and VoIP. In Synapse before version 1.28.0 Synapse is missing input validation of some parameters on the endpoints used to confirm third-party identifiers could cause excessive use of disk space and memory leading to resource exhaustion. Note that the groups feature is not part of the Matrix specification and the chosen maximum lengths are arbitrary. Not all clients might abide by them. Refer to referenced GitHub security advisory for additional details including workarounds.</description>
-      <guid isPermaLink="false">CVE-2021-21394|2024-08-03T18:09:16.108Z</guid>
-      <pubDate>Mon, 12 Apr 2021 20:45:18 +0000</pubDate>
-    </item>
-    <item>
-      <title>CVE-2021-21393|2024-08-03T18:09:15.986Z -- matrix-org -- synapse
-</title>
-      <link>https://www.cve.org/CVERecord?id=CVE-2021-21393</link>
-      <description>Synapse is a Matrix reference homeserver written in python (pypi package matrix-synapse). Matrix is an ecosystem for open federated Instant Messaging and VoIP. In Synapse before version 1.28.0 Synapse is missing input validation of some parameters on the endpoints used to confirm third-party identifiers could cause excessive use of disk space and memory leading to resource exhaustion. Note that the groups feature is not part of the Matrix specification and the chosen maximum lengths are arbitrary. Not all clients might abide by them. Refer to referenced GitHub security advisory for additional details including workarounds.</description>
-      <guid isPermaLink="false">CVE-2021-21393|2024-08-03T18:09:15.986Z</guid>
-      <pubDate>Mon, 12 Apr 2021 21:35:14 +0000</pubDate>
-    </item>
-    <item>
-      <title>CVE-2022-31052|2024-08-03T07:03:40.291Z -- matrix-org -- synapse
-</title>
-      <link>https://www.cve.org/CVERecord?id=CVE-2022-31052</link>
-      <description>Synapse is an open source home server implementation for the Matrix chat network. In versions prior to 1.61.1 URL previews of some web pages can exhaust the available stack space for the Synapse process due to unbounded recursion. This is sometimes recoverable and leads to an error for the request causing the problem, but in other cases the Synapse process may crash altogether. It is possible to exploit this maliciously, either by malicious users on the homeserver, or by remote users sending URLs that a local user's client may automatically request a URL preview for. Remote users are not able to exploit this directly, because the URL preview endpoint is authenticated. Deployments with `url_preview_enabled: false` set in configuration are not affected. Deployments with `url_preview_enabled: true` set in configuration **are** affected. Deployments with no configuration value set for `url_preview_enabled` are not affected, because the default is `false`. Administrators of homeservers with URL previews enabled are advised to upgrade to v1.61.1 or higher. Users unable to upgrade should set `url_preview_enabled` to false.</description>
-      <guid isPermaLink="false">CVE-2022-31052|2024-08-03T07:03:40.291Z</guid>
-      <pubDate>Tue, 28 Jun 2022 17:10:11 +0000</pubDate>
-    </item>
-    <item>
-      <title>CVE-2022-31152|2024-08-03T07:11:39.363Z -- matrix-org -- synapse
-</title>
-      <link>https://www.cve.org/CVERecord?id=CVE-2022-31152</link>
-      <description>Synapse is an open-source Matrix homeserver written and maintained by the Matrix.org Foundation. The Matrix specification specifies a list of [event authorization rules](https://spec.matrix.org/v1.2/rooms/v9/#authorization-rules) which must be checked when determining if an event should be accepted into a room. In versions of Synapse up to and including version 1.61.0, some of these rules are not correctly applied. An attacker could craft events which would be accepted by Synapse but not a spec-conformant server, potentially causing divergence in the room state between servers. Administrators of homeservers with federation enabled are advised to upgrade to version 1.62.0 or higher. Federation can be disabled by setting [`federation_domain_whitelist`](https://matrix-org.github.io/synapse/latest/usage/configuration/config_documentation.html#federation_domain_whitelist) to an empty list (`[]`) as a workaround.</description>
-      <guid isPermaLink="false">CVE-2022-31152|2024-08-03T07:11:39.363Z</guid>
-      <pubDate>Fri, 02 Sep 2022 20:00:16 +0000</pubDate>
-    </item>
-    <item>
-      <title>CVE-2022-39335|2024-08-03T12:00:44.102Z -- matrix-org -- synapse
-</title>
-      <link>https://www.cve.org/CVERecord?id=CVE-2022-39335</link>
-      <description>Synapse is an open-source Matrix homeserver written and maintained by the Matrix.org Foundation. The Matrix Federation API allows remote homeservers to request the authorization events in a room. This is necessary so that a homeserver receiving some events can validate that those events are legitimate and permitted in their room. However, in versions of Synapse up to and including 1.68.0, a Synapse homeserver answering a query for authorization events does not sufficiently check that the requesting server should be able to access them. The issue was patched in Synapse 1.69.0. Homeserver administrators are advised to upgrade.</description>
-      <guid isPermaLink="false">CVE-2022-39335|2024-08-03T12:00:44.102Z</guid>
-      <pubDate>Fri, 26 May 2023 13:36:56 +0000</pubDate>
-    </item>
-    <item>
-      <title>CVE-2021-21392|2024-08-03T18:09:15.930Z -- matrix-org -- synapse
-</title>
-      <link>https://www.cve.org/CVERecord?id=CVE-2021-21392</link>
-      <description>Synapse is a Matrix reference homeserver written in python (pypi package matrix-synapse). Matrix is an ecosystem for open federated Instant Messaging and VoIP. In Synapse before version 1.28.0 requests to user provided domains were not restricted to external IP addresses when transitional IPv6 addresses were used. Outbound requests to federation, identity servers, when calculating the key validity for third-party invite events, sending push notifications, and generating URL previews are affected. This could cause Synapse to make requests to internal infrastructure on dual-stack networks. See referenced GitHub security advisory for details and workarounds.</description>
-      <guid isPermaLink="false">CVE-2021-21392|2024-08-03T18:09:15.930Z</guid>
-      <pubDate>Mon, 12 Apr 2021 21:50:14 +0000</pubDate>
-    </item>
-    <item>
-      <title>CVE-2021-29471|2024-08-03T22:11:05.476Z -- matrix-org -- synapse
-</title>
-      <link>https://www.cve.org/CVERecord?id=CVE-2021-29471</link>
-      <description>Synapse is a Matrix reference homeserver written in python (pypi package matrix-synapse). Matrix is an ecosystem for open federated Instant Messaging and VoIP. In Synapse before version 1.33.2 "Push rules" can specify conditions under which they will match, including `event_match`, which matches event content against a pattern including wildcards. Certain patterns can cause very poor performance in the matching engine, leading to a denial-of-service when processing moderate length events. The issue is patched in version 1.33.2. A potential workaround might be to prevent users from making custom push rules, by blocking such requests at a reverse-proxy.</description>
-      <guid isPermaLink="false">CVE-2021-29471|2024-08-03T22:11:05.476Z</guid>
-      <pubDate>Tue, 11 May 2021 15:05:12 +0000</pubDate>
-    </item>
-    <item>
-      <title>CVE-2021-21332|2024-08-03T18:09:15.157Z -- matrix-org -- synapse
-</title>
-      <link>https://www.cve.org/CVERecord?id=CVE-2021-21332</link>
-      <description>Synapse is a Matrix reference homeserver written in python (pypi package matrix-synapse). Matrix is an ecosystem for open federated Instant Messaging and VoIP. In Synapse before version 1.27.0, the password reset endpoint served via Synapse was vulnerable to cross-site scripting (XSS) attacks. The impact depends on the configuration of the domain that Synapse is deployed on, but may allow access to cookies and other browser data, CSRF vulnerabilities, and access to other resources served on the same domain or parent domains. This is fixed in version 1.27.0.</description>
-      <guid isPermaLink="false">CVE-2021-21332|2024-08-03T18:09:15.157Z</guid>
-      <pubDate>Fri, 26 Mar 2021 19:55:17 +0000</pubDate>
+      <link>https://www.cve.org/CVERecord?id=CVE-2021-39164</link>
+      <description>Matrix is an ecosystem for open federated Instant Messaging and Voice over IP. In versions 1.41.0 and prior, unauthorised users can access the membership (list of members, with their display names) of a room if they know the ID of the room. The vulnerability is limited to rooms with `shared` history visibility. Furthermore, the unauthorised user must be using an account on a vulnerable homeserver that is in the room. Server administrators should upgrade to 1.41.1 or later in order to receive the patch. One workaround is available. Administrators of servers that use a reverse proxy could, with potentially unacceptable loss of functionality, block the endpoints: `/_matrix/client/r0/rooms/{room_id}/members` with `at` query parameter, and `/_matrix/client/unstable/rooms/{room_id}/members` with `at` query parameter.</description>
+      <guid isPermaLink="false">CVE-2021-39164|2024-08-04T01:58:18.118Z</guid>
+      <pubDate>Tue, 31 Aug 2021 16:20:10 +0000</pubDate>
     </item>
   </channel>
 </rss>

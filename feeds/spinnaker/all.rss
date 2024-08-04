@@ -6,17 +6,15 @@
     <description>The latest CVEs for spinnaker -- all products</description>
     <docs>http://www.rssboard.org/rss-specification</docs>
     <generator>python-feedgen</generator>
-    <lastBuildDate>Sat, 03 Aug 2024 23:23:06 +0000</lastBuildDate>
+    <lastBuildDate>Sun, 04 Aug 2024 02:30:59 +0000</lastBuildDate>
     <ttl>60</ttl>
     <item>
-      <title>CVE-2022-23506|2024-08-03T03:43:46.553Z -- spinnaker -- spinnaker
+      <title>CVE-2021-39143|2024-08-04T01:58:18.142Z -- spinnaker -- spinnaker
 </title>
-      <link>https://www.cve.org/CVERecord?id=CVE-2022-23506</link>
-      <description>Spinnaker is an open source, multi-cloud continuous delivery platform for releasing software changes, and Spinnaker's Rosco microservice produces machine images. Rosco prior to versions 1.29.2, 1.28.4, and 1.27.3 does not property mask secrets generated via packer builds.  This can lead to exposure of sensitive AWS credentials in packer log files. Versions 1.29.2, 1.28.4, and 1.27.3 of Rosco contain fixes for this issue.
-
-A workaround is available. It's recommended to use short lived credentials via role assumption and IAM profiles. Additionally, credentials can be set in `/home/spinnaker/.aws/credentials` and `/home/spinnaker/.aws/config` as a volume mount for Rosco pods vs. setting credentials in roscos bake config properties. Last even with those it's recommend to use IAM Roles vs. long lived credentials. This drastically mitigates the risk of credentials exposure. If users have used static credentials, it's recommended to purge any bake logs for AWS, evaluate whether AWS_ACCESS_KEY, SECRET_KEY and/or other sensitive data has been introduced in log files and bake job logs. Then, rotate these credentials and evaluate potential improper use of those credentials.</description>
-      <guid isPermaLink="false">CVE-2022-23506|2024-08-03T03:43:46.553Z</guid>
-      <pubDate>Tue, 03 Jan 2023 20:04:25 +0000</pubDate>
+      <link>https://www.cve.org/CVERecord?id=CVE-2021-39143</link>
+      <description>Spinnaker is an open source, multi-cloud continuous delivery platform. A path traversal vulnerability was discovered in uses of TAR files by AppEngine for deployments. This uses a utility to extract files locally for deployment without validating the paths in that deployment don't override system files. This would allow an attacker to override files on the container, POTENTIALLY introducing a MITM type attack vector by replacing libraries or injecting wrapper files. Users are advised to update as soon as possible. For users unable to update disable Google AppEngine deployments and/or disable artifacts that provide TARs.</description>
+      <guid isPermaLink="false">CVE-2021-39143|2024-08-04T01:58:18.142Z</guid>
+      <pubDate>Tue, 04 Jan 2022 17:25:10 +0000</pubDate>
     </item>
   </channel>
 </rss>

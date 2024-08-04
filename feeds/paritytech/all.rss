@@ -6,39 +6,15 @@
     <description>The latest CVEs for paritytech -- all products</description>
     <docs>http://www.rssboard.org/rss-specification</docs>
     <generator>python-feedgen</generator>
-    <lastBuildDate>Sat, 03 Aug 2024 23:23:03 +0000</lastBuildDate>
+    <lastBuildDate>Sun, 04 Aug 2024 02:30:59 +0000</lastBuildDate>
     <ttl>60</ttl>
     <item>
-      <title>CVE-2022-21685|2024-08-03T02:46:39.539Z -- paritytech -- frontier
+      <title>CVE-2021-39193|2024-08-04T01:58:18.337Z -- paritytech -- frontier
 </title>
-      <link>https://www.cve.org/CVERecord?id=CVE-2022-21685</link>
-      <description>Frontier is Substrate's Ethereum compatibility layer. Prior to commit number `8a93fdc6c9f4eb1d2f2a11b7ff1d12d70bf5a664`, a bug in Frontier's MODEXP precompile implementation can cause an integer underflow in certain conditions. This will cause a node crash for debug builds. For release builds (and production WebAssembly binaries), the impact is limited as it can only cause a normal EVM out-of-gas. Users who do not use MODEXP precompile in their runtime are not impacted. A patch is available in pull request #549.</description>
-      <guid isPermaLink="false">CVE-2022-21685|2024-08-03T02:46:39.539Z</guid>
-      <pubDate>Fri, 14 Jan 2022 17:05:11 +0000</pubDate>
-    </item>
-    <item>
-      <title>CVE-2022-36008|2024-08-03T09:51:59.842Z -- paritytech -- frontier
-</title>
-      <link>https://www.cve.org/CVERecord?id=CVE-2022-36008</link>
-      <description>Frontier is Substrate's Ethereum compatibility layer. A security issue was discovered affecting parsing of the RPC result of the exit reason in case of EVM reversion. In release build, this would cause the exit reason being incorrectly parsed and returned by RPC. In debug build, this would cause an overflow panic. No action is needed unless you have a bridge node that needs to distinguish different reversion exit reasons and you used RPC for this. There are currently no known workarounds.</description>
-      <guid isPermaLink="false">CVE-2022-36008|2024-08-03T09:51:59.842Z</guid>
-      <pubDate>Fri, 19 Aug 2022 20:25:10 +0000</pubDate>
-    </item>
-    <item>
-      <title>CVE-2022-31111|2024-08-03T07:11:39.493Z -- paritytech -- frontier
-</title>
-      <link>https://www.cve.org/CVERecord?id=CVE-2022-31111</link>
-      <description>Frontier is Substrate's Ethereum compatibility layer. In affected versions the truncation done when converting between EVM balance type and Substrate balance type was incorrectly implemented. This leads to possible discrepancy between appeared EVM transfer value and actual Substrate value transferred. It is recommended that an emergency upgrade to be planned and EVM execution temporarily paused in the mean time. The issue is patched in Frontier master branch commit fed5e0a9577c10bea021721e8c2c5c378e16bf66 and polkadot-v0.9.22 branch commit e3e427fa2e5d1200a784679f8015d4774cedc934. This vulnerability affects only EVM internal states, but not Substrate balance states or node. You can temporarily pause EVM execution (by setting up a Substrate `CallFilter` that disables `pallet-evm` and `pallet-ethereum` calls before the patch can be applied.</description>
-      <guid isPermaLink="false">CVE-2022-31111|2024-08-03T07:11:39.493Z</guid>
-      <pubDate>Wed, 06 Jul 2022 17:15:14 +0000</pubDate>
-    </item>
-    <item>
-      <title>CVE-2022-39242|2024-08-03T12:00:43.623Z -- paritytech -- frontier
-</title>
-      <link>https://www.cve.org/CVERecord?id=CVE-2022-39242</link>
-      <description>Frontier is an Ethereum compatibility layer for Substrate. Prior to commit d3beddc6911a559a3ecc9b3f08e153dbe37a8658, the worst case weight was always accounted as the block weight for all cases. In case of large EVM gas refunds, this can lead to block spamming attacks -- the adversary can construct blocks with transactions that have large amount of refunds or unused gases with reverts, and as a result inflate up the chain gas prices. The impact of this issue is limited in that the spamming attack would still be costly for any adversary, and it has no ability to alter any chain state. This issue has been patched in commit d3beddc6911a559a3ecc9b3f08e153dbe37a8658. There are no known workarounds.</description>
-      <guid isPermaLink="false">CVE-2022-39242|2024-08-03T12:00:43.623Z</guid>
-      <pubDate>Sat, 24 Sep 2022 01:25:09 +0000</pubDate>
+      <link>https://www.cve.org/CVERecord?id=CVE-2021-39193</link>
+      <description>Frontier is Substrate's Ethereum compatibility layer. Prior to commit number 0b962f218f0cdd796dadfe26c3f09e68f7861b26, a bug in `pallet-ethereum` can cause invalid transactions to be included in the Ethereum block state in `pallet-ethereum` due to not validating the input data size. Any invalid transactions included this way have no possibility to alter the internal Ethereum or Substrate state. The transaction will appear to have be included, but is of no effect as it is rejected by the EVM engine. The impact is further limited by Substrate extrinsic size constraints. A patch is available in commit number 0b962f218f0cdd796dadfe26c3f09e68f7861b26. There are no workarounds aside from applying the patch.</description>
+      <guid isPermaLink="false">CVE-2021-39193|2024-08-04T01:58:18.337Z</guid>
+      <pubDate>Fri, 03 Sep 2021 17:45:11 +0000</pubDate>
     </item>
   </channel>
 </rss>

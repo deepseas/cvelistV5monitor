@@ -6,23 +6,15 @@
     <description>The latest CVEs for http4s -- all products</description>
     <docs>http://www.rssboard.org/rss-specification</docs>
     <generator>python-feedgen</generator>
-    <lastBuildDate>Sat, 03 Aug 2024 23:23:18 +0000</lastBuildDate>
+    <lastBuildDate>Sun, 04 Aug 2024 02:31:00 +0000</lastBuildDate>
     <ttl>60</ttl>
     <item>
-      <title>CVE-2021-21293|2024-08-03T18:09:15.127Z -- http4s -- blaze
+      <title>CVE-2021-39185|2024-08-04T01:58:18.235Z -- http4s -- http4s
 </title>
-      <link>https://www.cve.org/CVERecord?id=CVE-2021-21293</link>
-      <description>blaze is a Scala library for building asynchronous pipelines, with a focus on network IO. All servers running blaze-core before version 0.14.15 are affected by a vulnerability in which unbounded connection acceptance leads to file handle exhaustion. Blaze, accepts connections unconditionally on a dedicated thread pool. This has the net effect of amplifying degradation in services that are unable to handle their current request load, since incoming connections are still accepted and added to an unbounded queue. Each connection allocates a socket handle, which drains a scarce OS resource. This can also confound higher level circuit breakers which work based on detecting failed connections. The vast majority of affected users are using it as part of http4s-blaze-server &lt;= 0.21.16. http4s provides a mechanism for limiting open connections, but is enforced inside the Blaze accept loop, after the connection is accepted and the socket opened. Thus, the limit only prevents the number of connections which can be simultaneously processed, not the number of connections which can be held open. The issue is fixed in version 0.14.15 for "NIO1SocketServerGroup". A "maxConnections" parameter is added, with a default value of 512. Concurrent connections beyond this limit are rejected. To run unbounded, which is not recommended, set a negative number. The "NIO2SocketServerGroup" has no such setting and is now deprecated. There are several possible workarounds described in the refrenced GitHub Advisory GHSA-xmw9-q7x9-j5qc.</description>
-      <guid isPermaLink="false">CVE-2021-21293|2024-08-03T18:09:15.127Z</guid>
-      <pubDate>Tue, 02 Feb 2021 21:35:17 +0000</pubDate>
-    </item>
-    <item>
-      <title>CVE-2021-21294|2024-08-03T18:09:15.169Z -- http4s -- http4s
-</title>
-      <link>https://www.cve.org/CVERecord?id=CVE-2021-21294</link>
-      <description>Http4s (http4s-blaze-server) is a minimal, idiomatic Scala interface for HTTP services. Http4s before versions 0.21.17, 0.22.0-M2, and 1.0.0-M14 have a vulnerability which can lead to a denial-of-service. Blaze-core, a library underlying http4s-blaze-server, accepts connections unboundedly on its selector pool. This has the net effect of amplifying degradation in services that are unable to handle their current request load, since incoming connections are still accepted and added to an unbounded queue. Each connection allocates a socket handle, which drains a scarce OS resource. This can also confound higher level circuit breakers which work based on detecting failed connections. http4s provides a general "MaxActiveRequests" middleware mechanism for limiting open connections, but it is enforced inside the Blaze accept loop, after the connection is accepted and the socket opened. Thus, the limit only prevents the number of connections which can be simultaneously processed, not the number of connections which can be held open. In 0.21.17, 0.22.0-M2, and 1.0.0-M14, a new "maxConnections" property, with a default value of 1024, has been added to the `BlazeServerBuilder`. Setting the value to a negative number restores unbounded behavior, but is strongly disrecommended. The NIO2 backend does not respect `maxConnections`. Its use is now deprecated in http4s-0.21, and the option is removed altogether starting in http4s-0.22. There are several possible workarounds described in the refrenced GitHub Advisory GHSA-xhv5-w9c5-2r2w.</description>
-      <guid isPermaLink="false">CVE-2021-21294|2024-08-03T18:09:15.169Z</guid>
-      <pubDate>Tue, 02 Feb 2021 21:40:19 +0000</pubDate>
+      <link>https://www.cve.org/CVERecord?id=CVE-2021-39185</link>
+      <description>Http4s is a minimal, idiomatic Scala interface for HTTP services. In http4s versions 0.21.26 and prior, 0.22.0 through 0.22.2, 0.23.0, 0.23.1, and 1.0.0-M1 through 1.0.0-M24, the default CORS configuration is vulnerable to an origin reflection attack. The middleware is also susceptible to a Null Origin Attack. The problem is fixed in 0.21.27, 0.22.3, 0.23.2, and 1.0.0-M25. The original `CORS` implementation and `CORSConfig` are deprecated. See the GitHub GHSA for more information, including code examples and workarounds.</description>
+      <guid isPermaLink="false">CVE-2021-39185|2024-08-04T01:58:18.235Z</guid>
+      <pubDate>Wed, 01 Sep 2021 19:25:09 +0000</pubDate>
     </item>
   </channel>
 </rss>

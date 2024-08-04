@@ -1,0 +1,28 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<rss xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/" version="2.0">
+  <channel>
+    <title>CVE Feed for npm -- arborist</title>
+    <link>https://raw.githubusercontent.com/deepseas/cvelistV5monitor/main/feeds/npm/arborist.rss</link>
+    <description>The latest CVEs for npm -- arborist</description>
+    <docs>http://www.rssboard.org/rss-specification</docs>
+    <generator>python-feedgen</generator>
+    <lastBuildDate>Sun, 04 Aug 2024 02:30:59 +0000</lastBuildDate>
+    <ttl>60</ttl>
+    <item>
+      <title>CVE-2021-39135|2024-08-04T01:58:18.069Z -- npm -- arborist
+</title>
+      <link>https://www.cve.org/CVERecord?id=CVE-2021-39135</link>
+      <description>`@npmcli/arborist`, the library that calculates dependency trees and manages the node_modules folder hierarchy for the npm command line interface, aims to guarantee that package dependency contracts will be met, and the extraction of package contents will always be performed into the expected folder. This is accomplished by extracting package contents into a project's `node_modules` folder. If the `node_modules` folder of the root project or any of its dependencies is somehow replaced with a symbolic link, it could allow Arborist to write package dependencies to any arbitrary location on the file system. Note that symbolic links contained within package artifact contents are filtered out, so another means of creating a `node_modules` symbolic link would have to be employed. 1. A `preinstall` script could replace `node_modules` with a symlink. (This is prevented by using `--ignore-scripts`.) 2. An attacker could supply the target with a git repository, instructing them to run `npm install --ignore-scripts` in the root. This may be successful, because `npm install --ignore-scripts` is typically not capable of making changes outside of the project directory, so it may be deemed safe. This is patched in @npmcli/arborist 2.8.2 which is included in npm v7.20.7 and above. For more information including workarounds please see the referenced GHSA-gmw6-94gg-2rc2.</description>
+      <guid isPermaLink="false">CVE-2021-39135|2024-08-04T01:58:18.069Z</guid>
+      <pubDate>Tue, 31 Aug 2021 17:10:10 +0000</pubDate>
+    </item>
+    <item>
+      <title>CVE-2021-39134|2024-08-04T01:58:17.840Z -- npm -- arborist
+</title>
+      <link>https://www.cve.org/CVERecord?id=CVE-2021-39134</link>
+      <description>`@npmcli/arborist`, the library that calculates dependency trees and manages the `node_modules` folder hierarchy for the npm command line interface, aims to guarantee that package dependency contracts will be met, and the extraction of package contents will always be performed into the expected folder. This is, in part, accomplished by resolving dependency specifiers defined in `package.json` manifests for dependencies with a specific name, and nesting folders to resolve conflicting dependencies. When multiple dependencies differ only in the case of their name, Arborist's internal data structure saw them as separate items that could coexist within the same level in the `node_modules` hierarchy. However, on case-insensitive file systems (such as macOS and Windows), this is not the case. Combined with a symlink dependency such as `file:/some/path`, this allowed an attacker to create a situation in which arbitrary contents could be written to any location on the filesystem. For example, a package `pwn-a` could define a dependency in their `package.json` file such as `"foo": "file:/some/path"`. Another package, `pwn-b` could define a dependency such as `FOO: "file:foo.tgz"`. On case-insensitive file systems, if `pwn-a` was installed, and then `pwn-b` was installed afterwards, the contents of `foo.tgz` would be written to `/some/path`, and any existing contents of `/some/path` would be removed. Anyone using npm v7.20.6 or earlier on a case-insensitive filesystem is potentially affected. This is patched in @npmcli/arborist 2.8.2 which is included in npm v7.20.7 and above.</description>
+      <guid isPermaLink="false">CVE-2021-39134|2024-08-04T01:58:17.840Z</guid>
+      <pubDate>Tue, 31 Aug 2021 16:55:11 +0000</pubDate>
+    </item>
+  </channel>
+</rss>

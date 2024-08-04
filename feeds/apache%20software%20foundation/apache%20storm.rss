@@ -6,32 +6,15 @@
     <description>The latest CVEs for Apache Software Foundation -- Apache Storm</description>
     <docs>http://www.rssboard.org/rss-specification</docs>
     <generator>python-feedgen</generator>
-    <lastBuildDate>Fri, 02 Aug 2024 23:22:16 +0000</lastBuildDate>
+    <lastBuildDate>Sun, 04 Aug 2024 02:31:00 +0000</lastBuildDate>
     <ttl>60</ttl>
     <item>
-      <title>CVE-2023-43123|2024-08-02T19:37:23.396Z -- apache%20software%20foundation -- apache%20storm
+      <title>CVE-2021-38294|2024-08-04T01:37:16.384Z -- apache%20software%20foundation -- apache%20storm
 </title>
-      <link>https://www.cve.org/CVERecord?id=CVE-2023-43123</link>
-      <description>On unix-like systems, the temporary directory is shared between all user. As such, writing to this directory using APIs that do not explicitly set the file/directory permissions can lead to information disclosure. Of note, this does not impact modern MacOS Operating Systems.
-
-The method File.createTempFile on unix-like systems creates a file with predefined name (so easily identifiable) and by default will create this file with the permissions -rw-r--r--. Thus, if sensitive information is written to this file, other local users can read this information.
-
-File.createTempFile(String, String) will create a temporary file in the system temporary directory if the 'java.io.tmpdir' system property is not explicitly set. 
-
-This affects the class  https://github.com/apache/storm/blob/master/storm-core/src/jvm/org/apache/storm/utils/TopologySpoutLag.java#L99  and was introduced by  https://issues.apache.org/jira/browse/STORM-3123 
-
-In practice, this has a very limited impact as this class is used only if ui.disable.spout.lag.monitoring
-
- is set to false, but its value is true by default.
-Moreover, the temporary file gets deleted soon after its creation.
-
-The solution is to use  Files.createTempFile https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/nio/file/Files.html#createTempFile(java.lang.String,java.lang.String,java.nio.file.attribute.FileAttribute...)  instead.
-
-We recommend that all users upgrade to the latest version of Apache Storm.
-
-</description>
-      <guid isPermaLink="false">CVE-2023-43123|2024-08-02T19:37:23.396Z</guid>
-      <pubDate>Thu, 23 Nov 2023 09:16:34 +0000</pubDate>
+      <link>https://www.cve.org/CVERecord?id=CVE-2021-38294</link>
+      <description>A Command Injection vulnerability exists in the getTopologyHistory service of the Apache Storm 2.x prior to 2.2.1 and Apache Storm 1.x prior to 1.2.4. A specially crafted thrift request to the Nimbus server allows Remote Code Execution (RCE) prior to authentication.</description>
+      <guid isPermaLink="false">CVE-2021-38294|2024-08-04T01:37:16.384Z</guid>
+      <pubDate>Mon, 25 Oct 2021 12:22:36 +0000</pubDate>
     </item>
   </channel>
 </rss>
