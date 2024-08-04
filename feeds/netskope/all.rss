@@ -6,16 +6,16 @@
     <description>The latest CVEs for Netskope -- all products</description>
     <docs>http://www.rssboard.org/rss-specification</docs>
     <generator>python-feedgen</generator>
-    <lastBuildDate>Sat, 03 Aug 2024 23:23:22 +0000</lastBuildDate>
+    <lastBuildDate>Sun, 04 Aug 2024 05:22:10 +0000</lastBuildDate>
     <ttl>60</ttl>
     <item>
-      <title>CVE-2022-4149|2024-08-03T01:27:54.588Z -- netskope -- netskope%20client
+      <title>CVE-2021-44862|2024-08-04T04:32:13.203Z -- netskope -- nsclient
 </title>
-      <link>https://www.cve.org/CVERecord?id=CVE-2022-4149</link>
-      <description>The Netskope client service (prior to R96) on Windows runs as NT AUTHORITY\SYSTEM which writes log files to a writable directory (C:\Users\Public\netSkope) for a standard user. The files are created and written with a SYSTEM account except one file (logplaceholder) which inherits permission giving all users full access control list. Netskope client restricts access to this file by allowing only read permissions as a standard user. Whenever the Netskope client service restarts, it deletes the logplaceholder and recreates, creating a race condition, which can be exploited by a malicious local user to create the file and set ACL permissions on the file. Once the file is created by a malicious user with proper ACL permissions, all files within C:\Users\Public\netSkope\ becomes modifiable by the unprivileged user. By using Windows pseudo-symlink, these files can be pointed to other places in the system and thus malicious users will be able to elevate privileges.
+      <link>https://www.cve.org/CVERecord?id=CVE-2021-44862</link>
+      <description>Netskope client is impacted by a vulnerability where an authenticated, local attacker can view sensitive information stored in NSClient logs which should be restricted. The vulnerability exists because the sensitive information is not masked/scrubbed before writing in the logs. A malicious user can use the sensitive information to download data and impersonate another user.
 </description>
-      <guid isPermaLink="false">CVE-2022-4149|2024-08-03T01:27:54.588Z</guid>
-      <pubDate>Thu, 15 Jun 2023 06:44:25 +0000</pubDate>
+      <guid isPermaLink="false">CVE-2021-44862|2024-08-04T04:32:13.203Z</guid>
+      <pubDate>Thu, 03 Nov 2022 19:20:41 +0000</pubDate>
     </item>
   </channel>
 </rss>
