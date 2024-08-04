@@ -1,0 +1,20 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<rss xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/" version="2.0">
+  <channel>
+    <title>CVE Feed for Cisco -- DUO Connect</title>
+    <link>https://raw.githubusercontent.com/deepseas/cvelistV5monitor/main/feeds/cisco/duo%20connect.rss</link>
+    <description>The latest CVEs for Cisco -- DUO Connect</description>
+    <docs>http://www.rssboard.org/rss-specification</docs>
+    <generator>python-feedgen</generator>
+    <lastBuildDate>Sun, 04 Aug 2024 08:23:56 +0000</lastBuildDate>
+    <ttl>60</ttl>
+    <item>
+      <title>CVE-2020-3442|2024-08-04T07:37:54.411Z -- cisco -- duo%20connect
+</title>
+      <link>https://www.cve.org/CVERecord?id=CVE-2020-3442</link>
+      <description>The DuoConnect client enables users to establish SSH connections to hosts protected by a DNG instance. When a user initiates an SSH connection to a DNG-protected host for the first time using DuoConnect, the user’s browser is opened to a login screen in order to complete authentication determined by the contents of the '-relay' argument. If the ‘-relay’ is set to a URL beginning with "http://", then the browser will initially attempt to load the URL over an insecure HTTP connection, before being immediately redirected to HTTPS (in addition to standard redirect mechanisms, the DNG uses HTTP Strict Transport Security headers to enforce this). After successfully authenticating to a DNG, DuoConnect stores an authentication token in a local system cache, so users do not have to complete this browser-based authentication workflow for every subsequent SSH connection. These tokens are valid for a configurable period of time, which defaults to 8 hours. If a user running DuoConnect already has a valid token, then instead of opening a web browser, DuoConnect directly contacts the DNG, again using the configured '-relay' value, and sends this token, as well as the intended SSH server hostname and port numbers. If the '-relay' argument begins with "http://", then this request will be sent over an insecure connection, and could be exposed to an attacker who is sniffing the traffic on the same network. The DNG authentication tokens that may be exposed during SSH relay may be used to gain network-level access to the servers and ports protected by that given relay host. The DNG provides network-level access only to the protected SSH servers. It does not interact with the independent SSH authentication and encryption. An attacker cannot use a stolen token on its own to authenticate against a DNG-protected SSH server.</description>
+      <guid isPermaLink="false">CVE-2020-3442|2024-08-04T07:37:54.411Z</guid>
+      <pubDate>Wed, 15 Jul 2020 00:00:00 +0000</pubDate>
+    </item>
+  </channel>
+</rss>
