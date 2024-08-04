@@ -6,8 +6,16 @@
     <description>The latest CVEs for faye -- all products</description>
     <docs>http://www.rssboard.org/rss-specification</docs>
     <generator>python-feedgen</generator>
-    <lastBuildDate>Sun, 04 Aug 2024 13:23:07 +0000</lastBuildDate>
+    <lastBuildDate>Sun, 04 Aug 2024 14:23:00 +0000</lastBuildDate>
     <ttl>60</ttl>
+    <item>
+      <title>CVE-2020-15133|2024-08-04T13:08:22.247Z -- faye -- faye-websocket
+</title>
+      <link>https://www.cve.org/CVERecord?id=CVE-2020-15133</link>
+      <description>In faye-websocket before version 0.11.0, there is a lack of certification validation in TLS handshakes. The `Faye::WebSocket::Client` class uses the `EM::Connection#start_tls` method in EventMachine to implement the TLS handshake whenever a `wss:` URL is used for the connection. This method does not implement certificate verification by default, meaning that it does not check that the server presents a valid and trusted TLS certificate for the expected hostname. That means that any `wss:` connection made using this library is vulnerable to a man-in-the-middle attack, since it does not confirm the identity of the server it is connected to. For further background information on this issue, please see the referenced GitHub Advisory. Upgrading `faye-websocket` to v0.11.0 is recommended.</description>
+      <guid isPermaLink="false">CVE-2020-15133|2024-08-04T13:08:22.247Z</guid>
+      <pubDate>Fri, 31 Jul 2020 17:40:21 +0000</pubDate>
+    </item>
     <item>
       <title>CVE-2020-11020|2024-08-04T11:21:14.232Z -- faye -- faye
 </title>
@@ -15,6 +23,14 @@
       <description>Faye (NPM, RubyGem) versions greater than 0.5.0 and before 1.0.4, 1.1.3 and 1.2.5, has the potential for authentication bypass in the extension system. The vulnerability allows any client to bypass checks put in place by server-side extensions, by appending extra segments to the message channel. It is patched in versions 1.0.4, 1.1.3 and 1.2.5.</description>
       <guid isPermaLink="false">CVE-2020-11020|2024-08-04T11:21:14.232Z</guid>
       <pubDate>Wed, 29 Apr 2020 17:35:12 +0000</pubDate>
+    </item>
+    <item>
+      <title>CVE-2020-15134|2024-08-04T13:08:22.211Z -- faye -- faye
+</title>
+      <link>https://www.cve.org/CVERecord?id=CVE-2020-15134</link>
+      <description>Faye before version 1.4.0, there is a lack of certification validation in TLS handshakes. Faye uses em-http-request and faye-websocket in the Ruby version of its client. Those libraries both use the `EM::Connection#start_tls` method in EventMachine to implement the TLS handshake whenever a `wss:` URL is used for the connection. This method does not implement certificate verification by default, meaning that it does not check that the server presents a valid and trusted TLS certificate for the expected hostname. That means that any `https:` or `wss:` connection made using these libraries is vulnerable to a man-in-the-middle attack, since it does not confirm the identity of the server it is connected to. The first request a Faye client makes is always sent via normal HTTP, but later messages may be sent via WebSocket. Therefore it is vulnerable to the same problem that these underlying libraries are, and we needed both libraries to support TLS verification before Faye could claim to do the same. Your client would still be insecure if its initial HTTPS request was verified, but later WebSocket connections were not. This is fixed in Faye v1.4.0, which enables verification by default. For further background information on this issue, please see the referenced GitHub Advisory.</description>
+      <guid isPermaLink="false">CVE-2020-15134|2024-08-04T13:08:22.211Z</guid>
+      <pubDate>Fri, 31 Jul 2020 17:40:15 +0000</pubDate>
     </item>
   </channel>
 </rss>

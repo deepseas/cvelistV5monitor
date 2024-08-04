@@ -6,7 +6,7 @@
     <description>The latest CVEs for awslabs -- all products</description>
     <docs>http://www.rssboard.org/rss-specification</docs>
     <generator>python-feedgen</generator>
-    <lastBuildDate>Sun, 04 Aug 2024 13:23:01 +0000</lastBuildDate>
+    <lastBuildDate>Sun, 04 Aug 2024 14:23:01 +0000</lastBuildDate>
     <ttl>60</ttl>
     <item>
       <title>CVE-2021-41149|2024-08-04T02:59:31.624Z -- awslabs -- tough
@@ -15,6 +15,14 @@
       <description>Tough provides a set of Rust libraries and tools for using and generating the update framework (TUF) repositories. The tough library, prior to 0.12.0, does not properly sanitize target names when caching a repository, or when saving specific targets to an output directory. When targets are cached or saved, files could be overwritten with arbitrary content anywhere on the system. A fix is available in version 0.12.0. No workarounds to this issue are known.</description>
       <guid isPermaLink="false">CVE-2021-41149|2024-08-04T02:59:31.624Z</guid>
       <pubDate>Tue, 19 Oct 2021 18:00:12 +0000</pubDate>
+    </item>
+    <item>
+      <title>CVE-2020-15093|2024-08-04T13:08:21.663Z -- awslabs -- tough
+</title>
+      <link>https://www.cve.org/CVERecord?id=CVE-2020-15093</link>
+      <description>The tough library (Rust/crates.io) prior to version 0.7.1 does not properly verify the threshold of cryptographic signatures. It allows an attacker to duplicate a valid signature in order to circumvent TUF requiring a minimum threshold of unique signatures before the metadata is considered valid. A fix is available in version 0.7.1. CVE-2020-6174 is assigned to the same vulnerability in the TUF reference implementation.</description>
+      <guid isPermaLink="false">CVE-2020-15093|2024-08-04T13:08:21.663Z</guid>
+      <pubDate>Thu, 09 Jul 2020 18:45:16 +0000</pubDate>
     </item>
     <item>
       <title>CVE-2021-41150|2024-08-04T02:59:31.490Z -- awslabs -- tough
@@ -33,17 +41,6 @@
       <pubDate>Wed, 08 Dec 2021 23:05:11 +0000</pubDate>
     </item>
     <item>
-      <title>CVE-2024-37293|2024-08-02T03:50:55.744Z -- awslabs -- aws-deployment-framework</title>
-      <link>https://www.cve.org/CVERecord?id=CVE-2024-37293</link>
-      <description>The AWS Deployment Framework (ADF) is a framework to manage and deploy resources across multiple AWS accounts and regions within an AWS Organization. ADF allows for staged, parallel, multi-account, cross-region deployments of applications or resources via the structure defined in AWS Organizations while taking advantage of services such as AWS CodePipeline, AWS CodeBuild, and AWS CodeCommit to alleviate the heavy lifting and management compared to a traditional CI/CD setup. ADF contains a bootstrap process that is responsible to deploy ADF's bootstrap stacks to facilitate multi-account cross-region deployments. The ADF bootstrap process relies on elevated privileges to perform this task. Two versions of the bootstrap process exist; a code-change driven pipeline using AWS CodeBuild and an event-driven state machine using AWS Lambda. If an actor has permissions to change the behavior of the CodeBuild project or the Lambda function, they would be able to escalate their privileges.
-
-Prior to version 4.0.0, the bootstrap CodeBuild role provides access to the `sts:AssumeRole` operation without further restrictions. Therefore, it is able to assume into any AWS Account in the AWS Organization with the elevated privileges provided by the cross-account access role. By default, this role is not restricted when it is created by AWS Organizations, providing Administrator level access to the AWS resources in the AWS Account. The patches for this issue are included in `aws-deployment-framework` version 4.0.0.
-
-As a temporary mitigation, add a permissions boundary to the roles created by ADF in the management account. The permissions boundary should deny all IAM and STS actions. This permissions boundary should be in place until you upgrade ADF or bootstrap a new account. While the permissions boundary is in place, the account management and bootstrapping of accounts are unable to create, update, or assume into roles. This mitigates the privilege escalation risk, but also disables ADF's ability to create, manage, and bootstrap accounts.</description>
-      <guid isPermaLink="false">CVE-2024-37293|2024-08-02T03:50:55.744Z</guid>
-      <pubDate>Tue, 11 Jun 2024 16:49:33 +0000</pubDate>
-    </item>
-    <item>
       <title>CVE-2024-37293|2024-06-11T18:40:23.322Z -- awslabs -- aws-deployment-framework</title>
       <link>https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2024-37293</link>
       <description>The AWS Deployment Framework (ADF) is a framework to manage and deploy resources across multiple AWS accounts and regions within an AWS Organization. ADF allows for staged, parallel, multi-account, cross-region deployments of applications or resources via the structure defined in AWS Organizations while taking advantage of services such as AWS CodePipeline, AWS CodeBuild, and AWS CodeCommit to alleviate the heavy lifting and management compared to a traditional CI/CD setup. ADF contains a bootstrap process that is responsible to deploy ADF's bootstrap stacks to facilitate multi-account cross-region deployments. The ADF bootstrap process relies on elevated privileges to perform this task. Two versions of the bootstrap process exist; a code-change driven pipeline using AWS CodeBuild and an event-driven state machine using AWS Lambda. If an actor has permissions to change the behavior of the CodeBuild project or the Lambda function, they would be able to escalate their privileges.
@@ -52,6 +49,17 @@ Prior to version 4.0.0, the bootstrap CodeBuild role provides access to the `sts
 
 As a temporary mitigation, add a permissions boundary to the roles created by ADF in the management account. The permissions boundary should deny all IAM and STS actions. This permissions boundary should be in place until you upgrade ADF or bootstrap a new account. While the permissions boundary is in place, the account management and bootstrapping of accounts are unable to create, update, or assume into roles. This mitigates the privilege escalation risk, but also disables ADF's ability to create, manage, and bootstrap accounts.</description>
       <guid isPermaLink="false">CVE-2024-37293|2024-06-11T18:40:23.322Z</guid>
+      <pubDate>Tue, 11 Jun 2024 16:49:33 +0000</pubDate>
+    </item>
+    <item>
+      <title>CVE-2024-37293|2024-08-02T03:50:55.744Z -- awslabs -- aws-deployment-framework</title>
+      <link>https://www.cve.org/CVERecord?id=CVE-2024-37293</link>
+      <description>The AWS Deployment Framework (ADF) is a framework to manage and deploy resources across multiple AWS accounts and regions within an AWS Organization. ADF allows for staged, parallel, multi-account, cross-region deployments of applications or resources via the structure defined in AWS Organizations while taking advantage of services such as AWS CodePipeline, AWS CodeBuild, and AWS CodeCommit to alleviate the heavy lifting and management compared to a traditional CI/CD setup. ADF contains a bootstrap process that is responsible to deploy ADF's bootstrap stacks to facilitate multi-account cross-region deployments. The ADF bootstrap process relies on elevated privileges to perform this task. Two versions of the bootstrap process exist; a code-change driven pipeline using AWS CodeBuild and an event-driven state machine using AWS Lambda. If an actor has permissions to change the behavior of the CodeBuild project or the Lambda function, they would be able to escalate their privileges.
+
+Prior to version 4.0.0, the bootstrap CodeBuild role provides access to the `sts:AssumeRole` operation without further restrictions. Therefore, it is able to assume into any AWS Account in the AWS Organization with the elevated privileges provided by the cross-account access role. By default, this role is not restricted when it is created by AWS Organizations, providing Administrator level access to the AWS resources in the AWS Account. The patches for this issue are included in `aws-deployment-framework` version 4.0.0.
+
+As a temporary mitigation, add a permissions boundary to the roles created by ADF in the management account. The permissions boundary should deny all IAM and STS actions. This permissions boundary should be in place until you upgrade ADF or bootstrap a new account. While the permissions boundary is in place, the account management and bootstrapping of accounts are unable to create, update, or assume into roles. This mitigates the privilege escalation risk, but also disables ADF's ability to create, manage, and bootstrap accounts.</description>
+      <guid isPermaLink="false">CVE-2024-37293|2024-08-02T03:50:55.744Z</guid>
       <pubDate>Tue, 11 Jun 2024 16:49:33 +0000</pubDate>
     </item>
   </channel>

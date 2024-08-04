@@ -6,15 +6,55 @@
     <description>The latest CVEs for etcd-io -- all products</description>
     <docs>http://www.rssboard.org/rss-specification</docs>
     <generator>python-feedgen</generator>
-    <lastBuildDate>Fri, 02 Aug 2024 23:22:31 +0000</lastBuildDate>
+    <lastBuildDate>Sun, 04 Aug 2024 14:23:03 +0000</lastBuildDate>
     <ttl>60</ttl>
     <item>
-      <title>CVE-2023-32082|2024-08-02T15:03:29.172Z -- etcd-io -- etcd
+      <title>CVE-2020-15114|2024-08-04T13:08:21.664Z -- etcd-io -- etcd
 </title>
-      <link>https://www.cve.org/CVERecord?id=CVE-2023-32082</link>
-      <description>etcd is a distributed key-value store for the data of a distributed system. Prior to versions 3.4.26 and 3.5.9, the LeaseTimeToLive API allows access to key names (not value) associated to a lease when `Keys` parameter is true, even a user doesn't have read permission to the keys. The impact is limited to a cluster which enables auth (RBAC). Versions 3.4.26 and 3.5.9 fix this issue. There are no known workarounds.</description>
-      <guid isPermaLink="false">CVE-2023-32082|2024-08-02T15:03:29.172Z</guid>
-      <pubDate>Thu, 11 May 2023 19:22:56 +0000</pubDate>
+      <link>https://www.cve.org/CVERecord?id=CVE-2020-15114</link>
+      <description>In etcd before versions 3.3.23 and 3.4.10, the etcd gateway is a simple TCP proxy to allow for basic service discovery and access. However, it is possible to include the gateway address as an endpoint. This results in a denial of service, since the endpoint can become stuck in a loop of requesting itself until there are no more available file descriptors to accept connections on the gateway.</description>
+      <guid isPermaLink="false">CVE-2020-15114|2024-08-04T13:08:21.664Z</guid>
+      <pubDate>Thu, 06 Aug 2020 22:25:12 +0000</pubDate>
+    </item>
+    <item>
+      <title>CVE-2020-15112|2024-08-04T13:08:22.313Z -- etcd-io -- etcd
+</title>
+      <link>https://www.cve.org/CVERecord?id=CVE-2020-15112</link>
+      <description>In etcd before versions 3.3.23 and 3.4.10, it is possible to have an entry index greater then the number of entries in the ReadAll method in wal/wal.go. This could cause issues when WAL entries are being read during consensus as an arbitrary etcd consensus participant could go down from a runtime panic when reading the entry.</description>
+      <guid isPermaLink="false">CVE-2020-15112|2024-08-04T13:08:22.313Z</guid>
+      <pubDate>Wed, 05 Aug 2020 20:00:15 +0000</pubDate>
+    </item>
+    <item>
+      <title>CVE-2020-15136|2024-08-04T13:08:21.951Z -- etcd-io -- etcd
+</title>
+      <link>https://www.cve.org/CVERecord?id=CVE-2020-15136</link>
+      <description>In ectd before versions 3.4.10 and 3.3.23, gateway TLS authentication is only applied to endpoints detected in DNS SRV records. When starting a gateway, TLS authentication will only be attempted on endpoints identified in DNS SRV records for a given domain, which occurs in the discoverEndpoints function. No authentication is performed against endpoints provided in the --endpoints flag. This has been fixed in versions 3.4.10 and 3.3.23 with improved documentation and deprecation of the functionality.</description>
+      <guid isPermaLink="false">CVE-2020-15136|2024-08-04T13:08:21.951Z</guid>
+      <pubDate>Thu, 06 Aug 2020 22:45:14 +0000</pubDate>
+    </item>
+    <item>
+      <title>CVE-2020-15113|2024-08-04T13:08:22.262Z -- etcd-io -- etcd
+</title>
+      <link>https://www.cve.org/CVERecord?id=CVE-2020-15113</link>
+      <description>In etcd before versions 3.3.23 and 3.4.10, certain directory paths are created (etcd data directory and the directory path when provided to automatically generate self-signed certificates for TLS connections with clients) with restricted access permissions (700) by using the os.MkdirAll. This function does not perform any permission checks when a given directory path exists already. A possible workaround is to ensure the directories have the desired permission (700).</description>
+      <guid isPermaLink="false">CVE-2020-15113|2024-08-04T13:08:22.262Z</guid>
+      <pubDate>Wed, 05 Aug 2020 19:30:13 +0000</pubDate>
+    </item>
+    <item>
+      <title>CVE-2020-15115|2024-08-04T13:08:21.734Z -- etcd-io -- etcd
+</title>
+      <link>https://www.cve.org/CVERecord?id=CVE-2020-15115</link>
+      <description>etcd before versions 3.3.23 and 3.4.10 does not perform any password length validation, which allows for very short passwords, such as those with a length of one. This may allow an attacker to guess or brute-force users' passwords with little computational effort.</description>
+      <guid isPermaLink="false">CVE-2020-15115|2024-08-04T13:08:21.734Z</guid>
+      <pubDate>Thu, 06 Aug 2020 21:55:12 +0000</pubDate>
+    </item>
+    <item>
+      <title>CVE-2020-15106|2024-08-04T13:08:21.619Z -- etcd-io -- etcd
+</title>
+      <link>https://www.cve.org/CVERecord?id=CVE-2020-15106</link>
+      <description>In etcd before versions 3.3.23 and 3.4.10, a large slice causes panic in decodeRecord method. The size of a record is stored in the length field of a WAL file and no additional validation is done on this data. Therefore, it is possible to forge an extremely large frame size that can unintentionally panic at the expense of any RAFT participant trying to decode the WAL.</description>
+      <guid isPermaLink="false">CVE-2020-15106|2024-08-04T13:08:21.619Z</guid>
+      <pubDate>Wed, 05 Aug 2020 19:05:13 +0000</pubDate>
     </item>
   </channel>
 </rss>

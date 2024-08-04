@@ -1,0 +1,44 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<rss xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/" version="2.0">
+  <channel>
+    <title>CVE Feed for ory -- fosite</title>
+    <link>https://raw.githubusercontent.com/deepseas/cvelistV5monitor/main/feeds/ory/fosite.rss</link>
+    <description>The latest CVEs for ory -- fosite</description>
+    <docs>http://www.rssboard.org/rss-specification</docs>
+    <generator>python-feedgen</generator>
+    <lastBuildDate>Sun, 04 Aug 2024 14:23:07 +0000</lastBuildDate>
+    <ttl>60</ttl>
+    <item>
+      <title>CVE-2020-15222|2024-08-04T13:08:22.899Z -- ory -- fosite
+</title>
+      <link>https://www.cve.org/CVERecord?id=CVE-2020-15222</link>
+      <description>In ORY Fosite (the security first OAuth2 &amp; OpenID Connect framework for Go) before version 0.31.0, when using "private_key_jwt" authentication the uniqueness of the `jti` value is not checked. When using client authentication method "private_key_jwt", OpenId specification says the following about assertion `jti`: "A unique identifier for the token, which can be used to prevent reuse of the token. These tokens MUST only be used once, unless conditions for reuse were negotiated between the parties". Hydra does not seem to check the uniqueness of this `jti` value. This problem is fixed in version 0.31.0.</description>
+      <guid isPermaLink="false">CVE-2020-15222|2024-08-04T13:08:22.899Z</guid>
+      <pubDate>Thu, 24 Sep 2020 16:15:52 +0000</pubDate>
+    </item>
+    <item>
+      <title>CVE-2020-15234|2024-08-04T13:08:23.189Z -- ory -- fosite
+</title>
+      <link>https://www.cve.org/CVERecord?id=CVE-2020-15234</link>
+      <description>ORY Fosite is a security first OAuth2 &amp; OpenID Connect framework for Go. In Fosite before version 0.34.1, the OAuth 2.0 Client's registered redirect URLs and the redirect URL provided at the OAuth2 Authorization Endpoint where compared using strings.ToLower while they should have been compared with a simple string match. This allows an attacker to register a client with allowed redirect URL https://example.com/callback. Then perform an OAuth2 flow and requesting redirect URL https://example.com/CALLBACK. Instead of an error (invalid redirect URL), the browser is redirected to https://example.com/CALLBACK with a potentially successful OAuth2 response, depending on the state of the overall OAuth2 flow (the user might still deny the request for example). This vulnerability has been patched in ORY Fosite v0.34.1.</description>
+      <guid isPermaLink="false">CVE-2020-15234|2024-08-04T13:08:23.189Z</guid>
+      <pubDate>Fri, 02 Oct 2020 20:40:12 +0000</pubDate>
+    </item>
+    <item>
+      <title>CVE-2020-15233|2024-08-04T13:08:22.914Z -- ory -- fosite
+</title>
+      <link>https://www.cve.org/CVERecord?id=CVE-2020-15233</link>
+      <description>ORY Fosite is a security first OAuth2 &amp; OpenID Connect framework for Go. In Fosite from version 0.30.2 and before version 0.34.1, there is an issue in which an an attacker can override the registered redirect URL by performing an OAuth flow and requesting a redirect URL that is to the loopback adapter. Attackers can provide both custom URL query parameters to their loopback redirect URL, as well as actually overriding the host of the registered redirect URL. These attacks are only applicable in scenarios where the attacker has access over the loopback interface. This vulnerability has been patched in ORY Fosite v0.34.1.</description>
+      <guid isPermaLink="false">CVE-2020-15233|2024-08-04T13:08:22.914Z</guid>
+      <pubDate>Fri, 02 Oct 2020 20:40:17 +0000</pubDate>
+    </item>
+    <item>
+      <title>CVE-2020-15223|2024-08-04T13:08:22.904Z -- ory -- fosite
+</title>
+      <link>https://www.cve.org/CVERecord?id=CVE-2020-15223</link>
+      <description>In ORY Fosite (the security first OAuth2 &amp; OpenID Connect framework for Go) before version 0.34.0, the `TokenRevocationHandler` ignores errors coming from the storage. This can lead to unexpected 200 status codes indicating successful revocation while the token is still valid. Whether an attacker can use this for her advantage depends on the ability to trigger errors in the store. This is fixed in version 0.34.0</description>
+      <guid isPermaLink="false">CVE-2020-15223|2024-08-04T13:08:22.904Z</guid>
+      <pubDate>Thu, 24 Sep 2020 16:15:45 +0000</pubDate>
+    </item>
+  </channel>
+</rss>

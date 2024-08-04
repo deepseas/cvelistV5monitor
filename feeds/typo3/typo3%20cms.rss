@@ -6,7 +6,7 @@
     <description>The latest CVEs for TYPO3 -- TYPO3 CMS</description>
     <docs>http://www.rssboard.org/rss-specification</docs>
     <generator>python-feedgen</generator>
-    <lastBuildDate>Sun, 04 Aug 2024 13:23:04 +0000</lastBuildDate>
+    <lastBuildDate>Sun, 04 Aug 2024 14:23:04 +0000</lastBuildDate>
     <ttl>60</ttl>
     <item>
       <title>CVE-2020-11069|2024-08-04T11:21:14.617Z -- typo3 -- typo3%20cms
@@ -15,6 +15,14 @@
       <description>In TYPO3 CMS 9.0.0 through 9.5.16 and 10.0.0 through 10.4.1, it has been discovered that the backend user interface and install tool are vulnerable to a same-site request forgery. A backend user can be tricked into interacting with a malicious resource an attacker previously managed to upload to the web server. Scripts are then executed with the privileges of the victims' user session. In a worst-case scenario, new admin users can be created which can directly be used by an attacker. The vulnerability is basically a cross-site request forgery (CSRF) triggered by a cross-site scripting vulnerability (XSS) - but happens on the same target host - thus, it's actually a same-site request forgery. Malicious payload such as HTML containing JavaScript might be provided by either an authenticated backend user or by a non-authenticated user using a third party extension, e.g. file upload in a contact form with knowing the target location. To be successful, the attacked victim requires an active and valid backend or install tool user session at the time of the attack. This has been fixed in 9.5.17 and 10.4.2. The deployment of additional mitigation techniques is suggested as described below. - Sudo Mode Extension This TYPO3 extension intercepts modifications to security relevant database tables, e.g. those storing user accounts or storages of the file abstraction layer. Modifications need to confirmed again by the acting user providing their password again. This technique is known as sudo mode. This way, unintended actions happening in the background can be mitigated. - https://github.com/FriendsOfTYPO3/sudo-mode - https://extensions.typo3.org/extension/sudo_mode - Content Security Policy Content Security Policies tell (modern) browsers how resources served a particular site are handled. It is also possible to disallow script executions for specific locations. In a TYPO3 context, it is suggested to disallow direct script execution at least for locations /fileadmin/ and /uploads/.</description>
       <guid isPermaLink="false">CVE-2020-11069|2024-08-04T11:21:14.617Z</guid>
       <pubDate>Wed, 13 May 2020 23:35:37 +0000</pubDate>
+    </item>
+    <item>
+      <title>CVE-2020-15099|2024-08-04T13:08:22.299Z -- typo3 -- typo3%20cms
+</title>
+      <link>https://www.cve.org/CVERecord?id=CVE-2020-15099</link>
+      <description>In TYPO3 CMS greater than or equal to 9.0.0 and less than 9.5.20, and greater than or equal to 10.0.0 and less than 10.4.6, in a case where an attacker manages to generate a valid cryptographic message authentication code (HMAC-SHA1) - either by using a different existing vulnerability or in case the internal encryptionKey was exposed - it is possible to retrieve arbitrary files of a TYPO3 installation. This includes the possibility to fetch typo3conf/LocalConfiguration.php, which again contains the encryptionKey as well as credentials of the database management system being used. In case a database server is directly accessible either via internet or in a shared hosting network, this allows the ability to completely retrieve, manipulate or delete database contents. This includes creating an administration user account - which can be used to trigger remote code execution by injecting custom extensions. This has been patched in versions 9.5.20 and 10.4.6.</description>
+      <guid isPermaLink="false">CVE-2020-15099|2024-08-04T13:08:22.299Z</guid>
+      <pubDate>Wed, 29 Jul 2020 16:15:15 +0000</pubDate>
     </item>
     <item>
       <title>CVE-2020-11067|2024-08-04T11:21:14.623Z -- typo3 -- typo3%20cms
@@ -47,6 +55,14 @@
       <description>In TYPO3 CMS greater than or equal to 9.0.0 and less than 9.5.17 and greater than or equal to 10.0.0 and less than 10.4.2, it has been discovered that HTML placeholder attributes containing data of other database records are vulnerable to cross-site scripting. A valid backend user account is needed to exploit this vulnerability. This has been fixed in 9.5.17 and 10.4.2.</description>
       <guid isPermaLink="false">CVE-2020-11064|2024-08-04T11:21:14.609Z</guid>
       <pubDate>Wed, 13 May 2020 22:50:11 +0000</pubDate>
+    </item>
+    <item>
+      <title>CVE-2020-15098|2024-08-04T13:08:21.790Z -- typo3 -- typo3%20cms
+</title>
+      <link>https://www.cve.org/CVERecord?id=CVE-2020-15098</link>
+      <description>In TYPO3 CMS greater than or equal to 9.0.0 and less than 9.5.20, and greater than or equal to 10.0.0 and less than 10.4.6, it has been discovered that an internal verification mechanism can be used to generate arbitrary checksums. This allows to inject arbitrary data having a valid cryptographic message authentication code (HMAC-SHA1) and can lead to various attack chains including potential privilege escalation, insecure deserialization &amp; remote code execution. The overall severity of this vulnerability is high based on mentioned attack chains and the requirement of having a valid backend user session (authenticated). This has been patched in versions 9.5.20 and 10.4.6.</description>
+      <guid isPermaLink="false">CVE-2020-15098|2024-08-04T13:08:21.790Z</guid>
+      <pubDate>Wed, 29 Jul 2020 16:15:25 +0000</pubDate>
     </item>
     <item>
       <title>CVE-2020-11066|2024-08-04T11:21:14.635Z -- typo3 -- typo3%20cms

@@ -6,15 +6,23 @@
     <description>The latest CVEs for openenclave -- all products</description>
     <docs>http://www.rssboard.org/rss-specification</docs>
     <generator>python-feedgen</generator>
-    <lastBuildDate>Fri, 02 Aug 2024 23:22:25 +0000</lastBuildDate>
+    <lastBuildDate>Sun, 04 Aug 2024 14:23:04 +0000</lastBuildDate>
     <ttl>60</ttl>
     <item>
-      <title>CVE-2023-37479|2024-08-02T17:16:29.968Z -- openenclave -- openenclave
+      <title>CVE-2020-15224|2024-08-04T13:08:22.881Z -- openenclave -- openenclave
 </title>
-      <link>https://www.cve.org/CVERecord?id=CVE-2023-37479</link>
-      <description>Open Enclave is a hardware-agnostic open source library for developing applications that utilize Hardware-based Trusted Execution Environments, also known as Enclaves. There are two issues that are mitigated in version 0.19.3. First, Open Enclave SDK does not properly sanitize the `MXCSR` register on enclave entry. This makes applications vulnerable to MXCSR Configuration Dependent Timing (MCDT) attacks, where incorrect `MXCSR` values can impact instruction retirement by at most one cycle, depending on the (secret) data operand value. Please find more details in the guidance from Intel in the references. Second, Open Enclave SDK does not sanitize x86's alignment check flag `RFLAGS.AC` on enclave entry. This opens up the possibility for a side-channel attacker to be notified for every unaligned memory access performed by the enclave. The issue has been addressed in version 0.19.3 and the current master branch. Users will need to recompile their applications against the patched libraries to be protected from this vulnerability. There are no known workarounds for this vulnerability.</description>
-      <guid isPermaLink="false">CVE-2023-37479|2024-08-02T17:16:29.968Z</guid>
-      <pubDate>Mon, 17 Jul 2023 22:13:39 +0000</pubDate>
+      <link>https://www.cve.org/CVERecord?id=CVE-2020-15224</link>
+      <description>In Open Enclave before version 0.12.0, an information disclosure vulnerability exists when an enclave application using the syscalls provided by the sockets.edl is loaded by a malicious host application. An attacker who successfully exploited the vulnerability could read privileged data from the enclave heap across trust boundaries. To exploit this vulnerability, an attacker would have to log on to an affected system and run a specially crafted application. The vulnerability would not allow an attacker to elevate user rights directly, but it could be used to obtain information otherwise considered confidential in an enclave, which could be used in further compromises. The issue has been addressed in version 0.12.0 and the current master branch. Users will need to to recompile their applications against the patched libraries to be protected from this vulnerability.</description>
+      <guid isPermaLink="false">CVE-2020-15224|2024-08-04T13:08:22.881Z</guid>
+      <pubDate>Wed, 14 Oct 2020 18:35:17 +0000</pubDate>
+    </item>
+    <item>
+      <title>CVE-2020-15107|2024-08-04T13:08:21.928Z -- openenclave -- openenclave
+</title>
+      <link>https://www.cve.org/CVERecord?id=CVE-2020-15107</link>
+      <description>In openenclave before 0.10.0, enclaves that use x87 FPU operations are vulnerable to tampering by a malicious host application. By violating the Linux System V Application Binary Interface (ABI) for such operations, a host app can compromise the execution integrity of some x87 FPU operations in an enclave. Depending on the FPU control configuration of the enclave app and whether the operations are used in secret-dependent execution paths, this vulnerability may also be used to mount a side-channel attack on the enclave. This has been fixed in 0.10.0 and the current master branch. Users will need to recompile their applications against the patched libraries to be protected from this vulnerability.</description>
+      <guid isPermaLink="false">CVE-2020-15107|2024-08-04T13:08:21.928Z</guid>
+      <pubDate>Wed, 15 Jul 2020 21:21:38 +0000</pubDate>
     </item>
   </channel>
 </rss>

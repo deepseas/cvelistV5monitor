@@ -6,7 +6,7 @@
     <description>The latest CVEs for tendermint -- tendermint</description>
     <docs>http://www.rssboard.org/rss-specification</docs>
     <generator>python-feedgen</generator>
-    <lastBuildDate>Sun, 04 Aug 2024 13:23:12 +0000</lastBuildDate>
+    <lastBuildDate>Sun, 04 Aug 2024 14:22:58 +0000</lastBuildDate>
     <ttl>60</ttl>
     <item>
       <title>CVE-2020-5303|2024-08-04T08:22:09.074Z -- tendermint -- tendermint
@@ -15,6 +15,14 @@
       <description>Tendermint before versions 0.33.3, 0.32.10, and 0.31.12 has a denial-of-service vulnerability. Tendermint does not limit the number of P2P connection requests. For each p2p connection, it allocates XXX bytes. Even though this memory is garbage collected once the connection is terminated (due to duplicate IP or reaching a maximum number of inbound peers), temporary memory spikes can lead to OOM (Out-Of-Memory) exceptions. Additionally, Tendermint does not reclaim activeID of a peer after it's removed in Mempool reactor. This does not happen all the time. It only happens when a connection fails (for any reason) before the Peer is created and added to all reactors. RemovePeer is therefore called before AddPeer, which leads to always growing memory (activeIDs map). The activeIDs map has a maximum size of 65535 and the node will panic if this map reaches the maximum. An attacker can create a lot of connection attempts (exploiting above denial of service), which ultimately will lead to the node panicking. These issues are patched in Tendermint 0.33.3 and 0.32.10.</description>
       <guid isPermaLink="false">CVE-2020-5303|2024-08-04T08:22:09.074Z</guid>
       <pubDate>Fri, 10 Apr 2020 18:30:15 +0000</pubDate>
+    </item>
+    <item>
+      <title>CVE-2020-15091|2024-08-04T13:08:21.884Z -- tendermint -- tendermint
+</title>
+      <link>https://www.cve.org/CVERecord?id=CVE-2020-15091</link>
+      <description>TenderMint from version 0.33.0 and before version 0.33.6 allows block proposers to include signatures for the wrong block. This may happen naturally if you start a network, have it run for some time and restart it (**without changing chainID**). A malicious block proposer (even with a minimal amount of stake) can use this vulnerability to completely halt the network. This issue is fixed in Tendermint 0.33.6 which checks all the signatures are for the block with 2/3+ majority before creating a commit.</description>
+      <guid isPermaLink="false">CVE-2020-15091|2024-08-04T13:08:21.884Z</guid>
+      <pubDate>Thu, 02 Jul 2020 17:05:15 +0000</pubDate>
     </item>
   </channel>
 </rss>

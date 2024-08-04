@@ -6,7 +6,7 @@
     <description>The latest CVEs for Linux Kernel -- all products</description>
     <docs>http://www.rssboard.org/rss-specification</docs>
     <generator>python-feedgen</generator>
-    <lastBuildDate>Sun, 04 Aug 2024 13:22:59 +0000</lastBuildDate>
+    <lastBuildDate>Sun, 04 Aug 2024 14:22:59 +0000</lastBuildDate>
     <ttl>60</ttl>
     <item>
       <title>CVE-2020-14386|2024-08-04T12:46:34.367Z -- linux%20kernel -- kernel
@@ -47,6 +47,14 @@
       <description>A logic bug flaw was found in Linux kernel before 5.8-rc1 in the implementation of SSBD. A bug in the logic handling allows an attacker with a local account to disable SSBD protection during a context switch when additional speculative execution mitigations are in place. This issue was introduced when the per task/process conditional STIPB switching was added on top of the existing SSBD switching. The highest threat from this vulnerability is to confidentiality.</description>
       <guid isPermaLink="false">CVE-2020-10766|2024-08-04T11:14:15.011Z</guid>
       <pubDate>Tue, 15 Sep 2020 22:10:27 +0000</pubDate>
+    </item>
+    <item>
+      <title>CVE-2020-16120|2024-08-04T13:37:53.989Z -- linux%20kernel -- linux%20kernel
+</title>
+      <link>https://www.cve.org/CVERecord?id=CVE-2020-16120</link>
+      <description>Overlayfs did not properly perform permission checking when copying up files in an overlayfs and could be exploited from within a user namespace, if, for example, unprivileged user namespaces were allowed. It was possible to have a file not readable by an unprivileged user to be copied to a mountpoint controlled by the user, like a removable device. This was introduced in kernel version 4.19 by commit d1d04ef ("ovl: stack file ops"). This was fixed in kernel version 5.8 by commits 56230d9 ("ovl: verify permissions in ovl_path_open()"), 48bd024 ("ovl: switch to mounter creds in readdir") and 05acefb ("ovl: check permission to open real file"). Additionally, commits 130fdbc ("ovl: pass correct flags for opening real directory") and 292f902 ("ovl: call secutiry hook in ovl_real_ioctl()") in kernel 5.8 might also be desired or necessary. These additional commits introduced a regression in overlay mounts within user namespaces which prevented access to files with ownership outside of the user namespace. This regression was mitigated by subsequent commit b6650da ("ovl: do not fail because of O_NOATIMEi") in kernel 5.11.</description>
+      <guid isPermaLink="false">CVE-2020-16120|2024-08-04T13:37:53.989Z</guid>
+      <pubDate>Tue, 13 Oct 2020 00:00:00 +0000</pubDate>
     </item>
     <item>
       <title>CVE-2020-1749|2024-08-04T06:46:30.814Z -- linux%20kernel -- kernel

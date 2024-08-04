@@ -6,15 +6,15 @@
     <description>The latest CVEs for crossbeam-rs -- all products</description>
     <docs>http://www.rssboard.org/rss-specification</docs>
     <generator>python-feedgen</generator>
-    <lastBuildDate>Sat, 03 Aug 2024 23:23:21 +0000</lastBuildDate>
+    <lastBuildDate>Sun, 04 Aug 2024 14:23:02 +0000</lastBuildDate>
     <ttl>60</ttl>
     <item>
-      <title>CVE-2022-23639|2024-08-03T03:51:44.181Z -- crossbeam-rs -- crossbeam
+      <title>CVE-2020-15254|2024-08-04T13:08:23.227Z -- crossbeam-rs -- crossbeam
 </title>
-      <link>https://www.cve.org/CVERecord?id=CVE-2022-23639</link>
-      <description>crossbeam-utils provides atomics, synchronization primitives, scoped threads, and other utilities for concurrent programming in Rust. crossbeam-utils prior to version 0.8.7 incorrectly assumed that the alignment of `{i,u}64` was always the same as `Atomic{I,U}64`. However, the alignment of `{i,u}64` on a 32-bit target can be smaller than `Atomic{I,U}64`. This can cause unaligned memory accesses and data race. Crates using `fetch_*` methods with `AtomicCell&lt;{i,u}64&gt;` are affected by this issue. 32-bit targets without `Atomic{I,U}64` and 64-bit targets are not affected by this issue. This has been fixed in crossbeam-utils 0.8.7. There are currently no known workarounds.</description>
-      <guid isPermaLink="false">CVE-2022-23639|2024-08-03T03:51:44.181Z</guid>
-      <pubDate>Tue, 15 Feb 2022 18:20:10 +0000</pubDate>
+      <link>https://www.cve.org/CVERecord?id=CVE-2020-15254</link>
+      <description>Crossbeam is a set of tools for concurrent programming. In crossbeam-channel before version 0.4.4, the bounded channel incorrectly assumes that `Vec::from_iter` has allocated capacity that same as the number of iterator elements. `Vec::from_iter` does not actually guarantee that and may allocate extra memory. The destructor of the `bounded` channel reconstructs `Vec` from the raw pointer based on the incorrect assumes described above. This is unsound and causing deallocation with the incorrect capacity when `Vec::from_iter` has allocated different sizes with the number of iterator elements. This has been fixed in crossbeam-channel 0.4.4.</description>
+      <guid isPermaLink="false">CVE-2020-15254|2024-08-04T13:08:23.227Z</guid>
+      <pubDate>Fri, 16 Oct 2020 17:05:24 +0000</pubDate>
     </item>
   </channel>
 </rss>

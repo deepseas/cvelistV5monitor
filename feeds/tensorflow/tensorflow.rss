@@ -6,7 +6,7 @@
     <description>The latest CVEs for tensorflow -- tensorflow</description>
     <docs>http://www.rssboard.org/rss-specification</docs>
     <generator>python-feedgen</generator>
-    <lastBuildDate>Sun, 04 Aug 2024 13:22:53 +0000</lastBuildDate>
+    <lastBuildDate>Sun, 04 Aug 2024 14:22:53 +0000</lastBuildDate>
     <ttl>60</ttl>
     <item>
       <title>CVE-2021-37647|2024-08-04T01:23:01.556Z -- tensorflow -- tensorflow
@@ -15,6 +15,30 @@
       <description>TensorFlow is an end-to-end open source platform for machine learning. When a user does not supply arguments that determine a valid sparse tensor, `tf.raw_ops.SparseTensorSliceDataset` implementation can be made to dereference a null pointer. The [implementation](https://github.com/tensorflow/tensorflow/blob/8d72537c6abf5a44103b57b9c2e22c14f5f49698/tensorflow/core/kernels/data/sparse_tensor_slice_dataset_op.cc#L240-L251) has some argument validation but fails to consider the case when either `indices` or `values` are provided for an empty sparse tensor when the other is not. If `indices` is empty, then [code that performs validation](https://github.com/tensorflow/tensorflow/blob/8d72537c6abf5a44103b57b9c2e22c14f5f49698/tensorflow/core/kernels/data/sparse_tensor_slice_dataset_op.cc#L260-L261) (i.e., checking that the indices are monotonically increasing) results in a null pointer dereference. If `indices` as provided by the user is empty, then `indices` in the C++ code above is backed by an empty `std::vector`, hence calling `indices-&gt;dim_size(0)` results in null pointer dereferencing (same as calling `std::vector::at()` on an empty vector). We have patched the issue in GitHub commit 02cc160e29d20631de3859c6653184e3f876b9d7. The fix will be included in TensorFlow 2.6.0. We will also cherrypick this commit on TensorFlow 2.5.1, TensorFlow 2.4.3, and TensorFlow 2.3.4, as these are also affected and still in supported range.</description>
       <guid isPermaLink="false">CVE-2021-37647|2024-08-04T01:23:01.556Z</guid>
       <pubDate>Thu, 12 Aug 2021 18:10:27 +0000</pubDate>
+    </item>
+    <item>
+      <title>CVE-2020-15265|2024-08-04T13:15:19.748Z -- tensorflow -- tensorflow
+</title>
+      <link>https://www.cve.org/CVERecord?id=CVE-2020-15265</link>
+      <description>In Tensorflow before version 2.4.0, an attacker can pass an invalid `axis` value to `tf.quantization.quantize_and_dequantize`. This results in accessing a dimension outside the rank of the input tensor in the C++ kernel implementation. However, dim_size only does a DCHECK to validate the argument and then uses it to access the corresponding element of an array. Since in normal builds, `DCHECK`-like macros are no-ops, this results in segfault and access out of bounds of the array. The issue is patched in eccb7ec454e6617738554a255d77f08e60ee0808 and TensorFlow 2.4.0 will be released containing the patch. TensorFlow nightly packages after this commit will also have the issue resolved.</description>
+      <guid isPermaLink="false">CVE-2020-15265|2024-08-04T13:15:19.748Z</guid>
+      <pubDate>Wed, 21 Oct 2020 20:20:15 +0000</pubDate>
+    </item>
+    <item>
+      <title>CVE-2020-15207|2024-08-04T13:08:22.887Z -- tensorflow -- tensorflow
+</title>
+      <link>https://www.cve.org/CVERecord?id=CVE-2020-15207</link>
+      <description>In tensorflow-lite before versions 1.15.4, 2.0.3, 2.1.2, 2.2.1 and 2.3.1, to mimic Python's indexing with negative values, TFLite uses `ResolveAxis` to convert negative values to positive indices. However, the only check that the converted index is now valid is only present in debug builds. If the `DCHECK` does not trigger, then code execution moves ahead with a negative index. This, in turn, results in accessing data out of bounds which results in segfaults and/or data corruption. The issue is patched in commit 2d88f470dea2671b430884260f3626b1fe99830a, and is released in TensorFlow versions 1.15.4, 2.0.3, 2.1.2, 2.2.1, or 2.3.1.</description>
+      <guid isPermaLink="false">CVE-2020-15207|2024-08-04T13:08:22.887Z</guid>
+      <pubDate>Fri, 25 Sep 2020 18:45:46 +0000</pubDate>
+    </item>
+    <item>
+      <title>CVE-2020-15211|2024-08-04T13:08:22.936Z -- tensorflow -- tensorflow
+</title>
+      <link>https://www.cve.org/CVERecord?id=CVE-2020-15211</link>
+      <description>In TensorFlow Lite before versions 1.15.4, 2.0.3, 2.1.2, 2.2.1 and 2.3.1, saved models in the flatbuffer format use a double indexing scheme: a model has a set of subgraphs, each subgraph has a set of operators and each operator has a set of input/output tensors. The flatbuffer format uses indices for the tensors, indexing into an array of tensors that is owned by the subgraph. This results in a pattern of double array indexing when trying to get the data of each tensor. However, some operators can have some tensors be optional. To handle this scenario, the flatbuffer model uses a negative `-1` value as index for these tensors. This results in special casing during validation at model loading time. Unfortunately, this means that the `-1` index is a valid tensor index for any operator, including those that don't expect optional inputs and including for output tensors. Thus, this allows writing and reading from outside the bounds of heap allocated arrays, although only at a specific offset from the start of these arrays. This results in both read and write gadgets, albeit very limited in scope. The issue is patched in several commits (46d5b0852, 00302787b7, e11f5558, cd31fd0ce, 1970c21, and fff2c83), and is released in TensorFlow versions 1.15.4, 2.0.3, 2.1.2, 2.2.1, or 2.3.1. A potential workaround would be to add a custom `Verifier` to the model loading code to ensure that only operators which accept optional inputs use the `-1` special value and only for the tensors that they expect to be optional. Since this allow-list type approach is erro-prone, we advise upgrading to the patched code.</description>
+      <guid isPermaLink="false">CVE-2020-15211|2024-08-04T13:08:22.936Z</guid>
+      <pubDate>Fri, 25 Sep 2020 18:45:24 +0000</pubDate>
     </item>
     <item>
       <title>CVE-2021-37670|2024-08-04T01:23:01.507Z -- tensorflow -- tensorflow
@@ -49,6 +73,14 @@
       <pubDate>Thu, 12 Aug 2021 17:35:22 +0000</pubDate>
     </item>
     <item>
+      <title>CVE-2020-15196|2024-08-04T13:08:22.710Z -- tensorflow -- tensorflow
+</title>
+      <link>https://www.cve.org/CVERecord?id=CVE-2020-15196</link>
+      <description>In Tensorflow version 2.3.0, the `SparseCountSparseOutput` and `RaggedCountSparseOutput` implementations don't validate that the `weights` tensor has the same shape as the data. The check exists for `DenseCountSparseOutput`, where both tensors are fully specified. In the sparse and ragged count weights are still accessed in parallel with the data. But, since there is no validation, a user passing fewer weights than the values for the tensors can generate a read from outside the bounds of the heap buffer allocated for the weights. The issue is patched in commit 3cbb917b4714766030b28eba9fb41bb97ce9ee02 and is released in TensorFlow version 2.3.1.</description>
+      <guid isPermaLink="false">CVE-2020-15196|2024-08-04T13:08:22.710Z</guid>
+      <pubDate>Fri, 25 Sep 2020 18:40:36 +0000</pubDate>
+    </item>
+    <item>
       <title>CVE-2021-37644|2024-08-04T01:23:01.306Z -- tensorflow -- tensorflow
 </title>
       <link>https://www.cve.org/CVERecord?id=CVE-2021-37644</link>
@@ -71,6 +103,14 @@
       <description>TensorFlow is an end-to-end open source platform for machine learning. In affected versions the implementations of pooling in TFLite are vulnerable to division by 0 errors as there are no checks for divisors not being 0. We have patched the issue in GitHub commit [dfa22b348b70bb89d6d6ec0ff53973bacb4f4695](https://github.com/tensorflow/tensorflow/commit/dfa22b348b70bb89d6d6ec0ff53973bacb4f4695). The fix will be included in TensorFlow 2.6.0. We will also cherrypick this commit on TensorFlow 2.5.1, TensorFlow 2.4.3, and TensorFlow 2.3.4, as these are also affected and still in supported range.</description>
       <guid isPermaLink="false">CVE-2021-37684|2024-08-04T01:23:01.504Z</guid>
       <pubDate>Thu, 12 Aug 2021 22:30:17 +0000</pubDate>
+    </item>
+    <item>
+      <title>CVE-2020-15204|2024-08-04T13:08:22.924Z -- tensorflow -- tensorflow
+</title>
+      <link>https://www.cve.org/CVERecord?id=CVE-2020-15204</link>
+      <description>In eager mode, TensorFlow before versions 1.15.4, 2.0.3, 2.1.2, 2.2.1 and 2.3.1 does not set the session state. Hence, calling `tf.raw_ops.GetSessionHandle` or `tf.raw_ops.GetSessionHandleV2` results in a null pointer dereference In linked snippet, in eager mode, `ctx-&gt;session_state()` returns `nullptr`. Since code immediately dereferences this, we get a segmentation fault. The issue is patched in commit 9a133d73ae4b4664d22bd1aa6d654fec13c52ee1, and is released in TensorFlow versions 1.15.4, 2.0.3, 2.1.2, 2.2.1, or 2.3.1.</description>
+      <guid isPermaLink="false">CVE-2020-15204|2024-08-04T13:08:22.924Z</guid>
+      <pubDate>Fri, 25 Sep 2020 18:46:02 +0000</pubDate>
     </item>
     <item>
       <title>CVE-2021-37648|2024-08-04T01:23:01.284Z -- tensorflow -- tensorflow
@@ -103,6 +143,14 @@
       <description>TensorFlow is an end-to-end open source platform for machine learning. In affected versions the implementation of sparse reduction operations in TensorFlow can trigger accesses outside of bounds of heap allocated data. The [implementation](https://github.com/tensorflow/tensorflow/blob/a1bc56203f21a5a4995311825ffaba7a670d7747/tensorflow/core/kernels/sparse_reduce_op.cc#L217-L228) fails to validate that each reduction group does not overflow and that each corresponding index does not point to outside the bounds of the input tensor. We have patched the issue in GitHub commit 87158f43f05f2720a374f3e6d22a7aaa3a33f750. The fix will be included in TensorFlow 2.6.0. We will also cherrypick this commit on TensorFlow 2.5.1, TensorFlow 2.4.3, and TensorFlow 2.3.4, as these are also affected and still in supported range.</description>
       <guid isPermaLink="false">CVE-2021-37635|2024-08-04T01:23:01.255Z</guid>
       <pubDate>Thu, 12 Aug 2021 20:30:11 +0000</pubDate>
+    </item>
+    <item>
+      <title>CVE-2020-15209|2024-08-04T13:08:22.925Z -- tensorflow -- tensorflow
+</title>
+      <link>https://www.cve.org/CVERecord?id=CVE-2020-15209</link>
+      <description>In tensorflow-lite before versions 1.15.4, 2.0.3, 2.1.2, 2.2.1 and 2.3.1, a crafted TFLite model can force a node to have as input a tensor backed by a `nullptr` buffer. This can be achieved by changing a buffer index in the flatbuffer serialization to convert a read-only tensor to a read-write one. The runtime assumes that these buffers are written to before a possible read, hence they are initialized with `nullptr`. However, by changing the buffer index for a tensor and implicitly converting that tensor to be a read-write one, as there is nothing in the model that writes to it, we get a null pointer dereference. The issue is patched in commit 0b5662bc, and is released in TensorFlow versions 1.15.4, 2.0.3, 2.1.2, 2.2.1, or 2.3.1.</description>
+      <guid isPermaLink="false">CVE-2020-15209|2024-08-04T13:08:22.925Z</guid>
+      <pubDate>Fri, 25 Sep 2020 18:45:35 +0000</pubDate>
     </item>
     <item>
       <title>CVE-2021-41214|2024-08-04T03:08:31.367Z -- tensorflow -- tensorflow
@@ -153,6 +201,22 @@
       <pubDate>Fri, 05 Nov 2021 19:55:36 +0000</pubDate>
     </item>
     <item>
+      <title>CVE-2020-15201|2024-08-04T13:08:22.883Z -- tensorflow -- tensorflow
+</title>
+      <link>https://www.cve.org/CVERecord?id=CVE-2020-15201</link>
+      <description>In Tensorflow before version 2.3.1, the `RaggedCountSparseOutput` implementation does not validate that the input arguments form a valid ragged tensor. In particular, there is no validation that the values in the `splits` tensor generate a valid partitioning of the `values` tensor. Hence, the code is prone to heap buffer overflow. If `split_values` does not end with a value at least `num_values` then the `while` loop condition will trigger a read outside of the bounds of `split_values` once `batch_idx` grows too large. The issue is patched in commit 3cbb917b4714766030b28eba9fb41bb97ce9ee02 and is released in TensorFlow version 2.3.1.</description>
+      <guid isPermaLink="false">CVE-2020-15201|2024-08-04T13:08:22.883Z</guid>
+      <pubDate>Fri, 25 Sep 2020 18:46:21 +0000</pubDate>
+    </item>
+    <item>
+      <title>CVE-2020-15210|2024-08-04T13:08:22.871Z -- tensorflow -- tensorflow
+</title>
+      <link>https://www.cve.org/CVERecord?id=CVE-2020-15210</link>
+      <description>In tensorflow-lite before versions 1.15.4, 2.0.3, 2.1.2, 2.2.1 and 2.3.1, if a TFLite saved model uses the same tensor as both input and output of an operator, then, depending on the operator, we can observe a segmentation fault or just memory corruption. We have patched the issue in d58c96946b and will release patch releases for all versions between 1.15 and 2.3. We recommend users to upgrade to TensorFlow 1.15.4, 2.0.3, 2.1.2, 2.2.1, or 2.3.1.</description>
+      <guid isPermaLink="false">CVE-2020-15210|2024-08-04T13:08:22.871Z</guid>
+      <pubDate>Fri, 25 Sep 2020 18:45:30 +0000</pubDate>
+    </item>
+    <item>
       <title>CVE-2021-41196|2024-08-04T03:08:31.485Z -- tensorflow -- tensorflow
 </title>
       <link>https://www.cve.org/CVERecord?id=CVE-2021-41196</link>
@@ -167,6 +231,14 @@
       <description>TensorFlow is an end-to-end open source platform for machine learning. In affected versions the shape inference code for `tf.raw_ops.Dequantize` has a vulnerability that could trigger a denial of service via a segfault if an attacker provides invalid arguments. The shape inference [implementation](https://github.com/tensorflow/tensorflow/blob/460e000de3a83278fb00b61a16d161b1964f15f4/tensorflow/core/ops/array_ops.cc#L2999-L3014) uses `axis` to select between two different values for `minmax_rank` which is then used to retrieve tensor dimensions. However, code assumes that `axis` can be either `-1` or a value greater than `-1`, with no validation for the other values. We have patched the issue in GitHub commit da857cfa0fde8f79ad0afdbc94e88b5d4bbec764. The fix will be included in TensorFlow 2.6.0. We will also cherrypick this commit on TensorFlow 2.5.1, TensorFlow 2.4.3, and TensorFlow 2.3.4, as these are also affected and still in supported range.</description>
       <guid isPermaLink="false">CVE-2021-37677|2024-08-04T01:23:01.450Z</guid>
       <pubDate>Thu, 12 Aug 2021 22:35:10 +0000</pubDate>
+    </item>
+    <item>
+      <title>CVE-2020-15192|2024-08-04T13:08:22.666Z -- tensorflow -- tensorflow
+</title>
+      <link>https://www.cve.org/CVERecord?id=CVE-2020-15192</link>
+      <description>In Tensorflow before versions 2.2.1 and 2.3.1, if a user passes a list of strings to `dlpack.to_dlpack` there is a memory leak following an expected validation failure. The issue occurs because the `status` argument during validation failures is not properly checked. Since each of the above methods can return an error status, the `status` value must be checked before continuing. The issue is patched in commit 22e07fb204386768e5bcbea563641ea11f96ceb8 and is released in TensorFlow versions 2.2.1, or 2.3.1.</description>
+      <guid isPermaLink="false">CVE-2020-15192|2024-08-04T13:08:22.666Z</guid>
+      <pubDate>Fri, 25 Sep 2020 18:40:56 +0000</pubDate>
     </item>
     <item>
       <title>CVE-2021-37678|2024-08-04T01:23:01.401Z -- tensorflow -- tensorflow
@@ -249,12 +321,28 @@
       <pubDate>Thu, 12 Aug 2021 22:20:11 +0000</pubDate>
     </item>
     <item>
+      <title>CVE-2020-15190|2024-08-04T13:08:22.683Z -- tensorflow -- tensorflow
+</title>
+      <link>https://www.cve.org/CVERecord?id=CVE-2020-15190</link>
+      <description>In Tensorflow before versions 1.15.4, 2.0.3, 2.1.2, 2.2.1 and 2.3.1, the `tf.raw_ops.Switch` operation takes as input a tensor and a boolean and outputs two tensors. Depending on the boolean value, one of the tensors is exactly the input tensor whereas the other one should be an empty tensor. However, the eager runtime traverses all tensors in the output. Since only one of the tensors is defined, the other one is `nullptr`, hence we are binding a reference to `nullptr`. This is undefined behavior and reported as an error if compiling with `-fsanitize=null`. In this case, this results in a segmentation fault The issue is patched in commit da8558533d925694483d2c136a9220d6d49d843c, and is released in TensorFlow versions 1.15.4, 2.0.3, 2.1.2, 2.2.1, or 2.3.1.</description>
+      <guid isPermaLink="false">CVE-2020-15190|2024-08-04T13:08:22.683Z</guid>
+      <pubDate>Fri, 25 Sep 2020 18:35:13 +0000</pubDate>
+    </item>
+    <item>
       <title>CVE-2021-41218|2024-08-04T03:08:31.519Z -- tensorflow -- tensorflow
 </title>
       <link>https://www.cve.org/CVERecord?id=CVE-2021-41218</link>
       <description>TensorFlow is an open source platform for machine learning. In affected versions the shape inference code for `AllToAll` can be made to execute a division by 0. This occurs whenever the `split_count` argument is 0. The fix will be included in TensorFlow 2.7.0. We will also cherrypick this commit on TensorFlow 2.6.1, TensorFlow 2.5.2, and TensorFlow 2.4.4, as these are also affected and still in supported range.</description>
       <guid isPermaLink="false">CVE-2021-41218|2024-08-04T03:08:31.519Z</guid>
       <pubDate>Fri, 05 Nov 2021 22:05:20 +0000</pubDate>
+    </item>
+    <item>
+      <title>CVE-2020-15198|2024-08-04T13:08:22.711Z -- tensorflow -- tensorflow
+</title>
+      <link>https://www.cve.org/CVERecord?id=CVE-2020-15198</link>
+      <description>In Tensorflow before version 2.3.1, the `SparseCountSparseOutput` implementation does not validate that the input arguments form a valid sparse tensor. In particular, there is no validation that the `indices` tensor has the same shape as the `values` one. The values in these tensors are always accessed in parallel. Thus, a shape mismatch can result in accesses outside the bounds of heap allocated buffers. The issue is patched in commit 3cbb917b4714766030b28eba9fb41bb97ce9ee02 and is released in TensorFlow version 2.3.1.</description>
+      <guid isPermaLink="false">CVE-2020-15198|2024-08-04T13:08:22.711Z</guid>
+      <pubDate>Fri, 25 Sep 2020 18:40:25 +0000</pubDate>
     </item>
     <item>
       <title>CVE-2021-37688|2024-08-04T01:23:01.508Z -- tensorflow -- tensorflow
@@ -279,6 +367,22 @@
       <description>TensorFlow is an end-to-end open source platform for machine learning. In affected versions the implementation of fully connected layers in TFLite is [vulnerable to a division by zero error](https://github.com/tensorflow/tensorflow/blob/460e000de3a83278fb00b61a16d161b1964f15f4/tensorflow/lite/kernels/fully_connected.cc#L226). We have patched the issue in GitHub commit 718721986aa137691ee23f03638867151f74935f. The fix will be included in TensorFlow 2.6.0. We will also cherrypick this commit on TensorFlow 2.5.1, TensorFlow 2.4.3, and TensorFlow 2.3.4, as these are also affected and still in supported range.</description>
       <guid isPermaLink="false">CVE-2021-37680|2024-08-04T01:23:01.555Z</guid>
       <pubDate>Thu, 12 Aug 2021 21:45:17 +0000</pubDate>
+    </item>
+    <item>
+      <title>CVE-2020-15193|2024-08-04T13:08:22.677Z -- tensorflow -- tensorflow
+</title>
+      <link>https://www.cve.org/CVERecord?id=CVE-2020-15193</link>
+      <description>In Tensorflow before versions 2.2.1 and 2.3.1, the implementation of `dlpack.to_dlpack` can be made to use uninitialized memory resulting in further memory corruption. This is because the pybind11 glue code assumes that the argument is a tensor. However, there is nothing stopping users from passing in a Python object instead of a tensor. The uninitialized memory address is due to a `reinterpret_cast` Since the `PyObject` is a Python object, not a TensorFlow Tensor, the cast to `EagerTensor` fails. The issue is patched in commit 22e07fb204386768e5bcbea563641ea11f96ceb8 and is released in TensorFlow versions 2.2.1, or 2.3.1.</description>
+      <guid isPermaLink="false">CVE-2020-15193|2024-08-04T13:08:22.677Z</guid>
+      <pubDate>Fri, 25 Sep 2020 18:40:51 +0000</pubDate>
+    </item>
+    <item>
+      <title>CVE-2020-15199|2024-08-04T13:08:22.934Z -- tensorflow -- tensorflow
+</title>
+      <link>https://www.cve.org/CVERecord?id=CVE-2020-15199</link>
+      <description>In Tensorflow before version 2.3.1, the `RaggedCountSparseOutput` does not validate that the input arguments form a valid ragged tensor. In particular, there is no validation that the `splits` tensor has the minimum required number of elements. Code uses this quantity to initialize a different data structure. Since `BatchedMap` is equivalent to a vector, it needs to have at least one element to not be `nullptr`. If user passes a `splits` tensor that is empty or has exactly one element, we get a `SIGABRT` signal raised by the operating system. The issue is patched in commit 3cbb917b4714766030b28eba9fb41bb97ce9ee02 and is released in TensorFlow version 2.3.1.</description>
+      <guid isPermaLink="false">CVE-2020-15199|2024-08-04T13:08:22.934Z</guid>
+      <pubDate>Fri, 25 Sep 2020 18:40:20 +0000</pubDate>
     </item>
     <item>
       <title>CVE-2021-37686|2024-08-04T01:23:01.523Z -- tensorflow -- tensorflow
@@ -313,6 +417,14 @@
       <pubDate>Thu, 12 Aug 2021 18:10:10 +0000</pubDate>
     </item>
     <item>
+      <title>CVE-2020-15205|2024-08-04T13:08:22.698Z -- tensorflow -- tensorflow
+</title>
+      <link>https://www.cve.org/CVERecord?id=CVE-2020-15205</link>
+      <description>In Tensorflow before versions 1.15.4, 2.0.3, 2.1.2, 2.2.1 and 2.3.1, the `data_splits` argument of `tf.raw_ops.StringNGrams` lacks validation. This allows a user to pass values that can cause heap overflow errors and even leak contents of memory In the linked code snippet, all the binary strings after `ee ff` are contents from the memory stack. Since these can contain return addresses, this data leak can be used to defeat ASLR. The issue is patched in commit 0462de5b544ed4731aa2fb23946ac22c01856b80, and is released in TensorFlow versions 1.15.4, 2.0.3, 2.1.2, 2.2.1, or 2.3.1.</description>
+      <guid isPermaLink="false">CVE-2020-15205|2024-08-04T13:08:22.698Z</guid>
+      <pubDate>Fri, 25 Sep 2020 18:45:57 +0000</pubDate>
+    </item>
+    <item>
       <title>CVE-2021-41213|2024-08-04T03:08:31.502Z -- tensorflow -- tensorflow
 </title>
       <link>https://www.cve.org/CVERecord?id=CVE-2021-41213</link>
@@ -321,12 +433,44 @@
       <pubDate>Fri, 05 Nov 2021 22:10:11 +0000</pubDate>
     </item>
     <item>
+      <title>CVE-2020-15194|2024-08-04T13:08:22.713Z -- tensorflow -- tensorflow
+</title>
+      <link>https://www.cve.org/CVERecord?id=CVE-2020-15194</link>
+      <description>In Tensorflow before versions 1.15.4, 2.0.3, 2.1.2, 2.2.1 and 2.3.1, the `SparseFillEmptyRowsGrad` implementation has incomplete validation of the shapes of its arguments. Although `reverse_index_map_t` and `grad_values_t` are accessed in a similar pattern, only `reverse_index_map_t` is validated to be of proper shape. Hence, malicious users can pass a bad `grad_values_t` to trigger an assertion failure in `vec`, causing denial of service in serving installations. The issue is patched in commit 390611e0d45c5793c7066110af37c8514e6a6c54, and is released in TensorFlow versions 1.15.4, 2.0.3, 2.1.2, 2.2.1, or 2.3.1."</description>
+      <guid isPermaLink="false">CVE-2020-15194|2024-08-04T13:08:22.713Z</guid>
+      <pubDate>Fri, 25 Sep 2020 18:40:46 +0000</pubDate>
+    </item>
+    <item>
       <title>CVE-2021-37668|2024-08-04T01:23:01.519Z -- tensorflow -- tensorflow
 </title>
       <link>https://www.cve.org/CVERecord?id=CVE-2021-37668</link>
       <description>TensorFlow is an end-to-end open source platform for machine learning. In affected versions an attacker can cause denial of service in applications serving models using `tf.raw_ops.UnravelIndex` by triggering a division by 0. The [implementation](https://github.com/tensorflow/tensorflow/blob/460e000de3a83278fb00b61a16d161b1964f15f4/tensorflow/core/kernels/unravel_index_op.cc#L36) does not check that the tensor subsumed by `dims` is not empty. Hence, if one element of `dims` is 0, the implementation does a division by 0. We have patched the issue in GitHub commit a776040a5e7ebf76eeb7eb923bf1ae417dd4d233. The fix will be included in TensorFlow 2.6.0. We will also cherrypick this commit on TensorFlow 2.5.1, TensorFlow 2.4.3, and TensorFlow 2.3.4, as these are also affected and still in supported range.</description>
       <guid isPermaLink="false">CVE-2021-37668|2024-08-04T01:23:01.519Z</guid>
       <pubDate>Thu, 12 Aug 2021 22:30:12 +0000</pubDate>
+    </item>
+    <item>
+      <title>CVE-2020-15202|2024-08-04T13:08:22.926Z -- tensorflow -- tensorflow
+</title>
+      <link>https://www.cve.org/CVERecord?id=CVE-2020-15202</link>
+      <description>In Tensorflow before versions 1.15.4, 2.0.3, 2.1.2, 2.2.1 and 2.3.1, the `Shard` API in TensorFlow expects the last argument to be a function taking two `int64` (i.e., `long long`) arguments. However, there are several places in TensorFlow where a lambda taking `int` or `int32` arguments is being used. In these cases, if the amount of work to be parallelized is large enough, integer truncation occurs. Depending on how the two arguments of the lambda are used, this can result in segfaults, read/write outside of heap allocated arrays, stack overflows, or data corruption. The issue is patched in commits 27b417360cbd671ef55915e4bb6bb06af8b8a832 and ca8c013b5e97b1373b3bb1c97ea655e69f31a575, and is released in TensorFlow versions 1.15.4, 2.0.3, 2.1.2, 2.2.1, or 2.3.1.</description>
+      <guid isPermaLink="false">CVE-2020-15202|2024-08-04T13:08:22.926Z</guid>
+      <pubDate>Fri, 25 Sep 2020 18:46:15 +0000</pubDate>
+    </item>
+    <item>
+      <title>CVE-2020-15266|2024-08-04T13:15:18.938Z -- tensorflow -- tensorflow
+</title>
+      <link>https://www.cve.org/CVERecord?id=CVE-2020-15266</link>
+      <description>In Tensorflow before version 2.4.0, when the `boxes` argument of `tf.image.crop_and_resize` has a very large value, the CPU kernel implementation receives it as a C++ `nan` floating point value. Attempting to operate on this is undefined behavior which later produces a segmentation fault. The issue is patched in eccb7ec454e6617738554a255d77f08e60ee0808 and TensorFlow 2.4.0 will be released containing the patch. TensorFlow nightly packages after this commit will also have the issue resolved.</description>
+      <guid isPermaLink="false">CVE-2020-15266|2024-08-04T13:15:18.938Z</guid>
+      <pubDate>Wed, 21 Oct 2020 20:30:16 +0000</pubDate>
+    </item>
+    <item>
+      <title>CVE-2020-15208|2024-08-04T13:08:22.832Z -- tensorflow -- tensorflow
+</title>
+      <link>https://www.cve.org/CVERecord?id=CVE-2020-15208</link>
+      <description>In tensorflow-lite before versions 1.15.4, 2.0.3, 2.1.2, 2.2.1 and 2.3.1, when determining the common dimension size of two tensors, TFLite uses a `DCHECK` which is no-op outside of debug compilation modes. Since the function always returns the dimension of the first tensor, malicious attackers can craft cases where this is larger than that of the second tensor. In turn, this would result in reads/writes outside of bounds since the interpreter will wrongly assume that there is enough data in both tensors. The issue is patched in commit 8ee24e7949a203d234489f9da2c5bf45a7d5157d, and is released in TensorFlow versions 1.15.4, 2.0.3, 2.1.2, 2.2.1, or 2.3.1.</description>
+      <guid isPermaLink="false">CVE-2020-15208|2024-08-04T13:08:22.832Z</guid>
+      <pubDate>Fri, 25 Sep 2020 18:45:40 +0000</pubDate>
     </item>
     <item>
       <title>CVE-2021-37646|2024-08-04T01:23:01.254Z -- tensorflow -- tensorflow
@@ -399,6 +543,14 @@
       <description>TensorFlow is an end-to-end open source platform for machine learning. In affected versions most implementations of convolution operators in TensorFlow are affected by a division by 0 vulnerability where an attacker can trigger a denial of service via a crash. The shape inference [implementation](https://github.com/tensorflow/tensorflow/blob/460e000de3a83278fb00b61a16d161b1964f15f4/tensorflow/core/framework/common_shape_fns.cc#L577) is missing several validations before doing divisions and modulo operations. We have patched the issue in GitHub commit 8a793b5d7f59e37ac7f3cd0954a750a2fe76bad4. The fix will be included in TensorFlow 2.6.0. We will also cherrypick this commit on TensorFlow 2.5.1, TensorFlow 2.4.3, and TensorFlow 2.3.4, as these are also affected and still in supported range.</description>
       <guid isPermaLink="false">CVE-2021-37675|2024-08-04T01:23:01.430Z</guid>
       <pubDate>Thu, 12 Aug 2021 21:45:11 +0000</pubDate>
+    </item>
+    <item>
+      <title>CVE-2020-15197|2024-08-04T13:08:22.735Z -- tensorflow -- tensorflow
+</title>
+      <link>https://www.cve.org/CVERecord?id=CVE-2020-15197</link>
+      <description>In Tensorflow before version 2.3.1, the `SparseCountSparseOutput` implementation does not validate that the input arguments form a valid sparse tensor. In particular, there is no validation that the `indices` tensor has rank 2. This tensor must be a matrix because code assumes its elements are accessed as elements of a matrix. However, malicious users can pass in tensors of different rank, resulting in a `CHECK` assertion failure and a crash. This can be used to cause denial of service in serving installations, if users are allowed to control the components of the input sparse tensor. The issue is patched in commit 3cbb917b4714766030b28eba9fb41bb97ce9ee02 and is released in TensorFlow version 2.3.1.</description>
+      <guid isPermaLink="false">CVE-2020-15197|2024-08-04T13:08:22.735Z</guid>
+      <pubDate>Fri, 25 Sep 2020 18:40:31 +0000</pubDate>
     </item>
     <item>
       <title>CVE-2021-37663|2024-08-04T01:23:01.403Z -- tensorflow -- tensorflow
@@ -489,6 +641,14 @@
       <pubDate>Thu, 12 Aug 2021 21:40:16 +0000</pubDate>
     </item>
     <item>
+      <title>CVE-2020-15195|2024-08-04T13:08:22.718Z -- tensorflow -- tensorflow
+</title>
+      <link>https://www.cve.org/CVERecord?id=CVE-2020-15195</link>
+      <description>In Tensorflow before versions 1.15.4, 2.0.3, 2.1.2, 2.2.1 and 2.3.1, the implementation of `SparseFillEmptyRowsGrad` uses a double indexing pattern. It is possible for `reverse_index_map(i)` to be an index outside of bounds of `grad_values`, thus resulting in a heap buffer overflow. The issue is patched in commit 390611e0d45c5793c7066110af37c8514e6a6c54, and is released in TensorFlow versions 1.15.4, 2.0.3, 2.1.2, 2.2.1, or 2.3.1.</description>
+      <guid isPermaLink="false">CVE-2020-15195|2024-08-04T13:08:22.718Z</guid>
+      <pubDate>Fri, 25 Sep 2020 18:40:41 +0000</pubDate>
+    </item>
+    <item>
       <title>CVE-2021-41221|2024-08-04T03:08:31.404Z -- tensorflow -- tensorflow
 </title>
       <link>https://www.cve.org/CVERecord?id=CVE-2021-41221</link>
@@ -513,12 +673,28 @@
       <pubDate>Fri, 05 Nov 2021 21:50:16 +0000</pubDate>
     </item>
     <item>
+      <title>CVE-2020-15200|2024-08-04T13:08:22.775Z -- tensorflow -- tensorflow
+</title>
+      <link>https://www.cve.org/CVERecord?id=CVE-2020-15200</link>
+      <description>In Tensorflow before version 2.3.1, the `RaggedCountSparseOutput` implementation does not validate that the input arguments form a valid ragged tensor. In particular, there is no validation that the values in the `splits` tensor generate a valid partitioning of the `values` tensor. Thus, the code sets up conditions to cause a heap buffer overflow. A `BatchedMap` is equivalent to a vector where each element is a hashmap. However, if the first element of `splits_values` is not 0, `batch_idx` will never be 1, hence there will be no hashmap at index 0 in `per_batch_counts`. Trying to access that in the user code results in a segmentation fault. The issue is patched in commit 3cbb917b4714766030b28eba9fb41bb97ce9ee02 and is released in TensorFlow version 2.3.1.</description>
+      <guid isPermaLink="false">CVE-2020-15200|2024-08-04T13:08:22.775Z</guid>
+      <pubDate>Fri, 25 Sep 2020 18:40:15 +0000</pubDate>
+    </item>
+    <item>
       <title>CVE-2021-41201|2024-08-04T03:08:31.506Z -- tensorflow -- tensorflow
 </title>
       <link>https://www.cve.org/CVERecord?id=CVE-2021-41201</link>
       <description>TensorFlow is an open source platform for machine learning. In affeced versions during execution, `EinsumHelper::ParseEquation()` is supposed to set the flags in `input_has_ellipsis` vector and `*output_has_ellipsis` boolean to indicate whether there is ellipsis in the corresponding inputs and output. However, the code only changes these flags to `true` and never assigns `false`. This results in unitialized variable access if callers assume that `EinsumHelper::ParseEquation()` always sets these flags. The fix will be included in TensorFlow 2.7.0. We will also cherrypick this commit on TensorFlow 2.6.1, TensorFlow 2.5.2, and TensorFlow 2.4.4, as these are also affected and still in supported range.</description>
       <guid isPermaLink="false">CVE-2021-41201|2024-08-04T03:08:31.506Z</guid>
       <pubDate>Fri, 05 Nov 2021 20:05:12 +0000</pubDate>
+    </item>
+    <item>
+      <title>CVE-2020-15214|2024-08-04T13:08:22.895Z -- tensorflow -- tensorflow
+</title>
+      <link>https://www.cve.org/CVERecord?id=CVE-2020-15214</link>
+      <description>In TensorFlow Lite before versions 2.2.1 and 2.3.1, models using segment sum can trigger a write out bounds / segmentation fault if the segment ids are not sorted. Code assumes that the segment ids are in increasing order, using the last element of the tensor holding them to determine the dimensionality of output tensor. This results in allocating insufficient memory for the output tensor and in a write outside the bounds of the output array. This usually results in a segmentation fault, but depending on runtime conditions it can provide for a write gadget to be used in future memory corruption-based exploits. The issue is patched in commit 204945b19e44b57906c9344c0d00120eeeae178a and is released in TensorFlow versions 2.2.1, or 2.3.1. A potential workaround would be to add a custom `Verifier` to the model loading code to ensure that the segment ids are sorted, although this only handles the case when the segment ids are stored statically in the model. A similar validation could be done if the segment ids are generated at runtime between inference steps. If the segment ids are generated as outputs of a tensor during inference steps, then there are no possible workaround and users are advised to upgrade to patched code.</description>
+      <guid isPermaLink="false">CVE-2020-15214|2024-08-04T13:08:22.895Z</guid>
+      <pubDate>Fri, 25 Sep 2020 18:50:23 +0000</pubDate>
     </item>
     <item>
       <title>CVE-2021-41204|2024-08-04T03:08:31.488Z -- tensorflow -- tensorflow
@@ -585,6 +761,14 @@
       <pubDate>Fri, 05 Nov 2021 20:20:16 +0000</pubDate>
     </item>
     <item>
+      <title>CVE-2020-15203|2024-08-04T13:08:22.972Z -- tensorflow -- tensorflow
+</title>
+      <link>https://www.cve.org/CVERecord?id=CVE-2020-15203</link>
+      <description>In Tensorflow before versions 1.15.4, 2.0.3, 2.1.2, 2.2.1 and 2.3.1, by controlling the `fill` argument of tf.strings.as_string, a malicious attacker is able to trigger a format string vulnerability due to the way the internal format use in a `printf` call is constructed. This may result in segmentation fault. The issue is patched in commit 33be22c65d86256e6826666662e40dbdfe70ee83, and is released in TensorFlow versions 1.15.4, 2.0.3, 2.1.2, 2.2.1, or 2.3.1.</description>
+      <guid isPermaLink="false">CVE-2020-15203|2024-08-04T13:08:22.972Z</guid>
+      <pubDate>Fri, 25 Sep 2020 18:46:08 +0000</pubDate>
+    </item>
+    <item>
       <title>CVE-2021-41200|2024-08-04T03:08:31.607Z -- tensorflow -- tensorflow
 </title>
       <link>https://www.cve.org/CVERecord?id=CVE-2021-41200</link>
@@ -599,6 +783,22 @@
       <description>TensorFlow is an end-to-end open source platform for machine learning. In affected versions an attacker can cause undefined behavior via binding a reference to null pointer in `tf.raw_ops.RaggedTensorToSparse`. The [implementation](https://github.com/tensorflow/tensorflow/blob/f24faa153ad31a4b51578f8181d3aaab77a1ddeb/tensorflow/core/kernels/ragged_tensor_to_sparse_kernel.cc#L30) has an incomplete validation of the splits values: it does not check that they are in increasing order. We have patched the issue in GitHub commit 1071f554dbd09f7e101324d366eec5f4fe5a3ece. The fix will be included in TensorFlow 2.6.0. We will also cherrypick this commit on TensorFlow 2.5.1, TensorFlow 2.4.3, and TensorFlow 2.3.4, as these are also affected and still in supported range.</description>
       <guid isPermaLink="false">CVE-2021-37656|2024-08-04T01:23:01.518Z</guid>
       <pubDate>Thu, 12 Aug 2021 20:50:22 +0000</pubDate>
+    </item>
+    <item>
+      <title>CVE-2020-15206|2024-08-04T13:08:22.955Z -- tensorflow -- tensorflow
+</title>
+      <link>https://www.cve.org/CVERecord?id=CVE-2020-15206</link>
+      <description>In Tensorflow before versions 1.15.4, 2.0.3, 2.1.2, 2.2.1 and 2.3.1, changing the TensorFlow's `SavedModel` protocol buffer and altering the name of required keys results in segfaults and data corruption while loading the model. This can cause a denial of service in products using `tensorflow-serving` or other inference-as-a-service installments. Fixed were added in commits f760f88b4267d981e13f4b302c437ae800445968 and fcfef195637c6e365577829c4d67681695956e7d (both going into TensorFlow 2.2.0 and 2.3.0 but not yet backported to earlier versions). However, this was not enough, as #41097 reports a different failure mode. The issue is patched in commit adf095206f25471e864a8e63a0f1caef53a0e3a6, and is released in TensorFlow versions 1.15.4, 2.0.3, 2.1.2, 2.2.1, or 2.3.1.</description>
+      <guid isPermaLink="false">CVE-2020-15206|2024-08-04T13:08:22.955Z</guid>
+      <pubDate>Fri, 25 Sep 2020 18:45:51 +0000</pubDate>
+    </item>
+    <item>
+      <title>CVE-2020-15213|2024-08-04T13:08:22.853Z -- tensorflow -- tensorflow
+</title>
+      <link>https://www.cve.org/CVERecord?id=CVE-2020-15213</link>
+      <description>In TensorFlow Lite before versions 2.2.1 and 2.3.1, models using segment sum can trigger a denial of service by causing an out of memory allocation in the implementation of segment sum. Since code uses the last element of the tensor holding them to determine the dimensionality of output tensor, attackers can use a very large value to trigger a large allocation. The issue is patched in commit 204945b19e44b57906c9344c0d00120eeeae178a and is released in TensorFlow versions 2.2.1, or 2.3.1. A potential workaround would be to add a custom `Verifier` to limit the maximum value in the segment ids tensor. This only handles the case when the segment ids are stored statically in the model, but a similar validation could be done if the segment ids are generated at runtime, between inference steps. However, if the segment ids are generated as outputs of a tensor during inference steps, then there are no possible workaround and users are advised to upgrade to patched code.</description>
+      <guid isPermaLink="false">CVE-2020-15213|2024-08-04T13:08:22.853Z</guid>
+      <pubDate>Fri, 25 Sep 2020 18:50:29 +0000</pubDate>
     </item>
     <item>
       <title>CVE-2021-37671|2024-08-04T01:23:01.520Z -- tensorflow -- tensorflow
@@ -633,12 +833,28 @@
       <pubDate>Fri, 05 Nov 2021 19:55:26 +0000</pubDate>
     </item>
     <item>
+      <title>CVE-2020-15212|2024-08-04T13:08:22.919Z -- tensorflow -- tensorflow
+</title>
+      <link>https://www.cve.org/CVERecord?id=CVE-2020-15212</link>
+      <description>In TensorFlow Lite before versions 2.2.1 and 2.3.1, models using segment sum can trigger writes outside of bounds of heap allocated buffers by inserting negative elements in the segment ids tensor. Users having access to `segment_ids_data` can alter `output_index` and then write to outside of `output_data` buffer. This might result in a segmentation fault but it can also be used to further corrupt the memory and can be chained with other vulnerabilities to create more advanced exploits. The issue is patched in commit 204945b19e44b57906c9344c0d00120eeeae178a and is released in TensorFlow versions 2.2.1, or 2.3.1. A potential workaround would be to add a custom `Verifier` to the model loading code to ensure that the segment ids are all positive, although this only handles the case when the segment ids are stored statically in the model. A similar validation could be done if the segment ids are generated at runtime between inference steps. If the segment ids are generated as outputs of a tensor during inference steps, then there are no possible workaround and users are advised to upgrade to patched code.</description>
+      <guid isPermaLink="false">CVE-2020-15212|2024-08-04T13:08:22.919Z</guid>
+      <pubDate>Fri, 25 Sep 2020 18:50:34 +0000</pubDate>
+    </item>
+    <item>
       <title>CVE-2021-37642|2024-08-04T01:23:01.345Z -- tensorflow -- tensorflow
 </title>
       <link>https://www.cve.org/CVERecord?id=CVE-2021-37642</link>
       <description>TensorFlow is an end-to-end open source platform for machine learning. In affected versions the implementation of `tf.raw_ops.ResourceScatterDiv` is vulnerable to a division by 0 error. The [implementation](https://github.com/tensorflow/tensorflow/blob/8d72537c6abf5a44103b57b9c2e22c14f5f49698/tensorflow/core/kernels/resource_variable_ops.cc#L865) uses a common class for all binary operations but fails to treat the division by 0 case separately. We have patched the issue in GitHub commit 4aacb30888638da75023e6601149415b39763d76. The fix will be included in TensorFlow 2.6.0. We will also cherrypick this commit on TensorFlow 2.5.1, TensorFlow 2.4.3, and TensorFlow 2.3.4, as these are also affected and still in supported range.</description>
       <guid isPermaLink="false">CVE-2021-37642|2024-08-04T01:23:01.345Z</guid>
       <pubDate>Thu, 12 Aug 2021 17:35:16 +0000</pubDate>
+    </item>
+    <item>
+      <title>CVE-2020-15191|2024-08-04T13:08:22.683Z -- tensorflow -- tensorflow
+</title>
+      <link>https://www.cve.org/CVERecord?id=CVE-2020-15191</link>
+      <description>In Tensorflow before versions 2.2.1 and 2.3.1, if a user passes an invalid argument to `dlpack.to_dlpack` the expected validations will cause variables to bind to `nullptr` while setting a `status` variable to the error condition. However, this `status` argument is not properly checked. Hence, code following these methods will bind references to null pointers. This is undefined behavior and reported as an error if compiling with `-fsanitize=null`. The issue is patched in commit 22e07fb204386768e5bcbea563641ea11f96ceb8 and is released in TensorFlow versions 2.2.1, or 2.3.1.</description>
+      <guid isPermaLink="false">CVE-2020-15191|2024-08-04T13:08:22.683Z</guid>
+      <pubDate>Fri, 25 Sep 2020 18:41:01 +0000</pubDate>
     </item>
     <item>
       <title>CVE-2021-37661|2024-08-04T01:23:01.463Z -- tensorflow -- tensorflow
@@ -753,10 +969,10 @@
       <pubDate>Thu, 12 Aug 2021 21:05:11 +0000</pubDate>
     </item>
     <item>
-      <title>CVE-2023-33976|2024-08-02T15:54:14.208Z -- tensorflow -- tensorflow</title>
+      <title>CVE-2023-33976|2024-08-01T20:14:02.779Z -- tensorflow -- tensorflow</title>
       <link>https://www.cve.org/CVERecord?id=CVE-2023-33976</link>
       <description>TensorFlow is an end-to-end open source platform for machine learning. `array_ops.upper_bound` causes a segfault when not given a rank 2 tensor. The fix will be included in TensorFlow 2.13 and will also cherrypick this commit on TensorFlow 2.12.</description>
-      <guid isPermaLink="false">CVE-2023-33976|2024-08-02T15:54:14.208Z</guid>
+      <guid isPermaLink="false">CVE-2023-33976|2024-08-01T20:14:02.779Z</guid>
       <pubDate>Tue, 30 Jul 2024 19:27:14 +0000</pubDate>
     </item>
     <item>
@@ -767,10 +983,10 @@
       <pubDate>Tue, 30 Jul 2024 19:27:14 +0000</pubDate>
     </item>
     <item>
-      <title>CVE-2023-33976|2024-08-01T20:14:02.779Z -- tensorflow -- tensorflow</title>
+      <title>CVE-2023-33976|2024-08-02T15:54:14.208Z -- tensorflow -- tensorflow</title>
       <link>https://www.cve.org/CVERecord?id=CVE-2023-33976</link>
       <description>TensorFlow is an end-to-end open source platform for machine learning. `array_ops.upper_bound` causes a segfault when not given a rank 2 tensor. The fix will be included in TensorFlow 2.13 and will also cherrypick this commit on TensorFlow 2.12.</description>
-      <guid isPermaLink="false">CVE-2023-33976|2024-08-01T20:14:02.779Z</guid>
+      <guid isPermaLink="false">CVE-2023-33976|2024-08-02T15:54:14.208Z</guid>
       <pubDate>Tue, 30 Jul 2024 19:27:14 +0000</pubDate>
     </item>
   </channel>
