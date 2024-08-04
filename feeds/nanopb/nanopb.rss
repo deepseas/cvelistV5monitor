@@ -6,15 +6,15 @@
     <description>The latest CVEs for nanopb -- nanopb</description>
     <docs>http://www.rssboard.org/rss-specification</docs>
     <generator>python-feedgen</generator>
-    <lastBuildDate>Sat, 03 Aug 2024 23:23:13 +0000</lastBuildDate>
+    <lastBuildDate>Sun, 04 Aug 2024 09:23:27 +0000</lastBuildDate>
     <ttl>60</ttl>
     <item>
-      <title>CVE-2021-21401|2024-08-03T18:09:16.087Z -- nanopb -- nanopb
+      <title>CVE-2020-5235|2024-08-04T08:22:09.040Z -- nanopb -- nanopb
 </title>
-      <link>https://www.cve.org/CVERecord?id=CVE-2021-21401</link>
-      <description>Nanopb is a small code-size Protocol Buffers implementation in ansi C. In Nanopb before versions 0.3.9.8 and 0.4.5, decoding a specifically formed message can cause invalid `free()` or `realloc()` calls if the message type contains an `oneof` field, and the `oneof` directly contains both a pointer field and a non-pointer field. If the message data first contains the non-pointer field and then the pointer field, the data of the non-pointer field is incorrectly treated as if it was a pointer value. Such message data rarely occurs in normal messages, but it is a concern when untrusted data is parsed. This has been fixed in versions 0.3.9.8 and 0.4.5. See referenced GitHub Security Advisory for more information including workarounds.</description>
-      <guid isPermaLink="false">CVE-2021-21401|2024-08-03T18:09:16.087Z</guid>
-      <pubDate>Tue, 23 Mar 2021 17:45:19 +0000</pubDate>
+      <link>https://www.cve.org/CVERecord?id=CVE-2020-5235</link>
+      <description>There is a potentially exploitable out of memory condition In Nanopb before 0.4.1, 0.3.9.5, and 0.2.9.4. When nanopb is compiled with PB_ENABLE_MALLOC, the message to be decoded contains a repeated string, bytes or message field and realloc() runs out of memory when expanding the array nanopb can end up calling `free()` on a pointer value that comes from uninitialized memory. Depending on platform this can result in a crash or further memory corruption, which may be exploitable in some cases. This problem is fixed in nanopb-0.4.1, nanopb-0.3.9.5, nanopb-0.2.9.4.</description>
+      <guid isPermaLink="false">CVE-2020-5235|2024-08-04T08:22:09.040Z</guid>
+      <pubDate>Tue, 04 Feb 2020 03:00:18 +0000</pubDate>
     </item>
   </channel>
 </rss>

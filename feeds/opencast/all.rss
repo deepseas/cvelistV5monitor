@@ -6,8 +6,48 @@
     <description>The latest CVEs for opencast -- all products</description>
     <docs>http://www.rssboard.org/rss-specification</docs>
     <generator>python-feedgen</generator>
-    <lastBuildDate>Sun, 04 Aug 2024 08:23:57 +0000</lastBuildDate>
+    <lastBuildDate>Sun, 04 Aug 2024 09:23:21 +0000</lastBuildDate>
     <ttl>60</ttl>
+    <item>
+      <title>CVE-2020-5206|2024-08-04T08:22:08.781Z -- opencast -- opencast
+</title>
+      <link>https://www.cve.org/CVERecord?id=CVE-2020-5206</link>
+      <description>In Opencast before 7.6 and 8.1, using a remember-me cookie with an arbitrary username can cause Opencast to assume proper authentication for that user even if the remember-me cookie was incorrect given that the attacked endpoint also allows anonymous access. This way, an attacker can, for example, fake a remember-me token, assume the identity of the global system administrator and request non-public content from the search service without ever providing any proper authentication. This problem is fixed in Opencast 7.6 and Opencast 8.1</description>
+      <guid isPermaLink="false">CVE-2020-5206|2024-08-04T08:22:08.781Z</guid>
+      <pubDate>Thu, 30 Jan 2020 21:25:16 +0000</pubDate>
+    </item>
+    <item>
+      <title>CVE-2020-5231|2024-08-04T08:22:08.962Z -- opencast -- opencast
+</title>
+      <link>https://www.cve.org/CVERecord?id=CVE-2020-5231</link>
+      <description>In Opencast before 7.6 and 8.1, users with the role ROLE_COURSE_ADMIN can use the user-utils endpoint to create new users not including the role ROLE_ADMIN. ROLE_COURSE_ADMIN is a non-standard role in Opencast which is referenced neither in the documentation nor in any code (except for tests) but only in the security configuration. From the name – implying an admin for a specific course – users would never expect that this role allows user creation. This issue is fixed in 7.6 and 8.1 which both ship a new default security configuration.</description>
+      <guid isPermaLink="false">CVE-2020-5231|2024-08-04T08:22:08.962Z</guid>
+      <pubDate>Thu, 30 Jan 2020 21:15:16 +0000</pubDate>
+    </item>
+    <item>
+      <title>CVE-2020-5229|2024-08-04T08:22:08.967Z -- opencast -- opencast
+</title>
+      <link>https://www.cve.org/CVERecord?id=CVE-2020-5229</link>
+      <description>Opencast before 8.1 stores passwords using the rather outdated and cryptographically insecure MD5 hash algorithm. Furthermore, the hashes are salted using the username instead of a random salt, causing hashes for users with the same username and password to collide which is problematic especially for popular users like the default `admin` user. This essentially means that for an attacker, it might be feasible to reconstruct a user's password given access to these hashes. Note that attackers needing access to the hashes means that they must gain access to the database in which these are stored first to be able to start cracking the passwords. The problem is addressed in Opencast 8.1 which now uses the modern and much stronger bcrypt password hashing algorithm for storing passwords. Note, that old hashes remain MD5 until the password is updated. For a list of users whose password hashes are stored using MD5, take a look at the `/user-utils/users/md5.json` REST endpoint.</description>
+      <guid isPermaLink="false">CVE-2020-5229|2024-08-04T08:22:08.967Z</guid>
+      <pubDate>Thu, 30 Jan 2020 20:05:17 +0000</pubDate>
+    </item>
+    <item>
+      <title>CVE-2020-5228|2024-08-04T08:22:08.952Z -- opencast -- opencast
+</title>
+      <link>https://www.cve.org/CVERecord?id=CVE-2020-5228</link>
+      <description>Opencast before 8.1 and 7.6 allows unauthorized public access to all media and metadata by default via OAI-PMH. OAI-PMH is part of the default workflow and is activated by default, requiring active user intervention of users to protect media. This leads to users unknowingly handing out public access to events without their knowledge. The problem has been addressed in Opencast 7.6 and 8.1 where the OAI-PMH endpoint is configured to require users with `ROLE_ADMIN` by default. In addition to this, Opencast 9 removes the OAI-PMH publication from the default workflow, making the publication a conscious decision users have to make by updating their workflows.</description>
+      <guid isPermaLink="false">CVE-2020-5228|2024-08-04T08:22:08.952Z</guid>
+      <pubDate>Thu, 30 Jan 2020 19:50:13 +0000</pubDate>
+    </item>
+    <item>
+      <title>CVE-2020-5230|2024-08-04T08:22:09.097Z -- opencast -- opencast
+</title>
+      <link>https://www.cve.org/CVERecord?id=CVE-2020-5230</link>
+      <description>Opencast before 8.1 and 7.6 allows almost arbitrary identifiers for media packages and elements to be used. This can be problematic for operation and security since such identifiers are sometimes used for file system operations which may lead to an attacker being able to escape working directories and write files to other locations. In addition, Opencast's Id.toString(…) vs Id.compact(…) behavior, the latter trying to mitigate some of the file system problems, can cause errors due to identifier mismatch since an identifier may unintentionally change. This issue is fixed in Opencast 7.6 and 8.1.</description>
+      <guid isPermaLink="false">CVE-2020-5230|2024-08-04T08:22:09.097Z</guid>
+      <pubDate>Thu, 30 Jan 2020 20:55:14 +0000</pubDate>
+    </item>
     <item>
       <title>CVE-2021-43821|2024-08-04T04:03:08.978Z -- opencast -- opencast
 </title>
@@ -15,6 +55,14 @@
       <description>Opencast is an Open Source Lecture Capture &amp; Video Management for Education. Opencast before version 9.10 or 10.6 allows references to local file URLs in ingested media packages, allowing attackers to include local files from Opencast's host machines and making them available via the web interface. Before Opencast 9.10 and 10.6, Opencast would open and include local files during ingests. Attackers could exploit this to include most local files the process has read access to, extracting secrets from the host machine. An attacker would need to have the privileges required to add new media to exploit this. But these are often widely given. The issue has been fixed in Opencast 10.6 and 11.0. You can mitigate this issue by narrowing down the read access Opencast has to files on the file system using UNIX permissions or mandatory access control systems like SELinux. This cannot prevent access to files Opencast needs to read though and we highly recommend updating.</description>
       <guid isPermaLink="false">CVE-2021-43821|2024-08-04T04:03:08.978Z</guid>
       <pubDate>Tue, 14 Dec 2021 19:15:12 +0000</pubDate>
+    </item>
+    <item>
+      <title>CVE-2020-5222|2024-08-04T08:22:08.720Z -- opencast -- opencast
+</title>
+      <link>https://www.cve.org/CVERecord?id=CVE-2020-5222</link>
+      <description>Opencast before 7.6 and 8.1 enables a remember-me cookie based on a hash created from the username, password, and an additional system key. This means that an attacker getting access to a remember-me token for one server can get access to all servers which allow log-in using the same credentials without ever needing the credentials. This problem is fixed in Opencast 7.6 and Opencast 8.1</description>
+      <guid isPermaLink="false">CVE-2020-5222|2024-08-04T08:22:08.720Z</guid>
+      <pubDate>Thu, 30 Jan 2020 20:50:13 +0000</pubDate>
     </item>
     <item>
       <title>CVE-2021-43807|2024-08-04T04:03:08.669Z -- opencast -- opencast
