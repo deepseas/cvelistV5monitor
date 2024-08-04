@@ -6,7 +6,7 @@
     <description>The latest CVEs for Linux Kernel -- all products</description>
     <docs>http://www.rssboard.org/rss-specification</docs>
     <generator>python-feedgen</generator>
-    <lastBuildDate>Sun, 04 Aug 2024 10:23:07 +0000</lastBuildDate>
+    <lastBuildDate>Sun, 04 Aug 2024 11:20:06 +0000</lastBuildDate>
     <ttl>60</ttl>
     <item>
       <title>CVE-2020-1749|2024-08-04T06:46:30.814Z -- linux%20kernel -- kernel
@@ -15,6 +15,22 @@
       <description>A flaw was found in the Linux kernel's implementation of some networking protocols in IPsec, such as VXLAN and GENEVE tunnels over IPv6. When an encrypted tunnel is created between two hosts, the kernel isn't correctly routing tunneled data over the encrypted link; rather sending the data unencrypted. This would allow anyone in between the two endpoints to read the traffic unencrypted. The main threat from this vulnerability is to data confidentiality.</description>
       <guid isPermaLink="false">CVE-2020-1749|2024-08-04T06:46:30.814Z</guid>
       <pubDate>Wed, 09 Sep 2020 14:35:17 +0000</pubDate>
+    </item>
+    <item>
+      <title>CVE-2020-8834|2024-08-04T10:12:10.661Z -- linux%20kernel -- linux%20kernel
+</title>
+      <link>https://www.cve.org/CVERecord?id=CVE-2020-8834</link>
+      <description>KVM in the Linux kernel on Power8 processors has a conflicting use of HSTATE_HOST_R1 to store r1 state in kvmppc_hv_entry plus in kvmppc_{save,restore}_tm, leading to a stack corruption. Because of this, an attacker with the ability run code in kernel space of a guest VM can cause the host kernel to panic. There were two commits that, according to the reporter, introduced the vulnerability: f024ee098476 ("KVM: PPC: Book3S HV: Pull out TM state save/restore into separate procedures") 87a11bb6a7f7 ("KVM: PPC: Book3S HV: Work around XER[SO] bug in fake suspend mode") The former landed in 4.8, the latter in 4.17. This was fixed without realizing the impact in 4.18 with the following three commits, though it's believed the first is the only strictly necessary commit: 6f597c6b63b6 ("KVM: PPC: Book3S PR: Add guest MSR parameter for kvmppc_save_tm()/kvmppc_restore_tm()") 7b0e827c6970 ("KVM: PPC: Book3S HV: Factor fake-suspend handling out of kvmppc_save/restore_tm") 009c872a8bc4 ("KVM: PPC: Book3S PR: Move kvmppc_save_tm/kvmppc_restore_tm to separate file")</description>
+      <guid isPermaLink="false">CVE-2020-8834|2024-08-04T10:12:10.661Z</guid>
+      <pubDate>Mon, 06 Apr 2020 00:00:00 +0000</pubDate>
+    </item>
+    <item>
+      <title>CVE-2020-8835|2024-08-04T10:12:10.621Z -- linux%20kernel -- linux%20kernel
+</title>
+      <link>https://www.cve.org/CVERecord?id=CVE-2020-8835</link>
+      <description>In the Linux kernel 5.5.0 and newer, the bpf verifier (kernel/bpf/verifier.c) did not properly restrict the register bounds for 32-bit operations, leading to out-of-bounds reads and writes in kernel memory. The vulnerability also affects the Linux 5.4 stable series, starting with v5.4.7, as the introducing commit was backported to that branch. This vulnerability was fixed in 5.6.1, 5.5.14, and 5.4.29. (issue is aka ZDI-CAN-10780)</description>
+      <guid isPermaLink="false">CVE-2020-8835|2024-08-04T10:12:10.621Z</guid>
+      <pubDate>Mon, 30 Mar 2020 00:00:00 +0000</pubDate>
     </item>
   </channel>
 </rss>
