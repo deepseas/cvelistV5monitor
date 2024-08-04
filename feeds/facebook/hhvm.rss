@@ -6,7 +6,7 @@
     <description>The latest CVEs for Facebook -- HHVM</description>
     <docs>http://www.rssboard.org/rss-specification</docs>
     <generator>python-feedgen</generator>
-    <lastBuildDate>Sun, 04 Aug 2024 19:19:37 +0000</lastBuildDate>
+    <lastBuildDate>Sun, 04 Aug 2024 20:23:00 +0000</lastBuildDate>
     <ttl>60</ttl>
     <item>
       <title>CVE-2020-1898|2024-08-04T06:53:59.646Z -- facebook -- hhvm
@@ -41,6 +41,22 @@
       <pubDate>Tue, 03 Mar 2020 15:00:26 +0000</pubDate>
     </item>
     <item>
+      <title>CVE-2019-3569|2024-08-04T19:12:09.483Z -- facebook -- hhvm
+</title>
+      <link>https://www.cve.org/CVERecord?id=CVE-2019-3569</link>
+      <description>HHVM, when used with FastCGI, would bind by default to all available interfaces. This behavior could allow a malicious individual unintended direct access to the application, which could result in information disclosure. This issue affects versions 4.3.0, 4.4.0, 4.5.0, 4.6.0, 4.7.0, 4.8.0, versions 3.30.5 and below, and all versions in the 4.0, 4.1, and 4.2 series.</description>
+      <guid isPermaLink="false">CVE-2019-3569|2024-08-04T19:12:09.483Z</guid>
+      <pubDate>Wed, 26 Jun 2019 15:09:17 +0000</pubDate>
+    </item>
+    <item>
+      <title>CVE-2019-3570|2024-08-04T19:12:09.495Z -- facebook -- hhvm
+</title>
+      <link>https://www.cve.org/CVERecord?id=CVE-2019-3570</link>
+      <description>Call to the scrypt_enc() function in HHVM can lead to heap corruption by using specifically crafted parameters (N, r and p). This happens if the parameters are configurable by an attacker for instance by providing the output of scrypt_enc() in a context where Hack/PHP code would attempt to verify it by re-running scrypt_enc() with the same parameters. This could result in information disclosure, memory being overwriten or crashes of the HHVM process. This issue affects versions 4.3.0, 4.4.0, 4.5.0, 4.6.0, 4.7.0, 4.8.0, versions 3.30.5 and below, and all versions in the 4.0, 4.1, and 4.2 series.</description>
+      <guid isPermaLink="false">CVE-2019-3570|2024-08-04T19:12:09.495Z</guid>
+      <pubDate>Thu, 18 Jul 2019 15:42:25 +0000</pubDate>
+    </item>
+    <item>
       <title>CVE-2020-1918|2024-08-04T06:53:59.798Z -- facebook -- hhvm
 </title>
       <link>https://www.cve.org/CVERecord?id=CVE-2020-1918</link>
@@ -73,6 +89,14 @@
       <pubDate>Wed, 10 Mar 2021 15:50:27 +0000</pubDate>
     </item>
     <item>
+      <title>CVE-2019-3561|2024-08-04T19:12:09.501Z -- facebook -- hhvm
+</title>
+      <link>https://www.cve.org/CVERecord?id=CVE-2019-3561</link>
+      <description>Insufficient boundary checks for the strrpos and strripos functions allow access to out-of-bounds memory. This affects all supported versions of HHVM (4.0.3, 3.30.4, and 3.27.7 and below).</description>
+      <guid isPermaLink="false">CVE-2019-3561|2024-08-04T19:12:09.501Z</guid>
+      <pubDate>Mon, 29 Apr 2019 15:32:45 +0000</pubDate>
+    </item>
+    <item>
       <title>CVE-2020-1899|2024-08-04T06:53:59.985Z -- facebook -- hhvm
 </title>
       <link>https://www.cve.org/CVERecord?id=CVE-2020-1899</link>
@@ -95,6 +119,22 @@
       <description>xbuf_format_converter, used as part of exif_read_data, was appending a terminating null character to the generated string, but was not using its standard append char function. As a result, if the buffer was full, it would result in an out-of-bounds write. This issue affects HHVM versions prior to 4.56.3, all versions between 4.57.0 and 4.80.1, all versions between 4.81.0 and 4.93.1, and versions 4.94.0, 4.95.0, 4.96.0, 4.97.0, 4.98.0.</description>
       <guid isPermaLink="false">CVE-2020-1917|2024-08-04T06:53:59.921Z</guid>
       <pubDate>Wed, 10 Mar 2021 15:50:28 +0000</pubDate>
+    </item>
+    <item>
+      <title>CVE-2019-3557|2024-08-04T19:12:09.545Z -- facebook -- hhvm
+</title>
+      <link>https://www.cve.org/CVERecord?id=CVE-2019-3557</link>
+      <description>The implementations of streams for bz2 and php://output improperly implemented their readImpl functions, returning -1 consistently. This behavior caused some stream functions, such as stream_get_line, to trigger an out-of-bounds read when operating on such malformed streams. The implementations were updated to return valid values consistently. This affects all supported versions of HHVM (3.30 and 3.27.4 and below).</description>
+      <guid isPermaLink="false">CVE-2019-3557|2024-08-04T19:12:09.545Z</guid>
+      <pubDate>Tue, 15 Jan 2019 22:00:00 +0000</pubDate>
+    </item>
+    <item>
+      <title>CVE-2019-3556|2024-08-04T19:12:09.554Z -- facebook -- hhvm
+</title>
+      <link>https://www.cve.org/CVERecord?id=CVE-2019-3556</link>
+      <description>HHVM supports the use of an "admin" server which accepts administrative requests over HTTP. One of those request handlers, dump-pcre-cache, can be used to output cached regular expressions from the current execution context into a file. The handler takes a parameter which specifies where on the filesystem to write this data. The parameter is not validated, allowing a malicious user to overwrite arbitrary files where the user running HHVM has write access. This issue affects HHVM versions prior to 4.56.2, all versions between 4.57.0 and 4.78.0, as well as 4.79.0, 4.80.0, 4.81.0, 4.82.0, and 4.83.0.</description>
+      <guid isPermaLink="false">CVE-2019-3556|2024-08-04T19:12:09.554Z</guid>
+      <pubDate>Tue, 26 Oct 2021 20:05:10 +0000</pubDate>
     </item>
   </channel>
 </rss>
