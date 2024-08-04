@@ -6,31 +6,15 @@
     <description>The latest CVEs for Apache Software Foundation -- Apache Hadoop</description>
     <docs>http://www.rssboard.org/rss-specification</docs>
     <generator>python-feedgen</generator>
-    <lastBuildDate>Sat, 03 Aug 2024 23:23:02 +0000</lastBuildDate>
+    <lastBuildDate>Sun, 04 Aug 2024 01:47:51 +0000</lastBuildDate>
     <ttl>60</ttl>
     <item>
-      <title>CVE-2021-25642|2024-08-03T20:11:28.113Z -- apache%20software%20foundation -- apache%20hadoop
+      <title>CVE-2021-37404|2024-08-04T01:16:03.989Z -- apache%20software%20foundation -- apache%20hadoop
 </title>
-      <link>https://www.cve.org/CVERecord?id=CVE-2021-25642</link>
-      <description>ZKConfigurationStore which is optionally used by CapacityScheduler of Apache Hadoop YARN deserializes data obtained from ZooKeeper without validation. An attacker having access to ZooKeeper can run arbitrary commands as YARN user by exploiting this. Users should upgrade to Apache Hadoop 2.10.2, 3.2.4, 3.3.4 or later (containing YARN-11126) if ZKConfigurationStore is used.</description>
-      <guid isPermaLink="false">CVE-2021-25642|2024-08-03T20:11:28.113Z</guid>
-      <pubDate>Thu, 25 Aug 2022 00:00:00 +0000</pubDate>
-    </item>
-    <item>
-      <title>CVE-2022-25168|2024-08-03T04:36:05.786Z -- apache%20software%20foundation -- apache%20hadoop
-</title>
-      <link>https://www.cve.org/CVERecord?id=CVE-2022-25168</link>
-      <description>Apache Hadoop's FileUtil.unTar(File, File) API does not escape the input file name before being passed to the shell. An attacker can inject arbitrary commands. This is only used in Hadoop 3.3 InMemoryAliasMap.completeBootstrapTransfer, which is only ever run by a local user. It has been used in Hadoop 2.x for yarn localization, which does enable remote code execution. It is used in Apache Spark, from the SQL command ADD ARCHIVE. As the ADD ARCHIVE command adds new binaries to the classpath, being able to execute shell scripts does not confer new permissions to the caller. SPARK-38305. "Check existence of file before untarring/zipping", which is included in 3.3.0, 3.1.4, 3.2.2, prevents shell commands being executed, regardless of which version of the hadoop libraries are in use. Users should upgrade to Apache Hadoop 2.10.2, 3.2.4, 3.3.3 or upper (including HADOOP-18136).</description>
-      <guid isPermaLink="false">CVE-2022-25168|2024-08-03T04:36:05.786Z</guid>
-      <pubDate>Thu, 04 Aug 2022 14:30:17 +0000</pubDate>
-    </item>
-    <item>
-      <title>CVE-2022-26612|2024-08-03T05:11:43.529Z -- apache%20software%20foundation -- apache%20hadoop
-</title>
-      <link>https://www.cve.org/CVERecord?id=CVE-2022-26612</link>
-      <description>In Apache Hadoop, The unTar function uses unTarUsingJava function on Windows and the built-in tar utility on Unix and other OSes. As a result, a TAR entry may create a symlink under the expected extraction directory which points to an external directory. A subsequent TAR entry may extract an arbitrary file into the external directory using the symlink name. This however would be caught by the same targetDirPath check on Unix because of the getCanonicalPath call. However on Windows, getCanonicalPath doesn't resolve symbolic links, which bypasses the check. unpackEntries during TAR extraction follows symbolic links which allows writing outside expected base directory on Windows. This was addressed in Apache Hadoop 3.2.3</description>
-      <guid isPermaLink="false">CVE-2022-26612|2024-08-03T05:11:43.529Z</guid>
-      <pubDate>Thu, 07 Apr 2022 18:20:12 +0000</pubDate>
+      <link>https://www.cve.org/CVERecord?id=CVE-2021-37404</link>
+      <description>There is a potential heap buffer overflow in Apache Hadoop libhdfs native code. Opening a file path provided by user without validation may result in a denial of service or arbitrary code execution. Users should upgrade to Apache Hadoop 2.10.2, 3.2.3, 3.3.2 or higher.</description>
+      <guid isPermaLink="false">CVE-2021-37404|2024-08-04T01:16:03.989Z</guid>
+      <pubDate>Mon, 13 Jun 2022 07:00:16 +0000</pubDate>
     </item>
   </channel>
 </rss>
