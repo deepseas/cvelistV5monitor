@@ -1,0 +1,20 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<rss xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/" version="2.0">
+  <channel>
+    <title>CVE Feed for spree -- spree_auth_devise</title>
+    <link>https://raw.githubusercontent.com/deepseas/cvelistV5monitor/main/feeds/spree/spree_auth_devise.rss</link>
+    <description>The latest CVEs for spree -- spree_auth_devise</description>
+    <docs>http://www.rssboard.org/rss-specification</docs>
+    <generator>python-feedgen</generator>
+    <lastBuildDate>Sun, 04 Aug 2024 04:24:12 +0000</lastBuildDate>
+    <ttl>60</ttl>
+    <item>
+      <title>CVE-2021-41275|2024-08-04T03:08:31.652Z -- spree -- spree_auth_devise
+</title>
+      <link>https://www.cve.org/CVERecord?id=CVE-2021-41275</link>
+      <description>spree_auth_devise is an open source library which provides authentication and authorization services for use with the Spree storefront framework by using an underlying Devise authentication framework. In affected versions spree_auth_devise is subject to a CSRF vulnerability that allows user account takeover. All applications using any version of the frontend component of spree_auth_devise are affected if protect_from_forgery method is both: Executed whether as: A before_action callback (the default). A prepend_before_action (option prepend: true given) before the :load_object hook in Spree::UserController (most likely order to find). Configured to use :null_session or :reset_session strategies (:null_session is the default in case the no strategy is given, but rails --new generated skeleton use :exception). Users are advised to update their spree_auth_devise gem. For users unable to update it may be possible to change your strategy to :exception. Please see the linked GHSA for more workaround details. ### Impact CSRF vulnerability that allows user account takeover. All applications using any version of the frontend component of `spree_auth_devise` are affected if `protect_from_forgery` method is both: * Executed whether as: * A before_action callback (the default) * A prepend_before_action (option prepend: true given) before the :load_object hook in Spree::UserController (most likely order to find). * Configured to use :null_session or :reset_session strategies (:null_session is the default in case the no strategy is given, but rails --new generated skeleton use :exception). That means that applications that haven't been configured differently from what it's generated with Rails aren't affected. Thanks @waiting-for-dev for reporting and providing a patch �� ### Patches Spree 4.3 users should update to spree_auth_devise 4.4.1 Spree 4.2 users should update to spree_auth_devise 4.2.1 ### Workarounds If possible, change your strategy to :exception: ```ruby class ApplicationController &lt; ActionController::Base protect_from_forgery with: :exception end ``` Add the following to`config/application.rb `to at least run the `:exception` strategy on the affected controller: ```ruby config.after_initialize do Spree::UsersController.protect_from_forgery with: :exception end ``` ### References https://github.com/solidusio/solidus_auth_devise/security/advisories/GHSA-xm34-v85h-9pg2</description>
+      <guid isPermaLink="false">CVE-2021-41275|2024-08-04T03:08:31.652Z</guid>
+      <pubDate>Wed, 17 Nov 2021 19:50:11 +0000</pubDate>
+    </item>
+  </channel>
+</rss>

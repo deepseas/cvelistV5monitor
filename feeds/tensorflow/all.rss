@@ -6,7 +6,7 @@
     <description>The latest CVEs for tensorflow -- all products</description>
     <docs>http://www.rssboard.org/rss-specification</docs>
     <generator>python-feedgen</generator>
-    <lastBuildDate>Sun, 04 Aug 2024 03:23:05 +0000</lastBuildDate>
+    <lastBuildDate>Sun, 04 Aug 2024 04:24:07 +0000</lastBuildDate>
     <ttl>60</ttl>
     <item>
       <title>CVE-2021-37647|2024-08-04T01:23:01.556Z -- tensorflow -- tensorflow
@@ -23,6 +23,14 @@
       <description>TensorFlow is an end-to-end open source platform for machine learning. In affected versions an attacker can read from outside of bounds of heap allocated data by sending specially crafted illegal arguments to `tf.raw_ops.UpperBound`. The [implementation](https://github.com/tensorflow/tensorflow/blob/460e000de3a83278fb00b61a16d161b1964f15f4/tensorflow/core/kernels/searchsorted_op.cc#L85-L104) does not validate the rank of `sorted_input` argument. A similar issue occurs in `tf.raw_ops.LowerBound`. We have patched the issue in GitHub commit 42459e4273c2e47a3232cc16c4f4fff3b3a35c38. The fix will be included in TensorFlow 2.6.0. We will also cherrypick this commit on TensorFlow 2.5.1, TensorFlow 2.4.3, and TensorFlow 2.3.4, as these are also affected and still in supported range.</description>
       <guid isPermaLink="false">CVE-2021-37670|2024-08-04T01:23:01.507Z</guid>
       <pubDate>Thu, 12 Aug 2021 22:25:16 +0000</pubDate>
+    </item>
+    <item>
+      <title>CVE-2021-41207|2024-08-04T03:08:31.386Z -- tensorflow -- tensorflow
+</title>
+      <link>https://www.cve.org/CVERecord?id=CVE-2021-41207</link>
+      <description>TensorFlow is an open source platform for machine learning. In affected versions the implementation of `ParallelConcat` misses some input validation and can produce a division by 0. The fix will be included in TensorFlow 2.7.0. We will also cherrypick this commit on TensorFlow 2.6.1, TensorFlow 2.5.2, and TensorFlow 2.4.4, as these are also affected and still in supported range.</description>
+      <guid isPermaLink="false">CVE-2021-41207|2024-08-04T03:08:31.386Z</guid>
+      <pubDate>Fri, 05 Nov 2021 21:50:10 +0000</pubDate>
     </item>
     <item>
       <title>CVE-2021-37685|2024-08-04T01:23:01.547Z -- tensorflow -- tensorflow
@@ -73,12 +81,44 @@
       <pubDate>Thu, 12 Aug 2021 21:15:18 +0000</pubDate>
     </item>
     <item>
+      <title>CVE-2021-41216|2024-08-04T03:08:31.489Z -- tensorflow -- tensorflow
+</title>
+      <link>https://www.cve.org/CVERecord?id=CVE-2021-41216</link>
+      <description>TensorFlow is an open source platform for machine learning. In affected versions the shape inference function for `Transpose` is vulnerable to a heap buffer overflow. This occurs whenever `perm` contains negative elements. The shape inference function does not validate that the indices in `perm` are all valid. The fix will be included in TensorFlow 2.7.0. We will also cherrypick this commit on TensorFlow 2.6.1, TensorFlow 2.5.2, and TensorFlow 2.4.4, as these are also affected and still in supported range.</description>
+      <guid isPermaLink="false">CVE-2021-41216|2024-08-04T03:08:31.489Z</guid>
+      <pubDate>Fri, 05 Nov 2021 22:10:17 +0000</pubDate>
+    </item>
+    <item>
+      <title>CVE-2021-41219|2024-08-04T03:08:31.583Z -- tensorflow -- tensorflow
+</title>
+      <link>https://www.cve.org/CVERecord?id=CVE-2021-41219</link>
+      <description>TensorFlow is an open source platform for machine learning. In affected versions the code for sparse matrix multiplication is vulnerable to undefined behavior via binding a reference to `nullptr`. This occurs whenever the dimensions of `a` or `b` are 0 or less. In the case on one of these is 0, an empty output tensor should be allocated (to conserve the invariant that output tensors are always allocated when the operation is successful) but nothing should be written to it (that is, we should return early from the kernel implementation). Otherwise, attempts to write to this empty tensor would result in heap OOB access. The fix will be included in TensorFlow 2.7.0. We will also cherrypick this commit on TensorFlow 2.6.1, TensorFlow 2.5.2, and TensorFlow 2.4.4, as these are also affected and still in supported range.</description>
+      <guid isPermaLink="false">CVE-2021-41219|2024-08-04T03:08:31.583Z</guid>
+      <pubDate>Fri, 05 Nov 2021 20:50:17 +0000</pubDate>
+    </item>
+    <item>
       <title>CVE-2021-37635|2024-08-04T01:23:01.255Z -- tensorflow -- tensorflow
 </title>
       <link>https://www.cve.org/CVERecord?id=CVE-2021-37635</link>
       <description>TensorFlow is an end-to-end open source platform for machine learning. In affected versions the implementation of sparse reduction operations in TensorFlow can trigger accesses outside of bounds of heap allocated data. The [implementation](https://github.com/tensorflow/tensorflow/blob/a1bc56203f21a5a4995311825ffaba7a670d7747/tensorflow/core/kernels/sparse_reduce_op.cc#L217-L228) fails to validate that each reduction group does not overflow and that each corresponding index does not point to outside the bounds of the input tensor. We have patched the issue in GitHub commit 87158f43f05f2720a374f3e6d22a7aaa3a33f750. The fix will be included in TensorFlow 2.6.0. We will also cherrypick this commit on TensorFlow 2.5.1, TensorFlow 2.4.3, and TensorFlow 2.3.4, as these are also affected and still in supported range.</description>
       <guid isPermaLink="false">CVE-2021-37635|2024-08-04T01:23:01.255Z</guid>
       <pubDate>Thu, 12 Aug 2021 20:30:11 +0000</pubDate>
+    </item>
+    <item>
+      <title>CVE-2021-41214|2024-08-04T03:08:31.367Z -- tensorflow -- tensorflow
+</title>
+      <link>https://www.cve.org/CVERecord?id=CVE-2021-41214</link>
+      <description>TensorFlow is an open source platform for machine learning. In affected versions the shape inference code for `tf.ragged.cross` has an undefined behavior due to binding a reference to `nullptr`. The fix will be included in TensorFlow 2.7.0. We will also cherrypick this commit on TensorFlow 2.6.1, TensorFlow 2.5.2, and TensorFlow 2.4.4, as these are also affected and still in supported range.</description>
+      <guid isPermaLink="false">CVE-2021-41214|2024-08-04T03:08:31.367Z</guid>
+      <pubDate>Fri, 05 Nov 2021 20:50:11 +0000</pubDate>
+    </item>
+    <item>
+      <title>CVE-2021-41211|2024-08-04T03:08:31.458Z -- tensorflow -- tensorflow
+</title>
+      <link>https://www.cve.org/CVERecord?id=CVE-2021-41211</link>
+      <description>TensorFlow is an open source platform for machine learning. In affected versions the shape inference code for `QuantizeV2` can trigger a read outside of bounds of heap allocated array. This occurs whenever `axis` is a negative value less than `-1`. In this case, we are accessing data before the start of a heap buffer. The code allows `axis` to be an optional argument (`s` would contain an `error::NOT_FOUND` error code). Otherwise, it assumes that `axis` is a valid index into the dimensions of the `input` tensor. If `axis` is less than `-1` then this results in a heap OOB read. The fix will be included in TensorFlow 2.7.0. We will also cherrypick this commit on TensorFlow 2.6.1, as this version is the only one that is also affected.</description>
+      <guid isPermaLink="false">CVE-2021-41211|2024-08-04T03:08:31.458Z</guid>
+      <pubDate>Fri, 05 Nov 2021 20:15:11 +0000</pubDate>
     </item>
     <item>
       <title>CVE-2021-37679|2024-08-04T01:23:01.507Z -- tensorflow -- tensorflow
@@ -103,6 +143,22 @@
       <description>TensorFlow is an end-to-end open source platform for machine learning. In affected versions an attacker can cause undefined behavior via binding a reference to null pointer in `tf.raw_ops.UnicodeEncode`. The [implementation](https://github.com/tensorflow/tensorflow/blob/460e000de3a83278fb00b61a16d161b1964f15f4/tensorflow/core/kernels/unicode_ops.cc#L533-L539) reads the first dimension of the `input_splits` tensor before validating that this tensor is not empty. We have patched the issue in GitHub commit 2e0ee46f1a47675152d3d865797a18358881d7a6. The fix will be included in TensorFlow 2.6.0. We will also cherrypick this commit on TensorFlow 2.5.1, TensorFlow 2.4.3, and TensorFlow 2.3.4, as these are also affected and still in supported range.</description>
       <guid isPermaLink="false">CVE-2021-37667|2024-08-04T01:23:01.485Z</guid>
       <pubDate>Thu, 12 Aug 2021 21:40:10 +0000</pubDate>
+    </item>
+    <item>
+      <title>CVE-2021-41197|2024-08-04T03:08:31.502Z -- tensorflow -- tensorflow
+</title>
+      <link>https://www.cve.org/CVERecord?id=CVE-2021-41197</link>
+      <description>TensorFlow is an open source platform for machine learning. In affected versions TensorFlow allows tensor to have a large number of dimensions and each dimension can be as large as desired. However, the total number of elements in a tensor must fit within an `int64_t`. If an overflow occurs, `MultiplyWithoutOverflow` would return a negative result. In the majority of TensorFlow codebase this then results in a `CHECK`-failure. Newer constructs exist which return a `Status` instead of crashing the binary. This is similar to CVE-2021-29584. The fix will be included in TensorFlow 2.7.0. We will also cherrypick this commit on TensorFlow 2.6.1, TensorFlow 2.5.2, and TensorFlow 2.4.4, as these are also affected and still in supported range.</description>
+      <guid isPermaLink="false">CVE-2021-41197|2024-08-04T03:08:31.502Z</guid>
+      <pubDate>Fri, 05 Nov 2021 19:55:36 +0000</pubDate>
+    </item>
+    <item>
+      <title>CVE-2021-41196|2024-08-04T03:08:31.485Z -- tensorflow -- tensorflow
+</title>
+      <link>https://www.cve.org/CVERecord?id=CVE-2021-41196</link>
+      <description>TensorFlow is an open source platform for machine learning. In affected versions the Keras pooling layers can trigger a segfault if the size of the pool is 0 or if a dimension is negative. This is due to the TensorFlow's implementation of pooling operations where the values in the sliding window are not checked to be strictly positive. The fix will be included in TensorFlow 2.7.0. We will also cherrypick this commit on TensorFlow 2.6.1, TensorFlow 2.5.2, and TensorFlow 2.4.4, as these are also affected and still in supported range.</description>
+      <guid isPermaLink="false">CVE-2021-41196|2024-08-04T03:08:31.485Z</guid>
+      <pubDate>Fri, 05 Nov 2021 19:55:13 +0000</pubDate>
     </item>
     <item>
       <title>CVE-2021-37677|2024-08-04T01:23:01.450Z -- tensorflow -- tensorflow
@@ -137,6 +193,14 @@
       <pubDate>Thu, 12 Aug 2021 18:10:32 +0000</pubDate>
     </item>
     <item>
+      <title>CVE-2021-41202|2024-08-04T03:08:31.442Z -- tensorflow -- tensorflow
+</title>
+      <link>https://www.cve.org/CVERecord?id=CVE-2021-41202</link>
+      <description>TensorFlow is an open source platform for machine learning. In affected versions while calculating the size of the output within the `tf.range` kernel, there is a conditional statement of type `int64 = condition ? int64 : double`. Due to C++ implicit conversion rules, both branches of the condition will be cast to `double` and the result would be truncated before the assignment. This result in overflows. The fix will be included in TensorFlow 2.7.0. We will also cherrypick this commit on TensorFlow 2.6.1, TensorFlow 2.5.2, and TensorFlow 2.4.4, as these are also affected and still in supported range.</description>
+      <guid isPermaLink="false">CVE-2021-41202|2024-08-04T03:08:31.442Z</guid>
+      <pubDate>Fri, 05 Nov 2021 21:45:18 +0000</pubDate>
+    </item>
+    <item>
       <title>CVE-2021-37681|2024-08-04T01:23:01.508Z -- tensorflow -- tensorflow
 </title>
       <link>https://www.cve.org/CVERecord?id=CVE-2021-37681</link>
@@ -169,12 +233,28 @@
       <pubDate>Thu, 12 Aug 2021 20:50:11 +0000</pubDate>
     </item>
     <item>
+      <title>CVE-2021-41228|2024-08-04T03:08:31.343Z -- tensorflow -- tensorflow
+</title>
+      <link>https://www.cve.org/CVERecord?id=CVE-2021-41228</link>
+      <description>TensorFlow is an open source platform for machine learning. In affected versions TensorFlow's `saved_model_cli` tool is vulnerable to a code injection as it calls `eval` on user supplied strings. This can be used by attackers to run arbitrary code on the plaform where the CLI tool runs. However, given that the tool is always run manually, the impact of this is not severe. We have patched this by adding a `safe` flag which defaults to `True` and an explicit warning for users. The fix will be included in TensorFlow 2.7.0. We will also cherrypick this commit on TensorFlow 2.6.1, TensorFlow 2.5.2, and TensorFlow 2.4.4, as these are also affected and still in supported range.</description>
+      <guid isPermaLink="false">CVE-2021-41228|2024-08-04T03:08:31.343Z</guid>
+      <pubDate>Fri, 05 Nov 2021 22:25:11 +0000</pubDate>
+    </item>
+    <item>
       <title>CVE-2021-37672|2024-08-04T01:23:01.434Z -- tensorflow -- tensorflow
 </title>
       <link>https://www.cve.org/CVERecord?id=CVE-2021-37672</link>
       <description>TensorFlow is an end-to-end open source platform for machine learning. In affected versions an attacker can read from outside of bounds of heap allocated data by sending specially crafted illegal arguments to `tf.raw_ops.SdcaOptimizerV2`. The [implementation](https://github.com/tensorflow/tensorflow/blob/460e000de3a83278fb00b61a16d161b1964f15f4/tensorflow/core/kernels/sdca_internal.cc#L320-L353) does not check that the length of `example_labels` is the same as the number of examples. We have patched the issue in GitHub commit a4e138660270e7599793fa438cd7b2fc2ce215a6. The fix will be included in TensorFlow 2.6.0. We will also cherrypick this commit on TensorFlow 2.5.1, TensorFlow 2.4.3, and TensorFlow 2.3.4, as these are also affected and still in supported range.</description>
       <guid isPermaLink="false">CVE-2021-37672|2024-08-04T01:23:01.434Z</guid>
       <pubDate>Thu, 12 Aug 2021 22:20:11 +0000</pubDate>
+    </item>
+    <item>
+      <title>CVE-2021-41218|2024-08-04T03:08:31.519Z -- tensorflow -- tensorflow
+</title>
+      <link>https://www.cve.org/CVERecord?id=CVE-2021-41218</link>
+      <description>TensorFlow is an open source platform for machine learning. In affected versions the shape inference code for `AllToAll` can be made to execute a division by 0. This occurs whenever the `split_count` argument is 0. The fix will be included in TensorFlow 2.7.0. We will also cherrypick this commit on TensorFlow 2.6.1, TensorFlow 2.5.2, and TensorFlow 2.4.4, as these are also affected and still in supported range.</description>
+      <guid isPermaLink="false">CVE-2021-41218|2024-08-04T03:08:31.519Z</guid>
+      <pubDate>Fri, 05 Nov 2021 22:05:20 +0000</pubDate>
     </item>
     <item>
       <title>CVE-2021-37688|2024-08-04T01:23:01.508Z -- tensorflow -- tensorflow
@@ -209,6 +289,14 @@
       <pubDate>Thu, 12 Aug 2021 21:55:11 +0000</pubDate>
     </item>
     <item>
+      <title>CVE-2021-41205|2024-08-04T03:08:31.437Z -- tensorflow -- tensorflow
+</title>
+      <link>https://www.cve.org/CVERecord?id=CVE-2021-41205</link>
+      <description>TensorFlow is an open source platform for machine learning. In affected versions the shape inference functions for the `QuantizeAndDequantizeV*` operations can trigger a read outside of bounds of heap allocated array. The fix will be included in TensorFlow 2.7.0. We will also cherrypick this commit on TensorFlow 2.6.1, TensorFlow 2.5.2, and TensorFlow 2.4.4, as these are also affected and still in supported range.</description>
+      <guid isPermaLink="false">CVE-2021-41205|2024-08-04T03:08:31.437Z</guid>
+      <pubDate>Fri, 05 Nov 2021 20:10:16 +0000</pubDate>
+    </item>
+    <item>
       <title>CVE-2021-37662|2024-08-04T01:23:01.444Z -- tensorflow -- tensorflow
 </title>
       <link>https://www.cve.org/CVERecord?id=CVE-2021-37662</link>
@@ -223,6 +311,14 @@
       <description>TensorFlow is an end-to-end open source platform for machine learning. Sending invalid argument for `row_partition_types` of `tf.raw_ops.RaggedTensorToTensor` API results in a null pointer dereference and undefined behavior. The [implementation](https://github.com/tensorflow/tensorflow/blob/47a06f40411a69c99f381495f490536972152ac0/tensorflow/core/kernels/ragged_tensor_to_tensor_op.cc#L328) accesses the first element of a user supplied list of values without validating that the provided list is not empty. We have patched the issue in GitHub commit 301ae88b331d37a2a16159b65b255f4f9eb39314. The fix will be included in TensorFlow 2.6.0. We will also cherrypick this commit on TensorFlow 2.5.1, TensorFlow 2.4.3, and TensorFlow 2.3.4, as these are also affected and still in supported range.</description>
       <guid isPermaLink="false">CVE-2021-37638|2024-08-04T01:23:01.371Z</guid>
       <pubDate>Thu, 12 Aug 2021 18:10:10 +0000</pubDate>
+    </item>
+    <item>
+      <title>CVE-2021-41213|2024-08-04T03:08:31.502Z -- tensorflow -- tensorflow
+</title>
+      <link>https://www.cve.org/CVERecord?id=CVE-2021-41213</link>
+      <description>TensorFlow is an open source platform for machine learning. In affected versions the code behind `tf.function` API can be made to deadlock when two `tf.function` decorated Python functions are mutually recursive. This occurs due to using a non-reentrant `Lock` Python object. Loading any model which contains mutually recursive functions is vulnerable. An attacker can cause denial of service by causing users to load such models and calling a recursive `tf.function`, although this is not a frequent scenario. The fix will be included in TensorFlow 2.7.0. We will also cherrypick this commit on TensorFlow 2.6.1, TensorFlow 2.5.2, and TensorFlow 2.4.4, as these are also affected and still in supported range.</description>
+      <guid isPermaLink="false">CVE-2021-41213|2024-08-04T03:08:31.502Z</guid>
+      <pubDate>Fri, 05 Nov 2021 22:10:11 +0000</pubDate>
     </item>
     <item>
       <title>CVE-2021-37668|2024-08-04T01:23:01.519Z -- tensorflow -- tensorflow
@@ -281,6 +377,14 @@
       <pubDate>Thu, 12 Aug 2021 20:30:17 +0000</pubDate>
     </item>
     <item>
+      <title>CVE-2021-41217|2024-08-04T03:08:31.448Z -- tensorflow -- tensorflow
+</title>
+      <link>https://www.cve.org/CVERecord?id=CVE-2021-41217</link>
+      <description>TensorFlow is an open source platform for machine learning. In affected versions the process of building the control flow graph for a TensorFlow model is vulnerable to a null pointer exception when nodes that should be paired are not. This occurs because the code assumes that the first node in the pairing (e.g., an `Enter` node) always exists when encountering the second node (e.g., an `Exit` node). When this is not the case, `parent` is `nullptr` so dereferencing it causes a crash. The fix will be included in TensorFlow 2.7.0. We will also cherrypick this commit on TensorFlow 2.6.1, TensorFlow 2.5.2, and TensorFlow 2.4.4, as these are also affected and still in supported range.</description>
+      <guid isPermaLink="false">CVE-2021-41217|2024-08-04T03:08:31.448Z</guid>
+      <pubDate>Fri, 05 Nov 2021 20:55:10 +0000</pubDate>
+    </item>
+    <item>
       <title>CVE-2021-37674|2024-08-04T01:23:01.520Z -- tensorflow -- tensorflow
 </title>
       <link>https://www.cve.org/CVERecord?id=CVE-2021-37674</link>
@@ -305,6 +409,14 @@
       <pubDate>Thu, 12 Aug 2021 22:45:18 +0000</pubDate>
     </item>
     <item>
+      <title>CVE-2021-41224|2024-08-04T03:08:31.580Z -- tensorflow -- tensorflow
+</title>
+      <link>https://www.cve.org/CVERecord?id=CVE-2021-41224</link>
+      <description>TensorFlow is an open source platform for machine learning. In affected versions the implementation of `SparseFillEmptyRows` can be made to trigger a heap OOB access. This occurs whenever the size of `indices` does not match the size of `values`. The fix will be included in TensorFlow 2.7.0. We will also cherrypick this commit on TensorFlow 2.6.1, TensorFlow 2.5.2, and TensorFlow 2.4.4, as these are also affected and still in supported range.</description>
+      <guid isPermaLink="false">CVE-2021-41224|2024-08-04T03:08:31.580Z</guid>
+      <pubDate>Fri, 05 Nov 2021 20:20:11 +0000</pubDate>
+    </item>
+    <item>
       <title>CVE-2021-37639|2024-08-04T01:23:01.249Z -- tensorflow -- tensorflow
 </title>
       <link>https://www.cve.org/CVERecord?id=CVE-2021-37639</link>
@@ -319,6 +431,22 @@
       <description>TensorFlow is an end-to-end open source platform for machine learning. In affected versions an attacker can trigger a crash via a `CHECK`-fail in debug builds of TensorFlow using `tf.raw_ops.ResourceGather` or a read from outside the bounds of heap allocated data in the same API in a release build. The [implementation](https://github.com/tensorflow/tensorflow/blob/f24faa153ad31a4b51578f8181d3aaab77a1ddeb/tensorflow/core/kernels/resource_variable_ops.cc#L660-L668) does not check that the `batch_dims` value that the user supplies is less than the rank of the input tensor. Since the implementation uses several for loops over the dimensions of `tensor`, this results in reading data from outside the bounds of heap allocated buffer backing the tensor. We have patched the issue in GitHub commit bc9c546ce7015c57c2f15c168b3d9201de679a1d. The fix will be included in TensorFlow 2.6.0. We will also cherrypick this commit on TensorFlow 2.5.1, TensorFlow 2.4.3, and TensorFlow 2.3.4, as these are also affected and still in supported range.</description>
       <guid isPermaLink="false">CVE-2021-37654|2024-08-04T01:23:01.509Z</guid>
       <pubDate>Thu, 12 Aug 2021 20:30:23 +0000</pubDate>
+    </item>
+    <item>
+      <title>CVE-2021-41195|2024-08-04T03:08:31.297Z -- tensorflow -- tensorflow
+</title>
+      <link>https://www.cve.org/CVERecord?id=CVE-2021-41195</link>
+      <description>TensorFlow is an open source platform for machine learning. In affected versions the implementation of `tf.math.segment_*` operations results in a `CHECK`-fail related abort (and denial of service) if a segment id in `segment_ids` is large. This is similar to CVE-2021-29584 (and similar other reported vulnerabilities in TensorFlow, localized to specific APIs): the implementation (both on CPU and GPU) computes the output shape using `AddDim`. However, if the number of elements in the tensor overflows an `int64_t` value, `AddDim` results in a `CHECK` failure which provokes a `std::abort`. Instead, code should use `AddDimWithStatus`. The fix will be included in TensorFlow 2.7.0. We will also cherrypick this commit on TensorFlow 2.6.1, TensorFlow 2.5.2, and TensorFlow 2.4.4, as these are also affected and still in supported range.</description>
+      <guid isPermaLink="false">CVE-2021-41195|2024-08-04T03:08:31.297Z</guid>
+      <pubDate>Fri, 05 Nov 2021 19:50:12 +0000</pubDate>
+    </item>
+    <item>
+      <title>CVE-2021-41199|2024-08-04T03:08:31.400Z -- tensorflow -- tensorflow
+</title>
+      <link>https://www.cve.org/CVERecord?id=CVE-2021-41199</link>
+      <description>TensorFlow is an open source platform for machine learning. In affected versions if `tf.image.resize` is called with a large input argument then the TensorFlow process will crash due to a `CHECK`-failure caused by an overflow. The number of elements in the output tensor is too much for the `int64_t` type and the overflow is detected via a `CHECK` statement. This aborts the process. The fix will be included in TensorFlow 2.7.0. We will also cherrypick this commit on TensorFlow 2.6.1, TensorFlow 2.5.2, and TensorFlow 2.4.4, as these are also affected and still in supported range.</description>
+      <guid isPermaLink="false">CVE-2021-41199|2024-08-04T03:08:31.400Z</guid>
+      <pubDate>Fri, 05 Nov 2021 19:55:19 +0000</pubDate>
     </item>
     <item>
       <title>CVE-2021-37637|2024-08-04T01:23:01.356Z -- tensorflow -- tensorflow
@@ -337,6 +465,14 @@
       <pubDate>Thu, 12 Aug 2021 20:50:17 +0000</pubDate>
     </item>
     <item>
+      <title>CVE-2021-41227|2024-08-04T03:08:31.590Z -- tensorflow -- tensorflow
+</title>
+      <link>https://www.cve.org/CVERecord?id=CVE-2021-41227</link>
+      <description>TensorFlow is an open source platform for machine learning. In affected versions the `ImmutableConst` operation in TensorFlow can be tricked into reading arbitrary memory contents. This is because the `tstring` TensorFlow string class has a special case for memory mapped strings but the operation itself does not offer any support for this datatype. The fix will be included in TensorFlow 2.7.0. We will also cherrypick this commit on TensorFlow 2.6.1, TensorFlow 2.5.2, and TensorFlow 2.4.4, as these are also affected and still in supported range.</description>
+      <guid isPermaLink="false">CVE-2021-41227|2024-08-04T03:08:31.590Z</guid>
+      <pubDate>Fri, 05 Nov 2021 22:30:23 +0000</pubDate>
+    </item>
+    <item>
       <title>CVE-2021-37691|2024-08-04T01:23:01.519Z -- tensorflow -- tensorflow
 </title>
       <link>https://www.cve.org/CVERecord?id=CVE-2021-37691</link>
@@ -353,6 +489,46 @@
       <pubDate>Thu, 12 Aug 2021 21:40:16 +0000</pubDate>
     </item>
     <item>
+      <title>CVE-2021-41221|2024-08-04T03:08:31.404Z -- tensorflow -- tensorflow
+</title>
+      <link>https://www.cve.org/CVERecord?id=CVE-2021-41221</link>
+      <description>TensorFlow is an open source platform for machine learning. In affected versions the shape inference code for the `Cudnn*` operations in TensorFlow can be tricked into accessing invalid memory, via a heap buffer overflow. This occurs because the ranks of the `input`, `input_h` and `input_c` parameters are not validated, but code assumes they have certain values. The fix will be included in TensorFlow 2.7.0. We will also cherrypick this commit on TensorFlow 2.6.1, TensorFlow 2.5.2, and TensorFlow 2.4.4, as these are also affected and still in supported range.</description>
+      <guid isPermaLink="false">CVE-2021-41221|2024-08-04T03:08:31.404Z</guid>
+      <pubDate>Fri, 05 Nov 2021 22:15:11 +0000</pubDate>
+    </item>
+    <item>
+      <title>CVE-2021-41206|2024-08-04T03:08:31.625Z -- tensorflow -- tensorflow
+</title>
+      <link>https://www.cve.org/CVERecord?id=CVE-2021-41206</link>
+      <description>TensorFlow is an open source platform for machine learning. In affected versions several TensorFlow operations are missing validation for the shapes of the tensor arguments involved in the call. Depending on the API, this can result in undefined behavior and segfault or `CHECK`-fail related crashes but in some scenarios writes and reads from heap populated arrays are also possible. We have discovered these issues internally via tooling while working on improving/testing GPU op determinism. As such, we don't have reproducers and there will be multiple fixes for these issues. These fixes will be included in TensorFlow 2.7.0. We will also cherrypick these commits on TensorFlow 2.6.1, TensorFlow 2.5.2, and TensorFlow 2.4.4, as these are also affected and still in supported range.</description>
+      <guid isPermaLink="false">CVE-2021-41206|2024-08-04T03:08:31.625Z</guid>
+      <pubDate>Fri, 05 Nov 2021 22:05:14 +0000</pubDate>
+    </item>
+    <item>
+      <title>CVE-2021-41208|2024-08-04T03:08:31.577Z -- tensorflow -- tensorflow
+</title>
+      <link>https://www.cve.org/CVERecord?id=CVE-2021-41208</link>
+      <description>TensorFlow is an open source platform for machine learning. In affected versions the code for boosted trees in TensorFlow is still missing validation. As a result, attackers can trigger denial of service (via dereferencing `nullptr`s or via `CHECK`-failures) as well as abuse undefined behavior (binding references to `nullptr`s). An attacker can also read and write from heap buffers, depending on the API that gets used and the arguments that are passed to the call. Given that the boosted trees implementation in TensorFlow is unmaintained, it is recommend to no longer use these APIs. We will deprecate TensorFlow's boosted trees APIs in subsequent releases. The fix will be included in TensorFlow 2.7.0. We will also cherrypick this commit on TensorFlow 2.6.1, TensorFlow 2.5.2, and TensorFlow 2.4.4, as these are also affected and still in supported range.</description>
+      <guid isPermaLink="false">CVE-2021-41208|2024-08-04T03:08:31.577Z</guid>
+      <pubDate>Fri, 05 Nov 2021 21:50:16 +0000</pubDate>
+    </item>
+    <item>
+      <title>CVE-2021-41201|2024-08-04T03:08:31.506Z -- tensorflow -- tensorflow
+</title>
+      <link>https://www.cve.org/CVERecord?id=CVE-2021-41201</link>
+      <description>TensorFlow is an open source platform for machine learning. In affeced versions during execution, `EinsumHelper::ParseEquation()` is supposed to set the flags in `input_has_ellipsis` vector and `*output_has_ellipsis` boolean to indicate whether there is ellipsis in the corresponding inputs and output. However, the code only changes these flags to `true` and never assigns `false`. This results in unitialized variable access if callers assume that `EinsumHelper::ParseEquation()` always sets these flags. The fix will be included in TensorFlow 2.7.0. We will also cherrypick this commit on TensorFlow 2.6.1, TensorFlow 2.5.2, and TensorFlow 2.4.4, as these are also affected and still in supported range.</description>
+      <guid isPermaLink="false">CVE-2021-41201|2024-08-04T03:08:31.506Z</guid>
+      <pubDate>Fri, 05 Nov 2021 20:05:12 +0000</pubDate>
+    </item>
+    <item>
+      <title>CVE-2021-41204|2024-08-04T03:08:31.488Z -- tensorflow -- tensorflow
+</title>
+      <link>https://www.cve.org/CVERecord?id=CVE-2021-41204</link>
+      <description>TensorFlow is an open source platform for machine learning. In affected versions during TensorFlow's Grappler optimizer phase, constant folding might attempt to deep copy a resource tensor. This results in a segfault, as these tensors are supposed to not change. The fix will be included in TensorFlow 2.7.0. We will also cherrypick this commit on TensorFlow 2.6.1, TensorFlow 2.5.2, and TensorFlow 2.4.4, as these are also affected and still in supported range.</description>
+      <guid isPermaLink="false">CVE-2021-41204|2024-08-04T03:08:31.488Z</guid>
+      <pubDate>Fri, 05 Nov 2021 20:45:10 +0000</pubDate>
+    </item>
+    <item>
       <title>CVE-2021-37665|2024-08-04T01:23:01.435Z -- tensorflow -- tensorflow
 </title>
       <link>https://www.cve.org/CVERecord?id=CVE-2021-37665</link>
@@ -361,12 +537,60 @@
       <pubDate>Thu, 12 Aug 2021 22:40:12 +0000</pubDate>
     </item>
     <item>
+      <title>CVE-2021-41210|2024-08-04T03:08:31.472Z -- tensorflow -- tensorflow
+</title>
+      <link>https://www.cve.org/CVERecord?id=CVE-2021-41210</link>
+      <description>TensorFlow is an open source platform for machine learning. In affected versions the shape inference functions for `SparseCountSparseOutput` can trigger a read outside of bounds of heap allocated array. The fix will be included in TensorFlow 2.7.0. We will also cherrypick this commit on TensorFlow 2.6.1, TensorFlow 2.5.2, and TensorFlow 2.4.4, as these are also affected and still in supported range.</description>
+      <guid isPermaLink="false">CVE-2021-41210|2024-08-04T03:08:31.472Z</guid>
+      <pubDate>Fri, 05 Nov 2021 20:10:10 +0000</pubDate>
+    </item>
+    <item>
       <title>CVE-2021-37655|2024-08-04T01:23:01.505Z -- tensorflow -- tensorflow
 </title>
       <link>https://www.cve.org/CVERecord?id=CVE-2021-37655</link>
       <description>TensorFlow is an end-to-end open source platform for machine learning. In affected versions an attacker can trigger a read from outside of bounds of heap allocated data by sending invalid arguments to `tf.raw_ops.ResourceScatterUpdate`. The [implementation](https://github.com/tensorflow/tensorflow/blob/f24faa153ad31a4b51578f8181d3aaab77a1ddeb/tensorflow/core/kernels/resource_variable_ops.cc#L919-L923) has an incomplete validation of the relationship between the shapes of `indices` and `updates`: instead of checking that the shape of `indices` is a prefix of the shape of `updates` (so that broadcasting can happen), code only checks that the number of elements in these two tensors are in a divisibility relationship. We have patched the issue in GitHub commit 01cff3f986259d661103412a20745928c727326f. The fix will be included in TensorFlow 2.6.0. We will also cherrypick this commit on TensorFlow 2.5.1, TensorFlow 2.4.3, and TensorFlow 2.3.4, as these are also affected and still in supported range.</description>
       <guid isPermaLink="false">CVE-2021-37655|2024-08-04T01:23:01.505Z</guid>
       <pubDate>Thu, 12 Aug 2021 20:25:10 +0000</pubDate>
+    </item>
+    <item>
+      <title>CVE-2021-41215|2024-08-04T03:08:31.507Z -- tensorflow -- tensorflow
+</title>
+      <link>https://www.cve.org/CVERecord?id=CVE-2021-41215</link>
+      <description>TensorFlow is an open source platform for machine learning. In affected versions the shape inference code for `DeserializeSparse` can trigger a null pointer dereference. This is because the shape inference function assumes that the `serialize_sparse` tensor is a tensor with positive rank (and having `3` as the last dimension). The fix will be included in TensorFlow 2.7.0. We will also cherrypick this commit on TensorFlow 2.6.1, TensorFlow 2.5.2, and TensorFlow 2.4.4, as these are also affected and still in supported range.</description>
+      <guid isPermaLink="false">CVE-2021-41215|2024-08-04T03:08:31.507Z</guid>
+      <pubDate>Fri, 05 Nov 2021 20:55:16 +0000</pubDate>
+    </item>
+    <item>
+      <title>CVE-2021-41220|2024-08-04T03:08:31.404Z -- tensorflow -- tensorflow
+</title>
+      <link>https://www.cve.org/CVERecord?id=CVE-2021-41220</link>
+      <description>TensorFlow is an open source platform for machine learning. In affected versions the async implementation of `CollectiveReduceV2` suffers from a memory leak and a use after free. This occurs due to the asynchronous computation and the fact that objects that have been `std::move()`d from are still accessed. The fix will be included in TensorFlow 2.7.0. We will also cherrypick this commit on TensorFlow 2.6.1, as this version is the only one that is also affected.</description>
+      <guid isPermaLink="false">CVE-2021-41220|2024-08-04T03:08:31.404Z</guid>
+      <pubDate>Fri, 05 Nov 2021 22:20:12 +0000</pubDate>
+    </item>
+    <item>
+      <title>CVE-2021-41225|2024-08-04T03:08:31.609Z -- tensorflow -- tensorflow
+</title>
+      <link>https://www.cve.org/CVERecord?id=CVE-2021-41225</link>
+      <description>TensorFlow is an open source platform for machine learning. In affected versions TensorFlow's Grappler optimizer has a use of unitialized variable. If the `train_nodes` vector (obtained from the saved model that gets optimized) does not contain a `Dequeue` node, then `dequeue_node` is left unitialized. The fix will be included in TensorFlow 2.7.0. We will also cherrypick this commit on TensorFlow 2.6.1, TensorFlow 2.5.2, and TensorFlow 2.4.4, as these are also affected and still in supported range.</description>
+      <guid isPermaLink="false">CVE-2021-41225|2024-08-04T03:08:31.609Z</guid>
+      <pubDate>Fri, 05 Nov 2021 22:30:17 +0000</pubDate>
+    </item>
+    <item>
+      <title>CVE-2021-41223|2024-08-04T03:08:31.474Z -- tensorflow -- tensorflow
+</title>
+      <link>https://www.cve.org/CVERecord?id=CVE-2021-41223</link>
+      <description>TensorFlow is an open source platform for machine learning. In affected versions the implementation of `FusedBatchNorm` kernels is vulnerable to a heap OOB access. The fix will be included in TensorFlow 2.7.0. We will also cherrypick this commit on TensorFlow 2.6.1, TensorFlow 2.5.2, and TensorFlow 2.4.4, as these are also affected and still in supported range.</description>
+      <guid isPermaLink="false">CVE-2021-41223|2024-08-04T03:08:31.474Z</guid>
+      <pubDate>Fri, 05 Nov 2021 20:20:16 +0000</pubDate>
+    </item>
+    <item>
+      <title>CVE-2021-41200|2024-08-04T03:08:31.607Z -- tensorflow -- tensorflow
+</title>
+      <link>https://www.cve.org/CVERecord?id=CVE-2021-41200</link>
+      <description>TensorFlow is an open source platform for machine learning. In affected versions if `tf.summary.create_file_writer` is called with non-scalar arguments code crashes due to a `CHECK`-fail. The fix will be included in TensorFlow 2.7.0. We will also cherrypick this commit on TensorFlow 2.6.1, TensorFlow 2.5.2, and TensorFlow 2.4.4, as these are also affected and still in supported range.</description>
+      <guid isPermaLink="false">CVE-2021-41200|2024-08-04T03:08:31.607Z</guid>
+      <pubDate>Fri, 05 Nov 2021 20:00:12 +0000</pubDate>
     </item>
     <item>
       <title>CVE-2021-37656|2024-08-04T01:23:01.518Z -- tensorflow -- tensorflow
@@ -393,6 +617,14 @@
       <pubDate>Thu, 12 Aug 2021 21:15:12 +0000</pubDate>
     </item>
     <item>
+      <title>CVE-2021-41198|2024-08-04T03:08:31.248Z -- tensorflow -- tensorflow
+</title>
+      <link>https://www.cve.org/CVERecord?id=CVE-2021-41198</link>
+      <description>TensorFlow is an open source platform for machine learning. In affected versions if `tf.tile` is called with a large input argument then the TensorFlow process will crash due to a `CHECK`-failure caused by an overflow. The number of elements in the output tensor is too much for the `int64_t` type and the overflow is detected via a `CHECK` statement. This aborts the process. The fix will be included in TensorFlow 2.7.0. We will also cherrypick this commit on TensorFlow 2.6.1, TensorFlow 2.5.2, and TensorFlow 2.4.4, as these are also affected and still in supported range.</description>
+      <guid isPermaLink="false">CVE-2021-41198|2024-08-04T03:08:31.248Z</guid>
+      <pubDate>Fri, 05 Nov 2021 19:55:26 +0000</pubDate>
+    </item>
+    <item>
       <title>CVE-2021-37642|2024-08-04T01:23:01.345Z -- tensorflow -- tensorflow
 </title>
       <link>https://www.cve.org/CVERecord?id=CVE-2021-37642</link>
@@ -415,6 +647,22 @@
       <description>TensorFlow is an end-to-end open source platform for machine learning. In affected versions an attacker can craft a TFLite model that would trigger a null pointer dereference, which would result in a crash and denial of service. This is caused by the MLIR optimization of `L2NormalizeReduceAxis` operator. The [implementation](https://github.com/tensorflow/tensorflow/blob/149562d49faa709ea80df1d99fc41d005b81082a/tensorflow/compiler/mlir/lite/transforms/optimize.cc#L67-L70) unconditionally dereferences a pointer to an iterator to a vector without checking that the vector has elements. We have patched the issue in GitHub commit d6b57f461b39fd1aa8c1b870f1b974aac3554955. The fix will be included in TensorFlow 2.6.0. We will also cherrypick this commit on TensorFlow 2.5.1, TensorFlow 2.4.3, and TensorFlow 2.3.4, as these are also affected and still in supported range.</description>
       <guid isPermaLink="false">CVE-2021-37689|2024-08-04T01:23:01.451Z</guid>
       <pubDate>Thu, 12 Aug 2021 22:00:19 +0000</pubDate>
+    </item>
+    <item>
+      <title>CVE-2021-41203|2024-08-04T03:08:31.436Z -- tensorflow -- tensorflow
+</title>
+      <link>https://www.cve.org/CVERecord?id=CVE-2021-41203</link>
+      <description>TensorFlow is an open source platform for machine learning. In affected versions an attacker can trigger undefined behavior, integer overflows, segfaults and `CHECK`-fail crashes if they can change saved checkpoints from outside of TensorFlow. This is because the checkpoints loading infrastructure is missing validation for invalid file formats. The fixes will be included in TensorFlow 2.7.0. We will also cherrypick these commits on TensorFlow 2.6.1, TensorFlow 2.5.2, and TensorFlow 2.4.4, as these are also affected and still in supported range.</description>
+      <guid isPermaLink="false">CVE-2021-41203|2024-08-04T03:08:31.436Z</guid>
+      <pubDate>Fri, 05 Nov 2021 21:05:13 +0000</pubDate>
+    </item>
+    <item>
+      <title>CVE-2021-41209|2024-08-04T03:08:31.441Z -- tensorflow -- tensorflow
+</title>
+      <link>https://www.cve.org/CVERecord?id=CVE-2021-41209</link>
+      <description>TensorFlow is an open source platform for machine learning. In affected versions the implementations for convolution operators trigger a division by 0 if passed empty filter tensor arguments. The fix will be included in TensorFlow 2.7.0. We will also cherrypick this commit on TensorFlow 2.6.1, TensorFlow 2.5.2, and TensorFlow 2.4.4, as these are also affected and still in supported range.</description>
+      <guid isPermaLink="false">CVE-2021-41209|2024-08-04T03:08:31.441Z</guid>
+      <pubDate>Fri, 05 Nov 2021 21:45:11 +0000</pubDate>
     </item>
     <item>
       <title>CVE-2021-37682|2024-08-04T01:23:01.529Z -- tensorflow -- tensorflow
@@ -465,6 +713,30 @@
       <pubDate>Thu, 12 Aug 2021 18:10:21 +0000</pubDate>
     </item>
     <item>
+      <title>CVE-2021-41222|2024-08-04T03:08:31.547Z -- tensorflow -- tensorflow
+</title>
+      <link>https://www.cve.org/CVERecord?id=CVE-2021-41222</link>
+      <description>TensorFlow is an open source platform for machine learning. In affected versions the implementation of `SplitV` can trigger a segfault is an attacker supplies negative arguments. This occurs whenever `size_splits` contains more than one value and at least one value is negative. The fix will be included in TensorFlow 2.7.0. We will also cherrypick this commit on TensorFlow 2.6.1, TensorFlow 2.5.2, and TensorFlow 2.4.4, as these are also affected and still in supported range.</description>
+      <guid isPermaLink="false">CVE-2021-41222|2024-08-04T03:08:31.547Z</guid>
+      <pubDate>Fri, 05 Nov 2021 22:30:11 +0000</pubDate>
+    </item>
+    <item>
+      <title>CVE-2021-41226|2024-08-04T03:08:31.504Z -- tensorflow -- tensorflow
+</title>
+      <link>https://www.cve.org/CVERecord?id=CVE-2021-41226</link>
+      <description>TensorFlow is an open source platform for machine learning. In affected versions the implementation of `SparseBinCount` is vulnerable to a heap OOB access. This is because of missing validation between the elements of the `values` argument and the shape of the sparse output. The fix will be included in TensorFlow 2.7.0. We will also cherrypick this commit on TensorFlow 2.6.1, TensorFlow 2.5.2, and TensorFlow 2.4.4, as these are also affected and still in supported range.</description>
+      <guid isPermaLink="false">CVE-2021-41226|2024-08-04T03:08:31.504Z</guid>
+      <pubDate>Fri, 05 Nov 2021 20:20:22 +0000</pubDate>
+    </item>
+    <item>
+      <title>CVE-2021-41212|2024-08-04T03:08:31.357Z -- tensorflow -- tensorflow
+</title>
+      <link>https://www.cve.org/CVERecord?id=CVE-2021-41212</link>
+      <description>TensorFlow is an open source platform for machine learning. In affected versions the shape inference code for `tf.ragged.cross` can trigger a read outside of bounds of heap allocated array. The fix will be included in TensorFlow 2.7.0. We will also cherrypick this commit on TensorFlow 2.6.1, TensorFlow 2.5.2, and TensorFlow 2.4.4, as these are also affected and still in supported range.</description>
+      <guid isPermaLink="false">CVE-2021-41212|2024-08-04T03:08:31.357Z</guid>
+      <pubDate>Fri, 05 Nov 2021 20:15:17 +0000</pubDate>
+    </item>
+    <item>
       <title>CVE-2021-37645|2024-08-04T01:23:01.313Z -- tensorflow -- tensorflow
 </title>
       <link>https://www.cve.org/CVERecord?id=CVE-2021-37645</link>
@@ -473,31 +745,10 @@
       <pubDate>Thu, 12 Aug 2021 21:05:11 +0000</pubDate>
     </item>
     <item>
-      <title>CVE-2023-33976|2024-08-02T15:54:14.208Z -- tensorflow -- tensorflow</title>
-      <link>https://www.cve.org/CVERecord?id=CVE-2023-33976</link>
-      <description>TensorFlow is an end-to-end open source platform for machine learning. `array_ops.upper_bound` causes a segfault when not given a rank 2 tensor. The fix will be included in TensorFlow 2.13 and will also cherrypick this commit on TensorFlow 2.12.</description>
-      <guid isPermaLink="false">CVE-2023-33976|2024-08-02T15:54:14.208Z</guid>
-      <pubDate>Tue, 30 Jul 2024 19:27:14 +0000</pubDate>
-    </item>
-    <item>
-      <title>CVE-2023-33976|2024-07-30T19:27:14.532Z -- tensorflow -- tensorflow</title>
-      <link>https://www.cve.org/CVERecord?id=CVE-2023-33976</link>
-      <description>TensorFlow is an end-to-end open source platform for machine learning. `array_ops.upper_bound` causes a segfault when not given a rank 2 tensor. The fix will be included in TensorFlow 2.13 and will also cherrypick this commit on TensorFlow 2.12.</description>
-      <guid isPermaLink="false">CVE-2023-33976|2024-07-30T19:27:14.532Z</guid>
-      <pubDate>Tue, 30 Jul 2024 19:27:14 +0000</pubDate>
-    </item>
-    <item>
-      <title>CVE-2024-3660|2024-04-16T20:09:26.220Z -- tensorflow -- keras</title>
-      <link>https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2024-3660</link>
-      <description>A arbitrary code injection vulnerability in TensorFlow's Keras framework (&lt;2.13) allows attackers to execute arbitrary code with the same permissions as the application using a model that allow arbitrary code irrespective of the application.</description>
-      <guid isPermaLink="false">CVE-2024-3660|2024-04-16T20:09:26.220Z</guid>
-      <pubDate>Tue, 16 Apr 2024 20:09:26 +0000</pubDate>
-    </item>
-    <item>
-      <title>CVE-2024-3660|2024-07-29T19:38:15.693Z -- tensorflow -- keras</title>
+      <title>CVE-2024-3660|2024-08-01T20:20:00.692Z -- tensorflow -- keras</title>
       <link>https://www.cve.org/CVERecord?id=CVE-2024-3660</link>
       <description>A arbitrary code injection vulnerability in TensorFlow's Keras framework (&lt;2.13) allows attackers to execute arbitrary code with the same permissions as the application using a model that allow arbitrary code irrespective of the application.</description>
-      <guid isPermaLink="false">CVE-2024-3660|2024-07-29T19:38:15.693Z</guid>
+      <guid isPermaLink="false">CVE-2024-3660|2024-08-01T20:20:00.692Z</guid>
       <pubDate>Tue, 16 Apr 2024 20:09:26 +0000</pubDate>
     </item>
     <item>
@@ -508,11 +759,32 @@
       <pubDate>Tue, 30 Jul 2024 19:27:14 +0000</pubDate>
     </item>
     <item>
-      <title>CVE-2024-3660|2024-08-01T20:20:00.692Z -- tensorflow -- keras</title>
+      <title>CVE-2024-3660|2024-07-29T19:38:15.693Z -- tensorflow -- keras</title>
       <link>https://www.cve.org/CVERecord?id=CVE-2024-3660</link>
       <description>A arbitrary code injection vulnerability in TensorFlow's Keras framework (&lt;2.13) allows attackers to execute arbitrary code with the same permissions as the application using a model that allow arbitrary code irrespective of the application.</description>
-      <guid isPermaLink="false">CVE-2024-3660|2024-08-01T20:20:00.692Z</guid>
+      <guid isPermaLink="false">CVE-2024-3660|2024-07-29T19:38:15.693Z</guid>
       <pubDate>Tue, 16 Apr 2024 20:09:26 +0000</pubDate>
+    </item>
+    <item>
+      <title>CVE-2024-3660|2024-04-16T20:09:26.220Z -- tensorflow -- keras</title>
+      <link>https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2024-3660</link>
+      <description>A arbitrary code injection vulnerability in TensorFlow's Keras framework (&lt;2.13) allows attackers to execute arbitrary code with the same permissions as the application using a model that allow arbitrary code irrespective of the application.</description>
+      <guid isPermaLink="false">CVE-2024-3660|2024-04-16T20:09:26.220Z</guid>
+      <pubDate>Tue, 16 Apr 2024 20:09:26 +0000</pubDate>
+    </item>
+    <item>
+      <title>CVE-2023-33976|2024-07-30T19:27:14.532Z -- tensorflow -- tensorflow</title>
+      <link>https://www.cve.org/CVERecord?id=CVE-2023-33976</link>
+      <description>TensorFlow is an end-to-end open source platform for machine learning. `array_ops.upper_bound` causes a segfault when not given a rank 2 tensor. The fix will be included in TensorFlow 2.13 and will also cherrypick this commit on TensorFlow 2.12.</description>
+      <guid isPermaLink="false">CVE-2023-33976|2024-07-30T19:27:14.532Z</guid>
+      <pubDate>Tue, 30 Jul 2024 19:27:14 +0000</pubDate>
+    </item>
+    <item>
+      <title>CVE-2023-33976|2024-08-02T15:54:14.208Z -- tensorflow -- tensorflow</title>
+      <link>https://www.cve.org/CVERecord?id=CVE-2023-33976</link>
+      <description>TensorFlow is an end-to-end open source platform for machine learning. `array_ops.upper_bound` causes a segfault when not given a rank 2 tensor. The fix will be included in TensorFlow 2.13 and will also cherrypick this commit on TensorFlow 2.12.</description>
+      <guid isPermaLink="false">CVE-2023-33976|2024-08-02T15:54:14.208Z</guid>
+      <pubDate>Tue, 30 Jul 2024 19:27:14 +0000</pubDate>
     </item>
   </channel>
 </rss>

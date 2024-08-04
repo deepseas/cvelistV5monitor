@@ -6,61 +6,21 @@
     <description>The latest CVEs for fluxcd -- all products</description>
     <docs>http://www.rssboard.org/rss-specification</docs>
     <generator>python-feedgen</generator>
-    <lastBuildDate>Sat, 03 Aug 2024 23:23:05 +0000</lastBuildDate>
+    <lastBuildDate>Sun, 04 Aug 2024 04:24:20 +0000</lastBuildDate>
     <ttl>60</ttl>
     <item>
-      <title>CVE-2022-24877|2024-08-03T04:29:00.196Z -- fluxcd -- flux2
+      <title>CVE-2021-41254|2024-08-04T03:08:31.648Z -- fluxcd -- kustomize-controller
 </title>
-      <link>https://www.cve.org/CVERecord?id=CVE-2022-24877</link>
-      <description>Flux is an open and extensible continuous delivery solution for Kubernetes. Path Traversal in the kustomize-controller via a malicious `kustomization.yaml` allows an attacker to expose sensitive data from the controller’s pod filesystem and possibly privilege escalation in multi-tenancy deployments. Workarounds include automated tooling in the user's CI/CD pipeline to validate `kustomization.yaml` files conform with specific policies. This vulnerability is fixed in kustomize-controller v0.24.0 and included in flux2 v0.29.0.</description>
-      <guid isPermaLink="false">CVE-2022-24877|2024-08-03T04:29:00.196Z</guid>
-      <pubDate>Fri, 06 May 2022 01:10:09 +0000</pubDate>
+      <link>https://www.cve.org/CVERecord?id=CVE-2021-41254</link>
+      <description>kustomize-controller is a Kubernetes operator, specialized in running continuous delivery pipelines for infrastructure and workloads defined with Kubernetes manifests and assembled with Kustomize. Users that can create Kubernetes Secrets, Service Accounts and Flux Kustomization objects, could execute commands inside the kustomize-controller container by embedding a shell script in a Kubernetes Secret. This can be used to run `kubectl` commands under the Service Account of kustomize-controller, thus allowing an authenticated Kubernetes user to gain cluster admin privileges. In affected versions multitenant environments where non-admin users have permissions to create Flux Kustomization objects are affected by this issue. This vulnerability was fixed in kustomize-controller v0.15.0 (included in flux2 v0.18.0) released on 2021-10-08. Starting with v0.15, the kustomize-controller no longer executes shell commands on the container OS and the `kubectl` binary has been removed from the container image. To prevent the creation of Kubernetes Service Accounts with `secrets` in namespaces owned by tenants, a Kubernetes validation webhook such as Gatekeeper OPA or Kyverno can be used.</description>
+      <guid isPermaLink="false">CVE-2021-41254|2024-08-04T03:08:31.648Z</guid>
+      <pubDate>Fri, 12 Nov 2021 17:45:10 +0000</pubDate>
     </item>
     <item>
-      <title>CVE-2022-24878|2024-08-03T04:29:00.186Z -- fluxcd -- flux2
-</title>
-      <link>https://www.cve.org/CVERecord?id=CVE-2022-24878</link>
-      <description>Flux is an open and extensible continuous delivery solution for Kubernetes. Path Traversal in the kustomize-controller via a malicious `kustomization.yaml` allows an attacker to cause a Denial of Service at the controller level. Workarounds include automated tooling in the user's CI/CD pipeline to validate `kustomization.yaml` files conform with specific policies. This vulnerability is fixed in kustomize-controller v0.24.0 and included in flux2 v0.29.0. Users are recommended to upgrade.</description>
-      <guid isPermaLink="false">CVE-2022-24878|2024-08-03T04:29:00.186Z</guid>
-      <pubDate>Fri, 06 May 2022 01:35:08 +0000</pubDate>
-    </item>
-    <item>
-      <title>CVE-2022-39272|2024-08-03T12:00:43.351Z -- fluxcd -- flux2
-</title>
-      <link>https://www.cve.org/CVERecord?id=CVE-2022-39272</link>
-      <description>Flux is an open and extensible continuous delivery solution for Kubernetes. Versions prior to 0.35.0 are subject to a Denial of Service. Users that have permissions to change Flux’s objects, either through a Flux source or directly within a cluster, can provide invalid data to fields `.spec.interval` or `.spec.timeout` (and structured variations of these fields), causing the entire object type to stop being processed. This issue is patched in version 0.35.0. As a workaround, Admission controllers can be employed to restrict the values that can be used for fields `.spec.interval` and `.spec.timeout`, however upgrading to the latest versions is still the recommended mitigation.</description>
-      <guid isPermaLink="false">CVE-2022-39272|2024-08-03T12:00:43.351Z</guid>
-      <pubDate>Fri, 21 Oct 2022 00:00:00 +0000</pubDate>
-    </item>
-    <item>
-      <title>CVE-2022-24817|2024-08-03T04:20:50.539Z -- fluxcd -- flux2
-</title>
-      <link>https://www.cve.org/CVERecord?id=CVE-2022-24817</link>
-      <description>Flux2 is an open and extensible continuous delivery solution for Kubernetes. Flux2 versions between 0.1.0 and 0.29.0, helm-controller 0.1.0 to v0.19.0, and kustomize-controller 0.1.0 to v0.23.0 are vulnerable to Code Injection via malicious Kubeconfig. In multi-tenancy deployments this can also lead to privilege escalation if the controller's service account has elevated permissions. Workarounds include disabling functionality via Validating Admission webhooks by restricting users from setting the `spec.kubeConfig` field in Flux `Kustomization` and `HelmRelease` objects. Additional mitigations include applying restrictive AppArmor and SELinux profiles on the controller’s pod to limit what binaries can be executed. This vulnerability is fixed in kustomize-controller v0.23.0 and helm-controller v0.19.0, both included in flux2 v0.29.0</description>
-      <guid isPermaLink="false">CVE-2022-24817|2024-08-03T04:20:50.539Z</guid>
-      <pubDate>Fri, 06 May 2022 00:00:14 +0000</pubDate>
-    </item>
-    <item>
-      <title>CVE-2022-36035|2024-08-03T09:52:00.302Z -- fluxcd -- flux2
-</title>
-      <link>https://www.cve.org/CVERecord?id=CVE-2022-36035</link>
-      <description>Flux is a tool for keeping Kubernetes clusters in sync with sources of configuration (like Git repositories), and automating updates to configuration when there is new code to deploy. Flux CLI allows users to deploy Flux components into a Kubernetes cluster via command-line. The vulnerability allows other applications to replace the Flux deployment information with arbitrary content which is deployed into the target Kubernetes cluster instead. The vulnerability is due to the improper handling of user-supplied input, which results in a path traversal that can be controlled by the attacker. Users sharing the same shell between other applications and the Flux CLI commands could be affected by this vulnerability. In some scenarios no errors may be presented, which may cause end users not to realize that something is amiss. A safe workaround is to execute Flux CLI in ephemeral and isolated shell environments, which can ensure no persistent values exist from previous processes. However, upgrading to the latest version of the CLI is still the recommended mitigation strategy.</description>
-      <guid isPermaLink="false">CVE-2022-36035|2024-08-03T09:52:00.302Z</guid>
-      <pubDate>Wed, 31 Aug 2022 14:55:09 +0000</pubDate>
-    </item>
-    <item>
-      <title>CVE-2022-36049|2024-08-03T09:52:00.382Z -- fluxcd -- flux2
-</title>
-      <link>https://www.cve.org/CVERecord?id=CVE-2022-36049</link>
-      <description>Flux2 is a tool for keeping Kubernetes clusters in sync with sources of configuration, and Flux's helm-controller is a Kubernetes operator that allows one to declaratively manage Helm chart releases. Helm controller is tightly integrated with the Helm SDK. A vulnerability found in the Helm SDK that affects flux2 v0.0.17 until v0.32.0 and helm-controller v0.0.4 until v0.23.0 allows for specific data inputs to cause high memory consumption. In some platforms, this could cause the controller to panic and stop processing reconciliations. In a shared cluster multi-tenancy environment, a tenant could create a HelmRelease that makes the controller panic, denying all other tenants from their Helm releases being reconciled. Patches are available in flux2 v0.32.0 and helm-controller v0.23.0.</description>
-      <guid isPermaLink="false">CVE-2022-36049|2024-08-03T09:52:00.382Z</guid>
-      <pubDate>Wed, 07 Sep 2022 20:15:13 +0000</pubDate>
-    </item>
-    <item>
-      <title>CVE-2024-31216|2024-07-24T18:16:00.378Z -- fluxcd -- source-controller</title>
+      <title>CVE-2024-31216|2024-08-02T01:46:04.808Z -- fluxcd -- source-controller</title>
       <link>https://www.cve.org/CVERecord?id=CVE-2024-31216</link>
       <description>The source-controller is a Kubernetes operator, specialised in artifacts acquisition from external sources such as Git, OCI, Helm repositories and S3-compatible buckets. The source-controller implements the source.toolkit.fluxcd.io API and is a core component of the GitOps toolkit. Prior to version 1.2.5, when source-controller was configured to use an Azure SAS token when connecting to Azure Blob Storage, the token was logged along with the Azure URL when the controller encountered a connection error. An attacker with access to the source-controller logs could use the token to gain access to the Azure Blob Storage until the token expires. This vulnerability was fixed in source-controller v1.2.5. There is no workaround for this vulnerability except for using a different auth mechanism such as Azure Workload Identity.</description>
-      <guid isPermaLink="false">CVE-2024-31216|2024-07-24T18:16:00.378Z</guid>
+      <guid isPermaLink="false">CVE-2024-31216|2024-08-02T01:46:04.808Z</guid>
       <pubDate>Wed, 15 May 2024 15:52:15 +0000</pubDate>
     </item>
     <item>
@@ -71,10 +31,10 @@
       <pubDate>Wed, 15 May 2024 15:52:15 +0000</pubDate>
     </item>
     <item>
-      <title>CVE-2024-31216|2024-08-02T01:46:04.808Z -- fluxcd -- source-controller</title>
+      <title>CVE-2024-31216|2024-07-24T18:16:00.378Z -- fluxcd -- source-controller</title>
       <link>https://www.cve.org/CVERecord?id=CVE-2024-31216</link>
       <description>The source-controller is a Kubernetes operator, specialised in artifacts acquisition from external sources such as Git, OCI, Helm repositories and S3-compatible buckets. The source-controller implements the source.toolkit.fluxcd.io API and is a core component of the GitOps toolkit. Prior to version 1.2.5, when source-controller was configured to use an Azure SAS token when connecting to Azure Blob Storage, the token was logged along with the Azure URL when the controller encountered a connection error. An attacker with access to the source-controller logs could use the token to gain access to the Azure Blob Storage until the token expires. This vulnerability was fixed in source-controller v1.2.5. There is no workaround for this vulnerability except for using a different auth mechanism such as Azure Workload Identity.</description>
-      <guid isPermaLink="false">CVE-2024-31216|2024-08-02T01:46:04.808Z</guid>
+      <guid isPermaLink="false">CVE-2024-31216|2024-07-24T18:16:00.378Z</guid>
       <pubDate>Wed, 15 May 2024 15:52:15 +0000</pubDate>
     </item>
   </channel>

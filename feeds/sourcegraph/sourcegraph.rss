@@ -6,63 +6,15 @@
     <description>The latest CVEs for sourcegraph -- sourcegraph</description>
     <docs>http://www.rssboard.org/rss-specification</docs>
     <generator>python-feedgen</generator>
-    <lastBuildDate>Sat, 03 Aug 2024 23:22:50 +0000</lastBuildDate>
+    <lastBuildDate>Sun, 04 Aug 2024 04:24:19 +0000</lastBuildDate>
     <ttl>60</ttl>
     <item>
-      <title>CVE-2022-31154|2024-08-03T07:11:39.588Z -- sourcegraph -- sourcegraph
+      <title>CVE-2021-43823|2024-08-04T04:03:08.900Z -- sourcegraph -- sourcegraph
 </title>
-      <link>https://www.cve.org/CVERecord?id=CVE-2022-31154</link>
-      <description>Sourcegraph is an opensource code search and navigation engine. It is possible for an authenticated Sourcegraph user to edit the Code Monitors owned by any other Sourcegraph user. This includes being able to edit both the trigger and the action of the monitor in question. An attacker is not able to read contents of existing code monitors, only override the data. The issue is fixed in Sourcegraph 3.42. There are no workaround for the issue and patching is highly recommended.</description>
-      <guid isPermaLink="false">CVE-2022-31154|2024-08-03T07:11:39.588Z</guid>
-      <pubDate>Mon, 01 Aug 2022 18:40:10 +0000</pubDate>
-    </item>
-    <item>
-      <title>CVE-2022-31155|2024-08-03T07:11:39.805Z -- sourcegraph -- sourcegraph
-</title>
-      <link>https://www.cve.org/CVERecord?id=CVE-2022-31155</link>
-      <description>Sourcegraph is an opensource code search and navigation engine. In Sourcegraph versions before 3.41.0, it is possible for an attacker to delete other users’ saved searches due to a bug in the authorization check. The vulnerability does not allow the reading of other users’ saved searches, only overwriting them with attacker-controlled searches. The issue is patched in Sourcegraph version 3.41.0. There is no workaround for this issue and updating to a secure version is highly recommended.</description>
-      <guid isPermaLink="false">CVE-2022-31155|2024-08-03T07:11:39.805Z</guid>
-      <pubDate>Mon, 01 Aug 2022 18:40:28 +0000</pubDate>
-    </item>
-    <item>
-      <title>CVE-2022-23642|2024-08-03T03:51:45.396Z -- sourcegraph -- sourcegraph
-</title>
-      <link>https://www.cve.org/CVERecord?id=CVE-2022-23642</link>
-      <description>Sourcegraph is a code search and navigation engine. Sourcegraph prior to version 3.37 is vulnerable to remote code execution in the `gitserver` service. The service acts as a git exec proxy, and fails to properly restrict calling `git config`. This allows an attacker to set the git `core.sshCommand` option, which sets git to use the specified command instead of ssh when they need to connect to a remote system. Exploitation of this vulnerability depends on how Sourcegraph is deployed. An attacker able to make HTTP requests to internal services like gitserver is able to exploit it. This issue is patched in Sourcegraph version 3.37. As a workaround, ensure that requests to gitserver are properly protected.</description>
-      <guid isPermaLink="false">CVE-2022-23642|2024-08-03T03:51:45.396Z</guid>
-      <pubDate>Fri, 18 Feb 2022 22:15:11 +0000</pubDate>
-    </item>
-    <item>
-      <title>CVE-2022-41942|2024-08-03T12:56:38.632Z -- sourcegraph -- sourcegraph
-</title>
-      <link>https://www.cve.org/CVERecord?id=CVE-2022-41942</link>
-      <description>Sourcegraph is a code intelligence platform. In versions prior to 4.1.0 a command Injection vulnerability existed in the gitserver service, present in all Sourcegraph deployments. This vulnerability was caused by a lack of input validation on the host parameter of the `/list-gitolite` endpoint. It was possible to send a crafted request to gitserver that would execute commands inside the container. Successful exploitation requires the ability to send local requests to gitserver. The issue is patched in version 4.1.0.</description>
-      <guid isPermaLink="false">CVE-2022-41942|2024-08-03T12:56:38.632Z</guid>
-      <pubDate>Tue, 22 Nov 2022 00:00:00 +0000</pubDate>
-    </item>
-    <item>
-      <title>CVE-2022-23643|2024-08-03T03:51:45.543Z -- sourcegraph -- sourcegraph
-</title>
-      <link>https://www.cve.org/CVERecord?id=CVE-2022-23643</link>
-      <description>Sourcegraph is a code search and navigation engine. Sourcegraph versions 3.35 and 3.36 reintroduced a previously fixed side-channel vulnerabilitity in the Code Monitoring feature where strings in private source code could be guessed by an authenticated but unauthorized actor. This issue affects only the Code Monitoring feature, whereas CVE-2021-43823 also affected saved searches. A successful attack would require an authenticated bad actor to create many Code Monitors to receive confirmation that a specific string exists. This could allow an attacker to guess formatted tokens in source code, such as API keys. This issue was patched in versions 3.35.2 and 3.36.3 of Sourcegraph. Those who are unable to upgrade may disable the Code Monitor feature in their installation.</description>
-      <guid isPermaLink="false">CVE-2022-23643|2024-08-03T03:51:45.543Z</guid>
-      <pubDate>Tue, 15 Feb 2022 21:25:10 +0000</pubDate>
-    </item>
-    <item>
-      <title>CVE-2022-41943|2024-08-03T12:56:38.579Z -- sourcegraph -- sourcegraph
-</title>
-      <link>https://www.cve.org/CVERecord?id=CVE-2022-41943</link>
-      <description>sourcegraph is a code intelligence platform. As a site admin it was possible to execute arbitrary commands on Gitserver when the experimental `customGitFetch` feature was enabled. This experimental feature has now been disabled by default. This issue has been patched in version 4.1.0.</description>
-      <guid isPermaLink="false">CVE-2022-41943|2024-08-03T12:56:38.579Z</guid>
-      <pubDate>Tue, 22 Nov 2022 00:00:00 +0000</pubDate>
-    </item>
-    <item>
-      <title>CVE-2022-29171|2024-08-03T06:17:54.087Z -- sourcegraph -- sourcegraph
-</title>
-      <link>https://www.cve.org/CVERecord?id=CVE-2022-29171</link>
-      <description>Sourcegraph is a fast and featureful code search and navigation engine. Versions before 3.38.0 are vulnerable to Remote Code Execution in the gitserver service. The Gitolite code host integration with Phabricator allows Sourcegraph site admins to specify a `callsignCommand`, which is used to obtain the Phabricator metadata for a Gitolite repository. An administrator who is able to edit or add a Gitolite code host and has administrative access to Sourcegraph’s bundled Grafana instance can change this command arbitrarily and run it remotely. This grants direct access to the infrastructure underlying the Sourcegraph installation. The attack requires: site-admin privileges on the instance of Sourcegraph, Administrative privileges on the bundled Grafana monitoring instance, Knowledge of the gitserver IP address or DNS name (if running in Kubernetes). This can be found through Grafana. The issue is patched in version 3.38.0. You may disable Gitolite code hosts. We still highly encourage upgrading regardless of workarounds.</description>
-      <guid isPermaLink="false">CVE-2022-29171|2024-08-03T06:17:54.087Z</guid>
-      <pubDate>Thu, 05 May 2022 23:25:09 +0000</pubDate>
+      <link>https://www.cve.org/CVERecord?id=CVE-2021-43823</link>
+      <description>Sourcegraph is a code search and navigation engine. Sourcegraph prior to version 3.33.2 is vulnerable to a side-channel attack where strings in private source code could be guessed by an authenticated but unauthorized actor. This issue affects the Saved Searches and Code Monitoring features. A successful attack would require an authenticated bad actor to create many Saved Searches or Code Monitors to receive confirmation that a specific string exists. This could allow an attacker to guess formatted tokens in source code, such as API keys. This issue was patched in version 3.33.2 and any future versions of Sourcegraph. We strongly encourage upgrading to secure versions. If you are unable to, you may disable Saved Searches and Code Monitors.</description>
+      <guid isPermaLink="false">CVE-2021-43823|2024-08-04T04:03:08.900Z</guid>
+      <pubDate>Mon, 13 Dec 2021 19:55:10 +0000</pubDate>
     </item>
   </channel>
 </rss>

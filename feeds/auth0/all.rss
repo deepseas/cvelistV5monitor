@@ -6,62 +6,29 @@
     <description>The latest CVEs for auth0 -- all products</description>
     <docs>http://www.rssboard.org/rss-specification</docs>
     <generator>python-feedgen</generator>
-    <lastBuildDate>Sat, 03 Aug 2024 23:23:01 +0000</lastBuildDate>
+    <lastBuildDate>Sun, 04 Aug 2024 04:24:20 +0000</lastBuildDate>
     <ttl>60</ttl>
     <item>
-      <title>CVE-2022-23540|2024-08-03T03:43:46.466Z -- auth0 -- node-jsonwebtoken
+      <title>CVE-2021-41246|2024-08-04T03:08:31.551Z -- auth0 -- express-openid-connect
 </title>
-      <link>https://www.cve.org/CVERecord?id=CVE-2022-23540</link>
-      <description>In versions `&lt;=8.5.1` of `jsonwebtoken` library, lack of algorithm definition in the `jwt.verify()` function can lead to signature validation bypass due to defaulting to the `none` algorithm for signature verification. Users are affected if you do not specify algorithms in the `jwt.verify()` function. This issue has been fixed, please update to version 9.0.0 which removes the default support for the none algorithm in the `jwt.verify()` method. There will be no impact, if you update to version 9.0.0 and you don’t need to allow for the `none` algorithm. If you need 'none' algorithm, you have to explicitly specify that in `jwt.verify()` options.
-</description>
-      <guid isPermaLink="false">CVE-2022-23540|2024-08-03T03:43:46.466Z</guid>
-      <pubDate>Thu, 22 Dec 2022 18:02:24 +0000</pubDate>
+      <link>https://www.cve.org/CVERecord?id=CVE-2021-41246</link>
+      <description>Express OpenID Connect is express JS middleware implementing sign on for Express web apps using OpenID Connect. Versions before and including `2.5.1` do not regenerate the session id and session cookie when user logs in. This behavior opens up the application to various session fixation vulnerabilities. Versions `2.5.2` contains a patch for this issue.</description>
+      <guid isPermaLink="false">CVE-2021-41246|2024-08-04T03:08:31.551Z</guid>
+      <pubDate>Thu, 09 Dec 2021 15:55:10 +0000</pubDate>
     </item>
     <item>
-      <title>CVE-2022-29172|2024-08-03T06:17:53.986Z -- auth0 -- lock
+      <title>CVE-2021-43812|2024-08-04T04:03:08.682Z -- auth0 -- nextjs-auth0
 </title>
-      <link>https://www.cve.org/CVERecord?id=CVE-2022-29172</link>
-      <description>Auth0 is an authentication broker that supports both social and enterprise identity providers, including Active Directory, LDAP, Google Apps, and Salesforce. In versions before `11.33.0`, when the “additional signup fields” feature [is configured](https://github.com/auth0/lock#additional-sign-up-fields), a malicious actor can inject invalidated HTML code into these additional fields, which is then stored in the service `user_metdata` payload (using the `name` property). Verification emails, when applicable, are generated using this metadata. It is therefor possible for an actor to craft a malicious link by injecting HTML, which is then rendered as the recipient's name within the delivered email template. You are impacted by this vulnerability if you are using `auth0-lock` version `11.32.2` or lower and are using the “additional signup fields” feature in your application. Upgrade to version `11.33.0`.</description>
-      <guid isPermaLink="false">CVE-2022-29172|2024-08-03T06:17:53.986Z</guid>
-      <pubDate>Thu, 05 May 2022 22:50:09 +0000</pubDate>
+      <link>https://www.cve.org/CVERecord?id=CVE-2021-43812</link>
+      <description>The Auth0 Next.js SDK is a library for implementing user authentication in Next.js applications. Versions before 1.6.2 do not filter out certain returnTo parameter values from the login url, which expose the application to an open redirect vulnerability. Users are advised to upgrade as soon as possible. There are no known workarounds for this issue.</description>
+      <guid isPermaLink="false">CVE-2021-43812|2024-08-04T04:03:08.682Z</guid>
+      <pubDate>Thu, 16 Dec 2021 18:20:12 +0000</pubDate>
     </item>
     <item>
-      <title>CVE-2022-24794|2024-08-03T04:20:50.427Z -- auth0 -- express-openid-connect
-</title>
-      <link>https://www.cve.org/CVERecord?id=CVE-2022-24794</link>
-      <description>Express OpenID Connect is an Express JS middleware implementing sign on for Express web apps using OpenID Connect. Users of the `requiresAuth` middleware, either directly or through the default `authRequired` option, are vulnerable to an Open Redirect when the middleware is applied to a catch all route. If all routes under `example.com` are protected with the `requiresAuth` middleware, a visit to `http://example.com//google.com` will be redirected to `google.com` after login because the original url reported by the Express framework is not properly sanitized. This vulnerability affects versions prior to 2.7.2. Users are advised to upgrade. There are no known workarounds.</description>
-      <guid isPermaLink="false">CVE-2022-24794|2024-08-03T04:20:50.427Z</guid>
-      <pubDate>Thu, 31 Mar 2022 22:45:14 +0000</pubDate>
-    </item>
-    <item>
-      <title>CVE-2022-23505|2024-08-03T03:43:46.515Z -- auth0 -- passport-wsfed-saml2
-</title>
-      <link>https://www.cve.org/CVERecord?id=CVE-2022-23505</link>
-      <description>Passport-wsfed-saml2 is a ws-federation protocol and SAML2 tokens authentication provider for Passport. In versions prior to 4.6.3, a remote attacker may be able to bypass WSFed authentication on a website using passport-wsfed-saml2. A successful attack requires that the attacker is in possession of an arbitrary IDP signed assertion. Depending on the IDP used, fully unauthenticated attacks (e.g without access to a valid user) might also be feasible if generation of a signed message can be triggered. This issue is patched in version 4.6.3. Use of SAML2 authentication instead of WSFed is a workaround.</description>
-      <guid isPermaLink="false">CVE-2022-23505|2024-08-03T03:43:46.515Z</guid>
-      <pubDate>Tue, 13 Dec 2022 07:04:23 +0000</pubDate>
-    </item>
-    <item>
-      <title>CVE-2022-23541|2024-08-03T03:43:46.445Z -- auth0 -- node-jsonwebtoken
-</title>
-      <link>https://www.cve.org/CVERecord?id=CVE-2022-23541</link>
-      <description>jsonwebtoken is an implementation of JSON Web Tokens. Versions `&lt;= 8.5.1` of `jsonwebtoken` library can be misconfigured so that passing a poorly implemented key retrieval function referring to the `secretOrPublicKey` argument from the readme link will result in incorrect verification of tokens. There is a possibility of using a different algorithm and key combination in verification, other than the one that was used to sign the tokens. Specifically, tokens signed with an asymmetric public key could be verified with a symmetric HS256 algorithm. This can lead to successful validation of  forged tokens. If your application is supporting usage of both symmetric key and asymmetric key in jwt.verify() implementation with the same key retrieval function. This issue has been patched, please update to version 9.0.0.</description>
-      <guid isPermaLink="false">CVE-2022-23541|2024-08-03T03:43:46.445Z</guid>
-      <pubDate>Thu, 22 Dec 2022 17:52:22 +0000</pubDate>
-    </item>
-    <item>
-      <title>CVE-2022-23539|2024-08-03T03:43:46.551Z -- auth0 -- node-jsonwebtoken
-</title>
-      <link>https://www.cve.org/CVERecord?id=CVE-2022-23539</link>
-      <description>Versions `&lt;=8.5.1` of `jsonwebtoken` library could be misconfigured so that legacy, insecure key types are used for signature verification. For example, DSA keys could be used with the RS256 algorithm. You are affected if you are using an algorithm and a key type other than a combination listed in the GitHub Security Advisory as unaffected. This issue has been fixed, please update to version 9.0.0. This version validates for asymmetric key type and algorithm combinations. Please refer to the above mentioned algorithm / key type combinations for the valid secure configuration. After updating to version 9.0.0, if you still intend to continue with signing or verifying tokens using invalid key type/algorithm value combinations, you’ll need to set the `allowInvalidAsymmetricKeyTypes` option  to `true` in the `sign()` and/or `verify()` functions.</description>
-      <guid isPermaLink="false">CVE-2022-23539|2024-08-03T03:43:46.551Z</guid>
-      <pubDate>Thu, 22 Dec 2022 23:20:47 +0000</pubDate>
-    </item>
-    <item>
-      <title>CVE-2023-6813|2024-08-02T08:42:07.447Z -- auth0 -- login%20by%20auth0</title>
+      <title>CVE-2023-6813|2024-07-10T07:36:43.632Z -- auth0 -- login%20by%20auth0</title>
       <link>https://www.cve.org/CVERecord?id=CVE-2023-6813</link>
       <description>The Login by Auth0 plugin for WordPress is vulnerable to Reflected Cross-Site Scripting via the ‘wle’ parameter in all versions up to, and including, 4.6.0 due to insufficient input sanitization and output escaping. This makes it possible for unauthenticated attackers to inject arbitrary web scripts in pages that execute if they can successfully trick a user into performing an action such as clicking on a link.</description>
-      <guid isPermaLink="false">CVE-2023-6813|2024-08-02T08:42:07.447Z</guid>
+      <guid isPermaLink="false">CVE-2023-6813|2024-07-10T07:36:43.632Z</guid>
       <pubDate>Wed, 10 Jul 2024 07:36:43 +0000</pubDate>
     </item>
     <item>
@@ -72,10 +39,10 @@
       <pubDate>Wed, 10 Jul 2024 07:36:43 +0000</pubDate>
     </item>
     <item>
-      <title>CVE-2023-6813|2024-07-10T07:36:43.632Z -- auth0 -- login%20by%20auth0</title>
+      <title>CVE-2023-6813|2024-08-02T08:42:07.447Z -- auth0 -- login%20by%20auth0</title>
       <link>https://www.cve.org/CVERecord?id=CVE-2023-6813</link>
       <description>The Login by Auth0 plugin for WordPress is vulnerable to Reflected Cross-Site Scripting via the ‘wle’ parameter in all versions up to, and including, 4.6.0 due to insufficient input sanitization and output escaping. This makes it possible for unauthenticated attackers to inject arbitrary web scripts in pages that execute if they can successfully trick a user into performing an action such as clicking on a link.</description>
-      <guid isPermaLink="false">CVE-2023-6813|2024-07-10T07:36:43.632Z</guid>
+      <guid isPermaLink="false">CVE-2023-6813|2024-08-02T08:42:07.447Z</guid>
       <pubDate>Wed, 10 Jul 2024 07:36:43 +0000</pubDate>
     </item>
   </channel>

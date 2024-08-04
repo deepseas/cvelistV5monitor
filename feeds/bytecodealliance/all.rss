@@ -6,7 +6,7 @@
     <description>The latest CVEs for bytecodealliance -- all products</description>
     <docs>http://www.rssboard.org/rss-specification</docs>
     <generator>python-feedgen</generator>
-    <lastBuildDate>Sun, 04 Aug 2024 03:23:13 +0000</lastBuildDate>
+    <lastBuildDate>Sun, 04 Aug 2024 04:24:14 +0000</lastBuildDate>
     <ttl>60</ttl>
     <item>
       <title>CVE-2021-39218|2024-08-04T01:58:18.261Z -- bytecodealliance -- wasmtime
@@ -15,6 +15,14 @@
       <description>Wasmtime is an open source runtime for WebAssembly &amp; WASI. In Wasmtime from version 0.26.0 and before version 0.30.0 is affected by a memory unsoundness vulnerability. There was an invalid free and out-of-bounds read and write bug when running Wasm that uses `externref`s in Wasmtime. To trigger this bug, Wasmtime needs to be running Wasm that uses `externref`s, the host creates non-null `externrefs`, Wasmtime performs a garbage collection (GC), and there has to be a Wasm frame on the stack that is at a GC safepoint where there are no live references at this safepoint, and there is a safepoint with live references earlier in this frame's function. Under this scenario, Wasmtime would incorrectly use the GC stack map for the safepoint from earlier in the function instead of the empty safepoint. This would result in Wasmtime treating arbitrary stack slots as `externref`s that needed to be rooted for GC. At the *next* GC, it would be determined that nothing was referencing these bogus `externref`s (because nothing could ever reference them, because they are not really `externref`s) and then Wasmtime would deallocate them and run `&lt;ExternRef as Drop&gt;::drop` on them. This results in a free of memory that is not necessarily on the heap (and shouldn't be freed at this moment even if it was), as well as potential out-of-bounds reads and writes. Even though support for `externref`s (via the reference types proposal) is enabled by default, unless you are creating non-null `externref`s in your host code or explicitly triggering GCs, you cannot be affected by this bug. We have reason to believe that the effective impact of this bug is relatively small because usage of `externref` is currently quite rare. This bug has been patched and users should upgrade to Wasmtime version 0.30.0. If you cannot upgrade Wasmtime at this time, you can avoid this bug by disabling the reference types proposal by passing `false` to `wasmtime::Config::wasm_reference_types`.</description>
       <guid isPermaLink="false">CVE-2021-39218|2024-08-04T01:58:18.261Z</guid>
       <pubDate>Fri, 17 Sep 2021 20:10:19 +0000</pubDate>
+    </item>
+    <item>
+      <title>CVE-2021-43790|2024-08-04T04:03:08.681Z -- bytecodealliance -- lucet
+</title>
+      <link>https://www.cve.org/CVERecord?id=CVE-2021-43790</link>
+      <description>Lucet is a native WebAssembly compiler and runtime. There is a bug in the main branch of `lucet-runtime` affecting all versions published to crates.io that allows a use-after-free in an Instance object that could result in memory corruption, data race, or other related issues. This bug was introduced early in the development of Lucet and is present in all releases. As a result of this bug, and dependent on the memory backing for the Instance objects, it is possible to trigger a use-after-free when the Instance is dropped. Users should upgrade to the main branch of the Lucet repository. Lucet no longer provides versioned releases on crates.io. There is no way to remediate this vulnerability without upgrading.</description>
+      <guid isPermaLink="false">CVE-2021-43790|2024-08-04T04:03:08.681Z</guid>
+      <pubDate>Mon, 29 Nov 2021 23:55:10 +0000</pubDate>
     </item>
     <item>
       <title>CVE-2021-39219|2024-08-04T01:58:18.272Z -- bytecodealliance -- wasmtime
@@ -33,17 +41,17 @@
       <pubDate>Fri, 17 Sep 2021 20:05:11 +0000</pubDate>
     </item>
     <item>
-      <title>CVE-2024-30266|2024-08-02T01:32:07.072Z -- bytecodealliance -- wasmtime</title>
-      <link>https://www.cve.org/CVERecord?id=CVE-2024-30266</link>
-      <description>wasmtime is a runtime for WebAssembly. The 19.0.0 release of Wasmtime contains a regression introduced during its development which can lead to a guest WebAssembly module causing a panic in the host runtime. A valid WebAssembly module, when executed at runtime, may cause this panic. This vulnerability has been patched in version 19.0.1.</description>
-      <guid isPermaLink="false">CVE-2024-30266|2024-08-02T01:32:07.072Z</guid>
-      <pubDate>Thu, 04 Apr 2024 15:42:00 +0000</pubDate>
-    </item>
-    <item>
       <title>CVE-2024-30266|2024-06-04T17:38:20.190Z -- bytecodealliance -- wasmtime</title>
       <link>https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2024-30266</link>
       <description>wasmtime is a runtime for WebAssembly. The 19.0.0 release of Wasmtime contains a regression introduced during its development which can lead to a guest WebAssembly module causing a panic in the host runtime. A valid WebAssembly module, when executed at runtime, may cause this panic. This vulnerability has been patched in version 19.0.1.</description>
       <guid isPermaLink="false">CVE-2024-30266|2024-06-04T17:38:20.190Z</guid>
+      <pubDate>Thu, 04 Apr 2024 15:42:00 +0000</pubDate>
+    </item>
+    <item>
+      <title>CVE-2024-30266|2024-08-02T01:32:07.072Z -- bytecodealliance -- wasmtime</title>
+      <link>https://www.cve.org/CVERecord?id=CVE-2024-30266</link>
+      <description>wasmtime is a runtime for WebAssembly. The 19.0.0 release of Wasmtime contains a regression introduced during its development which can lead to a guest WebAssembly module causing a panic in the host runtime. A valid WebAssembly module, when executed at runtime, may cause this panic. This vulnerability has been patched in version 19.0.1.</description>
+      <guid isPermaLink="false">CVE-2024-30266|2024-08-02T01:32:07.072Z</guid>
       <pubDate>Thu, 04 Apr 2024 15:42:00 +0000</pubDate>
     </item>
   </channel>

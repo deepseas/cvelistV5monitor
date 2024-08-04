@@ -6,76 +6,28 @@
     <description>The latest CVEs for DSpace -- DSpace</description>
     <docs>http://www.rssboard.org/rss-specification</docs>
     <generator>python-feedgen</generator>
-    <lastBuildDate>Sat, 03 Aug 2024 23:22:56 +0000</lastBuildDate>
+    <lastBuildDate>Sun, 04 Aug 2024 04:24:18 +0000</lastBuildDate>
     <ttl>60</ttl>
     <item>
-      <title>CVE-2022-31192|2024-08-03T07:11:39.685Z -- dspace -- dspace
+      <title>CVE-2021-41189|2024-08-04T03:08:31.307Z -- dspace -- dspace
 </title>
-      <link>https://www.cve.org/CVERecord?id=CVE-2022-31192</link>
-      <description>DSpace open source software is a repository application which provides durable access to digital resources. dspace-jspui is a UI component for DSpace. The JSPUI "Request a Copy" feature does not properly escape values submitted and stored from the "Request a Copy" form. This means that item requests could be vulnerable to XSS attacks. This vulnerability only impacts the JSPUI. Users are advised to upgrade. There are no known workarounds for this vulnerability.</description>
-      <guid isPermaLink="false">CVE-2022-31192|2024-08-03T07:11:39.685Z</guid>
-      <pubDate>Mon, 01 Aug 2022 20:30:36 +0000</pubDate>
-    </item>
-    <item>
-      <title>CVE-2022-31193|2024-08-03T07:11:39.618Z -- dspace -- dspace
-</title>
-      <link>https://www.cve.org/CVERecord?id=CVE-2022-31193</link>
-      <description>DSpace open source software is a repository application which provides durable access to digital resources. dspace-jspui is a UI component for DSpace. The JSPUI controlled vocabulary servlet is vulnerable to an open redirect attack, where an attacker can craft a malicious URL that looks like a legitimate DSpace/repository URL. When that URL is clicked by the target, it redirects them to a site of the attacker's choice. This issue has been patched in versions 5.11 and 6.4. Users are advised to upgrade. There are no known workaround for this vulnerability.</description>
-      <guid isPermaLink="false">CVE-2022-31193|2024-08-03T07:11:39.618Z</guid>
-      <pubDate>Mon, 01 Aug 2022 20:25:12 +0000</pubDate>
-    </item>
-    <item>
-      <title>CVE-2022-31189|2024-08-03T07:11:39.664Z -- dspace -- dspace
-</title>
-      <link>https://www.cve.org/CVERecord?id=CVE-2022-31189</link>
-      <description>DSpace open source software is a repository application which provides durable access to digital resources. dspace-jspui is a UI component for DSpace. When an "Internal System Error" occurs in the JSPUI, then entire exception (including stack trace) is available. Information in this stacktrace may be useful to an attacker in launching a more sophisticated attack. This vulnerability only impacts the JSPUI. This issue has been fixed in version 6.4. users are advised to upgrade. Users unable to upgrade should disable the display of error messages in their internal.jsp file.</description>
-      <guid isPermaLink="false">CVE-2022-31189|2024-08-03T07:11:39.664Z</guid>
-      <pubDate>Mon, 01 Aug 2022 20:20:11 +0000</pubDate>
-    </item>
-    <item>
-      <title>CVE-2022-31194|2024-08-03T07:11:39.570Z -- dspace -- dspace
-</title>
-      <link>https://www.cve.org/CVERecord?id=CVE-2022-31194</link>
-      <description>DSpace open source software is a repository application which provides durable access to digital resources. dspace-jspui is a UI component for DSpace. The JSPUI resumable upload implementations in SubmissionController and FileUploadRequest are vulnerable to multiple path traversal attacks, allowing an attacker to create files/directories anywhere on the server writable by the Tomcat/DSpace user, by modifying some request parameters during submission. This path traversal can only be executed by a user with special privileges (submitter rights). This vulnerability only impacts the JSPUI. Users are advised to upgrade. There are no known workarounds. However, this vulnerability cannot be exploited by an anonymous user or a basic user. The user must first have submitter privileges to at least one Collection and be able to determine how to modify the request parameters to exploit the vulnerability.</description>
-      <guid isPermaLink="false">CVE-2022-31194|2024-08-03T07:11:39.570Z</guid>
-      <pubDate>Mon, 01 Aug 2022 20:25:26 +0000</pubDate>
-    </item>
-    <item>
-      <title>CVE-2022-31190|2024-08-03T07:11:39.629Z -- dspace -- dspace
-</title>
-      <link>https://www.cve.org/CVERecord?id=CVE-2022-31190</link>
-      <description>DSpace open source software is a repository application which provides durable access to digital resources. dspace-xmlui is a UI component for DSpace. In affected versions metadata on a withdrawn Item is exposed via the XMLUI "mets.xml" object, as long as you know the handle/URL of the withdrawn Item. This vulnerability only impacts the XMLUI. Users are advised to upgrade to version 6.4 or newer.</description>
-      <guid isPermaLink="false">CVE-2022-31190|2024-08-03T07:11:39.629Z</guid>
-      <pubDate>Mon, 01 Aug 2022 20:10:11 +0000</pubDate>
-    </item>
-    <item>
-      <title>CVE-2022-31195|2024-08-03T07:11:39.806Z -- dspace -- dspace
-</title>
-      <link>https://www.cve.org/CVERecord?id=CVE-2022-31195</link>
-      <description>DSpace open source software is a repository application which provides durable access to digital resources. In affected versions the ItemImportServiceImpl is vulnerable to a path traversal vulnerability. This means a malicious SAF (simple archive format) package could cause a file/directory to be created anywhere the Tomcat/DSpace user can write to on the server. However, this path traversal vulnerability is only possible by a user with special privileges (either Administrators or someone with command-line access to the server). This vulnerability impacts the XMLUI, JSPUI and command-line. Users are advised to upgrade. As a basic workaround, users may block all access to the following URL paths: If you are using the XMLUI, block all access to /admin/batchimport path (this is the URL of the Admin Batch Import tool). Keep in mind, if your site uses the path "/xmlui", then you'd need to block access to /xmlui/admin/batchimport. If you are using the JSPUI, block all access to /dspace-admin/batchimport path (this is the URL of the Admin Batch Import tool). Keep in mind, if your site uses the path "/jspui", then you'd need to block access to /jspui/dspace-admin/batchimport. Keep in mind, only an Administrative user or a user with command-line access to the server is able to import/upload SAF packages. Therefore, assuming those users do not blindly upload untrusted SAF packages, then it is unlikely your site could be impacted by this vulnerability.</description>
-      <guid isPermaLink="false">CVE-2022-31195|2024-08-03T07:11:39.806Z</guid>
-      <pubDate>Mon, 01 Aug 2022 20:35:11 +0000</pubDate>
-    </item>
-    <item>
-      <title>CVE-2022-31191|2024-08-03T07:11:39.899Z -- dspace -- dspace
-</title>
-      <link>https://www.cve.org/CVERecord?id=CVE-2022-31191</link>
-      <description>DSpace open source software is a repository application which provides durable access to digital resources. dspace-jspui is a UI component for DSpace. The JSPUI spellcheck "Did you mean" HTML escapes the data-spell attribute in the link, but not the actual displayed text. Similarly, the JSPUI autocomplete HTML does not properly escape text passed to it. Both are vulnerable to XSS. This vulnerability only impacts the JSPUI. Users are advised to upgrade. There are no known workarounds for this issue.</description>
-      <guid isPermaLink="false">CVE-2022-31191|2024-08-03T07:11:39.899Z</guid>
-      <pubDate>Mon, 01 Aug 2022 20:30:17 +0000</pubDate>
-    </item>
-    <item>
-      <title>CVE-2024-38364|2024-08-02T04:04:25.278Z -- dspace -- dspace</title>
-      <link>https://www.cve.org/CVERecord?id=CVE-2024-38364</link>
-      <description>DSpace is an open source software is a turnkey repository application used by more than 2,000 organizations and institutions worldwide to provide durable access to digital resources. In DSpace 7.0 through 7.6.1, when an HTML, XML or JavaScript Bitstream is downloaded, the user's browser may execute any embedded JavaScript. If that embedded JavaScript is malicious, there is a risk of an XSS attack. This vulnerability has been patched in version 7.6.2.</description>
-      <guid isPermaLink="false">CVE-2024-38364|2024-08-02T04:04:25.278Z</guid>
-      <pubDate>Tue, 25 Jun 2024 23:45:57 +0000</pubDate>
+      <link>https://www.cve.org/CVERecord?id=CVE-2021-41189</link>
+      <description>DSpace is an open source turnkey repository application. In version 7.0, any community or collection administrator can escalate their permission up to become system administrator. This vulnerability only exists in 7.0 and does not impact 6.x or below. This issue is patched in version 7.1. As a workaround, users of 7.0 may temporarily disable the ability for community or collection administrators to manage permissions or workflows settings.</description>
+      <guid isPermaLink="false">CVE-2021-41189|2024-08-04T03:08:31.307Z</guid>
+      <pubDate>Fri, 29 Oct 2021 17:25:10 +0000</pubDate>
     </item>
     <item>
       <title>CVE-2024-38364|2024-07-05T17:22:48.955Z -- dspace -- dspace</title>
       <link>https://www.cve.org/CVERecord?id=CVE-2024-38364</link>
       <description>DSpace is an open source software is a turnkey repository application used by more than 2,000 organizations and institutions worldwide to provide durable access to digital resources. In DSpace 7.0 through 7.6.1, when an HTML, XML or JavaScript Bitstream is downloaded, the user's browser may execute any embedded JavaScript. If that embedded JavaScript is malicious, there is a risk of an XSS attack. This vulnerability has been patched in version 7.6.2.</description>
       <guid isPermaLink="false">CVE-2024-38364|2024-07-05T17:22:48.955Z</guid>
+      <pubDate>Tue, 25 Jun 2024 23:45:57 +0000</pubDate>
+    </item>
+    <item>
+      <title>CVE-2024-38364|2024-08-02T04:04:25.278Z -- dspace -- dspace</title>
+      <link>https://www.cve.org/CVERecord?id=CVE-2024-38364</link>
+      <description>DSpace is an open source software is a turnkey repository application used by more than 2,000 organizations and institutions worldwide to provide durable access to digital resources. In DSpace 7.0 through 7.6.1, when an HTML, XML or JavaScript Bitstream is downloaded, the user's browser may execute any embedded JavaScript. If that embedded JavaScript is malicious, there is a risk of an XSS attack. This vulnerability has been patched in version 7.6.2.</description>
+      <guid isPermaLink="false">CVE-2024-38364|2024-08-02T04:04:25.278Z</guid>
       <pubDate>Tue, 25 Jun 2024 23:45:57 +0000</pubDate>
     </item>
   </channel>

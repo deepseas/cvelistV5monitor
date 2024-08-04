@@ -6,42 +6,31 @@
     <description>The latest CVEs for symfony -- symfony</description>
     <docs>http://www.rssboard.org/rss-specification</docs>
     <generator>python-feedgen</generator>
-    <lastBuildDate>Sat, 03 Aug 2024 23:23:05 +0000</lastBuildDate>
+    <lastBuildDate>Sun, 04 Aug 2024 04:24:14 +0000</lastBuildDate>
     <ttl>60</ttl>
     <item>
-      <title>CVE-2022-24894|2024-08-03T04:29:01.562Z -- symfony -- symfony
+      <title>CVE-2021-41267|2024-08-04T03:08:31.656Z -- symfony -- symfony
 </title>
-      <link>https://www.cve.org/CVERecord?id=CVE-2022-24894</link>
-      <description>Symfony is a PHP framework for web and console applications and a set of reusable PHP components. The Symfony HTTP cache system, acts as a reverse proxy: It caches entire responses (including headers) and returns them to the clients. In a recent change in the `AbstractSessionListener`, the response might contain a `Set-Cookie` header. If the Symfony HTTP cache system is enabled, this response might bill stored and return to the next clients. An attacker can use this vulnerability to retrieve the victim's session. This issue has been patched and is available for branch 4.4.
-</description>
-      <guid isPermaLink="false">CVE-2022-24894|2024-08-03T04:29:01.562Z</guid>
-      <pubDate>Fri, 03 Feb 2023 21:46:23 +0000</pubDate>
+      <link>https://www.cve.org/CVERecord?id=CVE-2021-41267</link>
+      <description>Symfony/Http-Kernel is the HTTP kernel component for Symfony, a PHP framework for web and console applications and a set of reusable PHP components. Headers that are not part of the "trusted_headers" allowed list are ignored and protect users from "Cache poisoning" attacks. In Symfony 5.2, maintainers added support for the `X-Forwarded-Prefix` headers, but this header was accessible in SubRequest, even if it was not part of the "trusted_headers" allowed list. An attacker could leverage this opportunity to forge requests containing a `X-Forwarded-Prefix` header, leading to a web cache poisoning issue. Versions 5.3.12 and later have a patch to ensure that the `X-Forwarded-Prefix` header is not forwarded to subrequests when it is not trusted.</description>
+      <guid isPermaLink="false">CVE-2021-41267|2024-08-04T03:08:31.656Z</guid>
+      <pubDate>Wed, 24 Nov 2021 18:55:17 +0000</pubDate>
     </item>
     <item>
-      <title>CVE-2022-23601|2024-08-03T03:43:46.826Z -- symfony -- symfony
+      <title>CVE-2021-41268|2024-08-04T03:08:31.842Z -- symfony -- symfony
 </title>
-      <link>https://www.cve.org/CVERecord?id=CVE-2022-23601</link>
-      <description>Symfony is a PHP framework for web and console applications and a set of reusable PHP components. The Symfony form component provides a CSRF protection mechanism by using a random token injected in the form and using the session to store and control the token submitted by the user. When using the FrameworkBundle, this protection can be enabled or disabled with the configuration. If the configuration is not specified, by default, the mechanism is enabled as long as the session is enabled. In a recent change in the way the configuration is loaded, the default behavior has been dropped and, as a result, the CSRF protection is not enabled in form when not explicitly enabled, which makes the application sensible to CSRF attacks. This issue has been resolved in the patch versions listed and users are advised to update. There are no known workarounds for this issue.</description>
-      <guid isPermaLink="false">CVE-2022-23601|2024-08-03T03:43:46.826Z</guid>
-      <pubDate>Tue, 01 Feb 2022 12:17:35 +0000</pubDate>
+      <link>https://www.cve.org/CVERecord?id=CVE-2021-41268</link>
+      <description>Symfony/SecurityBundle is the security system for Symfony, a PHP framework for web and console applications and a set of reusable PHP components. Since the rework of the Remember me cookie in version 5.3.0, the cookie is not invalidated when the user changes their password. Attackers can therefore maintain their access to the account even if the password is changed as long as they have had the chance to login once and get a valid remember me cookie. Starting with version 5.3.12, Symfony makes the password part of the signature by default. In that way, when the password changes, then the cookie is not valid anymore.</description>
+      <guid isPermaLink="false">CVE-2021-41268|2024-08-04T03:08:31.842Z</guid>
+      <pubDate>Wed, 24 Nov 2021 18:55:12 +0000</pubDate>
     </item>
     <item>
-      <title>CVE-2022-24895|2024-08-03T04:29:01.542Z -- symfony -- symfony
+      <title>CVE-2021-41270|2024-08-04T03:08:31.658Z -- symfony -- symfony
 </title>
-      <link>https://www.cve.org/CVERecord?id=CVE-2022-24895</link>
-      <description>Symfony is a PHP framework for web and console applications and a set of reusable PHP components. When authenticating users Symfony by default regenerates the session ID upon login, but preserves the rest of session attributes. Because this does not clear CSRF tokens upon login, this might enables same-site attackers to bypass the CSRF protection mechanism by performing an attack similar to a session-fixation. This issue has been fixed in the 4.4 branch. 
-
-</description>
-      <guid isPermaLink="false">CVE-2022-24895|2024-08-03T04:29:01.542Z</guid>
-      <pubDate>Fri, 03 Feb 2023 21:45:26 +0000</pubDate>
-    </item>
-    <item>
-      <title>CVE-2021-21424|2024-08-03T18:09:16.141Z -- symfony -- symfony
-</title>
-      <link>https://www.cve.org/CVERecord?id=CVE-2021-21424</link>
-      <description>Symfony is a PHP framework for web and console applications and a set of reusable PHP components. The ability to enumerate users was possible without relevant permissions due to different handling depending on whether the user existed or not when attempting to use the switch users functionality. We now ensure that 403s are returned whether the user exists or not if a user cannot switch to a user or if the user does not exist. The patch for this issue is available for branch 3.4.</description>
-      <guid isPermaLink="false">CVE-2021-21424|2024-08-03T18:09:16.141Z</guid>
-      <pubDate>Thu, 13 May 2021 00:00:00 +0000</pubDate>
+      <link>https://www.cve.org/CVERecord?id=CVE-2021-41270</link>
+      <description>Symfony/Serializer handles serializing and deserializing data structures for Symfony, a PHP framework for web and console applications and a set of reusable PHP components. Symfony versions 4.1.0 before 4.4.35 and versions 5.0.0 before 5.3.12 are vulnerable to CSV injection, also known as formula injection. In Symfony 4.1, maintainers added the opt-in `csv_escape_formulas` option in the `CsvEncoder`, to prefix all cells starting with `=`, `+`, `-` or `@` with a tab `\t`. Since then, OWASP added 2 chars in that list: Tab (0x09) and Carriage return (0x0D). This makes the previous prefix char (Tab `\t`) part of the vulnerable characters, and OWASP suggests using the single quote `'` for prefixing the value. Starting with versions 4.4.34 and 5.3.12, Symfony now follows the OWASP recommendations and uses the single quote `'` to prefix formulas and add the prefix to cells starting by `\t`, `\r` as well as `=`, `+`, `-` and `@`.</description>
+      <guid isPermaLink="false">CVE-2021-41270|2024-08-04T03:08:31.658Z</guid>
+      <pubDate>Wed, 24 Nov 2021 19:05:11 +0000</pubDate>
     </item>
   </channel>
 </rss>

@@ -6,31 +6,23 @@
     <description>The latest CVEs for opencast -- all products</description>
     <docs>http://www.rssboard.org/rss-specification</docs>
     <generator>python-feedgen</generator>
-    <lastBuildDate>Sat, 03 Aug 2024 23:23:16 +0000</lastBuildDate>
+    <lastBuildDate>Sun, 04 Aug 2024 04:24:14 +0000</lastBuildDate>
     <ttl>60</ttl>
     <item>
-      <title>CVE-2021-21318|2024-08-03T18:09:15.422Z -- opencast -- opencast
+      <title>CVE-2021-43821|2024-08-04T04:03:08.978Z -- opencast -- opencast
 </title>
-      <link>https://www.cve.org/CVERecord?id=CVE-2021-21318</link>
-      <description>Opencast is a free, open-source platform to support the management of educational audio and video content. In Opencast before version 9.2 there is a vulnerability in which publishing an episode with strict access rules will overwrite the currently set series access. This allows for an easy denial of access for all users without superuser privileges, effectively hiding the series. Access to series and series metadata on the search service (shown in media module and player) depends on the events published which are part of the series. Publishing an event will automatically publish a series and update access to it. Removing an event or republishing the event should do the same. Affected versions of Opencast may not update the series access or remove a published series if an event is being removed. On removal of an episode, this may lead to an access control list for series metadata with broader access rules than the merged access rules of all remaining events, or the series metadata still being available although all episodes of that series have been removed. This problem is fixed in Opencast 9.2.</description>
-      <guid isPermaLink="false">CVE-2021-21318|2024-08-03T18:09:15.422Z</guid>
-      <pubDate>Thu, 18 Feb 2021 17:20:14 +0000</pubDate>
+      <link>https://www.cve.org/CVERecord?id=CVE-2021-43821</link>
+      <description>Opencast is an Open Source Lecture Capture &amp; Video Management for Education. Opencast before version 9.10 or 10.6 allows references to local file URLs in ingested media packages, allowing attackers to include local files from Opencast's host machines and making them available via the web interface. Before Opencast 9.10 and 10.6, Opencast would open and include local files during ingests. Attackers could exploit this to include most local files the process has read access to, extracting secrets from the host machine. An attacker would need to have the privileges required to add new media to exploit this. But these are often widely given. The issue has been fixed in Opencast 10.6 and 11.0. You can mitigate this issue by narrowing down the read access Opencast has to files on the file system using UNIX permissions or mandatory access control systems like SELinux. This cannot prevent access to files Opencast needs to read though and we highly recommend updating.</description>
+      <guid isPermaLink="false">CVE-2021-43821|2024-08-04T04:03:08.978Z</guid>
+      <pubDate>Tue, 14 Dec 2021 19:15:12 +0000</pubDate>
     </item>
     <item>
-      <title>CVE-2022-41965|2024-08-03T12:56:39.128Z -- opencast -- opencast
+      <title>CVE-2021-43807|2024-08-04T04:03:08.669Z -- opencast -- opencast
 </title>
-      <link>https://www.cve.org/CVERecord?id=CVE-2022-41965</link>
-      <description>Opencast is a free, open-source platform to support the management of educational audio and video content. Prior to Opencast 12.5, Opencast's Paella authentication page could be used to redirect to an arbitrary URL for authenticated users. The vulnerability allows attackers to redirect users to sites outside of one's Opencast install, potentially facilitating phishing attacks or other security issues. This issue is fixed in Opencast 12.5 and newer.</description>
-      <guid isPermaLink="false">CVE-2022-41965|2024-08-03T12:56:39.128Z</guid>
-      <pubDate>Mon, 28 Nov 2022 00:00:00 +0000</pubDate>
-    </item>
-    <item>
-      <title>CVE-2022-29237|2024-08-03T06:17:54.538Z -- opencast -- opencast
-</title>
-      <link>https://www.cve.org/CVERecord?id=CVE-2022-29237</link>
-      <description>Opencast is a free and open source solution for automated video capture and distribution at scale. Prior to Opencast 10.14 and 11.7, users could pass along URLs for files belonging to organizations other than the user's own, which Opencast would then import into the current organization, bypassing organizational barriers. Attackers must have full access to Opencast's ingest REST interface, and also know internal links to resources in another organization of the same Opencast cluster. Users who do not run a multi-tenant cluster are not affected by this issue. This issue is fixed in Opencast 10.14 and 11.7.</description>
-      <guid isPermaLink="false">CVE-2022-29237|2024-08-03T06:17:54.538Z</guid>
-      <pubDate>Tue, 24 May 2022 14:40:11 +0000</pubDate>
+      <link>https://www.cve.org/CVERecord?id=CVE-2021-43807</link>
+      <description>Opencast is an Open Source Lecture Capture &amp; Video Management for Education. Opencast versions prior to 9.10 allow HTTP method spoofing, allowing to change the assumed HTTP method via URL parameter. This allows attackers to turn HTTP GET requests into PUT requests or an HTTP form to send DELETE requests. This bypasses restrictions otherwise put on these types of requests and aids in cross-site request forgery (CSRF) attacks, which would otherwise not be possible. The vulnerability allows attackers to craft links or forms which may change the server state. This issue is fixed in Opencast 9.10 and 10.0. You can mitigate the problem by setting the `SameSite=Strict` attribute for your cookies. If this is a viable option for you depends on your integrations. We strongly recommend updating in any case.</description>
+      <guid isPermaLink="false">CVE-2021-43807|2024-08-04T04:03:08.669Z</guid>
+      <pubDate>Tue, 14 Dec 2021 18:10:11 +0000</pubDate>
     </item>
   </channel>
 </rss>

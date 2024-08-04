@@ -1,0 +1,36 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<rss xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/" version="2.0">
+  <channel>
+    <title>CVE Feed for getredash -- redash</title>
+    <link>https://raw.githubusercontent.com/deepseas/cvelistV5monitor/main/feeds/getredash/redash.rss</link>
+    <description>The latest CVEs for getredash -- redash</description>
+    <docs>http://www.rssboard.org/rss-specification</docs>
+    <generator>python-feedgen</generator>
+    <lastBuildDate>Sun, 04 Aug 2024 04:24:11 +0000</lastBuildDate>
+    <ttl>60</ttl>
+    <item>
+      <title>CVE-2021-41192|2024-08-04T03:08:31.434Z -- getredash -- redash
+</title>
+      <link>https://www.cve.org/CVERecord?id=CVE-2021-41192</link>
+      <description>Redash is a package for data visualization and sharing. If an admin sets up Redash versions 10.0.0 and prior without explicitly specifying the `REDASH_COOKIE_SECRET` or `REDASH_SECRET_KEY` environment variables, a default value is used for both that is the same across all installations. In such cases, the instance is vulnerable to attackers being able to forge sessions using the known default value. This issue only affects installations where the `REDASH_COOKIE_SECRET or REDASH_SECRET_KEY` environment variables have not been explicitly set. This issue does not affect users of the official Redash cloud images, Redash's Digital Ocean marketplace droplets, or the scripts in the `getredash/setup` repository. These instances automatically generate unique secret keys during installation. One can verify whether one's instance is affected by checking the value of the `REDASH_COOKIE_SECRET` environment variable. If it is `c292a0a3aa32397cdb050e233733900f`, should follow the steps to secure the instance, outlined in the GitHub Security Advisory.</description>
+      <guid isPermaLink="false">CVE-2021-41192|2024-08-04T03:08:31.434Z</guid>
+      <pubDate>Tue, 23 Nov 2021 23:50:10 +0000</pubDate>
+    </item>
+    <item>
+      <title>CVE-2021-43777|2024-08-04T04:03:08.609Z -- getredash -- redash
+</title>
+      <link>https://www.cve.org/CVERecord?id=CVE-2021-43777</link>
+      <description>Redash is a package for data visualization and sharing. In Redash version 10.0 and prior, the implementation of Google Login (via OAuth) incorrectly uses the `state` parameter to pass the next URL to redirect the user to after login. The `state` parameter should be used for a Cross-Site Request Forgery (CSRF) token, not a static and easily predicted value. This vulnerability does not affect users who do not use Google Login for their instance of Redash. A patch in the `master` and `release/10.x.x` branches addresses this by replacing `Flask-Oauthlib` with `Authlib` which automatically provides and validates a CSRF token for the state variable. The new implementation stores the next URL on the user session object. As a workaround, one may disable Google Login to mitigate the vulnerability.</description>
+      <guid isPermaLink="false">CVE-2021-43777|2024-08-04T04:03:08.609Z</guid>
+      <pubDate>Tue, 23 Nov 2021 23:30:10 +0000</pubDate>
+    </item>
+    <item>
+      <title>CVE-2021-43780|2024-08-04T04:03:08.620Z -- getredash -- redash
+</title>
+      <link>https://www.cve.org/CVERecord?id=CVE-2021-43780</link>
+      <description>Redash is a package for data visualization and sharing. In versions 10.0 and priorm the implementation of URL-loading data sources like JSON, CSV, or Excel is vulnerable to advanced methods of Server Side Request Forgery (SSRF). These vulnerabilities are only exploitable on installations where a URL-loading data source is enabled. As of time of publication, the `master` and `release/10.x.x` branches address this by applying the Advocate library for making http requests instead of the requests library directly. Users should upgrade to version 10.0.1 to receive this patch. There are a few workarounds for mitigating the vulnerability without upgrading. One can disable the vulnerable data sources entirely, by adding the following env variable to one's configuration, making them unavailable inside the webapp. One can switch any data source of certain types (viewable in the GitHub Security Advisory) to be `View Only` for all groups on the Settings &gt; Groups &gt; Data Sources screen. For users unable to update an admin may modify Redash's configuration through environment variables to mitigate this issue. Depending on the version of Redash, an admin may also need to run a CLI command to re-encrypt some fields in the database. The `master` and `release/10.x.x` branches as of time of publication have removed the default value for `REDASH_COOKIE_SECRET`. All future releases will also require this to be set explicitly. For existing installations, one will need to ensure that explicit values are set for the `REDASH_COOKIE_SECRET` and `REDASH_SECRET_KEY `variables.</description>
+      <guid isPermaLink="false">CVE-2021-43780|2024-08-04T04:03:08.620Z</guid>
+      <pubDate>Tue, 23 Nov 2021 23:55:10 +0000</pubDate>
+    </item>
+  </channel>
+</rss>

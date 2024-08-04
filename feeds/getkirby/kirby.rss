@@ -6,45 +6,29 @@
     <description>The latest CVEs for getkirby -- kirby</description>
     <docs>http://www.rssboard.org/rss-specification</docs>
     <generator>python-feedgen</generator>
-    <lastBuildDate>Sat, 03 Aug 2024 23:23:02 +0000</lastBuildDate>
+    <lastBuildDate>Sun, 04 Aug 2024 04:24:18 +0000</lastBuildDate>
     <ttl>60</ttl>
     <item>
-      <title>CVE-2022-39315|2024-08-03T12:00:44.153Z -- getkirby -- kirby
+      <title>CVE-2021-41252|2024-08-04T03:08:31.511Z -- getkirby -- kirby
 </title>
-      <link>https://www.cve.org/CVERecord?id=CVE-2022-39315</link>
-      <description>Kirby is a Content Management System. Prior to versions 3.5.8.2, 3.6.6.2, 3.7.5.1, and 3.8.1, a user enumeration vulnerability affects all Kirby sites with user accounts unless Kirby's API and Panel are disabled in the config. It can only be exploited for targeted attacks because the attack does not scale to brute force. The problem has been patched in Kirby 3.5.8.2, Kirby 3.6.6.2, Kirby 3.7.5.1, and Kirby 3.8.1. In all of the mentioned releases, the maintainers have rewritten the affected code so that the delay is also inserted after the brute force limit is reached.</description>
-      <guid isPermaLink="false">CVE-2022-39315|2024-08-03T12:00:44.153Z</guid>
-      <pubDate>Tue, 25 Oct 2022 00:00:00 +0000</pubDate>
+      <link>https://www.cve.org/CVERecord?id=CVE-2021-41252</link>
+      <description>Kirby is an open source file structured CMS ### Impact Kirby's writer field stores its formatted content as HTML code. Unlike with other field types, it is not possible to escape HTML special characters against cross-site scripting (XSS) attacks, otherwise the formatting would be lost. If the user is logged in to the Panel, a harmful script can for example trigger requests to Kirby's API with the permissions of the victim. Because the writer field did not securely sanitize its contents on save, it was possible to inject malicious HTML code into the content file by sending it to Kirby's API directly without using the Panel. This malicious HTML code would then be displayed on the site frontend and executed in the browsers of site visitors and logged in users who are browsing the site. Attackers must be in your group of authenticated Panel users in order to exploit this weakness. Users who do not make use of the writer field are not affected. This issue has been patched in Kirby 3.5.8 by sanitizing all writer field contents on the backend whenever the content is modified via Kirby's API. Please update to this or a later version to fix the vulnerability.</description>
+      <guid isPermaLink="false">CVE-2021-41252|2024-08-04T03:08:31.511Z</guid>
+      <pubDate>Tue, 16 Nov 2021 18:05:10 +0000</pubDate>
     </item>
     <item>
-      <title>CVE-2022-36037|2024-08-03T09:51:59.947Z -- getkirby -- kirby
+      <title>CVE-2021-41258|2024-08-04T03:08:31.642Z -- getkirby -- kirby
 </title>
-      <link>https://www.cve.org/CVERecord?id=CVE-2022-36037</link>
-      <description>kirby is a content management system (CMS) that adapts to many different projects and helps you build your own ideal interface. Cross-site scripting (XSS) is a type of vulnerability that allows execution of any kind of JavaScript code inside the Panel session of the same or other users. In the Panel, a harmful script can for example trigger requests to Kirby's API with the permissions of the victim. If bad actors gain access to your group of authenticated Panel users they can escalate their privileges via the Panel session of an admin user. Depending on your site, other JavaScript-powered attacks are possible. The multiselect field allows selection of tags from an autocompleted list. Unfortunately, the Panel in Kirby 3.5 used HTML rendering for the raw option value. This allowed **attackers with influence on the options source** to store HTML code. The browser of the victim who visited a page with manipulated multiselect options in the Panel will then have rendered this malicious HTML code when the victim opened the autocomplete dropdown. Users are *not* affected by this vulnerability if you don't use the multiselect field or don't use it with options that can be manipulated by attackers. The problem has been patched in Kirby 3.5.8.1.</description>
-      <guid isPermaLink="false">CVE-2022-36037|2024-08-03T09:51:59.947Z</guid>
-      <pubDate>Mon, 29 Aug 2022 17:35:09 +0000</pubDate>
+      <link>https://www.cve.org/CVERecord?id=CVE-2021-41258</link>
+      <description>Kirby is an open source file structured CMS. In affected versions Kirby's blocks field stores structured data for each block. This data is then used in block snippets to convert the blocks to HTML for use in your templates. We recommend to escape HTML special characters to protect against cross-site scripting (XSS) attacks. The default snippet for the image block unfortunately did not use our escaping helper. This made it possible to include malicious HTML code in the source, alt and link fields of the image block, which would then be displayed on the site frontend and executed in the browsers of site visitors and logged in users who are browsing the site. Attackers must be in your group of authenticated Panel users in order to exploit this weakness. Users who do not make use of the blocks field are not affected. This issue has been patched in Kirby version 3.5.8 by escaping special HTML characters in the output from the default image block snippet. Please update to this or a later version to fix the vulnerability.</description>
+      <guid isPermaLink="false">CVE-2021-41258|2024-08-04T03:08:31.642Z</guid>
+      <pubDate>Tue, 16 Nov 2021 18:05:18 +0000</pubDate>
     </item>
     <item>
-      <title>CVE-2021-29460|2024-08-03T22:02:51.975Z -- getkirby -- kirby
-</title>
-      <link>https://www.cve.org/CVERecord?id=CVE-2021-29460</link>
-      <description>Kirby is an open source CMS. An editor with write access to the Kirby Panel can upload an SVG file that contains harmful content like `&lt;script&gt;` tags. The direct link to that file can be sent to other users or visitors of the site. If the victim opens that link in a browser where they are logged in to Kirby, the script will run and can for example trigger requests to Kirby's API with the permissions of the victim. This vulnerability is critical if you might have potential attackers in your group of authenticated Panel users, as they can escalate their privileges if they get access to the Panel session of an admin user. Depending on your site, other JavaScript-powered attacks are possible. Visitors without Panel access can only use this attack vector if your site allows SVG file uploads in frontend forms and you don't already sanitize uploaded SVG files. The problem has been patched in Kirby 3.5.4. Please update to this or a later version to fix the vulnerability. Frontend upload forms need to be patched separately depending on how they store the uploaded file(s). If you use `File::create()`, you are protected by updating to 3.5.4+. As a work around you can disable the upload of SVG files in your file blueprints.</description>
-      <guid isPermaLink="false">CVE-2021-29460|2024-08-03T22:02:51.975Z</guid>
-      <pubDate>Tue, 27 Apr 2021 20:10:13 +0000</pubDate>
-    </item>
-    <item>
-      <title>CVE-2022-39314|2024-08-03T12:00:44.030Z -- getkirby -- kirby
-</title>
-      <link>https://www.cve.org/CVERecord?id=CVE-2022-39314</link>
-      <description>Kirby is a flat-file CMS. In versions prior to 3.5.8.2, 3.6.6.2, 3.7.5.1, and 3.8.1, Kirby is subject to user enumeration due to Improper Restriction of Excessive Authentication Attempts. This vulnerability affects you only if you are using the `code` or `password-reset` auth method with the `auth.methods` option or if you have enabled the `debug` option in production. By using two or more IP addresses and multiple login attempts, valid user accounts will lock, but invalid accounts will not, leading to account enumeration. This issue has been patched in versions 3.5.8.2, 3.6.6.2, 3.7.5.1, and 3.8.1. If you cannot update immediately, you can work around the issue by setting the `auth.methods` option to `password`, which disables the code-based login and password reset forms.</description>
-      <guid isPermaLink="false">CVE-2022-39314|2024-08-03T12:00:44.030Z</guid>
-      <pubDate>Mon, 24 Oct 2022 00:00:00 +0000</pubDate>
-    </item>
-    <item>
-      <title>CVE-2024-27087|2024-08-02T00:27:57.813Z -- getkirby -- kirby</title>
+      <title>CVE-2024-27087|2024-07-05T17:22:00.531Z -- getkirby -- kirby</title>
       <link>https://www.cve.org/CVERecord?id=CVE-2024-27087</link>
       <description>Kirby is a content management system. The new link field introduced in Kirby 4 allows several different link types that each validate the entered link to the relevant URL format. It also includes a "Custom" link type for advanced use cases that don't fit any of the pre-defined link formats.  As the "Custom" link type is meant to be flexible, it also allows the javascript: URL scheme. In some use cases this can be intended, but it can also be misused by attackers to execute arbitrary JavaScript code when a user or visitor clicks on a link that is generated from the contents of the link field. This vulnerability is patched in 4.1.1.</description>
-      <guid isPermaLink="false">CVE-2024-27087|2024-08-02T00:27:57.813Z</guid>
+      <guid isPermaLink="false">CVE-2024-27087|2024-07-05T17:22:00.531Z</guid>
       <pubDate>Mon, 26 Feb 2024 16:44:31 +0000</pubDate>
     </item>
     <item>
@@ -55,10 +39,10 @@
       <pubDate>Mon, 26 Feb 2024 16:44:31 +0000</pubDate>
     </item>
     <item>
-      <title>CVE-2024-27087|2024-07-05T17:22:00.531Z -- getkirby -- kirby</title>
+      <title>CVE-2024-27087|2024-08-02T00:27:57.813Z -- getkirby -- kirby</title>
       <link>https://www.cve.org/CVERecord?id=CVE-2024-27087</link>
       <description>Kirby is a content management system. The new link field introduced in Kirby 4 allows several different link types that each validate the entered link to the relevant URL format. It also includes a "Custom" link type for advanced use cases that don't fit any of the pre-defined link formats.  As the "Custom" link type is meant to be flexible, it also allows the javascript: URL scheme. In some use cases this can be intended, but it can also be misused by attackers to execute arbitrary JavaScript code when a user or visitor clicks on a link that is generated from the contents of the link field. This vulnerability is patched in 4.1.1.</description>
-      <guid isPermaLink="false">CVE-2024-27087|2024-07-05T17:22:00.531Z</guid>
+      <guid isPermaLink="false">CVE-2024-27087|2024-08-02T00:27:57.813Z</guid>
       <pubDate>Mon, 26 Feb 2024 16:44:31 +0000</pubDate>
     </item>
   </channel>
