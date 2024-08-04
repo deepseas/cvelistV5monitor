@@ -6,8 +6,16 @@
     <description>The latest CVEs for libvirt -- libvirt</description>
     <docs>http://www.rssboard.org/rss-specification</docs>
     <generator>python-feedgen</generator>
-    <lastBuildDate>Sun, 04 Aug 2024 22:23:03 +0000</lastBuildDate>
+    <lastBuildDate>Sun, 04 Aug 2024 23:23:13 +0000</lastBuildDate>
     <ttl>60</ttl>
+    <item>
+      <title>CVE-2019-10168|2024-08-04T22:10:10.037Z -- libvirt -- libvirt
+</title>
+      <link>https://www.cve.org/CVERecord?id=CVE-2019-10168</link>
+      <description>The virConnectBaselineHypervisorCPU() and virConnectCompareHypervisorCPU() libvirt APIs, 4.x.x before 4.10.1 and 5.x.x before 5.4.1, accept an "emulator" argument to specify the program providing emulation for a domain. Since v1.2.19, libvirt will execute that program to probe the domain's capabilities. Read-only clients could specify an arbitrary path for this argument, causing libvirtd to execute a crafted executable with its own privileges.</description>
+      <guid isPermaLink="false">CVE-2019-10168|2024-08-04T22:10:10.037Z</guid>
+      <pubDate>Fri, 02 Aug 2019 12:08:14 +0000</pubDate>
+    </item>
     <item>
       <title>CVE-2020-10703|2024-08-04T11:06:11.183Z -- libvirt -- libvirt
 </title>
@@ -15,6 +23,38 @@
       <description>A NULL pointer dereference was found in the libvirt API responsible introduced in upstream version 3.10.0, and fixed in libvirt 6.0.0, for fetching a storage pool based on its target path. In more detail, this flaw affects storage pools created without a target path such as network-based pools like gluster and RBD. Unprivileged users with a read-only connection could abuse this flaw to crash the libvirt daemon, resulting in a potential denial of service.</description>
       <guid isPermaLink="false">CVE-2020-10703|2024-08-04T11:06:11.183Z</guid>
       <pubDate>Tue, 02 Jun 2020 00:00:00 +0000</pubDate>
+    </item>
+    <item>
+      <title>CVE-2019-10161|2024-08-04T22:10:10.036Z -- libvirt -- libvirt
+</title>
+      <link>https://www.cve.org/CVERecord?id=CVE-2019-10161</link>
+      <description>It was discovered that libvirtd before versions 4.10.1 and 5.4.1 would permit read-only clients to use the virDomainSaveImageGetXMLDesc() API, specifying an arbitrary path which would be accessed with the permissions of the libvirtd process. An attacker with access to the libvirtd socket could use this to probe the existence of arbitrary files, cause denial of service or cause libvirtd to execute arbitrary programs.</description>
+      <guid isPermaLink="false">CVE-2019-10161|2024-08-04T22:10:10.036Z</guid>
+      <pubDate>Tue, 30 Jul 2019 22:14:10 +0000</pubDate>
+    </item>
+    <item>
+      <title>CVE-2019-10166|2024-08-04T22:10:09.965Z -- libvirt -- libvirt
+</title>
+      <link>https://www.cve.org/CVERecord?id=CVE-2019-10166</link>
+      <description>It was discovered that libvirtd, versions 4.x.x before 4.10.1 and 5.x.x before 5.4.1, would permit readonly clients to use the virDomainManagedSaveDefineXML() API, which would permit them to modify managed save state files. If a managed save had already been created by a privileged user, a local attacker could modify this file such that libvirtd would execute an arbitrary program when the domain was resumed.</description>
+      <guid isPermaLink="false">CVE-2019-10166|2024-08-04T22:10:09.965Z</guid>
+      <pubDate>Fri, 02 Aug 2019 12:02:59 +0000</pubDate>
+    </item>
+    <item>
+      <title>CVE-2019-10167|2024-08-04T22:10:09.976Z -- libvirt -- libvirt
+</title>
+      <link>https://www.cve.org/CVERecord?id=CVE-2019-10167</link>
+      <description>The virConnectGetDomainCapabilities() libvirt API, versions 4.x.x before 4.10.1 and 5.x.x before 5.4.1, accepts an "emulatorbin" argument to specify the program providing emulation for a domain. Since v1.2.19, libvirt will execute that program to probe the domain's capabilities. Read-only clients could specify an arbitrary path for this argument, causing libvirtd to execute a crafted executable with its own privileges.</description>
+      <guid isPermaLink="false">CVE-2019-10167|2024-08-04T22:10:09.976Z</guid>
+      <pubDate>Fri, 02 Aug 2019 12:05:52 +0000</pubDate>
+    </item>
+    <item>
+      <title>CVE-2019-10132|2024-08-04T22:10:09.957Z -- libvirt -- libvirt
+</title>
+      <link>https://www.cve.org/CVERecord?id=CVE-2019-10132</link>
+      <description>A vulnerability was found in libvirt &gt;= 4.1.0 in the virtlockd-admin.socket and virtlogd-admin.socket systemd units. A missing SocketMode configuration parameter allows any user on the host to connect using virtlockd-admin-sock or virtlogd-admin-sock and perform administrative tasks against the virtlockd and virtlogd daemons.</description>
+      <guid isPermaLink="false">CVE-2019-10132|2024-08-04T22:10:09.957Z</guid>
+      <pubDate>Wed, 22 May 2019 17:21:19 +0000</pubDate>
     </item>
   </channel>
 </rss>

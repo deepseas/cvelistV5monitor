@@ -6,84 +6,31 @@
     <description>The latest CVEs for Linux -- Linux kernel</description>
     <docs>http://www.rssboard.org/rss-specification</docs>
     <generator>python-feedgen</generator>
-    <lastBuildDate>Sat, 03 Aug 2024 23:23:06 +0000</lastBuildDate>
+    <lastBuildDate>Sun, 04 Aug 2024 23:23:09 +0000</lastBuildDate>
     <ttl>60</ttl>
     <item>
-      <title>CVE-2021-3491|2024-08-03T16:53:17.728Z -- linux -- linux%20kernel
+      <title>CVE-2019-11477|2024-08-04T22:55:40.213Z -- linux -- linux%20kernel
 </title>
-      <link>https://www.cve.org/CVERecord?id=CVE-2021-3491</link>
-      <description>The io_uring subsystem in the Linux kernel allowed the MAX_RW_COUNT limit to be bypassed in the PROVIDE_BUFFERS operation, which led to negative values being usedin mem_rw when reading /proc/&lt;PID&gt;/mem. This could be used to create a heap overflow leading to arbitrary code execution in the kernel. It was addressed via commit d1f82808877b ("io_uring: truncate lengths larger than MAX_RW_COUNT on provide buffers") (v5.13-rc1) and backported to the stable kernels in v5.12.4, v5.11.21, and v5.10.37. It was introduced in ddf0322db79c ("io_uring: add IORING_OP_PROVIDE_BUFFERS") (v5.7-rc1).</description>
-      <guid isPermaLink="false">CVE-2021-3491|2024-08-03T16:53:17.728Z</guid>
-      <pubDate>Tue, 11 May 2021 00:00:00 +0000</pubDate>
+      <link>https://www.cve.org/CVERecord?id=CVE-2019-11477</link>
+      <description>Jonathan Looney discovered that the TCP_SKB_CB(skb)-&gt;tcp_gso_segs value was subject to an integer overflow in the Linux kernel when handling TCP Selective Acknowledgments (SACKs). A remote attacker could use this to cause a denial of service. This has been fixed in stable kernel releases 4.4.182, 4.9.182, 4.14.127, 4.19.52, 5.1.11, and is fixed in commit 3b4929f65b0d8249f19a50245cd88ed1a2f78cff.</description>
+      <guid isPermaLink="false">CVE-2019-11477|2024-08-04T22:55:40.213Z</guid>
+      <pubDate>Mon, 17 Jun 2019 00:00:00 +0000</pubDate>
     </item>
     <item>
-      <title>CVE-2022-42896|2024-08-03T13:19:05.444Z -- linux -- linux%20kernel
+      <title>CVE-2019-11478|2024-08-04T22:55:40.767Z -- linux -- linux%20kernel
 </title>
-      <link>https://www.cve.org/CVERecord?id=CVE-2022-42896</link>
-      <description>There are use-after-free vulnerabilities in the Linux kernel's net/bluetooth/l2cap_core.c's l2cap_connect and l2cap_le_connect_req functions which may allow code execution and leaking kernel memory (respectively) remotely via Bluetooth. A remote attacker could execute code leaking kernel memory via Bluetooth if within proximity of the victim.
-
-We recommend upgrading past commit   https://www.google.com/url  https://github.com/torvalds/linux/commit/711f8c3fb3db61897080468586b970c87c61d9e4 https://www.google.com/url 
-
-</description>
-      <guid isPermaLink="false">CVE-2022-42896|2024-08-03T13:19:05.444Z</guid>
-      <pubDate>Wed, 23 Nov 2022 14:11:56 +0000</pubDate>
+      <link>https://www.cve.org/CVERecord?id=CVE-2019-11478</link>
+      <description>Jonathan Looney discovered that the TCP retransmission queue implementation in tcp_fragment in the Linux kernel could be fragmented when handling certain TCP Selective Acknowledgment (SACK) sequences. A remote attacker could use this to cause a denial of service. This has been fixed in stable kernel releases 4.4.182, 4.9.182, 4.14.127, 4.19.52, 5.1.11, and is fixed in commit f070ef2ac66716357066b683fb0baf55f8191a2e.</description>
+      <guid isPermaLink="false">CVE-2019-11478|2024-08-04T22:55:40.767Z</guid>
+      <pubDate>Mon, 17 Jun 2019 00:00:00 +0000</pubDate>
     </item>
     <item>
-      <title>CVE-2021-3489|2024-08-03T16:53:17.828Z -- linux -- linux%20kernel
+      <title>CVE-2019-11479|2024-08-04T22:55:40.780Z -- linux -- linux%20kernel
 </title>
-      <link>https://www.cve.org/CVERecord?id=CVE-2021-3489</link>
-      <description>The eBPF RINGBUF bpf_ringbuf_reserve() function in the Linux kernel did not check that the allocated size was smaller than the ringbuf size, allowing an attacker to perform out-of-bounds writes within the kernel and therefore, arbitrary code execution. This issue was fixed via commit 4b81ccebaeee ("bpf, ringbuf: Deny reserve of buffers larger than ringbuf") (v5.13-rc4) and backported to the stable kernels in v5.12.4, v5.11.21, and v5.10.37. It was introduced via 457f44363a88 ("bpf: Implement BPF ring buffer and verifier support for it") (v5.8-rc1).</description>
-      <guid isPermaLink="false">CVE-2021-3489|2024-08-03T16:53:17.828Z</guid>
-      <pubDate>Tue, 11 May 2021 00:00:00 +0000</pubDate>
-    </item>
-    <item>
-      <title>CVE-2022-3910|2024-08-03T01:20:58.856Z -- linux -- linux%20kernel
-</title>
-      <link>https://www.cve.org/CVERecord?id=CVE-2022-3910</link>
-      <description>Use After Free vulnerability in Linux Kernel allows Privilege Escalation. An improper Update of Reference Count in io_uring leads to Use-After-Free and Local Privilege Escalation.
-When io_msg_ring was invoked with a fixed file, it called io_fput_file() which improperly decreased its reference count (leading to Use-After-Free and Local Privilege Escalation). Fixed files are permanently registered to the ring, and should not be put separately.
-
-We recommend upgrading past commit  https://github.com/torvalds/linux/commit/fc7222c3a9f56271fba02aabbfbae999042f1679 https://github.com/torvalds/linux/commit/fc7222c3a9f56271fba02aabbfbae999042f1679 
-</description>
-      <guid isPermaLink="false">CVE-2022-3910|2024-08-03T01:20:58.856Z</guid>
-      <pubDate>Tue, 22 Nov 2022 12:12:16 +0000</pubDate>
-    </item>
-    <item>
-      <title>CVE-2022-2196|2024-08-03T00:32:08.645Z -- linux -- linux%20kernel
-</title>
-      <link>https://www.cve.org/CVERecord?id=CVE-2022-2196</link>
-      <description>A regression exists in the Linux Kernel within KVM: nVMX that allowed for speculative execution attacks. L2 can carry out Spectre v2 attacks on L1 due to L1 thinking it doesn't need retpolines or IBPB after running L2 due to KVM (L0) advertising eIBRS support to L1. An attacker at L2 with code execution can execute code on an indirect branch on the host machine. We recommend upgrading to Kernel 6.2 or past commit 2e7eab81425a
-</description>
-      <guid isPermaLink="false">CVE-2022-2196|2024-08-03T00:32:08.645Z</guid>
-      <pubDate>Mon, 09 Jan 2023 10:59:53 +0000</pubDate>
-    </item>
-    <item>
-      <title>CVE-2022-4696|2024-08-03T01:48:40.470Z -- linux -- linux%20kernel
-</title>
-      <link>https://www.cve.org/CVERecord?id=CVE-2022-4696</link>
-      <description>There exists a use-after-free vulnerability in the Linux kernel through io_uring and the IORING_OP_SPLICE operation. If IORING_OP_SPLICE is missing the IO_WQ_WORK_FILES flag, which signals that the operation won't use current-&gt;nsproxy, so its reference counter is not increased. This assumption is not always true as calling io_splice on specific files will call the get_uts function which will use current-&gt;nsproxy leading to invalidly decreasing its reference counter later causing the use-after-free vulnerability. We recommend upgrading to version 5.10.160 or above
-</description>
-      <guid isPermaLink="false">CVE-2022-4696|2024-08-03T01:48:40.470Z</guid>
-      <pubDate>Wed, 11 Jan 2023 12:33:41 +0000</pubDate>
-    </item>
-    <item>
-      <title>CVE-2021-3490|2024-08-03T16:53:17.879Z -- linux -- linux%20kernel
-</title>
-      <link>https://www.cve.org/CVERecord?id=CVE-2021-3490</link>
-      <description>The eBPF ALU32 bounds tracking for bitwise ops (AND, OR and XOR) in the Linux kernel did not properly update 32-bit bounds, which could be turned into out of bounds reads and writes in the Linux kernel and therefore, arbitrary code execution. This issue was fixed via commit 049c4e13714e ("bpf: Fix alu32 const subreg bound tracking on bitwise operations") (v5.13-rc4) and backported to the stable kernels in v5.12.4, v5.11.21, and v5.10.37. The AND/OR issues were introduced by commit 3f50f132d840 ("bpf: Verifier, do explicit ALU32 bounds tracking") (5.7-rc1) and the XOR variant was introduced by 2921c90d4718 ("bpf:Fix a verifier failure with xor") ( 5.10-rc1).</description>
-      <guid isPermaLink="false">CVE-2021-3490|2024-08-03T16:53:17.879Z</guid>
-      <pubDate>Tue, 11 May 2021 00:00:00 +0000</pubDate>
-    </item>
-    <item>
-      <title>CVE-2022-42895|2024-08-03T13:19:05.390Z -- linux -- linux%20kernel
-</title>
-      <link>https://www.cve.org/CVERecord?id=CVE-2022-42895</link>
-      <description>There is an infoleak vulnerability in the Linux kernel's net/bluetooth/l2cap_core.c's l2cap_parse_conf_req function which can be used to leak kernel pointers remotely.
-We recommend upgrading past commit  https://github.com/torvalds/linux/commit/b1a2cd50c0357f243b7435a732b4e62ba3157a2e https://www.google.com/url 
-
-</description>
-      <guid isPermaLink="false">CVE-2022-42895|2024-08-03T13:19:05.390Z</guid>
-      <pubDate>Wed, 23 Nov 2022 14:11:33 +0000</pubDate>
+      <link>https://www.cve.org/CVERecord?id=CVE-2019-11479</link>
+      <description>Jonathan Looney discovered that the Linux kernel default MSS is hard-coded to 48 bytes. This allows a remote peer to fragment TCP resend queues significantly more than if a larger MSS were enforced. A remote attacker could use this to cause a denial of service. This has been fixed in stable kernel releases 4.4.182, 4.9.182, 4.14.127, 4.19.52, 5.1.11, and is fixed in commits 967c05aee439e6e5d7d805e195b3a20ef5c433d6 and 5f3e2bf008c2221478101ee72f5cb4654b9fc363.</description>
+      <guid isPermaLink="false">CVE-2019-11479|2024-08-04T22:55:40.780Z</guid>
+      <pubDate>Mon, 17 Jun 2019 00:00:00 +0000</pubDate>
     </item>
   </channel>
 </rss>
