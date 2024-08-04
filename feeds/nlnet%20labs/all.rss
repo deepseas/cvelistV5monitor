@@ -6,7 +6,7 @@
     <description>The latest CVEs for NLnet Labs -- all products</description>
     <docs>http://www.rssboard.org/rss-specification</docs>
     <generator>python-feedgen</generator>
-    <lastBuildDate>Sun, 04 Aug 2024 16:24:04 +0000</lastBuildDate>
+    <lastBuildDate>Sun, 04 Aug 2024 17:22:06 +0000</lastBuildDate>
     <ttl>60</ttl>
     <item>
       <title>CVE-2021-43172|2024-08-04T03:47:13.607Z -- nlnet%20labs -- routinator
@@ -15,6 +15,14 @@
       <description>NLnet Labs Routinator prior to 0.10.2 happily processes a chain of RRDP repositories of infinite length causing it to never finish a validation run. In RPKI, a CA can choose the RRDP repository it wishes to publish its data in. By continuously generating a new child CA that only consists of another CA using a different RRDP repository, a malicious CA can create a chain of CAs of de-facto infinite length. Routinator prior to version 0.10.2 did not contain a limit on the length of such a chain and will therefore continue to process this chain forever. As a result, the validation run will never finish, leading to Routinator continuing to serve the old data set or, if in the initial validation run directly after starting, never serve any data at all.</description>
       <guid isPermaLink="false">CVE-2021-43172|2024-08-04T03:47:13.607Z</guid>
       <pubDate>Tue, 09 Nov 2021 00:00:00 +0000</pubDate>
+    </item>
+    <item>
+      <title>CVE-2020-28935|2024-08-04T16:48:00.719Z -- nlnet%20labs -- unbound
+</title>
+      <link>https://www.cve.org/CVERecord?id=CVE-2020-28935</link>
+      <description>NLnet Labs Unbound, up to and including version 1.12.0, and NLnet Labs NSD, up to and including version 4.3.3, contain a local vulnerability that would allow for a local symlink attack. When writing the PID file, Unbound and NSD create the file if it is not there, or open an existing file for writing. In case the file was already present, they would follow symlinks if the file happened to be a symlink instead of a regular file. An additional chown of the file would then take place after it was written, making the user Unbound/NSD is supposed to run as the new owner of the file. If an attacker has local access to the user Unbound/NSD runs as, she could create a symlink in place of the PID file pointing to a file that she would like to erase. If then Unbound/NSD is killed and the PID file is not cleared, upon restarting with root privileges, Unbound/NSD will rewrite any file pointed at by the symlink. This is a local vulnerability that could create a Denial of Service of the system Unbound/NSD is running on. It requires an attacker having access to the limited permission user Unbound/NSD runs as and point through the symlink to a critical file on the system.</description>
+      <guid isPermaLink="false">CVE-2020-28935|2024-08-04T16:48:00.719Z</guid>
+      <pubDate>Mon, 07 Dec 2020 00:00:00 +0000</pubDate>
     </item>
     <item>
       <title>CVE-2021-41531|2024-08-04T03:15:29.202Z -- nlnet%20labs -- routinator
@@ -41,25 +49,11 @@
       <pubDate>Tue, 09 Nov 2021 00:00:00 +0000</pubDate>
     </item>
     <item>
-      <title>CVE-2024-1622|2024-08-01T18:48:21.895Z -- nlnet%20labs -- routinator</title>
+      <title>CVE-2024-1622|2024-07-05T17:22:01.305Z -- nlnet%20labs -- routinator</title>
       <link>https://www.cve.org/CVERecord?id=CVE-2024-1622</link>
       <description>Due to a mistake in error checking, Routinator will terminate when an incoming RTR connection is reset by the peer too quickly after opening.</description>
-      <guid isPermaLink="false">CVE-2024-1622|2024-08-01T18:48:21.895Z</guid>
+      <guid isPermaLink="false">CVE-2024-1622|2024-07-05T17:22:01.305Z</guid>
       <pubDate>Mon, 26 Feb 2024 13:35:51 +0000</pubDate>
-    </item>
-    <item>
-      <title>CVE-2024-1931|2024-08-01T18:56:22.442Z -- nlnet%20labs -- unbound</title>
-      <link>https://www.cve.org/CVERecord?id=CVE-2024-1931</link>
-      <description>NLnet Labs Unbound version 1.18.0 up to and including version 1.19.1 contain a vulnerability that can cause denial of service by a certain code path that can lead to an infinite loop. Unbound 1.18.0 introduced a feature that removes EDE records from responses with size higher than the client's advertised buffer size. Before removing all the EDE records however, it would try to see if trimming the extra text fields on those records would result in an acceptable size while still retaining the EDE codes. Due to an unchecked condition, the code that trims the text of the EDE records could loop indefinitely. This happens when Unbound would reply with attached EDE information on a positive reply and the client's buffer size is smaller than the needed space to include EDE records. The vulnerability can only be triggered when the 'ede: yes' option is used; non default configuration. From version 1.19.2 on, the code is fixed to avoid looping indefinitely.</description>
-      <guid isPermaLink="false">CVE-2024-1931|2024-08-01T18:56:22.442Z</guid>
-      <pubDate>Thu, 07 Mar 2024 09:17:13 +0000</pubDate>
-    </item>
-    <item>
-      <title>CVE-2024-1931|2024-03-07T09:17:13.072Z -- nlnet%20labs -- unbound</title>
-      <link>https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2024-1931</link>
-      <description>NLnet Labs Unbound version 1.18.0 up to and including version 1.19.1 contain a vulnerability that can cause denial of service by a certain code path that can lead to an infinite loop. Unbound 1.18.0 introduced a feature that removes EDE records from responses with size higher than the client's advertised buffer size. Before removing all the EDE records however, it would try to see if trimming the extra text fields on those records would result in an acceptable size while still retaining the EDE codes. Due to an unchecked condition, the code that trims the text of the EDE records could loop indefinitely. This happens when Unbound would reply with attached EDE information on a positive reply and the client's buffer size is smaller than the needed space to include EDE records. The vulnerability can only be triggered when the 'ede: yes' option is used; non default configuration. From version 1.19.2 on, the code is fixed to avoid looping indefinitely.</description>
-      <guid isPermaLink="false">CVE-2024-1931|2024-03-07T09:17:13.072Z</guid>
-      <pubDate>Thu, 07 Mar 2024 09:17:13 +0000</pubDate>
     </item>
     <item>
       <title>CVE-2024-1622|2024-02-26T13:35:51.909Z -- nlnet%20labs -- routinator</title>
@@ -69,10 +63,24 @@
       <pubDate>Mon, 26 Feb 2024 13:35:51 +0000</pubDate>
     </item>
     <item>
-      <title>CVE-2024-1622|2024-07-05T17:22:01.305Z -- nlnet%20labs -- routinator</title>
+      <title>CVE-2024-1931|2024-03-07T09:17:13.072Z -- nlnet%20labs -- unbound</title>
+      <link>https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2024-1931</link>
+      <description>NLnet Labs Unbound version 1.18.0 up to and including version 1.19.1 contain a vulnerability that can cause denial of service by a certain code path that can lead to an infinite loop. Unbound 1.18.0 introduced a feature that removes EDE records from responses with size higher than the client's advertised buffer size. Before removing all the EDE records however, it would try to see if trimming the extra text fields on those records would result in an acceptable size while still retaining the EDE codes. Due to an unchecked condition, the code that trims the text of the EDE records could loop indefinitely. This happens when Unbound would reply with attached EDE information on a positive reply and the client's buffer size is smaller than the needed space to include EDE records. The vulnerability can only be triggered when the 'ede: yes' option is used; non default configuration. From version 1.19.2 on, the code is fixed to avoid looping indefinitely.</description>
+      <guid isPermaLink="false">CVE-2024-1931|2024-03-07T09:17:13.072Z</guid>
+      <pubDate>Thu, 07 Mar 2024 09:17:13 +0000</pubDate>
+    </item>
+    <item>
+      <title>CVE-2024-1931|2024-08-01T18:56:22.442Z -- nlnet%20labs -- unbound</title>
+      <link>https://www.cve.org/CVERecord?id=CVE-2024-1931</link>
+      <description>NLnet Labs Unbound version 1.18.0 up to and including version 1.19.1 contain a vulnerability that can cause denial of service by a certain code path that can lead to an infinite loop. Unbound 1.18.0 introduced a feature that removes EDE records from responses with size higher than the client's advertised buffer size. Before removing all the EDE records however, it would try to see if trimming the extra text fields on those records would result in an acceptable size while still retaining the EDE codes. Due to an unchecked condition, the code that trims the text of the EDE records could loop indefinitely. This happens when Unbound would reply with attached EDE information on a positive reply and the client's buffer size is smaller than the needed space to include EDE records. The vulnerability can only be triggered when the 'ede: yes' option is used; non default configuration. From version 1.19.2 on, the code is fixed to avoid looping indefinitely.</description>
+      <guid isPermaLink="false">CVE-2024-1931|2024-08-01T18:56:22.442Z</guid>
+      <pubDate>Thu, 07 Mar 2024 09:17:13 +0000</pubDate>
+    </item>
+    <item>
+      <title>CVE-2024-1622|2024-08-01T18:48:21.895Z -- nlnet%20labs -- routinator</title>
       <link>https://www.cve.org/CVERecord?id=CVE-2024-1622</link>
       <description>Due to a mistake in error checking, Routinator will terminate when an incoming RTR connection is reset by the peer too quickly after opening.</description>
-      <guid isPermaLink="false">CVE-2024-1622|2024-07-05T17:22:01.305Z</guid>
+      <guid isPermaLink="false">CVE-2024-1622|2024-08-01T18:48:21.895Z</guid>
       <pubDate>Mon, 26 Feb 2024 13:35:51 +0000</pubDate>
     </item>
   </channel>
