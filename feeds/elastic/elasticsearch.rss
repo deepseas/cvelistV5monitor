@@ -6,7 +6,7 @@
     <description>The latest CVEs for Elastic -- Elasticsearch</description>
     <docs>http://www.rssboard.org/rss-specification</docs>
     <generator>python-feedgen</generator>
-    <lastBuildDate>Sun, 04 Aug 2024 20:23:01 +0000</lastBuildDate>
+    <lastBuildDate>Sun, 04 Aug 2024 21:21:56 +0000</lastBuildDate>
     <ttl>60</ttl>
     <item>
       <title>CVE-2021-37937|2024-08-04T01:30:08.934Z -- elastic -- elasticsearch
@@ -23,6 +23,22 @@
       <description>Elasticsearch versions from 6.7.0 before 6.8.8 and 7.0.0 before 7.6.2 contain a privilege escalation flaw if an attacker is able to create API keys. An attacker who is able to generate an API key can perform a series of steps that result in an API key being generated with elevated privileges.</description>
       <guid isPermaLink="false">CVE-2020-7009|2024-08-04T09:18:03.074Z</guid>
       <pubDate>Tue, 31 Mar 2020 19:05:13 +0000</pubDate>
+    </item>
+    <item>
+      <title>CVE-2019-7614|2024-08-04T20:54:28.068Z -- elastic -- elasticsearch
+</title>
+      <link>https://www.cve.org/CVERecord?id=CVE-2019-7614</link>
+      <description>A race condition flaw was found in the response headers Elasticsearch versions before 7.2.1 and 6.8.2 returns to a request. On a system with multiple users submitting requests, it could be possible for an attacker to gain access to response header containing sensitive data from another user.</description>
+      <guid isPermaLink="false">CVE-2019-7614|2024-08-04T20:54:28.068Z</guid>
+      <pubDate>Tue, 30 Jul 2019 21:15:47 +0000</pubDate>
+    </item>
+    <item>
+      <title>CVE-2019-7611|2024-08-04T20:54:28.532Z -- elastic -- elasticsearch
+</title>
+      <link>https://www.cve.org/CVERecord?id=CVE-2019-7611</link>
+      <description>A permission issue was found in Elasticsearch versions before 5.6.15 and 6.6.1 when Field Level Security and Document Level Security are disabled and the _aliases, _shrink, or _split endpoints are used . If the elasticsearch.yml file has xpack.security.dls_fls.enabled set to false, certain permission checks are skipped when users perform one of the actions mentioned above, to make existing data available under a new index/alias name. This could result in an attacker gaining additional permissions against a restricted index.</description>
+      <guid isPermaLink="false">CVE-2019-7611|2024-08-04T20:54:28.532Z</guid>
+      <pubDate>Mon, 25 Mar 2019 18:34:06 +0000</pubDate>
     </item>
     <item>
       <title>CVE-2020-7021|2024-08-04T09:18:02.537Z -- elastic -- elasticsearch
@@ -49,6 +65,14 @@
       <pubDate>Tue, 18 Aug 2020 16:40:14 +0000</pubDate>
     </item>
     <item>
+      <title>CVE-2019-7619|2024-08-04T20:54:28.459Z -- elastic -- elasticsearch
+</title>
+      <link>https://www.cve.org/CVERecord?id=CVE-2019-7619</link>
+      <description>Elasticsearch versions 7.0.0-7.3.2 and 6.7.0-6.8.3 contain a username disclosure flaw was found in the API Key service. An unauthenticated attacker could send a specially crafted request and determine if a username exists in the Elasticsearch native realm.</description>
+      <guid isPermaLink="false">CVE-2019-7619|2024-08-04T20:54:28.459Z</guid>
+      <pubDate>Wed, 30 Oct 2019 13:37:42 +0000</pubDate>
+    </item>
+    <item>
       <title>CVE-2020-7020|2024-08-04T09:18:02.985Z -- elastic -- elasticsearch
 </title>
       <link>https://www.cve.org/CVERecord?id=CVE-2020-7020</link>
@@ -57,69 +81,39 @@
       <pubDate>Thu, 22 Oct 2020 16:30:15 +0000</pubDate>
     </item>
     <item>
-      <title>CVE-2024-37280|2024-08-02T03:50:56.087Z -- elastic -- elasticsearch</title>
-      <link>https://www.cve.org/CVERecord?id=CVE-2024-37280</link>
-      <description>A flaw was discovered in Elasticsearch, affecting document ingestion when an index template contains a dynamic field mapping of “passthrough” type. Under certain circumstances, ingesting documents in this index would cause a StackOverflow exception to be thrown and ultimately lead to a Denial of Service. Note that passthrough fields is an experimental feature.</description>
-      <guid isPermaLink="false">CVE-2024-37280|2024-08-02T03:50:56.087Z</guid>
-      <pubDate>Thu, 13 Jun 2024 16:26:57 +0000</pubDate>
-    </item>
-    <item>
-      <title>CVE-2024-23444|2024-07-31T17:26:12.784Z -- elastic -- elasticsearch</title>
-      <link>https://www.cve.org/CVERecord?id=CVE-2024-23444</link>
-      <description>It was discovered by Elastic engineering that when elasticsearch-certutil CLI tool is used with the csr option in order to create a new Certificate Signing Requests, the associated private key that is generated is stored on disk unencrypted even if the --pass parameter is passed in the command invocation.</description>
-      <guid isPermaLink="false">CVE-2024-23444|2024-07-31T17:26:12.784Z</guid>
-      <pubDate>Wed, 31 Jul 2024 17:26:12 +0000</pubDate>
-    </item>
-    <item>
-      <title>CVE-2023-49921|2024-07-26T05:10:33.913Z -- elastic -- elasticsearch</title>
+      <title>CVE-2023-49921|2024-08-02T22:09:49.139Z -- elastic -- elasticsearch</title>
       <link>https://www.cve.org/CVERecord?id=CVE-2023-49921</link>
       <description>An issue was discovered by Elastic whereby Watcher search input logged the search query results on DEBUG log level. This could lead to raw contents of documents stored in Elasticsearch to be printed in logs. Elastic has released 8.11.2 and 7.17.16 that resolves this issue by removing this excessive logging. This issue only affects users that use Watcher and have a Watch defined that uses the search input and additionally have set the search input’s logger to DEBUG or finer, for example using: org.elasticsearch.xpack.watcher.input.search, org.elasticsearch.xpack.watcher.input, org.elasticsearch.xpack.watcher, or wider, since the loggers are hierarchical.</description>
-      <guid isPermaLink="false">CVE-2023-49921|2024-07-26T05:10:33.913Z</guid>
+      <guid isPermaLink="false">CVE-2023-49921|2024-08-02T22:09:49.139Z</guid>
       <pubDate>Fri, 26 Jul 2024 05:10:33 +0000</pubDate>
     </item>
     <item>
-      <title>CVE-2024-23451|2024-07-05T17:21:18.264Z -- elastic -- elasticsearch</title>
-      <link>https://www.cve.org/CVERecord?id=CVE-2024-23451</link>
-      <description>Incorrect Authorization issue exists in the API key based security model for Remote Cluster Security, which is currently in Beta, in Elasticsearch 8.10.0 and before 8.13.0. This allows a malicious user with a valid API key for a remote cluster configured to use the new Remote Cluster Security to read arbitrary documents from any index on the remote cluster, and only if they use the Elasticsearch custom transport protocol to issue requests with the target index ID, the shard ID and the document ID. None of Elasticsearch REST API endpoints are affected by this issue.</description>
-      <guid isPermaLink="false">CVE-2024-23451|2024-07-05T17:21:18.264Z</guid>
-      <pubDate>Wed, 27 Mar 2024 18:03:25 +0000</pubDate>
+      <title>CVE-2024-23444|2024-07-31T18:45:42.985Z -- elastic -- elasticsearch</title>
+      <link>https://www.cve.org/CVERecord?id=CVE-2024-23444</link>
+      <description>It was discovered by Elastic engineering that when elasticsearch-certutil CLI tool is used with the csr option in order to create a new Certificate Signing Requests, the associated private key that is generated is stored on disk unencrypted even if the --pass parameter is passed in the command invocation.</description>
+      <guid isPermaLink="false">CVE-2024-23444|2024-07-31T18:45:42.985Z</guid>
+      <pubDate>Wed, 31 Jul 2024 17:26:12 +0000</pubDate>
     </item>
     <item>
-      <title>CVE-2024-37280|2024-06-13T16:26:57.983Z -- elastic -- elasticsearch</title>
-      <link>https://www.cve.org/CVERecord?id=CVE-2024-37280</link>
-      <description>A flaw was discovered in Elasticsearch, affecting document ingestion when an index template contains a dynamic field mapping of “passthrough” type. Under certain circumstances, ingesting documents in this index would cause a StackOverflow exception to be thrown and ultimately lead to a Denial of Service. Note that passthrough fields is an experimental feature.</description>
-      <guid isPermaLink="false">CVE-2024-37280|2024-06-13T16:26:57.983Z</guid>
-      <pubDate>Thu, 13 Jun 2024 16:26:57 +0000</pubDate>
+      <title>CVE-2023-49921|2024-07-26T13:47:08.955Z -- elastic -- elasticsearch</title>
+      <link>https://www.cve.org/CVERecord?id=CVE-2023-49921</link>
+      <description>An issue was discovered by Elastic whereby Watcher search input logged the search query results on DEBUG log level. This could lead to raw contents of documents stored in Elasticsearch to be printed in logs. Elastic has released 8.11.2 and 7.17.16 that resolves this issue by removing this excessive logging. This issue only affects users that use Watcher and have a Watch defined that uses the search input and additionally have set the search input’s logger to DEBUG or finer, for example using: org.elasticsearch.xpack.watcher.input.search, org.elasticsearch.xpack.watcher.input, org.elasticsearch.xpack.watcher, or wider, since the loggers are hierarchical.</description>
+      <guid isPermaLink="false">CVE-2023-49921|2024-07-26T13:47:08.955Z</guid>
+      <pubDate>Fri, 26 Jul 2024 05:10:33 +0000</pubDate>
     </item>
     <item>
-      <title>CVE-2024-23445|2024-06-12T13:58:45.296Z -- elastic -- elasticsearch</title>
-      <link>https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2024-23445</link>
-      <description>It was identified that if a  cross-cluster API key https://www.elastic.co/guide/en/elasticsearch/reference/8.14/security-api-create-cross-cluster-api-key.html#security-api-create-cross-cluster-api-key-request-body  restricts search for a given index using the query or the field_security parameter, and the same cross-cluster API key also grants replication for the same index, the search restrictions are not enforced during cross cluster search operations and search results may include documents and terms that should not be returned.
-
-This issue only affects the  API key based security model for remote clusters https://www.elastic.co/guide/en/elasticsearch/reference/8.14/remote-clusters.html#remote-clusters-security-models  that was previously a beta feature and is released as GA with 8.14.0</description>
-      <guid isPermaLink="false">CVE-2024-23445|2024-06-12T13:58:45.296Z</guid>
-      <pubDate>Wed, 12 Jun 2024 13:58:45 +0000</pubDate>
-    </item>
-    <item>
-      <title>CVE-2024-23450|2024-03-27T17:03:48.290Z -- elastic -- elasticsearch</title>
-      <link>https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2024-23450</link>
+      <title>CVE-2024-23450|2024-07-16T01:36:29.040Z -- elastic -- elasticsearch</title>
+      <link>https://www.cve.org/CVERecord?id=CVE-2024-23450</link>
       <description>A flaw was discovered in Elasticsearch, where processing a document in a deeply nested pipeline on an ingest node could cause the Elasticsearch node to crash.</description>
-      <guid isPermaLink="false">CVE-2024-23450|2024-03-27T17:03:48.290Z</guid>
+      <guid isPermaLink="false">CVE-2024-23450|2024-07-16T01:36:29.040Z</guid>
       <pubDate>Wed, 27 Mar 2024 17:03:48 +0000</pubDate>
     </item>
     <item>
-      <title>CVE-2024-23451|2024-03-27T18:03:54.735Z -- elastic -- elasticsearch</title>
-      <link>https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2024-23451</link>
-      <description>Incorrect Authorization issue exists in the API key based security model for Remote Cluster Security, which is currently in Beta, in Elasticsearch 8.10.0 and before 8.13.0. This allows a malicious user with a valid API key for a remote cluster configured to use the new Remote Cluster Security to read arbitrary documents from any index on the remote cluster, and only if they use the Elasticsearch custom transport protocol to issue requests with the target index ID, the shard ID and the document ID. None of Elasticsearch REST API endpoints are affected by this issue.</description>
-      <guid isPermaLink="false">CVE-2024-23451|2024-03-27T18:03:54.735Z</guid>
-      <pubDate>Wed, 27 Mar 2024 18:03:25 +0000</pubDate>
-    </item>
-    <item>
-      <title>CVE-2024-23449|2024-03-29T11:12:49.067Z -- elastic -- elasticsearch</title>
-      <link>https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2024-23449</link>
-      <description>An uncaught exception in Elasticsearch &gt;= 8.4.0 and &lt; 8.11.1 occurs when an encrypted PDF is passed to an attachment processor through the REST API. The Elasticsearch ingest node that attempts to parse the PDF file will crash. This does not happen with password-protected PDF files or with unencrypted PDF files.</description>
-      <guid isPermaLink="false">CVE-2024-23449|2024-03-29T11:12:49.067Z</guid>
-      <pubDate>Fri, 29 Mar 2024 11:12:49 +0000</pubDate>
+      <title>CVE-2024-37280|2024-06-13T21:15:56.099Z -- elastic -- elasticsearch</title>
+      <link>https://www.cve.org/CVERecord?id=CVE-2024-37280</link>
+      <description>A flaw was discovered in Elasticsearch, affecting document ingestion when an index template contains a dynamic field mapping of “passthrough” type. Under certain circumstances, ingesting documents in this index would cause a StackOverflow exception to be thrown and ultimately lead to a Denial of Service. Note that passthrough fields is an experimental feature.</description>
+      <guid isPermaLink="false">CVE-2024-37280|2024-06-13T21:15:56.099Z</guid>
+      <pubDate>Thu, 13 Jun 2024 16:26:57 +0000</pubDate>
     </item>
     <item>
       <title>CVE-2024-23445|2024-06-12T19:26:00.559Z -- elastic -- elasticsearch</title>
@@ -131,39 +125,69 @@ This issue only affects the  API key based security model for remote clusters ht
       <pubDate>Wed, 12 Jun 2024 13:58:45 +0000</pubDate>
     </item>
     <item>
-      <title>CVE-2024-37280|2024-06-13T21:15:56.099Z -- elastic -- elasticsearch</title>
-      <link>https://www.cve.org/CVERecord?id=CVE-2024-37280</link>
-      <description>A flaw was discovered in Elasticsearch, affecting document ingestion when an index template contains a dynamic field mapping of “passthrough” type. Under certain circumstances, ingesting documents in this index would cause a StackOverflow exception to be thrown and ultimately lead to a Denial of Service. Note that passthrough fields is an experimental feature.</description>
-      <guid isPermaLink="false">CVE-2024-37280|2024-06-13T21:15:56.099Z</guid>
-      <pubDate>Thu, 13 Jun 2024 16:26:57 +0000</pubDate>
+      <title>CVE-2024-23449|2024-03-29T11:12:49.067Z -- elastic -- elasticsearch</title>
+      <link>https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2024-23449</link>
+      <description>An uncaught exception in Elasticsearch &gt;= 8.4.0 and &lt; 8.11.1 occurs when an encrypted PDF is passed to an attachment processor through the REST API. The Elasticsearch ingest node that attempts to parse the PDF file will crash. This does not happen with password-protected PDF files or with unencrypted PDF files.</description>
+      <guid isPermaLink="false">CVE-2024-23449|2024-03-29T11:12:49.067Z</guid>
+      <pubDate>Fri, 29 Mar 2024 11:12:49 +0000</pubDate>
     </item>
     <item>
-      <title>CVE-2024-23450|2024-07-16T01:36:29.040Z -- elastic -- elasticsearch</title>
-      <link>https://www.cve.org/CVERecord?id=CVE-2024-23450</link>
+      <title>CVE-2024-23451|2024-03-27T18:03:54.735Z -- elastic -- elasticsearch</title>
+      <link>https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2024-23451</link>
+      <description>Incorrect Authorization issue exists in the API key based security model for Remote Cluster Security, which is currently in Beta, in Elasticsearch 8.10.0 and before 8.13.0. This allows a malicious user with a valid API key for a remote cluster configured to use the new Remote Cluster Security to read arbitrary documents from any index on the remote cluster, and only if they use the Elasticsearch custom transport protocol to issue requests with the target index ID, the shard ID and the document ID. None of Elasticsearch REST API endpoints are affected by this issue.</description>
+      <guid isPermaLink="false">CVE-2024-23451|2024-03-27T18:03:54.735Z</guid>
+      <pubDate>Wed, 27 Mar 2024 18:03:25 +0000</pubDate>
+    </item>
+    <item>
+      <title>CVE-2024-23450|2024-03-27T17:03:48.290Z -- elastic -- elasticsearch</title>
+      <link>https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2024-23450</link>
       <description>A flaw was discovered in Elasticsearch, where processing a document in a deeply nested pipeline on an ingest node could cause the Elasticsearch node to crash.</description>
-      <guid isPermaLink="false">CVE-2024-23450|2024-07-16T01:36:29.040Z</guid>
+      <guid isPermaLink="false">CVE-2024-23450|2024-03-27T17:03:48.290Z</guid>
       <pubDate>Wed, 27 Mar 2024 17:03:48 +0000</pubDate>
     </item>
     <item>
-      <title>CVE-2023-49921|2024-07-26T13:47:08.955Z -- elastic -- elasticsearch</title>
+      <title>CVE-2024-23445|2024-06-12T13:58:45.296Z -- elastic -- elasticsearch</title>
+      <link>https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2024-23445</link>
+      <description>It was identified that if a  cross-cluster API key https://www.elastic.co/guide/en/elasticsearch/reference/8.14/security-api-create-cross-cluster-api-key.html#security-api-create-cross-cluster-api-key-request-body  restricts search for a given index using the query or the field_security parameter, and the same cross-cluster API key also grants replication for the same index, the search restrictions are not enforced during cross cluster search operations and search results may include documents and terms that should not be returned.
+
+This issue only affects the  API key based security model for remote clusters https://www.elastic.co/guide/en/elasticsearch/reference/8.14/remote-clusters.html#remote-clusters-security-models  that was previously a beta feature and is released as GA with 8.14.0</description>
+      <guid isPermaLink="false">CVE-2024-23445|2024-06-12T13:58:45.296Z</guid>
+      <pubDate>Wed, 12 Jun 2024 13:58:45 +0000</pubDate>
+    </item>
+    <item>
+      <title>CVE-2024-37280|2024-06-13T16:26:57.983Z -- elastic -- elasticsearch</title>
+      <link>https://www.cve.org/CVERecord?id=CVE-2024-37280</link>
+      <description>A flaw was discovered in Elasticsearch, affecting document ingestion when an index template contains a dynamic field mapping of “passthrough” type. Under certain circumstances, ingesting documents in this index would cause a StackOverflow exception to be thrown and ultimately lead to a Denial of Service. Note that passthrough fields is an experimental feature.</description>
+      <guid isPermaLink="false">CVE-2024-37280|2024-06-13T16:26:57.983Z</guid>
+      <pubDate>Thu, 13 Jun 2024 16:26:57 +0000</pubDate>
+    </item>
+    <item>
+      <title>CVE-2024-23451|2024-07-05T17:21:18.264Z -- elastic -- elasticsearch</title>
+      <link>https://www.cve.org/CVERecord?id=CVE-2024-23451</link>
+      <description>Incorrect Authorization issue exists in the API key based security model for Remote Cluster Security, which is currently in Beta, in Elasticsearch 8.10.0 and before 8.13.0. This allows a malicious user with a valid API key for a remote cluster configured to use the new Remote Cluster Security to read arbitrary documents from any index on the remote cluster, and only if they use the Elasticsearch custom transport protocol to issue requests with the target index ID, the shard ID and the document ID. None of Elasticsearch REST API endpoints are affected by this issue.</description>
+      <guid isPermaLink="false">CVE-2024-23451|2024-07-05T17:21:18.264Z</guid>
+      <pubDate>Wed, 27 Mar 2024 18:03:25 +0000</pubDate>
+    </item>
+    <item>
+      <title>CVE-2023-49921|2024-07-26T05:10:33.913Z -- elastic -- elasticsearch</title>
       <link>https://www.cve.org/CVERecord?id=CVE-2023-49921</link>
       <description>An issue was discovered by Elastic whereby Watcher search input logged the search query results on DEBUG log level. This could lead to raw contents of documents stored in Elasticsearch to be printed in logs. Elastic has released 8.11.2 and 7.17.16 that resolves this issue by removing this excessive logging. This issue only affects users that use Watcher and have a Watch defined that uses the search input and additionally have set the search input’s logger to DEBUG or finer, for example using: org.elasticsearch.xpack.watcher.input.search, org.elasticsearch.xpack.watcher.input, org.elasticsearch.xpack.watcher, or wider, since the loggers are hierarchical.</description>
-      <guid isPermaLink="false">CVE-2023-49921|2024-07-26T13:47:08.955Z</guid>
+      <guid isPermaLink="false">CVE-2023-49921|2024-07-26T05:10:33.913Z</guid>
       <pubDate>Fri, 26 Jul 2024 05:10:33 +0000</pubDate>
     </item>
     <item>
-      <title>CVE-2024-23444|2024-07-31T18:45:42.985Z -- elastic -- elasticsearch</title>
+      <title>CVE-2024-23444|2024-07-31T17:26:12.784Z -- elastic -- elasticsearch</title>
       <link>https://www.cve.org/CVERecord?id=CVE-2024-23444</link>
       <description>It was discovered by Elastic engineering that when elasticsearch-certutil CLI tool is used with the csr option in order to create a new Certificate Signing Requests, the associated private key that is generated is stored on disk unencrypted even if the --pass parameter is passed in the command invocation.</description>
-      <guid isPermaLink="false">CVE-2024-23444|2024-07-31T18:45:42.985Z</guid>
+      <guid isPermaLink="false">CVE-2024-23444|2024-07-31T17:26:12.784Z</guid>
       <pubDate>Wed, 31 Jul 2024 17:26:12 +0000</pubDate>
     </item>
     <item>
-      <title>CVE-2023-49921|2024-08-02T22:09:49.139Z -- elastic -- elasticsearch</title>
-      <link>https://www.cve.org/CVERecord?id=CVE-2023-49921</link>
-      <description>An issue was discovered by Elastic whereby Watcher search input logged the search query results on DEBUG log level. This could lead to raw contents of documents stored in Elasticsearch to be printed in logs. Elastic has released 8.11.2 and 7.17.16 that resolves this issue by removing this excessive logging. This issue only affects users that use Watcher and have a Watch defined that uses the search input and additionally have set the search input’s logger to DEBUG or finer, for example using: org.elasticsearch.xpack.watcher.input.search, org.elasticsearch.xpack.watcher.input, org.elasticsearch.xpack.watcher, or wider, since the loggers are hierarchical.</description>
-      <guid isPermaLink="false">CVE-2023-49921|2024-08-02T22:09:49.139Z</guid>
-      <pubDate>Fri, 26 Jul 2024 05:10:33 +0000</pubDate>
+      <title>CVE-2024-37280|2024-08-02T03:50:56.087Z -- elastic -- elasticsearch</title>
+      <link>https://www.cve.org/CVERecord?id=CVE-2024-37280</link>
+      <description>A flaw was discovered in Elasticsearch, affecting document ingestion when an index template contains a dynamic field mapping of “passthrough” type. Under certain circumstances, ingesting documents in this index would cause a StackOverflow exception to be thrown and ultimately lead to a Denial of Service. Note that passthrough fields is an experimental feature.</description>
+      <guid isPermaLink="false">CVE-2024-37280|2024-08-02T03:50:56.087Z</guid>
+      <pubDate>Thu, 13 Jun 2024 16:26:57 +0000</pubDate>
     </item>
   </channel>
 </rss>
