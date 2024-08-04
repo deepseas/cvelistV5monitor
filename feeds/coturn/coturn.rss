@@ -6,8 +6,16 @@
     <description>The latest CVEs for coturn -- coturn</description>
     <docs>http://www.rssboard.org/rss-specification</docs>
     <generator>python-feedgen</generator>
-    <lastBuildDate>Sun, 04 Aug 2024 15:22:43 +0000</lastBuildDate>
+    <lastBuildDate>Sun, 04 Aug 2024 16:24:00 +0000</lastBuildDate>
     <ttl>60</ttl>
+    <item>
+      <title>CVE-2020-26262|2024-08-04T15:56:03.733Z -- coturn -- coturn
+</title>
+      <link>https://www.cve.org/CVERecord?id=CVE-2020-26262</link>
+      <description>Coturn is free open source implementation of TURN and STUN Server. Coturn before version 4.5.2 by default does not allow peers to connect and relay packets to loopback addresses in the range of `127.x.x.x`. However, it was observed that when sending a `CONNECT` request with the `XOR-PEER-ADDRESS` value of `0.0.0.0`, a successful response was received and subsequently, `CONNECTIONBIND` also received a successful response. Coturn then is able to relay packets to the loopback interface. Additionally, when coturn is listening on IPv6, which is default, the loopback interface can also be reached by making use of either `[::1]` or `[::]` as the peer address. By using the address `0.0.0.0` as the peer address, a malicious user will be able to relay packets to the loopback interface, unless `--denied-peer-ip=0.0.0.0` (or similar) has been specified. Since the default configuration implies that loopback peers are not allowed, coturn administrators may choose to not set the `denied-peer-ip` setting. The issue patched in version 4.5.2. As a workaround the addresses in the address block `0.0.0.0/8`, `[::1]` and `[::]` should be denied by default unless `--allow-loopback-peers` has been specified.</description>
+      <guid isPermaLink="false">CVE-2020-26262|2024-08-04T15:56:03.733Z</guid>
+      <pubDate>Wed, 13 Jan 2021 18:15:17 +0000</pubDate>
+    </item>
     <item>
       <title>CVE-2020-4067|2024-08-04T07:52:20.848Z -- coturn -- coturn
 </title>

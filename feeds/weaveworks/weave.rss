@@ -6,7 +6,7 @@
     <description>The latest CVEs for weaveworks -- Weave</description>
     <docs>http://www.rssboard.org/rss-specification</docs>
     <generator>python-feedgen</generator>
-    <lastBuildDate>Sun, 04 Aug 2024 15:22:51 +0000</lastBuildDate>
+    <lastBuildDate>Sun, 04 Aug 2024 16:23:58 +0000</lastBuildDate>
     <ttl>60</ttl>
     <item>
       <title>CVE-2020-11091|2024-08-04T11:21:14.680Z -- weaveworks -- weave
@@ -15,6 +15,14 @@
       <description>In Weave Net before version 2.6.3, an attacker able to run a process as root in a container is able to respond to DNS requests from the host and thereby insert themselves as a fake service. In a cluster with an IPv4 internal network, if IPv6 is not totally disabled on the host (via ipv6.disable=1 on the kernel cmdline), it will be either unconfigured or configured on some interfaces, but it's pretty likely that ipv6 forwarding is disabled, ie /proc/sys/net/ipv6/conf//forwarding == 0. Also by default, /proc/sys/net/ipv6/conf//accept_ra == 1. The combination of these 2 sysctls means that the host accepts router advertisements and configure the IPv6 stack using them. By sending rogue router advertisements, an attacker can reconfigure the host to redirect part or all of the IPv6 traffic of the host to the attacker controlled container. Even if there was no IPv6 traffic before, if the DNS returns A (IPv4) and AAAA (IPv6) records, many HTTP libraries will try to connect via IPv6 first then fallback to IPv4, giving an opportunity to the attacker to respond. If by chance you also have on the host a vulnerability like last year's RCE in apt (CVE-2019-3462), you can now escalate to the host. Weave Net version 2.6.3 disables the accept_ra option on the veth devices that it creates.</description>
       <guid isPermaLink="false">CVE-2020-11091|2024-08-04T11:21:14.680Z</guid>
       <pubDate>Wed, 03 Jun 2020 22:55:13 +0000</pubDate>
+    </item>
+    <item>
+      <title>CVE-2020-26278|2024-08-04T15:56:04.069Z -- weaveworks -- weave
+</title>
+      <link>https://www.cve.org/CVERecord?id=CVE-2020-26278</link>
+      <description>Weave Net is open source software which creates a virtual network that connects Docker containers across multiple hosts and enables their automatic discovery. Weave Net before version 2.8.0 has a vulnerability in which can allow an attacker to take over any host in the cluster. Weave Net is supplied with a manifest that runs pods on every node in a Kubernetes cluster, which are responsible for managing network connections for all other pods in the cluster. This requires a lot of power over the host, and the manifest sets `privileged: true`, which gives it that power. It also set `hostPID: true`, which gave it the ability to access all other processes on the host, and write anywhere in the root filesystem of the host. This setting was not necessary, and is being removed. You are only vulnerable if you have an additional vulnerability (e.g. a bug in Kubernetes) or misconfiguration that allows an attacker to run code inside the Weave Net pod, No such bug is known at the time of release, and there are no known instances of this being exploited. Weave Net 2.8.0 removes the hostPID setting and moves CNI plugin install to an init container. Users who do not update to 2.8.0 can edit the hostPID line in their existing DaemonSet manifest to say false instead of true, arrange some other way to install CNI plugins (e.g. Ansible) and remove those mounts from the DaemonSet manifest.</description>
+      <guid isPermaLink="false">CVE-2020-26278|2024-08-04T15:56:04.069Z</guid>
+      <pubDate>Wed, 20 Jan 2021 22:10:18 +0000</pubDate>
     </item>
   </channel>
 </rss>

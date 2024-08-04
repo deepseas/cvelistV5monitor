@@ -1,0 +1,20 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<rss xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/" version="2.0">
+  <channel>
+    <title>CVE Feed for http-rs -- all</title>
+    <link>https://raw.githubusercontent.com/deepseas/cvelistV5monitor/main/feeds/http-rs/all.rss</link>
+    <description>The latest CVEs for http-rs -- all products</description>
+    <docs>http://www.rssboard.org/rss-specification</docs>
+    <generator>python-feedgen</generator>
+    <lastBuildDate>Sun, 04 Aug 2024 16:24:03 +0000</lastBuildDate>
+    <ttl>60</ttl>
+    <item>
+      <title>CVE-2020-26281|2024-08-04T15:56:03.655Z -- http-rs -- async-h1
+</title>
+      <link>https://www.cve.org/CVERecord?id=CVE-2020-26281</link>
+      <description>async-h1 is an asynchronous HTTP/1.1 parser for Rust (crates.io). There is a request smuggling vulnerability in async-h1 before version 2.3.0. This vulnerability affects any webserver that uses async-h1 behind a reverse proxy, including all such Tide applications. If the server does not read the body of a request which is longer than some buffer length, async-h1 will attempt to read a subsequent request from the body content starting at that offset into the body. One way to exploit this vulnerability would be for an adversary to craft a request such that the body contains a request that would not be noticed by a reverse proxy, allowing it to forge forwarded/x-forwarded headers. If an application trusted the authenticity of these headers, it could be misled by the smuggled request. Another potential concern with this vulnerability is that if a reverse proxy is sending multiple http clients' requests along the same keep-alive connection, it would be possible for the smuggled request to specify a long content and capture another user's request in its body. This content could be captured in a post request to an endpoint that allows the content to be subsequently retrieved by the adversary. This has been addressed in async-h1 2.3.0 and previous versions have been yanked.</description>
+      <guid isPermaLink="false">CVE-2020-26281|2024-08-04T15:56:03.655Z</guid>
+      <pubDate>Mon, 21 Dec 2020 21:50:13 +0000</pubDate>
+    </item>
+  </channel>
+</rss>

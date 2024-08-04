@@ -6,31 +6,15 @@
     <description>The latest CVEs for fleetdm -- all products</description>
     <docs>http://www.rssboard.org/rss-specification</docs>
     <generator>python-feedgen</generator>
-    <lastBuildDate>Sat, 03 Aug 2024 23:23:05 +0000</lastBuildDate>
+    <lastBuildDate>Sun, 04 Aug 2024 16:24:07 +0000</lastBuildDate>
     <ttl>60</ttl>
     <item>
-      <title>CVE-2022-23600|2024-08-03T03:43:46.870Z -- fleetdm -- fleet
+      <title>CVE-2020-26276|2024-08-04T15:56:04.500Z -- fleetdm -- fleet
 </title>
-      <link>https://www.cve.org/CVERecord?id=CVE-2022-23600</link>
-      <description>fleet is an open source device management, built on osquery. Versions prior to 4.9.1 expose a limited ability to spoof SAML authentication with missing audience verification. This impacts deployments using SAML SSO in two specific cases: 1. A malicious or compromised Service Provider (SP) could reuse the SAML response to log into Fleet as a user -- only if the user has an account with the same email in Fleet, _and_ the user signs into the malicious SP via SAML SSO from the same Identity Provider (IdP) configured with Fleet. 2. A user with an account in Fleet could reuse a SAML response intended for another SP to log into Fleet. This is only a concern if the user is blocked from Fleet in the IdP, but continues to have an account in Fleet. If the user is blocked from the IdP entirely, this cannot be exploited. Fleet 4.9.1 resolves this issue. Users unable to upgrade should: Reduce the length of sessions on your IdP to reduce the window for malicious re-use, Limit the amount of SAML Service Providers/Applications used by user accounts with access to Fleet, and When removing access to Fleet in the IdP, delete the Fleet user from Fleet as well.</description>
-      <guid isPermaLink="false">CVE-2022-23600|2024-08-03T03:43:46.870Z</guid>
-      <pubDate>Fri, 04 Feb 2022 22:32:07 +0000</pubDate>
-    </item>
-    <item>
-      <title>CVE-2022-24841|2024-08-03T04:20:50.537Z -- fleetdm -- fleet
-</title>
-      <link>https://www.cve.org/CVERecord?id=CVE-2022-24841</link>
-      <description>fleetdm/fleet is an open source device management, built on osquery. All versions of fleet making use of the teams feature are affected by this authorization bypass issue. Fleet instances without teams, or with teams but without restricted team accounts are not affected. In affected versions a team admin can erroneously add themselves as admin, maintainer or observer on other teams. Users are advised to upgrade to version 4.13. There are no known workarounds for this issue.</description>
-      <guid isPermaLink="false">CVE-2022-24841|2024-08-03T04:20:50.537Z</guid>
-      <pubDate>Mon, 18 Apr 2022 21:20:10 +0000</pubDate>
-    </item>
-    <item>
-      <title>CVE-2021-21296|2024-08-03T18:09:15.667Z -- fleetdm -- fleet
-</title>
-      <link>https://www.cve.org/CVERecord?id=CVE-2021-21296</link>
-      <description>Fleet is an open source osquery manager. In Fleet before version 3.7.0 a malicious actor with a valid node key can send a badly formatted request that causes the Fleet server to exit, resulting in denial of service. This is possible only while a live query is currently ongoing. We believe the impact of this vulnerability to be low given the requirement that the actor has a valid node key. There is no information disclosure, privilege escalation, or code execution. The issue is fixed in Fleet 3.7.0.</description>
-      <guid isPermaLink="false">CVE-2021-21296|2024-08-03T18:09:15.667Z</guid>
-      <pubDate>Wed, 10 Feb 2021 20:00:19 +0000</pubDate>
+      <link>https://www.cve.org/CVERecord?id=CVE-2020-26276</link>
+      <description>Fleet is an open source osquery manager. In Fleet before version 3.5.1, due to issues in Go's standard library XML parsing, a valid SAML response may be mutated by an attacker to modify the trusted document. This can result in allowing unverified logins from a SAML IdP. Users that configure Fleet with SSO login may be vulnerable to this issue. This issue is patched in 3.5.1. The fix was made using https://github.com/mattermost/xml-roundtrip-validator If upgrade to 3.5.1 is not possible, users should disable SSO authentication in Fleet.</description>
+      <guid isPermaLink="false">CVE-2020-26276|2024-08-04T15:56:04.500Z</guid>
+      <pubDate>Thu, 17 Dec 2020 19:40:14 +0000</pubDate>
     </item>
   </channel>
 </rss>

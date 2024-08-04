@@ -6,7 +6,7 @@
     <description>The latest CVEs for matrix-org -- synapse</description>
     <docs>http://www.rssboard.org/rss-specification</docs>
     <generator>python-feedgen</generator>
-    <lastBuildDate>Sun, 04 Aug 2024 15:22:47 +0000</lastBuildDate>
+    <lastBuildDate>Sun, 04 Aug 2024 16:23:58 +0000</lastBuildDate>
     <ttl>60</ttl>
     <item>
       <title>CVE-2021-41281|2024-08-04T03:08:31.942Z -- matrix-org -- synapse
@@ -31,6 +31,14 @@
       <description>Matrix is an ecosystem for open federated Instant Messaging and Voice over IP. In versions 1.41.0 and prior, unauthorised users can access the membership (list of members, with their display names) of a room if they know the ID of the room. The vulnerability is limited to rooms with `shared` history visibility. Furthermore, the unauthorised user must be using an account on a vulnerable homeserver that is in the room. Server administrators should upgrade to 1.41.1 or later in order to receive the patch. One workaround is available. Administrators of servers that use a reverse proxy could, with potentially unacceptable loss of functionality, block the endpoints: `/_matrix/client/r0/rooms/{room_id}/members` with `at` query parameter, and `/_matrix/client/unstable/rooms/{room_id}/members` with `at` query parameter.</description>
       <guid isPermaLink="false">CVE-2021-39164|2024-08-04T01:58:18.118Z</guid>
       <pubDate>Tue, 31 Aug 2021 16:20:10 +0000</pubDate>
+    </item>
+    <item>
+      <title>CVE-2020-26257|2024-08-04T15:56:03.561Z -- matrix-org -- synapse
+</title>
+      <link>https://www.cve.org/CVERecord?id=CVE-2020-26257</link>
+      <description>Matrix is an ecosystem for open federated Instant Messaging and VoIP. Synapse is a reference "homeserver" implementation of Matrix. A malicious or poorly-implemented homeserver can inject malformed events into a room by specifying a different room id in the path of a `/send_join`, `/send_leave`, `/invite` or `/exchange_third_party_invite` request. This can lead to a denial of service in which future events will not be correctly sent to other servers over federation. This affects any server which accepts federation requests from untrusted servers. The Matrix Synapse reference implementation before version 1.23.1 the implementation is vulnerable to this injection attack. Issue is fixed in version 1.23.1. As a workaround homeserver administrators could limit access to the federation API to trusted servers (for example via `federation_domain_whitelist`).</description>
+      <guid isPermaLink="false">CVE-2020-26257|2024-08-04T15:56:03.561Z</guid>
+      <pubDate>Wed, 09 Dec 2020 18:25:15 +0000</pubDate>
     </item>
   </channel>
 </rss>
