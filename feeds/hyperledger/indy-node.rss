@@ -6,23 +6,15 @@
     <description>The latest CVEs for hyperledger -- indy-node</description>
     <docs>http://www.rssboard.org/rss-specification</docs>
     <generator>python-feedgen</generator>
-    <lastBuildDate>Sat, 03 Aug 2024 23:23:12 +0000</lastBuildDate>
+    <lastBuildDate>Sun, 04 Aug 2024 12:25:44 +0000</lastBuildDate>
     <ttl>60</ttl>
     <item>
-      <title>CVE-2022-31020|2024-08-03T07:03:40.339Z -- hyperledger -- indy-node
+      <title>CVE-2020-11093|2024-08-04T11:21:14.718Z -- hyperledger -- indy-node
 </title>
-      <link>https://www.cve.org/CVERecord?id=CVE-2022-31020</link>
-      <description>Indy Node is the server portion of a distributed ledger purpose-built for decentralized identity. In versions 1.12.4 and prior, the `pool-upgrade` request handler in Indy-Node allows an improperly authenticated attacker to remotely execute code on nodes within the network. The `pool-upgrade` request handler in Indy-Node 1.12.5 has been updated to properly authenticate pool-upgrade transactions before any processing is performed by the request handler. The transactions are further sanitized to prevent remote code execution. As a workaround, endorsers should not create DIDs for untrusted users. A vulnerable ledger should configure `auth_rules` to prevent new DIDs from being written to the ledger until the network can be upgraded.</description>
-      <guid isPermaLink="false">CVE-2022-31020|2024-08-03T07:03:40.339Z</guid>
-      <pubDate>Tue, 06 Sep 2022 16:30:19 +0000</pubDate>
-    </item>
-    <item>
-      <title>CVE-2022-31006|2024-08-03T07:03:40.302Z -- hyperledger -- indy-node
-</title>
-      <link>https://www.cve.org/CVERecord?id=CVE-2022-31006</link>
-      <description>indy-node is the server portion of Hyperledger Indy, a distributed ledger purpose-built for decentralized identity. In vulnerable versions of indy-node, an attacker can max out the number of client connections allowed by the ledger, leaving the ledger unable to be used for its intended purpose. However, the ledger content will not be impacted and the ledger will resume functioning after the attack. This attack exploits the trade-off between resilience and availability. Any protection against abusive client connections will also prevent the network being accessed by certain legitimate users. As a result, validator nodes must tune their firewall rules to ensure the right trade-off for their network's expected users. The guidance to network operators for the use of firewall rules in the deployment of Indy networks has been modified to better protect against denial of service attacks by increasing the cost and complexity in mounting such attacks. The mitigation for this vulnerability is not in the Hyperledger Indy code per se, but rather in the individual deployments of Indy. The mitigations should be applied to all deployments of Indy, and are not related to a particular release.</description>
-      <guid isPermaLink="false">CVE-2022-31006|2024-08-03T07:03:40.302Z</guid>
-      <pubDate>Fri, 09 Sep 2022 19:10:10 +0000</pubDate>
+      <link>https://www.cve.org/CVERecord?id=CVE-2020-11093</link>
+      <description>Hyperledger Indy Node is the server portion of a distributed ledger purpose-built for decentralized identity. In Hyperledger Indy before version 1.12.4, there is lack of signature verification on a specific transaction which enables an attacker to make certain unauthorized alterations to the ledger. Updating a DID with a nym transaction will be written to the ledger if neither ROLE or VERKEY are being changed, regardless of sender. A malicious DID with no particular role can ask an update for another DID (but cannot modify its verkey or role). This is bad because 1) Any DID can write a nym transaction to the ledger (i.e., any DID can spam the ledger with nym transactions), 2) Any DID can change any other DID's alias, 3) The update transaction modifies the ledger metadata associated with a DID.</description>
+      <guid isPermaLink="false">CVE-2020-11093|2024-08-04T11:21:14.718Z</guid>
+      <pubDate>Thu, 24 Dec 2020 20:05:15 +0000</pubDate>
     </item>
   </channel>
 </rss>

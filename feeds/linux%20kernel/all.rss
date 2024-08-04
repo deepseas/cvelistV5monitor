@@ -6,8 +6,32 @@
     <description>The latest CVEs for Linux Kernel -- all products</description>
     <docs>http://www.rssboard.org/rss-specification</docs>
     <generator>python-feedgen</generator>
-    <lastBuildDate>Sun, 04 Aug 2024 11:20:06 +0000</lastBuildDate>
+    <lastBuildDate>Sun, 04 Aug 2024 12:25:34 +0000</lastBuildDate>
     <ttl>60</ttl>
+    <item>
+      <title>CVE-2020-10781|2024-08-04T11:14:15.582Z -- linux%20kernel -- kernel
+</title>
+      <link>https://www.cve.org/CVERecord?id=CVE-2020-10781</link>
+      <description>A flaw was found in the Linux Kernel before 5.8-rc6 in the ZRAM kernel module, where a user with a local account and the ability to read the /sys/class/zram-control/hot_add file can create ZRAM device nodes in the /dev/ directory. This read allocates kernel memory and is not accounted for a user that triggers the creation of that ZRAM device. With this vulnerability, continually reading the device may consume a large amount of system memory and cause the Out-of-Memory (OOM) killer to activate and terminate random userspace processes, possibly making the system inoperable.</description>
+      <guid isPermaLink="false">CVE-2020-10781|2024-08-04T11:14:15.582Z</guid>
+      <pubDate>Wed, 16 Sep 2020 00:00:00 +0000</pubDate>
+    </item>
+    <item>
+      <title>CVE-2020-10767|2024-08-04T11:14:15.591Z -- linux%20kernel -- kernel
+</title>
+      <link>https://www.cve.org/CVERecord?id=CVE-2020-10767</link>
+      <description>A flaw was found in the Linux kernel before 5.8-rc1 in the implementation of the Enhanced IBPB (Indirect Branch Prediction Barrier). The IBPB mitigation will be disabled when STIBP is not available or when the Enhanced Indirect Branch Restricted Speculation (IBRS) is available. This flaw allows a local attacker to perform a Spectre V2 style attack when this configuration is active. The highest threat from this vulnerability is to confidentiality.</description>
+      <guid isPermaLink="false">CVE-2020-10767|2024-08-04T11:14:15.591Z</guid>
+      <pubDate>Tue, 15 Sep 2020 22:14:41 +0000</pubDate>
+    </item>
+    <item>
+      <title>CVE-2020-10766|2024-08-04T11:14:15.011Z -- linux%20kernel -- kernel
+</title>
+      <link>https://www.cve.org/CVERecord?id=CVE-2020-10766</link>
+      <description>A logic bug flaw was found in Linux kernel before 5.8-rc1 in the implementation of SSBD. A bug in the logic handling allows an attacker with a local account to disable SSBD protection during a context switch when additional speculative execution mitigations are in place. This issue was introduced when the per task/process conditional STIPB switching was added on top of the existing SSBD switching. The highest threat from this vulnerability is to confidentiality.</description>
+      <guid isPermaLink="false">CVE-2020-10766|2024-08-04T11:14:15.011Z</guid>
+      <pubDate>Tue, 15 Sep 2020 22:10:27 +0000</pubDate>
+    </item>
     <item>
       <title>CVE-2020-1749|2024-08-04T06:46:30.814Z -- linux%20kernel -- kernel
 </title>
@@ -23,6 +47,22 @@
       <description>KVM in the Linux kernel on Power8 processors has a conflicting use of HSTATE_HOST_R1 to store r1 state in kvmppc_hv_entry plus in kvmppc_{save,restore}_tm, leading to a stack corruption. Because of this, an attacker with the ability run code in kernel space of a guest VM can cause the host kernel to panic. There were two commits that, according to the reporter, introduced the vulnerability: f024ee098476 ("KVM: PPC: Book3S HV: Pull out TM state save/restore into separate procedures") 87a11bb6a7f7 ("KVM: PPC: Book3S HV: Work around XER[SO] bug in fake suspend mode") The former landed in 4.8, the latter in 4.17. This was fixed without realizing the impact in 4.18 with the following three commits, though it's believed the first is the only strictly necessary commit: 6f597c6b63b6 ("KVM: PPC: Book3S PR: Add guest MSR parameter for kvmppc_save_tm()/kvmppc_restore_tm()") 7b0e827c6970 ("KVM: PPC: Book3S HV: Factor fake-suspend handling out of kvmppc_save/restore_tm") 009c872a8bc4 ("KVM: PPC: Book3S PR: Move kvmppc_save_tm/kvmppc_restore_tm to separate file")</description>
       <guid isPermaLink="false">CVE-2020-8834|2024-08-04T10:12:10.661Z</guid>
       <pubDate>Mon, 06 Apr 2020 00:00:00 +0000</pubDate>
+    </item>
+    <item>
+      <title>CVE-2020-10732|2024-08-04T11:14:14.998Z -- linux%20kernel -- kernel
+</title>
+      <link>https://www.cve.org/CVERecord?id=CVE-2020-10732</link>
+      <description>A flaw was found in the Linux kernel's implementation of Userspace core dumps. This flaw allows an attacker with a local account to crash a trivial program and exfiltrate private kernel data.</description>
+      <guid isPermaLink="false">CVE-2020-10732|2024-08-04T11:14:14.998Z</guid>
+      <pubDate>Fri, 12 Jun 2020 00:00:00 +0000</pubDate>
+    </item>
+    <item>
+      <title>CVE-2020-10768|2024-08-04T11:14:15.299Z -- linux%20kernel -- kernel
+</title>
+      <link>https://www.cve.org/CVERecord?id=CVE-2020-10768</link>
+      <description>A flaw was found in the Linux Kernel before 5.8-rc1 in the prctl() function, where it can be used to enable indirect branch speculation after it has been disabled. This call incorrectly reports it as being 'force disabled' when it is not and opens the system to Spectre v2 attacks. The highest threat from this vulnerability is to confidentiality.</description>
+      <guid isPermaLink="false">CVE-2020-10768|2024-08-04T11:14:15.299Z</guid>
+      <pubDate>Tue, 15 Sep 2020 23:13:30 +0000</pubDate>
     </item>
     <item>
       <title>CVE-2020-8835|2024-08-04T10:12:10.621Z -- linux%20kernel -- linux%20kernel

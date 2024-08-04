@@ -6,8 +6,32 @@
     <description>The latest CVEs for TYPO3 -- all products</description>
     <docs>http://www.rssboard.org/rss-specification</docs>
     <generator>python-feedgen</generator>
-    <lastBuildDate>Sun, 04 Aug 2024 11:20:08 +0000</lastBuildDate>
+    <lastBuildDate>Sun, 04 Aug 2024 12:25:37 +0000</lastBuildDate>
     <ttl>60</ttl>
+    <item>
+      <title>CVE-2020-11069|2024-08-04T11:21:14.617Z -- typo3 -- typo3%20cms
+</title>
+      <link>https://www.cve.org/CVERecord?id=CVE-2020-11069</link>
+      <description>In TYPO3 CMS 9.0.0 through 9.5.16 and 10.0.0 through 10.4.1, it has been discovered that the backend user interface and install tool are vulnerable to a same-site request forgery. A backend user can be tricked into interacting with a malicious resource an attacker previously managed to upload to the web server. Scripts are then executed with the privileges of the victims' user session. In a worst-case scenario, new admin users can be created which can directly be used by an attacker. The vulnerability is basically a cross-site request forgery (CSRF) triggered by a cross-site scripting vulnerability (XSS) - but happens on the same target host - thus, it's actually a same-site request forgery. Malicious payload such as HTML containing JavaScript might be provided by either an authenticated backend user or by a non-authenticated user using a third party extension, e.g. file upload in a contact form with knowing the target location. To be successful, the attacked victim requires an active and valid backend or install tool user session at the time of the attack. This has been fixed in 9.5.17 and 10.4.2. The deployment of additional mitigation techniques is suggested as described below. - Sudo Mode Extension This TYPO3 extension intercepts modifications to security relevant database tables, e.g. those storing user accounts or storages of the file abstraction layer. Modifications need to confirmed again by the acting user providing their password again. This technique is known as sudo mode. This way, unintended actions happening in the background can be mitigated. - https://github.com/FriendsOfTYPO3/sudo-mode - https://extensions.typo3.org/extension/sudo_mode - Content Security Policy Content Security Policies tell (modern) browsers how resources served a particular site are handled. It is also possible to disallow script executions for specific locations. In a TYPO3 context, it is suggested to disallow direct script execution at least for locations /fileadmin/ and /uploads/.</description>
+      <guid isPermaLink="false">CVE-2020-11069|2024-08-04T11:21:14.617Z</guid>
+      <pubDate>Wed, 13 May 2020 23:35:37 +0000</pubDate>
+    </item>
+    <item>
+      <title>CVE-2020-11067|2024-08-04T11:21:14.623Z -- typo3 -- typo3%20cms
+</title>
+      <link>https://www.cve.org/CVERecord?id=CVE-2020-11067</link>
+      <description>In TYPO3 CMS 9.0.0 through 9.5.16 and 10.0.0 through 10.4.1, it has been discovered that backend user settings (in $BE_USER-&gt;uc) are vulnerable to insecure deserialization. In combination with vulnerabilities of third party components, this can lead to remote code execution. A valid backend user account is needed to exploit this vulnerability. This has been fixed in 9.5.17 and 10.4.2.</description>
+      <guid isPermaLink="false">CVE-2020-11067|2024-08-04T11:21:14.623Z</guid>
+      <pubDate>Wed, 13 May 2020 23:25:13 +0000</pubDate>
+    </item>
+    <item>
+      <title>CVE-2020-11063|2024-08-04T11:21:14.507Z -- typo3 -- typo3%20cms
+</title>
+      <link>https://www.cve.org/CVERecord?id=CVE-2020-11063</link>
+      <description>In TYPO3 CMS versions 10.4.0 and 10.4.1, it has been discovered that time-based attacks can be used with the password reset functionality for backend users. This allows an attacker to mount user enumeration based on email addresses assigned to backend user accounts. This has been fixed in 10.4.2.</description>
+      <guid isPermaLink="false">CVE-2020-11063|2024-08-04T11:21:14.507Z</guid>
+      <pubDate>Wed, 13 May 2020 22:15:12 +0000</pubDate>
+    </item>
     <item>
       <title>CVE-2021-41114|2024-08-04T02:59:31.581Z -- typo3 -- typo3
 </title>
@@ -15,6 +39,30 @@
       <description>TYPO3 is an open source PHP based web content management system released under the GNU GPL. It has been discovered that TYPO3 CMS is susceptible to host spoofing due to improper validation of the HTTP Host header. TYPO3 uses the HTTP Host header, for example, to generate absolute URLs during the frontend rendering process. Since the host header itself is provided by the client, it can be forged to any value, even in a name-based virtual hosts environment. This vulnerability is the same as described in TYPO3-CORE-SA-2014-001 (CVE-2014-3941). A regression, introduced during TYPO3 v11 development, led to this situation. The already existing setting $GLOBALS['TYPO3_CONF_VARS']['SYS']['trustedHostsPattern'] (used as an effective mitigation strategy in previous TYPO3 versions) was not evaluated anymore, and reintroduced the vulnerability.</description>
       <guid isPermaLink="false">CVE-2021-41114|2024-08-04T02:59:31.581Z</guid>
       <pubDate>Tue, 05 Oct 2021 17:15:11 +0000</pubDate>
+    </item>
+    <item>
+      <title>CVE-2020-11065|2024-08-04T11:21:14.504Z -- typo3 -- typo3%20cms
+</title>
+      <link>https://www.cve.org/CVERecord?id=CVE-2020-11065</link>
+      <description>In TYPO3 CMS greater than or equal to 9.5.12 and less than 9.5.17, and greater than or equal to 10.2.0 and less than 10.4.2, it has been discovered that link tags generated by typolink functionality are vulnerable to cross-site scripting; properties being assigned as HTML attributes have not been parsed correctly. This has been fixed in 9.5.17 and 10.4.2.</description>
+      <guid isPermaLink="false">CVE-2020-11065|2024-08-04T11:21:14.504Z</guid>
+      <pubDate>Wed, 13 May 2020 23:05:13 +0000</pubDate>
+    </item>
+    <item>
+      <title>CVE-2020-11064|2024-08-04T11:21:14.609Z -- typo3 -- typo3%20cms
+</title>
+      <link>https://www.cve.org/CVERecord?id=CVE-2020-11064</link>
+      <description>In TYPO3 CMS greater than or equal to 9.0.0 and less than 9.5.17 and greater than or equal to 10.0.0 and less than 10.4.2, it has been discovered that HTML placeholder attributes containing data of other database records are vulnerable to cross-site scripting. A valid backend user account is needed to exploit this vulnerability. This has been fixed in 9.5.17 and 10.4.2.</description>
+      <guid isPermaLink="false">CVE-2020-11064|2024-08-04T11:21:14.609Z</guid>
+      <pubDate>Wed, 13 May 2020 22:50:11 +0000</pubDate>
+    </item>
+    <item>
+      <title>CVE-2020-11066|2024-08-04T11:21:14.635Z -- typo3 -- typo3%20cms
+</title>
+      <link>https://www.cve.org/CVERecord?id=CVE-2020-11066</link>
+      <description>In TYPO3 CMS greater than or equal to 9.0.0 and less than 9.5.17 and greater than or equal to 10.0.0 and less than 10.4.2, calling unserialize() on malicious user-submitted content can lead to modification of dynamically-determined object attributes and result in triggering deletion of an arbitrary directory in the file system, if it is writable for the web server. It can also trigger message submission via email using the identity of the web site (mail relay). Another insecure deserialization vulnerability is required to actually exploit mentioned aspects. This has been fixed in 9.5.17 and 10.4.2.</description>
+      <guid isPermaLink="false">CVE-2020-11066|2024-08-04T11:21:14.635Z</guid>
+      <pubDate>Wed, 13 May 2020 23:15:12 +0000</pubDate>
     </item>
     <item>
       <title>CVE-2021-41113|2024-08-04T02:59:31.634Z -- typo3 -- typo3
@@ -25,73 +73,24 @@
       <pubDate>Tue, 05 Oct 2021 17:20:12 +0000</pubDate>
     </item>
     <item>
-      <title>CVE-2024-34357|2024-06-12T15:47:27.316Z -- typo3 -- typo3</title>
-      <link>https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2024-34357</link>
+      <title>CVE-2024-34357|2024-08-02T02:51:11.194Z -- typo3 -- typo3</title>
+      <link>https://www.cve.org/CVERecord?id=CVE-2024-34357</link>
       <description>TYPO3 is an enterprise content management system. Starting in version 9.0.0 and prior to versions 9.5.48 ELTS, 10.4.45 ELTS, 11.5.37 LTS, 12.4.15 LTS, and 13.1.1, failing to properly encode user-controlled values in file entities, the `ShowImageController` (`_eID tx_cms_showpic_`) is vulnerable to cross-site scripting. Exploiting this vulnerability requires a valid backend user account with access to file entities. TYPO3 versions 9.5.48 ELTS, 10.4.45 ELTS, 11.5.37 LTS, 12.4.15 LTS, 13.1.1 fix the problem described.</description>
-      <guid isPermaLink="false">CVE-2024-34357|2024-06-12T15:47:27.316Z</guid>
+      <guid isPermaLink="false">CVE-2024-34357|2024-08-02T02:51:11.194Z</guid>
       <pubDate>Tue, 14 May 2024 14:13:11 +0000</pubDate>
     </item>
     <item>
-      <title>CVE-2024-34358|2024-06-12T15:46:38.522Z -- typo3 -- typo3</title>
-      <link>https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2024-34358</link>
-      <description>TYPO3 is an enterprise content management system. Starting in version 9.0.0 and prior to versions 9.5.48 ELTS, 10.4.45 ELTS, 11.5.37 LTS, 12.4.15 LTS, and 13.1.1, the `ShowImageController` (`_eID tx_cms_showpic_`) lacks a cryptographic HMAC-signature on the `frame` HTTP query parameter (e.g. `/index.php?eID=tx_cms_showpic?file=3&amp;...&amp;amp;frame=12345`). This allows adversaries to instruct the system to produce an arbitrary number of thumbnail images on the server side. TYPO3 versions 9.5.48 ELTS, 10.4.45 ELTS, 11.5.37 LTS, 12.4.15 LTS, 13.1.1 fix the problem described.</description>
-      <guid isPermaLink="false">CVE-2024-34358|2024-06-12T15:46:38.522Z</guid>
-      <pubDate>Tue, 14 May 2024 14:26:36 +0000</pubDate>
-    </item>
-    <item>
-      <title>CVE-2024-25121|2024-02-13T22:14:40.926Z -- typo3 -- typo3</title>
-      <link>https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2024-25121</link>
-      <description>TYPO3 is an open source PHP based web content management system released under the GNU GPL. In affected versions of TYPO3 entities of the File Abstraction Layer (FAL) could be persisted directly via `DataHandler`. This allowed attackers to reference files in the fallback storage directly and retrieve their file names and contents. The fallback storage ("zero-storage") is used as a backward compatibility layer for files located outside properly configured file storages and within the public web root directory. Exploiting this vulnerability requires a valid backend user account. Users are advised to update to TYPO3 version 8.7.57 ELTS, 9.5.46 ELTS, 10.4.43 ELTS, 11.5.35 LTS, 12.4.11 LTS, or 13.0.1 which fix the problem described. When persisting entities of the File Abstraction Layer directly via DataHandler, `sys_file` entities are now denied by default, and `sys_file_reference` &amp; `sys_file_metadata` entities are not permitted to reference files in the fallback storage anymore. When importing data from secure origins, this must be explicitly enabled in the corresponding DataHandler instance by using `$dataHandler-&gt;isImporting = true;`.</description>
-      <guid isPermaLink="false">CVE-2024-25121|2024-02-13T22:14:40.926Z</guid>
-      <pubDate>Tue, 13 Feb 2024 22:14:40 +0000</pubDate>
-    </item>
-    <item>
-      <title>CVE-2024-25120|2024-06-04T17:35:11.339Z -- typo3 -- typo3</title>
-      <link>https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2024-25120</link>
-      <description>TYPO3 is an open source PHP based web content management system released under the GNU GPL. The TYPO3-specific `t3://` URI scheme could be used to access resources outside of the users' permission scope. This encompassed files, folders, pages, and records (although only if a valid link-handling configuration was provided). Exploiting this vulnerability requires a valid backend user account. Users are advised to update to TYPO3 versions 8.7.57 ELTS, 9.5.46 ELTS, 10.4.43 ELTS, 11.5.35 LTS, 12.4.11 LTS, 13.0.1 that fix the problem described. There are no known workarounds for this issue.</description>
-      <guid isPermaLink="false">CVE-2024-25120|2024-06-04T17:35:11.339Z</guid>
-      <pubDate>Tue, 13 Feb 2024 22:15:13 +0000</pubDate>
-    </item>
-    <item>
-      <title>CVE-2024-25119|2024-06-04T17:35:39.545Z -- typo3 -- typo3</title>
-      <link>https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2024-25119</link>
-      <description>TYPO3 is an open source PHP based web content management system released under the GNU GPL. The plaintext value of `$GLOBALS['SYS']['encryptionKey']` was displayed in the editing forms of the TYPO3 Install Tool user interface. This allowed attackers to utilize the value to generate cryptographic hashes used for verifying the authenticity of HTTP request parameters. Exploiting this vulnerability requires an administrator-level backend user account with system maintainer permissions. Users are advised to update to TYPO3 versions 8.7.57 ELTS, 9.5.46 ELTS, 10.4.43 ELTS, 11.5.35 LTS, 12.4.11 LTS, 13.0.1 that fix the problem described. There are no known workarounds for this vulnerability.</description>
-      <guid isPermaLink="false">CVE-2024-25119|2024-06-04T17:35:39.545Z</guid>
-      <pubDate>Tue, 13 Feb 2024 22:16:37 +0000</pubDate>
-    </item>
-    <item>
-      <title>CVE-2024-25118|2024-06-04T17:35:53.986Z -- typo3 -- typo3</title>
-      <link>https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2024-25118</link>
-      <description>TYPO3 is an open source PHP based web content management system released under the GNU GPL. Password hashes were being reflected in the editing forms of the TYPO3 backend user interface. This allowed attackers to crack the plaintext password using brute force techniques. Exploiting this vulnerability requires a valid backend user account. Users are advised to update to TYPO3 versions 8.7.57 ELTS, 9.5.46 ELTS, 10.4.43 ELTS, 11.5.35 LTS, 12.4.11 LTS, 13.0.1 that fix the problem described. There are no known workarounds for this issue.</description>
-      <guid isPermaLink="false">CVE-2024-25118|2024-06-04T17:35:53.986Z</guid>
-      <pubDate>Tue, 13 Feb 2024 22:19:22 +0000</pubDate>
-    </item>
-    <item>
-      <title>CVE-2024-34356|2024-06-04T17:41:04.744Z -- typo3 -- typo3</title>
-      <link>https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2024-34356</link>
+      <title>CVE-2024-34356|2024-08-02T02:51:11.450Z -- typo3 -- typo3</title>
+      <link>https://www.cve.org/CVERecord?id=CVE-2024-34356</link>
       <description>TYPO3 is an enterprise content management system. Starting in version 9.0.0 and prior to versions 9.5.48 ELTS, 10.4.45 ELTS, 11.5.37 LTS, 12.4.15 LTS, and 13.1.1, the form manager backend module is vulnerable to cross-site scripting. Exploiting this vulnerability requires a valid backend user account with access to the form module. TYPO3 versions 9.5.48 ELTS, 10.4.45 ELTS, 11.5.37 LTS, 12.4.15 LTS, and 13.1.1 fix the problem described.</description>
-      <guid isPermaLink="false">CVE-2024-34356|2024-06-04T17:41:04.744Z</guid>
+      <guid isPermaLink="false">CVE-2024-34356|2024-08-02T02:51:11.450Z</guid>
       <pubDate>Tue, 14 May 2024 14:05:19 +0000</pubDate>
     </item>
     <item>
-      <title>CVE-2024-34357|2024-05-14T14:25:53.339Z -- typo3 -- typo3</title>
-      <link>https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2024-34357</link>
-      <description>TYPO3 is an enterprise content management system. Starting in version 9.0.0 and prior to versions 9.5.48 ELTS, 10.4.45 ELTS, 11.5.37 LTS, 12.4.15 LTS, and 13.1.1, failing to properly encode user-controlled values in file entities, the `ShowImageController` (`_eID tx_cms_showpic_`) is vulnerable to cross-site scripting. Exploiting this vulnerability requires a valid backend user account with access to file entities. TYPO3 versions 9.5.48 ELTS, 10.4.45 ELTS, 11.5.37 LTS, 12.4.15 LTS, 13.1.1 fix the problem described.</description>
-      <guid isPermaLink="false">CVE-2024-34357|2024-05-14T14:25:53.339Z</guid>
-      <pubDate>Tue, 14 May 2024 14:13:11 +0000</pubDate>
-    </item>
-    <item>
-      <title>CVE-2024-34358|2024-05-14T14:26:36.422Z -- typo3 -- typo3</title>
-      <link>https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2024-34358</link>
-      <description>TYPO3 is an enterprise content management system. Starting in version 9.0.0 and prior to versions 9.5.48 ELTS, 10.4.45 ELTS, 11.5.37 LTS, 12.4.15 LTS, and 13.1.1, the `ShowImageController` (`_eID tx_cms_showpic_`) lacks a cryptographic HMAC-signature on the `frame` HTTP query parameter (e.g. `/index.php?eID=tx_cms_showpic?file=3&amp;...&amp;amp;frame=12345`). This allows adversaries to instruct the system to produce an arbitrary number of thumbnail images on the server side. TYPO3 versions 9.5.48 ELTS, 10.4.45 ELTS, 11.5.37 LTS, 12.4.15 LTS, 13.1.1 fix the problem described.</description>
-      <guid isPermaLink="false">CVE-2024-34358|2024-05-14T14:26:36.422Z</guid>
-      <pubDate>Tue, 14 May 2024 14:26:36 +0000</pubDate>
-    </item>
-    <item>
-      <title>CVE-2024-34355|2024-06-04T17:42:41.383Z -- typo3 -- typo3</title>
-      <link>https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2024-34355</link>
+      <title>CVE-2024-34355|2024-08-02T02:51:11.144Z -- typo3 -- typo3</title>
+      <link>https://www.cve.org/CVERecord?id=CVE-2024-34355</link>
       <description>TYPO3 is an enterprise content management system. Starting in version 13.0.0 and prior to version 13.1.1, the history backend module is vulnerable to HTML injection. Although Content-Security-Policy headers effectively prevent JavaScript execution, adversaries can still inject malicious HTML markup. Exploiting this vulnerability requires a valid backend user account. TYPO3 version 13.1.1 fixes the problem described.</description>
-      <guid isPermaLink="false">CVE-2024-34355|2024-06-04T17:42:41.383Z</guid>
+      <guid isPermaLink="false">CVE-2024-34355|2024-08-02T02:51:11.144Z</guid>
       <pubDate>Tue, 14 May 2024 14:01:32 +0000</pubDate>
     </item>
     <item>
@@ -102,24 +101,73 @@
       <pubDate>Tue, 14 May 2024 14:26:36 +0000</pubDate>
     </item>
     <item>
-      <title>CVE-2024-34355|2024-08-02T02:51:11.144Z -- typo3 -- typo3</title>
-      <link>https://www.cve.org/CVERecord?id=CVE-2024-34355</link>
+      <title>CVE-2024-34355|2024-06-04T17:42:41.383Z -- typo3 -- typo3</title>
+      <link>https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2024-34355</link>
       <description>TYPO3 is an enterprise content management system. Starting in version 13.0.0 and prior to version 13.1.1, the history backend module is vulnerable to HTML injection. Although Content-Security-Policy headers effectively prevent JavaScript execution, adversaries can still inject malicious HTML markup. Exploiting this vulnerability requires a valid backend user account. TYPO3 version 13.1.1 fixes the problem described.</description>
-      <guid isPermaLink="false">CVE-2024-34355|2024-08-02T02:51:11.144Z</guid>
+      <guid isPermaLink="false">CVE-2024-34355|2024-06-04T17:42:41.383Z</guid>
       <pubDate>Tue, 14 May 2024 14:01:32 +0000</pubDate>
     </item>
     <item>
-      <title>CVE-2024-34356|2024-08-02T02:51:11.450Z -- typo3 -- typo3</title>
-      <link>https://www.cve.org/CVERecord?id=CVE-2024-34356</link>
+      <title>CVE-2024-34358|2024-05-14T14:26:36.422Z -- typo3 -- typo3</title>
+      <link>https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2024-34358</link>
+      <description>TYPO3 is an enterprise content management system. Starting in version 9.0.0 and prior to versions 9.5.48 ELTS, 10.4.45 ELTS, 11.5.37 LTS, 12.4.15 LTS, and 13.1.1, the `ShowImageController` (`_eID tx_cms_showpic_`) lacks a cryptographic HMAC-signature on the `frame` HTTP query parameter (e.g. `/index.php?eID=tx_cms_showpic?file=3&amp;...&amp;amp;frame=12345`). This allows adversaries to instruct the system to produce an arbitrary number of thumbnail images on the server side. TYPO3 versions 9.5.48 ELTS, 10.4.45 ELTS, 11.5.37 LTS, 12.4.15 LTS, 13.1.1 fix the problem described.</description>
+      <guid isPermaLink="false">CVE-2024-34358|2024-05-14T14:26:36.422Z</guid>
+      <pubDate>Tue, 14 May 2024 14:26:36 +0000</pubDate>
+    </item>
+    <item>
+      <title>CVE-2024-34357|2024-05-14T14:25:53.339Z -- typo3 -- typo3</title>
+      <link>https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2024-34357</link>
+      <description>TYPO3 is an enterprise content management system. Starting in version 9.0.0 and prior to versions 9.5.48 ELTS, 10.4.45 ELTS, 11.5.37 LTS, 12.4.15 LTS, and 13.1.1, failing to properly encode user-controlled values in file entities, the `ShowImageController` (`_eID tx_cms_showpic_`) is vulnerable to cross-site scripting. Exploiting this vulnerability requires a valid backend user account with access to file entities. TYPO3 versions 9.5.48 ELTS, 10.4.45 ELTS, 11.5.37 LTS, 12.4.15 LTS, 13.1.1 fix the problem described.</description>
+      <guid isPermaLink="false">CVE-2024-34357|2024-05-14T14:25:53.339Z</guid>
+      <pubDate>Tue, 14 May 2024 14:13:11 +0000</pubDate>
+    </item>
+    <item>
+      <title>CVE-2024-34356|2024-06-04T17:41:04.744Z -- typo3 -- typo3</title>
+      <link>https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2024-34356</link>
       <description>TYPO3 is an enterprise content management system. Starting in version 9.0.0 and prior to versions 9.5.48 ELTS, 10.4.45 ELTS, 11.5.37 LTS, 12.4.15 LTS, and 13.1.1, the form manager backend module is vulnerable to cross-site scripting. Exploiting this vulnerability requires a valid backend user account with access to the form module. TYPO3 versions 9.5.48 ELTS, 10.4.45 ELTS, 11.5.37 LTS, 12.4.15 LTS, and 13.1.1 fix the problem described.</description>
-      <guid isPermaLink="false">CVE-2024-34356|2024-08-02T02:51:11.450Z</guid>
+      <guid isPermaLink="false">CVE-2024-34356|2024-06-04T17:41:04.744Z</guid>
       <pubDate>Tue, 14 May 2024 14:05:19 +0000</pubDate>
     </item>
     <item>
-      <title>CVE-2024-34357|2024-08-02T02:51:11.194Z -- typo3 -- typo3</title>
-      <link>https://www.cve.org/CVERecord?id=CVE-2024-34357</link>
+      <title>CVE-2024-25118|2024-06-04T17:35:53.986Z -- typo3 -- typo3</title>
+      <link>https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2024-25118</link>
+      <description>TYPO3 is an open source PHP based web content management system released under the GNU GPL. Password hashes were being reflected in the editing forms of the TYPO3 backend user interface. This allowed attackers to crack the plaintext password using brute force techniques. Exploiting this vulnerability requires a valid backend user account. Users are advised to update to TYPO3 versions 8.7.57 ELTS, 9.5.46 ELTS, 10.4.43 ELTS, 11.5.35 LTS, 12.4.11 LTS, 13.0.1 that fix the problem described. There are no known workarounds for this issue.</description>
+      <guid isPermaLink="false">CVE-2024-25118|2024-06-04T17:35:53.986Z</guid>
+      <pubDate>Tue, 13 Feb 2024 22:19:22 +0000</pubDate>
+    </item>
+    <item>
+      <title>CVE-2024-25119|2024-06-04T17:35:39.545Z -- typo3 -- typo3</title>
+      <link>https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2024-25119</link>
+      <description>TYPO3 is an open source PHP based web content management system released under the GNU GPL. The plaintext value of `$GLOBALS['SYS']['encryptionKey']` was displayed in the editing forms of the TYPO3 Install Tool user interface. This allowed attackers to utilize the value to generate cryptographic hashes used for verifying the authenticity of HTTP request parameters. Exploiting this vulnerability requires an administrator-level backend user account with system maintainer permissions. Users are advised to update to TYPO3 versions 8.7.57 ELTS, 9.5.46 ELTS, 10.4.43 ELTS, 11.5.35 LTS, 12.4.11 LTS, 13.0.1 that fix the problem described. There are no known workarounds for this vulnerability.</description>
+      <guid isPermaLink="false">CVE-2024-25119|2024-06-04T17:35:39.545Z</guid>
+      <pubDate>Tue, 13 Feb 2024 22:16:37 +0000</pubDate>
+    </item>
+    <item>
+      <title>CVE-2024-25120|2024-06-04T17:35:11.339Z -- typo3 -- typo3</title>
+      <link>https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2024-25120</link>
+      <description>TYPO3 is an open source PHP based web content management system released under the GNU GPL. The TYPO3-specific `t3://` URI scheme could be used to access resources outside of the users' permission scope. This encompassed files, folders, pages, and records (although only if a valid link-handling configuration was provided). Exploiting this vulnerability requires a valid backend user account. Users are advised to update to TYPO3 versions 8.7.57 ELTS, 9.5.46 ELTS, 10.4.43 ELTS, 11.5.35 LTS, 12.4.11 LTS, 13.0.1 that fix the problem described. There are no known workarounds for this issue.</description>
+      <guid isPermaLink="false">CVE-2024-25120|2024-06-04T17:35:11.339Z</guid>
+      <pubDate>Tue, 13 Feb 2024 22:15:13 +0000</pubDate>
+    </item>
+    <item>
+      <title>CVE-2024-25121|2024-02-13T22:14:40.926Z -- typo3 -- typo3</title>
+      <link>https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2024-25121</link>
+      <description>TYPO3 is an open source PHP based web content management system released under the GNU GPL. In affected versions of TYPO3 entities of the File Abstraction Layer (FAL) could be persisted directly via `DataHandler`. This allowed attackers to reference files in the fallback storage directly and retrieve their file names and contents. The fallback storage ("zero-storage") is used as a backward compatibility layer for files located outside properly configured file storages and within the public web root directory. Exploiting this vulnerability requires a valid backend user account. Users are advised to update to TYPO3 version 8.7.57 ELTS, 9.5.46 ELTS, 10.4.43 ELTS, 11.5.35 LTS, 12.4.11 LTS, or 13.0.1 which fix the problem described. When persisting entities of the File Abstraction Layer directly via DataHandler, `sys_file` entities are now denied by default, and `sys_file_reference` &amp; `sys_file_metadata` entities are not permitted to reference files in the fallback storage anymore. When importing data from secure origins, this must be explicitly enabled in the corresponding DataHandler instance by using `$dataHandler-&gt;isImporting = true;`.</description>
+      <guid isPermaLink="false">CVE-2024-25121|2024-02-13T22:14:40.926Z</guid>
+      <pubDate>Tue, 13 Feb 2024 22:14:40 +0000</pubDate>
+    </item>
+    <item>
+      <title>CVE-2024-34358|2024-06-12T15:46:38.522Z -- typo3 -- typo3</title>
+      <link>https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2024-34358</link>
+      <description>TYPO3 is an enterprise content management system. Starting in version 9.0.0 and prior to versions 9.5.48 ELTS, 10.4.45 ELTS, 11.5.37 LTS, 12.4.15 LTS, and 13.1.1, the `ShowImageController` (`_eID tx_cms_showpic_`) lacks a cryptographic HMAC-signature on the `frame` HTTP query parameter (e.g. `/index.php?eID=tx_cms_showpic?file=3&amp;...&amp;amp;frame=12345`). This allows adversaries to instruct the system to produce an arbitrary number of thumbnail images on the server side. TYPO3 versions 9.5.48 ELTS, 10.4.45 ELTS, 11.5.37 LTS, 12.4.15 LTS, 13.1.1 fix the problem described.</description>
+      <guid isPermaLink="false">CVE-2024-34358|2024-06-12T15:46:38.522Z</guid>
+      <pubDate>Tue, 14 May 2024 14:26:36 +0000</pubDate>
+    </item>
+    <item>
+      <title>CVE-2024-34357|2024-06-12T15:47:27.316Z -- typo3 -- typo3</title>
+      <link>https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2024-34357</link>
       <description>TYPO3 is an enterprise content management system. Starting in version 9.0.0 and prior to versions 9.5.48 ELTS, 10.4.45 ELTS, 11.5.37 LTS, 12.4.15 LTS, and 13.1.1, failing to properly encode user-controlled values in file entities, the `ShowImageController` (`_eID tx_cms_showpic_`) is vulnerable to cross-site scripting. Exploiting this vulnerability requires a valid backend user account with access to file entities. TYPO3 versions 9.5.48 ELTS, 10.4.45 ELTS, 11.5.37 LTS, 12.4.15 LTS, 13.1.1 fix the problem described.</description>
-      <guid isPermaLink="false">CVE-2024-34357|2024-08-02T02:51:11.194Z</guid>
+      <guid isPermaLink="false">CVE-2024-34357|2024-06-12T15:47:27.316Z</guid>
       <pubDate>Tue, 14 May 2024 14:13:11 +0000</pubDate>
     </item>
   </channel>

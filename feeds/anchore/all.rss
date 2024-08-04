@@ -6,15 +6,15 @@
     <description>The latest CVEs for anchore -- all products</description>
     <docs>http://www.rssboard.org/rss-specification</docs>
     <generator>python-feedgen</generator>
-    <lastBuildDate>Fri, 02 Aug 2024 23:22:16 +0000</lastBuildDate>
+    <lastBuildDate>Sun, 04 Aug 2024 12:25:45 +0000</lastBuildDate>
     <ttl>60</ttl>
     <item>
-      <title>CVE-2023-24827|2024-08-02T11:03:19.257Z -- anchore -- syft
+      <title>CVE-2020-11075|2024-08-04T11:21:14.644Z -- anchore -- anchore-engine
 </title>
-      <link>https://www.cve.org/CVERecord?id=CVE-2023-24827</link>
-      <description>syft is a a CLI tool and Go library for generating a Software Bill of Materials (SBOM) from container images and filesystems. A password disclosure flaw was found in Syft versions v0.69.0 and v0.69.1. This flaw leaks the password stored in the SYFT_ATTEST_PASSWORD environment variable. The `SYFT_ATTEST_PASSWORD` environment variable is for the `syft attest` command to generate attested SBOMs for the given container image. This environment variable is used to decrypt the private key (provided with `syft attest --key &lt;path-to-key-file&gt;`)  during the signing process while generating an SBOM attestation. This vulnerability affects users running syft that have the `SYFT_ATTEST_PASSWORD` environment variable set with credentials (regardless of if the attest command is being used or not). Users that do not have the environment variable `SYFT_ATTEST_PASSWORD` set are not affected by this issue. The credentials are leaked in two ways: in the syft logs when `-vv` or `-vvv` are used in the syft command (which is any log level &gt;= `DEBUG`) and in the attestation or SBOM only when the `syft-json` format is used. Note that as of v0.69.0 any generated attestations by the `syft attest` command are uploaded to the OCI registry (if you have write access to that registry) in the same way `cosign attach` is done. This means that any attestations generated for the affected versions of syft when the `SYFT_ATTEST_PASSWORD` environment variable was set would leak credentials in the attestation payload uploaded to the OCI registry. This issue has been patched in commit `9995950c70` and has been released as v0.70.0. There are no workarounds for this vulnerability. Users are advised to upgrade.</description>
-      <guid isPermaLink="false">CVE-2023-24827|2024-08-02T11:03:19.257Z</guid>
-      <pubDate>Tue, 07 Feb 2023 00:07:38 +0000</pubDate>
+      <link>https://www.cve.org/CVERecord?id=CVE-2020-11075</link>
+      <description>In Anchore Engine version 0.7.0, a specially crafted container image manifest, fetched from a registry, can be used to trigger a shell escape flaw in the anchore engine analyzer service during an image analysis process. The image analysis operation can only be executed by an authenticated user via a valid API request to anchore engine, or if an already added image that anchore is monitoring has its manifest altered to exploit the same flaw. A successful attack can be used to execute commands that run in the analyzer environment, with the same permissions as the user that anchore engine is run as - including access to the credentials that Engine uses to access its own database which have read-write ability, as well as access to the running engien analyzer service environment. By default Anchore Engine is released and deployed as a container where the user is non-root, but if users run Engine directly or explicitly set the user to 'root' then that level of access may be gained in the execution environment where Engine runs. This issue is fixed in version 0.7.1.</description>
+      <guid isPermaLink="false">CVE-2020-11075|2024-08-04T11:21:14.644Z</guid>
+      <pubDate>Wed, 27 May 2020 21:20:14 +0000</pubDate>
     </item>
   </channel>
 </rss>

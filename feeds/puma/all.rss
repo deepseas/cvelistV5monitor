@@ -6,8 +6,16 @@
     <description>The latest CVEs for puma -- all products</description>
     <docs>http://www.rssboard.org/rss-specification</docs>
     <generator>python-feedgen</generator>
-    <lastBuildDate>Sun, 04 Aug 2024 11:20:11 +0000</lastBuildDate>
+    <lastBuildDate>Sun, 04 Aug 2024 12:25:39 +0000</lastBuildDate>
     <ttl>60</ttl>
+    <item>
+      <title>CVE-2020-11077|2024-08-04T11:21:14.618Z -- puma -- puma
+</title>
+      <link>https://www.cve.org/CVERecord?id=CVE-2020-11077</link>
+      <description>In Puma (RubyGem) before 4.3.5 and 3.12.6, a client could smuggle a request through a proxy, causing the proxy to send a response back to another unknown client. If the proxy uses persistent connections and the client adds another request in via HTTP pipelining, the proxy may mistake it as the first request's body. Puma, however, would see it as two requests, and when processing the second request, send back a response that the proxy does not expect. If the proxy has reused the persistent connection to Puma to send another request for a different client, the second response from the first client will be sent to the second client. This is a similar but different vulnerability from CVE-2020-11076. The problem has been fixed in Puma 3.12.6 and Puma 4.3.5.</description>
+      <guid isPermaLink="false">CVE-2020-11077|2024-08-04T11:21:14.618Z</guid>
+      <pubDate>Fri, 22 May 2020 14:55:13 +0000</pubDate>
+    </item>
     <item>
       <title>CVE-2020-5247|2024-08-04T08:22:09.079Z -- puma -- puma
 </title>
@@ -23,6 +31,14 @@
       <description>Puma is a HTTP 1.1 server for Ruby/Rack applications. Prior to versions 5.5.1 and 4.3.9, using `puma` with a proxy which forwards HTTP header values which contain the LF character could allow HTTP request smugggling. A client could smuggle a request through a proxy, causing the proxy to send a response back to another unknown client. The only proxy which has this behavior, as far as the Puma team is aware of, is Apache Traffic Server. If the proxy uses persistent connections and the client adds another request in via HTTP pipelining, the proxy may mistake it as the first request's body. Puma, however, would see it as two requests, and when processing the second request, send back a response that the proxy does not expect. If the proxy has reused the persistent connection to Puma to send another request for a different client, the second response from the first client will be sent to the second client. This vulnerability was patched in Puma 5.5.1 and 4.3.9. As a workaround, do not use Apache Traffic Server with `puma`.</description>
       <guid isPermaLink="false">CVE-2021-41136|2024-08-04T02:59:31.645Z</guid>
       <pubDate>Tue, 12 Oct 2021 15:30:11 +0000</pubDate>
+    </item>
+    <item>
+      <title>CVE-2020-11076|2024-08-04T11:21:14.684Z -- puma -- puma
+</title>
+      <link>https://www.cve.org/CVERecord?id=CVE-2020-11076</link>
+      <description>In Puma (RubyGem) before 4.3.4 and 3.12.5, an attacker could smuggle an HTTP response, by using an invalid transfer-encoding header. The problem has been fixed in Puma 3.12.5 and Puma 4.3.4.</description>
+      <guid isPermaLink="false">CVE-2020-11076|2024-08-04T11:21:14.684Z</guid>
+      <pubDate>Fri, 22 May 2020 14:50:12 +0000</pubDate>
     </item>
     <item>
       <title>CVE-2020-5249|2024-08-04T08:22:09.092Z -- puma -- puma

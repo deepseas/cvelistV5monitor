@@ -1,0 +1,20 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<rss xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/" version="2.0">
+  <channel>
+    <title>CVE Feed for weaveworks -- Weave</title>
+    <link>https://raw.githubusercontent.com/deepseas/cvelistV5monitor/main/feeds/weaveworks/weave.rss</link>
+    <description>The latest CVEs for weaveworks -- Weave</description>
+    <docs>http://www.rssboard.org/rss-specification</docs>
+    <generator>python-feedgen</generator>
+    <lastBuildDate>Sun, 04 Aug 2024 12:25:47 +0000</lastBuildDate>
+    <ttl>60</ttl>
+    <item>
+      <title>CVE-2020-11091|2024-08-04T11:21:14.680Z -- weaveworks -- weave
+</title>
+      <link>https://www.cve.org/CVERecord?id=CVE-2020-11091</link>
+      <description>In Weave Net before version 2.6.3, an attacker able to run a process as root in a container is able to respond to DNS requests from the host and thereby insert themselves as a fake service. In a cluster with an IPv4 internal network, if IPv6 is not totally disabled on the host (via ipv6.disable=1 on the kernel cmdline), it will be either unconfigured or configured on some interfaces, but it's pretty likely that ipv6 forwarding is disabled, ie /proc/sys/net/ipv6/conf//forwarding == 0. Also by default, /proc/sys/net/ipv6/conf//accept_ra == 1. The combination of these 2 sysctls means that the host accepts router advertisements and configure the IPv6 stack using them. By sending rogue router advertisements, an attacker can reconfigure the host to redirect part or all of the IPv6 traffic of the host to the attacker controlled container. Even if there was no IPv6 traffic before, if the DNS returns A (IPv4) and AAAA (IPv6) records, many HTTP libraries will try to connect via IPv6 first then fallback to IPv4, giving an opportunity to the attacker to respond. If by chance you also have on the host a vulnerability like last year's RCE in apt (CVE-2019-3462), you can now escalate to the host. Weave Net version 2.6.3 disables the accept_ra option on the veth devices that it creates.</description>
+      <guid isPermaLink="false">CVE-2020-11091|2024-08-04T11:21:14.680Z</guid>
+      <pubDate>Wed, 03 Jun 2020 22:55:13 +0000</pubDate>
+    </item>
+  </channel>
+</rss>

@@ -6,61 +6,15 @@
     <description>The latest CVEs for weaveworks -- all products</description>
     <docs>http://www.rssboard.org/rss-specification</docs>
     <generator>python-feedgen</generator>
-    <lastBuildDate>Sat, 03 Aug 2024 23:23:02 +0000</lastBuildDate>
+    <lastBuildDate>Sun, 04 Aug 2024 12:25:47 +0000</lastBuildDate>
     <ttl>60</ttl>
     <item>
-      <title>CVE-2022-35976|2024-08-03T09:51:59.661Z -- weaveworks -- vscode-gitops-tools
+      <title>CVE-2020-11091|2024-08-04T11:21:14.680Z -- weaveworks -- weave
 </title>
-      <link>https://www.cve.org/CVERecord?id=CVE-2022-35976</link>
-      <description>The GitOps Tools Extension for VSCode relies on kubeconfigs in order to communicate with Kubernetes clusters. A specially crafted kubeconfig leads to arbitrary code execution on behalf of the user running VSCode. Users relying on kubeconfigs that are generated or altered by other processes or users are affected by this issue. Please note that the vulnerability is specific to this extension, and the same kubeconfig would not result in arbitrary code execution when used with kubectl. Using only trust-worthy kubeconfigs is a safe mitigation. However, updating to the latest version of the extension is still highly recommended.</description>
-      <guid isPermaLink="false">CVE-2022-35976|2024-08-03T09:51:59.661Z</guid>
-      <pubDate>Thu, 18 Aug 2022 18:50:08 +0000</pubDate>
-    </item>
-    <item>
-      <title>CVE-2022-35975|2024-08-03T09:51:59.831Z -- weaveworks -- vscode-gitops-tools
-</title>
-      <link>https://www.cve.org/CVERecord?id=CVE-2022-35975</link>
-      <description>The GitOps Tools Extension for VSCode can make it easier to manage Flux objects. A specially crafted Flux object may allow for remote code execution in the machine running the extension, in the context of the user that is running VSCode. Users using the VSCode extension to manage clusters that are shared amongst other users are affected by this issue. The only safe mitigation is to update to the latest version of the extension.</description>
-      <guid isPermaLink="false">CVE-2022-35975|2024-08-03T09:51:59.831Z</guid>
-      <pubDate>Thu, 18 Aug 2022 17:55:08 +0000</pubDate>
-    </item>
-    <item>
-      <title>CVE-2022-31098|2024-08-03T07:11:39.240Z -- weaveworks -- weave-gitops
-</title>
-      <link>https://www.cve.org/CVERecord?id=CVE-2022-31098</link>
-      <description>Weave GitOps is a simple open source developer platform for people who want cloud native applications, without needing Kubernetes expertise. A vulnerability in the logging of Weave GitOps could allow an authenticated remote attacker to view sensitive cluster configurations, aka KubeConfg, of registered Kubernetes clusters, including the service account tokens in plain text from Weave GitOps's pod logs on the management cluster. An unauthorized remote attacker can also view these sensitive configurations from external log storage if enabled by the management cluster. This vulnerability is due to the client factory dumping cluster configurations and their service account tokens when the cluster manager tries to connect to an API server of a registered cluster, and a connection error occurs. An attacker could exploit this vulnerability by either accessing logs of a pod of Weave GitOps, or from external log storage and obtaining all cluster configurations of registered clusters. A successful exploit could allow the attacker to use those cluster configurations to manage the registered Kubernetes clusters. This vulnerability has been fixed by commit 567356f471353fb5c676c77f5abc2a04631d50ca. Users should upgrade to Weave GitOps core version v0.8.1-rc.6 or newer. There is no known workaround for this vulnerability.</description>
-      <guid isPermaLink="false">CVE-2022-31098|2024-08-03T07:11:39.240Z</guid>
-      <pubDate>Mon, 27 Jun 2022 22:05:11 +0000</pubDate>
-    </item>
-    <item>
-      <title>CVE-2022-23508|2024-08-03T03:43:46.467Z -- weaveworks -- weave-gitops
-</title>
-      <link>https://www.cve.org/CVERecord?id=CVE-2022-23508</link>
-      <description>Weave GitOps is a simple open source developer platform for people who want cloud native applications, without needing Kubernetes expertise.  A vulnerability in GitOps run could allow a local user or process to alter a Kubernetes cluster's resources. GitOps run has a local S3 bucket which it uses for synchronizing files that are later applied against a Kubernetes cluster. Its endpoint had no security controls to block unauthorized access, therefore allowing local users (and processes) on the same machine to see and alter the bucket content. By leveraging this vulnerability, an attacker could pick a workload of their choosing and inject it into the S3 bucket, which resulted in the successful deployment in the target cluster, without the need to provide any credentials to either the S3 bucket nor the target Kubernetes cluster. There are no known workarounds for this issue, please upgrade. This vulnerability has been fixed by commits 75268c4 and 966823b. Users should upgrade to Weave GitOps version &gt;= v0.12.0 released on 08/12/2022.
-
-### Workarounds
-There is no workaround for this vulnerability.
-
-### References
-Disclosed by Paulo Gomes, Senior Software Engineer, Weaveworks.
-
-### For more information
-If you have any questions or comments about this advisory:
-
-- Open an issue in [Weave GitOps repository](https://github.com/weaveworks/weave-gitops)
-- Email us at [support@weave.works](mailto:support@weave.works)
-</description>
-      <guid isPermaLink="false">CVE-2022-23508|2024-08-03T03:43:46.467Z</guid>
-      <pubDate>Mon, 09 Jan 2023 12:56:01 +0000</pubDate>
-    </item>
-    <item>
-      <title>CVE-2022-23509|2024-08-03T03:43:46.115Z -- weaveworks -- weave-gitops
-</title>
-      <link>https://www.cve.org/CVERecord?id=CVE-2022-23509</link>
-      <description>Weave GitOps is a simple open source developer platform for people who want cloud native applications, without needing Kubernetes expertise. GitOps run has a local S3 bucket which it uses for synchronizing files that are later applied against a Kubernetes cluster. The communication between GitOps Run and the local S3 bucket is not encrypted. This allows privileged users or process to tap the local traffic to gain information permitting access to the s3 bucket. From that point, it would be possible to alter the bucket content, resulting in changes in the Kubernetes cluster's resources. There are no known workaround(s) for this vulnerability. This vulnerability has been fixed by commits ce2bbff and babd915. Users should upgrade to Weave GitOps version &gt;= v0.12.0 released on 08/12/2022.
-</description>
-      <guid isPermaLink="false">CVE-2022-23509|2024-08-03T03:43:46.115Z</guid>
-      <pubDate>Mon, 09 Jan 2023 13:01:08 +0000</pubDate>
+      <link>https://www.cve.org/CVERecord?id=CVE-2020-11091</link>
+      <description>In Weave Net before version 2.6.3, an attacker able to run a process as root in a container is able to respond to DNS requests from the host and thereby insert themselves as a fake service. In a cluster with an IPv4 internal network, if IPv6 is not totally disabled on the host (via ipv6.disable=1 on the kernel cmdline), it will be either unconfigured or configured on some interfaces, but it's pretty likely that ipv6 forwarding is disabled, ie /proc/sys/net/ipv6/conf//forwarding == 0. Also by default, /proc/sys/net/ipv6/conf//accept_ra == 1. The combination of these 2 sysctls means that the host accepts router advertisements and configure the IPv6 stack using them. By sending rogue router advertisements, an attacker can reconfigure the host to redirect part or all of the IPv6 traffic of the host to the attacker controlled container. Even if there was no IPv6 traffic before, if the DNS returns A (IPv4) and AAAA (IPv6) records, many HTTP libraries will try to connect via IPv6 first then fallback to IPv4, giving an opportunity to the attacker to respond. If by chance you also have on the host a vulnerability like last year's RCE in apt (CVE-2019-3462), you can now escalate to the host. Weave Net version 2.6.3 disables the accept_ra option on the veth devices that it creates.</description>
+      <guid isPermaLink="false">CVE-2020-11091|2024-08-04T11:21:14.680Z</guid>
+      <pubDate>Wed, 03 Jun 2020 22:55:13 +0000</pubDate>
     </item>
   </channel>
 </rss>
