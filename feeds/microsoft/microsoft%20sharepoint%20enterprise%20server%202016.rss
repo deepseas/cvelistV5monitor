@@ -6,7 +6,7 @@
     <description>The latest CVEs for Microsoft -- Microsoft SharePoint Enterprise Server 2016</description>
     <docs>http://www.rssboard.org/rss-specification</docs>
     <generator>python-feedgen</generator>
-    <lastBuildDate>Sun, 04 Aug 2024 18:24:19 +0000</lastBuildDate>
+    <lastBuildDate>Sun, 04 Aug 2024 19:19:25 +0000</lastBuildDate>
     <ttl>60</ttl>
     <item>
       <title>CVE-2020-1345|2024-08-04T06:32:01.210Z -- microsoft -- microsoft%20sharepoint%20enterprise%20server%202016
@@ -186,6 +186,17 @@ The security update addresses the vulnerability by helping to ensure that ShareP
       <pubDate>Fri, 11 Sep 2020 17:09:24 +0000</pubDate>
     </item>
     <item>
+      <title>CVE-2019-1203|2024-08-04T18:13:29.068Z -- microsoft -- microsoft%20sharepoint%20enterprise%20server%202016
+</title>
+      <link>https://www.cve.org/CVERecord?id=CVE-2019-1203</link>
+      <description>A cross-site-scripting (XSS) vulnerability exists when Microsoft SharePoint Server does not properly sanitize a specially crafted web request to an affected SharePoint server. An authenticated attacker could exploit the vulnerability by sending a specially crafted request to an affected SharePoint server.
+The attacker who successfully exploited the vulnerability could then perform cross-site scripting attacks on affected systems and run script in the security context of the current user. The attacks could allow the attacker to read content that the attacker is not authorized to read, use the victim's identity to take actions on the SharePoint site on behalf of the user, such as change permissions and delete content, and inject malicious content in the browser of the user.
+The security update addresses the vulnerability by helping to ensure that SharePoint Server properly sanitizes web requests.
+</description>
+      <guid isPermaLink="false">CVE-2019-1203|2024-08-04T18:13:29.068Z</guid>
+      <pubDate>Wed, 14 Aug 2019 20:55:05 +0000</pubDate>
+    </item>
+    <item>
       <title>CVE-2021-42309|2024-08-04T03:30:38.283Z -- microsoft -- microsoft%20sharepoint%20enterprise%20server%202016
 </title>
       <link>https://www.cve.org/CVERecord?id=CVE-2021-42309</link>
@@ -344,6 +355,17 @@ The security update addresses the vulnerability by helping to ensure that ShareP
       <pubDate>Mon, 17 Aug 2020 19:13:16 +0000</pubDate>
     </item>
     <item>
+      <title>CVE-2019-1202|2024-08-04T18:13:29.131Z -- microsoft -- microsoft%20sharepoint%20enterprise%20server%202016
+</title>
+      <link>https://www.cve.org/CVERecord?id=CVE-2019-1202</link>
+      <description>An information disclosure vulnerability exists in the way Microsoft SharePoint handles session objects. An authenticated attacker who successfully exploited the vulnerability could hijack the session of another user.
+To exploit this vulnerability, the attacker could run a specially crafted application.
+The security update corrects how SharePoint handles session objects to prevent user session hijacking.
+</description>
+      <guid isPermaLink="false">CVE-2019-1202|2024-08-04T18:13:29.131Z</guid>
+      <pubDate>Wed, 14 Aug 2019 20:55:05 +0000</pubDate>
+    </item>
+    <item>
       <title>CVE-2020-16953|2024-08-04T13:45:34.614Z -- microsoft -- microsoft%20sharepoint%20enterprise%20server%202016
 </title>
       <link>https://www.cve.org/CVERecord?id=CVE-2020-16953</link>
@@ -499,6 +521,35 @@ The update addresses the vulnerability by changing the way certain Word function
       <pubDate>Wed, 15 Dec 2021 14:15:02 +0000</pubDate>
     </item>
     <item>
+      <title>CVE-2019-1201|2024-08-04T18:13:29.220Z -- microsoft -- microsoft%20sharepoint%20enterprise%20server%202016
+</title>
+      <link>https://www.cve.org/CVERecord?id=CVE-2019-1201</link>
+      <description>A remote code execution vulnerability exists in Microsoft Word software when it fails to properly handle objects in memory. An attacker who successfully exploited the vulnerability could use a specially crafted file to perform actions in the security context of the current user. The file could then take actions on behalf of the logged-on user with the same permissions as the current user.
+To exploit the vulnerability, a user must open a specially crafted file with an affected version of Microsoft Word software.
+Two possible email attack scenarios exist for this vulnerability:
+•	With the first email attack scenario, an attacker could send a specially crafted email message to the user and wait for the user to click on the message. When the message renders via Microsoft Word in the Outlook Preview Pane, an attack could be triggered.
+•	With the second scenario, an attacker could attach a specially crafted file to an email, send it to a user, and convince them to open it.
+In a web-based attack scenario, an attacker could host a website (or leverage a compromised website that accepts or hosts user-provided content) that contains a specially crafted file that is designed to exploit the vulnerability. However, an attacker would have no way to force the user to visit the website. Instead, an attacker would have to convince the user to click a link, typically by way of an enticement in an email or other message, and then convince the user to open the specially crafted file.
+The security update addresses the vulnerability by correcting how Microsoft Word handles files in memory.
+For users who view their emails in Outlook, the Preview Pane attack vector can be mitigated by disabling this feature. The following registry keys can be set to disable the Preview Pane in Outlook on Windows, either via manual editing of the registry or by modifying Group Policy.
+Note Using Registry Editor incorrectly can cause serious problems that may require you to reinstall your operating system. Microsoft cannot guarantee that problems resulting from the incorrect use of Registry Editor can be solved. Use Registry Editor at your own risk. For information about how to edit the registry, view the &amp;quot;Changing Keys and Values&amp;quot; Help topic in Registry Editor (Regedit.exe) or view the &amp;quot;Add and Delete Information in the Registry&amp;quot; and &amp;quot;Edit Registry Data&amp;quot; Help topics in Regedt32.exe.
+Outlook 2010:
+HKEY_CURRENT_USER\Software\Microsoft\Office\14.0\Outlook\Options
+DWORD: DisableReadingPane
+Value: 1
+Outlook 2013:
+HKEY_CURRENT_USER\Software\Microsoft\Office\15.0\Outlook\Options
+DWORD: DisableReadingPane
+Value: 1
+Outlook 2016, Outlook 2019, and Office 365 ProPlus:
+HKEY_CURRENT_USER\Software\Microsoft\Office\16.0\Outlook\Options
+DWORD: DisableReadingPane
+Value: 1
+</description>
+      <guid isPermaLink="false">CVE-2019-1201|2024-08-04T18:13:29.220Z</guid>
+      <pubDate>Wed, 14 Aug 2019 20:55:05 +0000</pubDate>
+    </item>
+    <item>
       <title>CVE-2020-16946|2024-08-04T13:45:34.672Z -- microsoft -- microsoft%20sharepoint%20enterprise%20server%202016
 </title>
       <link>https://www.cve.org/CVERecord?id=CVE-2020-16946</link>
@@ -572,318 +623,66 @@ The security update addresses the vulnerability by helping to ensure that ShareP
       <pubDate>Wed, 11 Nov 2020 06:48:04 +0000</pubDate>
     </item>
     <item>
-      <title>CVE-2024-38094|2024-08-02T04:04:25.155Z -- microsoft -- microsoft%20sharepoint%20enterprise%20server%202016</title>
-      <link>https://www.cve.org/CVERecord?id=CVE-2024-38094</link>
-      <description>Microsoft SharePoint Remote Code Execution Vulnerability</description>
-      <guid isPermaLink="false">CVE-2024-38094|2024-08-02T04:04:25.155Z</guid>
-      <pubDate>Tue, 09 Jul 2024 17:03:24 +0000</pubDate>
-    </item>
-    <item>
-      <title>CVE-2024-38024|2024-08-02T04:04:24.732Z -- microsoft -- microsoft%20sharepoint%20enterprise%20server%202016</title>
-      <link>https://www.cve.org/CVERecord?id=CVE-2024-38024</link>
-      <description>Microsoft SharePoint Server Remote Code Execution Vulnerability</description>
-      <guid isPermaLink="false">CVE-2024-38024|2024-08-02T04:04:24.732Z</guid>
-      <pubDate>Tue, 09 Jul 2024 17:02:24 +0000</pubDate>
-    </item>
-    <item>
-      <title>CVE-2024-38023|2024-08-02T04:04:24.714Z -- microsoft -- microsoft%20sharepoint%20enterprise%20server%202016</title>
-      <link>https://www.cve.org/CVERecord?id=CVE-2024-38023</link>
-      <description>Microsoft SharePoint Server Remote Code Execution Vulnerability</description>
-      <guid isPermaLink="false">CVE-2024-38023|2024-08-02T04:04:24.714Z</guid>
-      <pubDate>Tue, 09 Jul 2024 17:02:23 +0000</pubDate>
-    </item>
-    <item>
-      <title>CVE-2024-30043|2024-08-02T01:25:02.558Z -- microsoft -- microsoft%20sharepoint%20enterprise%20server%202016</title>
-      <link>https://www.cve.org/CVERecord?id=CVE-2024-30043</link>
-      <description>Microsoft SharePoint Server Information Disclosure Vulnerability</description>
-      <guid isPermaLink="false">CVE-2024-30043|2024-08-02T01:25:02.558Z</guid>
-      <pubDate>Tue, 14 May 2024 16:57:29 +0000</pubDate>
-    </item>
-    <item>
-      <title>CVE-2024-30044|2024-08-02T01:25:02.484Z -- microsoft -- microsoft%20sharepoint%20enterprise%20server%202016</title>
-      <link>https://www.cve.org/CVERecord?id=CVE-2024-30044</link>
-      <description>Microsoft SharePoint Server Remote Code Execution Vulnerability</description>
-      <guid isPermaLink="false">CVE-2024-30044|2024-08-02T01:25:02.484Z</guid>
-      <pubDate>Tue, 14 May 2024 16:57:15 +0000</pubDate>
-    </item>
-    <item>
-      <title>CVE-2024-30100|2024-08-02T01:25:02.974Z -- microsoft -- microsoft%20sharepoint%20enterprise%20server%202016</title>
-      <link>https://www.cve.org/CVERecord?id=CVE-2024-30100</link>
-      <description>Microsoft SharePoint Server Remote Code Execution Vulnerability</description>
-      <guid isPermaLink="false">CVE-2024-30100|2024-08-02T01:25:02.974Z</guid>
-      <pubDate>Tue, 11 Jun 2024 17:00:02 +0000</pubDate>
-    </item>
-    <item>
-      <title>CVE-2024-38094|2024-07-31T23:00:59.183Z -- microsoft -- microsoft%20sharepoint%20enterprise%20server%202016</title>
-      <link>https://www.cve.org/CVERecord?id=CVE-2024-38094</link>
-      <description>Microsoft SharePoint Remote Code Execution Vulnerability</description>
-      <guid isPermaLink="false">CVE-2024-38094|2024-07-31T23:00:59.183Z</guid>
-      <pubDate>Tue, 09 Jul 2024 17:03:24 +0000</pubDate>
-    </item>
-    <item>
-      <title>CVE-2024-32987|2024-07-31T23:00:12.886Z -- microsoft -- microsoft%20sharepoint%20enterprise%20server%202016</title>
+      <title>CVE-2024-32987|2024-08-02T02:27:53.509Z -- microsoft -- microsoft%20sharepoint%20enterprise%20server%202016</title>
       <link>https://www.cve.org/CVERecord?id=CVE-2024-32987</link>
       <description>Microsoft SharePoint Server Information Disclosure Vulnerability</description>
-      <guid isPermaLink="false">CVE-2024-32987|2024-07-31T23:00:12.886Z</guid>
+      <guid isPermaLink="false">CVE-2024-32987|2024-08-02T02:27:53.509Z</guid>
       <pubDate>Tue, 09 Jul 2024 17:02:40 +0000</pubDate>
     </item>
     <item>
-      <title>CVE-2024-38024|2024-07-31T22:59:52.837Z -- microsoft -- microsoft%20sharepoint%20enterprise%20server%202016</title>
-      <link>https://www.cve.org/CVERecord?id=CVE-2024-38024</link>
+      <title>CVE-2024-21426|2024-08-01T22:20:40.762Z -- microsoft -- microsoft%20sharepoint%20enterprise%20server%202016</title>
+      <link>https://www.cve.org/CVERecord?id=CVE-2024-21426</link>
       <description>Microsoft SharePoint Server Remote Code Execution Vulnerability</description>
-      <guid isPermaLink="false">CVE-2024-38024|2024-07-31T22:59:52.837Z</guid>
-      <pubDate>Tue, 09 Jul 2024 17:02:24 +0000</pubDate>
-    </item>
-    <item>
-      <title>CVE-2024-38023|2024-07-31T22:59:52.256Z -- microsoft -- microsoft%20sharepoint%20enterprise%20server%202016</title>
-      <link>https://www.cve.org/CVERecord?id=CVE-2024-38023</link>
-      <description>Microsoft SharePoint Server Remote Code Execution Vulnerability</description>
-      <guid isPermaLink="false">CVE-2024-38023|2024-07-31T22:59:52.256Z</guid>
-      <pubDate>Tue, 09 Jul 2024 17:02:23 +0000</pubDate>
-    </item>
-    <item>
-      <title>CVE-2024-38094|2024-07-25T21:33:22.692Z -- microsoft -- microsoft%20sharepoint%20enterprise%20server%202016</title>
-      <link>https://www.cve.org/CVERecord?id=CVE-2024-38094</link>
-      <description>Microsoft SharePoint Remote Code Execution Vulnerability</description>
-      <guid isPermaLink="false">CVE-2024-38094|2024-07-25T21:33:22.692Z</guid>
-      <pubDate>Tue, 09 Jul 2024 17:03:24 +0000</pubDate>
-    </item>
-    <item>
-      <title>CVE-2024-32987|2024-07-25T21:32:36.150Z -- microsoft -- microsoft%20sharepoint%20enterprise%20server%202016</title>
-      <link>https://www.cve.org/CVERecord?id=CVE-2024-32987</link>
-      <description>Microsoft SharePoint Server Information Disclosure Vulnerability</description>
-      <guid isPermaLink="false">CVE-2024-32987|2024-07-25T21:32:36.150Z</guid>
-      <pubDate>Tue, 09 Jul 2024 17:02:40 +0000</pubDate>
-    </item>
-    <item>
-      <title>CVE-2024-38024|2024-07-25T21:32:19.834Z -- microsoft -- microsoft%20sharepoint%20enterprise%20server%202016</title>
-      <link>https://www.cve.org/CVERecord?id=CVE-2024-38024</link>
-      <description>Microsoft SharePoint Server Remote Code Execution Vulnerability</description>
-      <guid isPermaLink="false">CVE-2024-38024|2024-07-25T21:32:19.834Z</guid>
-      <pubDate>Tue, 09 Jul 2024 17:02:24 +0000</pubDate>
-    </item>
-    <item>
-      <title>CVE-2024-38023|2024-07-25T21:32:19.233Z -- microsoft -- microsoft%20sharepoint%20enterprise%20server%202016</title>
-      <link>https://www.cve.org/CVERecord?id=CVE-2024-38023</link>
-      <description>Microsoft SharePoint Server Remote Code Execution Vulnerability</description>
-      <guid isPermaLink="false">CVE-2024-38023|2024-07-25T21:32:19.233Z</guid>
-      <pubDate>Tue, 09 Jul 2024 17:02:23 +0000</pubDate>
-    </item>
-    <item>
-      <title>CVE-2024-38023|2024-07-23T21:25:42.167Z -- microsoft -- microsoft%20sharepoint%20enterprise%20server%202016</title>
-      <link>https://www.cve.org/CVERecord?id=CVE-2024-38023</link>
-      <description>Microsoft SharePoint Server Remote Code Execution Vulnerability</description>
-      <guid isPermaLink="false">CVE-2024-38023|2024-07-23T21:25:42.167Z</guid>
-      <pubDate>Tue, 09 Jul 2024 17:02:23 +0000</pubDate>
-    </item>
-    <item>
-      <title>CVE-2024-32987|2024-07-23T21:25:59.035Z -- microsoft -- microsoft%20sharepoint%20enterprise%20server%202016</title>
-      <link>https://www.cve.org/CVERecord?id=CVE-2024-32987</link>
-      <description>Microsoft SharePoint Server Information Disclosure Vulnerability</description>
-      <guid isPermaLink="false">CVE-2024-32987|2024-07-23T21:25:59.035Z</guid>
-      <pubDate>Tue, 09 Jul 2024 17:02:40 +0000</pubDate>
-    </item>
-    <item>
-      <title>CVE-2024-38094|2024-07-23T21:26:45.405Z -- microsoft -- microsoft%20sharepoint%20enterprise%20server%202016</title>
-      <link>https://www.cve.org/CVERecord?id=CVE-2024-38094</link>
-      <description>Microsoft SharePoint Remote Code Execution Vulnerability</description>
-      <guid isPermaLink="false">CVE-2024-38094|2024-07-23T21:26:45.405Z</guid>
-      <pubDate>Tue, 09 Jul 2024 17:03:24 +0000</pubDate>
-    </item>
-    <item>
-      <title>CVE-2024-38024|2024-07-23T21:25:42.786Z -- microsoft -- microsoft%20sharepoint%20enterprise%20server%202016</title>
-      <link>https://www.cve.org/CVERecord?id=CVE-2024-38024</link>
-      <description>Microsoft SharePoint Server Remote Code Execution Vulnerability</description>
-      <guid isPermaLink="false">CVE-2024-38024|2024-07-23T21:25:42.786Z</guid>
-      <pubDate>Tue, 09 Jul 2024 17:02:24 +0000</pubDate>
-    </item>
-    <item>
-      <title>CVE-2024-30100|2024-07-19T21:13:38.389Z -- microsoft -- microsoft%20sharepoint%20enterprise%20server%202016</title>
-      <link>https://www.cve.org/CVERecord?id=CVE-2024-30100</link>
-      <description>Microsoft SharePoint Server Remote Code Execution Vulnerability</description>
-      <guid isPermaLink="false">CVE-2024-30100|2024-07-19T21:13:38.389Z</guid>
-      <pubDate>Tue, 11 Jun 2024 17:00:02 +0000</pubDate>
-    </item>
-    <item>
-      <title>CVE-2024-38023|2024-07-10T21:17:05.299Z -- microsoft -- microsoft%20sharepoint%20enterprise%20server%202016</title>
-      <link>https://www.cve.org/CVERecord?id=CVE-2024-38023</link>
-      <description>Microsoft SharePoint Server Remote Code Execution Vulnerability</description>
-      <guid isPermaLink="false">CVE-2024-38023|2024-07-10T21:17:05.299Z</guid>
-      <pubDate>Tue, 09 Jul 2024 17:02:23 +0000</pubDate>
-    </item>
-    <item>
-      <title>CVE-2024-32987|2024-07-10T21:17:22.396Z -- microsoft -- microsoft%20sharepoint%20enterprise%20server%202016</title>
-      <link>https://www.cve.org/CVERecord?id=CVE-2024-32987</link>
-      <description>Microsoft SharePoint Server Information Disclosure Vulnerability</description>
-      <guid isPermaLink="false">CVE-2024-32987|2024-07-10T21:17:22.396Z</guid>
-      <pubDate>Tue, 09 Jul 2024 17:02:40 +0000</pubDate>
-    </item>
-    <item>
-      <title>CVE-2024-38094|2024-07-10T21:18:08.153Z -- microsoft -- microsoft%20sharepoint%20enterprise%20server%202016</title>
-      <link>https://www.cve.org/CVERecord?id=CVE-2024-38094</link>
-      <description>Microsoft SharePoint Remote Code Execution Vulnerability</description>
-      <guid isPermaLink="false">CVE-2024-38094|2024-07-10T21:18:08.153Z</guid>
-      <pubDate>Tue, 09 Jul 2024 17:03:24 +0000</pubDate>
-    </item>
-    <item>
-      <title>CVE-2024-38024|2024-07-10T21:17:05.898Z -- microsoft -- microsoft%20sharepoint%20enterprise%20server%202016</title>
-      <link>https://www.cve.org/CVERecord?id=CVE-2024-38024</link>
-      <description>Microsoft SharePoint Server Remote Code Execution Vulnerability</description>
-      <guid isPermaLink="false">CVE-2024-38024|2024-07-10T21:17:05.898Z</guid>
-      <pubDate>Tue, 09 Jul 2024 17:02:24 +0000</pubDate>
-    </item>
-    <item>
-      <title>CVE-2024-38023|2024-07-09T22:55:14.886Z -- microsoft -- microsoft%20sharepoint%20enterprise%20server%202016</title>
-      <link>https://www.cve.org/CVERecord?id=CVE-2024-38023</link>
-      <description>Microsoft SharePoint Server Remote Code Execution Vulnerability</description>
-      <guid isPermaLink="false">CVE-2024-38023|2024-07-09T22:55:14.886Z</guid>
-      <pubDate>Tue, 09 Jul 2024 17:02:23 +0000</pubDate>
-    </item>
-    <item>
-      <title>CVE-2024-32987|2024-07-09T22:55:31.548Z -- microsoft -- microsoft%20sharepoint%20enterprise%20server%202016</title>
-      <link>https://www.cve.org/CVERecord?id=CVE-2024-32987</link>
-      <description>Microsoft SharePoint Server Information Disclosure Vulnerability</description>
-      <guid isPermaLink="false">CVE-2024-32987|2024-07-09T22:55:31.548Z</guid>
-      <pubDate>Tue, 09 Jul 2024 17:02:40 +0000</pubDate>
-    </item>
-    <item>
-      <title>CVE-2024-38094|2024-07-09T22:56:17.116Z -- microsoft -- microsoft%20sharepoint%20enterprise%20server%202016</title>
-      <link>https://www.cve.org/CVERecord?id=CVE-2024-38094</link>
-      <description>Microsoft SharePoint Remote Code Execution Vulnerability</description>
-      <guid isPermaLink="false">CVE-2024-38094|2024-07-09T22:56:17.116Z</guid>
-      <pubDate>Tue, 09 Jul 2024 17:03:24 +0000</pubDate>
-    </item>
-    <item>
-      <title>CVE-2024-38024|2024-07-09T22:55:15.436Z -- microsoft -- microsoft%20sharepoint%20enterprise%20server%202016</title>
-      <link>https://www.cve.org/CVERecord?id=CVE-2024-38024</link>
-      <description>Microsoft SharePoint Server Remote Code Execution Vulnerability</description>
-      <guid isPermaLink="false">CVE-2024-38024|2024-07-09T22:55:15.436Z</guid>
-      <pubDate>Tue, 09 Jul 2024 17:02:24 +0000</pubDate>
-    </item>
-    <item>
-      <title>CVE-2024-38024|2024-07-09T18:34:07.213Z -- microsoft -- microsoft%20sharepoint%20enterprise%20server%202016</title>
-      <link>https://www.cve.org/CVERecord?id=CVE-2024-38024</link>
-      <description>Microsoft SharePoint Server Remote Code Execution Vulnerability</description>
-      <guid isPermaLink="false">CVE-2024-38024|2024-07-09T18:34:07.213Z</guid>
-      <pubDate>Tue, 09 Jul 2024 17:02:24 +0000</pubDate>
-    </item>
-    <item>
-      <title>CVE-2024-30100|2024-06-27T17:32:40.214Z -- microsoft -- microsoft%20sharepoint%20enterprise%20server%202016</title>
-      <link>https://www.cve.org/CVERecord?id=CVE-2024-30100</link>
-      <description>Microsoft SharePoint Server Remote Code Execution Vulnerability</description>
-      <guid isPermaLink="false">CVE-2024-30100|2024-06-27T17:32:40.214Z</guid>
-      <pubDate>Tue, 11 Jun 2024 17:00:02 +0000</pubDate>
-    </item>
-    <item>
-      <title>CVE-2024-30100|2024-06-20T20:06:22.555Z -- microsoft -- microsoft%20sharepoint%20enterprise%20server%202016</title>
-      <link>https://www.cve.org/CVERecord?id=CVE-2024-30100</link>
-      <description>Microsoft SharePoint Server Remote Code Execution Vulnerability</description>
-      <guid isPermaLink="false">CVE-2024-30100|2024-06-20T20:06:22.555Z</guid>
-      <pubDate>Tue, 11 Jun 2024 17:00:02 +0000</pubDate>
-    </item>
-    <item>
-      <title>CVE-2024-30100|2024-06-14T16:31:44.018Z -- microsoft -- microsoft%20sharepoint%20enterprise%20server%202016</title>
-      <link>https://www.cve.org/CVERecord?id=CVE-2024-30100</link>
-      <description>Microsoft SharePoint Server Remote Code Execution Vulnerability</description>
-      <guid isPermaLink="false">CVE-2024-30100|2024-06-14T16:31:44.018Z</guid>
-      <pubDate>Tue, 11 Jun 2024 17:00:02 +0000</pubDate>
-    </item>
-    <item>
-      <title>CVE-2024-30043|2024-06-13T21:39:34.614Z -- microsoft -- microsoft%20sharepoint%20enterprise%20server%202016</title>
-      <link>https://www.cve.org/CVERecord?id=CVE-2024-30043</link>
-      <description>Microsoft SharePoint Server Information Disclosure Vulnerability</description>
-      <guid isPermaLink="false">CVE-2024-30043|2024-06-13T21:39:34.614Z</guid>
-      <pubDate>Tue, 14 May 2024 16:57:29 +0000</pubDate>
-    </item>
-    <item>
-      <title>CVE-2024-30044|2024-06-13T21:39:20.049Z -- microsoft -- microsoft%20sharepoint%20enterprise%20server%202016</title>
-      <link>https://www.cve.org/CVERecord?id=CVE-2024-30044</link>
-      <description>Microsoft SharePoint Server Remote Code Execution Vulnerability</description>
-      <guid isPermaLink="false">CVE-2024-30044|2024-06-13T21:39:20.049Z</guid>
-      <pubDate>Tue, 14 May 2024 16:57:15 +0000</pubDate>
-    </item>
-    <item>
-      <title>CVE-2024-30100|2024-06-13T19:24:30.923Z -- microsoft -- microsoft%20sharepoint%20enterprise%20server%202016</title>
-      <link>https://www.cve.org/CVERecord?id=CVE-2024-30100</link>
-      <description>Microsoft SharePoint Server Remote Code Execution Vulnerability</description>
-      <guid isPermaLink="false">CVE-2024-30100|2024-06-13T19:24:30.923Z</guid>
-      <pubDate>Tue, 11 Jun 2024 17:00:02 +0000</pubDate>
-    </item>
-    <item>
-      <title>CVE-2024-21426|2024-06-12T18:26:58.479Z -- microsoft -- microsoft%20sharepoint%20enterprise%20server%202016</title>
-      <link>https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2024-21426</link>
-      <description>Microsoft SharePoint Server Remote Code Execution Vulnerability</description>
-      <guid isPermaLink="false">CVE-2024-21426|2024-06-12T18:26:58.479Z</guid>
+      <guid isPermaLink="false">CVE-2024-21426|2024-08-01T22:20:40.762Z</guid>
       <pubDate>Tue, 12 Mar 2024 16:57:44 +0000</pubDate>
     </item>
     <item>
-      <title>CVE-2024-21426|2024-06-11T15:09:32.336Z -- microsoft -- microsoft%20sharepoint%20enterprise%20server%202016</title>
-      <link>https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2024-21426</link>
+      <title>CVE-2024-38023|2024-07-11T14:59:04.458Z -- microsoft -- microsoft%20sharepoint%20enterprise%20server%202016</title>
+      <link>https://www.cve.org/CVERecord?id=CVE-2024-38023</link>
       <description>Microsoft SharePoint Server Remote Code Execution Vulnerability</description>
-      <guid isPermaLink="false">CVE-2024-21426|2024-06-11T15:09:32.336Z</guid>
-      <pubDate>Tue, 12 Mar 2024 16:57:44 +0000</pubDate>
+      <guid isPermaLink="false">CVE-2024-38023|2024-07-11T14:59:04.458Z</guid>
+      <pubDate>Tue, 09 Jul 2024 17:02:23 +0000</pubDate>
     </item>
     <item>
-      <title>CVE-2024-30043|2024-06-11T15:46:37.425Z -- microsoft -- microsoft%20sharepoint%20enterprise%20server%202016</title>
-      <link>https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2024-30043</link>
+      <title>CVE-2024-32987|2024-07-10T20:12:53.066Z -- microsoft -- microsoft%20sharepoint%20enterprise%20server%202016</title>
+      <link>https://www.cve.org/CVERecord?id=CVE-2024-32987</link>
       <description>Microsoft SharePoint Server Information Disclosure Vulnerability</description>
-      <guid isPermaLink="false">CVE-2024-30043|2024-06-11T15:46:37.425Z</guid>
-      <pubDate>Tue, 14 May 2024 16:57:29 +0000</pubDate>
+      <guid isPermaLink="false">CVE-2024-32987|2024-07-10T20:12:53.066Z</guid>
+      <pubDate>Tue, 09 Jul 2024 17:02:40 +0000</pubDate>
     </item>
     <item>
-      <title>CVE-2024-30100|2024-06-11T23:10:11.549Z -- microsoft -- microsoft%20sharepoint%20enterprise%20server%202016</title>
-      <link>https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2024-30100</link>
+      <title>CVE-2024-38024|2024-07-09T17:02:24.448Z -- microsoft -- microsoft%20sharepoint%20enterprise%20server%202016</title>
+      <link>https://www.cve.org/CVERecord?id=CVE-2024-38024</link>
       <description>Microsoft SharePoint Server Remote Code Execution Vulnerability</description>
-      <guid isPermaLink="false">CVE-2024-30100|2024-06-11T23:10:11.549Z</guid>
-      <pubDate>Tue, 11 Jun 2024 17:00:02 +0000</pubDate>
+      <guid isPermaLink="false">CVE-2024-38024|2024-07-09T17:02:24.448Z</guid>
+      <pubDate>Tue, 09 Jul 2024 17:02:24 +0000</pubDate>
     </item>
     <item>
-      <title>CVE-2024-30044|2024-06-11T15:46:21.076Z -- microsoft -- microsoft%20sharepoint%20enterprise%20server%202016</title>
-      <link>https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2024-30044</link>
+      <title>CVE-2024-38023|2024-07-09T17:02:23.908Z -- microsoft -- microsoft%20sharepoint%20enterprise%20server%202016</title>
+      <link>https://www.cve.org/CVERecord?id=CVE-2024-38023</link>
       <description>Microsoft SharePoint Server Remote Code Execution Vulnerability</description>
-      <guid isPermaLink="false">CVE-2024-30044|2024-06-11T15:46:21.076Z</guid>
-      <pubDate>Tue, 14 May 2024 16:57:15 +0000</pubDate>
+      <guid isPermaLink="false">CVE-2024-38023|2024-07-09T17:02:23.908Z</guid>
+      <pubDate>Tue, 09 Jul 2024 17:02:23 +0000</pubDate>
     </item>
     <item>
-      <title>CVE-2024-30100|2024-06-13T20:34:56.407Z -- microsoft -- microsoft%20sharepoint%20enterprise%20server%202016</title>
-      <link>https://www.cve.org/CVERecord?id=CVE-2024-30100</link>
-      <description>Microsoft SharePoint Server Remote Code Execution Vulnerability</description>
-      <guid isPermaLink="false">CVE-2024-30100|2024-06-13T20:34:56.407Z</guid>
-      <pubDate>Tue, 11 Jun 2024 17:00:02 +0000</pubDate>
+      <title>CVE-2024-38094|2024-07-09T18:00:25.261Z -- microsoft -- microsoft%20sharepoint%20enterprise%20server%202016</title>
+      <link>https://www.cve.org/CVERecord?id=CVE-2024-38094</link>
+      <description>Microsoft SharePoint Remote Code Execution Vulnerability</description>
+      <guid isPermaLink="false">CVE-2024-38094|2024-07-09T18:00:25.261Z</guid>
+      <pubDate>Tue, 09 Jul 2024 17:03:24 +0000</pubDate>
     </item>
     <item>
-      <title>CVE-2024-30100|2024-06-14T03:55:53.103Z -- microsoft -- microsoft%20sharepoint%20enterprise%20server%202016</title>
-      <link>https://www.cve.org/CVERecord?id=CVE-2024-30100</link>
-      <description>Microsoft SharePoint Server Remote Code Execution Vulnerability</description>
-      <guid isPermaLink="false">CVE-2024-30100|2024-06-14T03:55:53.103Z</guid>
-      <pubDate>Tue, 11 Jun 2024 17:00:02 +0000</pubDate>
-    </item>
-    <item>
-      <title>CVE-2024-30100|2024-06-17T15:51:39.061Z -- microsoft -- microsoft%20sharepoint%20enterprise%20server%202016</title>
-      <link>https://www.cve.org/CVERecord?id=CVE-2024-30100</link>
-      <description>Microsoft SharePoint Server Remote Code Execution Vulnerability</description>
-      <guid isPermaLink="false">CVE-2024-30100|2024-06-17T15:51:39.061Z</guid>
-      <pubDate>Tue, 11 Jun 2024 17:00:02 +0000</pubDate>
-    </item>
-    <item>
-      <title>CVE-2024-30043|2024-06-19T20:58:48.311Z -- microsoft -- microsoft%20sharepoint%20enterprise%20server%202016</title>
-      <link>https://www.cve.org/CVERecord?id=CVE-2024-30043</link>
+      <title>CVE-2024-32987|2024-07-09T17:02:40.032Z -- microsoft -- microsoft%20sharepoint%20enterprise%20server%202016</title>
+      <link>https://www.cve.org/CVERecord?id=CVE-2024-32987</link>
       <description>Microsoft SharePoint Server Information Disclosure Vulnerability</description>
-      <guid isPermaLink="false">CVE-2024-30043|2024-06-19T20:58:48.311Z</guid>
-      <pubDate>Tue, 14 May 2024 16:57:29 +0000</pubDate>
+      <guid isPermaLink="false">CVE-2024-32987|2024-07-09T17:02:40.032Z</guid>
+      <pubDate>Tue, 09 Jul 2024 17:02:40 +0000</pubDate>
     </item>
     <item>
-      <title>CVE-2024-30044|2024-06-19T20:58:34.396Z -- microsoft -- microsoft%20sharepoint%20enterprise%20server%202016</title>
-      <link>https://www.cve.org/CVERecord?id=CVE-2024-30044</link>
-      <description>Microsoft SharePoint Server Remote Code Execution Vulnerability</description>
-      <guid isPermaLink="false">CVE-2024-30044|2024-06-19T20:58:34.396Z</guid>
-      <pubDate>Tue, 14 May 2024 16:57:15 +0000</pubDate>
-    </item>
-    <item>
-      <title>CVE-2024-30100|2024-06-20T21:29:58.582Z -- microsoft -- microsoft%20sharepoint%20enterprise%20server%202016</title>
+      <title>CVE-2024-30100|2024-06-28T22:49:05.049Z -- microsoft -- microsoft%20sharepoint%20enterprise%20server%202016</title>
       <link>https://www.cve.org/CVERecord?id=CVE-2024-30100</link>
       <description>Microsoft SharePoint Server Remote Code Execution Vulnerability</description>
-      <guid isPermaLink="false">CVE-2024-30100|2024-06-20T21:29:58.582Z</guid>
+      <guid isPermaLink="false">CVE-2024-30100|2024-06-28T22:49:05.049Z</guid>
       <pubDate>Tue, 11 Jun 2024 17:00:02 +0000</pubDate>
     </item>
     <item>
@@ -894,67 +693,319 @@ The security update addresses the vulnerability by helping to ensure that ShareP
       <pubDate>Tue, 11 Jun 2024 17:00:02 +0000</pubDate>
     </item>
     <item>
-      <title>CVE-2024-30100|2024-06-28T22:49:05.049Z -- microsoft -- microsoft%20sharepoint%20enterprise%20server%202016</title>
+      <title>CVE-2024-30100|2024-06-20T21:29:58.582Z -- microsoft -- microsoft%20sharepoint%20enterprise%20server%202016</title>
       <link>https://www.cve.org/CVERecord?id=CVE-2024-30100</link>
       <description>Microsoft SharePoint Server Remote Code Execution Vulnerability</description>
-      <guid isPermaLink="false">CVE-2024-30100|2024-06-28T22:49:05.049Z</guid>
+      <guid isPermaLink="false">CVE-2024-30100|2024-06-20T21:29:58.582Z</guid>
       <pubDate>Tue, 11 Jun 2024 17:00:02 +0000</pubDate>
     </item>
     <item>
-      <title>CVE-2024-32987|2024-07-09T17:02:40.032Z -- microsoft -- microsoft%20sharepoint%20enterprise%20server%202016</title>
-      <link>https://www.cve.org/CVERecord?id=CVE-2024-32987</link>
+      <title>CVE-2024-30044|2024-06-19T20:58:34.396Z -- microsoft -- microsoft%20sharepoint%20enterprise%20server%202016</title>
+      <link>https://www.cve.org/CVERecord?id=CVE-2024-30044</link>
+      <description>Microsoft SharePoint Server Remote Code Execution Vulnerability</description>
+      <guid isPermaLink="false">CVE-2024-30044|2024-06-19T20:58:34.396Z</guid>
+      <pubDate>Tue, 14 May 2024 16:57:15 +0000</pubDate>
+    </item>
+    <item>
+      <title>CVE-2024-30043|2024-06-19T20:58:48.311Z -- microsoft -- microsoft%20sharepoint%20enterprise%20server%202016</title>
+      <link>https://www.cve.org/CVERecord?id=CVE-2024-30043</link>
       <description>Microsoft SharePoint Server Information Disclosure Vulnerability</description>
-      <guid isPermaLink="false">CVE-2024-32987|2024-07-09T17:02:40.032Z</guid>
-      <pubDate>Tue, 09 Jul 2024 17:02:40 +0000</pubDate>
+      <guid isPermaLink="false">CVE-2024-30043|2024-06-19T20:58:48.311Z</guid>
+      <pubDate>Tue, 14 May 2024 16:57:29 +0000</pubDate>
     </item>
     <item>
-      <title>CVE-2024-38094|2024-07-09T18:00:25.261Z -- microsoft -- microsoft%20sharepoint%20enterprise%20server%202016</title>
-      <link>https://www.cve.org/CVERecord?id=CVE-2024-38094</link>
-      <description>Microsoft SharePoint Remote Code Execution Vulnerability</description>
-      <guid isPermaLink="false">CVE-2024-38094|2024-07-09T18:00:25.261Z</guid>
-      <pubDate>Tue, 09 Jul 2024 17:03:24 +0000</pubDate>
-    </item>
-    <item>
-      <title>CVE-2024-38023|2024-07-09T17:02:23.908Z -- microsoft -- microsoft%20sharepoint%20enterprise%20server%202016</title>
-      <link>https://www.cve.org/CVERecord?id=CVE-2024-38023</link>
+      <title>CVE-2024-30100|2024-06-17T15:51:39.061Z -- microsoft -- microsoft%20sharepoint%20enterprise%20server%202016</title>
+      <link>https://www.cve.org/CVERecord?id=CVE-2024-30100</link>
       <description>Microsoft SharePoint Server Remote Code Execution Vulnerability</description>
-      <guid isPermaLink="false">CVE-2024-38023|2024-07-09T17:02:23.908Z</guid>
-      <pubDate>Tue, 09 Jul 2024 17:02:23 +0000</pubDate>
+      <guid isPermaLink="false">CVE-2024-30100|2024-06-17T15:51:39.061Z</guid>
+      <pubDate>Tue, 11 Jun 2024 17:00:02 +0000</pubDate>
     </item>
     <item>
-      <title>CVE-2024-38024|2024-07-09T17:02:24.448Z -- microsoft -- microsoft%20sharepoint%20enterprise%20server%202016</title>
-      <link>https://www.cve.org/CVERecord?id=CVE-2024-38024</link>
+      <title>CVE-2024-30100|2024-06-14T03:55:53.103Z -- microsoft -- microsoft%20sharepoint%20enterprise%20server%202016</title>
+      <link>https://www.cve.org/CVERecord?id=CVE-2024-30100</link>
       <description>Microsoft SharePoint Server Remote Code Execution Vulnerability</description>
-      <guid isPermaLink="false">CVE-2024-38024|2024-07-09T17:02:24.448Z</guid>
-      <pubDate>Tue, 09 Jul 2024 17:02:24 +0000</pubDate>
+      <guid isPermaLink="false">CVE-2024-30100|2024-06-14T03:55:53.103Z</guid>
+      <pubDate>Tue, 11 Jun 2024 17:00:02 +0000</pubDate>
     </item>
     <item>
-      <title>CVE-2024-32987|2024-07-10T20:12:53.066Z -- microsoft -- microsoft%20sharepoint%20enterprise%20server%202016</title>
-      <link>https://www.cve.org/CVERecord?id=CVE-2024-32987</link>
+      <title>CVE-2024-30100|2024-06-13T20:34:56.407Z -- microsoft -- microsoft%20sharepoint%20enterprise%20server%202016</title>
+      <link>https://www.cve.org/CVERecord?id=CVE-2024-30100</link>
+      <description>Microsoft SharePoint Server Remote Code Execution Vulnerability</description>
+      <guid isPermaLink="false">CVE-2024-30100|2024-06-13T20:34:56.407Z</guid>
+      <pubDate>Tue, 11 Jun 2024 17:00:02 +0000</pubDate>
+    </item>
+    <item>
+      <title>CVE-2024-30044|2024-06-11T15:46:21.076Z -- microsoft -- microsoft%20sharepoint%20enterprise%20server%202016</title>
+      <link>https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2024-30044</link>
+      <description>Microsoft SharePoint Server Remote Code Execution Vulnerability</description>
+      <guid isPermaLink="false">CVE-2024-30044|2024-06-11T15:46:21.076Z</guid>
+      <pubDate>Tue, 14 May 2024 16:57:15 +0000</pubDate>
+    </item>
+    <item>
+      <title>CVE-2024-30100|2024-06-11T23:10:11.549Z -- microsoft -- microsoft%20sharepoint%20enterprise%20server%202016</title>
+      <link>https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2024-30100</link>
+      <description>Microsoft SharePoint Server Remote Code Execution Vulnerability</description>
+      <guid isPermaLink="false">CVE-2024-30100|2024-06-11T23:10:11.549Z</guid>
+      <pubDate>Tue, 11 Jun 2024 17:00:02 +0000</pubDate>
+    </item>
+    <item>
+      <title>CVE-2024-30043|2024-06-11T15:46:37.425Z -- microsoft -- microsoft%20sharepoint%20enterprise%20server%202016</title>
+      <link>https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2024-30043</link>
       <description>Microsoft SharePoint Server Information Disclosure Vulnerability</description>
-      <guid isPermaLink="false">CVE-2024-32987|2024-07-10T20:12:53.066Z</guid>
-      <pubDate>Tue, 09 Jul 2024 17:02:40 +0000</pubDate>
+      <guid isPermaLink="false">CVE-2024-30043|2024-06-11T15:46:37.425Z</guid>
+      <pubDate>Tue, 14 May 2024 16:57:29 +0000</pubDate>
     </item>
     <item>
-      <title>CVE-2024-38023|2024-07-11T14:59:04.458Z -- microsoft -- microsoft%20sharepoint%20enterprise%20server%202016</title>
-      <link>https://www.cve.org/CVERecord?id=CVE-2024-38023</link>
+      <title>CVE-2024-21426|2024-06-11T15:09:32.336Z -- microsoft -- microsoft%20sharepoint%20enterprise%20server%202016</title>
+      <link>https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2024-21426</link>
       <description>Microsoft SharePoint Server Remote Code Execution Vulnerability</description>
-      <guid isPermaLink="false">CVE-2024-38023|2024-07-11T14:59:04.458Z</guid>
-      <pubDate>Tue, 09 Jul 2024 17:02:23 +0000</pubDate>
-    </item>
-    <item>
-      <title>CVE-2024-21426|2024-08-01T22:20:40.762Z -- microsoft -- microsoft%20sharepoint%20enterprise%20server%202016</title>
-      <link>https://www.cve.org/CVERecord?id=CVE-2024-21426</link>
-      <description>Microsoft SharePoint Server Remote Code Execution Vulnerability</description>
-      <guid isPermaLink="false">CVE-2024-21426|2024-08-01T22:20:40.762Z</guid>
+      <guid isPermaLink="false">CVE-2024-21426|2024-06-11T15:09:32.336Z</guid>
       <pubDate>Tue, 12 Mar 2024 16:57:44 +0000</pubDate>
     </item>
     <item>
-      <title>CVE-2024-32987|2024-08-02T02:27:53.509Z -- microsoft -- microsoft%20sharepoint%20enterprise%20server%202016</title>
+      <title>CVE-2024-21426|2024-06-12T18:26:58.479Z -- microsoft -- microsoft%20sharepoint%20enterprise%20server%202016</title>
+      <link>https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2024-21426</link>
+      <description>Microsoft SharePoint Server Remote Code Execution Vulnerability</description>
+      <guid isPermaLink="false">CVE-2024-21426|2024-06-12T18:26:58.479Z</guid>
+      <pubDate>Tue, 12 Mar 2024 16:57:44 +0000</pubDate>
+    </item>
+    <item>
+      <title>CVE-2024-30100|2024-06-13T19:24:30.923Z -- microsoft -- microsoft%20sharepoint%20enterprise%20server%202016</title>
+      <link>https://www.cve.org/CVERecord?id=CVE-2024-30100</link>
+      <description>Microsoft SharePoint Server Remote Code Execution Vulnerability</description>
+      <guid isPermaLink="false">CVE-2024-30100|2024-06-13T19:24:30.923Z</guid>
+      <pubDate>Tue, 11 Jun 2024 17:00:02 +0000</pubDate>
+    </item>
+    <item>
+      <title>CVE-2024-30044|2024-06-13T21:39:20.049Z -- microsoft -- microsoft%20sharepoint%20enterprise%20server%202016</title>
+      <link>https://www.cve.org/CVERecord?id=CVE-2024-30044</link>
+      <description>Microsoft SharePoint Server Remote Code Execution Vulnerability</description>
+      <guid isPermaLink="false">CVE-2024-30044|2024-06-13T21:39:20.049Z</guid>
+      <pubDate>Tue, 14 May 2024 16:57:15 +0000</pubDate>
+    </item>
+    <item>
+      <title>CVE-2024-30043|2024-06-13T21:39:34.614Z -- microsoft -- microsoft%20sharepoint%20enterprise%20server%202016</title>
+      <link>https://www.cve.org/CVERecord?id=CVE-2024-30043</link>
+      <description>Microsoft SharePoint Server Information Disclosure Vulnerability</description>
+      <guid isPermaLink="false">CVE-2024-30043|2024-06-13T21:39:34.614Z</guid>
+      <pubDate>Tue, 14 May 2024 16:57:29 +0000</pubDate>
+    </item>
+    <item>
+      <title>CVE-2024-30100|2024-06-14T16:31:44.018Z -- microsoft -- microsoft%20sharepoint%20enterprise%20server%202016</title>
+      <link>https://www.cve.org/CVERecord?id=CVE-2024-30100</link>
+      <description>Microsoft SharePoint Server Remote Code Execution Vulnerability</description>
+      <guid isPermaLink="false">CVE-2024-30100|2024-06-14T16:31:44.018Z</guid>
+      <pubDate>Tue, 11 Jun 2024 17:00:02 +0000</pubDate>
+    </item>
+    <item>
+      <title>CVE-2024-30100|2024-06-20T20:06:22.555Z -- microsoft -- microsoft%20sharepoint%20enterprise%20server%202016</title>
+      <link>https://www.cve.org/CVERecord?id=CVE-2024-30100</link>
+      <description>Microsoft SharePoint Server Remote Code Execution Vulnerability</description>
+      <guid isPermaLink="false">CVE-2024-30100|2024-06-20T20:06:22.555Z</guid>
+      <pubDate>Tue, 11 Jun 2024 17:00:02 +0000</pubDate>
+    </item>
+    <item>
+      <title>CVE-2024-30100|2024-06-27T17:32:40.214Z -- microsoft -- microsoft%20sharepoint%20enterprise%20server%202016</title>
+      <link>https://www.cve.org/CVERecord?id=CVE-2024-30100</link>
+      <description>Microsoft SharePoint Server Remote Code Execution Vulnerability</description>
+      <guid isPermaLink="false">CVE-2024-30100|2024-06-27T17:32:40.214Z</guid>
+      <pubDate>Tue, 11 Jun 2024 17:00:02 +0000</pubDate>
+    </item>
+    <item>
+      <title>CVE-2024-38024|2024-07-09T18:34:07.213Z -- microsoft -- microsoft%20sharepoint%20enterprise%20server%202016</title>
+      <link>https://www.cve.org/CVERecord?id=CVE-2024-38024</link>
+      <description>Microsoft SharePoint Server Remote Code Execution Vulnerability</description>
+      <guid isPermaLink="false">CVE-2024-38024|2024-07-09T18:34:07.213Z</guid>
+      <pubDate>Tue, 09 Jul 2024 17:02:24 +0000</pubDate>
+    </item>
+    <item>
+      <title>CVE-2024-38024|2024-07-09T22:55:15.436Z -- microsoft -- microsoft%20sharepoint%20enterprise%20server%202016</title>
+      <link>https://www.cve.org/CVERecord?id=CVE-2024-38024</link>
+      <description>Microsoft SharePoint Server Remote Code Execution Vulnerability</description>
+      <guid isPermaLink="false">CVE-2024-38024|2024-07-09T22:55:15.436Z</guid>
+      <pubDate>Tue, 09 Jul 2024 17:02:24 +0000</pubDate>
+    </item>
+    <item>
+      <title>CVE-2024-38094|2024-07-09T22:56:17.116Z -- microsoft -- microsoft%20sharepoint%20enterprise%20server%202016</title>
+      <link>https://www.cve.org/CVERecord?id=CVE-2024-38094</link>
+      <description>Microsoft SharePoint Remote Code Execution Vulnerability</description>
+      <guid isPermaLink="false">CVE-2024-38094|2024-07-09T22:56:17.116Z</guid>
+      <pubDate>Tue, 09 Jul 2024 17:03:24 +0000</pubDate>
+    </item>
+    <item>
+      <title>CVE-2024-32987|2024-07-09T22:55:31.548Z -- microsoft -- microsoft%20sharepoint%20enterprise%20server%202016</title>
       <link>https://www.cve.org/CVERecord?id=CVE-2024-32987</link>
       <description>Microsoft SharePoint Server Information Disclosure Vulnerability</description>
-      <guid isPermaLink="false">CVE-2024-32987|2024-08-02T02:27:53.509Z</guid>
+      <guid isPermaLink="false">CVE-2024-32987|2024-07-09T22:55:31.548Z</guid>
       <pubDate>Tue, 09 Jul 2024 17:02:40 +0000</pubDate>
+    </item>
+    <item>
+      <title>CVE-2024-38023|2024-07-09T22:55:14.886Z -- microsoft -- microsoft%20sharepoint%20enterprise%20server%202016</title>
+      <link>https://www.cve.org/CVERecord?id=CVE-2024-38023</link>
+      <description>Microsoft SharePoint Server Remote Code Execution Vulnerability</description>
+      <guid isPermaLink="false">CVE-2024-38023|2024-07-09T22:55:14.886Z</guid>
+      <pubDate>Tue, 09 Jul 2024 17:02:23 +0000</pubDate>
+    </item>
+    <item>
+      <title>CVE-2024-38024|2024-07-10T21:17:05.898Z -- microsoft -- microsoft%20sharepoint%20enterprise%20server%202016</title>
+      <link>https://www.cve.org/CVERecord?id=CVE-2024-38024</link>
+      <description>Microsoft SharePoint Server Remote Code Execution Vulnerability</description>
+      <guid isPermaLink="false">CVE-2024-38024|2024-07-10T21:17:05.898Z</guid>
+      <pubDate>Tue, 09 Jul 2024 17:02:24 +0000</pubDate>
+    </item>
+    <item>
+      <title>CVE-2024-38094|2024-07-10T21:18:08.153Z -- microsoft -- microsoft%20sharepoint%20enterprise%20server%202016</title>
+      <link>https://www.cve.org/CVERecord?id=CVE-2024-38094</link>
+      <description>Microsoft SharePoint Remote Code Execution Vulnerability</description>
+      <guid isPermaLink="false">CVE-2024-38094|2024-07-10T21:18:08.153Z</guid>
+      <pubDate>Tue, 09 Jul 2024 17:03:24 +0000</pubDate>
+    </item>
+    <item>
+      <title>CVE-2024-32987|2024-07-10T21:17:22.396Z -- microsoft -- microsoft%20sharepoint%20enterprise%20server%202016</title>
+      <link>https://www.cve.org/CVERecord?id=CVE-2024-32987</link>
+      <description>Microsoft SharePoint Server Information Disclosure Vulnerability</description>
+      <guid isPermaLink="false">CVE-2024-32987|2024-07-10T21:17:22.396Z</guid>
+      <pubDate>Tue, 09 Jul 2024 17:02:40 +0000</pubDate>
+    </item>
+    <item>
+      <title>CVE-2024-38023|2024-07-10T21:17:05.299Z -- microsoft -- microsoft%20sharepoint%20enterprise%20server%202016</title>
+      <link>https://www.cve.org/CVERecord?id=CVE-2024-38023</link>
+      <description>Microsoft SharePoint Server Remote Code Execution Vulnerability</description>
+      <guid isPermaLink="false">CVE-2024-38023|2024-07-10T21:17:05.299Z</guid>
+      <pubDate>Tue, 09 Jul 2024 17:02:23 +0000</pubDate>
+    </item>
+    <item>
+      <title>CVE-2024-30100|2024-07-19T21:13:38.389Z -- microsoft -- microsoft%20sharepoint%20enterprise%20server%202016</title>
+      <link>https://www.cve.org/CVERecord?id=CVE-2024-30100</link>
+      <description>Microsoft SharePoint Server Remote Code Execution Vulnerability</description>
+      <guid isPermaLink="false">CVE-2024-30100|2024-07-19T21:13:38.389Z</guid>
+      <pubDate>Tue, 11 Jun 2024 17:00:02 +0000</pubDate>
+    </item>
+    <item>
+      <title>CVE-2024-38024|2024-07-23T21:25:42.786Z -- microsoft -- microsoft%20sharepoint%20enterprise%20server%202016</title>
+      <link>https://www.cve.org/CVERecord?id=CVE-2024-38024</link>
+      <description>Microsoft SharePoint Server Remote Code Execution Vulnerability</description>
+      <guid isPermaLink="false">CVE-2024-38024|2024-07-23T21:25:42.786Z</guid>
+      <pubDate>Tue, 09 Jul 2024 17:02:24 +0000</pubDate>
+    </item>
+    <item>
+      <title>CVE-2024-38094|2024-07-23T21:26:45.405Z -- microsoft -- microsoft%20sharepoint%20enterprise%20server%202016</title>
+      <link>https://www.cve.org/CVERecord?id=CVE-2024-38094</link>
+      <description>Microsoft SharePoint Remote Code Execution Vulnerability</description>
+      <guid isPermaLink="false">CVE-2024-38094|2024-07-23T21:26:45.405Z</guid>
+      <pubDate>Tue, 09 Jul 2024 17:03:24 +0000</pubDate>
+    </item>
+    <item>
+      <title>CVE-2024-32987|2024-07-23T21:25:59.035Z -- microsoft -- microsoft%20sharepoint%20enterprise%20server%202016</title>
+      <link>https://www.cve.org/CVERecord?id=CVE-2024-32987</link>
+      <description>Microsoft SharePoint Server Information Disclosure Vulnerability</description>
+      <guid isPermaLink="false">CVE-2024-32987|2024-07-23T21:25:59.035Z</guid>
+      <pubDate>Tue, 09 Jul 2024 17:02:40 +0000</pubDate>
+    </item>
+    <item>
+      <title>CVE-2024-38023|2024-07-23T21:25:42.167Z -- microsoft -- microsoft%20sharepoint%20enterprise%20server%202016</title>
+      <link>https://www.cve.org/CVERecord?id=CVE-2024-38023</link>
+      <description>Microsoft SharePoint Server Remote Code Execution Vulnerability</description>
+      <guid isPermaLink="false">CVE-2024-38023|2024-07-23T21:25:42.167Z</guid>
+      <pubDate>Tue, 09 Jul 2024 17:02:23 +0000</pubDate>
+    </item>
+    <item>
+      <title>CVE-2024-38023|2024-07-25T21:32:19.233Z -- microsoft -- microsoft%20sharepoint%20enterprise%20server%202016</title>
+      <link>https://www.cve.org/CVERecord?id=CVE-2024-38023</link>
+      <description>Microsoft SharePoint Server Remote Code Execution Vulnerability</description>
+      <guid isPermaLink="false">CVE-2024-38023|2024-07-25T21:32:19.233Z</guid>
+      <pubDate>Tue, 09 Jul 2024 17:02:23 +0000</pubDate>
+    </item>
+    <item>
+      <title>CVE-2024-38024|2024-07-25T21:32:19.834Z -- microsoft -- microsoft%20sharepoint%20enterprise%20server%202016</title>
+      <link>https://www.cve.org/CVERecord?id=CVE-2024-38024</link>
+      <description>Microsoft SharePoint Server Remote Code Execution Vulnerability</description>
+      <guid isPermaLink="false">CVE-2024-38024|2024-07-25T21:32:19.834Z</guid>
+      <pubDate>Tue, 09 Jul 2024 17:02:24 +0000</pubDate>
+    </item>
+    <item>
+      <title>CVE-2024-32987|2024-07-25T21:32:36.150Z -- microsoft -- microsoft%20sharepoint%20enterprise%20server%202016</title>
+      <link>https://www.cve.org/CVERecord?id=CVE-2024-32987</link>
+      <description>Microsoft SharePoint Server Information Disclosure Vulnerability</description>
+      <guid isPermaLink="false">CVE-2024-32987|2024-07-25T21:32:36.150Z</guid>
+      <pubDate>Tue, 09 Jul 2024 17:02:40 +0000</pubDate>
+    </item>
+    <item>
+      <title>CVE-2024-38094|2024-07-25T21:33:22.692Z -- microsoft -- microsoft%20sharepoint%20enterprise%20server%202016</title>
+      <link>https://www.cve.org/CVERecord?id=CVE-2024-38094</link>
+      <description>Microsoft SharePoint Remote Code Execution Vulnerability</description>
+      <guid isPermaLink="false">CVE-2024-38094|2024-07-25T21:33:22.692Z</guid>
+      <pubDate>Tue, 09 Jul 2024 17:03:24 +0000</pubDate>
+    </item>
+    <item>
+      <title>CVE-2024-38023|2024-07-31T22:59:52.256Z -- microsoft -- microsoft%20sharepoint%20enterprise%20server%202016</title>
+      <link>https://www.cve.org/CVERecord?id=CVE-2024-38023</link>
+      <description>Microsoft SharePoint Server Remote Code Execution Vulnerability</description>
+      <guid isPermaLink="false">CVE-2024-38023|2024-07-31T22:59:52.256Z</guid>
+      <pubDate>Tue, 09 Jul 2024 17:02:23 +0000</pubDate>
+    </item>
+    <item>
+      <title>CVE-2024-38024|2024-07-31T22:59:52.837Z -- microsoft -- microsoft%20sharepoint%20enterprise%20server%202016</title>
+      <link>https://www.cve.org/CVERecord?id=CVE-2024-38024</link>
+      <description>Microsoft SharePoint Server Remote Code Execution Vulnerability</description>
+      <guid isPermaLink="false">CVE-2024-38024|2024-07-31T22:59:52.837Z</guid>
+      <pubDate>Tue, 09 Jul 2024 17:02:24 +0000</pubDate>
+    </item>
+    <item>
+      <title>CVE-2024-32987|2024-07-31T23:00:12.886Z -- microsoft -- microsoft%20sharepoint%20enterprise%20server%202016</title>
+      <link>https://www.cve.org/CVERecord?id=CVE-2024-32987</link>
+      <description>Microsoft SharePoint Server Information Disclosure Vulnerability</description>
+      <guid isPermaLink="false">CVE-2024-32987|2024-07-31T23:00:12.886Z</guid>
+      <pubDate>Tue, 09 Jul 2024 17:02:40 +0000</pubDate>
+    </item>
+    <item>
+      <title>CVE-2024-38094|2024-07-31T23:00:59.183Z -- microsoft -- microsoft%20sharepoint%20enterprise%20server%202016</title>
+      <link>https://www.cve.org/CVERecord?id=CVE-2024-38094</link>
+      <description>Microsoft SharePoint Remote Code Execution Vulnerability</description>
+      <guid isPermaLink="false">CVE-2024-38094|2024-07-31T23:00:59.183Z</guid>
+      <pubDate>Tue, 09 Jul 2024 17:03:24 +0000</pubDate>
+    </item>
+    <item>
+      <title>CVE-2024-30100|2024-08-02T01:25:02.974Z -- microsoft -- microsoft%20sharepoint%20enterprise%20server%202016</title>
+      <link>https://www.cve.org/CVERecord?id=CVE-2024-30100</link>
+      <description>Microsoft SharePoint Server Remote Code Execution Vulnerability</description>
+      <guid isPermaLink="false">CVE-2024-30100|2024-08-02T01:25:02.974Z</guid>
+      <pubDate>Tue, 11 Jun 2024 17:00:02 +0000</pubDate>
+    </item>
+    <item>
+      <title>CVE-2024-30044|2024-08-02T01:25:02.484Z -- microsoft -- microsoft%20sharepoint%20enterprise%20server%202016</title>
+      <link>https://www.cve.org/CVERecord?id=CVE-2024-30044</link>
+      <description>Microsoft SharePoint Server Remote Code Execution Vulnerability</description>
+      <guid isPermaLink="false">CVE-2024-30044|2024-08-02T01:25:02.484Z</guid>
+      <pubDate>Tue, 14 May 2024 16:57:15 +0000</pubDate>
+    </item>
+    <item>
+      <title>CVE-2024-30043|2024-08-02T01:25:02.558Z -- microsoft -- microsoft%20sharepoint%20enterprise%20server%202016</title>
+      <link>https://www.cve.org/CVERecord?id=CVE-2024-30043</link>
+      <description>Microsoft SharePoint Server Information Disclosure Vulnerability</description>
+      <guid isPermaLink="false">CVE-2024-30043|2024-08-02T01:25:02.558Z</guid>
+      <pubDate>Tue, 14 May 2024 16:57:29 +0000</pubDate>
+    </item>
+    <item>
+      <title>CVE-2024-38023|2024-08-02T04:04:24.714Z -- microsoft -- microsoft%20sharepoint%20enterprise%20server%202016</title>
+      <link>https://www.cve.org/CVERecord?id=CVE-2024-38023</link>
+      <description>Microsoft SharePoint Server Remote Code Execution Vulnerability</description>
+      <guid isPermaLink="false">CVE-2024-38023|2024-08-02T04:04:24.714Z</guid>
+      <pubDate>Tue, 09 Jul 2024 17:02:23 +0000</pubDate>
+    </item>
+    <item>
+      <title>CVE-2024-38024|2024-08-02T04:04:24.732Z -- microsoft -- microsoft%20sharepoint%20enterprise%20server%202016</title>
+      <link>https://www.cve.org/CVERecord?id=CVE-2024-38024</link>
+      <description>Microsoft SharePoint Server Remote Code Execution Vulnerability</description>
+      <guid isPermaLink="false">CVE-2024-38024|2024-08-02T04:04:24.732Z</guid>
+      <pubDate>Tue, 09 Jul 2024 17:02:24 +0000</pubDate>
+    </item>
+    <item>
+      <title>CVE-2024-38094|2024-08-02T04:04:25.155Z -- microsoft -- microsoft%20sharepoint%20enterprise%20server%202016</title>
+      <link>https://www.cve.org/CVERecord?id=CVE-2024-38094</link>
+      <description>Microsoft SharePoint Remote Code Execution Vulnerability</description>
+      <guid isPermaLink="false">CVE-2024-38094|2024-08-02T04:04:25.155Z</guid>
+      <pubDate>Tue, 09 Jul 2024 17:03:24 +0000</pubDate>
     </item>
   </channel>
 </rss>
