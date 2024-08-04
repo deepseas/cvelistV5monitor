@@ -6,39 +6,23 @@
     <description>The latest CVEs for anuko -- timetracker</description>
     <docs>http://www.rssboard.org/rss-specification</docs>
     <generator>python-feedgen</generator>
-    <lastBuildDate>Sat, 03 Aug 2024 23:23:08 +0000</lastBuildDate>
+    <lastBuildDate>Sun, 04 Aug 2024 03:23:20 +0000</lastBuildDate>
     <ttl>60</ttl>
     <item>
-      <title>CVE-2022-24708|2024-08-03T04:20:49.874Z -- anuko -- timetracker
+      <title>CVE-2021-41139|2024-08-04T02:59:31.435Z -- anuko -- timetracker
 </title>
-      <link>https://www.cve.org/CVERecord?id=CVE-2022-24708</link>
-      <description>Anuko Time Tracker is an open source, web-based time tracking application written in PHP. ttUser.class.php in Time Tracker versions prior to 1.20.0.5646 was not escaping primary group name for display. Because of that, it was possible for a logged in user to modify primary group name with elements of JavaScript. Such script could then be executed in user browser on subsequent requests on pages where primary group name was displayed. This is vulnerability has been fixed in version 1.20.0.5646. Users who are unable to upgrade may modify ttUser.class.php to use an additional call to htmlspecialchars when printing group name.</description>
-      <guid isPermaLink="false">CVE-2022-24708|2024-08-03T04:20:49.874Z</guid>
-      <pubDate>Wed, 23 Feb 2022 23:50:09 +0000</pubDate>
+      <link>https://www.cve.org/CVERecord?id=CVE-2021-41139</link>
+      <description>Anuko Time Tracker is an open source, web-based time tracking application written in PHP. When a logged on user selects a date in Time Tracker, it is being passed on via the date parameter in URI. Because of not checking this parameter for sanity in versions prior to 1.19.30.5600, it was possible to craft the URI with malicious JavaScript, use social engineering to convince logged on user to click on such link, and have the attacker-supplied JavaScript to be executed in user's browser. This issue is patched in version 1.19.30.5600. As a workaround, one may introduce `ttValidDbDateFormatDate` function as in the latest version and add a call to it within the access checks block in time.php.</description>
+      <guid isPermaLink="false">CVE-2021-41139|2024-08-04T02:59:31.435Z</guid>
+      <pubDate>Wed, 13 Oct 2021 17:10:10 +0000</pubDate>
     </item>
     <item>
-      <title>CVE-2021-29436|2024-08-03T22:02:51.962Z -- anuko -- timetracker
+      <title>CVE-2021-41156|2024-08-04T02:59:31.630Z -- anuko -- timetracker
 </title>
-      <link>https://www.cve.org/CVERecord?id=CVE-2021-29436</link>
-      <description>Anuko Time Tracker is an open source, web-based time tracking application written in PHP. In Time Tracker before version 1.19.27.5431 a Cross site request forgery (CSRF) vulnerability existed. The nature of CSRF is that a logged on user may be tricked by social engineering to click on an attacker-provided form that executes an unintended action such as changing user password. The vulnerability is fixed in Time Tracker version 1.19.27.5431. Upgrade is recommended. If upgrade is not practical, introduce ttMitigateCSRF() function in /WEB-INF/lib/common.php.lib using the latest available code and call it from ttAccessAllowed().</description>
-      <guid isPermaLink="false">CVE-2021-29436|2024-08-03T22:02:51.962Z</guid>
-      <pubDate>Tue, 13 Apr 2021 17:20:14 +0000</pubDate>
-    </item>
-    <item>
-      <title>CVE-2022-24707|2024-08-03T04:20:49.147Z -- anuko -- timetracker
-</title>
-      <link>https://www.cve.org/CVERecord?id=CVE-2022-24707</link>
-      <description>Anuko Time Tracker is an open source, web-based time tracking application written in PHP. UNION SQL injection and time-based blind injection vulnerabilities existed in Time Tracker Puncher plugin in versions of anuko timetracker prior to 1.20.0.5642. This was happening because the Puncher plugin was reusing code from other places and was relying on an unsanitized date parameter in POST requests. Because the parameter was not checked, it was possible to craft POST requests with malicious SQL for Time Tracker database. This issue has been resolved in in version 1.20.0.5642. Users unable to upgrade are advised to add their own checks to input.</description>
-      <guid isPermaLink="false">CVE-2022-24707|2024-08-03T04:20:49.147Z</guid>
-      <pubDate>Wed, 23 Feb 2022 23:50:14 +0000</pubDate>
-    </item>
-    <item>
-      <title>CVE-2021-21352|2024-08-03T18:09:15.965Z -- anuko -- timetracker
-</title>
-      <link>https://www.cve.org/CVERecord?id=CVE-2021-21352</link>
-      <description>Anuko Time Tracker is an open source, web-based time tracking application written in PHP. In TimeTracker before version 1.19.24.5415 tokens used in password reset feature in Time Tracker are based on system time and, therefore, are predictable. This opens a window for brute force attacks to guess user tokens and, once successful, change user passwords, including that of a system administrator. This vulnerability is pathced in version 1.19.24.5415 (started to use more secure tokens) with an additional improvement in 1.19.24.5416 (limited an available window for brute force token guessing).</description>
-      <guid isPermaLink="false">CVE-2021-21352|2024-08-03T18:09:15.965Z</guid>
-      <pubDate>Wed, 03 Mar 2021 00:20:16 +0000</pubDate>
+      <link>https://www.cve.org/CVERecord?id=CVE-2021-41156</link>
+      <description>anuko/timetracker is an, open source time tracking system. In affected versions Time Tracker uses browser_today hidden control on a few pages to collect the today's date from user browsers. Because of not checking this parameter for sanity in versions prior to 1.19.30.5601, it was possible to craft an html form with malicious JavaScript, use social engineering to convince logged on users to execute a POST from such form, and have the attacker-supplied JavaScript to be executed in user's browser. This has been patched in version 1.19.30.5600. Upgrade is recommended. If it is not practical, introduce ttValidDbDateFormatDate function as in the latest version and add a call to it within the access checks block.</description>
+      <guid isPermaLink="false">CVE-2021-41156|2024-08-04T02:59:31.630Z</guid>
+      <pubDate>Mon, 18 Oct 2021 21:10:10 +0000</pubDate>
     </item>
   </channel>
 </rss>

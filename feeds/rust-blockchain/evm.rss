@@ -6,23 +6,15 @@
     <description>The latest CVEs for rust-blockchain -- evm</description>
     <docs>http://www.rssboard.org/rss-specification</docs>
     <generator>python-feedgen</generator>
-    <lastBuildDate>Sat, 03 Aug 2024 23:23:13 +0000</lastBuildDate>
+    <lastBuildDate>Sun, 04 Aug 2024 03:23:18 +0000</lastBuildDate>
     <ttl>60</ttl>
     <item>
-      <title>CVE-2022-39354|2024-08-03T12:00:44.050Z -- rust-blockchain -- evm
+      <title>CVE-2021-41153|2024-08-04T02:59:31.621Z -- rust-blockchain -- evm
 </title>
-      <link>https://www.cve.org/CVERecord?id=CVE-2022-39354</link>
-      <description>SputnikVM, also called evm, is a Rust implementation of Ethereum Virtual Machine. A custom stateful precompile can use the `is_static` parameter to determine if the call is executed in a static context (via `STATICCALL`), and thus decide if stateful operations should be done. Prior to version 0.36.0, the passed `is_static` parameter was incorrect -- it was only set to `true` if the call came from a direct `STATICCALL` opcode. However, once a static call context is entered, it should stay static. The issue only impacts custom precompiles that actually uses `is_static`. For those affected, the issue can lead to possible incorrect state transitions. Version 0.36.0 contains a patch. There are no known workarounds.</description>
-      <guid isPermaLink="false">CVE-2022-39354|2024-08-03T12:00:44.050Z</guid>
-      <pubDate>Tue, 25 Oct 2022 00:00:00 +0000</pubDate>
-    </item>
-    <item>
-      <title>CVE-2021-29511|2024-08-03T22:11:05.441Z -- rust-blockchain -- evm
-</title>
-      <link>https://www.cve.org/CVERecord?id=CVE-2021-29511</link>
-      <description>evm is a pure Rust implementation of Ethereum Virtual Machine. Prior to the patch, when executing specific EVM opcodes related to memory operations that use `evm_core::Memory::copy_large`, the `evm` crate can over-allocate memory when it is not needed, making it possible for an attacker to perform denial-of-service attack. The flaw was corrected in commit `19ade85`. Users should upgrade to `==0.21.1, ==0.23.1, ==0.24.1, ==0.25.1, &gt;=0.26.1`. There are no workarounds. Please upgrade your `evm` crate version.</description>
-      <guid isPermaLink="false">CVE-2021-29511|2024-08-03T22:11:05.441Z</guid>
-      <pubDate>Wed, 12 May 2021 17:15:11 +0000</pubDate>
+      <link>https://www.cve.org/CVERecord?id=CVE-2021-41153</link>
+      <description>The evm crate is a pure Rust implementation of Ethereum Virtual Machine. In `evm` crate `&lt; 0.31.0`, `JUMPI` opcode's condition is checked after the destination validity check. However, according to Geth and OpenEthereum, the condition check should happen before the destination validity check. This is a **high** severity security advisory if you use `evm` crate for Ethereum mainnet. In this case, you should update your library dependency immediately to on or after `0.31.0`. This is a **low** severity security advisory if you use `evm` crate in Frontier or in a standalone blockchain, because there's no security exploit possible with this advisory. It is **not** recommended to update to on or after `0.31.0` until all the normal chain upgrade preparations have been done. If you use Frontier or other `pallet-evm` based Substrate blockchain, please ensure to update your `spec_version` before updating this. For other blockchains, please make sure to follow a hard-fork process before you update this.</description>
+      <guid isPermaLink="false">CVE-2021-41153|2024-08-04T02:59:31.621Z</guid>
+      <pubDate>Mon, 18 Oct 2021 21:00:13 +0000</pubDate>
     </item>
   </channel>
 </rss>

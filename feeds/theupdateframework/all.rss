@@ -6,15 +6,15 @@
     <description>The latest CVEs for theupdateframework -- all products</description>
     <docs>http://www.rssboard.org/rss-specification</docs>
     <generator>python-feedgen</generator>
-    <lastBuildDate>Sat, 03 Aug 2024 23:23:02 +0000</lastBuildDate>
+    <lastBuildDate>Sun, 04 Aug 2024 03:23:20 +0000</lastBuildDate>
     <ttl>60</ttl>
     <item>
-      <title>CVE-2022-29173|2024-08-03T06:17:54.093Z -- theupdateframework -- go-tuf
+      <title>CVE-2021-41131|2024-08-04T02:59:31.615Z -- theupdateframework -- python-tuf
 </title>
-      <link>https://www.cve.org/CVERecord?id=CVE-2022-29173</link>
-      <description>go-tuf is a Go implementation of The Update Framework (TUF). go-tuf does not correctly implement the client workflow for updating the metadata files for roles other than the root role. Specifically, checks for rollback attacks are not implemented correctly meaning an attacker can cause clients to install software that is older than the software which the client previously knew to be available, and may include software with known vulnerabilities. In more detail, the client code of go-tuf has several issues in regards to preventing rollback attacks: 1. It does not take into account the content of any previously trusted metadata, if available, before proceeding with updating roles other than the root role (i.e., steps 5.4.3.1 and 5.5.5 of the detailed client workflow). This means that any form of version verification done on the newly-downloaded metadata is made using the default value of zero, which always passes. 2. For both timestamp and snapshot roles, go-tuf saves these metadata files as trusted before verifying if the version of the metafiles they refer to is correct (i.e., steps 5.5.4 and 5.6.4 of the detailed client workflow). A fix is available in version 0.3.0 or newer. No workarounds are known for this issue apart from upgrading.</description>
-      <guid isPermaLink="false">CVE-2022-29173|2024-08-03T06:17:54.093Z</guid>
-      <pubDate>Thu, 05 May 2022 22:30:12 +0000</pubDate>
+      <link>https://www.cve.org/CVERecord?id=CVE-2021-41131</link>
+      <description>python-tuf is a Python reference implementation of The Update Framework (TUF). In both clients (`tuf/client` and `tuf/ngclient`), there is a path traversal vulnerability that in the worst case can overwrite files ending in `.json` anywhere on the client system on a call to `get_one_valid_targetinfo()`. It occurs because the rolename is used to form the filename, and may contain path traversal characters (ie `../../name.json`). The impact is mitigated by a few facts: It only affects implementations that allow arbitrary rolename selection for delegated targets metadata, The attack requires the ability to A) insert new metadata for the path-traversing role and B) get the role delegated by an existing targets metadata, The written file content is heavily restricted since it needs to be a valid, signed targets file. The file extension is always .json. A fix is available in version 0.19 or newer. There are no workarounds that do not require code changes. Clients can restrict the allowed character set for rolenames, or they can store metadata in files named in a way that is not vulnerable: neither of these approaches is possible without modifying python-tuf.</description>
+      <guid isPermaLink="false">CVE-2021-41131|2024-08-04T02:59:31.615Z</guid>
+      <pubDate>Tue, 19 Oct 2021 17:50:11 +0000</pubDate>
     </item>
   </channel>
 </rss>

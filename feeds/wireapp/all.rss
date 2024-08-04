@@ -6,103 +6,47 @@
     <description>The latest CVEs for wireapp -- all products</description>
     <docs>http://www.rssboard.org/rss-specification</docs>
     <generator>python-feedgen</generator>
-    <lastBuildDate>Sat, 03 Aug 2024 23:23:04 +0000</lastBuildDate>
+    <lastBuildDate>Sun, 04 Aug 2024 03:23:13 +0000</lastBuildDate>
     <ttl>60</ttl>
     <item>
-      <title>CVE-2022-31122|2024-08-03T07:11:39.209Z -- wireapp -- wire-server
+      <title>CVE-2021-41094|2024-08-04T02:59:31.399Z -- wireapp -- wire-ios
 </title>
-      <link>https://www.cve.org/CVERecord?id=CVE-2022-31122</link>
-      <description>Wire is an encrypted communication and collaboration platform. Versions prior to 2022-07-12/Chart 4.19.0 are subject to Token Recipient Confusion. If an attacker has certain details of SAML IdP metadata, and configures their own SAML on the same backend, the attacker can delete all SAML authenticated accounts of a targeted team, Authenticate as a user of the attacked team and create arbitrary accounts in the context of the team if it is not managed by SCIM. This issue is fixed in wire-server 2022-07-12 and is already deployed on all Wire managed services. On-premise instances of wire-server need to be updated to 2022-07-12/Chart 4.19.0, so that their backends are no longer affected. As a workaround, the risk of an attack can be reduced by disabling SAML configuration for teams (galley.config.settings.featureFlags.sso). Helm overrides are located in `values/wire-server/values.yaml` Note that the ability to configure SAML SSO as a team is disabled by default for on-premise installations.</description>
-      <guid isPermaLink="false">CVE-2022-31122|2024-08-03T07:11:39.209Z</guid>
-      <pubDate>Tue, 18 Oct 2022 00:00:00 +0000</pubDate>
+      <link>https://www.cve.org/CVERecord?id=CVE-2021-41094</link>
+      <description>Wire is an open source secure messenger. Users of Wire by Bund may bypass the mandatory encryption at rest feature by simply disabling their device passcode. Upon launching, the app will attempt to enable encryption at rest by generating encryption keys via the Secure Enclave, however it will fail silently if no device passcode is set. The user has no indication that encryption at rest is not active since the feature is hidden to them. This issue has been resolved in version 3.70</description>
+      <guid isPermaLink="false">CVE-2021-41094|2024-08-04T02:59:31.399Z</guid>
+      <pubDate>Mon, 04 Oct 2021 18:20:13 +0000</pubDate>
     </item>
     <item>
-      <title>CVE-2021-21382|2024-08-03T18:09:16.047Z -- wireapp -- restund
+      <title>CVE-2021-41100|2024-08-04T02:59:31.522Z -- wireapp -- wire-server
 </title>
-      <link>https://www.cve.org/CVERecord?id=CVE-2021-21382</link>
-      <description>Restund is an open source NAT traversal server. The restund TURN server can be instructed to open a relay to the loopback address range. This allows you to reach any other service running on localhost which you might consider private. In the configuration that we ship (https://github.com/wireapp/ansible-restund/blob/master/templates/restund.conf.j2#L40-L43) the `status` interface of restund is enabled and is listening on `127.0.0.1`.The `status` interface allows users to issue administrative commands to `restund` like listing open relays or draining connections. It would be possible for an attacker to contact the status interface and issue administrative commands by setting `XOR-PEER-ADDRESS` to `127.0.0.1:{{restund_udp_status_port}}` when opening a TURN channel. We now explicitly disallow relaying to loopback addresses, 'any' addresses, link local addresses, and the broadcast address. As a workaround disable the `status` module in your restund configuration. However there might still be other services running on `127.0.0.0/8` that you do not want to have exposed. The `turn` module can be disabled. Restund will still perform STUN and this might already be enough for initiating calls in your environments. TURN is only used as a last resort when other NAT traversal options do not work. One should also make sure that the TURN server is set up with firewall rules so that it cannot relay to other addresses that you don't want the TURN server to relay to. For example other services in the same VPC where the TURN server is running. Ideally TURN servers should be deployed in an isolated fashion where they can only reach what they need to reach to perform their task of assisting NAT-traversal.</description>
-      <guid isPermaLink="false">CVE-2021-21382|2024-08-03T18:09:16.047Z</guid>
-      <pubDate>Fri, 11 Jun 2021 20:50:14 +0000</pubDate>
+      <link>https://www.cve.org/CVERecord?id=CVE-2021-41100</link>
+      <description>Wire-server is the backing server for the open source wire secure messaging application. In affected versions it is possible to trigger email address change of a user with only the short-lived session token in the `Authorization` header. As the short-lived token is only meant as means of authentication by the client for less critical requests to the backend, the ability to change the email address with a short-lived token constitutes a privilege escalation attack. Since the attacker can change the password after setting the email address to one that they control, changing the email address can result in an account takeover by the attacker. Short-lived tokens can be requested from the backend by Wire clients using the long lived tokens, after which the long lived tokens can be stored securely, for example on the devices key chain. The short lived tokens can then be used to authenticate the client towards the backend for frequently performed actions such as sending and receiving messages. While short-lived tokens should not be available to an attacker per-se, they are used more often and in the shape of an HTTP header, increasing the risk of exposure to an attacker relative to the long-lived tokens, which are stored and transmitted in cookies. If you are running an on-prem instance and provision all users with SCIM, you are not affected by this issue (changing email is blocked for SCIM users). SAML single-sign-on is unaffected by this issue, and behaves identically before and after this update. The reason is that the email address used as SAML NameID is stored in a different location in the databse from the one used to contact the user outside wire. Version 2021-08-16 and later provide a new end-point that requires both the long-lived client cookie and `Authorization` header. The old end-point has been removed. If you are running an on-prem instance with at least some of the users invited or provisioned via SAML SSO and you cannot update then you can block `/self/email` on nginz (or in any other proxies or firewalls you may have set up). You don't need to discriminate by verb: `/self/email` only accepts `PUT` and `DELETE`, and `DELETE` is almost never used.</description>
+      <guid isPermaLink="false">CVE-2021-41100|2024-08-04T02:59:31.522Z</guid>
+      <pubDate>Mon, 04 Oct 2021 18:25:10 +0000</pubDate>
     </item>
     <item>
-      <title>CVE-2021-21396|2024-08-03T18:09:16.005Z -- wireapp -- wire-server
+      <title>CVE-2021-41093|2024-08-04T02:59:31.525Z -- wireapp -- wire-ios
 </title>
-      <link>https://www.cve.org/CVERecord?id=CVE-2021-21396</link>
-      <description>wire-server is an open-source back end for Wire, a secure collaboration platform. In wire-server from version 2021-02-16 and before version 2021-03-02, the client metadata of all users was exposed in the `GET /users/list-clients` endpoint. The endpoint could be used by any logged in user who could request client details of any other user (no connection required) as far as they can find their User ID. The exposed metadata included id, class, type, location, time, and cookie. A user on a Wire backend could use this endpoint to find registration time and location for each device for a given list of users. As a workaround, remove `/list-clients` from nginx config. This has been fixed in version 2021-03-02.</description>
-      <guid isPermaLink="false">CVE-2021-21396|2024-08-03T18:09:16.005Z</guid>
-      <pubDate>Fri, 26 Mar 2021 21:40:15 +0000</pubDate>
+      <link>https://www.cve.org/CVERecord?id=CVE-2021-41093</link>
+      <description>Wire is an open source secure messenger. In affected versions if the an attacker gets an old but valid access token they can take over an account by changing the email. This issue has been resolved in version 3.86 which uses a new endpoint which additionally requires an authentication cookie. See wire-ios-sync-engine and wire-ios-transport references. This is the root advisory that pulls the changes together.</description>
+      <guid isPermaLink="false">CVE-2021-41093|2024-08-04T02:59:31.525Z</guid>
+      <pubDate>Mon, 04 Oct 2021 18:15:11 +0000</pubDate>
     </item>
     <item>
-      <title>CVE-2022-31009|2024-08-03T07:03:40.199Z -- wireapp -- wire-ios
+      <title>CVE-2021-41119|2024-08-04T02:59:31.626Z -- wireapp -- wire-server
 </title>
-      <link>https://www.cve.org/CVERecord?id=CVE-2022-31009</link>
-      <description>wire-ios is an iOS client for the Wire secure messaging application. Invalid accent colors of Wire communication partners may render the iOS Wire Client partially unusable by causing it to crash multiple times on launch. These invalid accent colors can be used by and sent between Wire users. The root cause was an unnecessary assert statement when converting an integer value into the corresponding enum value, causing an exception instead of a fallback to a default value. This issue is fixed in [wire-ios](https://github.com/wireapp/wire-ios/commit/caa0e27dbe51f9edfda8c7a9f017d93b8cfddefb) and in Wire for iOS 3.100. There is no workaround available, but users may use other Wire clients (such as the [web app](https://app.wire.com)) to continue using Wire, or upgrade their client.</description>
-      <guid isPermaLink="false">CVE-2022-31009|2024-08-03T07:03:40.199Z</guid>
-      <pubDate>Thu, 23 Jun 2022 06:40:10 +0000</pubDate>
+      <link>https://www.cve.org/CVERecord?id=CVE-2021-41119</link>
+      <description>Wire-server is the system server for the wire back-end services. Releases prior to v2022-03-01 are subject to a denial of service attack via a crafted object causing a hash collision. This collision causes the server to spend at least quadratic time parsing it which can lead to a denial of service for a heavily used server. The issue has been fixed in wire-server 2022-03-01 and is already deployed on all Wire managed services. On premise instances of wire-server need to be updated to 2022-03-01, so that their backends are no longer affected. There are no known workarounds for this issue.</description>
+      <guid isPermaLink="false">CVE-2021-41119|2024-08-04T02:59:31.626Z</guid>
+      <pubDate>Wed, 13 Apr 2022 18:25:11 +0000</pubDate>
     </item>
     <item>
-      <title>CVE-2022-39380|2024-08-03T12:00:44.181Z -- wireapp -- wire-webapp
+      <title>CVE-2021-41101|2024-08-04T02:59:31.532Z -- wireapp -- wire-server
 </title>
-      <link>https://www.cve.org/CVERecord?id=CVE-2022-39380</link>
-      <description>Wire web-app is part of Wire communications. Versions prior to 2022-11-02 are subject to Improper Handling of Exceptional Conditions. In the wire-webapp, certain combinations of Markdown formatting can trigger an unhandled error in the conversion to HTML representation. The error makes it impossible to display the affected chat history, other conversations are not affected. The issue has been fixed in version 2022-11-02 and is already deployed on all Wire managed services. On-premise instances of wire-webapp need to be updated to docker tag 2022-11-02-production.0-v0.31.9-0-337e400 or wire-server 2022-11-03 (chart/4.26.0), so that their applications are no longer affected. As a workaround, you may use an iOS or Android client and delete the corresponding message from the history OR write 30 or more messages into the affected conversation to prevent the client from further rendering of the corresponding message. When attempting to retrieve messages from the conversation history, the error will continue to occur once the malformed message is part of the result.</description>
-      <guid isPermaLink="false">CVE-2022-39380|2024-08-03T12:00:44.181Z</guid>
-      <pubDate>Fri, 27 Jan 2023 20:43:12 +0000</pubDate>
-    </item>
-    <item>
-      <title>CVE-2021-21400|2024-08-03T18:09:16.057Z -- wireapp -- wire-webapp
-</title>
-      <link>https://www.cve.org/CVERecord?id=CVE-2021-21400</link>
-      <description>wire-webapp is an open-source front end for Wire, a secure collaboration platform. In wire-webapp before version 2021-03-15-production.0, when being prompted to enter the app-lock passphrase, the typed passphrase will be sent into the most recently used chat when the user does not actively give focus to the input field. Input element focus is enforced programatically in version 2021-03-15-production.0.</description>
-      <guid isPermaLink="false">CVE-2021-21400|2024-08-03T18:09:16.057Z</guid>
-      <pubDate>Fri, 02 Apr 2021 14:50:13 +0000</pubDate>
-    </item>
-    <item>
-      <title>CVE-2021-21301|2024-08-03T18:09:15.618Z -- wireapp -- wire-ios
-</title>
-      <link>https://www.cve.org/CVERecord?id=CVE-2021-21301</link>
-      <description>Wire is an open-source collaboration platform. In Wire for iOS (iPhone and iPad) before version 3.75 there is a vulnerability where the video capture isn't stopped in a scenario where a user first has their camera enabled and then disables it. It's a privacy issue because video is streamed to the call when the user believes it is disabled. It impacts all users in video calls. This is fixed in version 3.75.</description>
-      <guid isPermaLink="false">CVE-2021-21301|2024-08-03T18:09:15.618Z</guid>
-      <pubDate>Thu, 11 Feb 2021 18:05:19 +0000</pubDate>
-    </item>
-    <item>
-      <title>CVE-2022-24799|2024-08-03T04:20:50.462Z -- wireapp -- wire-webapp
-</title>
-      <link>https://www.cve.org/CVERecord?id=CVE-2022-24799</link>
-      <description>wire-webapp is the web application interface for the wire messaging service. Insufficient escaping in markdown “code highlighting” in the wire-webapp resulted in the possibility of injecting and executing arbitrary HTML code and thus also JavaScript. If a user receives and views such a malicious message, arbitrary code is injected and executed in the context of the victim. This allows the attacker to fully control the user account. Wire-desktop clients that are connected to a vulnerable wire-webapp version are also vulnerable to this attack. The issue has been fixed in wire-webapp 2022-03-30-production.0 and is already deployed on all Wire managed services. On-premise instances of wire-webapp need to be updated to docker tag 2022-03-30-production.0-v0.29.2-0-d144552 or wire-server 2022-03-30 (chart/4.8.0), so that their applications are no longer affected. There are no known workarounds for this issue. ### Patches * The issue has been fixed in wire-webapp **2022-03-30-production.0** and is already deployed on all Wire managed services. * On-premise instances of wire-webapp need to be updated to docker tag **2022-03-30-production.0-v0.29.2-0-d144552** or wire-server **2022-03-30 (chart/4.8.0)**, so that their applications are no longer affected. ### Workarounds * No workarounds known ### For more information If you have any questions or comments about this advisory feel free to email us at [vulnerability-report@wire.com](mailto:vulnerability-report@wire.com) ### Credits We thank [Posix](https://twitter.com/po6ix) for reporting this vulnerability</description>
-      <guid isPermaLink="false">CVE-2022-24799|2024-08-03T04:20:50.462Z</guid>
-      <pubDate>Wed, 20 Apr 2022 17:55:09 +0000</pubDate>
-    </item>
-    <item>
-      <title>CVE-2022-23625|2024-08-03T03:51:45.474Z -- wireapp -- wire-ios
-</title>
-      <link>https://www.cve.org/CVERecord?id=CVE-2022-23625</link>
-      <description>Wire-ios is a messaging application using the wire protocol on apple's ios platform. In versions prior to 3.95 malformed resource identifiers may render the iOS Wire Client completely unusable by causing it to repeatedly crash on launch. These malformed resource identifiers can be generated and sent between Wire users. The root cause lies in [wireapp/wire-ios-transport](https://github.com/wireapp/wire-ios-transport), where code responsible for removing sensible tokens before logging may fail and lead to a crash (Swift exception) of the application. This causes undesirable behavior, however the (greater) Wire system is still functional. Users are advised to upgrade as soon as possible. There are no known workarounds for this issue.</description>
-      <guid isPermaLink="false">CVE-2022-23625|2024-08-03T03:51:45.474Z</guid>
-      <pubDate>Fri, 11 Mar 2022 18:00:15 +0000</pubDate>
-    </item>
-    <item>
-      <title>CVE-2022-23610|2024-08-03T03:43:46.981Z -- wireapp -- wire-server
-</title>
-      <link>https://www.cve.org/CVERecord?id=CVE-2022-23610</link>
-      <description>wire-server provides back end services for Wire, an open source messenger. In versions of wire-server prior to the 2022-01-27 release, it was possible to craft DSA Signatures to bypass SAML SSO and impersonate any Wire user with SAML credentials. In teams with SAML, but without SCIM, it was possible to create new accounts with fake SAML credentials. Under certain conditions that can be established by an attacker, an upstream library for parsing, rendering, signing, and validating SAML XML data was accepting public keys as trusted that were provided by the attacker in the signature. As a consequence, the attacker could login as any user in any Wire team with SAML SSO enabled. If SCIM was not enabled, the attacker could also create new users with new SAML NameIDs. In order to exploit this vulnerability, the attacker needs to know the SSO login code (distributed to all team members with SAML credentials and visible in the Team Management app), the SAML EntityID identifying the IdP (a URL not considered sensitive, but usually hard to guess, also visible in Team Management), and the SAML NameID of the user (usually an email address or a nick). The issue has been fixed in wire-server `2022-01-27` and is already deployed on all Wire managed services. On premise instances of wire-server need to be updated to `2022-01-27`, so that their backends are no longer affected. There are currently no known workarounds. More detailed information about how to reproduce the vulnerability and mitigation strategies is available in the GitHub Security Advisory.</description>
-      <guid isPermaLink="false">CVE-2022-23610|2024-08-03T03:43:46.981Z</guid>
-      <pubDate>Wed, 16 Mar 2022 17:40:10 +0000</pubDate>
-    </item>
-    <item>
-      <title>CVE-2022-29168|2024-08-03T06:17:54.056Z -- wireapp -- wire-webapp
-</title>
-      <link>https://www.cve.org/CVERecord?id=CVE-2022-29168</link>
-      <description>Wire is a secure messaging application. Wire is vulnerable to arbitrary HTML and Javascript execution via insufficient escaping when rendering `@mentions` in the wire-webapp. If a user receives and views a malicious message, arbitrary code is injected and executed in the context of the victim allowing the attacker to fully control the user account. Wire-desktop clients that are connected to a vulnerable wire-webapp version are also vulnerable to this attack. The issue has been fixed in wire-webapp 2022-05-04-production.0 and is already deployed on all Wire managed services. On-premise instances of wire-webapp need to be updated to docker tag 2022-05-04-production.0-v0.29.7-0-a6f2ded or wire-server 2022-05-04 (chart/4.11.0) or later. No known workarounds exist.</description>
-      <guid isPermaLink="false">CVE-2022-29168|2024-08-03T06:17:54.056Z</guid>
-      <pubDate>Sat, 25 Jun 2022 07:05:09 +0000</pubDate>
-    </item>
-    <item>
-      <title>CVE-2022-23605|2024-08-03T03:43:46.973Z -- wireapp -- wire-webapp
-</title>
-      <link>https://www.cve.org/CVERecord?id=CVE-2022-23605</link>
-      <description>Wire webapp is a web client for the wire messaging protocol. In versions prior to 2022-01-27-production.0 expired ephemeral messages were not reliably removed from local chat history of Wire Webapp. In versions before 2022-01-27-production.0 ephemeral messages and assets might still be accessible through the local search functionality. Any attempt to view one of these message in the chat view will then trigger the deletion. This issue only affects locally stored messages. On premise instances of wire-webapp need to be updated to 2022-01-27-production.0, so that their users are no longer affected. There are no known workarounds for this issue.</description>
-      <guid isPermaLink="false">CVE-2022-23605|2024-08-03T03:43:46.973Z</guid>
-      <pubDate>Fri, 04 Feb 2022 22:32:05 +0000</pubDate>
+      <link>https://www.cve.org/CVERecord?id=CVE-2021-41101</link>
+      <description>wire-server is an open-source back end for Wire, a secure collaboration platform. Before version 2.106.0, the CORS ` Access-Control-Allow-Origin ` header set by `nginz` is set for all subdomains of `.wire.com` (including `wire.com`). This means that if somebody were to find an XSS vector in any of the subdomains, they could use it to talk to the Wire API using the user's Cookie. A patch does not exist, but a workaround does. To make sure that a compromise of one subdomain does not yield access to the cookie of another, one may limit the `Access-Control-Allow-Origin` header to apps that actually require the cookie (account-pages, team-settings and the webapp).</description>
+      <guid isPermaLink="false">CVE-2021-41101|2024-08-04T02:59:31.532Z</guid>
+      <pubDate>Thu, 30 Sep 2021 19:20:09 +0000</pubDate>
     </item>
   </channel>
 </rss>

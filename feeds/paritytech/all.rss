@@ -6,7 +6,7 @@
     <description>The latest CVEs for paritytech -- all products</description>
     <docs>http://www.rssboard.org/rss-specification</docs>
     <generator>python-feedgen</generator>
-    <lastBuildDate>Sun, 04 Aug 2024 02:30:59 +0000</lastBuildDate>
+    <lastBuildDate>Sun, 04 Aug 2024 03:23:13 +0000</lastBuildDate>
     <ttl>60</ttl>
     <item>
       <title>CVE-2021-39193|2024-08-04T01:58:18.337Z -- paritytech -- frontier
@@ -15,6 +15,14 @@
       <description>Frontier is Substrate's Ethereum compatibility layer. Prior to commit number 0b962f218f0cdd796dadfe26c3f09e68f7861b26, a bug in `pallet-ethereum` can cause invalid transactions to be included in the Ethereum block state in `pallet-ethereum` due to not validating the input data size. Any invalid transactions included this way have no possibility to alter the internal Ethereum or Substrate state. The transaction will appear to have be included, but is of no effect as it is rejected by the EVM engine. The impact is further limited by Substrate extrinsic size constraints. A patch is available in commit number 0b962f218f0cdd796dadfe26c3f09e68f7861b26. There are no workarounds aside from applying the patch.</description>
       <guid isPermaLink="false">CVE-2021-39193|2024-08-04T01:58:18.337Z</guid>
       <pubDate>Fri, 03 Sep 2021 17:45:11 +0000</pubDate>
+    </item>
+    <item>
+      <title>CVE-2021-41138|2024-08-04T02:59:31.757Z -- paritytech -- frontier
+</title>
+      <link>https://www.cve.org/CVERecord?id=CVE-2021-41138</link>
+      <description>Frontier is Substrate's Ethereum compatibility layer. In the newly introduced signed Frontier-specific extrinsic for `pallet-ethereum`, a large part of transaction validation logic was only called in transaction pool validation, but not in block execution. Malicious validators can take advantage of this to put invalid transactions into a block. The attack is limited in that the signature is always validated, and the majority of the validation is done again in the subsequent `pallet-evm` execution logic. However, do note that a chain ID replay attack was possible. In addition, spamming attacks are of main concerns, while they are limited by Substrate block size limits and other factors. The issue is patched in commit `146bb48849e5393004be5c88beefe76fdf009aba`.</description>
+      <guid isPermaLink="false">CVE-2021-41138|2024-08-04T02:59:31.757Z</guid>
+      <pubDate>Wed, 13 Oct 2021 15:15:11 +0000</pubDate>
     </item>
   </channel>
 </rss>

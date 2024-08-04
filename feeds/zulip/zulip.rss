@@ -6,84 +6,28 @@
     <description>The latest CVEs for zulip -- zulip</description>
     <docs>http://www.rssboard.org/rss-specification</docs>
     <generator>python-feedgen</generator>
-    <lastBuildDate>Sat, 03 Aug 2024 23:22:58 +0000</lastBuildDate>
+    <lastBuildDate>Sun, 04 Aug 2024 03:23:18 +0000</lastBuildDate>
     <ttl>60</ttl>
     <item>
-      <title>CVE-2022-41914|2024-08-03T12:56:38.364Z -- zulip -- zulip
+      <title>CVE-2021-41115|2024-08-04T02:59:31.570Z -- zulip -- zulip
 </title>
-      <link>https://www.cve.org/CVERecord?id=CVE-2022-41914</link>
-      <description>Zulip is an open-source team collaboration tool. For organizations with System for Cross-domain Identity Management(SCIM) account management enabled, Zulip Server 5.0 through 5.6 checked the SCIM bearer token using a comparator that did not run in constant time. Therefore, it might theoretically be possible for an attacker to infer the value of the token by performing a sophisticated timing analysis on a large number of failing requests. If successful, this would allow the attacker to impersonate the SCIM client for its abilities to read and update user accounts in the Zulip organization. Organizations where SCIM account management has not been enabled are not affected.</description>
-      <guid isPermaLink="false">CVE-2022-41914|2024-08-03T12:56:38.364Z</guid>
-      <pubDate>Wed, 16 Nov 2022 00:00:00 +0000</pubDate>
-    </item>
-    <item>
-      <title>CVE-2022-36048|2024-08-03T09:52:00.508Z -- zulip -- zulip
-</title>
-      <link>https://www.cve.org/CVERecord?id=CVE-2022-36048</link>
-      <description>Zulip is an open-source team collaboration tool with topic-based threading that combines email and chat. When displaying messages with embedded remote images, Zulip normally loads the image preview via a go-camo proxy server. However, an attacker who can send messages could include a crafted URL that tricks the server into embedding a remote image reference directly. This could allow the attacker to infer the viewer’s IP address and browser fingerprinting information. This vulnerability is fixed in Zulip Server 5.6. Zulip organizations with image and link previews [disabled](https://zulip.com/help/allow-image-link-previews) are not affected.</description>
-      <guid isPermaLink="false">CVE-2022-36048|2024-08-03T09:52:00.508Z</guid>
-      <pubDate>Wed, 31 Aug 2022 19:15:11 +0000</pubDate>
-    </item>
-    <item>
-      <title>CVE-2022-24751|2024-08-03T04:20:50.479Z -- zulip -- zulip
-</title>
-      <link>https://www.cve.org/CVERecord?id=CVE-2022-24751</link>
-      <description>Zulip is an open source group chat application. Starting with version 4.0 and prior to version 4.11, Zulip is vulnerable to a race condition during account deactivation, where a simultaneous access by the user being deactivated may, in rare cases, allow continued access by the deactivated user. A patch is available in version 4.11 on the 4.x branch and version 5.0-rc1 on the 5.x branch. Upgrading to a fixed version will, as a side effect, deactivate any cached sessions that may have been leaked through this bug. There are currently no known workarounds.</description>
-      <guid isPermaLink="false">CVE-2022-24751|2024-08-03T04:20:50.479Z</guid>
-      <pubDate>Wed, 16 Mar 2022 13:30:15 +0000</pubDate>
-    </item>
-    <item>
-      <title>CVE-2022-23656|2024-08-03T03:51:44.207Z -- zulip -- zulip
-</title>
-      <link>https://www.cve.org/CVERecord?id=CVE-2022-23656</link>
-      <description>Zulip is an open source team chat app. The `main` development branch of Zulip Server from June 2021 and later is vulnerable to a cross-site scripting vulnerability on the recent topics page. An attacker could maliciously craft a full name for their account and send messages to a topic with several participants; a victim who then opens an overflow tooltip including this full name on the recent topics page could trigger execution of JavaScript code controlled by the attacker. Users running a Zulip server from the main branch should upgrade from main (2022-03-01 or later) again to deploy this fix.</description>
-      <guid isPermaLink="false">CVE-2022-23656|2024-08-03T03:51:44.207Z</guid>
-      <pubDate>Wed, 02 Mar 2022 20:25:10 +0000</pubDate>
-    </item>
-    <item>
-      <title>CVE-2022-21706|2024-08-03T02:53:34.765Z -- zulip -- zulip
-</title>
-      <link>https://www.cve.org/CVERecord?id=CVE-2022-21706</link>
-      <description>Zulip is an open-source team collaboration tool with topic-based threading. Zulip Server version 2.0.0 and above are vulnerable to insufficient access control with multi-use invitations. A Zulip Server deployment which hosts multiple organizations is vulnerable to an attack where an invitation created in one organization (potentially as a role with elevated permissions) can be used to join any other organization. This bypasses any restrictions on required domains on users' email addresses, may be used to gain access to organizations which are only accessible by invitation, and may be used to gain access with elevated privileges. This issue has been patched in release 4.10. There are no known workarounds for this issue. ### Patches _Has the problem been patched? What versions should users upgrade to?_ ### Workarounds _Is there a way for users to fix or remediate the vulnerability without upgrading?_ ### References _Are there any links users can visit to find out more?_ ### For more information If you have any questions or comments about this advisory, you can discuss them on the [developer community Zulip server](https://zulip.com/developer-community/), or email the [Zulip security team](mailto:security@zulip.com).</description>
-      <guid isPermaLink="false">CVE-2022-21706|2024-08-03T02:53:34.765Z</guid>
-      <pubDate>Fri, 25 Feb 2022 23:25:10 +0000</pubDate>
-    </item>
-    <item>
-      <title>CVE-2022-31168|2024-08-03T07:11:39.641Z -- zulip -- zulip
-</title>
-      <link>https://www.cve.org/CVERecord?id=CVE-2022-31168</link>
-      <description>Zulip is an open source team chat tool. Due to an incorrect authorization check in Zulip Server 5.4 and earlier, a member of an organization could craft an API call that grants organization administrator privileges to one of their bots. The vulnerability is fixed in Zulip Server 5.5. Members who don’t own any bots, and lack permission to create them, can’t exploit the vulnerability. As a workaround for the vulnerability, an organization administrator can restrict the `Who can create bots` permission to administrators only, and change the ownership of existing bots.</description>
-      <guid isPermaLink="false">CVE-2022-31168|2024-08-03T07:11:39.641Z</guid>
-      <pubDate>Fri, 22 Jul 2022 13:05:12 +0000</pubDate>
-    </item>
-    <item>
-      <title>CVE-2022-31017|2024-08-03T07:03:40.245Z -- zulip -- zulip
-</title>
-      <link>https://www.cve.org/CVERecord?id=CVE-2022-31017</link>
-      <description>Zulip is an open-source team collaboration tool. Versions 2.1.0 through and including 5.2 are vulnerable to a logic error. A stream configured as private with protected history, where new subscribers should not be allowed to see messages sent before they were subscribed, when edited causes the server to incorrectly send an API event that includes the edited message to all of the stream’s current subscribers. This API event is ignored by official clients, but can be observed by using a modified client or the browser’s developer tools. This bug will be fixed in Zulip Server 5.3. There are no known workarounds.</description>
-      <guid isPermaLink="false">CVE-2022-31017|2024-08-03T07:03:40.245Z</guid>
-      <pubDate>Sat, 25 Jun 2022 08:15:16 +0000</pubDate>
-    </item>
-    <item>
-      <title>CVE-2022-31134|2024-08-03T07:11:39.612Z -- zulip -- zulip
-</title>
-      <link>https://www.cve.org/CVERecord?id=CVE-2022-31134</link>
-      <description>Zulip is an open-source team collaboration tool. Zulip Server versions 2.1.0 above have a user interface tool, accessible only to server owners and server administrators, which provides a way to download a "public data" export. While this export is only accessible to administrators, in many configurations server administrators are not expected to have access to private messages and private streams. However, the "public data" export which administrators could generate contained the attachment contents for all attachments, even those from private messages and streams. Zulip Server version 5.4 contains a patch for this issue.</description>
-      <guid isPermaLink="false">CVE-2022-31134|2024-08-03T07:11:39.612Z</guid>
-      <pubDate>Tue, 12 Jul 2022 20:35:10 +0000</pubDate>
-    </item>
-    <item>
-      <title>CVE-2024-27286|2024-08-02T00:27:59.940Z -- zulip -- zulip</title>
-      <link>https://www.cve.org/CVERecord?id=CVE-2024-27286</link>
-      <description>Zulip is an open-source team collaboration. When a user moves a Zulip message, they have the option to move all messages in the topic, move only subsequent messages as well, or move just a single message.  If the user chose to just move one message, and was moving it from a public stream to a private stream, Zulip would successfully move the message, -- but active users who did not have access to the private stream, but whose client had already received the message, would continue to see the message in the public stream until they reloaded their client.  Additionally, Zulip did not remove view permissions on the message from recently-active users, allowing the message to show up in the "All messages" view or in search results, but not in "Inbox" or "Recent conversations" views. While the bug has been present since moving messages between streams was first introduced in version 3.0, this option became much more common starting in Zulip 8.0, when the default option in the picker for moving the very last message in a conversation was changed. This issue is fixed in Zulip Server 8.3. No known workarounds are available.</description>
-      <guid isPermaLink="false">CVE-2024-27286|2024-08-02T00:27:59.940Z</guid>
-      <pubDate>Wed, 20 Mar 2024 19:35:59 +0000</pubDate>
+      <link>https://www.cve.org/CVERecord?id=CVE-2021-41115</link>
+      <description>Zulip is an open source team chat server. In affected versions Zulip allows organization administrators on a server to configure "linkifiers" that automatically create links from messages that users send, detected via arbitrary regular expressions. Malicious organization administrators could subject the server to a denial-of-service via regular expression complexity attacks; most simply, by configuring a quadratic-time regular expression in a linkifier, and sending messages that exploited it. A regular expression attempted to parse the user-provided regexes to verify that they were safe from ReDoS -- this was both insufficient, as well as _itself_ subject to ReDoS if the organization administrator entered a sufficiently complex invalid regex. Affected users should [upgrade to the just-released Zulip 4.7](https://zulip.readthedocs.io/en/latest/production/upgrade-or-modify.html#upgrading-to-a-release), or [`main`](https://zulip.readthedocs.io/en/latest/production/upgrade-or-modify.html#upgrading-from-a-git-repository).</description>
+      <guid isPermaLink="false">CVE-2021-41115|2024-08-04T02:59:31.570Z</guid>
+      <pubDate>Thu, 07 Oct 2021 22:20:13 +0000</pubDate>
     </item>
     <item>
       <title>CVE-2024-27286|2024-06-04T17:46:59.769Z -- zulip -- zulip</title>
       <link>https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2024-27286</link>
       <description>Zulip is an open-source team collaboration. When a user moves a Zulip message, they have the option to move all messages in the topic, move only subsequent messages as well, or move just a single message.  If the user chose to just move one message, and was moving it from a public stream to a private stream, Zulip would successfully move the message, -- but active users who did not have access to the private stream, but whose client had already received the message, would continue to see the message in the public stream until they reloaded their client.  Additionally, Zulip did not remove view permissions on the message from recently-active users, allowing the message to show up in the "All messages" view or in search results, but not in "Inbox" or "Recent conversations" views. While the bug has been present since moving messages between streams was first introduced in version 3.0, this option became much more common starting in Zulip 8.0, when the default option in the picker for moving the very last message in a conversation was changed. This issue is fixed in Zulip Server 8.3. No known workarounds are available.</description>
       <guid isPermaLink="false">CVE-2024-27286|2024-06-04T17:46:59.769Z</guid>
+      <pubDate>Wed, 20 Mar 2024 19:35:59 +0000</pubDate>
+    </item>
+    <item>
+      <title>CVE-2024-27286|2024-08-02T00:27:59.940Z -- zulip -- zulip</title>
+      <link>https://www.cve.org/CVERecord?id=CVE-2024-27286</link>
+      <description>Zulip is an open-source team collaboration. When a user moves a Zulip message, they have the option to move all messages in the topic, move only subsequent messages as well, or move just a single message.  If the user chose to just move one message, and was moving it from a public stream to a private stream, Zulip would successfully move the message, -- but active users who did not have access to the private stream, but whose client had already received the message, would continue to see the message in the public stream until they reloaded their client.  Additionally, Zulip did not remove view permissions on the message from recently-active users, allowing the message to show up in the "All messages" view or in search results, but not in "Inbox" or "Recent conversations" views. While the bug has been present since moving messages between streams was first introduced in version 3.0, this option became much more common starting in Zulip 8.0, when the default option in the picker for moving the very last message in a conversation was changed. This issue is fixed in Zulip Server 8.3. No known workarounds are available.</description>
+      <guid isPermaLink="false">CVE-2024-27286|2024-08-02T00:27:59.940Z</guid>
       <pubDate>Wed, 20 Mar 2024 19:35:59 +0000</pubDate>
     </item>
   </channel>

@@ -6,47 +6,15 @@
     <description>The latest CVEs for containerd -- all products</description>
     <docs>http://www.rssboard.org/rss-specification</docs>
     <generator>python-feedgen</generator>
-    <lastBuildDate>Sat, 03 Aug 2024 23:23:10 +0000</lastBuildDate>
+    <lastBuildDate>Sun, 04 Aug 2024 03:23:19 +0000</lastBuildDate>
     <ttl>60</ttl>
     <item>
-      <title>CVE-2022-23471|2024-08-03T03:43:46.038Z -- containerd -- containerd
+      <title>CVE-2021-41103|2024-08-04T02:59:31.538Z -- containerd -- containerd
 </title>
-      <link>https://www.cve.org/CVERecord?id=CVE-2022-23471</link>
-      <description>containerd is an open source container runtime. A bug was found in containerd's CRI implementation where a user can exhaust memory on the host. In the CRI stream server, a goroutine is launched to handle terminal resize events if a TTY is requested. If the user's process fails to launch due to, for example, a faulty command, the goroutine will be stuck waiting to send without a receiver, resulting in a memory leak. Kubernetes and crictl can both be configured to use containerd's CRI implementation and the stream server is used for handling container IO. This bug has been fixed in containerd 1.6.12 and 1.5.16.  Users should update to these versions to resolve the issue. Users unable to upgrade should ensure that only trusted images and commands are used and that only trusted users have permissions to execute commands in running containers. </description>
-      <guid isPermaLink="false">CVE-2022-23471|2024-08-03T03:43:46.038Z</guid>
-      <pubDate>Wed, 07 Dec 2022 22:51:34 +0000</pubDate>
-    </item>
-    <item>
-      <title>CVE-2022-23648|2024-08-03T03:51:45.829Z -- containerd -- containerd
-</title>
-      <link>https://www.cve.org/CVERecord?id=CVE-2022-23648</link>
-      <description>containerd is a container runtime available as a daemon for Linux and Windows. A bug was found in containerd prior to versions 1.6.1, 1.5.10, and 1.14.12 where containers launched through containerd’s CRI implementation on Linux with a specially-crafted image configuration could gain access to read-only copies of arbitrary files and directories on the host. This may bypass any policy-based enforcement on container setup (including a Kubernetes Pod Security Policy) and expose potentially sensitive information. Kubernetes and crictl can both be configured to use containerd’s CRI implementation. This bug has been fixed in containerd 1.6.1, 1.5.10, and 1.4.12. Users should update to these versions to resolve the issue.</description>
-      <guid isPermaLink="false">CVE-2022-23648|2024-08-03T03:51:45.829Z</guid>
-      <pubDate>Thu, 03 Mar 2022 00:00:00 +0000</pubDate>
-    </item>
-    <item>
-      <title>CVE-2021-21334|2024-08-03T18:09:15.415Z -- containerd -- containerd
-</title>
-      <link>https://www.cve.org/CVERecord?id=CVE-2021-21334</link>
-      <description>In containerd (an industry-standard container runtime) before versions 1.3.10 and 1.4.4, containers launched through containerd's CRI implementation (through Kubernetes, crictl, or any other pod/container client that uses the containerd CRI service) that share the same image may receive incorrect environment variables, including values that are defined for other containers. If the affected containers have different security contexts, this may allow sensitive information to be unintentionally shared. If you are not using containerd's CRI implementation (through one of the mechanisms described above), you are not vulnerable to this issue. If you are not launching multiple containers or Kubernetes pods from the same image which have different environment variables, you are not vulnerable to this issue. If you are not launching multiple containers or Kubernetes pods from the same image in rapid succession, you have reduced likelihood of being vulnerable to this issue This vulnerability has been fixed in containerd 1.3.10 and containerd 1.4.4. Users should update to these versions.</description>
-      <guid isPermaLink="false">CVE-2021-21334|2024-08-03T18:09:15.415Z</guid>
-      <pubDate>Wed, 10 Mar 2021 21:30:18 +0000</pubDate>
-    </item>
-    <item>
-      <title>CVE-2022-24778|2024-08-03T04:20:50.461Z -- containerd -- imgcrypt
-</title>
-      <link>https://www.cve.org/CVERecord?id=CVE-2022-24778</link>
-      <description>The imgcrypt library provides API exensions for containerd to support encrypted container images and implements the ctd-decoder command line tool for use by containerd to decrypt encrypted container images. The imgcrypt function `CheckAuthorization` is supposed to check whether the current used is authorized to access an encrypted image and prevent the user from running an image that another user previously decrypted on the same system. In versions prior to 1.1.4, a failure occurs when an image with a ManifestList is used and the architecture of the local host is not the first one in the ManifestList. Only the first architecture in the list was tested, which may not have its layers available locally since it could not be run on the host architecture. Therefore, the verdict on unavailable layers was that the image could be run anticipating that image run failure would occur later due to the layers not being available. However, this verdict to allow the image to run enabled other architectures in the ManifestList to run an image without providing keys if that image had previously been decrypted. A patch has been applied to imgcrypt 1.1.4. Workarounds may include usage of different namespaces for each remote user.</description>
-      <guid isPermaLink="false">CVE-2022-24778|2024-08-03T04:20:50.461Z</guid>
-      <pubDate>Fri, 25 Mar 2022 17:20:11 +0000</pubDate>
-    </item>
-    <item>
-      <title>CVE-2022-31030|2024-08-03T07:03:40.336Z -- containerd -- containerd
-</title>
-      <link>https://www.cve.org/CVERecord?id=CVE-2022-31030</link>
-      <description>containerd is an open source container runtime. A bug was found in the containerd's CRI implementation where programs inside a container can cause the containerd daemon to consume memory without bound during invocation of the `ExecSync` API. This can cause containerd to consume all available memory on the computer, denying service to other legitimate workloads. Kubernetes and crictl can both be configured to use containerd's CRI implementation; `ExecSync` may be used when running probes or when executing processes via an "exec" facility. This bug has been fixed in containerd 1.6.6 and 1.5.13. Users should update to these versions to resolve the issue. Users unable to upgrade should ensure that only trusted images and commands are used.</description>
-      <guid isPermaLink="false">CVE-2022-31030|2024-08-03T07:03:40.336Z</guid>
-      <pubDate>Mon, 06 Jun 2022 00:00:00 +0000</pubDate>
+      <link>https://www.cve.org/CVERecord?id=CVE-2021-41103</link>
+      <description>containerd is an open source container runtime with an emphasis on simplicity, robustness and portability. A bug was found in containerd where container root directories and some plugins had insufficiently restricted permissions, allowing otherwise unprivileged Linux users to traverse directory contents and execute programs. When containers included executable programs with extended permission bits (such as setuid), unprivileged Linux users could discover and execute those programs. When the UID of an unprivileged Linux user on the host collided with the file owner or group inside a container, the unprivileged Linux user on the host could discover, read, and modify those files. This vulnerability has been fixed in containerd 1.4.11 and containerd 1.5.7. Users should update to these version when they are released and may restart containers or update directory permissions to mitigate the vulnerability. Users unable to update should limit access to the host to trusted users. Update directory permission on container bundles directories.</description>
+      <guid isPermaLink="false">CVE-2021-41103|2024-08-04T02:59:31.538Z</guid>
+      <pubDate>Mon, 04 Oct 2021 00:00:00 +0000</pubDate>
     </item>
   </channel>
 </rss>

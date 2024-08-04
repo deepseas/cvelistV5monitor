@@ -6,31 +6,31 @@
     <description>The latest CVEs for wireapp -- wire-server</description>
     <docs>http://www.rssboard.org/rss-specification</docs>
     <generator>python-feedgen</generator>
-    <lastBuildDate>Sat, 03 Aug 2024 23:23:09 +0000</lastBuildDate>
+    <lastBuildDate>Sun, 04 Aug 2024 03:23:13 +0000</lastBuildDate>
     <ttl>60</ttl>
     <item>
-      <title>CVE-2022-31122|2024-08-03T07:11:39.209Z -- wireapp -- wire-server
+      <title>CVE-2021-41100|2024-08-04T02:59:31.522Z -- wireapp -- wire-server
 </title>
-      <link>https://www.cve.org/CVERecord?id=CVE-2022-31122</link>
-      <description>Wire is an encrypted communication and collaboration platform. Versions prior to 2022-07-12/Chart 4.19.0 are subject to Token Recipient Confusion. If an attacker has certain details of SAML IdP metadata, and configures their own SAML on the same backend, the attacker can delete all SAML authenticated accounts of a targeted team, Authenticate as a user of the attacked team and create arbitrary accounts in the context of the team if it is not managed by SCIM. This issue is fixed in wire-server 2022-07-12 and is already deployed on all Wire managed services. On-premise instances of wire-server need to be updated to 2022-07-12/Chart 4.19.0, so that their backends are no longer affected. As a workaround, the risk of an attack can be reduced by disabling SAML configuration for teams (galley.config.settings.featureFlags.sso). Helm overrides are located in `values/wire-server/values.yaml` Note that the ability to configure SAML SSO as a team is disabled by default for on-premise installations.</description>
-      <guid isPermaLink="false">CVE-2022-31122|2024-08-03T07:11:39.209Z</guid>
-      <pubDate>Tue, 18 Oct 2022 00:00:00 +0000</pubDate>
+      <link>https://www.cve.org/CVERecord?id=CVE-2021-41100</link>
+      <description>Wire-server is the backing server for the open source wire secure messaging application. In affected versions it is possible to trigger email address change of a user with only the short-lived session token in the `Authorization` header. As the short-lived token is only meant as means of authentication by the client for less critical requests to the backend, the ability to change the email address with a short-lived token constitutes a privilege escalation attack. Since the attacker can change the password after setting the email address to one that they control, changing the email address can result in an account takeover by the attacker. Short-lived tokens can be requested from the backend by Wire clients using the long lived tokens, after which the long lived tokens can be stored securely, for example on the devices key chain. The short lived tokens can then be used to authenticate the client towards the backend for frequently performed actions such as sending and receiving messages. While short-lived tokens should not be available to an attacker per-se, they are used more often and in the shape of an HTTP header, increasing the risk of exposure to an attacker relative to the long-lived tokens, which are stored and transmitted in cookies. If you are running an on-prem instance and provision all users with SCIM, you are not affected by this issue (changing email is blocked for SCIM users). SAML single-sign-on is unaffected by this issue, and behaves identically before and after this update. The reason is that the email address used as SAML NameID is stored in a different location in the databse from the one used to contact the user outside wire. Version 2021-08-16 and later provide a new end-point that requires both the long-lived client cookie and `Authorization` header. The old end-point has been removed. If you are running an on-prem instance with at least some of the users invited or provisioned via SAML SSO and you cannot update then you can block `/self/email` on nginz (or in any other proxies or firewalls you may have set up). You don't need to discriminate by verb: `/self/email` only accepts `PUT` and `DELETE`, and `DELETE` is almost never used.</description>
+      <guid isPermaLink="false">CVE-2021-41100|2024-08-04T02:59:31.522Z</guid>
+      <pubDate>Mon, 04 Oct 2021 18:25:10 +0000</pubDate>
     </item>
     <item>
-      <title>CVE-2021-21396|2024-08-03T18:09:16.005Z -- wireapp -- wire-server
+      <title>CVE-2021-41119|2024-08-04T02:59:31.626Z -- wireapp -- wire-server
 </title>
-      <link>https://www.cve.org/CVERecord?id=CVE-2021-21396</link>
-      <description>wire-server is an open-source back end for Wire, a secure collaboration platform. In wire-server from version 2021-02-16 and before version 2021-03-02, the client metadata of all users was exposed in the `GET /users/list-clients` endpoint. The endpoint could be used by any logged in user who could request client details of any other user (no connection required) as far as they can find their User ID. The exposed metadata included id, class, type, location, time, and cookie. A user on a Wire backend could use this endpoint to find registration time and location for each device for a given list of users. As a workaround, remove `/list-clients` from nginx config. This has been fixed in version 2021-03-02.</description>
-      <guid isPermaLink="false">CVE-2021-21396|2024-08-03T18:09:16.005Z</guid>
-      <pubDate>Fri, 26 Mar 2021 21:40:15 +0000</pubDate>
+      <link>https://www.cve.org/CVERecord?id=CVE-2021-41119</link>
+      <description>Wire-server is the system server for the wire back-end services. Releases prior to v2022-03-01 are subject to a denial of service attack via a crafted object causing a hash collision. This collision causes the server to spend at least quadratic time parsing it which can lead to a denial of service for a heavily used server. The issue has been fixed in wire-server 2022-03-01 and is already deployed on all Wire managed services. On premise instances of wire-server need to be updated to 2022-03-01, so that their backends are no longer affected. There are no known workarounds for this issue.</description>
+      <guid isPermaLink="false">CVE-2021-41119|2024-08-04T02:59:31.626Z</guid>
+      <pubDate>Wed, 13 Apr 2022 18:25:11 +0000</pubDate>
     </item>
     <item>
-      <title>CVE-2022-23610|2024-08-03T03:43:46.981Z -- wireapp -- wire-server
+      <title>CVE-2021-41101|2024-08-04T02:59:31.532Z -- wireapp -- wire-server
 </title>
-      <link>https://www.cve.org/CVERecord?id=CVE-2022-23610</link>
-      <description>wire-server provides back end services for Wire, an open source messenger. In versions of wire-server prior to the 2022-01-27 release, it was possible to craft DSA Signatures to bypass SAML SSO and impersonate any Wire user with SAML credentials. In teams with SAML, but without SCIM, it was possible to create new accounts with fake SAML credentials. Under certain conditions that can be established by an attacker, an upstream library for parsing, rendering, signing, and validating SAML XML data was accepting public keys as trusted that were provided by the attacker in the signature. As a consequence, the attacker could login as any user in any Wire team with SAML SSO enabled. If SCIM was not enabled, the attacker could also create new users with new SAML NameIDs. In order to exploit this vulnerability, the attacker needs to know the SSO login code (distributed to all team members with SAML credentials and visible in the Team Management app), the SAML EntityID identifying the IdP (a URL not considered sensitive, but usually hard to guess, also visible in Team Management), and the SAML NameID of the user (usually an email address or a nick). The issue has been fixed in wire-server `2022-01-27` and is already deployed on all Wire managed services. On premise instances of wire-server need to be updated to `2022-01-27`, so that their backends are no longer affected. There are currently no known workarounds. More detailed information about how to reproduce the vulnerability and mitigation strategies is available in the GitHub Security Advisory.</description>
-      <guid isPermaLink="false">CVE-2022-23610|2024-08-03T03:43:46.981Z</guid>
-      <pubDate>Wed, 16 Mar 2022 17:40:10 +0000</pubDate>
+      <link>https://www.cve.org/CVERecord?id=CVE-2021-41101</link>
+      <description>wire-server is an open-source back end for Wire, a secure collaboration platform. Before version 2.106.0, the CORS ` Access-Control-Allow-Origin ` header set by `nginz` is set for all subdomains of `.wire.com` (including `wire.com`). This means that if somebody were to find an XSS vector in any of the subdomains, they could use it to talk to the Wire API using the user's Cookie. A patch does not exist, but a workaround does. To make sure that a compromise of one subdomain does not yield access to the cookie of another, one may limit the `Access-Control-Allow-Origin` header to apps that actually require the cookie (account-pages, team-settings and the webapp).</description>
+      <guid isPermaLink="false">CVE-2021-41101|2024-08-04T02:59:31.532Z</guid>
+      <pubDate>Thu, 30 Sep 2021 19:20:09 +0000</pubDate>
     </item>
   </channel>
 </rss>

@@ -1,0 +1,20 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<rss xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/" version="2.0">
+  <channel>
+    <title>CVE Feed for theupdateframework -- python-tuf</title>
+    <link>https://raw.githubusercontent.com/deepseas/cvelistV5monitor/main/feeds/theupdateframework/python-tuf.rss</link>
+    <description>The latest CVEs for theupdateframework -- python-tuf</description>
+    <docs>http://www.rssboard.org/rss-specification</docs>
+    <generator>python-feedgen</generator>
+    <lastBuildDate>Sun, 04 Aug 2024 03:23:20 +0000</lastBuildDate>
+    <ttl>60</ttl>
+    <item>
+      <title>CVE-2021-41131|2024-08-04T02:59:31.615Z -- theupdateframework -- python-tuf
+</title>
+      <link>https://www.cve.org/CVERecord?id=CVE-2021-41131</link>
+      <description>python-tuf is a Python reference implementation of The Update Framework (TUF). In both clients (`tuf/client` and `tuf/ngclient`), there is a path traversal vulnerability that in the worst case can overwrite files ending in `.json` anywhere on the client system on a call to `get_one_valid_targetinfo()`. It occurs because the rolename is used to form the filename, and may contain path traversal characters (ie `../../name.json`). The impact is mitigated by a few facts: It only affects implementations that allow arbitrary rolename selection for delegated targets metadata, The attack requires the ability to A) insert new metadata for the path-traversing role and B) get the role delegated by an existing targets metadata, The written file content is heavily restricted since it needs to be a valid, signed targets file. The file extension is always .json. A fix is available in version 0.19 or newer. There are no workarounds that do not require code changes. Clients can restrict the allowed character set for rolenames, or they can store metadata in files named in a way that is not vulnerable: neither of these approaches is possible without modifying python-tuf.</description>
+      <guid isPermaLink="false">CVE-2021-41131|2024-08-04T02:59:31.615Z</guid>
+      <pubDate>Tue, 19 Oct 2021 17:50:11 +0000</pubDate>
+    </item>
+  </channel>
+</rss>
