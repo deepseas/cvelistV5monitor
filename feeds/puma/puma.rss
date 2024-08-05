@@ -6,47 +6,15 @@
     <description>The latest CVEs for puma -- puma</description>
     <docs>http://www.rssboard.org/rss-specification</docs>
     <generator>python-feedgen</generator>
-    <lastBuildDate>Sun, 04 Aug 2024 23:23:16 +0000</lastBuildDate>
+    <lastBuildDate>Mon, 05 Aug 2024 01:45:32 +0000</lastBuildDate>
     <ttl>60</ttl>
     <item>
-      <title>CVE-2020-11077|2024-08-04T11:21:14.618Z -- puma -- puma
+      <title>CVE-2019-16770|2024-08-05T01:24:48.578Z -- puma -- puma
 </title>
-      <link>https://www.cve.org/CVERecord?id=CVE-2020-11077</link>
-      <description>In Puma (RubyGem) before 4.3.5 and 3.12.6, a client could smuggle a request through a proxy, causing the proxy to send a response back to another unknown client. If the proxy uses persistent connections and the client adds another request in via HTTP pipelining, the proxy may mistake it as the first request's body. Puma, however, would see it as two requests, and when processing the second request, send back a response that the proxy does not expect. If the proxy has reused the persistent connection to Puma to send another request for a different client, the second response from the first client will be sent to the second client. This is a similar but different vulnerability from CVE-2020-11076. The problem has been fixed in Puma 3.12.6 and Puma 4.3.5.</description>
-      <guid isPermaLink="false">CVE-2020-11077|2024-08-04T11:21:14.618Z</guid>
-      <pubDate>Fri, 22 May 2020 14:55:13 +0000</pubDate>
-    </item>
-    <item>
-      <title>CVE-2020-5247|2024-08-04T08:22:09.079Z -- puma -- puma
-</title>
-      <link>https://www.cve.org/CVERecord?id=CVE-2020-5247</link>
-      <description>In Puma (RubyGem) before 4.3.2 and before 3.12.3, if an application using Puma allows untrusted input in a response header, an attacker can use newline characters (i.e. `CR`, `LF` or`/r`, `/n`) to end the header and inject malicious content, such as additional headers or an entirely new response body. This vulnerability is known as HTTP Response Splitting. While not an attack in itself, response splitting is a vector for several other attacks, such as cross-site scripting (XSS). This is related to CVE-2019-16254, which fixed this vulnerability for the WEBrick Ruby web server. This has been fixed in versions 4.3.2 and 3.12.3 by checking all headers for line endings and rejecting headers with those characters.</description>
-      <guid isPermaLink="false">CVE-2020-5247|2024-08-04T08:22:09.079Z</guid>
-      <pubDate>Fri, 28 Feb 2020 16:55:15 +0000</pubDate>
-    </item>
-    <item>
-      <title>CVE-2021-41136|2024-08-04T02:59:31.645Z -- puma -- puma
-</title>
-      <link>https://www.cve.org/CVERecord?id=CVE-2021-41136</link>
-      <description>Puma is a HTTP 1.1 server for Ruby/Rack applications. Prior to versions 5.5.1 and 4.3.9, using `puma` with a proxy which forwards HTTP header values which contain the LF character could allow HTTP request smugggling. A client could smuggle a request through a proxy, causing the proxy to send a response back to another unknown client. The only proxy which has this behavior, as far as the Puma team is aware of, is Apache Traffic Server. If the proxy uses persistent connections and the client adds another request in via HTTP pipelining, the proxy may mistake it as the first request's body. Puma, however, would see it as two requests, and when processing the second request, send back a response that the proxy does not expect. If the proxy has reused the persistent connection to Puma to send another request for a different client, the second response from the first client will be sent to the second client. This vulnerability was patched in Puma 5.5.1 and 4.3.9. As a workaround, do not use Apache Traffic Server with `puma`.</description>
-      <guid isPermaLink="false">CVE-2021-41136|2024-08-04T02:59:31.645Z</guid>
-      <pubDate>Tue, 12 Oct 2021 15:30:11 +0000</pubDate>
-    </item>
-    <item>
-      <title>CVE-2020-11076|2024-08-04T11:21:14.684Z -- puma -- puma
-</title>
-      <link>https://www.cve.org/CVERecord?id=CVE-2020-11076</link>
-      <description>In Puma (RubyGem) before 4.3.4 and 3.12.5, an attacker could smuggle an HTTP response, by using an invalid transfer-encoding header. The problem has been fixed in Puma 3.12.5 and Puma 4.3.4.</description>
-      <guid isPermaLink="false">CVE-2020-11076|2024-08-04T11:21:14.684Z</guid>
-      <pubDate>Fri, 22 May 2020 14:50:12 +0000</pubDate>
-    </item>
-    <item>
-      <title>CVE-2020-5249|2024-08-04T08:22:09.092Z -- puma -- puma
-</title>
-      <link>https://www.cve.org/CVERecord?id=CVE-2020-5249</link>
-      <description>In Puma (RubyGem) before 4.3.3 and 3.12.4, if an application using Puma allows untrusted input in an early-hints header, an attacker can use a carriage return character to end the header and inject malicious content, such as additional headers or an entirely new response body. This vulnerability is known as HTTP Response Splitting. While not an attack in itself, response splitting is a vector for several other attacks, such as cross-site scripting (XSS). This is related to CVE-2020-5247, which fixed this vulnerability but only for regular responses. This has been fixed in 4.3.3 and 3.12.4.</description>
-      <guid isPermaLink="false">CVE-2020-5249|2024-08-04T08:22:09.092Z</guid>
-      <pubDate>Mon, 02 Mar 2020 15:20:21 +0000</pubDate>
+      <link>https://www.cve.org/CVERecord?id=CVE-2019-16770</link>
+      <description>In Puma before versions 3.12.2 and 4.3.1, a poorly-behaved client could use keepalive requests to monopolize Puma's reactor and create a denial of service attack. If more keepalive connections to Puma are opened than there are threads available, additional connections will wait permanently if the attacker sends requests frequently enough. This vulnerability is patched in Puma 4.3.1 and 3.12.2.</description>
+      <guid isPermaLink="false">CVE-2019-16770|2024-08-05T01:24:48.578Z</guid>
+      <pubDate>Thu, 05 Dec 2019 19:35:14 +0000</pubDate>
     </item>
   </channel>
 </rss>

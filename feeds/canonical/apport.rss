@@ -6,71 +6,15 @@
     <description>The latest CVEs for Canonical -- apport</description>
     <docs>http://www.rssboard.org/rss-specification</docs>
     <generator>python-feedgen</generator>
-    <lastBuildDate>Sun, 04 Aug 2024 23:23:16 +0000</lastBuildDate>
+    <lastBuildDate>Mon, 05 Aug 2024 01:45:28 +0000</lastBuildDate>
     <ttl>60</ttl>
     <item>
-      <title>CVE-2020-8833|2024-08-04T10:12:10.622Z -- canonical -- apport
+      <title>CVE-2019-15790|2024-08-05T00:56:22.465Z -- canonical -- apport
 </title>
-      <link>https://www.cve.org/CVERecord?id=CVE-2020-8833</link>
-      <description>Time-of-check Time-of-use Race Condition vulnerability on crash report ownership change in Apport allows for a possible privilege escalation opportunity. If fs.protected_symlinks is disabled, this can be exploited between the os.open and os.chown calls when the Apport cron script clears out crash files of size 0. A symlink with the same name as the deleted file can then be created upon which chown will be called, changing the file owner to root. Fixed in versions 2.20.1-0ubuntu2.23, 2.20.9-0ubuntu7.14, 2.20.11-0ubuntu8.8 and 2.20.11-0ubuntu22.</description>
-      <guid isPermaLink="false">CVE-2020-8833|2024-08-04T10:12:10.622Z</guid>
-      <pubDate>Thu, 02 Apr 2020 00:00:00 +0000</pubDate>
-    </item>
-    <item>
-      <title>CVE-2019-11481|2024-08-04T22:55:40.657Z -- canonical -- apport
-</title>
-      <link>https://www.cve.org/CVERecord?id=CVE-2019-11481</link>
-      <description>Kevin Backhouse discovered that apport would read a user-supplied configuration file with elevated privileges. By replacing the file with a symbolic link, a user could get apport to read any file on the system as root, with unknown consequences.</description>
-      <guid isPermaLink="false">CVE-2019-11481|2024-08-04T22:55:40.657Z</guid>
-      <pubDate>Sat, 08 Feb 2020 00:00:00 +0000</pubDate>
-    </item>
-    <item>
-      <title>CVE-2020-15702|2024-08-04T13:22:30.693Z -- canonical -- apport
-</title>
-      <link>https://www.cve.org/CVERecord?id=CVE-2020-15702</link>
-      <description>TOCTOU Race Condition vulnerability in apport allows a local attacker to escalate privileges and execute arbitrary code. An attacker may exit the crashed process and exploit PID recycling to spawn a root process with the same PID as the crashed process, which can then be used to escalate privileges. Fixed in 2.20.1-0ubuntu2.24, 2.20.9 versions prior to 2.20.9-0ubuntu7.16 and 2.20.11 versions prior to 2.20.11-0ubuntu27.6. Was ZDI-CAN-11234.</description>
-      <guid isPermaLink="false">CVE-2020-15702|2024-08-04T13:22:30.693Z</guid>
-      <pubDate>Tue, 04 Aug 2020 00:00:00 +0000</pubDate>
-    </item>
-    <item>
-      <title>CVE-2019-11482|2024-08-04T22:55:40.394Z -- canonical -- apport
-</title>
-      <link>https://www.cve.org/CVERecord?id=CVE-2019-11482</link>
-      <description>Sander Bos discovered a time of check to time of use (TOCTTOU) vulnerability in apport that allowed a user to cause core files to be written in arbitrary directories.</description>
-      <guid isPermaLink="false">CVE-2019-11482|2024-08-04T22:55:40.394Z</guid>
-      <pubDate>Tue, 29 Oct 2019 00:00:00 +0000</pubDate>
-    </item>
-    <item>
-      <title>CVE-2019-11483|2024-08-04T22:55:40.442Z -- canonical -- apport
-</title>
-      <link>https://www.cve.org/CVERecord?id=CVE-2019-11483</link>
-      <description>Sander Bos discovered Apport mishandled crash dumps originating from containers. This could be used by a local attacker to generate a crash report for a privileged process that is readable by an unprivileged user.</description>
-      <guid isPermaLink="false">CVE-2019-11483|2024-08-04T22:55:40.442Z</guid>
-      <pubDate>Tue, 29 Oct 2019 00:00:00 +0000</pubDate>
-    </item>
-    <item>
-      <title>CVE-2020-15701|2024-08-04T13:22:30.677Z -- canonical -- apport
-</title>
-      <link>https://www.cve.org/CVERecord?id=CVE-2020-15701</link>
-      <description>An unhandled exception in check_ignored() in apport/report.py can be exploited by a local attacker to cause a denial of service. If the mtime attribute is a string value in apport-ignore.xml, it will trigger an unhandled exception, resulting in a crash. Fixed in 2.20.1-0ubuntu2.24, 2.20.9-0ubuntu7.16, 2.20.11-0ubuntu27.6.</description>
-      <guid isPermaLink="false">CVE-2020-15701|2024-08-04T13:22:30.677Z</guid>
-      <pubDate>Wed, 13 May 2020 00:00:00 +0000</pubDate>
-    </item>
-    <item>
-      <title>CVE-2019-11485|2024-08-04T22:55:40.473Z -- canonical -- apport
-</title>
-      <link>https://www.cve.org/CVERecord?id=CVE-2019-11485</link>
-      <description>Sander Bos discovered Apport's lock file was in a world-writable directory which allowed all users to prevent crash handling.</description>
-      <guid isPermaLink="false">CVE-2019-11485|2024-08-04T22:55:40.473Z</guid>
-      <pubDate>Tue, 29 Oct 2019 00:00:00 +0000</pubDate>
-    </item>
-    <item>
-      <title>CVE-2020-8831|2024-08-04T10:12:10.889Z -- canonical -- apport
-</title>
-      <link>https://www.cve.org/CVERecord?id=CVE-2020-8831</link>
-      <description>Apport creates a world writable lock file with root ownership in the world writable /var/lock/apport directory. If the apport/ directory does not exist (this is not uncommon as /var/lock is a tmpfs), it will create the directory, otherwise it will simply continue execution using the existing directory. This allows for a symlink attack if an attacker were to create a symlink at /var/lock/apport, changing apport's lock file location. This file could then be used to escalate privileges, for example. Fixed in versions 2.20.1-0ubuntu2.23, 2.20.9-0ubuntu7.14, 2.20.11-0ubuntu8.8 and 2.20.11-0ubuntu22.</description>
-      <guid isPermaLink="false">CVE-2020-8831|2024-08-04T10:12:10.889Z</guid>
-      <pubDate>Thu, 02 Apr 2020 00:00:00 +0000</pubDate>
+      <link>https://www.cve.org/CVERecord?id=CVE-2019-15790</link>
+      <description>Apport reads and writes information on a crashed process to /proc/pid with elevated privileges. Apport then determines which user the crashed process belongs to by reading /proc/pid through get_pid_info() in data/apport. An unprivileged user could exploit this to read information about a privileged running process by exploiting PID recycling. This information could then be used to obtain ASLR offsets for a process with an existing memory corruption vulnerability. The initial fix introduced regressions in the Python Apport library due to a missing argument in Report.add_proc_environ in apport/report.py. It also caused an autopkgtest failure when reading /proc/pid and with Python 2 compatibility by reading /proc maps. The initial and subsequent regression fixes are in 2.20.11-0ubuntu16, 2.20.11-0ubuntu8.6, 2.20.9-0ubuntu7.12, 2.20.1-0ubuntu2.22 and 2.14.1-0ubuntu3.29+esm3.</description>
+      <guid isPermaLink="false">CVE-2019-15790|2024-08-05T00:56:22.465Z</guid>
+      <pubDate>Mon, 27 Apr 2020 00:00:00 +0000</pubDate>
     </item>
   </channel>
 </rss>

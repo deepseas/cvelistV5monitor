@@ -6,15 +6,39 @@
     <description>The latest CVEs for Pylons -- all products</description>
     <docs>http://www.rssboard.org/rss-specification</docs>
     <generator>python-feedgen</generator>
-    <lastBuildDate>Sun, 04 Aug 2024 23:23:22 +0000</lastBuildDate>
+    <lastBuildDate>Mon, 05 Aug 2024 01:45:28 +0000</lastBuildDate>
     <ttl>60</ttl>
     <item>
-      <title>CVE-2020-5236|2024-08-04T08:22:09.008Z -- pylons -- waitress
+      <title>CVE-2019-16792|2024-08-05T01:24:48.422Z -- pylons -- waitress
 </title>
-      <link>https://www.cve.org/CVERecord?id=CVE-2020-5236</link>
-      <description>Waitress version 1.4.2 allows a DOS attack When waitress receives a header that contains invalid characters. When a header like "Bad-header: xxxxxxxxxxxxxxx\x10" is received, it will cause the regular expression engine to catastrophically backtrack causing the process to use 100% CPU time and blocking any other interactions. This allows an attacker to send a single request with an invalid header and take the service offline. This issue was introduced in version 1.4.2 when the regular expression was updated to attempt to match the behaviour required by errata associated with RFC7230. The regular expression that is used to validate incoming headers has been updated in version 1.4.3, it is recommended that people upgrade to the new version of Waitress as soon as possible.</description>
-      <guid isPermaLink="false">CVE-2020-5236|2024-08-04T08:22:09.008Z</guid>
-      <pubDate>Tue, 04 Feb 2020 03:05:14 +0000</pubDate>
+      <link>https://www.cve.org/CVERecord?id=CVE-2019-16792</link>
+      <description>Waitress through version 1.3.1 allows request smuggling by sending the Content-Length header twice. Waitress would header fold a double Content-Length header and due to being unable to cast the now comma separated value to an integer would set the Content-Length to 0 internally. If two Content-Length headers are sent in a single request, Waitress would treat the request as having no body, thereby treating the body of the request as a new request in HTTP pipelining. This issue is fixed in Waitress 1.4.0.</description>
+      <guid isPermaLink="false">CVE-2019-16792|2024-08-05T01:24:48.422Z</guid>
+      <pubDate>Wed, 22 Jan 2020 18:30:15 +0000</pubDate>
+    </item>
+    <item>
+      <title>CVE-2019-16789|2024-08-05T01:24:48.331Z -- pylons -- waitress
+</title>
+      <link>https://www.cve.org/CVERecord?id=CVE-2019-16789</link>
+      <description>In Waitress through version 1.4.0, if a proxy server is used in front of waitress, an invalid request may be sent by an attacker that bypasses the front-end and is parsed differently by waitress leading to a potential for HTTP request smuggling. Specially crafted requests containing special whitespace characters in the Transfer-Encoding header would get parsed by Waitress as being a chunked request, but a front-end server would use the Content-Length instead as the Transfer-Encoding header is considered invalid due to containing invalid characters. If a front-end server does HTTP pipelining to a backend Waitress server this could lead to HTTP request splitting which may lead to potential cache poisoning or unexpected information disclosure. This issue is fixed in Waitress 1.4.1 through more strict HTTP field validation.</description>
+      <guid isPermaLink="false">CVE-2019-16789|2024-08-05T01:24:48.331Z</guid>
+      <pubDate>Thu, 26 Dec 2019 16:40:12 +0000</pubDate>
+    </item>
+    <item>
+      <title>CVE-2019-16785|2024-08-05T01:24:47.876Z -- pylons -- waitress
+</title>
+      <link>https://www.cve.org/CVERecord?id=CVE-2019-16785</link>
+      <description>Waitress through version 1.3.1 implemented a "MAY" part of the RFC7230 which states: "Although the line terminator for the start-line and header fields is the sequence CRLF, a recipient MAY recognize a single LF as a line terminator and ignore any preceding CR." Unfortunately if a front-end server does not parse header fields with an LF the same way as it does those with a CRLF it can lead to the front-end and the back-end server parsing the same HTTP message in two different ways. This can lead to a potential for HTTP request smuggling/splitting whereby Waitress may see two requests while the front-end server only sees a single HTTP message. This issue is fixed in Waitress 1.4.0.</description>
+      <guid isPermaLink="false">CVE-2019-16785|2024-08-05T01:24:47.876Z</guid>
+      <pubDate>Fri, 20 Dec 2019 23:00:25 +0000</pubDate>
+    </item>
+    <item>
+      <title>CVE-2019-16786|2024-08-05T01:24:48.017Z -- pylons -- waitress
+</title>
+      <link>https://www.cve.org/CVERecord?id=CVE-2019-16786</link>
+      <description>Waitress through version 1.3.1 would parse the Transfer-Encoding header and only look for a single string value, if that value was not chunked it would fall through and use the Content-Length header instead. According to the HTTP standard Transfer-Encoding should be a comma separated list, with the inner-most encoding first, followed by any further transfer codings, ending with chunked. Requests sent with: "Transfer-Encoding: gzip, chunked" would incorrectly get ignored, and the request would use a Content-Length header instead to determine the body size of the HTTP message. This could allow for Waitress to treat a single request as multiple requests in the case of HTTP pipelining. This issue is fixed in Waitress 1.4.0.</description>
+      <guid isPermaLink="false">CVE-2019-16786|2024-08-05T01:24:48.017Z</guid>
+      <pubDate>Fri, 20 Dec 2019 23:00:20 +0000</pubDate>
     </item>
   </channel>
 </rss>

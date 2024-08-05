@@ -1,0 +1,36 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<rss xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/" version="2.0">
+  <channel>
+    <title>CVE Feed for Ubuntu -- Shiftfs in the Linux kernel</title>
+    <link>https://raw.githubusercontent.com/deepseas/cvelistV5monitor/main/feeds/ubuntu/shiftfs%20in%20the%20linux%20kernel.rss</link>
+    <description>The latest CVEs for Ubuntu -- Shiftfs in the Linux kernel</description>
+    <docs>http://www.rssboard.org/rss-specification</docs>
+    <generator>python-feedgen</generator>
+    <lastBuildDate>Mon, 05 Aug 2024 01:45:28 +0000</lastBuildDate>
+    <ttl>60</ttl>
+    <item>
+      <title>CVE-2019-15792|2024-08-05T00:56:22.476Z -- ubuntu -- shiftfs%20in%20the%20linux%20kernel
+</title>
+      <link>https://www.cve.org/CVERecord?id=CVE-2019-15792</link>
+      <description>In shiftfs, a non-upstream patch to the Linux kernel included in the Ubuntu 5.0 and 5.3 kernel series, shiftfs_btrfs_ioctl_fd_replace() calls fdget(oldfd), then without further checks passes the resulting file* into shiftfs_real_fdget(), which casts file-&gt;private_data, a void* that points to a filesystem-dependent type, to a "struct shiftfs_file_info *". As the private_data is not required to be a pointer, an attacker can use this to cause a denial of service or possibly execute arbitrary code.</description>
+      <guid isPermaLink="false">CVE-2019-15792|2024-08-05T00:56:22.476Z</guid>
+      <pubDate>Tue, 12 Nov 2019 00:00:00 +0000</pubDate>
+    </item>
+    <item>
+      <title>CVE-2019-15791|2024-08-05T00:56:22.393Z -- ubuntu -- shiftfs%20in%20the%20linux%20kernel
+</title>
+      <link>https://www.cve.org/CVERecord?id=CVE-2019-15791</link>
+      <description>In shiftfs, a non-upstream patch to the Linux kernel included in the Ubuntu 5.0 and 5.3 kernel series, shiftfs_btrfs_ioctl_fd_replace() installs an fd referencing a file from the lower filesystem without taking an additional reference to that file. After the btrfs ioctl completes this fd is closed, which then puts a reference to that file, leading to a refcount underflow.</description>
+      <guid isPermaLink="false">CVE-2019-15791|2024-08-05T00:56:22.393Z</guid>
+      <pubDate>Tue, 12 Nov 2019 00:00:00 +0000</pubDate>
+    </item>
+    <item>
+      <title>CVE-2019-15793|2024-08-05T00:56:22.425Z -- ubuntu -- shiftfs%20in%20the%20linux%20kernel
+</title>
+      <link>https://www.cve.org/CVERecord?id=CVE-2019-15793</link>
+      <description>In shiftfs, a non-upstream patch to the Linux kernel included in the Ubuntu 5.0 and 5.3 kernel series, several locations which shift ids translate user/group ids before performing operations in the lower filesystem were translating them into init_user_ns, whereas they should have been translated into the s_user_ns for the lower filesystem. This resulted in using ids other than the intended ones in the lower fs, which likely did not map into the shifts s_user_ns. A local attacker could use this to possibly bypass discretionary access control permissions.</description>
+      <guid isPermaLink="false">CVE-2019-15793|2024-08-05T00:56:22.425Z</guid>
+      <pubDate>Tue, 12 Nov 2019 00:00:00 +0000</pubDate>
+    </item>
+  </channel>
+</rss>

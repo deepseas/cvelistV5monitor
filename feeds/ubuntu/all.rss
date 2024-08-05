@@ -6,79 +6,39 @@
     <description>The latest CVEs for Ubuntu -- all products</description>
     <docs>http://www.rssboard.org/rss-specification</docs>
     <generator>python-feedgen</generator>
-    <lastBuildDate>Sun, 04 Aug 2024 23:23:18 +0000</lastBuildDate>
+    <lastBuildDate>Mon, 05 Aug 2024 01:45:28 +0000</lastBuildDate>
     <ttl>60</ttl>
     <item>
-      <title>CVE-2019-11476|2024-08-04T22:55:40.210Z -- ubuntu -- whoopsie
+      <title>CVE-2019-15794|2024-08-05T00:56:22.473Z -- ubuntu -- linux%20kernel
 </title>
-      <link>https://www.cve.org/CVERecord?id=CVE-2019-11476</link>
-      <description>An integer overflow in whoopsie before versions 0.2.52.5ubuntu0.1, 0.2.62ubuntu0.1, 0.2.64ubuntu0.1, 0.2.66, results in an out-of-bounds write to a heap allocated buffer when processing large crash dumps. This results in a crash or possible code-execution in the context of the whoopsie process.</description>
-      <guid isPermaLink="false">CVE-2019-11476|2024-08-04T22:55:40.210Z</guid>
-      <pubDate>Thu, 29 Aug 2019 00:00:00 +0000</pubDate>
+      <link>https://www.cve.org/CVERecord?id=CVE-2019-15794</link>
+      <description>Overlayfs in the Linux kernel and shiftfs, a non-upstream patch to the Linux kernel included in the Ubuntu 5.0 and 5.3 kernel series, both replace vma-&gt;vm_file in their mmap handlers. On error the original value is not restored, and the reference is put for the file to which vm_file points. On upstream kernels this is not an issue, as no callers dereference vm_file following after call_mmap() returns an error. However, the aufs patchs change mmap_region() to replace the fput() using a local variable with vma_fput(), which will fput() vm_file, leading to a refcount underflow.</description>
+      <guid isPermaLink="false">CVE-2019-15794|2024-08-05T00:56:22.473Z</guid>
+      <pubDate>Fri, 08 Nov 2019 00:00:00 +0000</pubDate>
     </item>
     <item>
-      <title>CVE-2020-15708|2024-08-04T13:22:30.657Z -- ubuntu -- libvirt
+      <title>CVE-2019-15792|2024-08-05T00:56:22.476Z -- ubuntu -- shiftfs%20in%20the%20linux%20kernel
 </title>
-      <link>https://www.cve.org/CVERecord?id=CVE-2020-15708</link>
-      <description>Ubuntu's packaging of libvirt in 20.04 LTS created a control socket with world read and write permissions. An attacker could use this to overwrite arbitrary files or execute arbitrary code.</description>
-      <guid isPermaLink="false">CVE-2020-15708|2024-08-04T13:22:30.657Z</guid>
-      <pubDate>Tue, 04 Aug 2020 00:00:00 +0000</pubDate>
+      <link>https://www.cve.org/CVERecord?id=CVE-2019-15792</link>
+      <description>In shiftfs, a non-upstream patch to the Linux kernel included in the Ubuntu 5.0 and 5.3 kernel series, shiftfs_btrfs_ioctl_fd_replace() calls fdget(oldfd), then without further checks passes the resulting file* into shiftfs_real_fdget(), which casts file-&gt;private_data, a void* that points to a filesystem-dependent type, to a "struct shiftfs_file_info *". As the private_data is not required to be a pointer, an attacker can use this to cause a denial of service or possibly execute arbitrary code.</description>
+      <guid isPermaLink="false">CVE-2019-15792|2024-08-05T00:56:22.476Z</guid>
+      <pubDate>Tue, 12 Nov 2019 00:00:00 +0000</pubDate>
     </item>
     <item>
-      <title>CVE-2020-8832|2024-08-04T10:12:10.848Z -- ubuntu -- 18.04%20lts%20%28bionic%29%20linux%20kernel
+      <title>CVE-2019-15791|2024-08-05T00:56:22.393Z -- ubuntu -- shiftfs%20in%20the%20linux%20kernel
 </title>
-      <link>https://www.cve.org/CVERecord?id=CVE-2020-8832</link>
-      <description>The fix for the Linux kernel in Ubuntu 18.04 LTS for CVE-2019-14615 ("The Linux kernel did not properly clear data structures on context switches for certain Intel graphics processors.") was discovered to be incomplete, meaning that in versions of the kernel before 4.15.0-91.92, an attacker could use this vulnerability to expose sensitive information.</description>
-      <guid isPermaLink="false">CVE-2020-8832|2024-08-04T10:12:10.848Z</guid>
-      <pubDate>Thu, 05 Mar 2020 00:00:00 +0000</pubDate>
+      <link>https://www.cve.org/CVERecord?id=CVE-2019-15791</link>
+      <description>In shiftfs, a non-upstream patch to the Linux kernel included in the Ubuntu 5.0 and 5.3 kernel series, shiftfs_btrfs_ioctl_fd_replace() installs an fd referencing a file from the lower filesystem without taking an additional reference to that file. After the btrfs ioctl completes this fd is closed, which then puts a reference to that file, leading to a refcount underflow.</description>
+      <guid isPermaLink="false">CVE-2019-15791|2024-08-05T00:56:22.393Z</guid>
+      <pubDate>Tue, 12 Nov 2019 00:00:00 +0000</pubDate>
     </item>
     <item>
-      <title>CVE-2020-15705|2024-08-04T13:22:30.823Z -- ubuntu -- grub2%20in%20ubuntu
+      <title>CVE-2019-15793|2024-08-05T00:56:22.425Z -- ubuntu -- shiftfs%20in%20the%20linux%20kernel
 </title>
-      <link>https://www.cve.org/CVERecord?id=CVE-2020-15705</link>
-      <description>GRUB2 fails to validate kernel signature when booted directly without shim, allowing secure boot to be bypassed. This only affects systems where the kernel signing certificate has been imported directly into the secure boot database and the GRUB image is booted directly without the use of shim. This issue affects GRUB2 version 2.04 and prior versions.</description>
-      <guid isPermaLink="false">CVE-2020-15705|2024-08-04T13:22:30.823Z</guid>
-      <pubDate>Wed, 29 Jul 2020 00:00:00 +0000</pubDate>
-    </item>
-    <item>
-      <title>CVE-2020-11935|2024-08-04T11:42:00.593Z -- ubuntu -- linux%20kernel%20%28aufs%20filesystem%20module%29
-</title>
-      <link>https://www.cve.org/CVERecord?id=CVE-2020-11935</link>
-      <description>It was discovered that aufs improperly managed inode reference counts in the vfsub_dentry_open() method. A local attacker could use this vulnerability to cause a denial of service attack.</description>
-      <guid isPermaLink="false">CVE-2020-11935|2024-08-04T11:42:00.593Z</guid>
-      <pubDate>Fri, 07 Apr 2023 00:00:00 +0000</pubDate>
-    </item>
-    <item>
-      <title>CVE-2019-7307|2024-08-04T20:46:46.148Z -- ubuntu -- apport
-</title>
-      <link>https://www.cve.org/CVERecord?id=CVE-2019-7307</link>
-      <description>Apport before versions 2.14.1-0ubuntu3.29+esm1, 2.20.1-0ubuntu2.19, 2.20.9-0ubuntu7.7, 2.20.10-0ubuntu27.1, 2.20.11-0ubuntu5 contained a TOCTTOU vulnerability when reading the users ~/.apport-ignore.xml file, which allows a local attacker to replace this file with a symlink to any other file on the system and so cause Apport to include the contents of this other file in the resulting crash report. The crash report could then be read by that user either by causing it to be uploaded and reported to Launchpad, or by leveraging some other vulnerability to read the resulting crash report, and so allow the user to read arbitrary files on the system.</description>
-      <guid isPermaLink="false">CVE-2019-7307|2024-08-04T20:46:46.148Z</guid>
-      <pubDate>Thu, 29 Aug 2019 00:00:00 +0000</pubDate>
-    </item>
-    <item>
-      <title>CVE-2020-15707|2024-08-04T13:22:30.731Z -- ubuntu -- grub2%20in%20ubuntu
-</title>
-      <link>https://www.cve.org/CVERecord?id=CVE-2020-15707</link>
-      <description>Integer overflows were discovered in the functions grub_cmd_initrd and grub_initrd_init in the efilinux component of GRUB2, as shipped in Debian, Red Hat, and Ubuntu (the functionality is not included in GRUB2 upstream), leading to a heap-based buffer overflow. These could be triggered by an extremely large number of arguments to the initrd command on 32-bit architectures, or a crafted filesystem with very large files on any architecture. An attacker could use this to execute arbitrary code and bypass UEFI Secure Boot restrictions. This issue affects GRUB2 version 2.04 and prior versions.</description>
-      <guid isPermaLink="false">CVE-2020-15707|2024-08-04T13:22:30.731Z</guid>
-      <pubDate>Wed, 29 Jul 2020 00:00:00 +0000</pubDate>
-    </item>
-    <item>
-      <title>CVE-2020-27347|2024-08-04T16:11:36.587Z -- ubuntu -- tmux
-</title>
-      <link>https://www.cve.org/CVERecord?id=CVE-2020-27347</link>
-      <description>In tmux before version 3.1c the function input_csi_dispatch_sgr_colon() in file input.c contained a stack-based buffer-overflow that can be exploited by terminal output.</description>
-      <guid isPermaLink="false">CVE-2020-27347|2024-08-04T16:11:36.587Z</guid>
-      <pubDate>Wed, 04 Nov 2020 00:00:00 +0000</pubDate>
-    </item>
-    <item>
-      <title>CVE-2020-15706|2024-08-04T13:22:30.808Z -- ubuntu -- grub2%20in%20ubuntu
-</title>
-      <link>https://www.cve.org/CVERecord?id=CVE-2020-15706</link>
-      <description>GRUB2 contains a race condition in grub_script_function_create() leading to a use-after-free vulnerability which can be triggered by redefining a function whilst the same function is already executing, leading to arbitrary code execution and secure boot restriction bypass. This issue affects GRUB2 version 2.04 and prior versions.</description>
-      <guid isPermaLink="false">CVE-2020-15706|2024-08-04T13:22:30.808Z</guid>
-      <pubDate>Wed, 29 Jul 2020 00:00:00 +0000</pubDate>
+      <link>https://www.cve.org/CVERecord?id=CVE-2019-15793</link>
+      <description>In shiftfs, a non-upstream patch to the Linux kernel included in the Ubuntu 5.0 and 5.3 kernel series, several locations which shift ids translate user/group ids before performing operations in the lower filesystem were translating them into init_user_ns, whereas they should have been translated into the s_user_ns for the lower filesystem. This resulted in using ids other than the intended ones in the lower fs, which likely did not map into the shifts s_user_ns. A local attacker could use this to possibly bypass discretionary access control permissions.</description>
+      <guid isPermaLink="false">CVE-2019-15793|2024-08-05T00:56:22.425Z</guid>
+      <pubDate>Tue, 12 Nov 2019 00:00:00 +0000</pubDate>
     </item>
   </channel>
 </rss>

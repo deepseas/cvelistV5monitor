@@ -6,23 +6,15 @@
     <description>The latest CVEs for Ubuntu -- linux kernel</description>
     <docs>http://www.rssboard.org/rss-specification</docs>
     <generator>python-feedgen</generator>
-    <lastBuildDate>Sat, 03 Aug 2024 23:22:56 +0000</lastBuildDate>
+    <lastBuildDate>Mon, 05 Aug 2024 01:45:33 +0000</lastBuildDate>
     <ttl>60</ttl>
     <item>
-      <title>CVE-2021-3492|2024-08-03T16:53:17.692Z -- ubuntu -- linux%20kernel
+      <title>CVE-2019-15794|2024-08-05T00:56:22.473Z -- ubuntu -- linux%20kernel
 </title>
-      <link>https://www.cve.org/CVERecord?id=CVE-2021-3492</link>
-      <description>Shiftfs, an out-of-tree stacking file system included in Ubuntu Linux kernels, did not properly handle faults occurring during copy_from_user() correctly. These could lead to either a double-free situation or memory not being freed at all. An attacker could use this to cause a denial of service (kernel memory exhaustion) or gain privileges via executing arbitrary code. AKA ZDI-CAN-13562.</description>
-      <guid isPermaLink="false">CVE-2021-3492|2024-08-03T16:53:17.692Z</guid>
-      <pubDate>Thu, 15 Apr 2021 00:00:00 +0000</pubDate>
-    </item>
-    <item>
-      <title>CVE-2021-3493|2024-08-03T16:53:17.827Z -- ubuntu -- linux%20kernel
-</title>
-      <link>https://www.cve.org/CVERecord?id=CVE-2021-3493</link>
-      <description>The overlayfs implementation in the linux kernel did not properly validate with respect to user namespaces the setting of file capabilities on files in an underlying file system. Due to the combination of unprivileged user namespaces along with a patch carried in the Ubuntu kernel to allow unprivileged overlay mounts, an attacker could use this to gain elevated privileges.</description>
-      <guid isPermaLink="false">CVE-2021-3493|2024-08-03T16:53:17.827Z</guid>
-      <pubDate>Thu, 15 Apr 2021 00:00:00 +0000</pubDate>
+      <link>https://www.cve.org/CVERecord?id=CVE-2019-15794</link>
+      <description>Overlayfs in the Linux kernel and shiftfs, a non-upstream patch to the Linux kernel included in the Ubuntu 5.0 and 5.3 kernel series, both replace vma-&gt;vm_file in their mmap handlers. On error the original value is not restored, and the reference is put for the file to which vm_file points. On upstream kernels this is not an issue, as no callers dereference vm_file following after call_mmap() returns an error. However, the aufs patchs change mmap_region() to replace the fput() using a local variable with vma_fput(), which will fput() vm_file, leading to a refcount underflow.</description>
+      <guid isPermaLink="false">CVE-2019-15794|2024-08-05T00:56:22.473Z</guid>
+      <pubDate>Fri, 08 Nov 2019 00:00:00 +0000</pubDate>
     </item>
   </channel>
 </rss>
