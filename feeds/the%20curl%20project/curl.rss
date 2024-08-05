@@ -6,22 +6,22 @@
     <description>The latest CVEs for The curl Project -- curl</description>
     <docs>http://www.rssboard.org/rss-specification</docs>
     <generator>python-feedgen</generator>
-    <lastBuildDate>Sun, 04 Aug 2024 23:23:18 +0000</lastBuildDate>
+    <lastBuildDate>Mon, 05 Aug 2024 11:20:57 +0000</lastBuildDate>
     <ttl>60</ttl>
     <item>
-      <title>CVE-2019-3822|2024-08-04T19:19:18.599Z -- the%20curl%20project -- curl
+      <title>CVE-2018-16840|2024-08-05T10:32:53.993Z -- the%20curl%20project -- curl
 </title>
-      <link>https://www.cve.org/CVERecord?id=CVE-2019-3822</link>
-      <description>libcurl versions from 7.36.0 to before 7.64.0 are vulnerable to a stack-based buffer overflow. The function creating an outgoing NTLM type-3 header (`lib/vauth/ntlm.c:Curl_auth_create_ntlm_type3_message()`), generates the request HTTP header contents based on previously received data. The check that exists to prevent the local buffer from getting overflowed is implemented wrongly (using unsigned math) and as such it does not prevent the overflow from happening. This output data can grow larger than the local buffer if very large 'nt response' data is extracted from a previous NTLMv2 header provided by the malicious or broken HTTP server. Such a 'large value' needs to be around 1000 bytes or more. The actual payload data copied to the target buffer comes from the NTLMv2 type-2 response header.</description>
-      <guid isPermaLink="false">CVE-2019-3822|2024-08-04T19:19:18.599Z</guid>
-      <pubDate>Wed, 06 Feb 2019 20:00:00 +0000</pubDate>
+      <link>https://www.cve.org/CVERecord?id=CVE-2018-16840</link>
+      <description>A heap use-after-free flaw was found in curl versions from 7.59.0 through 7.61.1 in the code related to closing an easy handle. When closing and cleaning up an 'easy' handle in the `Curl_close()` function, the library code first frees a struct (without nulling the pointer) and might then subsequently erroneously write to a struct field within that already freed struct.</description>
+      <guid isPermaLink="false">CVE-2018-16840|2024-08-05T10:32:53.993Z</guid>
+      <pubDate>Wed, 31 Oct 2018 18:00:00 +0000</pubDate>
     </item>
     <item>
-      <title>CVE-2019-3823|2024-08-04T19:19:18.612Z -- the%20curl%20project -- curl
+      <title>CVE-2018-16890|2024-08-05T10:39:57.668Z -- the%20curl%20project -- curl
 </title>
-      <link>https://www.cve.org/CVERecord?id=CVE-2019-3823</link>
-      <description>libcurl versions from 7.34.0 to before 7.64.0 are vulnerable to a heap out-of-bounds read in the code handling the end-of-response for SMTP. If the buffer passed to `smtp_endofresp()` isn't NUL terminated and contains no character ending the parsed number, and `len` is set to 5, then the `strtol()` call reads beyond the allocated buffer. The read contents will not be returned to the caller.</description>
-      <guid isPermaLink="false">CVE-2019-3823|2024-08-04T19:19:18.612Z</guid>
+      <link>https://www.cve.org/CVERecord?id=CVE-2018-16890</link>
+      <description>libcurl versions from 7.36.0 to before 7.64.0 is vulnerable to a heap buffer out-of-bounds read. The function handling incoming NTLM type-2 messages (`lib/vauth/ntlm.c:ntlm_decode_type2_target`) does not validate incoming data correctly and is subject to an integer overflow vulnerability. Using that overflow, a malicious or broken NTLM server could trick libcurl to accept a bad length + offset combination that would lead to a buffer read out-of-bounds.</description>
+      <guid isPermaLink="false">CVE-2018-16890|2024-08-05T10:39:57.668Z</guid>
       <pubDate>Wed, 06 Feb 2019 20:00:00 +0000</pubDate>
     </item>
   </channel>

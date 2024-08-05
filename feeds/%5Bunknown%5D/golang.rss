@@ -1,0 +1,36 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<rss xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/" version="2.0">
+  <channel>
+    <title>CVE Feed for [UNKNOWN] -- golang</title>
+    <link>https://raw.githubusercontent.com/deepseas/cvelistV5monitor/main/feeds/%5Bunknown%5D/golang.rss</link>
+    <description>The latest CVEs for [UNKNOWN] -- golang</description>
+    <docs>http://www.rssboard.org/rss-specification</docs>
+    <generator>python-feedgen</generator>
+    <lastBuildDate>Mon, 05 Aug 2024 11:20:50 +0000</lastBuildDate>
+    <ttl>60</ttl>
+    <item>
+      <title>CVE-2018-16873|2024-08-05T10:32:54.055Z -- %5Bunknown%5D -- golang
+</title>
+      <link>https://www.cve.org/CVERecord?id=CVE-2018-16873</link>
+      <description>In Go before 1.10.6 and 1.11.x before 1.11.3, the "go get" command is vulnerable to remote code execution when executed with the -u flag and the import path of a malicious Go package, or a package that imports it directly or indirectly. Specifically, it is only vulnerable in GOPATH mode, but not in module mode (the distinction is documented at https://golang.org/cmd/go/#hdr-Module_aware_go_get). Using custom domains, it's possible to arrange things so that a Git repository is cloned to a folder named ".git" by using a vanity import path that ends with "/.git". If the Git repository root contains a "HEAD" file, a "config" file, an "objects" directory, a "refs" directory, with some work to ensure the proper ordering of operations, "go get -u" can be tricked into considering the parent directory as a repository root, and running Git commands on it. That will use the "config" file in the original Git repository root for its configuration, and if that config file contains malicious commands, they will execute on the system running "go get -u".</description>
+      <guid isPermaLink="false">CVE-2018-16873|2024-08-05T10:32:54.055Z</guid>
+      <pubDate>Fri, 14 Dec 2018 14:00:00 +0000</pubDate>
+    </item>
+    <item>
+      <title>CVE-2018-16875|2024-08-05T10:32:54.282Z -- %5Bunknown%5D -- golang
+</title>
+      <link>https://www.cve.org/CVERecord?id=CVE-2018-16875</link>
+      <description>The crypto/x509 package of Go before 1.10.6 and 1.11.x before 1.11.3 does not limit the amount of work performed for each chain verification, which might allow attackers to craft pathological inputs leading to a CPU denial of service. Go TLS servers accepting client certificates and TLS clients are affected.</description>
+      <guid isPermaLink="false">CVE-2018-16875|2024-08-05T10:32:54.282Z</guid>
+      <pubDate>Fri, 14 Dec 2018 14:00:00 +0000</pubDate>
+    </item>
+    <item>
+      <title>CVE-2018-16874|2024-08-05T10:32:54.222Z -- %5Bunknown%5D -- golang
+</title>
+      <link>https://www.cve.org/CVERecord?id=CVE-2018-16874</link>
+      <description>In Go before 1.10.6 and 1.11.x before 1.11.3, the "go get" command is vulnerable to directory traversal when executed with the import path of a malicious Go package which contains curly braces (both '{' and '}' characters). Specifically, it is only vulnerable in GOPATH mode, but not in module mode (the distinction is documented at https://golang.org/cmd/go/#hdr-Module_aware_go_get). The attacker can cause an arbitrary filesystem write, which can lead to code execution.</description>
+      <guid isPermaLink="false">CVE-2018-16874|2024-08-05T10:32:54.222Z</guid>
+      <pubDate>Fri, 14 Dec 2018 14:00:00 +0000</pubDate>
+    </item>
+  </channel>
+</rss>
