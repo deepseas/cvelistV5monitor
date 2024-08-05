@@ -6,305 +6,22 @@
     <description>The latest CVEs for Go standard library -- all products</description>
     <docs>http://www.rssboard.org/rss-specification</docs>
     <generator>python-feedgen</generator>
-    <lastBuildDate>Sat, 03 Aug 2024 23:22:46 +0000</lastBuildDate>
+    <lastBuildDate>Mon, 05 Aug 2024 21:24:08 +0000</lastBuildDate>
     <ttl>60</ttl>
     <item>
-      <title>CVE-2022-32190|2024-08-03T07:32:56.001Z -- go%20standard%20library -- net%2Furl
+      <title>CVE-2024-24784|2024-08-05T20:17:30.349Z -- go%20standard%20library -- net%2Fmail
 </title>
-      <link>https://www.cve.org/CVERecord?id=CVE-2022-32190</link>
-      <description>JoinPath and URL.JoinPath do not remove ../ path elements appended to a relative path. For example, JoinPath("https://go.dev", "../go") returns the URL "https://go.dev/../go", despite the JoinPath documentation stating that ../ path elements are removed from the result.</description>
-      <guid isPermaLink="false">CVE-2022-32190|2024-08-03T07:32:56.001Z</guid>
-      <pubDate>Tue, 13 Sep 2022 17:08:57 +0000</pubDate>
-    </item>
-    <item>
-      <title>CVE-2022-30633|2024-08-03T06:56:13.196Z -- go%20standard%20library -- encoding%2Fxml
-</title>
-      <link>https://www.cve.org/CVERecord?id=CVE-2022-30633</link>
-      <description>Uncontrolled recursion in Unmarshal in encoding/xml before Go 1.17.12 and Go 1.18.4 allows an attacker to cause a panic due to stack exhaustion via unmarshalling an XML document into a Go struct which has a nested field that uses the 'any' field tag.</description>
-      <guid isPermaLink="false">CVE-2022-30633|2024-08-03T06:56:13.196Z</guid>
-      <pubDate>Tue, 09 Aug 2022 20:16:19 +0000</pubDate>
-    </item>
-    <item>
-      <title>CVE-2022-30635|2024-08-03T06:56:13.235Z -- go%20standard%20library -- encoding%2Fgob
-</title>
-      <link>https://www.cve.org/CVERecord?id=CVE-2022-30635</link>
-      <description>Uncontrolled recursion in Decoder.Decode in encoding/gob before Go 1.17.12 and Go 1.18.4 allows an attacker to cause a panic due to stack exhaustion via a message which contains deeply nested structures.</description>
-      <guid isPermaLink="false">CVE-2022-30635|2024-08-03T06:56:13.235Z</guid>
-      <pubDate>Tue, 09 Aug 2022 20:16:05 +0000</pubDate>
-    </item>
-    <item>
-      <title>CVE-2022-30580|2024-08-03T06:56:12.971Z -- go%20standard%20library -- os%2Fexec
-</title>
-      <link>https://www.cve.org/CVERecord?id=CVE-2022-30580</link>
-      <description>Code injection in Cmd.Start in os/exec before Go 1.17.11 and Go 1.18.3 allows execution of any binaries in the working directory named either "..com" or "..exe" by calling Cmd.Run, Cmd.Start, Cmd.Output, or Cmd.CombinedOutput when Cmd.Path is unset.</description>
-      <guid isPermaLink="false">CVE-2022-30580|2024-08-03T06:56:12.971Z</guid>
-      <pubDate>Tue, 09 Aug 2022 20:18:04 +0000</pubDate>
-    </item>
-    <item>
-      <title>CVE-2022-41715|2024-08-03T12:49:43.550Z -- go%20standard%20library -- regexp%2Fsyntax
-</title>
-      <link>https://www.cve.org/CVERecord?id=CVE-2022-41715</link>
-      <description>Programs which compile regular expressions from untrusted sources may be vulnerable to memory exhaustion or denial of service. The parsed regexp representation is linear in the size of the input, but in some cases the constant factor can be as high as 40,000, making relatively small regexps consume much larger amounts of memory. After fix, each regexp being parsed is limited to a 256 MB memory footprint. Regular expressions whose representation would use more space than that are rejected. Normal use of regular expressions is unaffected.</description>
-      <guid isPermaLink="false">CVE-2022-41715|2024-08-03T12:49:43.550Z</guid>
-      <pubDate>Fri, 14 Oct 2022 00:00:00 +0000</pubDate>
-    </item>
-    <item>
-      <title>CVE-2022-41717|2024-08-03T12:49:43.657Z -- go%20standard%20library -- net%2Fhttp
-</title>
-      <link>https://www.cve.org/CVERecord?id=CVE-2022-41717</link>
-      <description>An attacker can cause excessive memory growth in a Go server accepting HTTP/2 requests. HTTP/2 server connections contain a cache of HTTP header keys sent by the client. While the total number of entries in this cache is capped, an attacker sending very large keys can cause the server to allocate approximately 64 MiB per open connection.</description>
-      <guid isPermaLink="false">CVE-2022-41717|2024-08-03T12:49:43.657Z</guid>
-      <pubDate>Thu, 08 Dec 2022 19:03:53 +0000</pubDate>
-    </item>
-    <item>
-      <title>CVE-2022-41724|2024-08-03T12:49:43.929Z -- go%20standard%20library -- crypto%2Ftls
-</title>
-      <link>https://www.cve.org/CVERecord?id=CVE-2022-41724</link>
-      <description>Large handshake records may cause panics in crypto/tls. Both clients and servers may send large TLS handshake records which cause servers and clients, respectively, to panic when attempting to construct responses. This affects all TLS 1.3 clients, TLS 1.2 clients which explicitly enable session resumption (by setting Config.ClientSessionCache to a non-nil value), and TLS 1.3 servers which request client certificates (by setting Config.ClientAuth &gt;= RequestClientCert).</description>
-      <guid isPermaLink="false">CVE-2022-41724|2024-08-03T12:49:43.929Z</guid>
-      <pubDate>Tue, 28 Feb 2023 17:19:44 +0000</pubDate>
-    </item>
-    <item>
-      <title>CVE-2022-41720|2024-08-03T12:49:43.510Z -- go%20standard%20library -- os
-</title>
-      <link>https://www.cve.org/CVERecord?id=CVE-2022-41720</link>
-      <description>On Windows, restricted files can be accessed via os.DirFS and http.Dir. The os.DirFS function and http.Dir type provide access to a tree of files rooted at a given directory. These functions permit access to Windows device files under that root. For example, os.DirFS("C:/tmp").Open("COM1") opens the COM1 device. Both os.DirFS and http.Dir only provide read-only filesystem access. In addition, on Windows, an os.DirFS for the directory (the root of the current drive) can permit a maliciously crafted path to escape from the drive and access any path on the system. With fix applied, the behavior of os.DirFS("") has changed. Previously, an empty root was treated equivalently to "/", so os.DirFS("").Open("tmp") would open the path "/tmp". This now returns an error.</description>
-      <guid isPermaLink="false">CVE-2022-41720|2024-08-03T12:49:43.510Z</guid>
-      <pubDate>Wed, 07 Dec 2022 16:11:18 +0000</pubDate>
-    </item>
-    <item>
-      <title>CVE-2022-30629|2024-08-03T06:56:13.230Z -- go%20standard%20library -- crypto%2Ftls
-</title>
-      <link>https://www.cve.org/CVERecord?id=CVE-2022-30629</link>
-      <description>Non-random values for ticket_age_add in session tickets in crypto/tls before Go 1.17.11 and Go 1.18.3 allow an attacker that can observe TLS handshakes to correlate successive connections by comparing ticket ages during session resumption.</description>
-      <guid isPermaLink="false">CVE-2022-30629|2024-08-03T06:56:13.230Z</guid>
-      <pubDate>Tue, 09 Aug 2022 20:17:31 +0000</pubDate>
-    </item>
-    <item>
-      <title>CVE-2022-30632|2024-08-03T06:56:13.251Z -- go%20standard%20library -- path%2Ffilepath
-</title>
-      <link>https://www.cve.org/CVERecord?id=CVE-2022-30632</link>
-      <description>Uncontrolled recursion in Glob in path/filepath before Go 1.17.12 and Go 1.18.4 allows an attacker to cause a panic due to stack exhaustion via a path containing a large number of path separators.</description>
-      <guid isPermaLink="false">CVE-2022-30632|2024-08-03T06:56:13.251Z</guid>
-      <pubDate>Tue, 09 Aug 2022 20:15:37 +0000</pubDate>
-    </item>
-    <item>
-      <title>CVE-2022-2879|2024-08-03T00:52:59.498Z -- go%20standard%20library -- archive%2Ftar
-</title>
-      <link>https://www.cve.org/CVERecord?id=CVE-2022-2879</link>
-      <description>Reader.Read does not set a limit on the maximum size of file headers. A maliciously crafted archive could cause Read to allocate unbounded amounts of memory, potentially causing resource exhaustion or panics. After fix, Reader.Read limits the maximum size of header blocks to 1 MiB.</description>
-      <guid isPermaLink="false">CVE-2022-2879|2024-08-03T00:52:59.498Z</guid>
-      <pubDate>Fri, 14 Oct 2022 00:00:00 +0000</pubDate>
-    </item>
-    <item>
-      <title>CVE-2022-32189|2024-08-03T07:32:56.026Z -- go%20standard%20library -- math%2Fbig
-</title>
-      <link>https://www.cve.org/CVERecord?id=CVE-2022-32189</link>
-      <description>A too-short encoded message can cause a panic in Float.GobDecode and Rat GobDecode in math/big in Go before 1.17.13 and 1.18.5, potentially allowing a denial of service.</description>
-      <guid isPermaLink="false">CVE-2022-32189|2024-08-03T07:32:56.026Z</guid>
-      <pubDate>Tue, 09 Aug 2022 20:17:59 +0000</pubDate>
-    </item>
-    <item>
-      <title>CVE-2022-29804|2024-08-03T06:33:42.804Z -- go%20standard%20library -- path%2Ffilepath
-</title>
-      <link>https://www.cve.org/CVERecord?id=CVE-2022-29804</link>
-      <description>Incorrect conversion of certain invalid paths to valid, absolute paths in Clean in path/filepath before Go 1.17.11 and Go 1.18.3 on Windows allows potential directory traversal attack.</description>
-      <guid isPermaLink="false">CVE-2022-29804|2024-08-03T06:33:42.804Z</guid>
-      <pubDate>Tue, 09 Aug 2022 00:00:00 +0000</pubDate>
-    </item>
-    <item>
-      <title>CVE-2022-28131|2024-08-03T05:48:36.830Z -- go%20standard%20library -- encoding%2Fxml
-</title>
-      <link>https://www.cve.org/CVERecord?id=CVE-2022-28131</link>
-      <description>Uncontrolled recursion in Decoder.Skip in encoding/xml before Go 1.17.12 and Go 1.18.4 allows an attacker to cause a panic due to stack exhaustion via a deeply nested XML document.</description>
-      <guid isPermaLink="false">CVE-2022-28131|2024-08-03T05:48:36.830Z</guid>
-      <pubDate>Tue, 09 Aug 2022 00:00:00 +0000</pubDate>
-    </item>
-    <item>
-      <title>CVE-2022-30630|2024-08-03T06:56:12.871Z -- go%20standard%20library -- io%2Ffs
-</title>
-      <link>https://www.cve.org/CVERecord?id=CVE-2022-30630</link>
-      <description>Uncontrolled recursion in Glob in io/fs before Go 1.17.12 and Go 1.18.4 allows an attacker to cause a panic due to stack exhaustion via a path which contains a large number of path separators.</description>
-      <guid isPermaLink="false">CVE-2022-30630|2024-08-03T06:56:12.871Z</guid>
-      <pubDate>Tue, 09 Aug 2022 20:17:15 +0000</pubDate>
-    </item>
-    <item>
-      <title>CVE-2022-1705|2024-08-03T00:10:03.918Z -- go%20standard%20library -- net%2Fhttp
-</title>
-      <link>https://www.cve.org/CVERecord?id=CVE-2022-1705</link>
-      <description>Acceptance of some invalid Transfer-Encoding headers in the HTTP/1 client in net/http before Go 1.17.12 and Go 1.18.4 allows HTTP request smuggling if combined with an intermediate server that also improperly fails to reject the header as invalid.</description>
-      <guid isPermaLink="false">CVE-2022-1705|2024-08-03T00:10:03.918Z</guid>
-      <pubDate>Tue, 09 Aug 2022 20:16:57 +0000</pubDate>
-    </item>
-    <item>
-      <title>CVE-2022-1962|2024-08-03T00:24:43.737Z -- go%20standard%20library -- go%2Fparser
-</title>
-      <link>https://www.cve.org/CVERecord?id=CVE-2022-1962</link>
-      <description>Uncontrolled recursion in the Parse functions in go/parser before Go 1.17.12 and Go 1.18.4 allow an attacker to cause a panic due to stack exhaustion via deeply nested types or declarations.</description>
-      <guid isPermaLink="false">CVE-2022-1962|2024-08-03T00:24:43.737Z</guid>
-      <pubDate>Tue, 09 Aug 2022 20:18:18 +0000</pubDate>
-    </item>
-    <item>
-      <title>CVE-2022-41725|2024-08-03T12:49:43.723Z -- go%20standard%20library -- mime%2Fmultipart
-</title>
-      <link>https://www.cve.org/CVERecord?id=CVE-2022-41725</link>
-      <description>A denial of service is possible from excessive resource consumption in net/http and mime/multipart. Multipart form parsing with mime/multipart.Reader.ReadForm can consume largely unlimited amounts of memory and disk files. This also affects form parsing in the net/http package with the Request methods FormFile, FormValue, ParseMultipartForm, and PostFormValue. ReadForm takes a maxMemory parameter, and is documented as storing "up to maxMemory bytes +10MB (reserved for non-file parts) in memory". File parts which cannot be stored in memory are stored on disk in temporary files. The unconfigurable 10MB reserved for non-file parts is excessively large and can potentially open a denial of service vector on its own. However, ReadForm did not properly account for all memory consumed by a parsed form, such as map entry overhead, part names, and MIME headers, permitting a maliciously crafted form to consume well over 10MB. In addition, ReadForm contained no limit on the number of disk files created, permitting a relatively small request body to create a large number of disk temporary files. With fix, ReadForm now properly accounts for various forms of memory overhead, and should now stay within its documented limit of 10MB + maxMemory bytes of memory consumption. Users should still be aware that this limit is high and may still be hazardous. In addition, ReadForm now creates at most one on-disk temporary file, combining multiple form parts into a single temporary file. The mime/multipart.File interface type's documentation states, "If stored on disk, the File's underlying concrete type will be an *os.File.". This is no longer the case when a form contains more than one file part, due to this coalescing of parts into a single file. The previous behavior of using distinct files for each form part may be reenabled with the environment variable GODEBUG=multipartfiles=distinct. Users should be aware that multipart.ReadForm and the http.Request methods that call it do not limit the amount of disk consumed by temporary files. Callers can limit the size of form data with http.MaxBytesReader.</description>
-      <guid isPermaLink="false">CVE-2022-41725|2024-08-03T12:49:43.723Z</guid>
-      <pubDate>Tue, 28 Feb 2023 17:19:42 +0000</pubDate>
-    </item>
-    <item>
-      <title>CVE-2022-41722|2024-08-03T12:49:43.602Z -- go%20standard%20library -- path%2Ffilepath
-</title>
-      <link>https://www.cve.org/CVERecord?id=CVE-2022-41722</link>
-      <description>A path traversal vulnerability exists in filepath.Clean on Windows. On Windows, the filepath.Clean function could transform an invalid path such as "a/../c:/b" into the valid path "c:\b". This transformation of a relative (if invalid) path into an absolute path could enable a directory traversal attack. After fix, the filepath.Clean function transforms this path into the relative (but still invalid) path ".\c:\b".</description>
-      <guid isPermaLink="false">CVE-2022-41722|2024-08-03T12:49:43.602Z</guid>
-      <pubDate>Tue, 28 Feb 2023 17:19:41 +0000</pubDate>
-    </item>
-    <item>
-      <title>CVE-2022-41723|2024-08-03T12:49:43.617Z -- go%20standard%20library -- net%2Fhttp
-</title>
-      <link>https://www.cve.org/CVERecord?id=CVE-2022-41723</link>
-      <description>A maliciously crafted HTTP/2 stream could cause excessive CPU consumption in the HPACK decoder, sufficient to cause a denial of service from a small number of small requests.</description>
-      <guid isPermaLink="false">CVE-2022-41723|2024-08-03T12:49:43.617Z</guid>
-      <pubDate>Tue, 28 Feb 2023 17:19:45 +0000</pubDate>
-    </item>
-    <item>
-      <title>CVE-2022-41716|2024-08-03T12:49:43.904Z -- go%20standard%20library -- syscall
-</title>
-      <link>https://www.cve.org/CVERecord?id=CVE-2022-41716</link>
-      <description>Due to unsanitized NUL values, attackers may be able to maliciously set environment variables on Windows. In syscall.StartProcess and os/exec.Cmd, invalid environment variable values containing NUL values are not properly checked for. A malicious environment variable value can exploit this behavior to set a value for a different environment variable. For example, the environment variable string "A=B\x00C=D" sets the variables "A=B" and "C=D".</description>
-      <guid isPermaLink="false">CVE-2022-41716|2024-08-03T12:49:43.904Z</guid>
-      <pubDate>Wed, 02 Nov 2022 15:28:19 +0000</pubDate>
-    </item>
-    <item>
-      <title>CVE-2022-30634|2024-08-03T06:56:13.255Z -- go%20standard%20library -- crypto%2Frand
-</title>
-      <link>https://www.cve.org/CVERecord?id=CVE-2022-30634</link>
-      <description>Infinite loop in Read in crypto/rand before Go 1.17.11 and Go 1.18.3 on Windows allows attacker to cause an indefinite hang by passing a buffer larger than 1 &lt;&lt; 32 - 1 bytes.</description>
-      <guid isPermaLink="false">CVE-2022-30634|2024-08-03T06:56:13.255Z</guid>
-      <pubDate>Fri, 15 Jul 2022 19:36:19 +0000</pubDate>
-    </item>
-    <item>
-      <title>CVE-2022-30631|2024-08-03T06:56:13.231Z -- go%20standard%20library -- compress%2Fgzip
-</title>
-      <link>https://www.cve.org/CVERecord?id=CVE-2022-30631</link>
-      <description>Uncontrolled recursion in Reader.Read in compress/gzip before Go 1.17.12 and Go 1.18.4 allows an attacker to cause a panic due to stack exhaustion via an archive containing a large number of concatenated 0-length compressed files.</description>
-      <guid isPermaLink="false">CVE-2022-30631|2024-08-03T06:56:13.231Z</guid>
-      <pubDate>Tue, 09 Aug 2022 20:16:32 +0000</pubDate>
-    </item>
-    <item>
-      <title>CVE-2022-2880|2024-08-03T00:52:59.582Z -- go%20standard%20library -- net%2Fhttp%2Fhttputil
-</title>
-      <link>https://www.cve.org/CVERecord?id=CVE-2022-2880</link>
-      <description>Requests forwarded by ReverseProxy include the raw query parameters from the inbound request, including unparsable parameters rejected by net/http. This could permit query parameter smuggling when a Go proxy forwards a parameter with an unparsable value. After fix, ReverseProxy sanitizes the query parameters in the forwarded query when the outbound request's Form field is set after the ReverseProxy. Director function returns, indicating that the proxy has parsed the query parameters. Proxies which do not parse query parameters continue to forward the original query parameters unchanged.</description>
-      <guid isPermaLink="false">CVE-2022-2880|2024-08-03T00:52:59.582Z</guid>
-      <pubDate>Fri, 14 Oct 2022 00:00:00 +0000</pubDate>
-    </item>
-    <item>
-      <title>CVE-2022-32148|2024-08-03T07:32:55.971Z -- go%20standard%20library -- net%2Fhttp
-</title>
-      <link>https://www.cve.org/CVERecord?id=CVE-2022-32148</link>
-      <description>Improper exposure of client IP addresses in net/http before Go 1.17.12 and Go 1.18.4 can be triggered by calling httputil.ReverseProxy.ServeHTTP with a Request.Header map containing a nil value for the X-Forwarded-For header, which causes ReverseProxy to set the client IP as the value of the X-Forwarded-For header.</description>
-      <guid isPermaLink="false">CVE-2022-32148|2024-08-03T07:32:55.971Z</guid>
-      <pubDate>Tue, 09 Aug 2022 20:18:21 +0000</pubDate>
-    </item>
-    <item>
-      <title>CVE-2023-45290|2024-08-02T20:21:15.331Z -- go%20standard%20library -- net%2Ftextproto</title>
-      <link>https://www.cve.org/CVERecord?id=CVE-2023-45290</link>
-      <description>When parsing a multipart form (either explicitly with Request.ParseMultipartForm or implicitly with Request.FormValue, Request.PostFormValue, or Request.FormFile), limits on the total size of the parsed form were not applied to the memory consumed while reading a single form line. This permits a maliciously crafted input containing very long lines to cause allocation of arbitrarily large amounts of memory, potentially leading to memory exhaustion. With fix, the ParseMultipartForm function now correctly limits the maximum size of form lines.</description>
-      <guid isPermaLink="false">CVE-2023-45290|2024-08-02T20:21:15.331Z</guid>
-      <pubDate>Tue, 05 Mar 2024 22:22:28 +0000</pubDate>
-    </item>
-    <item>
-      <title>CVE-2023-45289|2024-08-02T20:21:15.333Z -- go%20standard%20library -- net%2Fhttp</title>
-      <link>https://www.cve.org/CVERecord?id=CVE-2023-45289</link>
-      <description>When following an HTTP redirect to a domain which is not a subdomain match or exact match of the initial domain, an http.Client does not forward sensitive headers such as "Authorization" or "Cookie". For example, a redirect from foo.com to www.foo.com will forward the Authorization header, but a redirect to bar.com will not. A maliciously crafted HTTP redirect could cause sensitive headers to be unexpectedly forwarded.</description>
-      <guid isPermaLink="false">CVE-2023-45289|2024-08-02T20:21:15.333Z</guid>
-      <pubDate>Tue, 05 Mar 2024 22:22:30 +0000</pubDate>
-    </item>
-    <item>
-      <title>CVE-2023-45288|2024-08-02T20:21:15.329Z -- go%20standard%20library -- net%2Fhttp</title>
-      <link>https://www.cve.org/CVERecord?id=CVE-2023-45288</link>
-      <description>An attacker may cause an HTTP/2 endpoint to read arbitrary amounts of header data by sending an excessive number of CONTINUATION frames. Maintaining HPACK state requires parsing and processing all HEADERS and CONTINUATION frames on a connection. When a request's headers exceed MaxHeaderBytes, no memory is allocated to store the excess headers, but they are still parsed. This permits an attacker to cause an HTTP/2 endpoint to read arbitrary amounts of header data, all associated with a request which is going to be rejected. These headers can include Huffman-encoded data which is significantly more expensive for the receiver to decode than for an attacker to send. The fix sets a limit on the amount of excess header frames we will process before closing a connection.</description>
-      <guid isPermaLink="false">CVE-2023-45288|2024-08-02T20:21:15.329Z</guid>
-      <pubDate>Thu, 04 Apr 2024 20:37:30 +0000</pubDate>
-    </item>
-    <item>
-      <title>CVE-2024-24791|2024-07-03T13:45:59.566Z -- go%20standard%20library -- net%2Fhttp</title>
-      <link>https://www.cve.org/CVERecord?id=CVE-2024-24791</link>
-      <description>The net/http HTTP/1.1 client mishandled the case where a server responds to a request with an "Expect: 100-continue" header with a non-informational (200 or higher) status. This mishandling could leave a client connection in an invalid state, where the next request sent on the connection will fail. An attacker sending a request to a net/http/httputil.ReverseProxy proxy can exploit this mishandling to cause a denial of service by sending "Expect: 100-continue" requests which elicit a non-informational response from the backend. Each such request leaves the proxy with an invalid connection, and causes one subsequent request using that connection to fail.</description>
-      <guid isPermaLink="false">CVE-2024-24791|2024-07-03T13:45:59.566Z</guid>
-      <pubDate>Tue, 02 Jul 2024 21:28:25 +0000</pubDate>
-    </item>
-    <item>
-      <title>CVE-2024-24789|2024-06-13T16:20:49.160Z -- go%20standard%20library -- archive%2Fzip</title>
-      <link>https://www.cve.org/CVERecord?id=CVE-2024-24789</link>
-      <description>The archive/zip package's handling of certain types of invalid zip files differs from the behavior of most zip implementations. This misalignment could be exploited to create an zip file with contents that vary depending on the implementation reading the file. The archive/zip package now rejects files containing these errors.</description>
-      <guid isPermaLink="false">CVE-2024-24789|2024-06-13T16:20:49.160Z</guid>
-      <pubDate>Wed, 05 Jun 2024 15:13:51 +0000</pubDate>
-    </item>
-    <item>
-      <title>CVE-2023-45289|2024-06-04T17:20:06.035Z -- go%20standard%20library -- net%2Fhttp</title>
-      <link>https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2023-45289</link>
-      <description>When following an HTTP redirect to a domain which is not a subdomain match or exact match of the initial domain, an http.Client does not forward sensitive headers such as "Authorization" or "Cookie". For example, a redirect from foo.com to www.foo.com will forward the Authorization header, but a redirect to bar.com will not. A maliciously crafted HTTP redirect could cause sensitive headers to be unexpectedly forwarded.</description>
-      <guid isPermaLink="false">CVE-2023-45289|2024-06-04T17:20:06.035Z</guid>
-      <pubDate>Tue, 05 Mar 2024 22:22:30 +0000</pubDate>
-    </item>
-    <item>
-      <title>CVE-2023-45288|2024-04-04T20:37:30.714Z -- go%20standard%20library -- net%2Fhttp</title>
-      <link>https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2023-45288</link>
-      <description>An attacker may cause an HTTP/2 endpoint to read arbitrary amounts of header data by sending an excessive number of CONTINUATION frames. Maintaining HPACK state requires parsing and processing all HEADERS and CONTINUATION frames on a connection. When a request's headers exceed MaxHeaderBytes, no memory is allocated to store the excess headers, but they are still parsed. This permits an attacker to cause an HTTP/2 endpoint to read arbitrary amounts of header data, all associated with a request which is going to be rejected. These headers can include Huffman-encoded data which is significantly more expensive for the receiver to decode than for an attacker to send. The fix sets a limit on the amount of excess header frames we will process before closing a connection.</description>
-      <guid isPermaLink="false">CVE-2023-45288|2024-04-04T20:37:30.714Z</guid>
-      <pubDate>Thu, 04 Apr 2024 20:37:30 +0000</pubDate>
-    </item>
-    <item>
-      <title>CVE-2023-45290|2024-06-04T17:19:53.634Z -- go%20standard%20library -- net%2Ftextproto</title>
-      <link>https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2023-45290</link>
-      <description>When parsing a multipart form (either explicitly with Request.ParseMultipartForm or implicitly with Request.FormValue, Request.PostFormValue, or Request.FormFile), limits on the total size of the parsed form were not applied to the memory consumed while reading a single form line. This permits a maliciously crafted input containing very long lines to cause allocation of arbitrarily large amounts of memory, potentially leading to memory exhaustion. With fix, the ParseMultipartForm function now correctly limits the maximum size of form lines.</description>
-      <guid isPermaLink="false">CVE-2023-45290|2024-06-04T17:19:53.634Z</guid>
-      <pubDate>Tue, 05 Mar 2024 22:22:28 +0000</pubDate>
-    </item>
-    <item>
-      <title>CVE-2024-24790|2024-06-05T15:13:50.527Z -- go%20standard%20library -- net%2Fnetip</title>
-      <link>https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2024-24790</link>
-      <description>The various Is methods (IsPrivate, IsLoopback, etc) did not work as expected for IPv4-mapped IPv6 addresses, returning false for addresses which would return true in their traditional IPv4 forms.</description>
-      <guid isPermaLink="false">CVE-2024-24790|2024-06-05T15:13:50.527Z</guid>
-      <pubDate>Wed, 05 Jun 2024 15:13:50 +0000</pubDate>
-    </item>
-    <item>
-      <title>CVE-2024-24783|2024-06-04T17:43:13.567Z -- go%20standard%20library -- crypto%2Fx509</title>
-      <link>https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2024-24783</link>
-      <description>Verifying a certificate chain which contains a certificate with an unknown public key algorithm will cause Certificate.Verify to panic. This affects all crypto/tls clients, and servers that set Config.ClientAuth to VerifyClientCertIfGiven or RequireAndVerifyClientCert. The default behavior is for TLS servers to not verify client certificates.</description>
-      <guid isPermaLink="false">CVE-2024-24783|2024-06-04T17:43:13.567Z</guid>
-      <pubDate>Tue, 05 Mar 2024 22:22:26 +0000</pubDate>
-    </item>
-    <item>
-      <title>CVE-2024-24789|2024-06-05T15:13:51.938Z -- go%20standard%20library -- archive%2Fzip</title>
-      <link>https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2024-24789</link>
-      <description>The archive/zip package's handling of certain types of invalid zip files differs from the behavior of most zip implementations. This misalignment could be exploited to create an zip file with contents that vary depending on the implementation reading the file. The archive/zip package now rejects files containing these errors.</description>
-      <guid isPermaLink="false">CVE-2024-24789|2024-06-05T15:13:51.938Z</guid>
-      <pubDate>Wed, 05 Jun 2024 15:13:51 +0000</pubDate>
-    </item>
-    <item>
-      <title>CVE-2024-24785|2024-06-04T17:43:02.716Z -- go%20standard%20library -- html%2Ftemplate</title>
-      <link>https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2024-24785</link>
-      <description>If errors returned from MarshalJSON methods contain user controlled data, they may be used to break the contextual auto-escaping behavior of the html/template package, allowing for subsequent actions to inject unexpected content into templates.</description>
-      <guid isPermaLink="false">CVE-2024-24785|2024-06-04T17:43:02.716Z</guid>
-      <pubDate>Tue, 05 Mar 2024 22:22:33 +0000</pubDate>
-    </item>
-    <item>
-      <title>CVE-2024-24784|2024-03-05T22:22:32.186Z -- go%20standard%20library -- net%2Fmail</title>
-      <link>https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2024-24784</link>
+      <link>https://www.cve.org/CVERecord?id=CVE-2024-24784</link>
       <description>The ParseAddressList function incorrectly handles comments (text within parentheses) within display names. Since this is a misalignment with conforming address parsers, it can result in different trust decisions being made by programs using different parsers.</description>
-      <guid isPermaLink="false">CVE-2024-24784|2024-03-05T22:22:32.186Z</guid>
+      <guid isPermaLink="false">CVE-2024-24784|2024-08-05T20:17:30.349Z</guid>
       <pubDate>Tue, 05 Mar 2024 22:22:32 +0000</pubDate>
     </item>
     <item>
-      <title>CVE-2024-24788|2024-05-09T20:25:03.081Z -- go%20standard%20library -- net</title>
-      <link>https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2024-24788</link>
-      <description>A malformed DNS message in response to a query can cause the Lookup functions to get stuck in an infinite loop.</description>
-      <guid isPermaLink="false">CVE-2024-24788|2024-05-09T20:25:03.081Z</guid>
-      <pubDate>Wed, 08 May 2024 15:31:11 +0000</pubDate>
+      <title>CVE-2024-24791|2024-07-02T21:28:25.677Z -- go%20standard%20library -- net%2Fhttp</title>
+      <link>https://www.cve.org/CVERecord?id=CVE-2024-24791</link>
+      <description>The net/http HTTP/1.1 client mishandled the case where a server responds to a request with an "Expect: 100-continue" header with a non-informational (200 or higher) status. This mishandling could leave a client connection in an invalid state, where the next request sent on the connection will fail. An attacker sending a request to a net/http/httputil.ReverseProxy proxy can exploit this mishandling to cause a denial of service by sending "Expect: 100-continue" requests which elicit a non-informational response from the backend. Each such request leaves the proxy with an invalid connection, and causes one subsequent request using that connection to fail.</description>
+      <guid isPermaLink="false">CVE-2024-24791|2024-07-02T21:28:25.677Z</guid>
+      <pubDate>Tue, 02 Jul 2024 21:28:25 +0000</pubDate>
     </item>
     <item>
       <title>CVE-2024-24788|2024-06-12T19:40:33.056Z -- go%20standard%20library -- net</title>
@@ -314,11 +31,102 @@
       <pubDate>Wed, 08 May 2024 15:31:11 +0000</pubDate>
     </item>
     <item>
-      <title>CVE-2024-24791|2024-07-02T21:28:25.677Z -- go%20standard%20library -- net%2Fhttp</title>
+      <title>CVE-2024-24788|2024-05-09T20:25:03.081Z -- go%20standard%20library -- net</title>
+      <link>https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2024-24788</link>
+      <description>A malformed DNS message in response to a query can cause the Lookup functions to get stuck in an infinite loop.</description>
+      <guid isPermaLink="false">CVE-2024-24788|2024-05-09T20:25:03.081Z</guid>
+      <pubDate>Wed, 08 May 2024 15:31:11 +0000</pubDate>
+    </item>
+    <item>
+      <title>CVE-2024-24784|2024-03-05T22:22:32.186Z -- go%20standard%20library -- net%2Fmail</title>
+      <link>https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2024-24784</link>
+      <description>The ParseAddressList function incorrectly handles comments (text within parentheses) within display names. Since this is a misalignment with conforming address parsers, it can result in different trust decisions being made by programs using different parsers.</description>
+      <guid isPermaLink="false">CVE-2024-24784|2024-03-05T22:22:32.186Z</guid>
+      <pubDate>Tue, 05 Mar 2024 22:22:32 +0000</pubDate>
+    </item>
+    <item>
+      <title>CVE-2024-24785|2024-06-04T17:43:02.716Z -- go%20standard%20library -- html%2Ftemplate</title>
+      <link>https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2024-24785</link>
+      <description>If errors returned from MarshalJSON methods contain user controlled data, they may be used to break the contextual auto-escaping behavior of the html/template package, allowing for subsequent actions to inject unexpected content into templates.</description>
+      <guid isPermaLink="false">CVE-2024-24785|2024-06-04T17:43:02.716Z</guid>
+      <pubDate>Tue, 05 Mar 2024 22:22:33 +0000</pubDate>
+    </item>
+    <item>
+      <title>CVE-2024-24789|2024-06-05T15:13:51.938Z -- go%20standard%20library -- archive%2Fzip</title>
+      <link>https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2024-24789</link>
+      <description>The archive/zip package's handling of certain types of invalid zip files differs from the behavior of most zip implementations. This misalignment could be exploited to create an zip file with contents that vary depending on the implementation reading the file. The archive/zip package now rejects files containing these errors.</description>
+      <guid isPermaLink="false">CVE-2024-24789|2024-06-05T15:13:51.938Z</guid>
+      <pubDate>Wed, 05 Jun 2024 15:13:51 +0000</pubDate>
+    </item>
+    <item>
+      <title>CVE-2024-24783|2024-06-04T17:43:13.567Z -- go%20standard%20library -- crypto%2Fx509</title>
+      <link>https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2024-24783</link>
+      <description>Verifying a certificate chain which contains a certificate with an unknown public key algorithm will cause Certificate.Verify to panic. This affects all crypto/tls clients, and servers that set Config.ClientAuth to VerifyClientCertIfGiven or RequireAndVerifyClientCert. The default behavior is for TLS servers to not verify client certificates.</description>
+      <guid isPermaLink="false">CVE-2024-24783|2024-06-04T17:43:13.567Z</guid>
+      <pubDate>Tue, 05 Mar 2024 22:22:26 +0000</pubDate>
+    </item>
+    <item>
+      <title>CVE-2024-24790|2024-06-05T15:13:50.527Z -- go%20standard%20library -- net%2Fnetip</title>
+      <link>https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2024-24790</link>
+      <description>The various Is methods (IsPrivate, IsLoopback, etc) did not work as expected for IPv4-mapped IPv6 addresses, returning false for addresses which would return true in their traditional IPv4 forms.</description>
+      <guid isPermaLink="false">CVE-2024-24790|2024-06-05T15:13:50.527Z</guid>
+      <pubDate>Wed, 05 Jun 2024 15:13:50 +0000</pubDate>
+    </item>
+    <item>
+      <title>CVE-2023-45290|2024-06-04T17:19:53.634Z -- go%20standard%20library -- net%2Ftextproto</title>
+      <link>https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2023-45290</link>
+      <description>When parsing a multipart form (either explicitly with Request.ParseMultipartForm or implicitly with Request.FormValue, Request.PostFormValue, or Request.FormFile), limits on the total size of the parsed form were not applied to the memory consumed while reading a single form line. This permits a maliciously crafted input containing very long lines to cause allocation of arbitrarily large amounts of memory, potentially leading to memory exhaustion. With fix, the ParseMultipartForm function now correctly limits the maximum size of form lines.</description>
+      <guid isPermaLink="false">CVE-2023-45290|2024-06-04T17:19:53.634Z</guid>
+      <pubDate>Tue, 05 Mar 2024 22:22:28 +0000</pubDate>
+    </item>
+    <item>
+      <title>CVE-2023-45288|2024-04-04T20:37:30.714Z -- go%20standard%20library -- net%2Fhttp</title>
+      <link>https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2023-45288</link>
+      <description>An attacker may cause an HTTP/2 endpoint to read arbitrary amounts of header data by sending an excessive number of CONTINUATION frames. Maintaining HPACK state requires parsing and processing all HEADERS and CONTINUATION frames on a connection. When a request's headers exceed MaxHeaderBytes, no memory is allocated to store the excess headers, but they are still parsed. This permits an attacker to cause an HTTP/2 endpoint to read arbitrary amounts of header data, all associated with a request which is going to be rejected. These headers can include Huffman-encoded data which is significantly more expensive for the receiver to decode than for an attacker to send. The fix sets a limit on the amount of excess header frames we will process before closing a connection.</description>
+      <guid isPermaLink="false">CVE-2023-45288|2024-04-04T20:37:30.714Z</guid>
+      <pubDate>Thu, 04 Apr 2024 20:37:30 +0000</pubDate>
+    </item>
+    <item>
+      <title>CVE-2023-45289|2024-06-04T17:20:06.035Z -- go%20standard%20library -- net%2Fhttp</title>
+      <link>https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2023-45289</link>
+      <description>When following an HTTP redirect to a domain which is not a subdomain match or exact match of the initial domain, an http.Client does not forward sensitive headers such as "Authorization" or "Cookie". For example, a redirect from foo.com to www.foo.com will forward the Authorization header, but a redirect to bar.com will not. A maliciously crafted HTTP redirect could cause sensitive headers to be unexpectedly forwarded.</description>
+      <guid isPermaLink="false">CVE-2023-45289|2024-06-04T17:20:06.035Z</guid>
+      <pubDate>Tue, 05 Mar 2024 22:22:30 +0000</pubDate>
+    </item>
+    <item>
+      <title>CVE-2024-24789|2024-06-13T16:20:49.160Z -- go%20standard%20library -- archive%2Fzip</title>
+      <link>https://www.cve.org/CVERecord?id=CVE-2024-24789</link>
+      <description>The archive/zip package's handling of certain types of invalid zip files differs from the behavior of most zip implementations. This misalignment could be exploited to create an zip file with contents that vary depending on the implementation reading the file. The archive/zip package now rejects files containing these errors.</description>
+      <guid isPermaLink="false">CVE-2024-24789|2024-06-13T16:20:49.160Z</guid>
+      <pubDate>Wed, 05 Jun 2024 15:13:51 +0000</pubDate>
+    </item>
+    <item>
+      <title>CVE-2024-24791|2024-07-03T13:45:59.566Z -- go%20standard%20library -- net%2Fhttp</title>
       <link>https://www.cve.org/CVERecord?id=CVE-2024-24791</link>
       <description>The net/http HTTP/1.1 client mishandled the case where a server responds to a request with an "Expect: 100-continue" header with a non-informational (200 or higher) status. This mishandling could leave a client connection in an invalid state, where the next request sent on the connection will fail. An attacker sending a request to a net/http/httputil.ReverseProxy proxy can exploit this mishandling to cause a denial of service by sending "Expect: 100-continue" requests which elicit a non-informational response from the backend. Each such request leaves the proxy with an invalid connection, and causes one subsequent request using that connection to fail.</description>
-      <guid isPermaLink="false">CVE-2024-24791|2024-07-02T21:28:25.677Z</guid>
+      <guid isPermaLink="false">CVE-2024-24791|2024-07-03T13:45:59.566Z</guid>
       <pubDate>Tue, 02 Jul 2024 21:28:25 +0000</pubDate>
+    </item>
+    <item>
+      <title>CVE-2023-45288|2024-08-02T20:21:15.329Z -- go%20standard%20library -- net%2Fhttp</title>
+      <link>https://www.cve.org/CVERecord?id=CVE-2023-45288</link>
+      <description>An attacker may cause an HTTP/2 endpoint to read arbitrary amounts of header data by sending an excessive number of CONTINUATION frames. Maintaining HPACK state requires parsing and processing all HEADERS and CONTINUATION frames on a connection. When a request's headers exceed MaxHeaderBytes, no memory is allocated to store the excess headers, but they are still parsed. This permits an attacker to cause an HTTP/2 endpoint to read arbitrary amounts of header data, all associated with a request which is going to be rejected. These headers can include Huffman-encoded data which is significantly more expensive for the receiver to decode than for an attacker to send. The fix sets a limit on the amount of excess header frames we will process before closing a connection.</description>
+      <guid isPermaLink="false">CVE-2023-45288|2024-08-02T20:21:15.329Z</guid>
+      <pubDate>Thu, 04 Apr 2024 20:37:30 +0000</pubDate>
+    </item>
+    <item>
+      <title>CVE-2023-45289|2024-08-02T20:21:15.333Z -- go%20standard%20library -- net%2Fhttp</title>
+      <link>https://www.cve.org/CVERecord?id=CVE-2023-45289</link>
+      <description>When following an HTTP redirect to a domain which is not a subdomain match or exact match of the initial domain, an http.Client does not forward sensitive headers such as "Authorization" or "Cookie". For example, a redirect from foo.com to www.foo.com will forward the Authorization header, but a redirect to bar.com will not. A maliciously crafted HTTP redirect could cause sensitive headers to be unexpectedly forwarded.</description>
+      <guid isPermaLink="false">CVE-2023-45289|2024-08-02T20:21:15.333Z</guid>
+      <pubDate>Tue, 05 Mar 2024 22:22:30 +0000</pubDate>
+    </item>
+    <item>
+      <title>CVE-2023-45290|2024-08-02T20:21:15.331Z -- go%20standard%20library -- net%2Ftextproto</title>
+      <link>https://www.cve.org/CVERecord?id=CVE-2023-45290</link>
+      <description>When parsing a multipart form (either explicitly with Request.ParseMultipartForm or implicitly with Request.FormValue, Request.PostFormValue, or Request.FormFile), limits on the total size of the parsed form were not applied to the memory consumed while reading a single form line. This permits a maliciously crafted input containing very long lines to cause allocation of arbitrarily large amounts of memory, potentially leading to memory exhaustion. With fix, the ParseMultipartForm function now correctly limits the maximum size of form lines.</description>
+      <guid isPermaLink="false">CVE-2023-45290|2024-08-02T20:21:15.331Z</guid>
+      <pubDate>Tue, 05 Mar 2024 22:22:28 +0000</pubDate>
     </item>
   </channel>
 </rss>
