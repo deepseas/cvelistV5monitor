@@ -6,159 +6,58 @@
     <description>The latest CVEs for OpenSSL -- all products</description>
     <docs>http://www.rssboard.org/rss-specification</docs>
     <generator>python-feedgen</generator>
-    <lastBuildDate>Sun, 04 Aug 2024 23:23:14 +0000</lastBuildDate>
+    <lastBuildDate>Mon, 05 Aug 2024 04:23:47 +0000</lastBuildDate>
     <ttl>60</ttl>
     <item>
-      <title>CVE-2020-1971|2024-08-04T06:54:00.529Z -- openssl -- openssl
+      <title>CVE-2018-0739|2024-08-05T03:35:49.367Z -- openssl -- openssl
 </title>
-      <link>https://www.cve.org/CVERecord?id=CVE-2020-1971</link>
-      <description>The X.509 GeneralName type is a generic type for representing different types of names. One of those name types is known as EDIPartyName. OpenSSL provides a function GENERAL_NAME_cmp which compares different instances of a GENERAL_NAME to see if they are equal or not. This function behaves incorrectly when both GENERAL_NAMEs contain an EDIPARTYNAME. A NULL pointer dereference and a crash may occur leading to a possible denial of service attack. OpenSSL itself uses the GENERAL_NAME_cmp function for two purposes: 1) Comparing CRL distribution point names between an available CRL and a CRL distribution point embedded in an X509 certificate 2) When verifying that a timestamp response token signer matches the timestamp authority name (exposed via the API functions TS_RESP_verify_response and TS_RESP_verify_token) If an attacker can control both items being compared then that attacker could trigger a crash. For example if the attacker can trick a client or server into checking a malicious certificate against a malicious CRL then this may occur. Note that some applications automatically download CRLs based on a URL embedded in a certificate. This checking happens prior to the signatures on the certificate and CRL being verified. OpenSSL's s_server, s_client and verify tools have support for the "-crl_download" option which implements automatic CRL downloading and this attack has been demonstrated to work against those tools. Note that an unrelated bug means that affected versions of OpenSSL cannot parse or construct correct encodings of EDIPARTYNAME. However it is possible to construct a malformed EDIPARTYNAME that OpenSSL's parser will accept and hence trigger this attack. All OpenSSL 1.1.1 and 1.0.2 versions are affected by this issue. Other OpenSSL releases are out of support and have not been checked. Fixed in OpenSSL 1.1.1i (Affected 1.1.1-1.1.1h). Fixed in OpenSSL 1.0.2x (Affected 1.0.2-1.0.2w).</description>
-      <guid isPermaLink="false">CVE-2020-1971|2024-08-04T06:54:00.529Z</guid>
-      <pubDate>Tue, 08 Dec 2020 00:00:00 +0000</pubDate>
+      <link>https://www.cve.org/CVERecord?id=CVE-2018-0739</link>
+      <description>Constructed ASN.1 types with a recursive definition (such as can be found in PKCS7) could eventually exceed the stack given malicious input with excessive recursion. This could result in a Denial Of Service attack. There are no such structures used within SSL/TLS that come from untrusted sources so this is considered safe. Fixed in OpenSSL 1.1.0h (Affected 1.1.0-1.1.0g). Fixed in OpenSSL 1.0.2o (Affected 1.0.2b-1.0.2n).</description>
+      <guid isPermaLink="false">CVE-2018-0739|2024-08-05T03:35:49.367Z</guid>
+      <pubDate>Tue, 27 Mar 2018 00:00:00 +0000</pubDate>
     </item>
     <item>
-      <title>CVE-2019-1547|2024-08-04T18:20:28.292Z -- openssl -- openssl
+      <title>CVE-2018-0737|2024-08-05T03:35:49.323Z -- openssl -- openssl
 </title>
-      <link>https://www.cve.org/CVERecord?id=CVE-2019-1547</link>
-      <description>Normally in OpenSSL EC groups always have a co-factor present and this is used in side channel resistant code paths. However, in some cases, it is possible to construct a group using explicit parameters (instead of using a named curve). In those cases it is possible that such a group does not have the cofactor present. This can occur even where all the parameters match a known named curve. If such a curve is used then OpenSSL falls back to non-side channel resistant code paths which may result in full key recovery during an ECDSA signature operation. In order to be vulnerable an attacker would have to have the ability to time the creation of a large number of signatures where explicit parameters with no co-factor present are in use by an application using libcrypto. For the avoidance of doubt libssl is not vulnerable because explicit parameters are never used. Fixed in OpenSSL 1.1.1d (Affected 1.1.1-1.1.1c). Fixed in OpenSSL 1.1.0l (Affected 1.1.0-1.1.0k). Fixed in OpenSSL 1.0.2t (Affected 1.0.2-1.0.2s).</description>
-      <guid isPermaLink="false">CVE-2019-1547|2024-08-04T18:20:28.292Z</guid>
-      <pubDate>Tue, 10 Sep 2019 00:00:00 +0000</pubDate>
+      <link>https://www.cve.org/CVERecord?id=CVE-2018-0737</link>
+      <description>The OpenSSL RSA Key generation algorithm has been shown to be vulnerable to a cache timing side channel attack. An attacker with sufficient access to mount cache timing attacks during the RSA key generation process could recover the private key. Fixed in OpenSSL 1.1.0i-dev (Affected 1.1.0-1.1.0h). Fixed in OpenSSL 1.0.2p-dev (Affected 1.0.2b-1.0.2o).</description>
+      <guid isPermaLink="false">CVE-2018-0737|2024-08-05T03:35:49.323Z</guid>
+      <pubDate>Mon, 16 Apr 2018 00:00:00 +0000</pubDate>
     </item>
     <item>
-      <title>CVE-2019-1552|2024-08-04T18:20:27.621Z -- openssl -- openssl
+      <title>CVE-2018-0734|2024-08-05T03:35:49.290Z -- openssl -- openssl
 </title>
-      <link>https://www.cve.org/CVERecord?id=CVE-2019-1552</link>
-      <description>OpenSSL has internal defaults for a directory tree where it can find a configuration file as well as certificates used for verification in TLS. This directory is most commonly referred to as OPENSSLDIR, and is configurable with the --prefix / --openssldir configuration options. For OpenSSL versions 1.1.0 and 1.1.1, the mingw configuration targets assume that resulting programs and libraries are installed in a Unix-like environment and the default prefix for program installation as well as for OPENSSLDIR should be '/usr/local'. However, mingw programs are Windows programs, and as such, find themselves looking at sub-directories of 'C:/usr/local', which may be world writable, which enables untrusted users to modify OpenSSL's default configuration, insert CA certificates, modify (or even replace) existing engine modules, etc. For OpenSSL 1.0.2, '/usr/local/ssl' is used as default for OPENSSLDIR on all Unix and Windows targets, including Visual C builds. However, some build instructions for the diverse Windows targets on 1.0.2 encourage you to specify your own --prefix. OpenSSL versions 1.1.1, 1.1.0 and 1.0.2 are affected by this issue. Due to the limited scope of affected deployments this has been assessed as low severity and therefore we are not creating new releases at this time. Fixed in OpenSSL 1.1.1d (Affected 1.1.1-1.1.1c). Fixed in OpenSSL 1.1.0l (Affected 1.1.0-1.1.0k). Fixed in OpenSSL 1.0.2t (Affected 1.0.2-1.0.2s).</description>
-      <guid isPermaLink="false">CVE-2019-1552|2024-08-04T18:20:27.621Z</guid>
-      <pubDate>Tue, 30 Jul 2019 00:00:00 +0000</pubDate>
+      <link>https://www.cve.org/CVERecord?id=CVE-2018-0734</link>
+      <description>The OpenSSL DSA signature algorithm has been shown to be vulnerable to a timing side channel attack. An attacker could use variations in the signing algorithm to recover the private key. Fixed in OpenSSL 1.1.1a (Affected 1.1.1). Fixed in OpenSSL 1.1.0j (Affected 1.1.0-1.1.0i). Fixed in OpenSSL 1.0.2q (Affected 1.0.2-1.0.2p).</description>
+      <guid isPermaLink="false">CVE-2018-0734|2024-08-05T03:35:49.290Z</guid>
+      <pubDate>Tue, 30 Oct 2018 00:00:00 +0000</pubDate>
     </item>
     <item>
-      <title>CVE-2020-1968|2024-08-04T06:54:00.367Z -- openssl -- openssl
+      <title>CVE-2018-0733|2024-08-05T03:35:49.271Z -- openssl -- openssl
 </title>
-      <link>https://www.cve.org/CVERecord?id=CVE-2020-1968</link>
-      <description>The Raccoon attack exploits a flaw in the TLS specification which can lead to an attacker being able to compute the pre-master secret in connections which have used a Diffie-Hellman (DH) based ciphersuite. In such a case this would result in the attacker being able to eavesdrop on all encrypted communications sent over that TLS connection. The attack can only be exploited if an implementation re-uses a DH secret across multiple TLS connections. Note that this issue only impacts DH ciphersuites and not ECDH ciphersuites. This issue affects OpenSSL 1.0.2 which is out of support and no longer receiving public updates. OpenSSL 1.1.1 is not vulnerable to this issue. Fixed in OpenSSL 1.0.2w (Affected 1.0.2-1.0.2v).</description>
-      <guid isPermaLink="false">CVE-2020-1968|2024-08-04T06:54:00.367Z</guid>
-      <pubDate>Wed, 09 Sep 2020 00:00:00 +0000</pubDate>
+      <link>https://www.cve.org/CVERecord?id=CVE-2018-0733</link>
+      <description>Because of an implementation bug the PA-RISC CRYPTO_memcmp function is effectively reduced to only comparing the least significant bit of each byte. This allows an attacker to forge messages that would be considered as authenticated in an amount of tries lower than that guaranteed by the security claims of the scheme. The module can only be compiled by the HP-UX assembler, so that only HP-UX PA-RISC targets are affected. Fixed in OpenSSL 1.1.0h (Affected 1.1.0-1.1.0g).</description>
+      <guid isPermaLink="false">CVE-2018-0733|2024-08-05T03:35:49.271Z</guid>
+      <pubDate>Tue, 27 Mar 2018 00:00:00 +0000</pubDate>
     </item>
     <item>
-      <title>CVE-2019-1549|2024-08-04T18:20:27.666Z -- openssl -- openssl
+      <title>CVE-2018-0735|2024-08-05T03:35:49.247Z -- openssl -- openssl
 </title>
-      <link>https://www.cve.org/CVERecord?id=CVE-2019-1549</link>
-      <description>OpenSSL 1.1.1 introduced a rewritten random number generator (RNG). This was intended to include protection in the event of a fork() system call in order to ensure that the parent and child processes did not share the same RNG state. However this protection was not being used in the default case. A partial mitigation for this issue is that the output from a high precision timer is mixed into the RNG state so the likelihood of a parent and child process sharing state is significantly reduced. If an application already calls OPENSSL_init_crypto() explicitly using OPENSSL_INIT_ATFORK then this problem does not occur at all. Fixed in OpenSSL 1.1.1d (Affected 1.1.1-1.1.1c).</description>
-      <guid isPermaLink="false">CVE-2019-1549|2024-08-04T18:20:27.666Z</guid>
-      <pubDate>Tue, 10 Sep 2019 00:00:00 +0000</pubDate>
+      <link>https://www.cve.org/CVERecord?id=CVE-2018-0735</link>
+      <description>The OpenSSL ECDSA signature algorithm has been shown to be vulnerable to a timing side channel attack. An attacker could use variations in the signing algorithm to recover the private key. Fixed in OpenSSL 1.1.0j (Affected 1.1.0-1.1.0i). Fixed in OpenSSL 1.1.1a (Affected 1.1.1).</description>
+      <guid isPermaLink="false">CVE-2018-0735|2024-08-05T03:35:49.247Z</guid>
+      <pubDate>Mon, 29 Oct 2018 00:00:00 +0000</pubDate>
     </item>
     <item>
-      <title>CVE-2019-1563|2024-08-04T18:20:28.307Z -- openssl -- openssl
+      <title>CVE-2018-0732|2024-08-05T03:35:49.303Z -- openssl -- openssl
 </title>
-      <link>https://www.cve.org/CVERecord?id=CVE-2019-1563</link>
-      <description>In situations where an attacker receives automated notification of the success or failure of a decryption attempt an attacker, after sending a very large number of messages to be decrypted, can recover a CMS/PKCS7 transported encryption key or decrypt any RSA encrypted message that was encrypted with the public RSA key, using a Bleichenbacher padding oracle attack. Applications are not affected if they use a certificate together with the private RSA key to the CMS_decrypt or PKCS7_decrypt functions to select the correct recipient info to decrypt. Fixed in OpenSSL 1.1.1d (Affected 1.1.1-1.1.1c). Fixed in OpenSSL 1.1.0l (Affected 1.1.0-1.1.0k). Fixed in OpenSSL 1.0.2t (Affected 1.0.2-1.0.2s).</description>
-      <guid isPermaLink="false">CVE-2019-1563|2024-08-04T18:20:28.307Z</guid>
-      <pubDate>Tue, 10 Sep 2019 00:00:00 +0000</pubDate>
+      <link>https://www.cve.org/CVERecord?id=CVE-2018-0732</link>
+      <description>During key agreement in a TLS handshake using a DH(E) based ciphersuite a malicious server can send a very large prime value to the client. This will cause the client to spend an unreasonably long period of time generating a key for this prime resulting in a hang until the client has finished. This could be exploited in a Denial Of Service attack. Fixed in OpenSSL 1.1.0i-dev (Affected 1.1.0-1.1.0h). Fixed in OpenSSL 1.0.2p-dev (Affected 1.0.2-1.0.2o).</description>
+      <guid isPermaLink="false">CVE-2018-0732|2024-08-05T03:35:49.303Z</guid>
+      <pubDate>Tue, 12 Jun 2018 00:00:00 +0000</pubDate>
     </item>
     <item>
-      <title>CVE-2020-1967|2024-08-04T06:54:00.398Z -- openssl -- openssl
-</title>
-      <link>https://www.cve.org/CVERecord?id=CVE-2020-1967</link>
-      <description>Server or client applications that call the SSL_check_chain() function during or after a TLS 1.3 handshake may crash due to a NULL pointer dereference as a result of incorrect handling of the "signature_algorithms_cert" TLS extension. The crash occurs if an invalid or unrecognised signature algorithm is received from the peer. This could be exploited by a malicious peer in a Denial of Service attack. OpenSSL version 1.1.1d, 1.1.1e, and 1.1.1f are affected by this issue. This issue did not affect OpenSSL versions prior to 1.1.1d. Fixed in OpenSSL 1.1.1g (Affected 1.1.1d-1.1.1f).</description>
-      <guid isPermaLink="false">CVE-2020-1967|2024-08-04T06:54:00.398Z</guid>
-      <pubDate>Tue, 21 Apr 2020 00:00:00 +0000</pubDate>
-    </item>
-    <item>
-      <title>CVE-2019-1551|2024-08-04T18:20:28.285Z -- openssl -- openssl
-</title>
-      <link>https://www.cve.org/CVERecord?id=CVE-2019-1551</link>
-      <description>There is an overflow bug in the x64_64 Montgomery squaring procedure used in exponentiation with 512-bit moduli. No EC algorithms are affected. Analysis suggests that attacks against 2-prime RSA1024, 3-prime RSA1536, and DSA1024 as a result of this defect would be very difficult to perform and are not believed likely. Attacks against DH512 are considered just feasible. However, for an attack the target would have to re-use the DH512 private key, which is not recommended anyway. Also applications directly using the low level API BN_mod_exp may be affected if they use BN_FLG_CONSTTIME. Fixed in OpenSSL 1.1.1e (Affected 1.1.1-1.1.1d). Fixed in OpenSSL 1.0.2u (Affected 1.0.2-1.0.2t).</description>
-      <guid isPermaLink="false">CVE-2019-1551|2024-08-04T18:20:28.285Z</guid>
-      <pubDate>Fri, 06 Dec 2019 00:00:00 +0000</pubDate>
-    </item>
-    <item>
-      <title>CVE-2019-1559|2024-08-04T18:20:27.982Z -- openssl -- openssl
-</title>
-      <link>https://www.cve.org/CVERecord?id=CVE-2019-1559</link>
-      <description>If an application encounters a fatal protocol error and then calls SSL_shutdown() twice (once to send a close_notify, and once to receive one) then OpenSSL can respond differently to the calling application if a 0 byte record is received with invalid padding compared to if a 0 byte record is received with an invalid MAC. If the application then behaves differently based on that in a way that is detectable to the remote peer, then this amounts to a padding oracle that could be used to decrypt data. In order for this to be exploitable "non-stitched" ciphersuites must be in use. Stitched ciphersuites are optimised implementations of certain commonly used ciphersuites. Also the application must call SSL_shutdown() twice even if a protocol error has occurred (applications should not do this but some do anyway). Fixed in OpenSSL 1.0.2r (Affected 1.0.2-1.0.2q).</description>
-      <guid isPermaLink="false">CVE-2019-1559|2024-08-04T18:20:27.982Z</guid>
-      <pubDate>Tue, 26 Feb 2019 00:00:00 +0000</pubDate>
-    </item>
-    <item>
-      <title>CVE-2019-1543|2024-08-04T18:20:27.631Z -- openssl -- openssl
-</title>
-      <link>https://www.cve.org/CVERecord?id=CVE-2019-1543</link>
-      <description>ChaCha20-Poly1305 is an AEAD cipher, and requires a unique nonce input for every encryption operation. RFC 7539 specifies that the nonce value (IV) should be 96 bits (12 bytes). OpenSSL allows a variable nonce length and front pads the nonce with 0 bytes if it is less than 12 bytes. However it also incorrectly allows a nonce to be set of up to 16 bytes. In this case only the last 12 bytes are significant and any additional leading bytes are ignored. It is a requirement of using this cipher that nonce values are unique. Messages encrypted using a reused nonce value are susceptible to serious confidentiality and integrity attacks. If an application changes the default nonce length to be longer than 12 bytes and then makes a change to the leading bytes of the nonce expecting the new value to be a new unique nonce then such an application could inadvertently encrypt messages with a reused nonce. Additionally the ignored bytes in a long nonce are not covered by the integrity guarantee of this cipher. Any application that relies on the integrity of these ignored leading bytes of a long nonce may be further affected. Any OpenSSL internal use of this cipher, including in SSL/TLS, is safe because no such use sets such a long nonce value. However user applications that use this cipher directly and set a non-default nonce length to be longer than 12 bytes may be vulnerable. OpenSSL versions 1.1.1 and 1.1.0 are affected by this issue. Due to the limited scope of affected deployments this has been assessed as low severity and therefore we are not creating new releases at this time. Fixed in OpenSSL 1.1.1c (Affected 1.1.1-1.1.1b). Fixed in OpenSSL 1.1.0k (Affected 1.1.0-1.1.0j).</description>
-      <guid isPermaLink="false">CVE-2019-1543|2024-08-04T18:20:27.631Z</guid>
-      <pubDate>Wed, 06 Mar 2019 00:00:00 +0000</pubDate>
-    </item>
-    <item>
-      <title>CVE-2023-6237|2024-08-02T08:21:18.096Z -- openssl -- openssl</title>
-      <link>https://www.cve.org/CVERecord?id=CVE-2023-6237</link>
-      <description>Issue summary: Checking excessively long invalid RSA public keys may take
-a long time.
-
-Impact summary: Applications that use the function EVP_PKEY_public_check()
-to check RSA public keys may experience long delays. Where the key that
-is being checked has been obtained from an untrusted source this may lead
-to a Denial of Service.
-
-When function EVP_PKEY_public_check() is called on RSA public keys,
-a computation is done to confirm that the RSA modulus, n, is composite.
-For valid RSA keys, n is a product of two or more large primes and this
-computation completes quickly. However, if n is an overly large prime,
-then this computation would take a long time.
-
-An application that calls EVP_PKEY_public_check() and supplies an RSA key
-obtained from an untrusted source could be vulnerable to a Denial of Service
-attack.
-
-The function EVP_PKEY_public_check() is not called from other OpenSSL
-functions however it is called from the OpenSSL pkey command line
-application. For that reason that application is also vulnerable if used
-with the '-pubin' and '-check' options on untrusted data.
-
-The OpenSSL SSL/TLS implementation is not affected by this issue.
-
-The OpenSSL 3.0 and 3.1 FIPS providers are affected by this issue.</description>
-      <guid isPermaLink="false">CVE-2023-6237|2024-08-02T08:21:18.096Z</guid>
-      <pubDate>Thu, 25 Apr 2024 06:27:26 +0000</pubDate>
-    </item>
-    <item>
-      <title>CVE-2024-4603|2024-08-01T20:47:41.528Z -- openssl -- openssl</title>
-      <link>https://www.cve.org/CVERecord?id=CVE-2024-4603</link>
-      <description>Issue summary: Checking excessively long DSA keys or parameters may be very
-slow.
-
-Impact summary: Applications that use the functions EVP_PKEY_param_check()
-or EVP_PKEY_public_check() to check a DSA public key or DSA parameters may
-experience long delays. Where the key or parameters that are being checked
-have been obtained from an untrusted source this may lead to a Denial of
-Service.
-
-The functions EVP_PKEY_param_check() or EVP_PKEY_public_check() perform
-various checks on DSA parameters. Some of those computations take a long time
-if the modulus (`p` parameter) is too large.
-
-Trying to use a very large modulus is slow and OpenSSL will not allow using
-public keys with a modulus which is over 10,000 bits in length for signature
-verification. However the key and parameter check functions do not limit
-the modulus size when performing the checks.
-
-An application that calls EVP_PKEY_param_check() or EVP_PKEY_public_check()
-and supplies a key or parameters obtained from an untrusted source could be
-vulnerable to a Denial of Service attack.
-
-These functions are not called by OpenSSL itself on untrusted DSA keys so
-only applications that directly call these functions may be vulnerable.
-
-Also vulnerable are the OpenSSL pkey and pkeyparam command line applications
-when using the `-check` option.
-
-The OpenSSL SSL/TLS implementation is not affected by this issue.
-
-The OpenSSL 3.0 and 3.1 FIPS providers are affected by this issue.</description>
-      <guid isPermaLink="false">CVE-2024-4603|2024-08-01T20:47:41.528Z</guid>
-      <pubDate>Thu, 16 May 2024 15:21:20 +0000</pubDate>
-    </item>
-    <item>
-      <title>CVE-2024-5535|2024-06-27T13:50:22.221Z -- openssl -- openssl</title>
+      <title>CVE-2024-5535|2024-08-01T21:18:06.191Z -- openssl -- openssl</title>
       <link>https://www.cve.org/CVERecord?id=CVE-2024-5535</link>
       <description>Issue summary: Calling the OpenSSL API function SSL_select_next_proto with an
 empty supported client protocols buffer may cause a crash or memory contents to
@@ -222,12 +121,12 @@ The FIPS modules in 3.3, 3.2, 3.1 and 3.0 are not affected by this issue.
 Due to the low severity of this issue we are not issuing new releases of
 OpenSSL at this time. The fix will be included in the next releases when they
 become available.</description>
-      <guid isPermaLink="false">CVE-2024-5535|2024-06-27T13:50:22.221Z</guid>
+      <guid isPermaLink="false">CVE-2024-5535|2024-08-01T21:18:06.191Z</guid>
       <pubDate>Thu, 27 Jun 2024 10:30:53 +0000</pubDate>
     </item>
     <item>
-      <title>CVE-2024-2511|2024-06-04T17:30:50.015Z -- openssl -- openssl</title>
-      <link>https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2024-2511</link>
+      <title>CVE-2024-2511|2024-08-01T19:18:46.968Z -- openssl -- openssl</title>
+      <link>https://www.cve.org/CVERecord?id=CVE-2024-2511</link>
       <description>Issue summary: Some non-default TLS server configurations can cause unbounded
 memory growth when processing TLSv1.3 sessions
 
@@ -247,77 +146,8 @@ clients.
 
 The FIPS modules in 3.2, 3.1 and 3.0 are not affected by this issue. OpenSSL
 1.0.2 is also not affected by this issue.</description>
-      <guid isPermaLink="false">CVE-2024-2511|2024-06-04T17:30:50.015Z</guid>
+      <guid isPermaLink="false">CVE-2024-2511|2024-08-01T19:18:46.968Z</guid>
       <pubDate>Mon, 08 Apr 2024 13:51:12 +0000</pubDate>
-    </item>
-    <item>
-      <title>CVE-2024-4603|2024-05-16T15:21:20.050Z -- openssl -- openssl</title>
-      <link>https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2024-4603</link>
-      <description>Issue summary: Checking excessively long DSA keys or parameters may be very
-slow.
-
-Impact summary: Applications that use the functions EVP_PKEY_param_check()
-or EVP_PKEY_public_check() to check a DSA public key or DSA parameters may
-experience long delays. Where the key or parameters that are being checked
-have been obtained from an untrusted source this may lead to a Denial of
-Service.
-
-The functions EVP_PKEY_param_check() or EVP_PKEY_public_check() perform
-various checks on DSA parameters. Some of those computations take a long time
-if the modulus (`p` parameter) is too large.
-
-Trying to use a very large modulus is slow and OpenSSL will not allow using
-public keys with a modulus which is over 10,000 bits in length for signature
-verification. However the key and parameter check functions do not limit
-the modulus size when performing the checks.
-
-An application that calls EVP_PKEY_param_check() or EVP_PKEY_public_check()
-and supplies a key or parameters obtained from an untrusted source could be
-vulnerable to a Denial of Service attack.
-
-These functions are not called by OpenSSL itself on untrusted DSA keys so
-only applications that directly call these functions may be vulnerable.
-
-Also vulnerable are the OpenSSL pkey and pkeyparam command line applications
-when using the `-check` option.
-
-The OpenSSL SSL/TLS implementation is not affected by this issue.
-
-The OpenSSL 3.0 and 3.1 FIPS providers are affected by this issue.</description>
-      <guid isPermaLink="false">CVE-2024-4603|2024-05-16T15:21:20.050Z</guid>
-      <pubDate>Thu, 16 May 2024 15:21:20 +0000</pubDate>
-    </item>
-    <item>
-      <title>CVE-2023-6237|2024-04-25T06:27:26.990Z -- openssl -- openssl</title>
-      <link>https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2023-6237</link>
-      <description>Issue summary: Checking excessively long invalid RSA public keys may take
-a long time.
-
-Impact summary: Applications that use the function EVP_PKEY_public_check()
-to check RSA public keys may experience long delays. Where the key that
-is being checked has been obtained from an untrusted source this may lead
-to a Denial of Service.
-
-When function EVP_PKEY_public_check() is called on RSA public keys,
-a computation is done to confirm that the RSA modulus, n, is composite.
-For valid RSA keys, n is a product of two or more large primes and this
-computation completes quickly. However, if n is an overly large prime,
-then this computation would take a long time.
-
-An application that calls EVP_PKEY_public_check() and supplies an RSA key
-obtained from an untrusted source could be vulnerable to a Denial of Service
-attack.
-
-The function EVP_PKEY_public_check() is not called from other OpenSSL
-functions however it is called from the OpenSSL pkey command line
-application. For that reason that application is also vulnerable if used
-with the '-pubin' and '-check' options on untrusted data.
-
-The OpenSSL SSL/TLS implementation is not affected by this issue.
-
-The OpenSSL 3.0 and 3.1 FIPS providers are affected by this issue.</description>
-      <guid isPermaLink="false">CVE-2023-6237|2024-04-25T06:27:26.990Z</guid>
-      <pubDate>Thu, 25 Apr 2024 06:27:26 +0000</pubDate>
     </item>
     <item>
       <title>CVE-2024-5535|2024-06-27T10:30:53.118Z -- openssl -- openssl</title>
@@ -388,8 +218,77 @@ become available.</description>
       <pubDate>Thu, 27 Jun 2024 10:30:53 +0000</pubDate>
     </item>
     <item>
-      <title>CVE-2024-2511|2024-08-01T19:18:46.968Z -- openssl -- openssl</title>
-      <link>https://www.cve.org/CVERecord?id=CVE-2024-2511</link>
+      <title>CVE-2023-6237|2024-04-25T06:27:26.990Z -- openssl -- openssl</title>
+      <link>https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2023-6237</link>
+      <description>Issue summary: Checking excessively long invalid RSA public keys may take
+a long time.
+
+Impact summary: Applications that use the function EVP_PKEY_public_check()
+to check RSA public keys may experience long delays. Where the key that
+is being checked has been obtained from an untrusted source this may lead
+to a Denial of Service.
+
+When function EVP_PKEY_public_check() is called on RSA public keys,
+a computation is done to confirm that the RSA modulus, n, is composite.
+For valid RSA keys, n is a product of two or more large primes and this
+computation completes quickly. However, if n is an overly large prime,
+then this computation would take a long time.
+
+An application that calls EVP_PKEY_public_check() and supplies an RSA key
+obtained from an untrusted source could be vulnerable to a Denial of Service
+attack.
+
+The function EVP_PKEY_public_check() is not called from other OpenSSL
+functions however it is called from the OpenSSL pkey command line
+application. For that reason that application is also vulnerable if used
+with the '-pubin' and '-check' options on untrusted data.
+
+The OpenSSL SSL/TLS implementation is not affected by this issue.
+
+The OpenSSL 3.0 and 3.1 FIPS providers are affected by this issue.</description>
+      <guid isPermaLink="false">CVE-2023-6237|2024-04-25T06:27:26.990Z</guid>
+      <pubDate>Thu, 25 Apr 2024 06:27:26 +0000</pubDate>
+    </item>
+    <item>
+      <title>CVE-2024-4603|2024-05-16T15:21:20.050Z -- openssl -- openssl</title>
+      <link>https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2024-4603</link>
+      <description>Issue summary: Checking excessively long DSA keys or parameters may be very
+slow.
+
+Impact summary: Applications that use the functions EVP_PKEY_param_check()
+or EVP_PKEY_public_check() to check a DSA public key or DSA parameters may
+experience long delays. Where the key or parameters that are being checked
+have been obtained from an untrusted source this may lead to a Denial of
+Service.
+
+The functions EVP_PKEY_param_check() or EVP_PKEY_public_check() perform
+various checks on DSA parameters. Some of those computations take a long time
+if the modulus (`p` parameter) is too large.
+
+Trying to use a very large modulus is slow and OpenSSL will not allow using
+public keys with a modulus which is over 10,000 bits in length for signature
+verification. However the key and parameter check functions do not limit
+the modulus size when performing the checks.
+
+An application that calls EVP_PKEY_param_check() or EVP_PKEY_public_check()
+and supplies a key or parameters obtained from an untrusted source could be
+vulnerable to a Denial of Service attack.
+
+These functions are not called by OpenSSL itself on untrusted DSA keys so
+only applications that directly call these functions may be vulnerable.
+
+Also vulnerable are the OpenSSL pkey and pkeyparam command line applications
+when using the `-check` option.
+
+The OpenSSL SSL/TLS implementation is not affected by this issue.
+
+The OpenSSL 3.0 and 3.1 FIPS providers are affected by this issue.</description>
+      <guid isPermaLink="false">CVE-2024-4603|2024-05-16T15:21:20.050Z</guid>
+      <pubDate>Thu, 16 May 2024 15:21:20 +0000</pubDate>
+    </item>
+    <item>
+      <title>CVE-2024-2511|2024-06-04T17:30:50.015Z -- openssl -- openssl</title>
+      <link>https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2024-2511</link>
       <description>Issue summary: Some non-default TLS server configurations can cause unbounded
 memory growth when processing TLSv1.3 sessions
 
@@ -409,11 +308,11 @@ clients.
 
 The FIPS modules in 3.2, 3.1 and 3.0 are not affected by this issue. OpenSSL
 1.0.2 is also not affected by this issue.</description>
-      <guid isPermaLink="false">CVE-2024-2511|2024-08-01T19:18:46.968Z</guid>
+      <guid isPermaLink="false">CVE-2024-2511|2024-06-04T17:30:50.015Z</guid>
       <pubDate>Mon, 08 Apr 2024 13:51:12 +0000</pubDate>
     </item>
     <item>
-      <title>CVE-2024-5535|2024-08-01T21:18:06.191Z -- openssl -- openssl</title>
+      <title>CVE-2024-5535|2024-06-27T13:50:22.221Z -- openssl -- openssl</title>
       <link>https://www.cve.org/CVERecord?id=CVE-2024-5535</link>
       <description>Issue summary: Calling the OpenSSL API function SSL_select_next_proto with an
 empty supported client protocols buffer may cause a crash or memory contents to
@@ -477,8 +376,77 @@ The FIPS modules in 3.3, 3.2, 3.1 and 3.0 are not affected by this issue.
 Due to the low severity of this issue we are not issuing new releases of
 OpenSSL at this time. The fix will be included in the next releases when they
 become available.</description>
-      <guid isPermaLink="false">CVE-2024-5535|2024-08-01T21:18:06.191Z</guid>
+      <guid isPermaLink="false">CVE-2024-5535|2024-06-27T13:50:22.221Z</guid>
       <pubDate>Thu, 27 Jun 2024 10:30:53 +0000</pubDate>
+    </item>
+    <item>
+      <title>CVE-2024-4603|2024-08-01T20:47:41.528Z -- openssl -- openssl</title>
+      <link>https://www.cve.org/CVERecord?id=CVE-2024-4603</link>
+      <description>Issue summary: Checking excessively long DSA keys or parameters may be very
+slow.
+
+Impact summary: Applications that use the functions EVP_PKEY_param_check()
+or EVP_PKEY_public_check() to check a DSA public key or DSA parameters may
+experience long delays. Where the key or parameters that are being checked
+have been obtained from an untrusted source this may lead to a Denial of
+Service.
+
+The functions EVP_PKEY_param_check() or EVP_PKEY_public_check() perform
+various checks on DSA parameters. Some of those computations take a long time
+if the modulus (`p` parameter) is too large.
+
+Trying to use a very large modulus is slow and OpenSSL will not allow using
+public keys with a modulus which is over 10,000 bits in length for signature
+verification. However the key and parameter check functions do not limit
+the modulus size when performing the checks.
+
+An application that calls EVP_PKEY_param_check() or EVP_PKEY_public_check()
+and supplies a key or parameters obtained from an untrusted source could be
+vulnerable to a Denial of Service attack.
+
+These functions are not called by OpenSSL itself on untrusted DSA keys so
+only applications that directly call these functions may be vulnerable.
+
+Also vulnerable are the OpenSSL pkey and pkeyparam command line applications
+when using the `-check` option.
+
+The OpenSSL SSL/TLS implementation is not affected by this issue.
+
+The OpenSSL 3.0 and 3.1 FIPS providers are affected by this issue.</description>
+      <guid isPermaLink="false">CVE-2024-4603|2024-08-01T20:47:41.528Z</guid>
+      <pubDate>Thu, 16 May 2024 15:21:20 +0000</pubDate>
+    </item>
+    <item>
+      <title>CVE-2023-6237|2024-08-02T08:21:18.096Z -- openssl -- openssl</title>
+      <link>https://www.cve.org/CVERecord?id=CVE-2023-6237</link>
+      <description>Issue summary: Checking excessively long invalid RSA public keys may take
+a long time.
+
+Impact summary: Applications that use the function EVP_PKEY_public_check()
+to check RSA public keys may experience long delays. Where the key that
+is being checked has been obtained from an untrusted source this may lead
+to a Denial of Service.
+
+When function EVP_PKEY_public_check() is called on RSA public keys,
+a computation is done to confirm that the RSA modulus, n, is composite.
+For valid RSA keys, n is a product of two or more large primes and this
+computation completes quickly. However, if n is an overly large prime,
+then this computation would take a long time.
+
+An application that calls EVP_PKEY_public_check() and supplies an RSA key
+obtained from an untrusted source could be vulnerable to a Denial of Service
+attack.
+
+The function EVP_PKEY_public_check() is not called from other OpenSSL
+functions however it is called from the OpenSSL pkey command line
+application. For that reason that application is also vulnerable if used
+with the '-pubin' and '-check' options on untrusted data.
+
+The OpenSSL SSL/TLS implementation is not affected by this issue.
+
+The OpenSSL 3.0 and 3.1 FIPS providers are affected by this issue.</description>
+      <guid isPermaLink="false">CVE-2023-6237|2024-08-02T08:21:18.096Z</guid>
+      <pubDate>Thu, 25 Apr 2024 06:27:26 +0000</pubDate>
     </item>
   </channel>
 </rss>
