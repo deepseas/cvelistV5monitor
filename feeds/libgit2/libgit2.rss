@@ -6,36 +6,23 @@
     <description>The latest CVEs for libgit2 -- libgit2</description>
     <docs>http://www.rssboard.org/rss-specification</docs>
     <generator>python-feedgen</generator>
-    <lastBuildDate>Fri, 02 Aug 2024 23:21:58 +0000</lastBuildDate>
+    <lastBuildDate>Mon, 05 Aug 2024 08:24:39 +0000</lastBuildDate>
     <ttl>60</ttl>
     <item>
-      <title>CVE-2023-22742|2024-08-02T10:20:30.067Z -- libgit2 -- libgit2
+      <title>CVE-2018-10887|2024-08-05T07:54:34.874Z -- libgit2 -- libgit2
 </title>
-      <link>https://www.cve.org/CVERecord?id=CVE-2023-22742</link>
-      <description>libgit2 is a cross-platform, linkable library implementation of Git. When using an SSH remote with the optional libssh2 backend, libgit2 does not perform certificate checking by default. Prior versions of libgit2 require the caller to set the `certificate_check` field of libgit2's `git_remote_callbacks` structure - if a certificate check callback is not set, libgit2 does not perform any certificate checking. This means that by default - without configuring a certificate check callback, clients will not perform validation on the server SSH keys and may be subject to a man-in-the-middle attack. Users are encouraged to upgrade to v1.4.5 or v1.5.1. Users unable to upgrade should ensure that all relevant certificates are manually checked.</description>
-      <guid isPermaLink="false">CVE-2023-22742|2024-08-02T10:20:30.067Z</guid>
-      <pubDate>Fri, 20 Jan 2023 22:49:06 +0000</pubDate>
+      <link>https://www.cve.org/CVERecord?id=CVE-2018-10887</link>
+      <description>A flaw was found in libgit2 before version 0.27.3. It has been discovered that an unexpected sign extension in git_delta_apply function in delta.c file may lead to an integer overflow which in turn leads to an out of bound read, allowing to read before the base object. An attacker may use this flaw to leak memory addresses or cause a Denial of Service.</description>
+      <guid isPermaLink="false">CVE-2018-10887|2024-08-05T07:54:34.874Z</guid>
+      <pubDate>Mon, 09 Jul 2018 00:00:00 +0000</pubDate>
     </item>
     <item>
-      <title>CVE-2024-24575|2024-02-06T21:27:57.328Z -- libgit2 -- libgit2</title>
-      <link>https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2024-24575</link>
-      <description>libgit2 is a portable C implementation of the Git core methods provided as a linkable library with a solid API, allowing to build Git functionality into your application. Using well-crafted inputs to `git_revparse_single` can cause the function to enter an infinite loop, potentially causing a Denial of Service attack in the calling application. The revparse function in `src/libgit2/revparse.c` uses a loop to parse the user-provided spec string. There is an edge-case during parsing that allows a bad actor to force the loop conditions to access arbitrary memory. Potentially, this could also leak memory if the extracted rev spec is reflected back to the attacker. As such, libgit2 versions before 1.4.0 are not affected. Users should upgrade to version 1.6.5 or 1.7.2.</description>
-      <guid isPermaLink="false">CVE-2024-24575|2024-02-06T21:27:57.328Z</guid>
-      <pubDate>Tue, 06 Feb 2024 21:27:57 +0000</pubDate>
-    </item>
-    <item>
-      <title>CVE-2024-24577|2024-02-06T21:36:12.517Z -- libgit2 -- libgit2</title>
-      <link>https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2024-24577</link>
-      <description>libgit2 is a portable C implementation of the Git core methods provided as a linkable library with a solid API, allowing to build Git functionality into your application. Using well-crafted inputs to `git_index_add` can cause heap corruption that could be leveraged for arbitrary code execution. There is an issue in the `has_dir_name` function in `src/libgit2/index.c`, which frees an entry that should not be freed. The freed entry is later used and overwritten with potentially bad actor-controlled data leading to controlled heap corruption. Depending on the application that uses libgit2, this could lead to arbitrary code execution. This issue has been patched in version 1.6.5 and 1.7.2.</description>
-      <guid isPermaLink="false">CVE-2024-24577|2024-02-06T21:36:12.517Z</guid>
-      <pubDate>Tue, 06 Feb 2024 21:36:12 +0000</pubDate>
-    </item>
-    <item>
-      <title>CVE-2024-24575|2024-07-05T17:21:51.653Z -- libgit2 -- libgit2</title>
-      <link>https://www.cve.org/CVERecord?id=CVE-2024-24575</link>
-      <description>libgit2 is a portable C implementation of the Git core methods provided as a linkable library with a solid API, allowing to build Git functionality into your application. Using well-crafted inputs to `git_revparse_single` can cause the function to enter an infinite loop, potentially causing a Denial of Service attack in the calling application. The revparse function in `src/libgit2/revparse.c` uses a loop to parse the user-provided spec string. There is an edge-case during parsing that allows a bad actor to force the loop conditions to access arbitrary memory. Potentially, this could also leak memory if the extracted rev spec is reflected back to the attacker. As such, libgit2 versions before 1.4.0 are not affected. Users should upgrade to version 1.6.5 or 1.7.2.</description>
-      <guid isPermaLink="false">CVE-2024-24575|2024-07-05T17:21:51.653Z</guid>
-      <pubDate>Tue, 06 Feb 2024 21:27:57 +0000</pubDate>
+      <title>CVE-2018-10888|2024-08-05T07:54:34.822Z -- libgit2 -- libgit2
+</title>
+      <link>https://www.cve.org/CVERecord?id=CVE-2018-10888</link>
+      <description>A flaw was found in libgit2 before version 0.27.3. A missing check in git_delta_apply function in delta.c file, may lead to an out-of-bound read while reading a binary delta file. An attacker may use this flaw to cause a Denial of Service.</description>
+      <guid isPermaLink="false">CVE-2018-10888|2024-08-05T07:54:34.822Z</guid>
+      <pubDate>Mon, 09 Jul 2018 00:00:00 +0000</pubDate>
     </item>
   </channel>
 </rss>
