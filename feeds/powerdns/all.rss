@@ -6,30 +6,55 @@
     <description>The latest CVEs for PowerDNS -- all products</description>
     <docs>http://www.rssboard.org/rss-specification</docs>
     <generator>python-feedgen</generator>
-    <lastBuildDate>Sun, 04 Aug 2024 23:23:21 +0000</lastBuildDate>
+    <lastBuildDate>Mon, 05 Aug 2024 20:22:51 +0000</lastBuildDate>
     <ttl>60</ttl>
     <item>
-      <title>CVE-2019-10163|2024-08-04T22:10:10.003Z -- powerdns -- pdns
+      <title>CVE-2017-15092|2024-08-05T19:50:14.930Z -- powerdns -- powerdns%20recursor
 </title>
-      <link>https://www.cve.org/CVERecord?id=CVE-2019-10163</link>
-      <description>A Vulnerability has been found in PowerDNS Authoritative Server before versions 4.1.9, 4.0.8 allowing a remote, authorized master server to cause a high CPU load or even prevent any further updates to any slave zone by sending a large number of NOTIFY messages. Note that only servers configured as slaves are affected by this issue.</description>
-      <guid isPermaLink="false">CVE-2019-10163|2024-08-04T22:10:10.003Z</guid>
-      <pubDate>Tue, 30 Jul 2019 22:16:59 +0000</pubDate>
+      <link>https://www.cve.org/CVERecord?id=CVE-2017-15092</link>
+      <description>A cross-site scripting issue has been found in the web interface of PowerDNS Recursor from 4.0.0 up to and including 4.0.6, where the qname of DNS queries was displayed without any escaping, allowing a remote attacker to inject HTML and Javascript code into the web interface, altering the content.</description>
+      <guid isPermaLink="false">CVE-2017-15092|2024-08-05T19:50:14.930Z</guid>
+      <pubDate>Mon, 27 Nov 2017 00:00:00 +0000</pubDate>
     </item>
     <item>
-      <title>CVE-2019-10162|2024-08-04T22:10:10.028Z -- powerdns -- pdns
+      <title>CVE-2017-15090|2024-08-05T19:50:14.915Z -- powerdns -- powerdns
 </title>
-      <link>https://www.cve.org/CVERecord?id=CVE-2019-10162</link>
-      <description>A vulnerability has been found in PowerDNS Authoritative Server before versions 4.1.10, 4.0.8 allowing an authorized user to cause the server to exit by inserting a crafted record in a MASTER type zone under their control. The issue is due to the fact that the Authoritative Server will exit when it runs into a parsing error while looking up the NS/A/AAAA records it is about to use for an outgoing notify.</description>
-      <guid isPermaLink="false">CVE-2019-10162|2024-08-04T22:10:10.028Z</guid>
-      <pubDate>Tue, 30 Jul 2019 22:15:35 +0000</pubDate>
+      <link>https://www.cve.org/CVERecord?id=CVE-2017-15090</link>
+      <description>An issue has been found in the DNSSEC validation component of PowerDNS Recursor from 4.0.0 and up to and including 4.0.6, where the signatures might have been accepted as valid even if the signed data was not in bailiwick of the DNSKEY used to sign it. This allows an attacker in position of man-in-the-middle to alter the content of records by issuing a valid signature for the crafted records.</description>
+      <guid isPermaLink="false">CVE-2017-15090|2024-08-05T19:50:14.915Z</guid>
+      <pubDate>Mon, 27 Nov 2017 00:00:00 +0000</pubDate>
     </item>
     <item>
-      <title>CVE-2024-25583|2024-06-04T17:35:23.421Z -- powerdns -- recursor</title>
-      <link>https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2024-25583</link>
-      <description>A crafted response from an upstream server the recursor has been configured to forward-recurse to can cause a Denial of Service in the Recursor. The default configuration of the Recursor does not use recursive forwarding and is not affected.</description>
-      <guid isPermaLink="false">CVE-2024-25583|2024-06-04T17:35:23.421Z</guid>
-      <pubDate>Thu, 25 Apr 2024 09:45:05 +0000</pubDate>
+      <title>CVE-2017-15120|2024-08-05T19:50:16.333Z -- powerdns -- pdns-recursor
+</title>
+      <link>https://www.cve.org/CVERecord?id=CVE-2017-15120</link>
+      <description>An issue has been found in the parsing of authoritative answers in PowerDNS Recursor before 4.0.8, leading to a NULL pointer dereference when parsing a specially crafted answer containing a CNAME of a different class than IN. An unauthenticated remote attacker could cause a denial of service.</description>
+      <guid isPermaLink="false">CVE-2017-15120|2024-08-05T19:50:16.333Z</guid>
+      <pubDate>Fri, 27 Jul 2018 15:00:00 +0000</pubDate>
+    </item>
+    <item>
+      <title>CVE-2017-15091|2024-08-05T19:50:14.942Z -- powerdns -- powerdns%20authoritative
+</title>
+      <link>https://www.cve.org/CVERecord?id=CVE-2017-15091</link>
+      <description>An issue has been found in the API component of PowerDNS Authoritative 4.x up to and including 4.0.4 and 3.x up to and including 3.4.11, where some operations that have an impact on the state of the server are still allowed even though the API has been configured as read-only via the api-readonly keyword. This missing check allows an attacker with valid API credentials to flush the cache, trigger a zone transfer or send a NOTIFY.</description>
+      <guid isPermaLink="false">CVE-2017-15091|2024-08-05T19:50:14.942Z</guid>
+      <pubDate>Tue, 23 Jan 2018 15:00:00 +0000</pubDate>
+    </item>
+    <item>
+      <title>CVE-2017-15093|2024-08-05T19:50:14.941Z -- powerdns -- powerdns%20recursor
+</title>
+      <link>https://www.cve.org/CVERecord?id=CVE-2017-15093</link>
+      <description>When api-config-dir is set to a non-empty value, which is not the case by default, the API in PowerDNS Recursor 4.x up to and including 4.0.6 and 3.x up to and including 3.7.4 allows an authorized user to update the Recursor's ACL by adding and removing netmasks, and to configure forward zones. It was discovered that the new netmask and IP addresses of forwarded zones were not sufficiently validated, allowing an authenticated user to inject new configuration directives into the Recursor's configuration.</description>
+      <guid isPermaLink="false">CVE-2017-15093|2024-08-05T19:50:14.941Z</guid>
+      <pubDate>Mon, 27 Nov 2017 00:00:00 +0000</pubDate>
+    </item>
+    <item>
+      <title>CVE-2017-15094|2024-08-05T19:50:14.927Z -- powerdns -- powerdns%20recursor
+</title>
+      <link>https://www.cve.org/CVERecord?id=CVE-2017-15094</link>
+      <description>An issue has been found in the DNSSEC parsing code of PowerDNS Recursor from 4.0.0 up to and including 4.0.6 leading to a memory leak when parsing specially crafted DNSSEC ECDSA keys. These keys are only parsed when validation is enabled by setting dnssec to a value other than off or process-no-validate (default).</description>
+      <guid isPermaLink="false">CVE-2017-15094|2024-08-05T19:50:14.927Z</guid>
+      <pubDate>Mon, 27 Nov 2017 00:00:00 +0000</pubDate>
     </item>
     <item>
       <title>CVE-2024-25581|2024-05-13T11:49:24.500Z -- powerdns -- dnsdist</title>
@@ -37,6 +62,13 @@
       <description>When incoming DNS over HTTPS support is enabled using the nghttp2 provider, and queries are routed to a tcp-only or DNS over TLS backend, an attacker can trigger an assertion failure in DNSdist by sending a request for a zone transfer (AXFR or IXFR) over DNS over HTTPS, causing the process to stop and thus leading to a Denial of Service. DNS over HTTPS is not enabled by default, and backends are using plain DNS (Do53) by default.</description>
       <guid isPermaLink="false">CVE-2024-25581|2024-05-13T11:49:24.500Z</guid>
       <pubDate>Mon, 13 May 2024 11:49:24 +0000</pubDate>
+    </item>
+    <item>
+      <title>CVE-2024-25583|2024-06-04T17:35:23.421Z -- powerdns -- recursor</title>
+      <link>https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2024-25583</link>
+      <description>A crafted response from an upstream server the recursor has been configured to forward-recurse to can cause a Denial of Service in the Recursor. The default configuration of the Recursor does not use recursive forwarding and is not affected.</description>
+      <guid isPermaLink="false">CVE-2024-25583|2024-06-04T17:35:23.421Z</guid>
+      <pubDate>Thu, 25 Apr 2024 09:45:05 +0000</pubDate>
     </item>
   </channel>
 </rss>
