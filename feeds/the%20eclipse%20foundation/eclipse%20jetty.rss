@@ -6,7 +6,7 @@
     <description>The latest CVEs for The Eclipse Foundation -- Eclipse Jetty</description>
     <docs>http://www.rssboard.org/rss-specification</docs>
     <generator>python-feedgen</generator>
-    <lastBuildDate>Mon, 05 Aug 2024 16:24:17 +0000</lastBuildDate>
+    <lastBuildDate>Mon, 05 Aug 2024 17:22:44 +0000</lastBuildDate>
     <ttl>60</ttl>
     <item>
       <title>CVE-2018-12536|2024-08-05T08:38:06.220Z -- the%20eclipse%20foundation -- eclipse%20jetty
@@ -33,6 +33,22 @@
       <pubDate>Fri, 22 Jun 2018 19:00:00 +0000</pubDate>
     </item>
     <item>
+      <title>CVE-2017-7656|2024-08-05T16:12:27.819Z -- the%20eclipse%20foundation -- eclipse%20jetty
+</title>
+      <link>https://www.cve.org/CVERecord?id=CVE-2017-7656</link>
+      <description>In Eclipse Jetty, versions 9.2.x and older, 9.3.x (all configurations), and 9.4.x (non-default configuration with RFC2616 compliance enabled), HTTP/0.9 is handled poorly. An HTTP/1 style request line (i.e. method space URI space version) that declares a version of HTTP/0.9 was accepted and treated as a 0.9 request. If deployed behind an intermediary that also accepted and passed through the 0.9 version (but did not act on it), then the response sent could be interpreted by the intermediary as HTTP/1 headers. This could be used to poison the cache if the server allowed the origin client to generate arbitrary content in the response.</description>
+      <guid isPermaLink="false">CVE-2017-7656|2024-08-05T16:12:27.819Z</guid>
+      <pubDate>Tue, 26 Jun 2018 15:00:00 +0000</pubDate>
+    </item>
+    <item>
+      <title>CVE-2017-7657|2024-08-05T16:12:27.850Z -- the%20eclipse%20foundation -- eclipse%20jetty
+</title>
+      <link>https://www.cve.org/CVERecord?id=CVE-2017-7657</link>
+      <description>In Eclipse Jetty, versions 9.2.x and older, 9.3.x (all configurations), and 9.4.x (non-default configuration with RFC2616 compliance enabled), transfer-encoding chunks are handled poorly. The chunk length parsing was vulnerable to an integer overflow. Thus a large chunk size could be interpreted as a smaller chunk size and content sent as chunk body could be interpreted as a pipelined request. If Jetty was deployed behind an intermediary that imposed some authorization and that intermediary allowed arbitrarily large chunks to be passed on unchanged, then this flaw could be used to bypass the authorization imposed by the intermediary as the fake pipelined request would not be interpreted by the intermediary as a request.</description>
+      <guid isPermaLink="false">CVE-2017-7657|2024-08-05T16:12:27.850Z</guid>
+      <pubDate>Tue, 26 Jun 2018 16:00:00 +0000</pubDate>
+    </item>
+    <item>
       <title>CVE-2019-17632|2024-08-05T01:47:13.488Z -- the%20eclipse%20foundation -- eclipse%20jetty
 </title>
       <link>https://www.cve.org/CVERecord?id=CVE-2019-17632</link>
@@ -47,6 +63,14 @@
       <description>In Eclipse Jetty, versions 9.4.27.v20200227 to 9.4.29.v20200521, in case of too large response headers, Jetty throws an exception to produce an HTTP 431 error. When this happens, the ByteBuffer containing the HTTP response headers is released back to the ByteBufferPool twice. Because of this double release, two threads can acquire the same ByteBuffer from the pool and while thread1 is about to use the ByteBuffer to write response1 data, thread2 fills the ByteBuffer with other data. Thread1 then proceeds to write the buffer that now contains different data. This results in client1, which issued request1 seeing data from another request or response which could contain sensitive data belonging to client2 (HTTP session ids, authentication credentials, etc.). If the Jetty version cannot be upgraded, the vulnerability can be significantly reduced by configuring a responseHeaderSize significantly larger than the requestHeaderSize (12KB responseHeaderSize and 8KB requestHeaderSize).</description>
       <guid isPermaLink="false">CVE-2019-17638|2024-08-05T01:47:13.630Z</guid>
       <pubDate>Thu, 09 Jul 2020 18:10:12 +0000</pubDate>
+    </item>
+    <item>
+      <title>CVE-2017-7658|2024-08-05T16:12:27.826Z -- the%20eclipse%20foundation -- eclipse%20jetty
+</title>
+      <link>https://www.cve.org/CVERecord?id=CVE-2017-7658</link>
+      <description>In Eclipse Jetty Server, versions 9.2.x and older, 9.3.x (all non HTTP/1.x configurations), and 9.4.x (all HTTP/1.x configurations), when presented with two content-lengths headers, Jetty ignored the second. When presented with a content-length and a chunked encoding header, the content-length was ignored (as per RFC 2616). If an intermediary decided on the shorter length, but still passed on the longer body, then body content could be interpreted by Jetty as a pipelined request. If the intermediary was imposing authorization, the fake pipelined request would bypass that authorization.</description>
+      <guid isPermaLink="false">CVE-2017-7658|2024-08-05T16:12:27.826Z</guid>
+      <pubDate>Tue, 26 Jun 2018 17:00:00 +0000</pubDate>
     </item>
   </channel>
 </rss>

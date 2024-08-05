@@ -6,153 +6,167 @@
     <description>The latest CVEs for Eclipse Foundation -- all products</description>
     <docs>http://www.rssboard.org/rss-specification</docs>
     <generator>python-feedgen</generator>
-    <lastBuildDate>Fri, 02 Aug 2024 23:21:57 +0000</lastBuildDate>
+    <lastBuildDate>Mon, 05 Aug 2024 17:22:57 +0000</lastBuildDate>
     <ttl>60</ttl>
     <item>
-      <title>CVE-2023-4760|2024-08-02T07:37:59.919Z -- eclipse%20foundation -- eclipse%20rap
+      <title>CVE-2017-7649|2024-08-05T16:12:27.904Z -- eclipse%20foundation -- eclipse%20kura%20installer
 </title>
-      <link>https://www.cve.org/CVERecord?id=CVE-2023-4760</link>
-      <description>In Eclipse RAP versions from 3.0.0 up to and including 3.25.0, Remote Code Execution is possible on Windows when using the FileUpload component.
-
-
-
-
-
-
-The reason for this is a not completely secure extraction of the file name in the FileUploadProcessor.stripFileName(String name) method. As soon as this finds a / in the path, everything before it is removed, but potentially \ (backslashes) coming further back are kept.
-
-For example, a file name such as /..\..\webapps\shell.war can be used to upload a file to a Tomcat server under Windows, which is then saved as ..\..\webapps\shell.war in its webapps directory and can then be executed.
-
-
-</description>
-      <guid isPermaLink="false">CVE-2023-4760|2024-08-02T07:37:59.919Z</guid>
-      <pubDate>Thu, 21 Sep 2023 07:35:35 +0000</pubDate>
+      <link>https://www.cve.org/CVERecord?id=CVE-2017-7649</link>
+      <description>The network enabled distribution of Kura before 2.1.0 takes control over the device's firewall setup but does not allow IPv6 firewall rules to be configured. Still the Equinox console port 5002 is left open, allowing to log into Kura without any user credentials over unencrypted telnet and executing commands using the Equinox "exec" command. As the process is running as "root" full control over the device can be acquired. IPv6 is also left in auto-configuration mode, accepting router advertisements automatically and assigns a MAC address based IPv6 address.</description>
+      <guid isPermaLink="false">CVE-2017-7649|2024-08-05T16:12:27.904Z</guid>
+      <pubDate>Tue, 04 Apr 2017 00:00:00 +0000</pubDate>
     </item>
     <item>
-      <title>CVE-2023-4759|2024-08-02T07:37:59.574Z -- eclipse%20foundation -- eclipse%20jgit
+      <title>CVE-2017-7650|2024-08-05T16:12:27.700Z -- eclipse%20foundation -- mosquitto
 </title>
-      <link>https://www.cve.org/CVERecord?id=CVE-2023-4759</link>
-      <description>Arbitrary File Overwrite in Eclipse JGit &lt;= 6.6.0
-
-In Eclipse JGit, all versions &lt;= 6.6.0.202305301015-r, a symbolic link present in a specially crafted git repository can be used to write a file to locations outside the working tree when this repository is cloned with JGit to a case-insensitive filesystem, or when a checkout from a clone of such a repository is performed on a case-insensitive filesystem.
-
-This can happen on checkout (DirCacheCheckout), merge (ResolveMerger via its WorkingTreeUpdater), pull (PullCommand using merge), and when applying a patch (PatchApplier). This can be exploited for remote code execution (RCE), for instance if the file written outside the working tree is a git filter that gets executed on a subsequent git command.
-
-The issue occurs only on case-insensitive filesystems, like the default filesystems on Windows and macOS. The user performing the clone or checkout must have the rights to create symbolic links for the problem to occur, and symbolic links must be enabled in the git configuration.
-
-Setting git configuration option core.symlinks = false before checking out avoids the problem.
-
-The issue was fixed in Eclipse JGit version 6.6.1.202309021850-r and 6.7.0.202309050840-r, available via  Maven Central https://repo1.maven.org/maven2/org/eclipse/jgit/  and  repo.eclipse.org https://repo.eclipse.org/content/repositories/jgit-releases/ . A backport is available in 5.13.3 starting from  5.13.3.202401111512-r.
-
-
-The JGit maintainers would like to thank RyotaK for finding and reporting this issue.
-
-
-
-</description>
-      <guid isPermaLink="false">CVE-2023-4759|2024-08-02T07:37:59.574Z</guid>
-      <pubDate>Tue, 12 Sep 2023 09:12:10 +0000</pubDate>
+      <link>https://www.cve.org/CVERecord?id=CVE-2017-7650</link>
+      <description>In Mosquitto before 1.4.12, pattern based ACLs can be bypassed by clients that set their username/client id to '#' or '+'. This allows locally or remotely connected clients to access MQTT topics that they do have the rights to. The same issue may be present in third party authentication/access control plugins for Mosquitto.</description>
+      <guid isPermaLink="false">CVE-2017-7650|2024-08-05T16:12:27.700Z</guid>
+      <pubDate>Mon, 29 May 2017 00:00:00 +0000</pubDate>
     </item>
     <item>
-      <title>CVE-2023-5676|2024-08-02T08:07:32.636Z -- eclipse%20foundation -- openj9
-</title>
-      <link>https://www.cve.org/CVERecord?id=CVE-2023-5676</link>
-      <description>In Eclipse OpenJ9 before version 0.41.0, the JVM can be forced into an infinite busy hang on a spinlock or a segmentation fault if a shutdown signal (SIGTERM, SIGINT or SIGHUP) is received before the JVM has finished initializing.
-</description>
-      <guid isPermaLink="false">CVE-2023-5676|2024-08-02T08:07:32.636Z</guid>
-      <pubDate>Wed, 15 Nov 2023 14:02:01 +0000</pubDate>
-    </item>
-    <item>
-      <title>CVE-2023-4218|2024-08-02T07:17:12.212Z -- eclipse%20foundation -- eclipse%20ide
-</title>
-      <link>https://www.cve.org/CVERecord?id=CVE-2023-4218</link>
-      <description>In Eclipse IDE versions &lt; 2023-09 (4.29) some files with xml content are parsed vulnerable against all sorts of XXE attacks. The user just needs to open any evil project or update an open project with a vulnerable file (for example for review a foreign repository or patch).
-</description>
-      <guid isPermaLink="false">CVE-2023-4218|2024-08-02T07:17:12.212Z</guid>
-      <pubDate>Thu, 09 Nov 2023 08:26:51 +0000</pubDate>
-    </item>
-    <item>
-      <title>CVE-2023-5763|2024-08-02T08:07:32.848Z -- eclipse%20foundation -- glassfish
-</title>
-      <link>https://www.cve.org/CVERecord?id=CVE-2023-5763</link>
-      <description>In Eclipse Glassfish 5 or 6, running with old versions of JDK (lower than 6u211, or &lt; 7u201, or &lt; 8u191), allows remote attackers to load malicious code on the server via access to insecure ORB listeners.
-</description>
-      <guid isPermaLink="false">CVE-2023-5763|2024-08-02T08:07:32.848Z</guid>
-      <pubDate>Fri, 03 Nov 2023 06:40:43 +0000</pubDate>
-    </item>
-    <item>
-      <title>CVE-2023-6194|2024-08-02T08:21:17.798Z -- eclipse%20foundation -- eclipse%20memory%20analyzer%20%28tools.mat%29
-</title>
-      <link>https://www.cve.org/CVERecord?id=CVE-2023-6194</link>
-      <description>In Eclipse Memory Analyzer versions 0.7 to 1.14.0, report definition XML files are not filtered to prohibit
-document type definition (DTD) references to external entities.
-This means that if a user chooses to use a malicious report definition XML file containing an external entity reference
-to generate a report then Eclipse Memory Analyzer may access external files or URLs defined via a DTD in the report definition.
-</description>
-      <guid isPermaLink="false">CVE-2023-6194|2024-08-02T08:21:17.798Z</guid>
-      <pubDate>Mon, 11 Dec 2023 14:04:51 +0000</pubDate>
-    </item>
-    <item>
-      <title>CVE-2023-2597|2024-08-02T06:26:09.798Z -- eclipse%20foundation -- eclipse%20openj9
-</title>
-      <link>https://www.cve.org/CVERecord?id=CVE-2023-2597</link>
-      <description>In Eclipse Openj9 before version 0.38.0, in the implementation of the shared cache (which is enabled by default in OpenJ9 builds) the size of a string is not properly checked against the size of the buffer.</description>
-      <guid isPermaLink="false">CVE-2023-2597|2024-08-02T06:26:09.798Z</guid>
-      <pubDate>Mon, 22 May 2023 00:00:00 +0000</pubDate>
-    </item>
-    <item>
-      <title>CVE-2023-4043|2024-08-02T07:17:11.483Z -- eclipse%20foundation -- parsson
-</title>
-      <link>https://www.cve.org/CVERecord?id=CVE-2023-4043</link>
-      <description>In Eclipse Parsson before versions 1.1.4 and 1.0.5, Parsing JSON from untrusted sources can lead malicious actors to exploit the fact that the built-in support for parsing numbers with large scale in Java has a number of edge cases where the input text of a number can lead to much larger processing time than one would expect.
+      <title>CVE-2024-5165|2024-08-01T21:03:11.075Z -- eclipse%20foundation -- eclipse%20ditto</title>
+      <link>https://www.cve.org/CVERecord?id=CVE-2024-5165</link>
+      <description>In Eclipse Ditto versions 3.0.0 to 3.5.5, the user input of several input fields of the Eclipse  Ditto Explorer User Interface https://eclipse.dev/ditto/user-interface.html  was not properly neutralized and thus vulnerable to both Reflected and Stored XSS (Cross Site Scripting).
 
 
-To mitigate the risk, parsson put in place a size limit for the numbers as well as their scale.
 
 
-</description>
-      <guid isPermaLink="false">CVE-2023-4043|2024-08-02T07:17:11.483Z</guid>
-      <pubDate>Fri, 03 Nov 2023 08:11:39 +0000</pubDate>
-    </item>
-    <item>
-      <title>CVE-2023-7272|2024-08-02T08:57:35.165Z -- eclipse%20foundation -- parsson</title>
-      <link>https://www.cve.org/CVERecord?id=CVE-2023-7272</link>
-      <description>In Eclipse Parsson before 1.0.4 and 1.1.3, a document with a large depth of nested objects can allow an attacker to cause a Java stack overflow exception and denial of service. Eclipse Parsson allows processing (e.g. parse, generate, transform and query) JSON documents.</description>
-      <guid isPermaLink="false">CVE-2023-7272|2024-08-02T08:57:35.165Z</guid>
-      <pubDate>Wed, 17 Jul 2024 15:00:20 +0000</pubDate>
-    </item>
-    <item>
-      <title>CVE-2024-3933|2024-08-01T20:26:57.273Z -- eclipse%20foundation -- open%20j9</title>
-      <link>https://www.cve.org/CVERecord?id=CVE-2024-3933</link>
-      <description>In Eclipse OpenJ9 release versions prior to 0.44.0 and after 0.13.0, when running with JVM option -Xgc:concurrentScavenge, the sequence generated for System.arrayCopy on the IBM Z platform with hardware and software support for guarded storage [1], could allow access to a buffer with an incorrect length value when executing an arraycopy sequence while the Concurrent Scavenge Garbage Collection cycle is active and the source and destination memory regions for arraycopy overlap. This allows read and write to addresses beyond the end of the array range.</description>
-      <guid isPermaLink="false">CVE-2024-3933|2024-08-01T20:26:57.273Z</guid>
-      <pubDate>Mon, 27 May 2024 06:08:15 +0000</pubDate>
-    </item>
-    <item>
-      <title>CVE-2024-4536|2024-08-01T20:40:47.492Z -- eclipse%20foundation -- edc</title>
-      <link>https://www.cve.org/CVERecord?id=CVE-2024-4536</link>
-      <description>In Eclipse Dataspace Components from version 0.2.1 to 0.6.2, in the EDC Connector component ( https://github.com/eclipse-edc/Connector ), an attacker might obtain OAuth2 client secrets from the vault.
 
-In Eclipse Dataspace Components from version 0.2.1 to 0.6.2, we have identified a security vulnerability in the EDC Connector component ( https://github.com/eclipse-edc/Connector ) regarding the OAuth2-protected data sink feature. When using a custom, OAuth2-protected data sink, the OAuth2-specific data address properties are resolved by the provider data plane. Problematically, the consumer-provided clientSecretKey, which indicates the OAuth2 client secret to retrieve from a secrets vault, is resolved in the context of the provider's vault, not the consumer. This secret's value is then sent to the tokenUrl, also consumer-controlled, as part of an OAuth2 client credentials grant. The returned access token is then sent as a bearer token to the data sink URL.
+Several inputs were not persisted at the backend of Eclipse Ditto, but only in local browser storage to save settings of "environments" of the UI and e.g. the last performed "search queries", resulting in a "Reflected XSS" vulnerability.
 
-This feature is now disabled entirely, because not all code paths necessary for a successful realization were fully implemented.</description>
-      <guid isPermaLink="false">CVE-2024-4536|2024-08-01T20:40:47.492Z</guid>
-      <pubDate>Tue, 07 May 2024 13:11:45 +0000</pubDate>
+
+
+
+However, several other inputs were persisted at the backend of Eclipse Ditto, leading to a "Stored XSS" vulnerability. Those mean that authenticated and authorized users at Eclipse Ditto can persist Things in Ditto which can - when being displayed by other users also being authorized to see those Things in the Eclipse Ditto UI - cause scripts to be executed in the browser of other users.</description>
+      <guid isPermaLink="false">CVE-2024-5165|2024-08-01T21:03:11.075Z</guid>
+      <pubDate>Thu, 23 May 2024 09:56:31 +0000</pubDate>
     </item>
     <item>
-      <title>CVE-2024-2212|2024-08-01T18:34:55.637Z -- eclipse%20foundation -- threadx</title>
+      <title>CVE-2024-2214|2024-08-01T19:03:39.101Z -- eclipse%20foundation -- threadx</title>
+      <link>https://www.cve.org/CVERecord?id=CVE-2024-2214</link>
+      <description>In Eclipse ThreadX before version 6.4.0, the _Mtxinit() function in the 
+Xtensa port was missing an array size check causing a memory overwrite. 
+The affected file was ports/xtensa/xcc/src/tx_clib_lock.c</description>
+      <guid isPermaLink="false">CVE-2024-2214|2024-08-01T19:03:39.101Z</guid>
+      <pubDate>Tue, 26 Mar 2024 15:48:36 +0000</pubDate>
+    </item>
+    <item>
+      <title>CVE-2024-3046|2024-08-01T19:32:42.548Z -- eclipse%20foundation -- kura</title>
+      <link>https://www.cve.org/CVERecord?id=CVE-2024-3046</link>
+      <description>In Eclipse Kura LogServlet component included in versions 5.0.0 to 5.4.1, a specifically crafted request to the servlet can allow an unauthenticated user to retrieve the device logs. Also, downloaded logs may be used by an attacker to perform privilege escalation by using the session id of an authenticated user reported in logs.
+
+This issue affects org.eclipse.kura:org.eclipse.kura.web2 version range [2.0.600, 2.4.0], which is included in Eclipse Kura version range [5.0.0, 5.4.1]</description>
+      <guid isPermaLink="false">CVE-2024-3046|2024-08-01T19:32:42.548Z</guid>
+      <pubDate>Tue, 09 Apr 2024 10:02:39 +0000</pubDate>
+    </item>
+    <item>
+      <title>CVE-2024-2452|2024-08-01T19:11:53.580Z -- eclipse%20foundation -- threadx</title>
+      <link>https://www.cve.org/CVERecord?id=CVE-2024-2452</link>
+      <description>In Eclipse ThreadX NetX Duo before 6.4.0, if an attacker can control 
+parameters of __portable_aligned_alloc() could cause an integer 
+wrap-around and an allocation smaller than expected. This could cause 
+subsequent heap buffer overflows.</description>
+      <guid isPermaLink="false">CVE-2024-2452|2024-08-01T19:11:53.580Z</guid>
+      <pubDate>Tue, 26 Mar 2024 15:43:36 +0000</pubDate>
+    </item>
+    <item>
+      <title>CVE-2024-2212|2024-08-01T19:03:39.159Z -- eclipse%20foundation -- threadx</title>
       <link>https://www.cve.org/CVERecord?id=CVE-2024-2212</link>
       <description>In Eclipse ThreadX before 6.4.0,  xQueueCreate() and xQueueCreateSet() 
 functions from the FreeRTOS compatibility API 
 (utility/rtos_compatibility_layers/FreeRTOS/tx_freertos.c) were missing 
 parameter checks. This could lead to integer wraparound, 
 under-allocations and heap buffer overflows.</description>
-      <guid isPermaLink="false">CVE-2024-2212|2024-08-01T18:34:55.637Z</guid>
+      <guid isPermaLink="false">CVE-2024-2212|2024-08-01T19:03:39.159Z</guid>
       <pubDate>Tue, 26 Mar 2024 15:58:27 +0000</pubDate>
     </item>
     <item>
-      <title>CVE-2024-0740|2024-08-01T18:18:17.860Z -- eclipse%20foundation -- eclipse%20target%20management</title>
-      <link>https://www.cve.org/CVERecord?id=CVE-2024-0740</link>
+      <title>CVE-2023-7272|2024-07-18T13:31:25.196Z -- eclipse%20foundation -- parsson</title>
+      <link>https://www.cve.org/CVERecord?id=CVE-2023-7272</link>
+      <description>In Eclipse Parsson before 1.0.4 and 1.1.3, a document with a large depth of nested objects can allow an attacker to cause a Java stack overflow exception and denial of service. Eclipse Parsson allows processing (e.g. parse, generate, transform and query) JSON documents.</description>
+      <guid isPermaLink="false">CVE-2023-7272|2024-07-18T13:31:25.196Z</guid>
+      <pubDate>Wed, 17 Jul 2024 15:00:20 +0000</pubDate>
+    </item>
+    <item>
+      <title>CVE-2024-2214|2024-07-09T19:33:35.132Z -- eclipse%20foundation -- threadx</title>
+      <link>https://www.cve.org/CVERecord?id=CVE-2024-2214</link>
+      <description>In Eclipse ThreadX before version 6.4.0, the _Mtxinit() function in the 
+Xtensa port was missing an array size check causing a memory overwrite. 
+The affected file was ports/xtensa/xcc/src/tx_clib_lock.c</description>
+      <guid isPermaLink="false">CVE-2024-2214|2024-07-09T19:33:35.132Z</guid>
+      <pubDate>Tue, 26 Mar 2024 15:48:36 +0000</pubDate>
+    </item>
+    <item>
+      <title>CVE-2024-2452|2024-06-26T20:51:50.331Z -- eclipse%20foundation -- threadx</title>
+      <link>https://www.cve.org/CVERecord?id=CVE-2024-2452</link>
+      <description>In Eclipse ThreadX NetX Duo before 6.4.0, if an attacker can control 
+parameters of __portable_aligned_alloc() could cause an integer 
+wrap-around and an allocation smaller than expected. This could cause 
+subsequent heap buffer overflows.</description>
+      <guid isPermaLink="false">CVE-2024-2452|2024-06-26T20:51:50.331Z</guid>
+      <pubDate>Tue, 26 Mar 2024 15:43:36 +0000</pubDate>
+    </item>
+    <item>
+      <title>CVE-2024-2214|2024-03-26T15:48:36.304Z -- eclipse%20foundation -- threadx</title>
+      <link>https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2024-2214</link>
+      <description>In Eclipse ThreadX before version 6.4.0, the _Mtxinit() function in the 
+Xtensa port was missing an array size check causing a memory overwrite. 
+The affected file was ports/xtensa/xcc/src/tx_clib_lock.c</description>
+      <guid isPermaLink="false">CVE-2024-2214|2024-03-26T15:48:36.304Z</guid>
+      <pubDate>Tue, 26 Mar 2024 15:48:36 +0000</pubDate>
+    </item>
+    <item>
+      <title>CVE-2024-2452|2024-03-26T15:43:36.233Z -- eclipse%20foundation -- threadx</title>
+      <link>https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2024-2452</link>
+      <description>In Eclipse ThreadX NetX Duo before 6.4.0, if an attacker can control 
+parameters of __portable_aligned_alloc() could cause an integer 
+wrap-around and an allocation smaller than expected. This could cause 
+subsequent heap buffer overflows.</description>
+      <guid isPermaLink="false">CVE-2024-2452|2024-03-26T15:43:36.233Z</guid>
+      <pubDate>Tue, 26 Mar 2024 15:43:36 +0000</pubDate>
+    </item>
+    <item>
+      <title>CVE-2024-2212|2024-03-26T15:58:27.486Z -- eclipse%20foundation -- threadx</title>
+      <link>https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2024-2212</link>
+      <description>In Eclipse ThreadX before 6.4.0,  xQueueCreate() and xQueueCreateSet() 
+functions from the FreeRTOS compatibility API 
+(utility/rtos_compatibility_layers/FreeRTOS/tx_freertos.c) were missing 
+parameter checks. This could lead to integer wraparound, 
+under-allocations and heap buffer overflows.</description>
+      <guid isPermaLink="false">CVE-2024-2212|2024-03-26T15:58:27.486Z</guid>
+      <pubDate>Tue, 26 Mar 2024 15:58:27 +0000</pubDate>
+    </item>
+    <item>
+      <title>CVE-2024-3933|2024-06-04T17:31:08.547Z -- eclipse%20foundation -- open%20j9</title>
+      <link>https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2024-3933</link>
+      <description>In Eclipse OpenJ9 release versions prior to 0.44.0 and after 0.13.0, when running with JVM option -Xgc:concurrentScavenge, the sequence generated for System.arrayCopy on the IBM Z platform with hardware and software support for guarded storage [1], could allow access to a buffer with an incorrect length value when executing an arraycopy sequence while the Concurrent Scavenge Garbage Collection cycle is active and the source and destination memory regions for arraycopy overlap. This allows read and write to addresses beyond the end of the array range.</description>
+      <guid isPermaLink="false">CVE-2024-3933|2024-06-04T17:31:08.547Z</guid>
+      <pubDate>Mon, 27 May 2024 06:08:15 +0000</pubDate>
+    </item>
+    <item>
+      <title>CVE-2024-3046|2024-04-10T05:51:23.655Z -- eclipse%20foundation -- kura</title>
+      <link>https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2024-3046</link>
+      <description>In Eclipse Kura LogServlet component included in versions 5.0.0 to 5.4.1, a specifically crafted request to the servlet can allow an unauthenticated user to retrieve the device logs. Also, downloaded logs may be used by an attacker to perform privilege escalation by using the session id of an authenticated user reported in logs.
+
+This issue affects org.eclipse.kura:org.eclipse.kura.web2 version range [2.0.600, 2.4.0], which is included in Eclipse Kura version range [5.0.0, 5.4.1]</description>
+      <guid isPermaLink="false">CVE-2024-3046|2024-04-10T05:51:23.655Z</guid>
+      <pubDate>Tue, 09 Apr 2024 10:02:39 +0000</pubDate>
+    </item>
+    <item>
+      <title>CVE-2024-4536|2024-06-04T17:53:35.014Z -- eclipse%20foundation -- edc</title>
+      <link>https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2024-4536</link>
+      <description>In Eclipse Dataspace Components from version 0.2.1 to 0.6.2, in the EDC Connector component ( https://github.com/eclipse-edc/Connector ), an attacker might obtain OAuth2 client secrets from the vault.
+
+In Eclipse Dataspace Components from version 0.2.1 to 0.6.2, we have identified a security vulnerability in the EDC Connector component ( https://github.com/eclipse-edc/Connector ) regarding the OAuth2-protected data sink feature. When using a custom, OAuth2-protected data sink, the OAuth2-specific data address properties are resolved by the provider data plane. Problematically, the consumer-provided clientSecretKey, which indicates the OAuth2 client secret to retrieve from a secrets vault, is resolved in the context of the provider's vault, not the consumer. This secret's value is then sent to the tokenUrl, also consumer-controlled, as part of an OAuth2 client credentials grant. The returned access token is then sent as a bearer token to the data sink URL.
+
+This feature is now disabled entirely, because not all code paths necessary for a successful realization were fully implemented.</description>
+      <guid isPermaLink="false">CVE-2024-4536|2024-06-04T17:53:35.014Z</guid>
+      <pubDate>Tue, 07 May 2024 13:11:45 +0000</pubDate>
+    </item>
+    <item>
+      <title>CVE-2024-0740|2024-06-04T17:59:17.800Z -- eclipse%20foundation -- eclipse%20target%20management</title>
+      <link>https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2024-0740</link>
       <description>Eclipse Target Management: Terminal and Remote System Explorer (RSE) version &lt;= 4.5.400 has a remote code execution vulnerability that does not require authentication. 
 
 
@@ -160,15 +174,8 @@ under-allocations and heap buffer overflows.</description>
 
 
 The fixed version is included in Eclipse IDE 2024-03</description>
-      <guid isPermaLink="false">CVE-2024-0740|2024-08-01T18:18:17.860Z</guid>
+      <guid isPermaLink="false">CVE-2024-0740|2024-06-04T17:59:17.800Z</guid>
       <pubDate>Fri, 26 Apr 2024 09:36:12 +0000</pubDate>
-    </item>
-    <item>
-      <title>CVE-2023-7272|2024-07-17T15:00:20.172Z -- eclipse%20foundation -- parsson</title>
-      <link>https://www.cve.org/CVERecord?id=CVE-2023-7272</link>
-      <description>In Eclipse Parsson before 1.0.4 and 1.1.3, a document with a large depth of nested objects can allow an attacker to cause a Java stack overflow exception and denial of service. Eclipse Parsson allows processing (e.g. parse, generate, transform and query) JSON documents.</description>
-      <guid isPermaLink="false">CVE-2023-7272|2024-07-17T15:00:20.172Z</guid>
-      <pubDate>Wed, 17 Jul 2024 15:00:20 +0000</pubDate>
     </item>
     <item>
       <title>CVE-2024-5165|2024-06-04T18:02:58.332Z -- eclipse%20foundation -- eclipse%20ditto</title>
@@ -189,8 +196,15 @@ However, several other inputs were persisted at the backend of Eclipse Ditto, le
       <pubDate>Thu, 23 May 2024 09:56:31 +0000</pubDate>
     </item>
     <item>
-      <title>CVE-2024-0740|2024-06-04T17:59:17.800Z -- eclipse%20foundation -- eclipse%20target%20management</title>
-      <link>https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2024-0740</link>
+      <title>CVE-2023-7272|2024-07-17T15:00:20.172Z -- eclipse%20foundation -- parsson</title>
+      <link>https://www.cve.org/CVERecord?id=CVE-2023-7272</link>
+      <description>In Eclipse Parsson before 1.0.4 and 1.1.3, a document with a large depth of nested objects can allow an attacker to cause a Java stack overflow exception and denial of service. Eclipse Parsson allows processing (e.g. parse, generate, transform and query) JSON documents.</description>
+      <guid isPermaLink="false">CVE-2023-7272|2024-07-17T15:00:20.172Z</guid>
+      <pubDate>Wed, 17 Jul 2024 15:00:20 +0000</pubDate>
+    </item>
+    <item>
+      <title>CVE-2024-0740|2024-08-01T18:18:17.860Z -- eclipse%20foundation -- eclipse%20target%20management</title>
+      <link>https://www.cve.org/CVERecord?id=CVE-2024-0740</link>
       <description>Eclipse Target Management: Terminal and Remote System Explorer (RSE) version &lt;= 4.5.400 has a remote code execution vulnerability that does not require authentication. 
 
 
@@ -198,148 +212,44 @@ However, several other inputs were persisted at the backend of Eclipse Ditto, le
 
 
 The fixed version is included in Eclipse IDE 2024-03</description>
-      <guid isPermaLink="false">CVE-2024-0740|2024-06-04T17:59:17.800Z</guid>
+      <guid isPermaLink="false">CVE-2024-0740|2024-08-01T18:18:17.860Z</guid>
       <pubDate>Fri, 26 Apr 2024 09:36:12 +0000</pubDate>
     </item>
     <item>
-      <title>CVE-2024-4536|2024-06-04T17:53:35.014Z -- eclipse%20foundation -- edc</title>
-      <link>https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2024-4536</link>
-      <description>In Eclipse Dataspace Components from version 0.2.1 to 0.6.2, in the EDC Connector component ( https://github.com/eclipse-edc/Connector ), an attacker might obtain OAuth2 client secrets from the vault.
-
-In Eclipse Dataspace Components from version 0.2.1 to 0.6.2, we have identified a security vulnerability in the EDC Connector component ( https://github.com/eclipse-edc/Connector ) regarding the OAuth2-protected data sink feature. When using a custom, OAuth2-protected data sink, the OAuth2-specific data address properties are resolved by the provider data plane. Problematically, the consumer-provided clientSecretKey, which indicates the OAuth2 client secret to retrieve from a secrets vault, is resolved in the context of the provider's vault, not the consumer. This secret's value is then sent to the tokenUrl, also consumer-controlled, as part of an OAuth2 client credentials grant. The returned access token is then sent as a bearer token to the data sink URL.
-
-This feature is now disabled entirely, because not all code paths necessary for a successful realization were fully implemented.</description>
-      <guid isPermaLink="false">CVE-2024-4536|2024-06-04T17:53:35.014Z</guid>
-      <pubDate>Tue, 07 May 2024 13:11:45 +0000</pubDate>
-    </item>
-    <item>
-      <title>CVE-2024-3046|2024-04-10T05:51:23.655Z -- eclipse%20foundation -- kura</title>
-      <link>https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2024-3046</link>
-      <description>In Eclipse Kura LogServlet component included in versions 5.0.0 to 5.4.1, a specifically crafted request to the servlet can allow an unauthenticated user to retrieve the device logs. Also, downloaded logs may be used by an attacker to perform privilege escalation by using the session id of an authenticated user reported in logs.
-
-This issue affects org.eclipse.kura:org.eclipse.kura.web2 version range [2.0.600, 2.4.0], which is included in Eclipse Kura version range [5.0.0, 5.4.1]</description>
-      <guid isPermaLink="false">CVE-2024-3046|2024-04-10T05:51:23.655Z</guid>
-      <pubDate>Tue, 09 Apr 2024 10:02:39 +0000</pubDate>
-    </item>
-    <item>
-      <title>CVE-2024-3933|2024-06-04T17:31:08.547Z -- eclipse%20foundation -- open%20j9</title>
-      <link>https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2024-3933</link>
-      <description>In Eclipse OpenJ9 release versions prior to 0.44.0 and after 0.13.0, when running with JVM option -Xgc:concurrentScavenge, the sequence generated for System.arrayCopy on the IBM Z platform with hardware and software support for guarded storage [1], could allow access to a buffer with an incorrect length value when executing an arraycopy sequence while the Concurrent Scavenge Garbage Collection cycle is active and the source and destination memory regions for arraycopy overlap. This allows read and write to addresses beyond the end of the array range.</description>
-      <guid isPermaLink="false">CVE-2024-3933|2024-06-04T17:31:08.547Z</guid>
-      <pubDate>Mon, 27 May 2024 06:08:15 +0000</pubDate>
-    </item>
-    <item>
-      <title>CVE-2024-2212|2024-03-26T15:58:27.486Z -- eclipse%20foundation -- threadx</title>
-      <link>https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2024-2212</link>
-      <description>In Eclipse ThreadX before 6.4.0,  xQueueCreate() and xQueueCreateSet() 
-functions from the FreeRTOS compatibility API 
-(utility/rtos_compatibility_layers/FreeRTOS/tx_freertos.c) were missing 
-parameter checks. This could lead to integer wraparound, 
-under-allocations and heap buffer overflows.</description>
-      <guid isPermaLink="false">CVE-2024-2212|2024-03-26T15:58:27.486Z</guid>
-      <pubDate>Tue, 26 Mar 2024 15:58:27 +0000</pubDate>
-    </item>
-    <item>
-      <title>CVE-2024-2452|2024-03-26T15:43:36.233Z -- eclipse%20foundation -- threadx</title>
-      <link>https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2024-2452</link>
-      <description>In Eclipse ThreadX NetX Duo before 6.4.0, if an attacker can control 
-parameters of __portable_aligned_alloc() could cause an integer 
-wrap-around and an allocation smaller than expected. This could cause 
-subsequent heap buffer overflows.</description>
-      <guid isPermaLink="false">CVE-2024-2452|2024-03-26T15:43:36.233Z</guid>
-      <pubDate>Tue, 26 Mar 2024 15:43:36 +0000</pubDate>
-    </item>
-    <item>
-      <title>CVE-2024-2214|2024-03-26T15:48:36.304Z -- eclipse%20foundation -- threadx</title>
-      <link>https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2024-2214</link>
-      <description>In Eclipse ThreadX before version 6.4.0, the _Mtxinit() function in the 
-Xtensa port was missing an array size check causing a memory overwrite. 
-The affected file was ports/xtensa/xcc/src/tx_clib_lock.c</description>
-      <guid isPermaLink="false">CVE-2024-2214|2024-03-26T15:48:36.304Z</guid>
-      <pubDate>Tue, 26 Mar 2024 15:48:36 +0000</pubDate>
-    </item>
-    <item>
-      <title>CVE-2024-2452|2024-06-26T20:51:50.331Z -- eclipse%20foundation -- threadx</title>
-      <link>https://www.cve.org/CVERecord?id=CVE-2024-2452</link>
-      <description>In Eclipse ThreadX NetX Duo before 6.4.0, if an attacker can control 
-parameters of __portable_aligned_alloc() could cause an integer 
-wrap-around and an allocation smaller than expected. This could cause 
-subsequent heap buffer overflows.</description>
-      <guid isPermaLink="false">CVE-2024-2452|2024-06-26T20:51:50.331Z</guid>
-      <pubDate>Tue, 26 Mar 2024 15:43:36 +0000</pubDate>
-    </item>
-    <item>
-      <title>CVE-2024-2214|2024-07-09T19:33:35.132Z -- eclipse%20foundation -- threadx</title>
-      <link>https://www.cve.org/CVERecord?id=CVE-2024-2214</link>
-      <description>In Eclipse ThreadX before version 6.4.0, the _Mtxinit() function in the 
-Xtensa port was missing an array size check causing a memory overwrite. 
-The affected file was ports/xtensa/xcc/src/tx_clib_lock.c</description>
-      <guid isPermaLink="false">CVE-2024-2214|2024-07-09T19:33:35.132Z</guid>
-      <pubDate>Tue, 26 Mar 2024 15:48:36 +0000</pubDate>
-    </item>
-    <item>
-      <title>CVE-2023-7272|2024-07-18T13:31:25.196Z -- eclipse%20foundation -- parsson</title>
-      <link>https://www.cve.org/CVERecord?id=CVE-2023-7272</link>
-      <description>In Eclipse Parsson before 1.0.4 and 1.1.3, a document with a large depth of nested objects can allow an attacker to cause a Java stack overflow exception and denial of service. Eclipse Parsson allows processing (e.g. parse, generate, transform and query) JSON documents.</description>
-      <guid isPermaLink="false">CVE-2023-7272|2024-07-18T13:31:25.196Z</guid>
-      <pubDate>Wed, 17 Jul 2024 15:00:20 +0000</pubDate>
-    </item>
-    <item>
-      <title>CVE-2024-2212|2024-08-01T19:03:39.159Z -- eclipse%20foundation -- threadx</title>
+      <title>CVE-2024-2212|2024-08-01T18:34:55.637Z -- eclipse%20foundation -- threadx</title>
       <link>https://www.cve.org/CVERecord?id=CVE-2024-2212</link>
       <description>In Eclipse ThreadX before 6.4.0,  xQueueCreate() and xQueueCreateSet() 
 functions from the FreeRTOS compatibility API 
 (utility/rtos_compatibility_layers/FreeRTOS/tx_freertos.c) were missing 
 parameter checks. This could lead to integer wraparound, 
 under-allocations and heap buffer overflows.</description>
-      <guid isPermaLink="false">CVE-2024-2212|2024-08-01T19:03:39.159Z</guid>
+      <guid isPermaLink="false">CVE-2024-2212|2024-08-01T18:34:55.637Z</guid>
       <pubDate>Tue, 26 Mar 2024 15:58:27 +0000</pubDate>
     </item>
     <item>
-      <title>CVE-2024-2452|2024-08-01T19:11:53.580Z -- eclipse%20foundation -- threadx</title>
-      <link>https://www.cve.org/CVERecord?id=CVE-2024-2452</link>
-      <description>In Eclipse ThreadX NetX Duo before 6.4.0, if an attacker can control 
-parameters of __portable_aligned_alloc() could cause an integer 
-wrap-around and an allocation smaller than expected. This could cause 
-subsequent heap buffer overflows.</description>
-      <guid isPermaLink="false">CVE-2024-2452|2024-08-01T19:11:53.580Z</guid>
-      <pubDate>Tue, 26 Mar 2024 15:43:36 +0000</pubDate>
+      <title>CVE-2024-4536|2024-08-01T20:40:47.492Z -- eclipse%20foundation -- edc</title>
+      <link>https://www.cve.org/CVERecord?id=CVE-2024-4536</link>
+      <description>In Eclipse Dataspace Components from version 0.2.1 to 0.6.2, in the EDC Connector component ( https://github.com/eclipse-edc/Connector ), an attacker might obtain OAuth2 client secrets from the vault.
+
+In Eclipse Dataspace Components from version 0.2.1 to 0.6.2, we have identified a security vulnerability in the EDC Connector component ( https://github.com/eclipse-edc/Connector ) regarding the OAuth2-protected data sink feature. When using a custom, OAuth2-protected data sink, the OAuth2-specific data address properties are resolved by the provider data plane. Problematically, the consumer-provided clientSecretKey, which indicates the OAuth2 client secret to retrieve from a secrets vault, is resolved in the context of the provider's vault, not the consumer. This secret's value is then sent to the tokenUrl, also consumer-controlled, as part of an OAuth2 client credentials grant. The returned access token is then sent as a bearer token to the data sink URL.
+
+This feature is now disabled entirely, because not all code paths necessary for a successful realization were fully implemented.</description>
+      <guid isPermaLink="false">CVE-2024-4536|2024-08-01T20:40:47.492Z</guid>
+      <pubDate>Tue, 07 May 2024 13:11:45 +0000</pubDate>
     </item>
     <item>
-      <title>CVE-2024-3046|2024-08-01T19:32:42.548Z -- eclipse%20foundation -- kura</title>
-      <link>https://www.cve.org/CVERecord?id=CVE-2024-3046</link>
-      <description>In Eclipse Kura LogServlet component included in versions 5.0.0 to 5.4.1, a specifically crafted request to the servlet can allow an unauthenticated user to retrieve the device logs. Also, downloaded logs may be used by an attacker to perform privilege escalation by using the session id of an authenticated user reported in logs.
-
-This issue affects org.eclipse.kura:org.eclipse.kura.web2 version range [2.0.600, 2.4.0], which is included in Eclipse Kura version range [5.0.0, 5.4.1]</description>
-      <guid isPermaLink="false">CVE-2024-3046|2024-08-01T19:32:42.548Z</guid>
-      <pubDate>Tue, 09 Apr 2024 10:02:39 +0000</pubDate>
+      <title>CVE-2024-3933|2024-08-01T20:26:57.273Z -- eclipse%20foundation -- open%20j9</title>
+      <link>https://www.cve.org/CVERecord?id=CVE-2024-3933</link>
+      <description>In Eclipse OpenJ9 release versions prior to 0.44.0 and after 0.13.0, when running with JVM option -Xgc:concurrentScavenge, the sequence generated for System.arrayCopy on the IBM Z platform with hardware and software support for guarded storage [1], could allow access to a buffer with an incorrect length value when executing an arraycopy sequence while the Concurrent Scavenge Garbage Collection cycle is active and the source and destination memory regions for arraycopy overlap. This allows read and write to addresses beyond the end of the array range.</description>
+      <guid isPermaLink="false">CVE-2024-3933|2024-08-01T20:26:57.273Z</guid>
+      <pubDate>Mon, 27 May 2024 06:08:15 +0000</pubDate>
     </item>
     <item>
-      <title>CVE-2024-2214|2024-08-01T19:03:39.101Z -- eclipse%20foundation -- threadx</title>
-      <link>https://www.cve.org/CVERecord?id=CVE-2024-2214</link>
-      <description>In Eclipse ThreadX before version 6.4.0, the _Mtxinit() function in the 
-Xtensa port was missing an array size check causing a memory overwrite. 
-The affected file was ports/xtensa/xcc/src/tx_clib_lock.c</description>
-      <guid isPermaLink="false">CVE-2024-2214|2024-08-01T19:03:39.101Z</guid>
-      <pubDate>Tue, 26 Mar 2024 15:48:36 +0000</pubDate>
-    </item>
-    <item>
-      <title>CVE-2024-5165|2024-08-01T21:03:11.075Z -- eclipse%20foundation -- eclipse%20ditto</title>
-      <link>https://www.cve.org/CVERecord?id=CVE-2024-5165</link>
-      <description>In Eclipse Ditto versions 3.0.0 to 3.5.5, the user input of several input fields of the Eclipse  Ditto Explorer User Interface https://eclipse.dev/ditto/user-interface.html  was not properly neutralized and thus vulnerable to both Reflected and Stored XSS (Cross Site Scripting).
-
-
-
-
-
-Several inputs were not persisted at the backend of Eclipse Ditto, but only in local browser storage to save settings of "environments" of the UI and e.g. the last performed "search queries", resulting in a "Reflected XSS" vulnerability.
-
-
-
-
-However, several other inputs were persisted at the backend of Eclipse Ditto, leading to a "Stored XSS" vulnerability. Those mean that authenticated and authorized users at Eclipse Ditto can persist Things in Ditto which can - when being displayed by other users also being authorized to see those Things in the Eclipse Ditto UI - cause scripts to be executed in the browser of other users.</description>
-      <guid isPermaLink="false">CVE-2024-5165|2024-08-01T21:03:11.075Z</guid>
-      <pubDate>Thu, 23 May 2024 09:56:31 +0000</pubDate>
+      <title>CVE-2023-7272|2024-08-02T08:57:35.165Z -- eclipse%20foundation -- parsson</title>
+      <link>https://www.cve.org/CVERecord?id=CVE-2023-7272</link>
+      <description>In Eclipse Parsson before 1.0.4 and 1.1.3, a document with a large depth of nested objects can allow an attacker to cause a Java stack overflow exception and denial of service. Eclipse Parsson allows processing (e.g. parse, generate, transform and query) JSON documents.</description>
+      <guid isPermaLink="false">CVE-2023-7272|2024-08-02T08:57:35.165Z</guid>
+      <pubDate>Wed, 17 Jul 2024 15:00:20 +0000</pubDate>
     </item>
   </channel>
 </rss>
