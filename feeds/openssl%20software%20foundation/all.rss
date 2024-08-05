@@ -1,0 +1,44 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<rss xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/" version="2.0">
+  <channel>
+    <title>CVE Feed for OpenSSL Software Foundation -- all</title>
+    <link>https://raw.githubusercontent.com/deepseas/cvelistV5monitor/main/feeds/openssl%20software%20foundation/all.rss</link>
+    <description>The latest CVEs for OpenSSL Software Foundation -- all products</description>
+    <docs>http://www.rssboard.org/rss-specification</docs>
+    <generator>python-feedgen</generator>
+    <lastBuildDate>Mon, 05 Aug 2024 15:23:18 +0000</lastBuildDate>
+    <ttl>60</ttl>
+    <item>
+      <title>CVE-2017-3735|2024-08-05T14:39:41.087Z -- openssl%20software%20foundation -- openssl
+</title>
+      <link>https://www.cve.org/CVERecord?id=CVE-2017-3735</link>
+      <description>While parsing an IPAddressFamily extension in an X.509 certificate, it is possible to do a one-byte overread. This would result in an incorrect text display of the certificate. This bug has been present since 2006 and is present in all versions of OpenSSL before 1.0.2m and 1.1.0g.</description>
+      <guid isPermaLink="false">CVE-2017-3735|2024-08-05T14:39:41.087Z</guid>
+      <pubDate>Mon, 28 Aug 2017 00:00:00 +0000</pubDate>
+    </item>
+    <item>
+      <title>CVE-2017-3736|2024-08-05T14:39:39.687Z -- openssl%20software%20foundation -- openssl
+</title>
+      <link>https://www.cve.org/CVERecord?id=CVE-2017-3736</link>
+      <description>There is a carry propagating bug in the x86_64 Montgomery squaring procedure in OpenSSL before 1.0.2m and 1.1.0 before 1.1.0g. No EC algorithms are affected. Analysis suggests that attacks against RSA and DSA as a result of this defect would be very difficult to perform and are not believed likely. Attacks against DH are considered just feasible (although very difficult) because most of the work necessary to deduce information about a private key may be performed offline. The amount of resources required for such an attack would be very significant and likely only accessible to a limited number of attackers. An attacker would additionally need online access to an unpatched system using the target private key in a scenario with persistent DH parameters and a private key that is shared between multiple clients. This only affects processors that support the BMI1, BMI2 and ADX extensions like Intel Broadwell (5th generation) and later or AMD Ryzen.</description>
+      <guid isPermaLink="false">CVE-2017-3736|2024-08-05T14:39:39.687Z</guid>
+      <pubDate>Thu, 02 Nov 2017 00:00:00 +0000</pubDate>
+    </item>
+    <item>
+      <title>CVE-2017-3737|2024-08-05T14:39:40.599Z -- openssl%20software%20foundation -- openssl
+</title>
+      <link>https://www.cve.org/CVERecord?id=CVE-2017-3737</link>
+      <description>OpenSSL 1.0.2 (starting from version 1.0.2b) introduced an "error state" mechanism. The intent was that if a fatal error occurred during a handshake then OpenSSL would move into the error state and would immediately fail if you attempted to continue the handshake. This works as designed for the explicit handshake functions (SSL_do_handshake(), SSL_accept() and SSL_connect()), however due to a bug it does not work correctly if SSL_read() or SSL_write() is called directly. In that scenario, if the handshake fails then a fatal error will be returned in the initial function call. If SSL_read()/SSL_write() is subsequently called by the application for the same SSL object then it will succeed and the data is passed without being decrypted/encrypted directly from the SSL/TLS record layer. In order to exploit this issue an application bug would have to be present that resulted in a call to SSL_read()/SSL_write() being issued after having already received a fatal error. OpenSSL version 1.0.2b-1.0.2m are affected. Fixed in OpenSSL 1.0.2n. OpenSSL 1.1.0 is not affected.</description>
+      <guid isPermaLink="false">CVE-2017-3737|2024-08-05T14:39:40.599Z</guid>
+      <pubDate>Thu, 07 Dec 2017 00:00:00 +0000</pubDate>
+    </item>
+    <item>
+      <title>CVE-2017-3738|2024-08-05T14:39:41.133Z -- openssl%20software%20foundation -- openssl
+</title>
+      <link>https://www.cve.org/CVERecord?id=CVE-2017-3738</link>
+      <description>There is an overflow bug in the AVX2 Montgomery multiplication procedure used in exponentiation with 1024-bit moduli. No EC algorithms are affected. Analysis suggests that attacks against RSA and DSA as a result of this defect would be very difficult to perform and are not believed likely. Attacks against DH1024 are considered just feasible, because most of the work necessary to deduce information about a private key may be performed offline. The amount of resources required for such an attack would be significant. However, for an attack on TLS to be meaningful, the server would have to share the DH1024 private key among multiple clients, which is no longer an option since CVE-2016-0701. This only affects processors that support the AVX2 but not ADX extensions like Intel Haswell (4th generation). Note: The impact from this issue is similar to CVE-2017-3736, CVE-2017-3732 and CVE-2015-3193. OpenSSL version 1.0.2-1.0.2m and 1.1.0-1.1.0g are affected. Fixed in OpenSSL 1.0.2n. Due to the low severity of this issue we are not issuing a new release of OpenSSL 1.1.0 at this time. The fix will be included in OpenSSL 1.1.0h when it becomes available. The fix is also available in commit e502cc86d in the OpenSSL git repository.</description>
+      <guid isPermaLink="false">CVE-2017-3738|2024-08-05T14:39:41.133Z</guid>
+      <pubDate>Thu, 07 Dec 2017 00:00:00 +0000</pubDate>
+    </item>
+  </channel>
+</rss>
