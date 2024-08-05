@@ -6,289 +6,43 @@
     <description>The latest CVEs for Kubernetes -- all products</description>
     <docs>http://www.rssboard.org/rss-specification</docs>
     <generator>python-feedgen</generator>
-    <lastBuildDate>Sun, 04 Aug 2024 23:23:08 +0000</lastBuildDate>
+    <lastBuildDate>Mon, 05 Aug 2024 03:23:41 +0000</lastBuildDate>
     <ttl>60</ttl>
     <item>
-      <title>CVE-2020-8555|2024-08-04T10:03:46.110Z -- kubernetes -- kubernetes
+      <title>CVE-2019-1002100|2024-08-05T03:00:19.258Z -- kubernetes -- kubernetes
 </title>
-      <link>https://www.cve.org/CVERecord?id=CVE-2020-8555</link>
-      <description>The Kubernetes kube-controller-manager in versions v1.0-1.14, versions prior to v1.15.12, v1.16.9, v1.17.5, and version v1.18.0 are vulnerable to a Server Side Request Forgery (SSRF) that allows certain authorized users to leak up to 500 bytes of arbitrary information from unprotected endpoints within the master's host network (such as link-local or loopback services).</description>
-      <guid isPermaLink="false">CVE-2020-8555|2024-08-04T10:03:46.110Z</guid>
-      <pubDate>Thu, 04 Jun 2020 21:50:11 +0000</pubDate>
+      <link>https://www.cve.org/CVERecord?id=CVE-2019-1002100</link>
+      <description>In all Kubernetes versions prior to v1.11.8, v1.12.6, and v1.13.4, users that are authorized to make patch requests to the Kubernetes API Server can send a specially crafted patch of type "json-patch" (e.g. `kubectl patch --type json` or `"Content-Type: application/json-patch+json"`) that consumes excessive resources while processing, causing a Denial of Service on the API Server.</description>
+      <guid isPermaLink="false">CVE-2019-1002100|2024-08-05T03:00:19.258Z</guid>
+      <pubDate>Mon, 01 Apr 2019 14:14:27 +0000</pubDate>
     </item>
     <item>
-      <title>CVE-2019-11244|2024-08-04T22:48:09.162Z -- kubernetes -- kubernetes
+      <title>CVE-2019-1002101|2024-08-05T03:00:19.424Z -- kubernetes -- kubernetes
 </title>
-      <link>https://www.cve.org/CVERecord?id=CVE-2019-11244</link>
-      <description>In Kubernetes v1.8.x-v1.14.x, schema info is cached by kubectl in the location specified by --cache-dir (defaulting to $HOME/.kube/http-cache), written with world-writeable permissions (rw-rw-rw-). If --cache-dir is specified and pointed at a different location accessible to other users/groups, the written files may be modified by other users/groups and disrupt the kubectl invocation.</description>
-      <guid isPermaLink="false">CVE-2019-11244|2024-08-04T22:48:09.162Z</guid>
-      <pubDate>Mon, 22 Apr 2019 14:54:15 +0000</pubDate>
+      <link>https://www.cve.org/CVERecord?id=CVE-2019-1002101</link>
+      <description>The kubectl cp command allows copying files between containers and the user machine. To copy files from a container, Kubernetes creates a tar inside the container, copies it over the network, and kubectl unpacks it on the user’s machine. If the tar binary in the container is malicious, it could run any code and output unexpected, malicious results. An attacker could use this to write files to any path on the user’s machine when kubectl cp is called, limited only by the system permissions of the local user. The untar function can both create and follow symbolic links. The issue is resolved in kubectl v1.11.9, v1.12.7, v1.13.5, and v1.14.0.</description>
+      <guid isPermaLink="false">CVE-2019-1002101|2024-08-05T03:00:19.424Z</guid>
+      <pubDate>Thu, 28 Mar 2019 00:00:00 +0000</pubDate>
     </item>
     <item>
-      <title>CVE-2019-11245|2024-08-04T22:48:09.001Z -- kubernetes -- kubernetes
-</title>
-      <link>https://www.cve.org/CVERecord?id=CVE-2019-11245</link>
-      <description>In kubelet v1.13.6 and v1.14.2, containers for pods that do not specify an explicit runAsUser attempt to run as uid 0 (root) on container restart, or if the image was previously pulled to the node. If the pod specified mustRunAsNonRoot: true, the kubelet will refuse to start the container as root. If the pod did not specify mustRunAsNonRoot: true, the kubelet will run the container as uid 0.</description>
-      <guid isPermaLink="false">CVE-2019-11245|2024-08-04T22:48:09.001Z</guid>
-      <pubDate>Fri, 24 May 2019 00:00:00 +0000</pubDate>
+      <title>CVE-2021-25741|2024-08-03T20:11:27.655Z -- kubernetes -- kubernetes</title>
+      <link>https://www.cve.org/CVERecord?id=CVE-2021-25741</link>
+      <description>A security issue was discovered in Kubernetes where a user may be able to create a container with subpath volume mounts to access files &amp; directories outside of the volume, including on the host filesystem.</description>
+      <guid isPermaLink="false">CVE-2021-25741|2024-08-03T20:11:27.655Z</guid>
+      <pubDate>Sat, 03 Aug 2024 20:11:27 +0000</pubDate>
     </item>
     <item>
-      <title>CVE-2020-8562|2024-08-04T10:03:46.172Z -- kubernetes -- kubernetes
-</title>
-      <link>https://www.cve.org/CVERecord?id=CVE-2020-8562</link>
-      <description>As mitigations to a report from 2019 and CVE-2020-8555, Kubernetes attempts to prevent proxied connections from accessing link-local or localhost networks when making user-driven connections to Services, Pods, Nodes, or StorageClass service providers. As part of this mitigation Kubernetes does a DNS name resolution check and validates that response IPs are not in the link-local (169.254.0.0/16) or localhost (127.0.0.0/8) range. Kubernetes then performs a second DNS resolution without validation for the actual connection. If a non-standard DNS server returns different non-cached responses, a user may be able to bypass the proxy IP restriction and access private networks on the control plane.</description>
-      <guid isPermaLink="false">CVE-2020-8562|2024-08-04T10:03:46.172Z</guid>
-      <pubDate>Tue, 04 May 2021 00:00:00 +0000</pubDate>
-    </item>
-    <item>
-      <title>CVE-2020-8558|2024-08-04T10:03:46.112Z -- kubernetes -- kubernetes
-</title>
-      <link>https://www.cve.org/CVERecord?id=CVE-2020-8558</link>
-      <description>The Kubelet and kube-proxy components in versions 1.1.0-1.16.10, 1.17.0-1.17.6, and 1.18.0-1.18.3 were found to contain a security issue which allows adjacent hosts to reach TCP and UDP services bound to 127.0.0.1 running on the node or in the node's network namespace. Such a service is generally thought to be reachable only by other processes on the same host, but due to this defeect, could be reachable by other hosts on the same LAN as the node, or by containers running on the same node as the service.</description>
-      <guid isPermaLink="false">CVE-2020-8558|2024-08-04T10:03:46.112Z</guid>
-      <pubDate>Sat, 18 Apr 2020 00:00:00 +0000</pubDate>
-    </item>
-    <item>
-      <title>CVE-2020-8563|2024-08-04T10:03:46.114Z -- kubernetes -- kubernetes
-</title>
-      <link>https://www.cve.org/CVERecord?id=CVE-2020-8563</link>
-      <description>In Kubernetes clusters using VSphere as a cloud provider, with a logging level set to 4 or above, VSphere cloud credentials will be leaked in the cloud controller manager's log. This affects &lt; v1.19.3.</description>
-      <guid isPermaLink="false">CVE-2020-8563|2024-08-04T10:03:46.114Z</guid>
-      <pubDate>Thu, 15 Oct 2020 00:00:00 +0000</pubDate>
-    </item>
-    <item>
-      <title>CVE-2020-8567|2024-08-04T10:03:46.223Z -- kubernetes -- kubernetes%20secrets%20store%20csi%20driver
-</title>
-      <link>https://www.cve.org/CVERecord?id=CVE-2020-8567</link>
-      <description>Kubernetes Secrets Store CSI Driver Vault Plugin prior to v0.0.6, Azure Plugin prior to v0.0.10, and GCP Plugin prior to v0.2.0 allow an attacker who can create specially-crafted SecretProviderClass objects to write to arbitrary file paths on the host filesystem, including /var/lib/kubelet/pods.</description>
-      <guid isPermaLink="false">CVE-2020-8567|2024-08-04T10:03:46.223Z</guid>
-      <pubDate>Mon, 16 Nov 2020 00:00:00 +0000</pubDate>
-    </item>
-    <item>
-      <title>CVE-2019-11253|2024-08-04T22:48:09.095Z -- kubernetes -- kubernetes
-</title>
-      <link>https://www.cve.org/CVERecord?id=CVE-2019-11253</link>
-      <description>Improper input validation in the Kubernetes API server in versions v1.0-1.12 and versions prior to v1.13.12, v1.14.8, v1.15.5, and v1.16.2 allows authorized users to send malicious YAML or JSON payloads, causing the API server to consume excessive CPU or memory, potentially crashing and becoming unavailable. Prior to v1.14.0, default RBAC policy authorized anonymous users to submit requests that could trigger this vulnerability. Clusters upgraded from a version prior to v1.14.0 keep the more permissive policy by default for backwards compatibility.</description>
-      <guid isPermaLink="false">CVE-2019-11253|2024-08-04T22:48:09.095Z</guid>
-      <pubDate>Fri, 27 Sep 2019 00:00:00 +0000</pubDate>
-    </item>
-    <item>
-      <title>CVE-2020-8551|2024-08-04T10:03:45.888Z -- kubernetes -- kubernetes
-</title>
-      <link>https://www.cve.org/CVERecord?id=CVE-2020-8551</link>
-      <description>The Kubelet component in versions 1.15.0-1.15.9, 1.16.0-1.16.6, and 1.17.0-1.17.2 has been found to be vulnerable to a denial of service attack via the kubelet API, including the unauthenticated HTTP read-only API typically served on port 10255, and the authenticated HTTPS API typically served on port 10250.</description>
-      <guid isPermaLink="false">CVE-2020-8551|2024-08-04T10:03:45.888Z</guid>
-      <pubDate>Fri, 27 Mar 2020 14:25:14 +0000</pubDate>
-    </item>
-    <item>
-      <title>CVE-2019-11250|2024-08-04T22:48:09.024Z -- kubernetes -- kubernetes
-</title>
-      <link>https://www.cve.org/CVERecord?id=CVE-2019-11250</link>
-      <description>The Kubernetes client-go library logs request headers at verbosity levels of 7 or higher. This can disclose credentials to unauthorized users via logs or command output. Kubernetes components (such as kube-apiserver) prior to v1.16.0, which make use of basic or bearer token authentication, and run at high verbosity levels, are affected.</description>
-      <guid isPermaLink="false">CVE-2019-11250|2024-08-04T22:48:09.024Z</guid>
-      <pubDate>Mon, 12 Aug 2019 00:00:00 +0000</pubDate>
-    </item>
-    <item>
-      <title>CVE-2020-8569|2024-08-04T10:03:46.107Z -- kubernetes -- csi%20snapshotter
-</title>
-      <link>https://www.cve.org/CVERecord?id=CVE-2020-8569</link>
-      <description>Kubernetes CSI snapshot-controller prior to v2.1.3 and v3.0.2 could panic when processing a VolumeSnapshot custom resource when: - The VolumeSnapshot referenced a non-existing PersistentVolumeClaim and the VolumeSnapshot did not reference any VolumeSnapshotClass. - The snapshot-controller crashes, is automatically restarted by Kubernetes, and processes the same VolumeSnapshot custom resource after the restart, entering an endless crashloop. Only the volume snapshot feature is affected by this vulnerability. When exploited, users can’t take snapshots of their volumes or delete the snapshots. All other Kubernetes functionality is not affected.</description>
-      <guid isPermaLink="false">CVE-2020-8569|2024-08-04T10:03:46.107Z</guid>
-      <pubDate>Tue, 17 Nov 2020 00:00:00 +0000</pubDate>
-    </item>
-    <item>
-      <title>CVE-2019-11243|2024-08-04T22:48:09.023Z -- kubernetes -- kubernetes
-</title>
-      <link>https://www.cve.org/CVERecord?id=CVE-2019-11243</link>
-      <description>In Kubernetes v1.12.0-v1.12.4 and v1.13.0, the rest.AnonymousClientConfig() method returns a copy of the provided config, with credentials removed (bearer token, username/password, and client certificate/key data). In the affected versions, rest.AnonymousClientConfig() did not effectively clear service account credentials loaded using rest.InClusterConfig()</description>
-      <guid isPermaLink="false">CVE-2019-11243|2024-08-04T22:48:09.023Z</guid>
-      <pubDate>Mon, 22 Apr 2019 14:54:15 +0000</pubDate>
-    </item>
-    <item>
-      <title>CVE-2019-11248|2024-08-04T22:48:09.003Z -- kubernetes -- kubernetes
-</title>
-      <link>https://www.cve.org/CVERecord?id=CVE-2019-11248</link>
-      <description>The debugging endpoint /debug/pprof is exposed over the unauthenticated Kubelet healthz port. The go pprof endpoint is exposed over the Kubelet's healthz port. This debugging endpoint can potentially leak sensitive information such as internal Kubelet memory addresses and configuration, or for limited denial of service. Versions prior to 1.15.0, 1.14.4, 1.13.8, and 1.12.10 are affected. The issue is of medium severity, but not exposed by the default configuration.</description>
-      <guid isPermaLink="false">CVE-2019-11248|2024-08-04T22:48:09.003Z</guid>
-      <pubDate>Tue, 06 Aug 2019 00:00:00 +0000</pubDate>
-    </item>
-    <item>
-      <title>CVE-2020-8564|2024-08-04T10:03:46.158Z -- kubernetes -- kubernetes
-</title>
-      <link>https://www.cve.org/CVERecord?id=CVE-2020-8564</link>
-      <description>In Kubernetes clusters using a logging level of at least 4, processing a malformed docker config file will result in the contents of the docker config file being leaked, which can include pull secrets or other registry credentials. This affects &lt; v1.19.3, &lt; v1.18.10, &lt; v1.17.13.</description>
-      <guid isPermaLink="false">CVE-2020-8564|2024-08-04T10:03:46.158Z</guid>
-      <pubDate>Thu, 15 Oct 2020 00:00:00 +0000</pubDate>
-    </item>
-    <item>
-      <title>CVE-2019-11255|2024-08-04T22:48:08.992Z -- kubernetes -- kubernetes-csi%20external-provisioner
-</title>
-      <link>https://www.cve.org/CVERecord?id=CVE-2019-11255</link>
-      <description>Improper input validation in Kubernetes CSI sidecar containers for external-provisioner (&lt;v0.4.3, &lt;v1.0.2, v1.1, &lt;v1.2.2, &lt;v1.3.1), external-snapshotter (&lt;v0.4.2, &lt;v1.0.2, v1.1, &lt;1.2.2), and external-resizer (v0.1, v0.2) could result in unauthorized PersistentVolume data access or volume mutation during snapshot, restore from snapshot, cloning and resizing operations.</description>
-      <guid isPermaLink="false">CVE-2019-11255|2024-08-04T22:48:08.992Z</guid>
-      <pubDate>Thu, 14 Nov 2019 00:00:00 +0000</pubDate>
-    </item>
-    <item>
-      <title>CVE-2019-11254|2024-08-04T22:48:09.147Z -- kubernetes -- kubernetes
-</title>
-      <link>https://www.cve.org/CVERecord?id=CVE-2019-11254</link>
-      <description>The Kubernetes API Server component in versions 1.1-1.14, and versions prior to 1.15.10, 1.16.7 and 1.17.3 allows an authorized user who sends malicious YAML payloads to cause the kube-apiserver to consume excessive CPU cycles while parsing YAML.</description>
-      <guid isPermaLink="false">CVE-2019-11254|2024-08-04T22:48:09.147Z</guid>
-      <pubDate>Tue, 31 Mar 2020 00:00:00 +0000</pubDate>
-    </item>
-    <item>
-      <title>CVE-2020-8554|2024-08-04T10:03:46.277Z -- kubernetes -- kubernetes
-</title>
-      <link>https://www.cve.org/CVERecord?id=CVE-2020-8554</link>
-      <description>Kubernetes API server in all versions allow an attacker who is able to create a ClusterIP service and set the spec.externalIPs field, to intercept traffic to that IP address. Additionally, an attacker who is able to patch the status (which is considered a privileged operation and should not typically be granted to users) of a LoadBalancer service can set the status.loadBalancer.ingress.ip to similar effect.</description>
-      <guid isPermaLink="false">CVE-2020-8554|2024-08-04T10:03:46.277Z</guid>
-      <pubDate>Mon, 07 Dec 2020 00:00:00 +0000</pubDate>
-    </item>
-    <item>
-      <title>CVE-2019-11249|2024-08-04T22:48:08.982Z -- kubernetes -- kubernetes
-</title>
-      <link>https://www.cve.org/CVERecord?id=CVE-2019-11249</link>
-      <description>The kubectl cp command allows copying files between containers and the user machine. To copy files from a container, Kubernetes runs tar inside the container to create a tar archive, copies it over the network, and kubectl unpacks it on the user’s machine. If the tar binary in the container is malicious, it could run any code and output unexpected, malicious results. An attacker could use this to write files to any path on the user’s machine when kubectl cp is called, limited only by the system permissions of the local user. Kubernetes affected versions include versions prior to 1.13.9, versions prior to 1.14.5, versions prior to 1.15.2, and versions 1.1, 1.2, 1.4, 1.4, 1.5, 1.6, 1.7, 1.8, 1.9, 1.10, 1.11, 1.12.</description>
-      <guid isPermaLink="false">CVE-2019-11249|2024-08-04T22:48:08.982Z</guid>
-      <pubDate>Mon, 05 Aug 2019 00:00:00 +0000</pubDate>
-    </item>
-    <item>
-      <title>CVE-2020-8565|2024-08-04T10:03:46.382Z -- kubernetes -- kubernetes
-</title>
-      <link>https://www.cve.org/CVERecord?id=CVE-2020-8565</link>
-      <description>In Kubernetes, if the logging level is set to at least 9, authorization and bearer tokens will be written to log files. This can occur both in API server logs and client tool output like kubectl. This affects &lt;= v1.19.3, &lt;= v1.18.10, &lt;= v1.17.13, &lt; v1.20.0-alpha2.</description>
-      <guid isPermaLink="false">CVE-2020-8565|2024-08-04T10:03:46.382Z</guid>
-      <pubDate>Thu, 15 Oct 2020 00:00:00 +0000</pubDate>
-    </item>
-    <item>
-      <title>CVE-2020-8568|2024-08-04T10:03:46.239Z -- kubernetes -- kubernetes%20secrets%20store%20csi%20driver
-</title>
-      <link>https://www.cve.org/CVERecord?id=CVE-2020-8568</link>
-      <description>Kubernetes Secrets Store CSI Driver versions v0.0.15 and v0.0.16 allow an attacker who can modify a SecretProviderClassPodStatus/Status resource the ability to write content to the host filesystem and sync file contents to Kubernetes Secrets. This includes paths under var/lib/kubelet/pods that contain other Kubernetes Secrets.</description>
-      <guid isPermaLink="false">CVE-2020-8568|2024-08-04T10:03:46.239Z</guid>
-      <pubDate>Tue, 10 Nov 2020 00:00:00 +0000</pubDate>
-    </item>
-    <item>
-      <title>CVE-2019-11246|2024-08-04T22:48:09.090Z -- kubernetes -- kubernetes
-</title>
-      <link>https://www.cve.org/CVERecord?id=CVE-2019-11246</link>
-      <description>The kubectl cp command allows copying files between containers and the user machine. To copy files from a container, Kubernetes runs tar inside the container to create a tar archive, copies it over the network, and kubectl unpacks it on the user’s machine. If the tar binary in the container is malicious, it could run any code and output unexpected, malicious results. An attacker could use this to write files to any path on the user’s machine when kubectl cp is called, limited only by the system permissions of the local user. Kubernetes affected versions include versions prior to 1.12.9, versions prior to 1.13.6, versions prior to 1.14.2, and versions 1.1, 1.2, 1.4, 1.4, 1.5, 1.6, 1.7, 1.8, 1.9, 1.10, 1.11.</description>
-      <guid isPermaLink="false">CVE-2019-11246|2024-08-04T22:48:09.090Z</guid>
-      <pubDate>Fri, 21 Jun 2019 00:00:00 +0000</pubDate>
-    </item>
-    <item>
-      <title>CVE-2020-8552|2024-08-04T10:03:46.260Z -- kubernetes -- kubernetes
-</title>
-      <link>https://www.cve.org/CVERecord?id=CVE-2020-8552</link>
-      <description>The Kubernetes API server component in versions prior to 1.15.9, 1.16.0-1.16.6, and 1.17.0-1.17.2 has been found to be vulnerable to a denial of service attack via successful API requests.</description>
-      <guid isPermaLink="false">CVE-2020-8552|2024-08-04T10:03:46.260Z</guid>
-      <pubDate>Fri, 27 Mar 2020 14:25:15 +0000</pubDate>
-    </item>
-    <item>
-      <title>CVE-2020-8561|2024-08-04T10:03:46.267Z -- kubernetes -- kubernetes
-</title>
-      <link>https://www.cve.org/CVERecord?id=CVE-2020-8561</link>
-      <description>A security issue was discovered in Kubernetes where actors that control the responses of MutatingWebhookConfiguration or ValidatingWebhookConfiguration requests are able to redirect kube-apiserver requests to private networks of the apiserver. If that user can view kube-apiserver logs when the log level is set to 10, they can view the redirected responses and headers in the logs.</description>
-      <guid isPermaLink="false">CVE-2020-8561|2024-08-04T10:03:46.267Z</guid>
-      <pubDate>Wed, 15 Sep 2021 00:00:00 +0000</pubDate>
-    </item>
-    <item>
-      <title>CVE-2019-11251|2024-08-04T22:48:09.005Z -- kubernetes -- kubernetes
-</title>
-      <link>https://www.cve.org/CVERecord?id=CVE-2019-11251</link>
-      <description>The Kubernetes kubectl cp command in versions 1.1-1.12, and versions prior to 1.13.11, 1.14.7, and 1.15.4 allows a combination of two symlinks provided by tar output of a malicious container to place a file outside of the destination directory specified in the kubectl cp invocation. This could be used to allow an attacker to place a nefarious file using a symlink, outside of the destination tree.</description>
-      <guid isPermaLink="false">CVE-2019-11251|2024-08-04T22:48:09.005Z</guid>
-      <pubDate>Mon, 03 Feb 2020 15:35:13 +0000</pubDate>
-    </item>
-    <item>
-      <title>CVE-2020-8559|2024-08-04T10:03:46.331Z -- kubernetes -- kubernetes
-</title>
-      <link>https://www.cve.org/CVERecord?id=CVE-2020-8559</link>
-      <description>The Kubernetes kube-apiserver in versions v1.6-v1.15, and versions prior to v1.16.13, v1.17.9 and v1.18.6 are vulnerable to an unvalidated redirect on proxied upgrade requests that could allow an attacker to escalate privileges from a node compromise to a full cluster compromise.</description>
-      <guid isPermaLink="false">CVE-2020-8559|2024-08-04T10:03:46.331Z</guid>
-      <pubDate>Wed, 15 Jul 2020 00:00:00 +0000</pubDate>
-    </item>
-    <item>
-      <title>CVE-2020-8566|2024-08-04T10:03:46.087Z -- kubernetes -- kubernetes
-</title>
-      <link>https://www.cve.org/CVERecord?id=CVE-2020-8566</link>
-      <description>In Kubernetes clusters using Ceph RBD as a storage provisioner, with logging level of at least 4, Ceph RBD admin secrets can be written to logs. This occurs in kube-controller-manager's logs during provisioning of Ceph RBD persistent claims. This affects &lt; v1.19.3, &lt; v1.18.10, &lt; v1.17.13.</description>
-      <guid isPermaLink="false">CVE-2020-8566|2024-08-04T10:03:46.087Z</guid>
-      <pubDate>Thu, 15 Oct 2020 00:00:00 +0000</pubDate>
-    </item>
-    <item>
-      <title>CVE-2019-11252|2024-08-04T22:48:09.032Z -- kubernetes -- kubernetes
-</title>
-      <link>https://www.cve.org/CVERecord?id=CVE-2019-11252</link>
-      <description>The Kubernetes kube-controller-manager in versions v1.0-v1.17 is vulnerable to a credential leakage via error messages in mount failure logs and events for AzureFile and CephFS volumes.</description>
-      <guid isPermaLink="false">CVE-2019-11252|2024-08-04T22:48:09.032Z</guid>
-      <pubDate>Wed, 04 Mar 2020 00:00:00 +0000</pubDate>
-    </item>
-    <item>
-      <title>CVE-2020-8553|2024-08-04T10:03:46.369Z -- kubernetes -- ingress-nginx
-</title>
-      <link>https://www.cve.org/CVERecord?id=CVE-2020-8553</link>
-      <description>The Kubernetes ingress-nginx component prior to version 0.28.0 allows a user with the ability to create namespaces and to read and create ingress objects to overwrite the password file of another ingress which uses nginx.ingress.kubernetes.io/auth-type: basic and which has a hyphenated namespace or secret name.</description>
-      <guid isPermaLink="false">CVE-2020-8553|2024-08-04T10:03:46.369Z</guid>
-      <pubDate>Wed, 29 Jul 2020 14:53:32 +0000</pubDate>
-    </item>
-    <item>
-      <title>CVE-2020-8557|2024-08-04T10:03:46.168Z -- kubernetes -- kubernetes
-</title>
-      <link>https://www.cve.org/CVERecord?id=CVE-2020-8557</link>
-      <description>The Kubernetes kubelet component in versions 1.1-1.16.12, 1.17.0-1.17.8 and 1.18.0-1.18.5 do not account for disk usage by a pod which writes to its own /etc/hosts file. The /etc/hosts file mounted in a pod by kubelet is not included by the kubelet eviction manager when calculating ephemeral storage usage by a pod. If a pod writes a large amount of data to the /etc/hosts file, it could fill the storage space of the node and cause the node to fail.</description>
-      <guid isPermaLink="false">CVE-2020-8557|2024-08-04T10:03:46.168Z</guid>
-      <pubDate>Wed, 15 Jul 2020 00:00:00 +0000</pubDate>
-    </item>
-    <item>
-      <title>CVE-2020-8570|2024-08-04T10:03:46.133Z -- kubernetes -- kubernetes%20java%20client
-</title>
-      <link>https://www.cve.org/CVERecord?id=CVE-2020-8570</link>
-      <description>Kubernetes Java client libraries in version 10.0.0 and versions prior to 9.0.1 allow writes to paths outside of the current directory when copying multiple files from a remote pod which sends a maliciously crafted archive. This can potentially overwrite any files on the system of the process executing the client code.</description>
-      <guid isPermaLink="false">CVE-2020-8570|2024-08-04T10:03:46.133Z</guid>
-      <pubDate>Mon, 11 Jan 2021 00:00:00 +0000</pubDate>
-    </item>
-    <item>
-      <title>CVE-2019-11247|2024-08-04T22:48:09.018Z -- kubernetes -- kubernetes
-</title>
-      <link>https://www.cve.org/CVERecord?id=CVE-2019-11247</link>
-      <description>The Kubernetes kube-apiserver mistakenly allows access to a cluster-scoped custom resource if the request is made as if the resource were namespaced. Authorizations for the resource accessed in this manner are enforced using roles and role bindings within the namespace, meaning that a user with access only to a resource in one namespace could create, view update or delete the cluster-scoped resource (according to their namespace role privileges). Kubernetes affected versions include versions prior to 1.13.9, versions prior to 1.14.5, versions prior to 1.15.2, and versions 1.7, 1.8, 1.9, 1.10, 1.11, 1.12.</description>
-      <guid isPermaLink="false">CVE-2019-11247|2024-08-04T22:48:09.018Z</guid>
-      <pubDate>Mon, 05 Aug 2019 00:00:00 +0000</pubDate>
-    </item>
-    <item>
-      <title>CVE-2024-5321|2024-08-01T21:11:12.421Z -- kubernetes -- kubernetes</title>
-      <link>https://www.cve.org/CVERecord?id=CVE-2024-5321</link>
-      <description>A security issue was discovered in Kubernetes clusters with Windows nodes where BUILTIN\Users may be able to read container logs and NT AUTHORITY\Authenticated Users may be able to modify container logs.</description>
-      <guid isPermaLink="false">CVE-2024-5321|2024-08-01T21:11:12.421Z</guid>
-      <pubDate>Thu, 18 Jul 2024 18:15:25 +0000</pubDate>
-    </item>
-    <item>
-      <title>CVE-2024-5321|2024-07-18T19:30:48.148Z -- kubernetes -- kubernetes</title>
-      <link>https://www.cve.org/CVERecord?id=CVE-2024-5321</link>
-      <description>A security issue was discovered in Kubernetes clusters with Windows nodes where BUILTIN\Users may be able to read container logs and NT AUTHORITY\Authenticated Users may be able to modify container logs.</description>
-      <guid isPermaLink="false">CVE-2024-5321|2024-07-18T19:30:48.148Z</guid>
-      <pubDate>Thu, 18 Jul 2024 18:15:25 +0000</pubDate>
-    </item>
-    <item>
-      <title>CVE-2024-3744|2024-06-17T18:38:53.285Z -- kubernetes -- azure-file-csi-driver</title>
+      <title>CVE-2024-3744|2024-08-01T20:20:01.141Z -- kubernetes -- azure-file-csi-driver</title>
       <link>https://www.cve.org/CVERecord?id=CVE-2024-3744</link>
       <description>A security issue was discovered in azure-file-csi-driver where an actor with access to the driver logs could observe service account tokens. These tokens could then potentially be exchanged with external cloud providers to access secrets stored in cloud vault solutions. Tokens are only logged when TokenRequests is configured in the CSIDriver object and the driver is set to run at log level 2 or greater via the -v flag.</description>
-      <guid isPermaLink="false">CVE-2024-3744|2024-06-17T18:38:53.285Z</guid>
+      <guid isPermaLink="false">CVE-2024-3744|2024-08-01T20:20:01.141Z</guid>
       <pubDate>Wed, 15 May 2024 00:42:36 +0000</pubDate>
     </item>
     <item>
-      <title>CVE-2024-3744|2024-05-15T00:42:36.881Z -- kubernetes -- azure-file-csi-driver</title>
-      <link>https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2024-3744</link>
-      <description>A security issue was discovered in azure-file-csi-driver where an actor with access to the driver logs could observe service account tokens. These tokens could then potentially be exchanged with external cloud providers to access secrets stored in cloud vault solutions. Tokens are only logged when TokenRequests is configured in the CSIDriver object and the driver is set to run at log level 2 or greater via the -v flag.</description>
-      <guid isPermaLink="false">CVE-2024-3744|2024-05-15T00:42:36.881Z</guid>
-      <pubDate>Wed, 15 May 2024 00:42:36 +0000</pubDate>
-    </item>
-    <item>
-      <title>CVE-2024-3177|2024-06-04T17:33:03.250Z -- kubernetes -- kubernetes</title>
-      <link>https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2024-3177</link>
+      <title>CVE-2024-3177|2024-08-01T20:05:07.568Z -- kubernetes -- kubernetes</title>
+      <link>https://www.cve.org/CVERecord?id=CVE-2024-3177</link>
       <description>A security issue was discovered in Kubernetes where users may be able to launch containers that bypass the mountable secrets policy enforced by the ServiceAccount admission plugin when using containers, init containers, and ephemeral containers with the envFrom field populated. The policy ensures pods running with a service account may only reference secrets specified in the service account’s secrets field. Kubernetes clusters are only affected if the ServiceAccount admission plugin and the kubernetes.io/enforce-mountable-secrets annotation are used together with containers, init containers, and ephemeral containers with the envFrom field populated.</description>
-      <guid isPermaLink="false">CVE-2024-3177|2024-06-04T17:33:03.250Z</guid>
+      <guid isPermaLink="false">CVE-2024-3177|2024-08-01T20:05:07.568Z</guid>
       <pubDate>Mon, 22 Apr 2024 23:00:39 +0000</pubDate>
     </item>
     <item>
@@ -299,25 +53,39 @@
       <pubDate>Thu, 18 Jul 2024 18:15:25 +0000</pubDate>
     </item>
     <item>
-      <title>CVE-2024-3177|2024-08-01T20:05:07.568Z -- kubernetes -- kubernetes</title>
-      <link>https://www.cve.org/CVERecord?id=CVE-2024-3177</link>
+      <title>CVE-2024-3177|2024-06-04T17:33:03.250Z -- kubernetes -- kubernetes</title>
+      <link>https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2024-3177</link>
       <description>A security issue was discovered in Kubernetes where users may be able to launch containers that bypass the mountable secrets policy enforced by the ServiceAccount admission plugin when using containers, init containers, and ephemeral containers with the envFrom field populated. The policy ensures pods running with a service account may only reference secrets specified in the service account’s secrets field. Kubernetes clusters are only affected if the ServiceAccount admission plugin and the kubernetes.io/enforce-mountable-secrets annotation are used together with containers, init containers, and ephemeral containers with the envFrom field populated.</description>
-      <guid isPermaLink="false">CVE-2024-3177|2024-08-01T20:05:07.568Z</guid>
+      <guid isPermaLink="false">CVE-2024-3177|2024-06-04T17:33:03.250Z</guid>
       <pubDate>Mon, 22 Apr 2024 23:00:39 +0000</pubDate>
     </item>
     <item>
-      <title>CVE-2024-3744|2024-08-01T20:20:01.141Z -- kubernetes -- azure-file-csi-driver</title>
-      <link>https://www.cve.org/CVERecord?id=CVE-2024-3744</link>
+      <title>CVE-2024-3744|2024-05-15T00:42:36.881Z -- kubernetes -- azure-file-csi-driver</title>
+      <link>https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2024-3744</link>
       <description>A security issue was discovered in azure-file-csi-driver where an actor with access to the driver logs could observe service account tokens. These tokens could then potentially be exchanged with external cloud providers to access secrets stored in cloud vault solutions. Tokens are only logged when TokenRequests is configured in the CSIDriver object and the driver is set to run at log level 2 or greater via the -v flag.</description>
-      <guid isPermaLink="false">CVE-2024-3744|2024-08-01T20:20:01.141Z</guid>
+      <guid isPermaLink="false">CVE-2024-3744|2024-05-15T00:42:36.881Z</guid>
       <pubDate>Wed, 15 May 2024 00:42:36 +0000</pubDate>
     </item>
     <item>
-      <title>CVE-2021-25741|2024-08-03T20:11:27.655Z -- kubernetes -- kubernetes</title>
-      <link>https://www.cve.org/CVERecord?id=CVE-2021-25741</link>
-      <description>A security issue was discovered in Kubernetes where a user may be able to create a container with subpath volume mounts to access files &amp; directories outside of the volume, including on the host filesystem.</description>
-      <guid isPermaLink="false">CVE-2021-25741|2024-08-03T20:11:27.655Z</guid>
-      <pubDate>Sat, 03 Aug 2024 20:11:27 +0000</pubDate>
+      <title>CVE-2024-3744|2024-06-17T18:38:53.285Z -- kubernetes -- azure-file-csi-driver</title>
+      <link>https://www.cve.org/CVERecord?id=CVE-2024-3744</link>
+      <description>A security issue was discovered in azure-file-csi-driver where an actor with access to the driver logs could observe service account tokens. These tokens could then potentially be exchanged with external cloud providers to access secrets stored in cloud vault solutions. Tokens are only logged when TokenRequests is configured in the CSIDriver object and the driver is set to run at log level 2 or greater via the -v flag.</description>
+      <guid isPermaLink="false">CVE-2024-3744|2024-06-17T18:38:53.285Z</guid>
+      <pubDate>Wed, 15 May 2024 00:42:36 +0000</pubDate>
+    </item>
+    <item>
+      <title>CVE-2024-5321|2024-07-18T19:30:48.148Z -- kubernetes -- kubernetes</title>
+      <link>https://www.cve.org/CVERecord?id=CVE-2024-5321</link>
+      <description>A security issue was discovered in Kubernetes clusters with Windows nodes where BUILTIN\Users may be able to read container logs and NT AUTHORITY\Authenticated Users may be able to modify container logs.</description>
+      <guid isPermaLink="false">CVE-2024-5321|2024-07-18T19:30:48.148Z</guid>
+      <pubDate>Thu, 18 Jul 2024 18:15:25 +0000</pubDate>
+    </item>
+    <item>
+      <title>CVE-2024-5321|2024-08-01T21:11:12.421Z -- kubernetes -- kubernetes</title>
+      <link>https://www.cve.org/CVERecord?id=CVE-2024-5321</link>
+      <description>A security issue was discovered in Kubernetes clusters with Windows nodes where BUILTIN\Users may be able to read container logs and NT AUTHORITY\Authenticated Users may be able to modify container logs.</description>
+      <guid isPermaLink="false">CVE-2024-5321|2024-08-01T21:11:12.421Z</guid>
+      <pubDate>Thu, 18 Jul 2024 18:15:25 +0000</pubDate>
     </item>
   </channel>
 </rss>

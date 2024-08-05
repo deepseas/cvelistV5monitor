@@ -1,0 +1,20 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<rss xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/" version="2.0">
+  <channel>
+    <title>CVE Feed for Red Hat -- kpatch:</title>
+    <link>https://raw.githubusercontent.com/deepseas/cvelistV5monitor/main/feeds/red%20hat/kpatch%3A.rss</link>
+    <description>The latest CVEs for Red Hat -- kpatch:</description>
+    <docs>http://www.rssboard.org/rss-specification</docs>
+    <generator>python-feedgen</generator>
+    <lastBuildDate>Mon, 05 Aug 2024 03:23:43 +0000</lastBuildDate>
+    <ttl>60</ttl>
+    <item>
+      <title>CVE-2019-19339|2024-08-05T02:16:46.826Z -- red%20hat -- kpatch%3A
+</title>
+      <link>https://www.cve.org/CVERecord?id=CVE-2019-19339</link>
+      <description>It was found that the Red Hat Enterprise Linux 8 kpatch update did not include the complete fix for CVE-2018-12207. A flaw was found in the way Intel CPUs handle inconsistency between, virtual to physical memory address translations in CPU's local cache and system software's Paging structure entries. A privileged guest user may use this flaw to induce a hardware Machine Check Error on the host processor, resulting in a severe DoS scenario by halting the processor. System software like OS OR Virtual Machine Monitor (VMM) use virtual memory system for storing program instructions and data in memory. Virtual Memory system uses Paging structures like Page Tables and Page Directories to manage system memory. The processor's Memory Management Unit (MMU) uses Paging structure entries to translate program's virtual memory addresses to physical memory addresses. The processor stores these address translations into its local cache buffer called - Translation Lookaside Buffer (TLB). TLB has two parts, one for instructions and other for data addresses. System software can modify its Paging structure entries to change address mappings OR certain attributes like page size etc. Upon such Paging structure alterations in memory, system software must invalidate the corresponding address translations in the processor's TLB cache. But before this TLB invalidation takes place, a privileged guest user may trigger an instruction fetch operation, which could use an already cached, but now invalid, virtual to physical address translation from Instruction TLB (ITLB). Thus accessing an invalid physical memory address and resulting in halting the processor due to the Machine Check Error (MCE) on Page Size Change.</description>
+      <guid isPermaLink="false">CVE-2019-19339|2024-08-05T02:16:46.826Z</guid>
+      <pubDate>Fri, 17 Jan 2020 18:08:53 +0000</pubDate>
+    </item>
+  </channel>
+</rss>
