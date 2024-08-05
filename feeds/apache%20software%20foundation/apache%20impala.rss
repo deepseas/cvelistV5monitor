@@ -6,15 +6,23 @@
     <description>The latest CVEs for Apache Software Foundation -- Apache Impala</description>
     <docs>http://www.rssboard.org/rss-specification</docs>
     <generator>python-feedgen</generator>
-    <lastBuildDate>Sat, 03 Aug 2024 23:23:07 +0000</lastBuildDate>
+    <lastBuildDate>Mon, 05 Aug 2024 09:23:45 +0000</lastBuildDate>
     <ttl>60</ttl>
     <item>
-      <title>CVE-2021-28131|2024-08-03T21:33:17.543Z -- apache%20software%20foundation -- apache%20impala
+      <title>CVE-2018-11792|2024-08-05T08:17:09.125Z -- apache%20software%20foundation -- apache%20impala
 </title>
-      <link>https://www.cve.org/CVERecord?id=CVE-2021-28131</link>
-      <description>Impala sessions use a 16 byte secret to verify that the session is not being hijacked by another user. However, these secrets appear in the Impala logs, therefore Impala users with access to the logs can use another authenticated user's sessions with specially constructed requests. This means the attacker is able to execute statements for which they don't have the necessary privileges otherwise. Impala deployments with Apache Sentry or Apache Ranger authorization enabled may be vulnerable to privilege escalation if an authenticated attacker is able to hijack a session or query from another authenticated user with privileges not assigned to the attacker. Impala deployments with audit logging enabled may be vulnerable to incorrect audit logging as a user could undertake actions that were logged under the name of a different authenticated user. Constructing an attack requires a high degree of technical sophistication and access to the Impala system as an authenticated user. Mitigation: If an Impala deployment uses Apache Sentry, Apache Ranger or audit logging, then users should upgrade to a version of Impala with the fix for IMPALA-10600. The Impala 4.0 release includes this fix. This hides session secrets from the logs to eliminate the risk of any attack using this mechanism. In lieu of an upgrade, restricting access to logs that expose secrets will reduce the risk of an attack. Restricting access to the Impala deployment to trusted users will also reduce the risk of an attack. Log redaction techniques can be used to redact secrets from the logs.</description>
-      <guid isPermaLink="false">CVE-2021-28131|2024-08-03T21:33:17.543Z</guid>
-      <pubDate>Thu, 22 Jul 2021 10:05:13 +0000</pubDate>
+      <link>https://www.cve.org/CVERecord?id=CVE-2018-11792</link>
+      <description>In Apache Impala before 3.0.1, ALTER TABLE/VIEW RENAME required ALTER on the old table. This may pose a potential security risk, such as having ALTER on a table and ALL on a particular database allows a user to move the table to a database with ALL, which will automatically grant that user with ALL privilege on that table due to the privilege inherited from the database.</description>
+      <guid isPermaLink="false">CVE-2018-11792|2024-08-05T08:17:09.125Z</guid>
+      <pubDate>Wed, 24 Oct 2018 00:00:00 +0000</pubDate>
+    </item>
+    <item>
+      <title>CVE-2018-11785|2024-08-05T08:17:09.221Z -- apache%20software%20foundation -- apache%20impala
+</title>
+      <link>https://www.cve.org/CVERecord?id=CVE-2018-11785</link>
+      <description>Missing authorization check in Apache Impala before 3.0.1 allows a Kerberos-authenticated but unauthorized user to inject random data into a running query, leading to wrong results for a query.</description>
+      <guid isPermaLink="false">CVE-2018-11785|2024-08-05T08:17:09.221Z</guid>
+      <pubDate>Wed, 24 Oct 2018 00:00:00 +0000</pubDate>
     </item>
   </channel>
 </rss>
