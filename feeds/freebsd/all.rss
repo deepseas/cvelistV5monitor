@@ -6,7 +6,7 @@
     <description>The latest CVEs for FreeBSD -- all products</description>
     <docs>http://www.rssboard.org/rss-specification</docs>
     <generator>python-feedgen</generator>
-    <lastBuildDate>Tue, 06 Aug 2024 21:21:44 +0000</lastBuildDate>
+    <lastBuildDate>Tue, 06 Aug 2024 22:22:53 +0000</lastBuildDate>
     <ttl>60</ttl>
     <item>
       <title>CVE-2012-4576|2024-08-06T20:42:54.838Z -- freebsd -- freebsd
@@ -17,44 +17,83 @@
       <pubDate>Mon, 02 Dec 2019 17:53:34 +0000</pubDate>
     </item>
     <item>
-      <title>CVE-2022-23084|2024-08-03T03:28:43.503Z -- freebsd -- freebsd</title>
-      <link>https://www.cve.org/CVERecord?id=CVE-2022-23084</link>
-      <description>The total size of the user-provided nmreq to nmreq_copyin() was first computed and then trusted during the copyin.  This time-of-check to time-of-use bug could lead to kernel memory corruption.
-
-On systems configured to include netmap in their devfs_ruleset, a privileged process running in a jail can affect the host environment.</description>
-      <guid isPermaLink="false">CVE-2022-23084|2024-08-03T03:28:43.503Z</guid>
-      <pubDate>Thu, 15 Feb 2024 04:52:09 +0000</pubDate>
-    </item>
-    <item>
-      <title>CVE-2022-23085|2024-08-03T03:28:43.504Z -- freebsd -- freebsd</title>
+      <title>CVE-2022-23085|2024-07-17T18:56:18.267Z -- freebsd -- freebsd</title>
       <link>https://www.cve.org/CVERecord?id=CVE-2022-23085</link>
       <description>A user-provided integer option was passed to nmreq_copyin() without checking if it would overflow.  This insufficient bounds checking could lead to kernel memory corruption.
 
 On systems configured to include netmap in their devfs_ruleset, a privileged process running in a jail can affect the host environment.</description>
-      <guid isPermaLink="false">CVE-2022-23085|2024-08-03T03:28:43.504Z</guid>
+      <guid isPermaLink="false">CVE-2022-23085|2024-07-17T18:56:18.267Z</guid>
       <pubDate>Thu, 15 Feb 2024 04:52:17 +0000</pubDate>
     </item>
     <item>
-      <title>CVE-2022-23093|2024-08-03T03:28:43.499Z -- freebsd -- freebsd</title>
-      <link>https://www.cve.org/CVERecord?id=CVE-2022-23093</link>
-      <description>ping reads raw IP packets from the network to process responses in the pr_pack() function.  As part of processing a response ping has to reconstruct the IP header, the ICMP header and if present a "quoted packet," which represents the packet that generated an ICMP error.  The quoted packet again has an IP header and an ICMP header.
+      <title>CVE-2024-25941|2024-02-15T04:27:06.726Z -- freebsd -- freebsd</title>
+      <link>https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2024-25941</link>
+      <description>The jail(2) system call has not limited a visiblity of allocated TTYs (the kern.ttys sysctl).  This gives rise to an information leak about processes outside the current jail.
 
-The pr_pack() copies received IP and ICMP headers into stack buffers for further processing.  In so doing, it fails to take into account the possible presence of IP option headers following the IP header in either the response or the quoted packet.  When IP options are present, pr_pack() overflows the destination buffer by up to 40 bytes.
-
-The memory safety bugs described above can be triggered by a remote host, causing the ping program to crash.
-
-The ping process runs in a capability mode sandbox on all affected versions of FreeBSD and is thus very constrained in how it can interact with the rest of the system at the point where the bug can occur.</description>
-      <guid isPermaLink="false">CVE-2022-23093|2024-08-03T03:28:43.499Z</guid>
-      <pubDate>Thu, 15 Feb 2024 05:18:44 +0000</pubDate>
+Attacker can get information about TTYs allocated on the host or in other jails.  Effectively, the information printed by "pstat -t" may be leaked.</description>
+      <guid isPermaLink="false">CVE-2024-25941|2024-02-15T04:27:06.726Z</guid>
+      <pubDate>Thu, 15 Feb 2024 04:27:06 +0000</pubDate>
     </item>
     <item>
-      <title>CVE-2022-23092|2024-08-03T03:28:43.506Z -- freebsd -- freebsd</title>
-      <link>https://www.cve.org/CVERecord?id=CVE-2022-23092</link>
-      <description>The implementation of lib9p's handling of RWALK messages was missing a bounds check needed when unpacking the message contents.  The missing check means that the receipt of a specially crafted message will cause lib9p to overwrite unrelated memory.
+      <title>CVE-2024-25940|2024-06-04T17:35:21.630Z -- freebsd -- freebsd</title>
+      <link>https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2024-25940</link>
+      <description>`bhyveload -h ` may be used to grant loader access to the  directory tree on the host.  Affected versions of bhyveload(8) do not make any attempt to restrict loader's access to , allowing the loader to read any file the host user has access to. In the bhyveload(8) model, the host supplies a userboot.so to boot with, but the loader scripts generally come from the guest image.  A maliciously crafted script could be used to exfiltrate sensitive data from the host accessible to the user running bhyhveload(8), which is often the system root.</description>
+      <guid isPermaLink="false">CVE-2024-25940|2024-06-04T17:35:21.630Z</guid>
+      <pubDate>Thu, 15 Feb 2024 04:21:57 +0000</pubDate>
+    </item>
+    <item>
+      <title>CVE-2022-23088|2024-07-30T17:39:58.825Z -- freebsd -- freebsd</title>
+      <link>https://www.cve.org/CVERecord?id=CVE-2022-23088</link>
+      <description>The 802.11 beacon handling routine failed to validate the length of an IEEE 802.11s Mesh ID before copying it to a heap-allocated buffer.
 
-The bug can be triggered by a malicious bhyve guest kernel to overwrite memory in the bhyve(8) process.  This could potentially lead to user-mode code execution on the host, subject to bhyve's Capsicum sandbox.</description>
-      <guid isPermaLink="false">CVE-2022-23092|2024-08-03T03:28:43.506Z</guid>
-      <pubDate>Thu, 15 Feb 2024 05:13:50 +0000</pubDate>
+While a FreeBSD Wi-Fi client is in scanning mode (i.e., not associated with a SSID) a malicious beacon frame may overwrite kernel memory, leading to remote code execution.</description>
+      <guid isPermaLink="false">CVE-2022-23088|2024-07-30T17:39:58.825Z</guid>
+      <pubDate>Thu, 15 Feb 2024 05:03:38 +0000</pubDate>
+    </item>
+    <item>
+      <title>CVE-2022-23091|2024-08-03T03:28:43.503Z -- freebsd -- freebsd</title>
+      <link>https://www.cve.org/CVERecord?id=CVE-2022-23091</link>
+      <description>A particular case of memory sharing is mishandled in the virtual memory system.  This is very similar to SA-21:08.vm, but with a different root cause.
+
+An unprivileged local user process can maintain a mapping of a page after it is freed, allowing that process to read private data belonging to other processes or the kernel.</description>
+      <guid isPermaLink="false">CVE-2022-23091|2024-08-03T03:28:43.503Z</guid>
+      <pubDate>Thu, 15 Feb 2024 05:11:35 +0000</pubDate>
+    </item>
+    <item>
+      <title>CVE-2022-23090|2024-08-03T03:28:43.512Z -- freebsd -- freebsd</title>
+      <link>https://www.cve.org/CVERecord?id=CVE-2022-23090</link>
+      <description>The aio_aqueue function, used by the lio_listio system call, fails to release a reference to a credential in an error case.
+
+An attacker may cause the reference count to overflow, leading to a use after free (UAF).</description>
+      <guid isPermaLink="false">CVE-2022-23090|2024-08-03T03:28:43.512Z</guid>
+      <pubDate>Thu, 15 Feb 2024 05:09:27 +0000</pubDate>
+    </item>
+    <item>
+      <title>CVE-2022-23088|2024-08-03T03:28:43.494Z -- freebsd -- freebsd</title>
+      <link>https://www.cve.org/CVERecord?id=CVE-2022-23088</link>
+      <description>The 802.11 beacon handling routine failed to validate the length of an IEEE 802.11s Mesh ID before copying it to a heap-allocated buffer.
+
+While a FreeBSD Wi-Fi client is in scanning mode (i.e., not associated with a SSID) a malicious beacon frame may overwrite kernel memory, leading to remote code execution.</description>
+      <guid isPermaLink="false">CVE-2022-23088|2024-08-03T03:28:43.494Z</guid>
+      <pubDate>Thu, 15 Feb 2024 05:03:38 +0000</pubDate>
+    </item>
+    <item>
+      <title>CVE-2022-23086|2024-08-03T03:28:43.508Z -- freebsd -- freebsd</title>
+      <link>https://www.cve.org/CVERecord?id=CVE-2022-23086</link>
+      <description>Handlers for *_CFG_PAGE read / write ioctls in the mpr, mps, and mpt drivers allocated a buffer of a caller-specified size, but copied to it a fixed size header.  Other heap content would be overwritten if the specified size was too small.
+
+Users with access to the mpr, mps or mpt device node may overwrite heap data, potentially resulting in privilege escalation.  Note that the device node is only accessible to root and members of the operator group.</description>
+      <guid isPermaLink="false">CVE-2022-23086|2024-08-03T03:28:43.508Z</guid>
+      <pubDate>Thu, 15 Feb 2024 04:57:19 +0000</pubDate>
+    </item>
+    <item>
+      <title>CVE-2022-23089|2024-08-03T03:28:43.522Z -- freebsd -- freebsd</title>
+      <link>https://www.cve.org/CVERecord?id=CVE-2022-23089</link>
+      <description>When dumping core and saving process information, proc_getargv() might return an sbuf which have a sbuf_len() of 0 or -1, which is not properly handled.
+
+An out-of-bound read can happen when user constructs a specially crafted ps_string, which in turn can cause the kernel to crash.</description>
+      <guid isPermaLink="false">CVE-2022-23089|2024-08-03T03:28:43.522Z</guid>
+      <pubDate>Thu, 15 Feb 2024 05:07:13 +0000</pubDate>
     </item>
     <item>
       <title>CVE-2022-23087|2024-08-03T03:28:43.494Z -- freebsd -- freebsd</title>
@@ -70,83 +109,44 @@ The bhyve process runs in a Capsicum sandbox, which (depending on the FreeBSD ve
       <pubDate>Thu, 15 Feb 2024 05:01:00 +0000</pubDate>
     </item>
     <item>
-      <title>CVE-2022-23089|2024-08-03T03:28:43.522Z -- freebsd -- freebsd</title>
-      <link>https://www.cve.org/CVERecord?id=CVE-2022-23089</link>
-      <description>When dumping core and saving process information, proc_getargv() might return an sbuf which have a sbuf_len() of 0 or -1, which is not properly handled.
+      <title>CVE-2022-23092|2024-08-03T03:28:43.506Z -- freebsd -- freebsd</title>
+      <link>https://www.cve.org/CVERecord?id=CVE-2022-23092</link>
+      <description>The implementation of lib9p's handling of RWALK messages was missing a bounds check needed when unpacking the message contents.  The missing check means that the receipt of a specially crafted message will cause lib9p to overwrite unrelated memory.
 
-An out-of-bound read can happen when user constructs a specially crafted ps_string, which in turn can cause the kernel to crash.</description>
-      <guid isPermaLink="false">CVE-2022-23089|2024-08-03T03:28:43.522Z</guid>
-      <pubDate>Thu, 15 Feb 2024 05:07:13 +0000</pubDate>
+The bug can be triggered by a malicious bhyve guest kernel to overwrite memory in the bhyve(8) process.  This could potentially lead to user-mode code execution on the host, subject to bhyve's Capsicum sandbox.</description>
+      <guid isPermaLink="false">CVE-2022-23092|2024-08-03T03:28:43.506Z</guid>
+      <pubDate>Thu, 15 Feb 2024 05:13:50 +0000</pubDate>
     </item>
     <item>
-      <title>CVE-2022-23086|2024-08-03T03:28:43.508Z -- freebsd -- freebsd</title>
-      <link>https://www.cve.org/CVERecord?id=CVE-2022-23086</link>
-      <description>Handlers for *_CFG_PAGE read / write ioctls in the mpr, mps, and mpt drivers allocated a buffer of a caller-specified size, but copied to it a fixed size header.  Other heap content would be overwritten if the specified size was too small.
+      <title>CVE-2022-23093|2024-08-03T03:28:43.499Z -- freebsd -- freebsd</title>
+      <link>https://www.cve.org/CVERecord?id=CVE-2022-23093</link>
+      <description>ping reads raw IP packets from the network to process responses in the pr_pack() function.  As part of processing a response ping has to reconstruct the IP header, the ICMP header and if present a "quoted packet," which represents the packet that generated an ICMP error.  The quoted packet again has an IP header and an ICMP header.
 
-Users with access to the mpr, mps or mpt device node may overwrite heap data, potentially resulting in privilege escalation.  Note that the device node is only accessible to root and members of the operator group.</description>
-      <guid isPermaLink="false">CVE-2022-23086|2024-08-03T03:28:43.508Z</guid>
-      <pubDate>Thu, 15 Feb 2024 04:57:19 +0000</pubDate>
-    </item>
-    <item>
-      <title>CVE-2022-23088|2024-08-03T03:28:43.494Z -- freebsd -- freebsd</title>
-      <link>https://www.cve.org/CVERecord?id=CVE-2022-23088</link>
-      <description>The 802.11 beacon handling routine failed to validate the length of an IEEE 802.11s Mesh ID before copying it to a heap-allocated buffer.
+The pr_pack() copies received IP and ICMP headers into stack buffers for further processing.  In so doing, it fails to take into account the possible presence of IP option headers following the IP header in either the response or the quoted packet.  When IP options are present, pr_pack() overflows the destination buffer by up to 40 bytes.
 
-While a FreeBSD Wi-Fi client is in scanning mode (i.e., not associated with a SSID) a malicious beacon frame may overwrite kernel memory, leading to remote code execution.</description>
-      <guid isPermaLink="false">CVE-2022-23088|2024-08-03T03:28:43.494Z</guid>
-      <pubDate>Thu, 15 Feb 2024 05:03:38 +0000</pubDate>
-    </item>
-    <item>
-      <title>CVE-2022-23090|2024-08-03T03:28:43.512Z -- freebsd -- freebsd</title>
-      <link>https://www.cve.org/CVERecord?id=CVE-2022-23090</link>
-      <description>The aio_aqueue function, used by the lio_listio system call, fails to release a reference to a credential in an error case.
+The memory safety bugs described above can be triggered by a remote host, causing the ping program to crash.
 
-An attacker may cause the reference count to overflow, leading to a use after free (UAF).</description>
-      <guid isPermaLink="false">CVE-2022-23090|2024-08-03T03:28:43.512Z</guid>
-      <pubDate>Thu, 15 Feb 2024 05:09:27 +0000</pubDate>
+The ping process runs in a capability mode sandbox on all affected versions of FreeBSD and is thus very constrained in how it can interact with the rest of the system at the point where the bug can occur.</description>
+      <guid isPermaLink="false">CVE-2022-23093|2024-08-03T03:28:43.499Z</guid>
+      <pubDate>Thu, 15 Feb 2024 05:18:44 +0000</pubDate>
     </item>
     <item>
-      <title>CVE-2022-23091|2024-08-03T03:28:43.503Z -- freebsd -- freebsd</title>
-      <link>https://www.cve.org/CVERecord?id=CVE-2022-23091</link>
-      <description>A particular case of memory sharing is mishandled in the virtual memory system.  This is very similar to SA-21:08.vm, but with a different root cause.
-
-An unprivileged local user process can maintain a mapping of a page after it is freed, allowing that process to read private data belonging to other processes or the kernel.</description>
-      <guid isPermaLink="false">CVE-2022-23091|2024-08-03T03:28:43.503Z</guid>
-      <pubDate>Thu, 15 Feb 2024 05:11:35 +0000</pubDate>
-    </item>
-    <item>
-      <title>CVE-2022-23088|2024-07-30T17:39:58.825Z -- freebsd -- freebsd</title>
-      <link>https://www.cve.org/CVERecord?id=CVE-2022-23088</link>
-      <description>The 802.11 beacon handling routine failed to validate the length of an IEEE 802.11s Mesh ID before copying it to a heap-allocated buffer.
-
-While a FreeBSD Wi-Fi client is in scanning mode (i.e., not associated with a SSID) a malicious beacon frame may overwrite kernel memory, leading to remote code execution.</description>
-      <guid isPermaLink="false">CVE-2022-23088|2024-07-30T17:39:58.825Z</guid>
-      <pubDate>Thu, 15 Feb 2024 05:03:38 +0000</pubDate>
-    </item>
-    <item>
-      <title>CVE-2024-25940|2024-06-04T17:35:21.630Z -- freebsd -- freebsd</title>
-      <link>https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2024-25940</link>
-      <description>`bhyveload -h ` may be used to grant loader access to the  directory tree on the host.  Affected versions of bhyveload(8) do not make any attempt to restrict loader's access to , allowing the loader to read any file the host user has access to. In the bhyveload(8) model, the host supplies a userboot.so to boot with, but the loader scripts generally come from the guest image.  A maliciously crafted script could be used to exfiltrate sensitive data from the host accessible to the user running bhyhveload(8), which is often the system root.</description>
-      <guid isPermaLink="false">CVE-2024-25940|2024-06-04T17:35:21.630Z</guid>
-      <pubDate>Thu, 15 Feb 2024 04:21:57 +0000</pubDate>
-    </item>
-    <item>
-      <title>CVE-2024-25941|2024-02-15T04:27:06.726Z -- freebsd -- freebsd</title>
-      <link>https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2024-25941</link>
-      <description>The jail(2) system call has not limited a visiblity of allocated TTYs (the kern.ttys sysctl).  This gives rise to an information leak about processes outside the current jail.
-
-Attacker can get information about TTYs allocated on the host or in other jails.  Effectively, the information printed by "pstat -t" may be leaked.</description>
-      <guid isPermaLink="false">CVE-2024-25941|2024-02-15T04:27:06.726Z</guid>
-      <pubDate>Thu, 15 Feb 2024 04:27:06 +0000</pubDate>
-    </item>
-    <item>
-      <title>CVE-2022-23085|2024-07-17T18:56:18.267Z -- freebsd -- freebsd</title>
+      <title>CVE-2022-23085|2024-08-03T03:28:43.504Z -- freebsd -- freebsd</title>
       <link>https://www.cve.org/CVERecord?id=CVE-2022-23085</link>
       <description>A user-provided integer option was passed to nmreq_copyin() without checking if it would overflow.  This insufficient bounds checking could lead to kernel memory corruption.
 
 On systems configured to include netmap in their devfs_ruleset, a privileged process running in a jail can affect the host environment.</description>
-      <guid isPermaLink="false">CVE-2022-23085|2024-07-17T18:56:18.267Z</guid>
+      <guid isPermaLink="false">CVE-2022-23085|2024-08-03T03:28:43.504Z</guid>
       <pubDate>Thu, 15 Feb 2024 04:52:17 +0000</pubDate>
+    </item>
+    <item>
+      <title>CVE-2022-23084|2024-08-03T03:28:43.503Z -- freebsd -- freebsd</title>
+      <link>https://www.cve.org/CVERecord?id=CVE-2022-23084</link>
+      <description>The total size of the user-provided nmreq to nmreq_copyin() was first computed and then trusted during the copyin.  This time-of-check to time-of-use bug could lead to kernel memory corruption.
+
+On systems configured to include netmap in their devfs_ruleset, a privileged process running in a jail can affect the host environment.</description>
+      <guid isPermaLink="false">CVE-2022-23084|2024-08-03T03:28:43.503Z</guid>
+      <pubDate>Thu, 15 Feb 2024 04:52:09 +0000</pubDate>
     </item>
   </channel>
 </rss>
