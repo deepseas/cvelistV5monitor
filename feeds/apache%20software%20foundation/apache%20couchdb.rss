@@ -6,47 +6,15 @@
     <description>The latest CVEs for Apache Software Foundation -- Apache CouchDB</description>
     <docs>http://www.rssboard.org/rss-specification</docs>
     <generator>python-feedgen</generator>
-    <lastBuildDate>Mon, 05 Aug 2024 23:23:22 +0000</lastBuildDate>
+    <lastBuildDate>Tue, 06 Aug 2024 03:23:31 +0000</lastBuildDate>
     <ttl>60</ttl>
     <item>
-      <title>CVE-2018-8007|2024-08-05T06:46:11.455Z -- apache%20software%20foundation -- apache%20couchdb
+      <title>CVE-2016-8742|2024-08-06T02:34:59.611Z -- apache%20software%20foundation -- apache%20couchdb
 </title>
-      <link>https://www.cve.org/CVERecord?id=CVE-2018-8007</link>
-      <description>Apache CouchDB administrative users can configure the database server via HTTP(S). Due to insufficient validation of administrator-supplied configuration settings via the HTTP API, it is possible for a CouchDB administrator user to escalate their privileges to that of the operating system's user that CouchDB runs under, by bypassing the blacklist of configuration settings that are not allowed to be modified via the HTTP API. This privilege escalation effectively allows an existing CouchDB admin user to gain arbitrary remote code execution, bypassing already disclosed CVE-2017-12636. Mitigation: All users should upgrade to CouchDB releases 1.7.2 or 2.1.2.</description>
-      <guid isPermaLink="false">CVE-2018-8007|2024-08-05T06:46:11.455Z</guid>
-      <pubDate>Tue, 10 Jul 2018 00:00:00 +0000</pubDate>
-    </item>
-    <item>
-      <title>CVE-2017-12636|2024-08-05T18:43:56.454Z -- apache%20software%20foundation -- apache%20couchdb
-</title>
-      <link>https://www.cve.org/CVERecord?id=CVE-2017-12636</link>
-      <description>CouchDB administrative users can configure the database server via HTTP(S). Some of the configuration options include paths for operating system-level binaries that are subsequently launched by CouchDB. This allows an admin user in Apache CouchDB before 1.7.0 and 2.x before 2.1.1 to execute arbitrary shell commands as the CouchDB user, including downloading and executing scripts from the public internet.</description>
-      <guid isPermaLink="false">CVE-2017-12636|2024-08-05T18:43:56.454Z</guid>
-      <pubDate>Tue, 14 Nov 2017 00:00:00 +0000</pubDate>
-    </item>
-    <item>
-      <title>CVE-2017-12635|2024-08-05T18:43:56.416Z -- apache%20software%20foundation -- apache%20couchdb
-</title>
-      <link>https://www.cve.org/CVERecord?id=CVE-2017-12635</link>
-      <description>Due to differences in the Erlang-based JSON parser and JavaScript-based JSON parser, it is possible in Apache CouchDB before 1.7.0 and 2.x before 2.1.1 to submit _users documents with duplicate keys for 'roles' used for access control within the database, including the special case '_admin' role, that denotes administrative users. In combination with CVE-2017-12636 (Remote Code Execution), this can be used to give non-admin users access to arbitrary shell commands on the server as the database system user. The JSON parser differences result in behaviour that if two 'roles' keys are available in the JSON, the second one will be used for authorising the document write, but the first 'roles' key is used for subsequent authorization for the newly created user. By design, users can not assign themselves roles. The vulnerability allows non-admin users to give themselves admin privileges.</description>
-      <guid isPermaLink="false">CVE-2017-12635|2024-08-05T18:43:56.416Z</guid>
-      <pubDate>Tue, 14 Nov 2017 00:00:00 +0000</pubDate>
-    </item>
-    <item>
-      <title>CVE-2018-17188|2024-08-05T10:39:59.575Z -- apache%20software%20foundation -- apache%20couchdb
-</title>
-      <link>https://www.cve.org/CVERecord?id=CVE-2018-17188</link>
-      <description>Prior to CouchDB version 2.3.0, CouchDB allowed for runtime-configuration of key components of the database. In some cases, this lead to vulnerabilities where CouchDB admin users could access the underlying operating system as the CouchDB user. Together with other vulnerabilities, it allowed full system entry for unauthenticated users. Rather than waiting for new vulnerabilities to be discovered, and fixing them as they come up, the CouchDB development team decided to make changes to avoid this entire class of vulnerabilities.</description>
-      <guid isPermaLink="false">CVE-2018-17188|2024-08-05T10:39:59.575Z</guid>
-      <pubDate>Wed, 02 Jan 2019 14:00:00 +0000</pubDate>
-    </item>
-    <item>
-      <title>CVE-2018-11769|2024-08-05T08:17:09.231Z -- apache%20software%20foundation -- apache%20couchdb
-</title>
-      <link>https://www.cve.org/CVERecord?id=CVE-2018-11769</link>
-      <description>CouchDB administrative users before 2.2.0 can configure the database server via HTTP(S). Due to insufficient validation of administrator-supplied configuration settings via the HTTP API, it is possible for a CouchDB administrator user to escalate their privileges to that of the operating system's user under which CouchDB runs, by bypassing the blacklist of configuration settings that are not allowed to be modified via the HTTP API. This privilege escalation effectively allows a CouchDB admin user to gain arbitrary remote code execution, bypassing CVE-2017-12636 and CVE-2018-8007.</description>
-      <guid isPermaLink="false">CVE-2018-11769|2024-08-05T08:17:09.231Z</guid>
-      <pubDate>Wed, 08 Aug 2018 00:00:00 +0000</pubDate>
+      <link>https://www.cve.org/CVERecord?id=CVE-2016-8742</link>
+      <description>The Windows installer that the Apache CouchDB team provides was vulnerable to local privilege escalation. All files in the install inherit the file permissions of the parent directory and therefore a non-privileged user can substitute any executable for the nssm.exe service launcher, or CouchDB batch or binary files. A subsequent service or server restart will then run that binary with administrator privilege. This issue affected CouchDB 2.0.0 (Windows platform only) and was addressed in CouchDB 2.0.0.1.</description>
+      <guid isPermaLink="false">CVE-2016-8742|2024-08-06T02:34:59.611Z</guid>
+      <pubDate>Thu, 08 Dec 2016 00:00:00 +0000</pubDate>
     </item>
   </channel>
 </rss>

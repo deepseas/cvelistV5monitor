@@ -6,79 +6,15 @@
     <description>The latest CVEs for QEMU -- all products</description>
     <docs>http://www.rssboard.org/rss-specification</docs>
     <generator>python-feedgen</generator>
-    <lastBuildDate>Mon, 05 Aug 2024 23:23:12 +0000</lastBuildDate>
+    <lastBuildDate>Tue, 06 Aug 2024 03:23:33 +0000</lastBuildDate>
     <ttl>60</ttl>
     <item>
-      <title>CVE-2017-15124|2024-08-05T19:50:16.166Z -- qemu -- qemu
+      <title>CVE-2016-9603|2024-08-06T02:59:02.448Z -- qemu -- qemu%3A
 </title>
-      <link>https://www.cve.org/CVERecord?id=CVE-2017-15124</link>
-      <description>VNC server implementation in Quick Emulator (QEMU) 2.11.0 and older was found to be vulnerable to an unbounded memory allocation issue, as it did not throttle the framebuffer updates sent to its client. If the client did not consume these updates, VNC server allocates growing memory to hold onto this data. A malicious remote VNC client could use this flaw to cause DoS to the server host.</description>
-      <guid isPermaLink="false">CVE-2017-15124|2024-08-05T19:50:16.166Z</guid>
-      <pubDate>Tue, 09 Jan 2018 21:00:00 +0000</pubDate>
-    </item>
-    <item>
-      <title>CVE-2017-15119|2024-08-05T19:50:16.089Z -- qemu -- qemu
-</title>
-      <link>https://www.cve.org/CVERecord?id=CVE-2017-15119</link>
-      <description>The Network Block Device (NBD) server in Quick Emulator (QEMU) before 2.11 is vulnerable to a denial of service issue. It could occur if a client sent large option requests, making the server waste CPU time on reading up to 4GB per request. A client could use this flaw to keep the NBD server from serving other requests, resulting in DoS.</description>
-      <guid isPermaLink="false">CVE-2017-15119|2024-08-05T19:50:16.089Z</guid>
-      <pubDate>Fri, 27 Jul 2018 16:00:00 +0000</pubDate>
-    </item>
-    <item>
-      <title>CVE-2017-15118|2024-08-05T19:50:15.604Z -- qemu -- qemu
-</title>
-      <link>https://www.cve.org/CVERecord?id=CVE-2017-15118</link>
-      <description>A stack-based buffer overflow vulnerability was found in NBD server implementation in qemu before 2.11 allowing a client to request an export name of size up to 4096 bytes, which in fact should be limited to 256 bytes, causing an out-of-bounds stack write in the qemu process. If NBD server requires TLS, the attacker cannot trigger the buffer overflow without first successfully negotiating TLS.</description>
-      <guid isPermaLink="false">CVE-2017-15118|2024-08-05T19:50:15.604Z</guid>
+      <link>https://www.cve.org/CVERecord?id=CVE-2016-9603</link>
+      <description>A heap buffer overflow flaw was found in QEMU's Cirrus CLGD 54xx VGA emulator's VNC display driver support before 2.9; the issue could occur when a VNC client attempted to update its display after a VGA operation is performed by a guest. A privileged user/process inside a guest could use this flaw to crash the QEMU process or, potentially, execute arbitrary code on the host with privileges of the QEMU process.</description>
+      <guid isPermaLink="false">CVE-2016-9603|2024-08-06T02:59:02.448Z</guid>
       <pubDate>Fri, 27 Jul 2018 21:00:00 +0000</pubDate>
-    </item>
-    <item>
-      <title>CVE-2017-7493|2024-08-05T16:04:11.894Z -- qemu -- qemu
-</title>
-      <link>https://www.cve.org/CVERecord?id=CVE-2017-7493</link>
-      <description>Quick Emulator (Qemu) built with the VirtFS, host directory sharing via Plan 9 File System(9pfs) support, is vulnerable to an improper access control issue. It could occur while accessing virtfs metadata files in mapped-file security mode. A guest user could use this flaw to escalate their privileges inside guest.</description>
-      <guid isPermaLink="false">CVE-2017-7493|2024-08-05T16:04:11.894Z</guid>
-      <pubDate>Wed, 17 May 2017 15:00:00 +0000</pubDate>
-    </item>
-    <item>
-      <title>CVE-2017-2620|2024-08-05T14:02:07.311Z -- qemu -- qemu%3A
-</title>
-      <link>https://www.cve.org/CVERecord?id=CVE-2017-2620</link>
-      <description>Quick emulator (QEMU) before 2.8 built with the Cirrus CLGD 54xx VGA Emulator support is vulnerable to an out-of-bounds access issue. The issue could occur while copying VGA data in cirrus_bitblt_cputovideo. A privileged user inside guest could use this flaw to crash the QEMU process OR potentially execute arbitrary code on host with privileges of the QEMU process.</description>
-      <guid isPermaLink="false">CVE-2017-2620|2024-08-05T14:02:07.311Z</guid>
-      <pubDate>Fri, 27 Jul 2018 19:00:00 +0000</pubDate>
-    </item>
-    <item>
-      <title>CVE-2017-2615|2024-08-05T14:02:06.484Z -- qemu -- display
-</title>
-      <link>https://www.cve.org/CVERecord?id=CVE-2017-2615</link>
-      <description>Quick emulator (QEMU) built with the Cirrus CLGD 54xx VGA emulator support is vulnerable to an out-of-bounds access issue. It could occur while copying VGA data via bitblt copy in backward mode. A privileged user inside a guest could use this flaw to crash the QEMU process resulting in DoS or potentially execute arbitrary code on the host with privileges of QEMU process on the host.</description>
-      <guid isPermaLink="false">CVE-2017-2615|2024-08-05T14:02:06.484Z</guid>
-      <pubDate>Mon, 02 Jul 2018 18:00:00 +0000</pubDate>
-    </item>
-    <item>
-      <title>CVE-2017-7539|2024-08-05T16:04:11.890Z -- qemu -- qemu
-</title>
-      <link>https://www.cve.org/CVERecord?id=CVE-2017-7539</link>
-      <description>An assertion-failure flaw was found in Qemu before 2.10.1, in the Network Block Device (NBD) server's initial connection negotiation, where the I/O coroutine was undefined. This could crash the qemu-nbd server if a client sent unexpected data during connection negotiation. A remote user or process could use this flaw to crash the qemu-nbd server resulting in denial of service.</description>
-      <guid isPermaLink="false">CVE-2017-7539|2024-08-05T16:04:11.890Z</guid>
-      <pubDate>Thu, 26 Jul 2018 14:00:00 +0000</pubDate>
-    </item>
-    <item>
-      <title>CVE-2017-2633|2024-08-05T14:02:06.898Z -- qemu -- qemu%3A
-</title>
-      <link>https://www.cve.org/CVERecord?id=CVE-2017-2633</link>
-      <description>An out-of-bounds memory access issue was found in Quick Emulator (QEMU) before 1.7.2 in the VNC display driver. This flaw could occur while refreshing the VNC display surface area in the 'vnc_refresh_server_surface'. A user inside a guest could use this flaw to crash the QEMU process.</description>
-      <guid isPermaLink="false">CVE-2017-2633|2024-08-05T14:02:06.898Z</guid>
-      <pubDate>Fri, 27 Jul 2018 19:00:00 +0000</pubDate>
-    </item>
-    <item>
-      <title>CVE-2017-2630|2024-08-05T14:02:07.177Z -- qemu -- qemu%3A
-</title>
-      <link>https://www.cve.org/CVERecord?id=CVE-2017-2630</link>
-      <description>A stack buffer overflow flaw was found in the Quick Emulator (QEMU) before 2.9 built with the Network Block Device (NBD) client support. The flaw could occur while processing server's response to a 'NBD_OPT_LIST' request. A malicious NBD server could use this issue to crash a remote NBD client resulting in DoS or potentially execute arbitrary code on client host with privileges of the QEMU process.</description>
-      <guid isPermaLink="false">CVE-2017-2630|2024-08-05T14:02:07.177Z</guid>
-      <pubDate>Fri, 27 Jul 2018 18:00:00 +0000</pubDate>
     </item>
   </channel>
 </rss>

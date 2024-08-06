@@ -6,39 +6,15 @@
     <description>The latest CVEs for Apache Software Foundation -- Apache Qpid Broker-J</description>
     <docs>http://www.rssboard.org/rss-specification</docs>
     <generator>python-feedgen</generator>
-    <lastBuildDate>Mon, 05 Aug 2024 23:23:23 +0000</lastBuildDate>
+    <lastBuildDate>Tue, 06 Aug 2024 03:23:37 +0000</lastBuildDate>
     <ttl>60</ttl>
     <item>
-      <title>CVE-2017-15702|2024-08-05T20:04:49.674Z -- apache%20software%20foundation -- apache%20qpid%20broker-j
+      <title>CVE-2016-8741|2024-08-06T02:34:59.610Z -- apache%20software%20foundation -- apache%20qpid%20broker-j
 </title>
-      <link>https://www.cve.org/CVERecord?id=CVE-2017-15702</link>
-      <description>In Apache Qpid Broker-J 0.18 through 0.32, if the broker is configured with different authentication providers on different ports one of which is an HTTP port, then the broker can be tricked by a remote unauthenticated attacker connecting to the HTTP port into using an authentication provider that was configured on a different port. The attacker still needs valid credentials with the authentication provider on the spoofed port. This becomes an issue when the spoofed port has weaker authentication protection (e.g., anonymous access, default accounts) and is normally protected by firewall rules or similar which can be circumvented by this vulnerability. AMQP ports are not affected. Versions 6.0.0 and newer are not affected.</description>
-      <guid isPermaLink="false">CVE-2017-15702|2024-08-05T20:04:49.674Z</guid>
-      <pubDate>Thu, 30 Nov 2017 00:00:00 +0000</pubDate>
-    </item>
-    <item>
-      <title>CVE-2018-1298|2024-08-05T03:59:37.665Z -- apache%20software%20foundation -- apache%20qpid%20broker-j
-</title>
-      <link>https://www.cve.org/CVERecord?id=CVE-2018-1298</link>
-      <description>A Denial of Service vulnerability was found in Apache Qpid Broker-J 7.0.0 in functionality for authentication of connections for AMQP protocols 0-8, 0-9, 0-91 and 0-10 when PLAIN or XOAUTH2 SASL mechanism is used. The vulnerability allows unauthenticated attacker to crash the broker instance. AMQP 1.0 and HTTP connections are not affected. An authentication of incoming AMQP connections in Apache Qpid Broker-J is performed by special entities called "Authentication Providers". Each Authentication Provider can support several SASL mechanisms which are offered to the connecting clients as part of SASL negotiation process. The client chooses the most appropriate SASL mechanism for authentication. Authentication Providers of following types supports PLAIN SASL mechanism: Plain, PlainPasswordFile, SimpleLDAP, Base64MD5PasswordFile, MD5, SCRAM-SHA-256, SCRAM-SHA-1. XOAUTH2 SASL mechanism is supported by Authentication Providers of type OAuth2. If an AMQP port is configured with any of these Authentication Providers, the Broker may be vulnerable.</description>
-      <guid isPermaLink="false">CVE-2018-1298|2024-08-05T03:59:37.665Z</guid>
-      <pubDate>Thu, 08 Feb 2018 00:00:00 +0000</pubDate>
-    </item>
-    <item>
-      <title>CVE-2017-15701|2024-08-05T20:04:48.539Z -- apache%20software%20foundation -- apache%20qpid%20broker-j
-</title>
-      <link>https://www.cve.org/CVERecord?id=CVE-2017-15701</link>
-      <description>In Apache Qpid Broker-J versions 6.1.0 through 6.1.4 (inclusive) the broker does not properly enforce a maximum frame size in AMQP 1.0 frames. A remote unauthenticated attacker could exploit this to cause the broker to exhaust all available memory and eventually terminate. Older AMQP protocols are not affected.</description>
-      <guid isPermaLink="false">CVE-2017-15701|2024-08-05T20:04:48.539Z</guid>
-      <pubDate>Thu, 30 Nov 2017 00:00:00 +0000</pubDate>
-    </item>
-    <item>
-      <title>CVE-2018-8030|2024-08-05T06:46:13.362Z -- apache%20software%20foundation -- apache%20qpid%20broker-j
-</title>
-      <link>https://www.cve.org/CVERecord?id=CVE-2018-8030</link>
-      <description>A Denial of Service vulnerability was found in Apache Qpid Broker-J versions 7.0.0-7.0.4 when AMQP protocols 0-8, 0-9 or 0-91 are used to publish messages with size greater than allowed maximum message size limit (100MB by default). The broker crashes due to the defect. AMQP protocols 0-10 and 1.0 are not affected.</description>
-      <guid isPermaLink="false">CVE-2018-8030|2024-08-05T06:46:13.362Z</guid>
-      <pubDate>Mon, 18 Jun 2018 00:00:00 +0000</pubDate>
+      <link>https://www.cve.org/CVERecord?id=CVE-2016-8741</link>
+      <description>The Apache Qpid Broker for Java can be configured to use different so called AuthenticationProviders to handle user authentication. Among the choices are the SCRAM-SHA-1 and SCRAM-SHA-256 AuthenticationProvider types. It was discovered that these AuthenticationProviders in Apache Qpid Broker for Java 6.0.x before 6.0.6 and 6.1.x before 6.1.1 prematurely terminate the SCRAM SASL negotiation if the provided user name does not exist thus allowing remote attacker to determine the existence of user accounts. The Vulnerability does not apply to AuthenticationProviders other than SCRAM-SHA-1 and SCRAM-SHA-256.</description>
+      <guid isPermaLink="false">CVE-2016-8741|2024-08-06T02:34:59.610Z</guid>
+      <pubDate>Mon, 15 May 2017 14:00:00 +0000</pubDate>
     </item>
   </channel>
 </rss>
