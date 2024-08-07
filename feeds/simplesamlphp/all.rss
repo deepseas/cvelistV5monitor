@@ -6,31 +6,15 @@
     <description>The latest CVEs for simplesamlphp -- all products</description>
     <docs>http://www.rssboard.org/rss-specification</docs>
     <generator>python-feedgen</generator>
-    <lastBuildDate>Sun, 04 Aug 2024 23:23:15 +0000</lastBuildDate>
+    <lastBuildDate>Wed, 07 Aug 2024 00:29:23 +0000</lastBuildDate>
     <ttl>60</ttl>
     <item>
-      <title>CVE-2020-5301|2024-08-04T08:22:09.096Z -- simplesamlphp -- simplesamlphp
+      <title>CVE-2011-4625|2024-08-07T00:09:19.359Z -- simplesamlphp -- simplesamlphp
 </title>
-      <link>https://www.cve.org/CVERecord?id=CVE-2020-5301</link>
-      <description>SimpleSAMLphp versions before 1.18.6 contain an information disclosure vulnerability. The module controller in `SimpleSAML\Module` that processes requests for pages hosted by modules, has code to identify paths ending with `.php` and process those as PHP code. If no other suitable way of handling the given path exists it presents the file to the browser. The check to identify paths ending with `.php` does not account for uppercase letters. If someone requests a path ending with e.g. `.PHP` and the server is serving the code from a case-insensitive file system, such as on Windows, the processing of the PHP code does not occur, and the source code is instead presented to the browser. An attacker may use this issue to gain access to the source code in third-party modules that is meant to be private, or even sensitive. However, the attack surface is considered small, as the attack will only work when SimpleSAMLphp serves such content from a file system that is not case-sensitive, such as on Windows. This issue is fixed in version 1.18.6.</description>
-      <guid isPermaLink="false">CVE-2020-5301|2024-08-04T08:22:09.096Z</guid>
-      <pubDate>Tue, 21 Apr 2020 19:50:13 +0000</pubDate>
-    </item>
-    <item>
-      <title>CVE-2020-5226|2024-08-04T08:22:08.731Z -- simplesamlphp -- simplesamlphp
-</title>
-      <link>https://www.cve.org/CVERecord?id=CVE-2020-5226</link>
-      <description>Cross-site scripting in SimpleSAMLphp before version 1.18.4. The www/erroreport.php script allows error reports to be submitted and sent to the system administrator. Starting with SimpleSAMLphp 1.18.0, a new SimpleSAML\Utils\EMail class was introduced to handle sending emails, implemented as a wrapper of an external dependency. This new wrapper allows us to use Twig templates in order to create the email sent with an error report. Since Twig provides automatic escaping of variables, manual escaping of the free-text field in www/errorreport.php was removed to avoid double escaping. However, for those not using the new user interface yet, an email template is hardcoded into the class itself in plain PHP. Since no escaping is provided in this template, it is then possible to inject HTML inside the template by manually crafting the contents of the free-text field.</description>
-      <guid isPermaLink="false">CVE-2020-5226|2024-08-04T08:22:08.731Z</guid>
-      <pubDate>Fri, 24 Jan 2020 21:15:15 +0000</pubDate>
-    </item>
-    <item>
-      <title>CVE-2020-5225|2024-08-04T08:22:08.946Z -- simplesamlphp -- simplesamlphp
-</title>
-      <link>https://www.cve.org/CVERecord?id=CVE-2020-5225</link>
-      <description>Log injection in SimpleSAMLphp before version 1.18.4. The www/erroreport.php script, which receives error reports and sends them via email to the system administrator, did not properly sanitize the report identifier obtained from the request. This allows an attacker, under specific circumstances, to inject new log lines by manually crafting this report ID. When configured to use the file logging handler, SimpleSAMLphp will output all its logs by appending each log line to a given file. Since the reportID parameter received in a request sent to www/errorreport.php was not properly sanitized, it was possible to inject newline characters into it, effectively allowing a malicious user to inject new log lines with arbitrary content.</description>
-      <guid isPermaLink="false">CVE-2020-5225|2024-08-04T08:22:08.946Z</guid>
-      <pubDate>Fri, 24 Jan 2020 20:55:14 +0000</pubDate>
+      <link>https://www.cve.org/CVERecord?id=CVE-2011-4625</link>
+      <description>simplesamlphp before 1.6.3 (squeeze) and before 1.8.2 (sid) incorrectly handles XML encryption which could allow remote attackers to decrypt or forge messages.</description>
+      <guid isPermaLink="false">CVE-2011-4625|2024-08-07T00:09:19.359Z</guid>
+      <pubDate>Wed, 06 Nov 2019 14:53:31 +0000</pubDate>
     </item>
   </channel>
 </rss>
