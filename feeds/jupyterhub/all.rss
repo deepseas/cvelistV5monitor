@@ -6,133 +6,23 @@
     <description>The latest CVEs for jupyterhub -- all products</description>
     <docs>http://www.rssboard.org/rss-specification</docs>
     <generator>python-feedgen</generator>
-    <lastBuildDate>Sun, 04 Aug 2024 23:23:20 +0000</lastBuildDate>
+    <lastBuildDate>Thu, 08 Aug 2024 15:23:34 +0000</lastBuildDate>
     <ttl>60</ttl>
     <item>
-      <title>CVE-2020-15110|2024-08-04T13:08:22.300Z -- jupyterhub -- kubespawner
+      <title>CVE-2024-41942|2024-08-08T14:36:44.498Z -- jupyterhub -- jupyterhub
 </title>
-      <link>https://www.cve.org/CVERecord?id=CVE-2020-15110</link>
-      <description>In jupyterhub-kubespawner before 0.12, certain usernames will be able to craft particular server names which will grant them access to the default server of other users who have matching usernames. This has been fixed in 0.12.</description>
-      <guid isPermaLink="false">CVE-2020-15110|2024-08-04T13:08:22.300Z</guid>
-      <pubDate>Fri, 17 Jul 2020 20:45:13 +0000</pubDate>
+      <link>https://www.cve.org/CVERecord?id=CVE-2024-41942</link>
+      <description>JupyterHub is software that allows one to create a multi-user server for Jupyter notebooks. Prior to versions 4.1.6 and 5.1.0, if a user is granted the `admin:users` scope, they may escalate their own privileges by making themselves a full admin user. The impact is relatively small in that `admin:users` is already an extremely privileged scope only granted to trusted users.
+In effect, `admin:users` is equivalent to `admin=True`, which is not intended. Note that the change here only prevents escalation to the built-in JupyterHub admin role that has unrestricted permissions. It does not prevent users with e.g. `groups` permissions from granting themselves or other users permissions via group membership, which is intentional. Versions 4.1.6 and 5.1.0 fix this issue.</description>
+      <guid isPermaLink="false">CVE-2024-41942|2024-08-08T14:36:44.498Z</guid>
+      <pubDate>Thu, 08 Aug 2024 14:36:44 +0000</pubDate>
     </item>
     <item>
-      <title>CVE-2021-41194|2024-08-04T03:08:31.328Z -- jupyterhub -- firstuseauthenticator
-</title>
-      <link>https://www.cve.org/CVERecord?id=CVE-2021-41194</link>
-      <description>FirstUseAuthenticator is a JupyterHub authenticator that helps new users set their password on their first login to JupyterHub. When JupyterHub is used with FirstUseAuthenticator, a vulnerability in versions prior to 1.0.0 allows unauthorized access to any user's account if `create_users=True` and the username is known or guessed. One may upgrade to version 1.0.0 or apply a patch manually to mitigate the vulnerability. For those who cannot upgrade, there is no complete workaround, but a partial mitigation exists. One can disable user creation with `c.FirstUseAuthenticator.create_users = False`, which will only allow login with fully normalized usernames for already existing users prior to jupyterhub-firstuserauthenticator 1.0.0. If any users have never logged in with their normalized username (i.e. lowercase), they will still be vulnerable until a patch or upgrade occurs.</description>
-      <guid isPermaLink="false">CVE-2021-41194|2024-08-04T03:08:31.328Z</guid>
-      <pubDate>Thu, 28 Oct 2021 19:40:12 +0000</pubDate>
-    </item>
-    <item>
-      <title>CVE-2020-26261|2024-08-04T15:56:03.813Z -- jupyterhub -- systemdspawner
-</title>
-      <link>https://www.cve.org/CVERecord?id=CVE-2020-26261</link>
-      <description>jupyterhub-systemdspawner enables JupyterHub to spawn single-user notebook servers using systemd. In jupyterhub-systemdspawner before version 0.15 user API tokens issued to single-user servers are specified in the environment of systemd units. These tokens are incorrectly accessible to all users. In particular, the-littlest-jupyterhub is affected, which uses systemdspawner by default. This is patched in jupyterhub-systemdspawner v0.15</description>
-      <guid isPermaLink="false">CVE-2020-26261|2024-08-04T15:56:03.813Z</guid>
-      <pubDate>Wed, 09 Dec 2020 16:30:14 +0000</pubDate>
-    </item>
-    <item>
-      <title>CVE-2021-41247|2024-08-04T03:08:31.580Z -- jupyterhub -- jupyterhub
-</title>
-      <link>https://www.cve.org/CVERecord?id=CVE-2021-41247</link>
-      <description>JupyterHub is an open source multi-user server for Jupyter notebooks. In affected versions users who have multiple JupyterLab tabs open in the same browser session, may see incomplete logout from the single-user server, as fresh credentials (for the single-user server only, not the Hub) reinstated after logout, if another active JupyterLab session is open while the logout takes place. Upgrade to JupyterHub 1.5. For distributed deployments, it is jupyterhub in the _user_ environment that needs patching. There are no patches necessary in the Hub environment. The only workaround is to make sure that only one JupyterLab tab is open when you log out.</description>
-      <guid isPermaLink="false">CVE-2021-41247|2024-08-04T03:08:31.580Z</guid>
-      <pubDate>Thu, 04 Nov 2021 17:15:11 +0000</pubDate>
-    </item>
-    <item>
-      <title>CVE-2021-39160|2024-08-04T01:58:18.218Z -- jupyterhub -- nbgitpuller
-</title>
-      <link>https://www.cve.org/CVERecord?id=CVE-2021-39160</link>
-      <description>nbgitpuller is a Jupyter server extension to sync a git repository one-way to a local path. Due to unsanitized input, visiting maliciously crafted links could result in arbitrary code execution in the user environment. This has been resolved in version 0.10.2 and all users are advised to upgrade. No work around exist for users who can not upgrade.</description>
-      <guid isPermaLink="false">CVE-2021-39160|2024-08-04T01:58:18.218Z</guid>
-      <pubDate>Wed, 25 Aug 2021 18:10:11 +0000</pubDate>
-    </item>
-    <item>
-      <title>CVE-2021-39159|2024-08-04T01:58:18.117Z -- jupyterhub -- binderhub
-</title>
-      <link>https://www.cve.org/CVERecord?id=CVE-2021-39159</link>
-      <description>BinderHub is a kubernetes-based cloud service that allows users to share reproducible interactive computing environments from code repositories. In affected versions a remote code execution vulnerability has been identified in BinderHub, where providing BinderHub with maliciously crafted input could execute code in the BinderHub context, with the potential to egress credentials of the BinderHub deployment, including JupyterHub API tokens, kubernetes service accounts, and docker registry credentials. This may provide the ability to manipulate images and other user created pods in the deployment, with the potential to escalate to the host depending on the underlying kubernetes configuration. Users are advised to update to version 0.2.0-n653. If users are unable to update they may disable the git repo provider by specifying the `BinderHub.repo_providers` as a workaround.</description>
-      <guid isPermaLink="false">CVE-2021-39159|2024-08-04T01:58:18.117Z</guid>
-      <pubDate>Wed, 25 Aug 2021 18:20:09 +0000</pubDate>
-    </item>
-    <item>
-      <title>CVE-2020-26250|2024-08-04T15:56:04.431Z -- jupyterhub -- oauthenticator
-</title>
-      <link>https://www.cve.org/CVERecord?id=CVE-2020-26250</link>
-      <description>OAuthenticator is an OAuth login mechanism for JupyterHub. In oauthenticator from version 0.12.0 and before 0.12.2, the deprecated (in jupyterhub 1.2) configuration `Authenticator.whitelist`, which should be transparently mapped to `Authenticator.allowed_users` with a warning, is instead ignored by OAuthenticator classes, resulting in the same behavior as if this configuration has not been set. If this is the only mechanism of authorization restriction (i.e. no group or team restrictions in configuration) then all authenticated users will be allowed. Provider-based restrictions, including deprecated values such as `GitHubOAuthenticator.org_whitelist` are **not** affected. All users of OAuthenticator 0.12.0 and 0.12.1 with JupyterHub 1.2 (JupyterHub Helm chart 0.10.0-0.10.5) who use the `admin.whitelist.users` configuration in the jupyterhub helm chart or the `c.Authenticator.whitelist` configuration directly. Users of other deprecated configuration, e.g. `c.GitHubOAuthenticator.team_whitelist` are **not** affected. If you see a log line like this and expect a specific list of allowed usernames: "[I 2020-11-27 16:51:54.528 JupyterHub app:1717] Not using allowed_users. Any authenticated user will be allowed." you are likely affected. Updating oauthenticator to 0.12.2 is recommended. A workaround is to replace the deprecated `c.Authenticator.whitelist = ...` with `c.Authenticator.allowed_users = ...`. If any users have been authorized during this time who should not have been, they must be deleted via the API or admin interface, per the referenced documentation.</description>
-      <guid isPermaLink="false">CVE-2020-26250|2024-08-04T15:56:04.431Z</guid>
-      <pubDate>Tue, 01 Dec 2020 20:30:16 +0000</pubDate>
-    </item>
-    <item>
-      <title>CVE-2024-28179|2024-08-02T00:48:49.393Z -- jupyterhub -- jupyter-server-proxy</title>
-      <link>https://www.cve.org/CVERecord?id=CVE-2024-28179</link>
-      <description>Jupyter Server Proxy allows users to run arbitrary external processes alongside their Jupyter notebook servers and provides authenticated web access. Prior to versions 3.2.3 and 4.1.1, Jupyter Server Proxy did not check user authentication appropriately when proxying websockets, allowing unauthenticated access to anyone who had network access to the Jupyter server endpoint. This vulnerability can allow unauthenticated remote access to any websocket endpoint set up to be accessible via Jupyter Server Proxy. In many cases, this leads to remote unauthenticated arbitrary code execution, due to how affected instances use websockets. The websocket endpoints exposed by `jupyter_server` itself is not affected. Projects that do not rely on websockets are also not affected. Versions 3.2.3 and 4.1.1 contain a fix for this issue.</description>
-      <guid isPermaLink="false">CVE-2024-28179|2024-08-02T00:48:49.393Z</guid>
-      <pubDate>Wed, 20 Mar 2024 19:54:38 +0000</pubDate>
-    </item>
-    <item>
-      <title>CVE-2024-28233|2024-08-02T00:48:49.603Z -- jupyterhub -- jupyterhub</title>
-      <link>https://www.cve.org/CVERecord?id=CVE-2024-28233</link>
-      <description>JupyterHub is an open source multi-user server for Jupyter notebooks. By tricking a user into visiting a malicious subdomain, the attacker can achieve an XSS directly affecting the former's session. More precisely, in the context of JupyterHub, this XSS could achieve full access to JupyterHub API and user's single-user server. The affected configurations are single-origin JupyterHub deployments and JupyterHub deployments with user-controlled applications running on subdomains or peer subdomains of either the Hub or a single-user server. This vulnerability is fixed in 4.1.0.</description>
-      <guid isPermaLink="false">CVE-2024-28233|2024-08-02T00:48:49.603Z</guid>
-      <pubDate>Wed, 27 Mar 2024 18:16:24 +0000</pubDate>
-    </item>
-    <item>
-      <title>CVE-2024-29033|2024-08-02T01:03:51.648Z -- jupyterhub -- oauthenticator</title>
-      <link>https://www.cve.org/CVERecord?id=CVE-2024-29033</link>
-      <description>OAuthenticator provides plugins for JupyterHub to use common OAuth providers, as well as base classes for writing one's own Authenticators with any OAuth 2.0 provider. `GoogleOAuthenticator.hosted_domain` is used to restrict what Google accounts can be authorized access to a JupyterHub. The restriction is intented to be to Google accounts part of one or more Google organization verified to control specified domain(s). Prior to version 16.3.0, the actual restriction has been to Google accounts with emails ending with the domain. Such accounts could have been created by anyone which at one time was able to read an email associated with the domain. This was described by Dylan Ayrey (@dxa4481) in this [blog post] from 15th December 2023). OAuthenticator 16.3.0 contains a patch for this issue. As a workaround, restrict who can login another way, such as `allowed_users` or `allowed_google_groups`.</description>
-      <guid isPermaLink="false">CVE-2024-29033|2024-08-02T01:03:51.648Z</guid>
-      <pubDate>Wed, 20 Mar 2024 20:36:13 +0000</pubDate>
-    </item>
-    <item>
-      <title>CVE-2024-37300|2024-06-12T15:20:20.363Z -- jupyterhub -- oauthenticator</title>
-      <link>https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2024-37300</link>
-      <description>OAuthenticator is software that allows OAuth2 identity providers to be plugged in and used with JupyterHub. JupyterHub &lt; 5.0, when used with `GlobusOAuthenticator`, could be configured to allow all users from a particular institution only. This worked fine prior to JupyterHub 5.0, because `allow_all` did not take precedence over `identity_provider`. Since JupyterHub 5.0, `allow_all` does take precedence over `identity_provider`. On a hub with the same config, now all users will be allowed to login, regardless of `identity_provider`. `identity_provider` will basically be ignored. This is a documented change in JupyterHub 5.0, but is likely to catch many users by surprise. OAuthenticator 16.3.1 fixes the issue with JupyterHub 5.0, and does not affect previous versions. As a workaround, do not upgrade to JupyterHub 5.0 when using `GlobusOAuthenticator` in the prior configuration.</description>
-      <guid isPermaLink="false">CVE-2024-37300|2024-06-12T15:20:20.363Z</guid>
-      <pubDate>Wed, 12 Jun 2024 15:20:20 +0000</pubDate>
-    </item>
-    <item>
-      <title>CVE-2024-28233|2024-03-27T18:16:24.308Z -- jupyterhub -- jupyterhub</title>
-      <link>https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2024-28233</link>
-      <description>JupyterHub is an open source multi-user server for Jupyter notebooks. By tricking a user into visiting a malicious subdomain, the attacker can achieve an XSS directly affecting the former's session. More precisely, in the context of JupyterHub, this XSS could achieve full access to JupyterHub API and user's single-user server. The affected configurations are single-origin JupyterHub deployments and JupyterHub deployments with user-controlled applications running on subdomains or peer subdomains of either the Hub or a single-user server. This vulnerability is fixed in 4.1.0.</description>
-      <guid isPermaLink="false">CVE-2024-28233|2024-03-27T18:16:24.308Z</guid>
-      <pubDate>Wed, 27 Mar 2024 18:16:24 +0000</pubDate>
-    </item>
-    <item>
-      <title>CVE-2024-28179|2024-03-20T19:54:38.247Z -- jupyterhub -- jupyter-server-proxy</title>
-      <link>https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2024-28179</link>
-      <description>Jupyter Server Proxy allows users to run arbitrary external processes alongside their Jupyter notebook servers and provides authenticated web access. Prior to versions 3.2.3 and 4.1.1, Jupyter Server Proxy did not check user authentication appropriately when proxying websockets, allowing unauthenticated access to anyone who had network access to the Jupyter server endpoint. This vulnerability can allow unauthenticated remote access to any websocket endpoint set up to be accessible via Jupyter Server Proxy. In many cases, this leads to remote unauthenticated arbitrary code execution, due to how affected instances use websockets. The websocket endpoints exposed by `jupyter_server` itself is not affected. Projects that do not rely on websockets are also not affected. Versions 3.2.3 and 4.1.1 contain a fix for this issue.</description>
-      <guid isPermaLink="false">CVE-2024-28179|2024-03-20T19:54:38.247Z</guid>
-      <pubDate>Wed, 20 Mar 2024 19:54:38 +0000</pubDate>
-    </item>
-    <item>
-      <title>CVE-2024-29033|2024-06-04T17:58:08.797Z -- jupyterhub -- oauthenticator</title>
-      <link>https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2024-29033</link>
-      <description>OAuthenticator provides plugins for JupyterHub to use common OAuth providers, as well as base classes for writing one's own Authenticators with any OAuth 2.0 provider. `GoogleOAuthenticator.hosted_domain` is used to restrict what Google accounts can be authorized access to a JupyterHub. The restriction is intented to be to Google accounts part of one or more Google organization verified to control specified domain(s). Prior to version 16.3.0, the actual restriction has been to Google accounts with emails ending with the domain. Such accounts could have been created by anyone which at one time was able to read an email associated with the domain. This was described by Dylan Ayrey (@dxa4481) in this [blog post] from 15th December 2023). OAuthenticator 16.3.0 contains a patch for this issue. As a workaround, restrict who can login another way, such as `allowed_users` or `allowed_google_groups`.</description>
-      <guid isPermaLink="false">CVE-2024-29033|2024-06-04T17:58:08.797Z</guid>
-      <pubDate>Wed, 20 Mar 2024 20:36:13 +0000</pubDate>
-    </item>
-    <item>
-      <title>CVE-2024-35225|2024-06-11T21:45:57.596Z -- jupyterhub -- jupyter-server-proxy</title>
-      <link>https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2024-35225</link>
+      <title>CVE-2024-35225|2024-08-02T03:07:46.821Z -- jupyterhub -- jupyter-server-proxy</title>
+      <link>https://www.cve.org/CVERecord?id=CVE-2024-35225</link>
       <description>Jupyter Server Proxy allows users to run arbitrary external processes alongside their notebook server and provide authenticated web access to them. Versions of 3.x prior to 3.2.4 and 4.x prior to 4.2.0 have a reflected cross-site scripting (XSS) issue. The `/proxy` endpoint accepts a `host` path segment in the format `/proxy/`. When this endpoint is called with an invalid `host` value, `jupyter-server-proxy` replies with a response that includes the value of `host`, without sanitization [2]. A third-party actor can leverage this by sending a phishing link with an invalid `host` value containing custom JavaScript to a user. When the user clicks this phishing link, the browser renders the response of `GET /proxy/`, which runs the custom JavaScript contained in `host` set by the actor. As any arbitrary JavaScript can be run after the user clicks on a phishing link, this issue permits extensive access to the user's JupyterLab instance for an actor. Patches are included in versions 4.2.0 and 3.2.4. As a workaround, server operators who are unable to upgrade can disable the `jupyter-server-proxy` extension.</description>
-      <guid isPermaLink="false">CVE-2024-35225|2024-06-11T21:45:57.596Z</guid>
+      <guid isPermaLink="false">CVE-2024-35225|2024-08-02T03:07:46.821Z</guid>
       <pubDate>Tue, 11 Jun 2024 21:45:57 +0000</pubDate>
-    </item>
-    <item>
-      <title>CVE-2024-35225|2024-06-12T13:29:56.314Z -- jupyterhub -- jupyter-server-proxy</title>
-      <link>https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2024-35225</link>
-      <description>Jupyter Server Proxy allows users to run arbitrary external processes alongside their notebook server and provide authenticated web access to them. Versions of 3.x prior to 3.2.4 and 4.x prior to 4.2.0 have a reflected cross-site scripting (XSS) issue. The `/proxy` endpoint accepts a `host` path segment in the format `/proxy/`. When this endpoint is called with an invalid `host` value, `jupyter-server-proxy` replies with a response that includes the value of `host`, without sanitization [2]. A third-party actor can leverage this by sending a phishing link with an invalid `host` value containing custom JavaScript to a user. When the user clicks this phishing link, the browser renders the response of `GET /proxy/`, which runs the custom JavaScript contained in `host` set by the actor. As any arbitrary JavaScript can be run after the user clicks on a phishing link, this issue permits extensive access to the user's JupyterLab instance for an actor. Patches are included in versions 4.2.0 and 3.2.4. As a workaround, server operators who are unable to upgrade can disable the `jupyter-server-proxy` extension.</description>
-      <guid isPermaLink="false">CVE-2024-35225|2024-06-12T13:29:56.314Z</guid>
-      <pubDate>Tue, 11 Jun 2024 21:45:57 +0000</pubDate>
-    </item>
-    <item>
-      <title>CVE-2024-37300|2024-06-12T18:01:08.137Z -- jupyterhub -- oauthenticator</title>
-      <link>https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2024-37300</link>
-      <description>OAuthenticator is software that allows OAuth2 identity providers to be plugged in and used with JupyterHub. JupyterHub &lt; 5.0, when used with `GlobusOAuthenticator`, could be configured to allow all users from a particular institution only. This worked fine prior to JupyterHub 5.0, because `allow_all` did not take precedence over `identity_provider`. Since JupyterHub 5.0, `allow_all` does take precedence over `identity_provider`. On a hub with the same config, now all users will be allowed to login, regardless of `identity_provider`. `identity_provider` will basically be ignored. This is a documented change in JupyterHub 5.0, but is likely to catch many users by surprise. OAuthenticator 16.3.1 fixes the issue with JupyterHub 5.0, and does not affect previous versions. As a workaround, do not upgrade to JupyterHub 5.0 when using `GlobusOAuthenticator` in the prior configuration.</description>
-      <guid isPermaLink="false">CVE-2024-37300|2024-06-12T18:01:08.137Z</guid>
-      <pubDate>Wed, 12 Jun 2024 15:20:20 +0000</pubDate>
     </item>
     <item>
       <title>CVE-2024-37300|2024-08-02T03:50:55.855Z -- jupyterhub -- oauthenticator</title>
@@ -142,11 +32,74 @@
       <pubDate>Wed, 12 Jun 2024 15:20:20 +0000</pubDate>
     </item>
     <item>
-      <title>CVE-2024-35225|2024-08-02T03:07:46.821Z -- jupyterhub -- jupyter-server-proxy</title>
-      <link>https://www.cve.org/CVERecord?id=CVE-2024-35225</link>
+      <title>CVE-2024-37300|2024-06-12T18:01:08.137Z -- jupyterhub -- oauthenticator</title>
+      <link>https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2024-37300</link>
+      <description>OAuthenticator is software that allows OAuth2 identity providers to be plugged in and used with JupyterHub. JupyterHub &lt; 5.0, when used with `GlobusOAuthenticator`, could be configured to allow all users from a particular institution only. This worked fine prior to JupyterHub 5.0, because `allow_all` did not take precedence over `identity_provider`. Since JupyterHub 5.0, `allow_all` does take precedence over `identity_provider`. On a hub with the same config, now all users will be allowed to login, regardless of `identity_provider`. `identity_provider` will basically be ignored. This is a documented change in JupyterHub 5.0, but is likely to catch many users by surprise. OAuthenticator 16.3.1 fixes the issue with JupyterHub 5.0, and does not affect previous versions. As a workaround, do not upgrade to JupyterHub 5.0 when using `GlobusOAuthenticator` in the prior configuration.</description>
+      <guid isPermaLink="false">CVE-2024-37300|2024-06-12T18:01:08.137Z</guid>
+      <pubDate>Wed, 12 Jun 2024 15:20:20 +0000</pubDate>
+    </item>
+    <item>
+      <title>CVE-2024-35225|2024-06-12T13:29:56.314Z -- jupyterhub -- jupyter-server-proxy</title>
+      <link>https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2024-35225</link>
       <description>Jupyter Server Proxy allows users to run arbitrary external processes alongside their notebook server and provide authenticated web access to them. Versions of 3.x prior to 3.2.4 and 4.x prior to 4.2.0 have a reflected cross-site scripting (XSS) issue. The `/proxy` endpoint accepts a `host` path segment in the format `/proxy/`. When this endpoint is called with an invalid `host` value, `jupyter-server-proxy` replies with a response that includes the value of `host`, without sanitization [2]. A third-party actor can leverage this by sending a phishing link with an invalid `host` value containing custom JavaScript to a user. When the user clicks this phishing link, the browser renders the response of `GET /proxy/`, which runs the custom JavaScript contained in `host` set by the actor. As any arbitrary JavaScript can be run after the user clicks on a phishing link, this issue permits extensive access to the user's JupyterLab instance for an actor. Patches are included in versions 4.2.0 and 3.2.4. As a workaround, server operators who are unable to upgrade can disable the `jupyter-server-proxy` extension.</description>
-      <guid isPermaLink="false">CVE-2024-35225|2024-08-02T03:07:46.821Z</guid>
+      <guid isPermaLink="false">CVE-2024-35225|2024-06-12T13:29:56.314Z</guid>
       <pubDate>Tue, 11 Jun 2024 21:45:57 +0000</pubDate>
+    </item>
+    <item>
+      <title>CVE-2024-35225|2024-06-11T21:45:57.596Z -- jupyterhub -- jupyter-server-proxy</title>
+      <link>https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2024-35225</link>
+      <description>Jupyter Server Proxy allows users to run arbitrary external processes alongside their notebook server and provide authenticated web access to them. Versions of 3.x prior to 3.2.4 and 4.x prior to 4.2.0 have a reflected cross-site scripting (XSS) issue. The `/proxy` endpoint accepts a `host` path segment in the format `/proxy/`. When this endpoint is called with an invalid `host` value, `jupyter-server-proxy` replies with a response that includes the value of `host`, without sanitization [2]. A third-party actor can leverage this by sending a phishing link with an invalid `host` value containing custom JavaScript to a user. When the user clicks this phishing link, the browser renders the response of `GET /proxy/`, which runs the custom JavaScript contained in `host` set by the actor. As any arbitrary JavaScript can be run after the user clicks on a phishing link, this issue permits extensive access to the user's JupyterLab instance for an actor. Patches are included in versions 4.2.0 and 3.2.4. As a workaround, server operators who are unable to upgrade can disable the `jupyter-server-proxy` extension.</description>
+      <guid isPermaLink="false">CVE-2024-35225|2024-06-11T21:45:57.596Z</guid>
+      <pubDate>Tue, 11 Jun 2024 21:45:57 +0000</pubDate>
+    </item>
+    <item>
+      <title>CVE-2024-29033|2024-06-04T17:58:08.797Z -- jupyterhub -- oauthenticator</title>
+      <link>https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2024-29033</link>
+      <description>OAuthenticator provides plugins for JupyterHub to use common OAuth providers, as well as base classes for writing one's own Authenticators with any OAuth 2.0 provider. `GoogleOAuthenticator.hosted_domain` is used to restrict what Google accounts can be authorized access to a JupyterHub. The restriction is intented to be to Google accounts part of one or more Google organization verified to control specified domain(s). Prior to version 16.3.0, the actual restriction has been to Google accounts with emails ending with the domain. Such accounts could have been created by anyone which at one time was able to read an email associated with the domain. This was described by Dylan Ayrey (@dxa4481) in this [blog post] from 15th December 2023). OAuthenticator 16.3.0 contains a patch for this issue. As a workaround, restrict who can login another way, such as `allowed_users` or `allowed_google_groups`.</description>
+      <guid isPermaLink="false">CVE-2024-29033|2024-06-04T17:58:08.797Z</guid>
+      <pubDate>Wed, 20 Mar 2024 20:36:13 +0000</pubDate>
+    </item>
+    <item>
+      <title>CVE-2024-28179|2024-03-20T19:54:38.247Z -- jupyterhub -- jupyter-server-proxy</title>
+      <link>https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2024-28179</link>
+      <description>Jupyter Server Proxy allows users to run arbitrary external processes alongside their Jupyter notebook servers and provides authenticated web access. Prior to versions 3.2.3 and 4.1.1, Jupyter Server Proxy did not check user authentication appropriately when proxying websockets, allowing unauthenticated access to anyone who had network access to the Jupyter server endpoint. This vulnerability can allow unauthenticated remote access to any websocket endpoint set up to be accessible via Jupyter Server Proxy. In many cases, this leads to remote unauthenticated arbitrary code execution, due to how affected instances use websockets. The websocket endpoints exposed by `jupyter_server` itself is not affected. Projects that do not rely on websockets are also not affected. Versions 3.2.3 and 4.1.1 contain a fix for this issue.</description>
+      <guid isPermaLink="false">CVE-2024-28179|2024-03-20T19:54:38.247Z</guid>
+      <pubDate>Wed, 20 Mar 2024 19:54:38 +0000</pubDate>
+    </item>
+    <item>
+      <title>CVE-2024-28233|2024-03-27T18:16:24.308Z -- jupyterhub -- jupyterhub</title>
+      <link>https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2024-28233</link>
+      <description>JupyterHub is an open source multi-user server for Jupyter notebooks. By tricking a user into visiting a malicious subdomain, the attacker can achieve an XSS directly affecting the former's session. More precisely, in the context of JupyterHub, this XSS could achieve full access to JupyterHub API and user's single-user server. The affected configurations are single-origin JupyterHub deployments and JupyterHub deployments with user-controlled applications running on subdomains or peer subdomains of either the Hub or a single-user server. This vulnerability is fixed in 4.1.0.</description>
+      <guid isPermaLink="false">CVE-2024-28233|2024-03-27T18:16:24.308Z</guid>
+      <pubDate>Wed, 27 Mar 2024 18:16:24 +0000</pubDate>
+    </item>
+    <item>
+      <title>CVE-2024-37300|2024-06-12T15:20:20.363Z -- jupyterhub -- oauthenticator</title>
+      <link>https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2024-37300</link>
+      <description>OAuthenticator is software that allows OAuth2 identity providers to be plugged in and used with JupyterHub. JupyterHub &lt; 5.0, when used with `GlobusOAuthenticator`, could be configured to allow all users from a particular institution only. This worked fine prior to JupyterHub 5.0, because `allow_all` did not take precedence over `identity_provider`. Since JupyterHub 5.0, `allow_all` does take precedence over `identity_provider`. On a hub with the same config, now all users will be allowed to login, regardless of `identity_provider`. `identity_provider` will basically be ignored. This is a documented change in JupyterHub 5.0, but is likely to catch many users by surprise. OAuthenticator 16.3.1 fixes the issue with JupyterHub 5.0, and does not affect previous versions. As a workaround, do not upgrade to JupyterHub 5.0 when using `GlobusOAuthenticator` in the prior configuration.</description>
+      <guid isPermaLink="false">CVE-2024-37300|2024-06-12T15:20:20.363Z</guid>
+      <pubDate>Wed, 12 Jun 2024 15:20:20 +0000</pubDate>
+    </item>
+    <item>
+      <title>CVE-2024-29033|2024-08-02T01:03:51.648Z -- jupyterhub -- oauthenticator</title>
+      <link>https://www.cve.org/CVERecord?id=CVE-2024-29033</link>
+      <description>OAuthenticator provides plugins for JupyterHub to use common OAuth providers, as well as base classes for writing one's own Authenticators with any OAuth 2.0 provider. `GoogleOAuthenticator.hosted_domain` is used to restrict what Google accounts can be authorized access to a JupyterHub. The restriction is intented to be to Google accounts part of one or more Google organization verified to control specified domain(s). Prior to version 16.3.0, the actual restriction has been to Google accounts with emails ending with the domain. Such accounts could have been created by anyone which at one time was able to read an email associated with the domain. This was described by Dylan Ayrey (@dxa4481) in this [blog post] from 15th December 2023). OAuthenticator 16.3.0 contains a patch for this issue. As a workaround, restrict who can login another way, such as `allowed_users` or `allowed_google_groups`.</description>
+      <guid isPermaLink="false">CVE-2024-29033|2024-08-02T01:03:51.648Z</guid>
+      <pubDate>Wed, 20 Mar 2024 20:36:13 +0000</pubDate>
+    </item>
+    <item>
+      <title>CVE-2024-28233|2024-08-02T00:48:49.603Z -- jupyterhub -- jupyterhub</title>
+      <link>https://www.cve.org/CVERecord?id=CVE-2024-28233</link>
+      <description>JupyterHub is an open source multi-user server for Jupyter notebooks. By tricking a user into visiting a malicious subdomain, the attacker can achieve an XSS directly affecting the former's session. More precisely, in the context of JupyterHub, this XSS could achieve full access to JupyterHub API and user's single-user server. The affected configurations are single-origin JupyterHub deployments and JupyterHub deployments with user-controlled applications running on subdomains or peer subdomains of either the Hub or a single-user server. This vulnerability is fixed in 4.1.0.</description>
+      <guid isPermaLink="false">CVE-2024-28233|2024-08-02T00:48:49.603Z</guid>
+      <pubDate>Wed, 27 Mar 2024 18:16:24 +0000</pubDate>
+    </item>
+    <item>
+      <title>CVE-2024-28179|2024-08-02T00:48:49.393Z -- jupyterhub -- jupyter-server-proxy</title>
+      <link>https://www.cve.org/CVERecord?id=CVE-2024-28179</link>
+      <description>Jupyter Server Proxy allows users to run arbitrary external processes alongside their Jupyter notebook servers and provides authenticated web access. Prior to versions 3.2.3 and 4.1.1, Jupyter Server Proxy did not check user authentication appropriately when proxying websockets, allowing unauthenticated access to anyone who had network access to the Jupyter server endpoint. This vulnerability can allow unauthenticated remote access to any websocket endpoint set up to be accessible via Jupyter Server Proxy. In many cases, this leads to remote unauthenticated arbitrary code execution, due to how affected instances use websockets. The websocket endpoints exposed by `jupyter_server` itself is not affected. Projects that do not rely on websockets are also not affected. Versions 3.2.3 and 4.1.1 contain a fix for this issue.</description>
+      <guid isPermaLink="false">CVE-2024-28179|2024-08-02T00:48:49.393Z</guid>
+      <pubDate>Wed, 20 Mar 2024 19:54:38 +0000</pubDate>
     </item>
   </channel>
 </rss>

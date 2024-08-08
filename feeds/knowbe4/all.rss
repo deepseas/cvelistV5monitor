@@ -6,40 +6,10 @@
     <description>The latest CVEs for KnowBe4 -- all products</description>
     <docs>http://www.rssboard.org/rss-specification</docs>
     <generator>python-feedgen</generator>
-    <lastBuildDate>Fri, 02 Aug 2024 01:43:26 +0000</lastBuildDate>
+    <lastBuildDate>Thu, 08 Aug 2024 15:23:35 +0000</lastBuildDate>
     <ttl>60</ttl>
     <item>
-      <title>CVE-2024-29210|2024-08-02T01:10:55.244Z -- knowbe4 -- phish%20alert%20button%20%28pab%29%20for%20outlook
-</title>
-      <link>https://www.cve.org/CVERecord?id=CVE-2024-29210</link>
-      <description>A local privilege escalation (LPE) vulnerability has been identified in Phish Alert Button for Outlook (PAB), specifically within its configuration management functionalities. This vulnerability allows a regular user to modify the application's configuration file to redirect update checks to an arbitrary server, which can then be exploited in conjunction with CVE-2024-29209 to execute arbitrary code with elevated privileges.
-
-The issue stems from improper permission settings on the application's configuration file, which is stored in a common directory accessible to all users. This file includes critical parameters, such as the update server URL. By default, the application does not enforce adequate access controls on this file, allowing non-privileged users to modify it without administrative consent.
-
-An attacker with regular user access can alter the update server URL specified in the configuration file to point to a malicious server. When the application performs its next update check, it will contact the attacker-controlled server. If the system is also vulnerable to CVE-2024-29209, the attacker can deliver a malicious update package that, when executed, grants them elevated privileges.
-
-Impact:
-This vulnerability can lead to a regular user executing code with administrative privileges. This can result in unauthorized access to sensitive data, installation of additional malware, and a full takeover of the affected system.
-
-Affected Products:
-Phish Alert Button (PAB) for Outlook versions 1.10.0-1.10.11
-Second Chance Client versions 2.0.0-2.0.9
-PIQ Client versions 1.0.0-1.0.15
-
-Remediation:
-KnowBe4 has released a patch that corrects the permission settings on the configuration file to prevent unauthorized modifications. Automated updates will be pushed to address this issue. Users of affected versions should verify the latest version is applied and, if not, apply the latest updates provided by KnowBe4.
-
-Workarounds:
-Manually set the correct permissions on the configuration file to restrict write access to administrators only.
-
-Credits:
-This vulnerability was discovered by Ceri Coburn at Pen Test Partners, who reported it responsibly to the vendor.
-</description>
-      <guid isPermaLink="false">CVE-2024-29210|2024-08-02T01:10:55.244Z</guid>
-      <pubDate>Tue, 07 May 2024 16:53:43 +0000</pubDate>
-    </item>
-    <item>
-      <title>CVE-2024-29209|2024-08-02T01:10:54.590Z -- knowbe4 -- phish%20alert%20button%20%28pab%29%20for%20outlook
+      <title>CVE-2024-29209|2024-08-08T14:57:28.514Z -- knowbe4 -- phish%20alert%20button%20%28pab%29%20for%20outlook
 </title>
       <link>https://www.cve.org/CVERecord?id=CVE-2024-29209</link>
       <description>A medium severity vulnerability has been identified in the update mechanism of the Phish Alert Button for Outlook, which could allow an attacker to remotely execute arbitrary code on the host machine. The vulnerability arises from the application's failure to securely verify the authenticity and integrity of the update server.
@@ -64,7 +34,35 @@ Use secure corporate networks or VPN services to secure network communications, 
 
 Credits:
 This vulnerability was discovered by Ceri Coburn at Pen Test Partners, who reported it responsibly to the vendor.</description>
-      <guid isPermaLink="false">CVE-2024-29209|2024-08-02T01:10:54.590Z</guid>
+      <guid isPermaLink="false">CVE-2024-29209|2024-08-08T14:57:28.514Z</guid>
+      <pubDate>Tue, 07 May 2024 16:53:43 +0000</pubDate>
+    </item>
+    <item>
+      <title>CVE-2024-29209|2024-05-07T16:53:43.419Z -- knowbe4 -- phish%20alert%20button%20%28pab%29%20for%20outlook</title>
+      <link>https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2024-29209</link>
+      <description>A medium severity vulnerability has been identified in the update mechanism of the Phish Alert Button for Outlook, which could allow an attacker to remotely execute arbitrary code on the host machine. The vulnerability arises from the application's failure to securely verify the authenticity and integrity of the update server.
+
+The application periodically checks for updates by querying a specific URL. However, this process does not enforce strict SSL/TLS verification, nor does it validate the digital signature of the received update files. An attacker with the capability to perform DNS spoofing can exploit this weakness. By manipulating DNS responses, the attacker can redirect the application's update requests to a malicious server under their control.
+
+Once the application queries the spoofed update URL, the malicious server can respond with a crafted update package. Since the application fails to properly verify the authenticity of the update file, it will accept and execute the package, leading to arbitrary code execution on the host machine.
+
+Impact:
+Successful exploitation of this vulnerability allows an attacker to execute code with elevated privileges, potentially leading to data theft, installation of further malware, or other malicious activities on the host system.
+
+Affected Products:
+Phish Alert Button (PAB) for Outlook versions 1.10.0-1.10.11
+Second Chance Client versions 2.0.0-2.0.9
+PIQ Client versions 1.0.0-1.0.15
+
+Remediation:
+Automated updates will be pushed to address this issue. Users of affected versions should verify the latest version is applied and, if not, apply the latest updates provided by KnowBe4, which addresses this vulnerability by implementing proper SSL/TLS checks of the update server. It is also recommended to ensure DNS settings are secure to prevent DNS spoofing attacks.
+
+Workarounds:
+Use secure corporate networks or VPN services to secure network communications, which can help mitigate the risk of DNS spoofing.
+
+Credits:
+This vulnerability was discovered by Ceri Coburn at Pen Test Partners, who reported it responsibly to the vendor.</description>
+      <guid isPermaLink="false">CVE-2024-29209|2024-05-07T16:53:43.419Z</guid>
       <pubDate>Tue, 07 May 2024 16:53:43 +0000</pubDate>
     </item>
     <item>
@@ -96,8 +94,8 @@ This vulnerability was discovered by Ceri Coburn at Pen Test Partners, who repor
       <pubDate>Tue, 07 May 2024 16:53:43 +0000</pubDate>
     </item>
     <item>
-      <title>CVE-2024-29209|2024-05-07T16:53:43.419Z -- knowbe4 -- phish%20alert%20button%20%28pab%29%20for%20outlook</title>
-      <link>https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2024-29209</link>
+      <title>CVE-2024-29209|2024-08-02T01:10:54.590Z -- knowbe4 -- phish%20alert%20button%20%28pab%29%20for%20outlook</title>
+      <link>https://www.cve.org/CVERecord?id=CVE-2024-29209</link>
       <description>A medium severity vulnerability has been identified in the update mechanism of the Phish Alert Button for Outlook, which could allow an attacker to remotely execute arbitrary code on the host machine. The vulnerability arises from the application's failure to securely verify the authenticity and integrity of the update server.
 
 The application periodically checks for updates by querying a specific URL. However, this process does not enforce strict SSL/TLS verification, nor does it validate the digital signature of the received update files. An attacker with the capability to perform DNS spoofing can exploit this weakness. By manipulating DNS responses, the attacker can redirect the application's update requests to a malicious server under their control.
@@ -120,7 +118,35 @@ Use secure corporate networks or VPN services to secure network communications, 
 
 Credits:
 This vulnerability was discovered by Ceri Coburn at Pen Test Partners, who reported it responsibly to the vendor.</description>
-      <guid isPermaLink="false">CVE-2024-29209|2024-05-07T16:53:43.419Z</guid>
+      <guid isPermaLink="false">CVE-2024-29209|2024-08-02T01:10:54.590Z</guid>
+      <pubDate>Tue, 07 May 2024 16:53:43 +0000</pubDate>
+    </item>
+    <item>
+      <title>CVE-2024-29210|2024-08-02T01:10:55.244Z -- knowbe4 -- phish%20alert%20button%20%28pab%29%20for%20outlook</title>
+      <link>https://www.cve.org/CVERecord?id=CVE-2024-29210</link>
+      <description>A local privilege escalation (LPE) vulnerability has been identified in Phish Alert Button for Outlook (PAB), specifically within its configuration management functionalities. This vulnerability allows a regular user to modify the application's configuration file to redirect update checks to an arbitrary server, which can then be exploited in conjunction with CVE-2024-29209 to execute arbitrary code with elevated privileges.
+
+The issue stems from improper permission settings on the application's configuration file, which is stored in a common directory accessible to all users. This file includes critical parameters, such as the update server URL. By default, the application does not enforce adequate access controls on this file, allowing non-privileged users to modify it without administrative consent.
+
+An attacker with regular user access can alter the update server URL specified in the configuration file to point to a malicious server. When the application performs its next update check, it will contact the attacker-controlled server. If the system is also vulnerable to CVE-2024-29209, the attacker can deliver a malicious update package that, when executed, grants them elevated privileges.
+
+Impact:
+This vulnerability can lead to a regular user executing code with administrative privileges. This can result in unauthorized access to sensitive data, installation of additional malware, and a full takeover of the affected system.
+
+Affected Products:
+Phish Alert Button (PAB) for Outlook versions 1.10.0-1.10.11
+Second Chance Client versions 2.0.0-2.0.9
+PIQ Client versions 1.0.0-1.0.15
+
+Remediation:
+KnowBe4 has released a patch that corrects the permission settings on the configuration file to prevent unauthorized modifications. Automated updates will be pushed to address this issue. Users of affected versions should verify the latest version is applied and, if not, apply the latest updates provided by KnowBe4.
+
+Workarounds:
+Manually set the correct permissions on the configuration file to restrict write access to administrators only.
+
+Credits:
+This vulnerability was discovered by Ceri Coburn at Pen Test Partners, who reported it responsibly to the vendor.</description>
+      <guid isPermaLink="false">CVE-2024-29210|2024-08-02T01:10:55.244Z</guid>
       <pubDate>Tue, 07 May 2024 16:53:43 +0000</pubDate>
     </item>
   </channel>
