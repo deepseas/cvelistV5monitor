@@ -6,36 +6,22 @@
     <description>The latest CVEs for nuxt -- all products</description>
     <docs>http://www.rssboard.org/rss-specification</docs>
     <generator>python-feedgen</generator>
-    <lastBuildDate>Thu, 08 Aug 2024 14:22:29 +0000</lastBuildDate>
+    <lastBuildDate>Thu, 08 Aug 2024 16:24:23 +0000</lastBuildDate>
     <ttl>60</ttl>
     <item>
-      <title>CVE-2024-23657|2024-08-08T13:36:34.991Z -- nuxt -- nuxt
+      <title>CVE-2024-34343|2024-08-08T15:51:24.069Z -- nuxt -- nuxt
 </title>
-      <link>https://www.cve.org/CVERecord?id=CVE-2024-23657</link>
-      <description>Nuxt is a free and open-source framework to create full-stack web applications and websites with Vue.js. Nuxt Devtools is missing authentication on the `getTextAssetContent` RPC function which is vulnerable to path traversal.  Combined with a lack of Origin checks on the WebSocket handler,  an attacker is able to interact with a locally running devtools instance and exfiltrate data abusing this vulnerability. In certain configurations an attacker could leak the devtools authentication token and then abuse other RPC functions to achieve RCE. The `getTextAssetContent` function does not check for path traversals, this could allow an attacker to read arbitrary files over the RPC WebSocket. The WebSocket server does not check the origin of the request leading to cross-site-websocket-hijacking. This may be intentional to allow certain configurations to work correctly. Nuxt Devtools authentication tokens are placed within the home directory of the current user. The malicious webpage can connect to the Devtools WebSocket, perform a directory traversal brute force to find the authentication token, then use the *authenticated* `writeStaticAssets` function to create a new Component, Nitro Handler or `app.vue` file which will run automatically as the file is changed. This vulnerability has been addressed in release version 1.3.9. All users are advised to upgrade. There are no known workarounds for this vulnerability.</description>
-      <guid isPermaLink="false">CVE-2024-23657|2024-08-08T13:36:34.991Z</guid>
-      <pubDate>Mon, 05 Aug 2024 20:27:38 +0000</pubDate>
-    </item>
-    <item>
-      <title>CVE-2024-34344|2024-08-05T20:45:17.578Z -- nuxt -- nuxt</title>
-      <link>https://www.cve.org/CVERecord?id=CVE-2024-34344</link>
-      <description>Nuxt is a free and open-source framework to create full-stack web applications and websites with Vue.js. Due to the insufficient validation of the `path` parameter in the NuxtTestComponentWrapper, an attacker can execute arbitrary JavaScript on the server side, which allows them to execute arbitrary commands. Users who open a malicious web page in the browser while running the test locally are affected by this vulnerability, which results in the remote code execution from the malicious web page. Since web pages can send requests to arbitrary addresses, a malicious web page can repeatedly try to exploit this vulnerability, which then triggers the exploit when the test server starts.</description>
-      <guid isPermaLink="false">CVE-2024-34344|2024-08-05T20:45:17.578Z</guid>
-      <pubDate>Mon, 05 Aug 2024 20:36:20 +0000</pubDate>
-    </item>
-    <item>
-      <title>CVE-2024-34343|2024-08-05T20:35:13.258Z -- nuxt -- nuxt</title>
       <link>https://www.cve.org/CVERecord?id=CVE-2024-34343</link>
       <description>Nuxt is a free and open-source framework to create full-stack web applications and websites with Vue.js. The `navigateTo` function attempts to blockthe `javascript:` protocol, but does not correctly use API's provided by `unjs/ufo`. This library also contains parsing discrepancies.  The function first tests to see if the specified URL has a protocol. This uses the unjs/ufo package for URL parsing. This function works effectively, and returns true for a javascript: protocol. After this, the URL is parsed using the parseURL function. This function will refuse to parse poorly formatted URLs. Parsing javascript:alert(1) returns null/"" for all values. Next, the protocol of the URL is then checked using the isScriptProtocol function. This function simply checks the input against a list of protocols, and does not perform any parsing. The combination of refusing to parse poorly formatted URLs, and not performing additional parsing means that script checks fail as no protocol can be found. Even if a protocol was identified, whitespace is not stripped in the parseURL implementation, bypassing the isScriptProtocol checks. Certain special protocols are identified at the top of parseURL. Inserting a newline or tab into this sequence will block the special protocol check, and bypass the latter checks. This ONLY has impact after SSR has occured, the `javascript:` protocol within a location header does not trigger XSS. This issue has been addressed in release version 3.12.4 and all users are advised to upgrade. There are no known workarounds for this vulnerability.</description>
-      <guid isPermaLink="false">CVE-2024-34343|2024-08-05T20:35:13.258Z</guid>
+      <guid isPermaLink="false">CVE-2024-34343|2024-08-08T15:51:24.069Z</guid>
       <pubDate>Mon, 05 Aug 2024 20:35:13 +0000</pubDate>
     </item>
     <item>
-      <title>CVE-2024-23657|2024-08-05T20:27:38.472Z -- nuxt -- nuxt</title>
-      <link>https://www.cve.org/CVERecord?id=CVE-2024-23657</link>
-      <description>Nuxt is a free and open-source framework to create full-stack web applications and websites with Vue.js. Nuxt Devtools is missing authentication on the `getTextAssetContent` RPC function which is vulnerable to path traversal.  Combined with a lack of Origin checks on the WebSocket handler,  an attacker is able to interact with a locally running devtools instance and exfiltrate data abusing this vulnerability. In certain configurations an attacker could leak the devtools authentication token and then abuse other RPC functions to achieve RCE. The `getTextAssetContent` function does not check for path traversals, this could allow an attacker to read arbitrary files over the RPC WebSocket. The WebSocket server does not check the origin of the request leading to cross-site-websocket-hijacking. This may be intentional to allow certain configurations to work correctly. Nuxt Devtools authentication tokens are placed within the home directory of the current user. The malicious webpage can connect to the Devtools WebSocket, perform a directory traversal brute force to find the authentication token, then use the *authenticated* `writeStaticAssets` function to create a new Component, Nitro Handler or `app.vue` file which will run automatically as the file is changed. This vulnerability has been addressed in release version 1.3.9. All users are advised to upgrade. There are no known workarounds for this vulnerability.</description>
-      <guid isPermaLink="false">CVE-2024-23657|2024-08-05T20:27:38.472Z</guid>
-      <pubDate>Mon, 05 Aug 2024 20:27:38 +0000</pubDate>
+      <title>CVE-2024-42352|2024-08-06T15:25:44.348Z -- nuxt -- icon</title>
+      <link>https://www.cve.org/CVERecord?id=CVE-2024-42352</link>
+      <description>Nuxt is a free and open-source framework to create full-stack web applications and websites with Vue.js. `nuxt/icon` provides an API to allow client side icon lookup. This endpoint is at `/api/_nuxt_icon/[name]`. The proxied request path is improperly parsed, allowing an attacker to change the scheme and host of the request. This leads to SSRF, and could potentially lead to sensitive data exposure. The `new URL` constructor is used to parse the final path. This constructor can be passed a relative scheme or path in order to change the host the request is sent to. This constructor is also very tolerant of poorly formatted URLs. As a result we can pass a path prefixed with the string `http:`. This has the effect of changing the scheme to HTTP. We can then subsequently pass a new host, for example `http:127.0.0.1:8080`. This would allow us to send requests to a local server. This issue has been addressed in release version 1.4.5 and all users are advised to upgrade. There are no known workarounds for this vulnerability.</description>
+      <guid isPermaLink="false">CVE-2024-42352|2024-08-06T15:25:44.348Z</guid>
+      <pubDate>Mon, 05 Aug 2024 20:38:08 +0000</pubDate>
     </item>
     <item>
       <title>CVE-2024-42352|2024-08-05T20:38:08.419Z -- nuxt -- icon</title>
@@ -45,11 +31,32 @@
       <pubDate>Mon, 05 Aug 2024 20:38:08 +0000</pubDate>
     </item>
     <item>
-      <title>CVE-2024-42352|2024-08-06T15:25:44.348Z -- nuxt -- icon</title>
-      <link>https://www.cve.org/CVERecord?id=CVE-2024-42352</link>
-      <description>Nuxt is a free and open-source framework to create full-stack web applications and websites with Vue.js. `nuxt/icon` provides an API to allow client side icon lookup. This endpoint is at `/api/_nuxt_icon/[name]`. The proxied request path is improperly parsed, allowing an attacker to change the scheme and host of the request. This leads to SSRF, and could potentially lead to sensitive data exposure. The `new URL` constructor is used to parse the final path. This constructor can be passed a relative scheme or path in order to change the host the request is sent to. This constructor is also very tolerant of poorly formatted URLs. As a result we can pass a path prefixed with the string `http:`. This has the effect of changing the scheme to HTTP. We can then subsequently pass a new host, for example `http:127.0.0.1:8080`. This would allow us to send requests to a local server. This issue has been addressed in release version 1.4.5 and all users are advised to upgrade. There are no known workarounds for this vulnerability.</description>
-      <guid isPermaLink="false">CVE-2024-42352|2024-08-06T15:25:44.348Z</guid>
-      <pubDate>Mon, 05 Aug 2024 20:38:08 +0000</pubDate>
+      <title>CVE-2024-23657|2024-08-05T20:27:38.472Z -- nuxt -- nuxt</title>
+      <link>https://www.cve.org/CVERecord?id=CVE-2024-23657</link>
+      <description>Nuxt is a free and open-source framework to create full-stack web applications and websites with Vue.js. Nuxt Devtools is missing authentication on the `getTextAssetContent` RPC function which is vulnerable to path traversal.  Combined with a lack of Origin checks on the WebSocket handler,  an attacker is able to interact with a locally running devtools instance and exfiltrate data abusing this vulnerability. In certain configurations an attacker could leak the devtools authentication token and then abuse other RPC functions to achieve RCE. The `getTextAssetContent` function does not check for path traversals, this could allow an attacker to read arbitrary files over the RPC WebSocket. The WebSocket server does not check the origin of the request leading to cross-site-websocket-hijacking. This may be intentional to allow certain configurations to work correctly. Nuxt Devtools authentication tokens are placed within the home directory of the current user. The malicious webpage can connect to the Devtools WebSocket, perform a directory traversal brute force to find the authentication token, then use the *authenticated* `writeStaticAssets` function to create a new Component, Nitro Handler or `app.vue` file which will run automatically as the file is changed. This vulnerability has been addressed in release version 1.3.9. All users are advised to upgrade. There are no known workarounds for this vulnerability.</description>
+      <guid isPermaLink="false">CVE-2024-23657|2024-08-05T20:27:38.472Z</guid>
+      <pubDate>Mon, 05 Aug 2024 20:27:38 +0000</pubDate>
+    </item>
+    <item>
+      <title>CVE-2024-34343|2024-08-05T20:35:13.258Z -- nuxt -- nuxt</title>
+      <link>https://www.cve.org/CVERecord?id=CVE-2024-34343</link>
+      <description>Nuxt is a free and open-source framework to create full-stack web applications and websites with Vue.js. The `navigateTo` function attempts to blockthe `javascript:` protocol, but does not correctly use API's provided by `unjs/ufo`. This library also contains parsing discrepancies.  The function first tests to see if the specified URL has a protocol. This uses the unjs/ufo package for URL parsing. This function works effectively, and returns true for a javascript: protocol. After this, the URL is parsed using the parseURL function. This function will refuse to parse poorly formatted URLs. Parsing javascript:alert(1) returns null/"" for all values. Next, the protocol of the URL is then checked using the isScriptProtocol function. This function simply checks the input against a list of protocols, and does not perform any parsing. The combination of refusing to parse poorly formatted URLs, and not performing additional parsing means that script checks fail as no protocol can be found. Even if a protocol was identified, whitespace is not stripped in the parseURL implementation, bypassing the isScriptProtocol checks. Certain special protocols are identified at the top of parseURL. Inserting a newline or tab into this sequence will block the special protocol check, and bypass the latter checks. This ONLY has impact after SSR has occured, the `javascript:` protocol within a location header does not trigger XSS. This issue has been addressed in release version 3.12.4 and all users are advised to upgrade. There are no known workarounds for this vulnerability.</description>
+      <guid isPermaLink="false">CVE-2024-34343|2024-08-05T20:35:13.258Z</guid>
+      <pubDate>Mon, 05 Aug 2024 20:35:13 +0000</pubDate>
+    </item>
+    <item>
+      <title>CVE-2024-34344|2024-08-05T20:45:17.578Z -- nuxt -- nuxt</title>
+      <link>https://www.cve.org/CVERecord?id=CVE-2024-34344</link>
+      <description>Nuxt is a free and open-source framework to create full-stack web applications and websites with Vue.js. Due to the insufficient validation of the `path` parameter in the NuxtTestComponentWrapper, an attacker can execute arbitrary JavaScript on the server side, which allows them to execute arbitrary commands. Users who open a malicious web page in the browser while running the test locally are affected by this vulnerability, which results in the remote code execution from the malicious web page. Since web pages can send requests to arbitrary addresses, a malicious web page can repeatedly try to exploit this vulnerability, which then triggers the exploit when the test server starts.</description>
+      <guid isPermaLink="false">CVE-2024-34344|2024-08-05T20:45:17.578Z</guid>
+      <pubDate>Mon, 05 Aug 2024 20:36:20 +0000</pubDate>
+    </item>
+    <item>
+      <title>CVE-2024-23657|2024-08-08T13:36:34.991Z -- nuxt -- nuxt</title>
+      <link>https://www.cve.org/CVERecord?id=CVE-2024-23657</link>
+      <description>Nuxt is a free and open-source framework to create full-stack web applications and websites with Vue.js. Nuxt Devtools is missing authentication on the `getTextAssetContent` RPC function which is vulnerable to path traversal.  Combined with a lack of Origin checks on the WebSocket handler,  an attacker is able to interact with a locally running devtools instance and exfiltrate data abusing this vulnerability. In certain configurations an attacker could leak the devtools authentication token and then abuse other RPC functions to achieve RCE. The `getTextAssetContent` function does not check for path traversals, this could allow an attacker to read arbitrary files over the RPC WebSocket. The WebSocket server does not check the origin of the request leading to cross-site-websocket-hijacking. This may be intentional to allow certain configurations to work correctly. Nuxt Devtools authentication tokens are placed within the home directory of the current user. The malicious webpage can connect to the Devtools WebSocket, perform a directory traversal brute force to find the authentication token, then use the *authenticated* `writeStaticAssets` function to create a new Component, Nitro Handler or `app.vue` file which will run automatically as the file is changed. This vulnerability has been addressed in release version 1.3.9. All users are advised to upgrade. There are no known workarounds for this vulnerability.</description>
+      <guid isPermaLink="false">CVE-2024-23657|2024-08-08T13:36:34.991Z</guid>
+      <pubDate>Mon, 05 Aug 2024 20:27:38 +0000</pubDate>
     </item>
   </channel>
 </rss>
