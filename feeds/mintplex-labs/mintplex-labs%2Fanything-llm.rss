@@ -6,643 +6,128 @@
     <description>The latest CVEs for mintplex-labs -- mintplex-labs/anything-llm</description>
     <docs>http://www.rssboard.org/rss-specification</docs>
     <generator>python-feedgen</generator>
-    <lastBuildDate>Mon, 12 Aug 2024 14:23:10 +0000</lastBuildDate>
+    <lastBuildDate>Mon, 12 Aug 2024 19:19:59 +0000</lastBuildDate>
     <ttl>60</ttl>
     <item>
-      <title>CVE-2024-0455|2024-08-12T13:40:34.185Z -- mintplex-labs -- mintplex-labs%2Fanything-llm
+      <title>CVE-2024-3283|2024-08-12T18:31:18.785Z -- mintplex-labs -- mintplex-labs%2Fanything-llm
 </title>
-      <link>https://www.cve.org/CVERecord?id=CVE-2024-0455</link>
-      <description>The inclusion of the web scraper for AnythingLLM means that any user with the proper authorization level (manager, admin, and when in single user) could put in the URL
-```
-http://169.254.169.254/latest/meta-data/identity-credentials/ec2/security-credentials/ec2-instance
-```
-which is a special IP and URL that resolves only when the request comes from within an EC2 instance. This would allow the user to see the connection/secret credentials for their specific instance and be able to manage it regardless of who deployed it.
-
-The user would have to have pre-existing knowledge of the hosting infra which the target instance is deployed on, but if sent - would resolve if on EC2 and the proper `iptable` or firewall rule is not configured for their setup.</description>
-      <guid isPermaLink="false">CVE-2024-0455|2024-08-12T13:40:34.185Z</guid>
-      <pubDate>Sun, 25 Feb 2024 08:10:17 +0000</pubDate>
-    </item>
-    <item>
-      <title>CVE-2024-3029|2024-08-09T18:56:41.106Z -- mintplex-labs -- mintplex-labs%2Fanything-llm</title>
-      <link>https://www.cve.org/CVERecord?id=CVE-2024-3029</link>
-      <description>In mintplex-labs/anything-llm, an attacker can exploit improper input validation by sending a malformed JSON payload to the '/system/enable-multi-user' endpoint. This triggers an error that is caught by a catch block, which in turn deletes all users and disables the 'multi_user_mode'. The vulnerability allows an attacker to remove all existing users and potentially create a new admin user without requiring a password, leading to unauthorized access and control over the application.</description>
-      <guid isPermaLink="false">CVE-2024-3029|2024-08-09T18:56:41.106Z</guid>
-      <pubDate>Tue, 16 Apr 2024 00:00:14 +0000</pubDate>
-    </item>
-    <item>
-      <title>CVE-2024-5208|2024-08-01T21:03:11.057Z -- mintplex-labs -- mintplex-labs%2Fanything-llm</title>
-      <link>https://www.cve.org/CVERecord?id=CVE-2024-5208</link>
-      <description>An uncontrolled resource consumption vulnerability exists in the `upload-link` endpoint of mintplex-labs/anything-llm. This vulnerability allows attackers to cause a denial of service (DOS) by shutting down the server through sending invalid upload requests. Specifically, the server can be made to shut down by sending an empty body with a 'Content-Length: 0' header or by sending a body with arbitrary content, such as 'asdasdasd', with a 'Content-Length: 9' header. The vulnerability is reproducible by users with at least a 'Manager' role, sending a crafted request to any workspace. This issue indicates that a previous fix was not effective in mitigating the vulnerability.</description>
-      <guid isPermaLink="false">CVE-2024-5208|2024-08-01T21:03:11.057Z</guid>
-      <pubDate>Wed, 19 Jun 2024 06:13:21 +0000</pubDate>
-    </item>
-    <item>
-      <title>CVE-2024-5211|2024-08-01T21:03:10.993Z -- mintplex-labs -- mintplex-labs%2Fanything-llm</title>
-      <link>https://www.cve.org/CVERecord?id=CVE-2024-5211</link>
-      <description>A path traversal vulnerability in mintplex-labs/anything-llm allowed a manager to bypass the `normalizePath()` function, intended to defend against path traversal attacks. This vulnerability enables the manager to read, delete, or overwrite the 'anythingllm.db' database file and other files stored in the 'storage' directory, such as internal communication keys and .env secrets. Exploitation of this vulnerability could lead to application compromise, denial of service (DoS) attacks, and unauthorized admin account takeover. The issue stems from improper validation of user-supplied input in the process of setting a custom logo for the app, which can be manipulated to achieve arbitrary file read, deletion, or overwrite, and to execute a DoS attack by deleting critical files required for the application's operation.</description>
-      <guid isPermaLink="false">CVE-2024-5211|2024-08-01T21:03:10.993Z</guid>
-      <pubDate>Wed, 12 Jun 2024 11:33:42 +0000</pubDate>
-    </item>
-    <item>
-      <title>CVE-2024-5213|2024-08-01T21:03:11.159Z -- mintplex-labs -- mintplex-labs%2Fanything-llm</title>
-      <link>https://www.cve.org/CVERecord?id=CVE-2024-5213</link>
-      <description>In mintplex-labs/anything-llm versions up to and including 1.5.3, an issue was discovered where the password hash of a user is returned in the response after login (`POST /api/request-token`) and after account creations (`POST /api/admin/users/new`). This exposure occurs because the entire User object, including the bcrypt password hash, is included in the response sent to the frontend. This practice could potentially lead to sensitive information exposure despite the use of bcrypt, a strong hashing algorithm. It is recommended not to expose any clues about passwords to the frontend.</description>
-      <guid isPermaLink="false">CVE-2024-5213|2024-08-01T21:03:11.159Z</guid>
-      <pubDate>Thu, 20 Jun 2024 02:15:33 +0000</pubDate>
-    </item>
-    <item>
-      <title>CVE-2024-5216|2024-08-01T21:03:11.036Z -- mintplex-labs -- mintplex-labs%2Fanything-llm</title>
-      <link>https://www.cve.org/CVERecord?id=CVE-2024-5216</link>
-      <description>A vulnerability in mintplex-labs/anything-llm allows for a Denial of Service (DoS) condition due to uncontrolled resource consumption. Specifically, the issue arises from the application's failure to limit the size of usernames, enabling attackers to create users with excessively bulky texts in the username field. This exploit results in the user management panel becoming unresponsive, preventing administrators from performing critical user management actions such as editing, suspending, or deleting users. The impact of this vulnerability includes administrative paralysis, compromised security, and operational disruption, as it allows malicious users to perpetuate their presence within the system indefinitely, undermines the system's security posture, and degrades overall system performance.</description>
-      <guid isPermaLink="false">CVE-2024-5216|2024-08-01T21:03:11.036Z</guid>
-      <pubDate>Tue, 25 Jun 2024 10:29:55 +0000</pubDate>
-    </item>
-    <item>
-      <title>CVE-2024-3101|2024-08-01T19:32:42.850Z -- mintplex-labs -- mintplex-labs%2Fanything-llm</title>
-      <link>https://www.cve.org/CVERecord?id=CVE-2024-3101</link>
-      <description>In mintplex-labs/anything-llm, an improper input validation vulnerability allows attackers to escalate privileges by deactivating 'Multi-User Mode'. By sending a specially crafted curl request with the 'multi_user_mode' parameter set to false, an attacker can deactivate 'Multi-User Mode'. This action permits the creation of a new admin user without requiring a password, leading to unauthorized administrative access.</description>
-      <guid isPermaLink="false">CVE-2024-3101|2024-08-01T19:32:42.850Z</guid>
-      <pubDate>Wed, 10 Apr 2024 17:08:08 +0000</pubDate>
-    </item>
-    <item>
-      <title>CVE-2024-3028|2024-08-01T19:32:42.699Z -- mintplex-labs -- mintplex-labs%2Fanything-llm</title>
-      <link>https://www.cve.org/CVERecord?id=CVE-2024-3028</link>
-      <description>mintplex-labs/anything-llm is vulnerable to improper input validation, allowing attackers to read and delete arbitrary files on the server. By manipulating the 'logo_filename' parameter in the 'system-preferences' API endpoint, an attacker can construct requests to read sensitive files or the application's '.env' file, and even delete files by setting the 'logo_filename' to the path of the target file and invoking the 'remove-logo' API endpoint. This vulnerability is due to the lack of proper sanitization of user-supplied input.</description>
-      <guid isPermaLink="false">CVE-2024-3028|2024-08-01T19:32:42.699Z</guid>
-      <pubDate>Tue, 16 Apr 2024 00:00:14 +0000</pubDate>
-    </item>
-    <item>
-      <title>CVE-2024-3102|2024-08-01T19:32:42.847Z -- mintplex-labs -- mintplex-labs%2Fanything-llm</title>
-      <link>https://www.cve.org/CVERecord?id=CVE-2024-3102</link>
-      <description>A JSON Injection vulnerability exists in the `mintplex-labs/anything-llm` application, specifically within the username parameter during the login process at the `/api/request-token` endpoint. The vulnerability arises from improper handling of values, allowing attackers to perform brute force attacks without prior knowledge of the username. Once the password is known, attackers can conduct blind attacks to ascertain the full username, significantly compromising system security.</description>
-      <guid isPermaLink="false">CVE-2024-3102|2024-08-01T19:32:42.847Z</guid>
-      <pubDate>Thu, 06 Jun 2024 18:19:23 +0000</pubDate>
-    </item>
-    <item>
-      <title>CVE-2024-3110|2024-08-01T19:32:42.667Z -- mintplex-labs -- mintplex-labs%2Fanything-llm</title>
-      <link>https://www.cve.org/CVERecord?id=CVE-2024-3110</link>
-      <description>A stored Cross-Site Scripting (XSS) vulnerability exists in the mintplex-labs/anything-llm application, affecting versions up to and including the latest before 1.0.0. The vulnerability arises from the application's failure to properly sanitize and validate user-supplied URLs before embedding them into the application UI as external links with custom icons. Specifically, the application does not prevent the inclusion of 'javascript:' protocol payloads in URLs, which can be exploited by a user with manager role to execute arbitrary JavaScript code in the context of another user's session. This flaw can be leveraged to steal the admin's authorization token by crafting malicious URLs that, when clicked by the admin, send the token to an attacker-controlled server. The attacker can then use this token to perform unauthorized actions, escalate privileges to admin, or directly take over the admin account. The vulnerability is triggered when the malicious link is opened in a new tab using either the CTRL + left mouse button click or the mouse scroll wheel click, or in some non-updated versions of modern browsers, by directly clicking on the link.</description>
-      <guid isPermaLink="false">CVE-2024-3110|2024-08-01T19:32:42.667Z</guid>
-      <pubDate>Thu, 06 Jun 2024 18:11:33 +0000</pubDate>
-    </item>
-    <item>
-      <title>CVE-2024-3029|2024-08-01T19:32:42.609Z -- mintplex-labs -- mintplex-labs%2Fanything-llm</title>
-      <link>https://www.cve.org/CVERecord?id=CVE-2024-3029</link>
-      <description>In mintplex-labs/anything-llm, an attacker can exploit improper input validation by sending a malformed JSON payload to the '/system/enable-multi-user' endpoint. This triggers an error that is caught by a catch block, which in turn deletes all users and disables the 'multi_user_mode'. The vulnerability allows an attacker to remove all existing users and potentially create a new admin user without requiring a password, leading to unauthorized access and control over the application.</description>
-      <guid isPermaLink="false">CVE-2024-3029|2024-08-01T19:32:42.609Z</guid>
-      <pubDate>Tue, 16 Apr 2024 00:00:14 +0000</pubDate>
-    </item>
-    <item>
-      <title>CVE-2024-3033|2024-08-01T19:32:42.575Z -- mintplex-labs -- mintplex-labs%2Fanything-llm</title>
-      <link>https://www.cve.org/CVERecord?id=CVE-2024-3033</link>
-      <description>An improper authorization vulnerability exists in the mintplex-labs/anything-llm application, specifically within the '/api/v/' endpoint and its sub-routes. This flaw allows unauthenticated users to perform destructive actions on the VectorDB, including resetting the database and deleting specific namespaces, without requiring any authorization or permissions. The issue affects all versions up to and including the latest version, with a fix introduced in version 1.0.0. Exploitation of this vulnerability can lead to complete data loss of document embeddings across all workspaces, rendering workspace chats and embeddable chat widgets non-functional. Additionally, attackers can list all namespaces, potentially exposing private workspace names.</description>
-      <guid isPermaLink="false">CVE-2024-3033|2024-08-01T19:32:42.575Z</guid>
-      <pubDate>Thu, 06 Jun 2024 17:32:35 +0000</pubDate>
-    </item>
-    <item>
-      <title>CVE-2024-3104|2024-08-01T19:32:42.539Z -- mintplex-labs -- mintplex-labs%2Fanything-llm</title>
-      <link>https://www.cve.org/CVERecord?id=CVE-2024-3104</link>
-      <description>A remote code execution vulnerability exists in mintplex-labs/anything-llm due to improper handling of environment variables. Attackers can exploit this vulnerability by injecting arbitrary environment variables via the `POST /api/system/update-env` endpoint, which allows for the execution of arbitrary code on the host running anything-llm. The vulnerability is present in the latest version of anything-llm, with the latest commit identified as fde905aac1812b84066ff72e5f2f90b56d4c3a59. This issue has been fixed in version 1.0.0. Successful exploitation could lead to code execution on the host, enabling attackers to read and modify data accessible to the user running the service, potentially leading to a denial of service.</description>
-      <guid isPermaLink="false">CVE-2024-3104|2024-08-01T19:32:42.539Z</guid>
-      <pubDate>Thu, 06 Jun 2024 17:50:18 +0000</pubDate>
-    </item>
-    <item>
-      <title>CVE-2024-2913|2024-08-01T19:25:42.157Z -- mintplex-labs -- mintplex-labs%2Fanything-llm</title>
-      <link>https://www.cve.org/CVERecord?id=CVE-2024-2913</link>
-      <description>A race condition vulnerability exists in the mintplex-labs/anything-llm repository, specifically within the user invite acceptance process. Attackers can exploit this vulnerability by sending multiple concurrent requests to accept a single user invite, allowing the creation of multiple user accounts from a single invite link intended for only one user. This bypasses the intended security mechanism that restricts invite acceptance to a single user, leading to unauthorized user creation without detection in the invite tab. The issue is due to the lack of validation for concurrent requests in the backend.</description>
-      <guid isPermaLink="false">CVE-2024-2913|2024-08-01T19:25:42.157Z</guid>
-      <pubDate>Mon, 06 May 2024 23:42:10 +0000</pubDate>
-    </item>
-    <item>
-      <title>CVE-2024-3025|2024-08-01T19:32:42.584Z -- mintplex-labs -- mintplex-labs%2Fanything-llm</title>
-      <link>https://www.cve.org/CVERecord?id=CVE-2024-3025</link>
-      <description>mintplex-labs/anything-llm is vulnerable to path traversal attacks due to insufficient validation of user-supplied input in the logo filename functionality. Attackers can exploit this vulnerability by manipulating the logo filename to reference files outside of the restricted directory. This can lead to unauthorized reading or deletion of files by utilizing the `/api/system/upload-logo` and `/api/system/logo` endpoints. The issue stems from the lack of filtering or validation on the logo filename, allowing attackers to target sensitive files such as the application's database.</description>
-      <guid isPermaLink="false">CVE-2024-3025|2024-08-01T19:32:42.584Z</guid>
-      <pubDate>Wed, 10 Apr 2024 17:07:52 +0000</pubDate>
-    </item>
-    <item>
-      <title>CVE-2024-0436|2024-07-26T18:32:57.999Z -- mintplex-labs -- mintplex-labs%2Fanything-llm</title>
-      <link>https://www.cve.org/CVERecord?id=CVE-2024-0436</link>
-      <description>Theoretically, it would be possible for an attacker to brute-force the password for an instance in single-user password protection mode via a timing attack given the linear nature of the `!==` used for comparison.
-
-The risk is minified by the additional overhead of the request, which varies in a non-constant nature making the attack less reliable to execute</description>
-      <guid isPermaLink="false">CVE-2024-0436|2024-07-26T18:32:57.999Z</guid>
-      <pubDate>Sun, 25 Feb 2024 16:25:11 +0000</pubDate>
-    </item>
-    <item>
-      <title>CVE-2024-3149|2024-07-23T16:21:19.742Z -- mintplex-labs -- mintplex-labs%2Fanything-llm</title>
-      <link>https://www.cve.org/CVERecord?id=CVE-2024-3149</link>
-      <description>A Server-Side Request Forgery (SSRF) vulnerability exists in the upload link feature of mintplex-labs/anything-llm. This feature, intended for users with manager or admin roles, processes uploaded links through an internal Collector API using a headless browser. An attacker can exploit this by hosting a malicious website and using it to perform actions such as internal port scanning, accessing internal web applications not exposed externally, and interacting with the Collector API. This interaction can lead to unauthorized actions such as arbitrary file deletion and limited Local File Inclusion (LFI), including accessing NGINX access logs which may contain sensitive information.</description>
-      <guid isPermaLink="false">CVE-2024-3149|2024-07-23T16:21:19.742Z</guid>
-      <pubDate>Thu, 06 Jun 2024 18:43:50 +0000</pubDate>
-    </item>
-    <item>
-      <title>CVE-2024-0549|2024-07-10T16:33:03.406Z -- mintplex-labs -- mintplex-labs%2Fanything-llm</title>
-      <link>https://www.cve.org/CVERecord?id=CVE-2024-0549</link>
-      <description>mintplex-labs/anything-llm is vulnerable to a relative path traversal attack, allowing unauthorized attackers with a default role account to delete files and folders within the filesystem, including critical database files such as 'anythingllm.db'. The vulnerability stems from insufficient input validation and normalization in the handling of file and folder deletion requests. Successful exploitation results in the compromise of data integrity and availability.</description>
-      <guid isPermaLink="false">CVE-2024-0549|2024-07-10T16:33:03.406Z</guid>
-      <pubDate>Tue, 16 Apr 2024 00:00:14 +0000</pubDate>
-    </item>
-    <item>
-      <title>CVE-2024-3569|2024-07-05T17:22:39.767Z -- mintplex-labs -- mintplex-labs%2Fanything-llm</title>
-      <link>https://www.cve.org/CVERecord?id=CVE-2024-3569</link>
-      <description>A Denial of Service (DoS) vulnerability exists in the mintplex-labs/anything-llm repository when the application is running in 'just me' mode with a password. An attacker can exploit this vulnerability by making a request to the endpoint using the [validatedRequest] middleware with a specially crafted 'Authorization:' header. This vulnerability leads to uncontrolled resource consumption, causing a DoS condition.</description>
-      <guid isPermaLink="false">CVE-2024-3569|2024-07-05T17:22:39.767Z</guid>
-      <pubDate>Wed, 10 Apr 2024 17:07:57 +0000</pubDate>
-    </item>
-    <item>
-      <title>CVE-2024-3570|2024-07-05T17:21:18.133Z -- mintplex-labs -- mintplex-labs%2Fanything-llm</title>
-      <link>https://www.cve.org/CVERecord?id=CVE-2024-3570</link>
-      <description>A stored Cross-Site Scripting (XSS) vulnerability exists in the chat functionality of the mintplex-labs/anything-llm repository, allowing attackers to execute arbitrary JavaScript in the context of a user's session. By manipulating the ChatBot responses, an attacker can inject malicious scripts to perform actions on behalf of the user, such as creating a new admin account or changing the user's password, leading to a complete takeover of the AnythingLLM application. The vulnerability stems from the improper sanitization of user and ChatBot input, specifically through the use of `dangerouslySetInnerHTML`. Successful exploitation requires convincing an admin to add a malicious LocalAI ChatBot to their AnythingLLM instance.</description>
-      <guid isPermaLink="false">CVE-2024-3570|2024-07-05T17:21:18.133Z</guid>
-      <pubDate>Wed, 10 Apr 2024 17:08:15 +0000</pubDate>
-    </item>
-    <item>
-      <title>CVE-2024-5216|2024-06-26T17:20:30.275Z -- mintplex-labs -- mintplex-labs%2Fanything-llm</title>
-      <link>https://www.cve.org/CVERecord?id=CVE-2024-5216</link>
-      <description>A vulnerability in mintplex-labs/anything-llm allows for a Denial of Service (DoS) condition due to uncontrolled resource consumption. Specifically, the issue arises from the application's failure to limit the size of usernames, enabling attackers to create users with excessively bulky texts in the username field. This exploit results in the user management panel becoming unresponsive, preventing administrators from performing critical user management actions such as editing, suspending, or deleting users. The impact of this vulnerability includes administrative paralysis, compromised security, and operational disruption, as it allows malicious users to perpetuate their presence within the system indefinitely, undermines the system's security posture, and degrades overall system performance.</description>
-      <guid isPermaLink="false">CVE-2024-5216|2024-06-26T17:20:30.275Z</guid>
-      <pubDate>Tue, 25 Jun 2024 10:29:55 +0000</pubDate>
-    </item>
-    <item>
-      <title>CVE-2024-5213|2024-06-20T16:23:43.095Z -- mintplex-labs -- mintplex-labs%2Fanything-llm</title>
-      <link>https://www.cve.org/CVERecord?id=CVE-2024-5213</link>
-      <description>In mintplex-labs/anything-llm versions up to and including 1.5.3, an issue was discovered where the password hash of a user is returned in the response after login (`POST /api/request-token`) and after account creations (`POST /api/admin/users/new`). This exposure occurs because the entire User object, including the bcrypt password hash, is included in the response sent to the frontend. This practice could potentially lead to sensitive information exposure despite the use of bcrypt, a strong hashing algorithm. It is recommended not to expose any clues about passwords to the frontend.</description>
-      <guid isPermaLink="false">CVE-2024-5213|2024-06-20T16:23:43.095Z</guid>
-      <pubDate>Thu, 20 Jun 2024 02:15:33 +0000</pubDate>
-    </item>
-    <item>
-      <title>CVE-2024-5211|2024-06-20T13:56:43.624Z -- mintplex-labs -- mintplex-labs%2Fanything-llm</title>
-      <link>https://www.cve.org/CVERecord?id=CVE-2024-5211</link>
-      <description>A path traversal vulnerability in mintplex-labs/anything-llm allowed a manager to bypass the `normalizePath()` function, intended to defend against path traversal attacks. This vulnerability enables the manager to read, delete, or overwrite the 'anythingllm.db' database file and other files stored in the 'storage' directory, such as internal communication keys and .env secrets. Exploitation of this vulnerability could lead to application compromise, denial of service (DoS) attacks, and unauthorized admin account takeover. The issue stems from improper validation of user-supplied input in the process of setting a custom logo for the app, which can be manipulated to achieve arbitrary file read, deletion, or overwrite, and to execute a DoS attack by deleting critical files required for the application's operation.</description>
-      <guid isPermaLink="false">CVE-2024-5211|2024-06-20T13:56:43.624Z</guid>
-      <pubDate>Wed, 12 Jun 2024 11:33:42 +0000</pubDate>
-    </item>
-    <item>
-      <title>CVE-2024-5208|2024-06-19T06:13:21.660Z -- mintplex-labs -- mintplex-labs%2Fanything-llm</title>
-      <link>https://www.cve.org/CVERecord?id=CVE-2024-5208</link>
-      <description>An uncontrolled resource consumption vulnerability exists in the `upload-link` endpoint of mintplex-labs/anything-llm. This vulnerability allows attackers to cause a denial of service (DOS) by shutting down the server through sending invalid upload requests. Specifically, the server can be made to shut down by sending an empty body with a 'Content-Length: 0' header or by sending a body with arbitrary content, such as 'asdasdasd', with a 'Content-Length: 9' header. The vulnerability is reproducible by users with at least a 'Manager' role, sending a crafted request to any workspace. This issue indicates that a previous fix was not effective in mitigating the vulnerability.</description>
-      <guid isPermaLink="false">CVE-2024-5208|2024-06-19T06:13:21.660Z</guid>
-      <pubDate>Wed, 19 Jun 2024 06:13:21 +0000</pubDate>
-    </item>
-    <item>
-      <title>CVE-2024-5211|2024-06-12T11:33:42.236Z -- mintplex-labs -- mintplex-labs%2Fanything-llm</title>
-      <link>https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2024-5211</link>
-      <description>A path traversal vulnerability in mintplex-labs/anything-llm allowed a manager to bypass the `normalizePath()` function, intended to defend against path traversal attacks. This vulnerability enables the manager to read, delete, or overwrite the 'anythingllm.db' database file and other files stored in the 'storage' directory, such as internal communication keys and .env secrets. Exploitation of this vulnerability could lead to application compromise, denial of service (DoS) attacks, and unauthorized admin account takeover. The issue stems from improper validation of user-supplied input in the process of setting a custom logo for the app, which can be manipulated to achieve arbitrary file read, deletion, or overwrite, and to execute a DoS attack by deleting critical files required for the application's operation.</description>
-      <guid isPermaLink="false">CVE-2024-5211|2024-06-12T11:33:42.236Z</guid>
-      <pubDate>Wed, 12 Jun 2024 11:33:42 +0000</pubDate>
-    </item>
-    <item>
-      <title>CVE-2024-2913|2024-06-04T17:29:29.985Z -- mintplex-labs -- mintplex-labs%2Fanything-llm</title>
-      <link>https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2024-2913</link>
-      <description>A race condition vulnerability exists in the mintplex-labs/anything-llm repository, specifically within the user invite acceptance process. Attackers can exploit this vulnerability by sending multiple concurrent requests to accept a single user invite, allowing the creation of multiple user accounts from a single invite link intended for only one user. This bypasses the intended security mechanism that restricts invite acceptance to a single user, leading to unauthorized user creation without detection in the invite tab. The issue is due to the lack of validation for concurrent requests in the backend.</description>
-      <guid isPermaLink="false">CVE-2024-2913|2024-06-04T17:29:29.985Z</guid>
-      <pubDate>Mon, 06 May 2024 23:42:10 +0000</pubDate>
-    </item>
-    <item>
-      <title>CVE-2024-3102|2024-06-11T14:57:57.529Z -- mintplex-labs -- mintplex-labs%2Fanything-llm</title>
-      <link>https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2024-3102</link>
-      <description>A JSON Injection vulnerability exists in the `mintplex-labs/anything-llm` application, specifically within the username parameter during the login process at the `/api/request-token` endpoint. The vulnerability arises from improper handling of values, allowing attackers to perform brute force attacks without prior knowledge of the username. Once the password is known, attackers can conduct blind attacks to ascertain the full username, significantly compromising system security.</description>
-      <guid isPermaLink="false">CVE-2024-3102|2024-06-11T14:57:57.529Z</guid>
-      <pubDate>Thu, 06 Jun 2024 18:19:23 +0000</pubDate>
-    </item>
-    <item>
-      <title>CVE-2024-3569|2024-04-16T11:10:24.721Z -- mintplex-labs -- mintplex-labs%2Fanything-llm</title>
-      <link>https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2024-3569</link>
-      <description>A Denial of Service (DoS) vulnerability exists in the mintplex-labs/anything-llm repository when the application is running in 'just me' mode with a password. An attacker can exploit this vulnerability by making a request to the endpoint using the [validatedRequest] middleware with a specially crafted 'Authorization:' header. This vulnerability leads to uncontrolled resource consumption, causing a DoS condition.</description>
-      <guid isPermaLink="false">CVE-2024-3569|2024-04-16T11:10:24.721Z</guid>
-      <pubDate>Wed, 10 Apr 2024 17:07:57 +0000</pubDate>
-    </item>
-    <item>
-      <title>CVE-2024-3149|2024-06-06T18:43:50.967Z -- mintplex-labs -- mintplex-labs%2Fanything-llm</title>
-      <link>https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2024-3149</link>
-      <description>A Server-Side Request Forgery (SSRF) vulnerability exists in the upload link feature of mintplex-labs/anything-llm. This feature, intended for users with manager or admin roles, processes uploaded links through an internal Collector API using a headless browser. An attacker can exploit this by hosting a malicious website and using it to perform actions such as internal port scanning, accessing internal web applications not exposed externally, and interacting with the Collector API. This interaction can lead to unauthorized actions such as arbitrary file deletion and limited Local File Inclusion (LFI), including accessing NGINX access logs which may contain sensitive information.</description>
-      <guid isPermaLink="false">CVE-2024-3149|2024-06-06T18:43:50.967Z</guid>
-      <pubDate>Thu, 06 Jun 2024 18:43:50 +0000</pubDate>
-    </item>
-    <item>
-      <title>CVE-2024-3283|2024-04-16T11:10:29.837Z -- mintplex-labs -- mintplex-labs%2Fanything-llm</title>
-      <link>https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2024-3283</link>
+      <link>https://www.cve.org/CVERecord?id=CVE-2024-3283</link>
       <description>A vulnerability in mintplex-labs/anything-llm allows users with manager roles to escalate their privileges to admin roles through a mass assignment issue. The '/admin/system-preferences' API endpoint improperly authorizes manager-level users to modify the 'multi_user_mode' system variable, enabling them to access the '/api/system/enable-multi-user' endpoint and create a new admin user. This issue results from the endpoint accepting a full JSON object in the request body without proper validation of modifiable fields, leading to unauthorized modification of system settings and subsequent privilege escalation.</description>
-      <guid isPermaLink="false">CVE-2024-3283|2024-04-16T11:10:29.837Z</guid>
+      <guid isPermaLink="false">CVE-2024-3283|2024-08-12T18:31:18.785Z</guid>
       <pubDate>Wed, 10 Apr 2024 17:07:59 +0000</pubDate>
     </item>
     <item>
-      <title>CVE-2024-3104|2024-06-06T20:42:41.198Z -- mintplex-labs -- mintplex-labs%2Fanything-llm</title>
-      <link>https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2024-3104</link>
-      <description>A remote code execution vulnerability exists in mintplex-labs/anything-llm due to improper handling of environment variables. Attackers can exploit this vulnerability by injecting arbitrary environment variables via the `POST /api/system/update-env` endpoint, which allows for the execution of arbitrary code on the host running anything-llm. The vulnerability is present in the latest version of anything-llm, with the latest commit identified as fde905aac1812b84066ff72e5f2f90b56d4c3a59. This issue has been fixed in version 1.0.0. Successful exploitation could lead to code execution on the host, enabling attackers to read and modify data accessible to the user running the service, potentially leading to a denial of service.</description>
-      <guid isPermaLink="false">CVE-2024-3104|2024-06-06T20:42:41.198Z</guid>
-      <pubDate>Thu, 06 Jun 2024 17:50:18 +0000</pubDate>
-    </item>
-    <item>
-      <title>CVE-2024-3153|2024-06-07T13:38:48.524Z -- mintplex-labs -- mintplex-labs%2Fanything-llm</title>
-      <link>https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2024-3153</link>
-      <description>mintplex-labs/anything-llm is affected by an uncontrolled resource consumption vulnerability in its upload file endpoint, leading to a denial of service (DOS) condition. Specifically, the server can be shut down by sending an invalid upload request. An attacker with the ability to upload documents can exploit this vulnerability to cause a DOS condition by manipulating the upload request.</description>
-      <guid isPermaLink="false">CVE-2024-3153|2024-06-07T13:38:48.524Z</guid>
-      <pubDate>Thu, 06 Jun 2024 18:40:53 +0000</pubDate>
-    </item>
-    <item>
-      <title>CVE-2024-3152|2024-06-06T18:36:30.092Z -- mintplex-labs -- mintplex-labs%2Fanything-llm</title>
-      <link>https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2024-3152</link>
-      <description>mintplex-labs/anything-llm is vulnerable to multiple security issues due to improper input validation in several endpoints. An attacker can exploit these vulnerabilities to escalate privileges from a default user role to an admin role, read and delete arbitrary files on the system, and perform Server-Side Request Forgery (SSRF) attacks. The vulnerabilities are present in the `/request-token`, `/workspace/:slug/thread/:threadSlug/update`, `/system/remove-logo`, `/system/logo`, and collector's `/process` endpoints. These issues are due to the application's failure to properly validate user input before passing it to `prisma` functions and other critical operations. Affected versions include the latest version prior to 1.0.0.</description>
-      <guid isPermaLink="false">CVE-2024-3152|2024-06-06T18:36:30.092Z</guid>
-      <pubDate>Thu, 06 Jun 2024 17:19:15 +0000</pubDate>
-    </item>
-    <item>
-      <title>CVE-2024-3110|2024-06-06T20:37:31.481Z -- mintplex-labs -- mintplex-labs%2Fanything-llm</title>
-      <link>https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2024-3110</link>
-      <description>A stored Cross-Site Scripting (XSS) vulnerability exists in the mintplex-labs/anything-llm application, affecting versions up to and including the latest before 1.0.0. The vulnerability arises from the application's failure to properly sanitize and validate user-supplied URLs before embedding them into the application UI as external links with custom icons. Specifically, the application does not prevent the inclusion of 'javascript:' protocol payloads in URLs, which can be exploited by a user with manager role to execute arbitrary JavaScript code in the context of another user's session. This flaw can be leveraged to steal the admin's authorization token by crafting malicious URLs that, when clicked by the admin, send the token to an attacker-controlled server. The attacker can then use this token to perform unauthorized actions, escalate privileges to admin, or directly take over the admin account. The vulnerability is triggered when the malicious link is opened in a new tab using either the CTRL + left mouse button click or the mouse scroll wheel click, or in some non-updated versions of modern browsers, by directly clicking on the link.</description>
-      <guid isPermaLink="false">CVE-2024-3110|2024-06-06T20:37:31.481Z</guid>
-      <pubDate>Thu, 06 Jun 2024 18:11:33 +0000</pubDate>
-    </item>
-    <item>
-      <title>CVE-2024-3150|2024-06-07T12:31:01.744Z -- mintplex-labs -- mintplex-labs%2Fanything-llm</title>
-      <link>https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2024-3150</link>
-      <description>In mintplex-labs/anything-llm, a vulnerability exists in the thread update process that allows users with Default or Manager roles to escalate their privileges to Administrator. The issue arises from improper input validation when handling HTTP POST requests to the endpoint `/workspace/:slug/thread/:threadSlug/update`. Specifically, the application fails to validate or check user input before passing it to the `workspace_thread` Prisma model for execution. This oversight allows attackers to craft a Prisma relation query operation that manipulates the `users` model to change a user's role to admin. Successful exploitation grants attackers the highest level of user privileges, enabling them to see and perform all actions within the system.</description>
-      <guid isPermaLink="false">CVE-2024-3150|2024-06-07T12:31:01.744Z</guid>
-      <pubDate>Thu, 06 Jun 2024 18:53:43 +0000</pubDate>
-    </item>
-    <item>
-      <title>CVE-2024-3166|2024-06-07T17:05:17.694Z -- mintplex-labs -- mintplex-labs%2Fanything-llm</title>
-      <link>https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2024-3166</link>
-      <description>A Cross-Site Scripting (XSS) vulnerability exists in mintplex-labs/anything-llm, affecting both the desktop application version 1.2.0 and the latest version of the web application. The vulnerability arises from the application's feature to fetch and embed content from websites into workspaces, which can be exploited to execute arbitrary JavaScript code. In the desktop application, this flaw can be escalated to Remote Code Execution (RCE) due to insecure application settings, specifically the enabling of 'nodeIntegration' and the disabling of 'contextIsolation' in Electron's webPreferences. The issue has been addressed in version 1.4.2 of the desktop application.</description>
-      <guid isPermaLink="false">CVE-2024-3166|2024-06-07T17:05:17.694Z</guid>
-      <pubDate>Thu, 06 Jun 2024 18:23:36 +0000</pubDate>
-    </item>
-    <item>
-      <title>CVE-2024-3028|2024-04-16T11:10:37.293Z -- mintplex-labs -- mintplex-labs%2Fanything-llm</title>
-      <link>https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2024-3028</link>
-      <description>mintplex-labs/anything-llm is vulnerable to improper input validation, allowing attackers to read and delete arbitrary files on the server. By manipulating the 'logo_filename' parameter in the 'system-preferences' API endpoint, an attacker can construct requests to read sensitive files or the application's '.env' file, and even delete files by setting the 'logo_filename' to the path of the target file and invoking the 'remove-logo' API endpoint. This vulnerability is due to the lack of proper sanitization of user-supplied input.</description>
-      <guid isPermaLink="false">CVE-2024-3028|2024-04-16T11:10:37.293Z</guid>
-      <pubDate>Tue, 16 Apr 2024 00:00:14 +0000</pubDate>
-    </item>
-    <item>
-      <title>CVE-2024-3570|2024-04-16T11:10:42.800Z -- mintplex-labs -- mintplex-labs%2Fanything-llm</title>
-      <link>https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2024-3570</link>
-      <description>A stored Cross-Site Scripting (XSS) vulnerability exists in the chat functionality of the mintplex-labs/anything-llm repository, allowing attackers to execute arbitrary JavaScript in the context of a user's session. By manipulating the ChatBot responses, an attacker can inject malicious scripts to perform actions on behalf of the user, such as creating a new admin account or changing the user's password, leading to a complete takeover of the AnythingLLM application. The vulnerability stems from the improper sanitization of user and ChatBot input, specifically through the use of `dangerouslySetInnerHTML`. Successful exploitation requires convincing an admin to add a malicious LocalAI ChatBot to their AnythingLLM instance.</description>
-      <guid isPermaLink="false">CVE-2024-3570|2024-04-16T11:10:42.800Z</guid>
-      <pubDate>Wed, 10 Apr 2024 17:08:15 +0000</pubDate>
-    </item>
-    <item>
-      <title>CVE-2024-3033|2024-06-06T18:41:42.155Z -- mintplex-labs -- mintplex-labs%2Fanything-llm</title>
-      <link>https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2024-3033</link>
-      <description>An improper authorization vulnerability exists in the mintplex-labs/anything-llm application, specifically within the '/api/v/' endpoint and its sub-routes. This flaw allows unauthenticated users to perform destructive actions on the VectorDB, including resetting the database and deleting specific namespaces, without requiring any authorization or permissions. The issue affects all versions up to and including the latest version, with a fix introduced in version 1.0.0. Exploitation of this vulnerability can lead to complete data loss of document embeddings across all workspaces, rendering workspace chats and embeddable chat widgets non-functional. Additionally, attackers can list all namespaces, potentially exposing private workspace names.</description>
-      <guid isPermaLink="false">CVE-2024-3033|2024-06-06T18:41:42.155Z</guid>
-      <pubDate>Thu, 06 Jun 2024 17:32:35 +0000</pubDate>
-    </item>
-    <item>
-      <title>CVE-2024-3025|2024-04-16T11:10:20.884Z -- mintplex-labs -- mintplex-labs%2Fanything-llm</title>
-      <link>https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2024-3025</link>
-      <description>mintplex-labs/anything-llm is vulnerable to path traversal attacks due to insufficient validation of user-supplied input in the logo filename functionality. Attackers can exploit this vulnerability by manipulating the logo filename to reference files outside of the restricted directory. This can lead to unauthorized reading or deletion of files by utilizing the `/api/system/upload-logo` and `/api/system/logo` endpoints. The issue stems from the lack of filtering or validation on the logo filename, allowing attackers to target sensitive files such as the application's database.</description>
-      <guid isPermaLink="false">CVE-2024-3025|2024-04-16T11:10:20.884Z</guid>
-      <pubDate>Wed, 10 Apr 2024 17:07:52 +0000</pubDate>
-    </item>
-    <item>
-      <title>CVE-2024-3029|2024-04-16T11:10:37.781Z -- mintplex-labs -- mintplex-labs%2Fanything-llm</title>
-      <link>https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2024-3029</link>
-      <description>In mintplex-labs/anything-llm, an attacker can exploit improper input validation by sending a malformed JSON payload to the '/system/enable-multi-user' endpoint. This triggers an error that is caught by a catch block, which in turn deletes all users and disables the 'multi_user_mode'. The vulnerability allows an attacker to remove all existing users and potentially create a new admin user without requiring a password, leading to unauthorized access and control over the application.</description>
-      <guid isPermaLink="false">CVE-2024-3029|2024-04-16T11:10:37.781Z</guid>
-      <pubDate>Tue, 16 Apr 2024 00:00:14 +0000</pubDate>
-    </item>
-    <item>
-      <title>CVE-2024-3101|2024-04-16T11:10:36.819Z -- mintplex-labs -- mintplex-labs%2Fanything-llm</title>
-      <link>https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2024-3101</link>
-      <description>In mintplex-labs/anything-llm, an improper input validation vulnerability allows attackers to escalate privileges by deactivating 'Multi-User Mode'. By sending a specially crafted curl request with the 'multi_user_mode' parameter set to false, an attacker can deactivate 'Multi-User Mode'. This action permits the creation of a new admin user without requiring a password, leading to unauthorized administrative access.</description>
-      <guid isPermaLink="false">CVE-2024-3101|2024-04-16T11:10:36.819Z</guid>
-      <pubDate>Wed, 10 Apr 2024 17:08:08 +0000</pubDate>
-    </item>
-    <item>
-      <title>CVE-2024-4287|2024-05-20T12:24:51.682Z -- mintplex-labs -- mintplex-labs%2Fanything-llm</title>
-      <link>https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2024-4287</link>
-      <description>In mintplex-labs/anything-llm, a vulnerability exists due to improper input validation in the workspace update process. Specifically, the application fails to validate or format JSON data sent in an HTTP POST request to `/api/workspace/:workspace-slug/update`, allowing it to be executed as part of a database query without restrictions. This flaw enables users with a manager role to craft a request that includes nested write operations, effectively allowing them to create new Administrator accounts.</description>
-      <guid isPermaLink="false">CVE-2024-4287|2024-05-20T12:24:51.682Z</guid>
-      <pubDate>Mon, 20 May 2024 12:24:51 +0000</pubDate>
-    </item>
-    <item>
-      <title>CVE-2024-4286|2024-06-04T17:54:25.287Z -- mintplex-labs -- mintplex-labs%2Fanything-llm</title>
-      <link>https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2024-4286</link>
-      <description>Mintplex-Labs' anything-llm application is vulnerable to improper neutralization of special elements used in an expression language statement, identified in the commit id `57984fa85c31988b2eff429adfc654c46e0c342a`. The vulnerability arises from the application's handling of user modifications by managers or admins, allowing for the modification of all existing attributes of the `user` database entity without proper checks or sanitization. This flaw can be exploited to delete user threads, denying users access to their previously submitted data, or to inject fake threads and/or chat history for social engineering attacks.</description>
-      <guid isPermaLink="false">CVE-2024-4286|2024-06-04T17:54:25.287Z</guid>
-      <pubDate>Sun, 26 May 2024 22:25:12 +0000</pubDate>
-    </item>
-    <item>
-      <title>CVE-2024-4084|2024-06-05T00:00:14.901Z -- mintplex-labs -- mintplex-labs%2Fanything-llm</title>
-      <link>https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2024-4084</link>
-      <description>A Server-Side Request Forgery (SSRF) vulnerability exists in the latest version of mintplex-labs/anything-llm, allowing attackers to bypass the official fix intended to restrict access to intranet IP addresses and protocols. Despite efforts to filter out intranet IP addresses starting with 192, 172, 10, and 127 through regular expressions and limit access protocols to HTTP and HTTPS, attackers can still bypass these restrictions using alternative representations of IP addresses and accessing other ports running on localhost. This vulnerability enables attackers to access any asset on the internal network, attack web services on the internal network, scan hosts on the internal network, and potentially access AWS metadata endpoints. The vulnerability is due to insufficient validation of user-supplied URLs, which can be exploited to perform SSRF attacks.</description>
-      <guid isPermaLink="false">CVE-2024-4084|2024-06-05T00:00:14.901Z</guid>
-      <pubDate>Wed, 05 Jun 2024 00:00:14 +0000</pubDate>
-    </item>
-    <item>
-      <title>CVE-2024-4284|2024-06-04T17:55:29.452Z -- mintplex-labs -- mintplex-labs%2Fanything-llm</title>
-      <link>https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2024-4284</link>
-      <description>A vulnerability in mintplex-labs/anything-llm allows for a denial of service (DoS) condition through the modification of a user's `id` attribute to a value of 0. This issue affects the current version of the software, with the latest commit id `57984fa85c31988b2eff429adfc654c46e0c342a`. By exploiting this vulnerability, an attacker, with manager or admin privileges, can render a chosen account completely inaccessible. The application's mechanism for suspending accounts does not provide a means to reverse this condition through the UI, leading to uncontrolled resource consumption. The vulnerability is introduced due to the lack of input validation and sanitization in the user modification endpoint and the middleware's token validation logic. This issue has been addressed in version 1.0.0 of the software.</description>
-      <guid isPermaLink="false">CVE-2024-4284|2024-06-04T17:55:29.452Z</guid>
-      <pubDate>Sun, 19 May 2024 22:23:48 +0000</pubDate>
-    </item>
-    <item>
-      <title>CVE-2024-0759|2024-03-07T19:59:40.961Z -- mintplex-labs -- mintplex-labs%2Fanything-llm</title>
-      <link>https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2024-0759</link>
-      <description>Should an instance of AnythingLLM be hosted on an internal network and the attacked be explicitly granted a permission level of manager or admin, they could link-scrape internally resolving IPs of other services that are on the same network as AnythingLLM.
-
-This would require the attacker also be able to guess these internal IPs as `/*` ranging is not possible, but could be brute forced.
-
-There is a duty of care that other services on the same network would not be fully open and accessible via a simple CuRL with zero authentication as it is not possible to set headers or access via the link collector.</description>
-      <guid isPermaLink="false">CVE-2024-0759|2024-03-07T19:59:40.961Z</guid>
-      <pubDate>Tue, 27 Feb 2024 05:12:38 +0000</pubDate>
-    </item>
-    <item>
-      <title>CVE-2024-0763|2024-02-27T21:15:58.863Z -- mintplex-labs -- mintplex-labs%2Fanything-llm</title>
-      <link>https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2024-0763</link>
-      <description>Any user can delete an arbitrary folder (recursively) on a remote server due to bad input sanitization leading to path traversal. The attacker would need access to the server at some privilege level since this endpoint is protected and requires authorization.</description>
-      <guid isPermaLink="false">CVE-2024-0763|2024-02-27T21:15:58.863Z</guid>
-      <pubDate>Tue, 27 Feb 2024 21:14:56 +0000</pubDate>
-    </item>
-    <item>
-      <title>CVE-2024-0765|2024-03-03T14:13:41.067Z -- mintplex-labs -- mintplex-labs%2Fanything-llm</title>
-      <link>https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2024-0765</link>
-      <description>As a default user on a multi-user instance of AnythingLLM, you could execute a call to the `/export-data` endpoint of the system and then unzip and read that export that would enable you do exfiltrate data of the system at that save state.
-
-This would require the attacked to be granted explicit access to the system, but they can do this at any role. Additionally, post-download, the data is deleted so no evidence would exist that the exfiltration occured.</description>
-      <guid isPermaLink="false">CVE-2024-0765|2024-03-03T14:13:41.067Z</guid>
-      <pubDate>Sun, 03 Mar 2024 14:13:41 +0000</pubDate>
-    </item>
-    <item>
-      <title>CVE-2024-0440|2024-02-25T19:00:42.753Z -- mintplex-labs -- mintplex-labs%2Fanything-llm</title>
-      <link>https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2024-0440</link>
-      <description>Attacker, with permission to submit a link or submits a link via POST  to be collected that is using the file:// protocol can then introspect host files and other relatively stored files.</description>
-      <guid isPermaLink="false">CVE-2024-0440|2024-02-25T19:00:42.753Z</guid>
-      <pubDate>Sun, 25 Feb 2024 19:00:42 +0000</pubDate>
-    </item>
-    <item>
-      <title>CVE-2024-0549|2024-04-16T11:10:49.469Z -- mintplex-labs -- mintplex-labs%2Fanything-llm</title>
-      <link>https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2024-0549</link>
-      <description>mintplex-labs/anything-llm is vulnerable to a relative path traversal attack, allowing unauthorized attackers with a default role account to delete files and folders within the filesystem, including critical database files such as 'anythingllm.db'. The vulnerability stems from insufficient input validation and normalization in the handling of file and folder deletion requests. Successful exploitation results in the compromise of data integrity and availability.</description>
-      <guid isPermaLink="false">CVE-2024-0549|2024-04-16T11:10:49.469Z</guid>
-      <pubDate>Tue, 16 Apr 2024 00:00:14 +0000</pubDate>
-    </item>
-    <item>
-      <title>CVE-2024-0436|2024-02-25T16:26:15.646Z -- mintplex-labs -- mintplex-labs%2Fanything-llm</title>
-      <link>https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2024-0436</link>
-      <description>Theoretically, it would be possible for an attacker to brute-force the password for an instance in single-user password protection mode via a timing attack given the linear nature of the `!==` used for comparison.
-
-The risk is minified by the additional overhead of the request, which varies in a non-constant nature making the attack less reliable to execute</description>
-      <guid isPermaLink="false">CVE-2024-0436|2024-02-25T16:26:15.646Z</guid>
-      <pubDate>Sun, 25 Feb 2024 16:25:11 +0000</pubDate>
-    </item>
-    <item>
-      <title>CVE-2024-0435|2024-02-25T17:05:17.021Z -- mintplex-labs -- mintplex-labs%2Fanything-llm</title>
-      <link>https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2024-0435</link>
-      <description>User can send a chat that contains an XSS opportunity that will then run when the chat is sent and on subsequent page loads.
-
-Given the minimum requirement for a user to send a chat is to be given access to a workspace via an admin the risk is low. Additionally, the location in which the XSS renders is only limited to the user who submits the XSS. 
-
-Ultimately, this attack is limited to the user attacking themselves. There is no anonymous chat submission unless the user does not take the minimum steps required to protect their instance.</description>
-      <guid isPermaLink="false">CVE-2024-0435|2024-02-25T17:05:17.021Z</guid>
-      <pubDate>Sun, 25 Feb 2024 17:04:13 +0000</pubDate>
-    </item>
-    <item>
-      <title>CVE-2024-0550|2024-02-28T04:52:21.831Z -- mintplex-labs -- mintplex-labs%2Fanything-llm</title>
-      <link>https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2024-0550</link>
-      <description>A user who is privileged already `manager` or `admin` can set their profile picture via the frontend API using a relative filepath to then user the PFP GET API to download any valid files.
-
-The attacker would have to have been granted privileged permissions to the system before executing this attack.</description>
-      <guid isPermaLink="false">CVE-2024-0550|2024-02-28T04:52:21.831Z</guid>
-      <pubDate>Wed, 28 Feb 2024 04:52:21 +0000</pubDate>
-    </item>
-    <item>
-      <title>CVE-2024-0439|2024-02-25T19:48:56.527Z -- mintplex-labs -- mintplex-labs%2Fanything-llm</title>
-      <link>https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2024-0439</link>
-      <description>As a manager, you should not be able to modify a series of settings. In the UI this is indeed hidden as a convenience for the role since most managers would not be savvy enough to modify these settings. They can use their token to still modify those settings though through a standard HTTP request
-
-While this is not a critical vulnerability, it does indeed need to be patched to enforce the expected permission level.</description>
-      <guid isPermaLink="false">CVE-2024-0439|2024-02-25T19:48:56.527Z</guid>
-      <pubDate>Sun, 25 Feb 2024 19:48:56 +0000</pubDate>
-    </item>
-    <item>
-      <title>CVE-2024-0551|2024-02-27T14:07:28.927Z -- mintplex-labs -- mintplex-labs%2Fanything-llm</title>
-      <link>https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2024-0551</link>
-      <description>Enable exports of the database and associated exported information of the system via the default user role. The attacked would have to have been granted access to the system prior to the attack.
-
-It is worth noting that the deterministic nature of the export name is lower risk as the UI for exporting would start the download at the same time, which once downloaded - deletes the export from the system.
-
-The endpoint for exporting should simply be patched to a higher privilege level.</description>
-      <guid isPermaLink="false">CVE-2024-0551|2024-02-27T14:07:28.927Z</guid>
-      <pubDate>Tue, 27 Feb 2024 14:07:28 +0000</pubDate>
-    </item>
-    <item>
-      <title>CVE-2024-0455|2024-02-25T08:11:20.487Z -- mintplex-labs -- mintplex-labs%2Fanything-llm</title>
-      <link>https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2024-0455</link>
-      <description>The inclusion of the web scraper for AnythingLLM means that any user with the proper authorization level (manager, admin, and when in single user) could put in the URL
-```
-http://169.254.169.254/latest/meta-data/identity-credentials/ec2/security-credentials/ec2-instance
-```
-which is a special IP and URL that resolves only when the request comes from within an EC2 instance. This would allow the user to see the connection/secret credentials for their specific instance and be able to manage it regardless of who deployed it.
-
-The user would have to have pre-existing knowledge of the hosting infra which the target instance is deployed on, but if sent - would resolve if on EC2 and the proper `iptable` or firewall rule is not configured for their setup.</description>
-      <guid isPermaLink="false">CVE-2024-0455|2024-02-25T08:11:20.487Z</guid>
-      <pubDate>Sun, 25 Feb 2024 08:10:17 +0000</pubDate>
-    </item>
-    <item>
-      <title>CVE-2024-0798|2024-04-16T11:10:42.092Z -- mintplex-labs -- mintplex-labs%2Fanything-llm</title>
-      <link>https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2024-0798</link>
-      <description>A privilege escalation vulnerability exists in mintplex-labs/anything-llm, allowing users with 'default' role to delete documents uploaded by 'admin'. Despite the intended restriction that prevents 'default' role users from deleting admin-uploaded documents, an attacker can exploit this vulnerability by sending a crafted DELETE request to the /api/system/remove-document endpoint. This vulnerability is due to improper access control checks, enabling unauthorized document deletion and potentially leading to loss of data integrity.</description>
-      <guid isPermaLink="false">CVE-2024-0798|2024-04-16T11:10:42.092Z</guid>
-      <pubDate>Sun, 25 Feb 2024 16:42:19 +0000</pubDate>
-    </item>
-    <item>
-      <title>CVE-2024-0404|2024-06-04T17:59:20.562Z -- mintplex-labs -- mintplex-labs%2Fanything-llm</title>
-      <link>https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2024-0404</link>
-      <description>A mass assignment vulnerability exists in the `/api/invite/:code` endpoint of the mintplex-labs/anything-llm repository, allowing unauthorized creation of high-privileged accounts. By intercepting and modifying the HTTP request during the account creation process via an invitation link, an attacker can add a `role` property with `admin` value, thereby gaining administrative access. This issue arises due to the lack of property allowlisting and blocklisting, enabling the attacker to exploit the system and perform actions as an administrator.</description>
-      <guid isPermaLink="false">CVE-2024-0404|2024-06-04T17:59:20.562Z</guid>
-      <pubDate>Tue, 16 Apr 2024 00:00:13 +0000</pubDate>
-    </item>
-    <item>
-      <title>CVE-2024-0795|2024-03-02T21:16:46.411Z -- mintplex-labs -- mintplex-labs%2Fanything-llm</title>
-      <link>https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2024-0795</link>
-      <description>If an attacked was given access to an instance with the admin or manager role there is no backend authentication that would prevent the attacked from creating a new user with an `admin` role and then be able to use this new account to have elevated privileges on the instance</description>
-      <guid isPermaLink="false">CVE-2024-0795|2024-03-02T21:16:46.411Z</guid>
-      <pubDate>Sat, 02 Mar 2024 21:16:46 +0000</pubDate>
-    </item>
-    <item>
-      <title>CVE-2024-5211|2024-06-12T19:18:16.735Z -- mintplex-labs -- mintplex-labs%2Fanything-llm</title>
-      <link>https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2024-5211</link>
-      <description>A path traversal vulnerability in mintplex-labs/anything-llm allowed a manager to bypass the `normalizePath()` function, intended to defend against path traversal attacks. This vulnerability enables the manager to read, delete, or overwrite the 'anythingllm.db' database file and other files stored in the 'storage' directory, such as internal communication keys and .env secrets. Exploitation of this vulnerability could lead to application compromise, denial of service (DoS) attacks, and unauthorized admin account takeover. The issue stems from improper validation of user-supplied input in the process of setting a custom logo for the app, which can be manipulated to achieve arbitrary file read, deletion, or overwrite, and to execute a DoS attack by deleting critical files required for the application's operation.</description>
-      <guid isPermaLink="false">CVE-2024-5211|2024-06-12T19:18:16.735Z</guid>
-      <pubDate>Wed, 12 Jun 2024 11:33:42 +0000</pubDate>
-    </item>
-    <item>
-      <title>CVE-2024-5213|2024-06-20T02:15:33.551Z -- mintplex-labs -- mintplex-labs%2Fanything-llm</title>
-      <link>https://www.cve.org/CVERecord?id=CVE-2024-5213</link>
-      <description>In mintplex-labs/anything-llm versions up to and including 1.5.3, an issue was discovered where the password hash of a user is returned in the response after login (`POST /api/request-token`) and after account creations (`POST /api/admin/users/new`). This exposure occurs because the entire User object, including the bcrypt password hash, is included in the response sent to the frontend. This practice could potentially lead to sensitive information exposure despite the use of bcrypt, a strong hashing algorithm. It is recommended not to expose any clues about passwords to the frontend.</description>
-      <guid isPermaLink="false">CVE-2024-5213|2024-06-20T02:15:33.551Z</guid>
-      <pubDate>Thu, 20 Jun 2024 02:15:33 +0000</pubDate>
-    </item>
-    <item>
-      <title>CVE-2024-3102|2024-06-20T13:57:49.007Z -- mintplex-labs -- mintplex-labs%2Fanything-llm</title>
-      <link>https://www.cve.org/CVERecord?id=CVE-2024-3102</link>
-      <description>A JSON Injection vulnerability exists in the `mintplex-labs/anything-llm` application, specifically within the username parameter during the login process at the `/api/request-token` endpoint. The vulnerability arises from improper handling of values, allowing attackers to perform brute force attacks without prior knowledge of the username. Once the password is known, attackers can conduct blind attacks to ascertain the full username, significantly compromising system security.</description>
-      <guid isPermaLink="false">CVE-2024-3102|2024-06-20T13:57:49.007Z</guid>
-      <pubDate>Thu, 06 Jun 2024 18:19:23 +0000</pubDate>
-    </item>
-    <item>
-      <title>CVE-2024-5208|2024-06-20T13:58:35.705Z -- mintplex-labs -- mintplex-labs%2Fanything-llm</title>
-      <link>https://www.cve.org/CVERecord?id=CVE-2024-5208</link>
-      <description>An uncontrolled resource consumption vulnerability exists in the `upload-link` endpoint of mintplex-labs/anything-llm. This vulnerability allows attackers to cause a denial of service (DOS) by shutting down the server through sending invalid upload requests. Specifically, the server can be made to shut down by sending an empty body with a 'Content-Length: 0' header or by sending a body with arbitrary content, such as 'asdasdasd', with a 'Content-Length: 9' header. The vulnerability is reproducible by users with at least a 'Manager' role, sending a crafted request to any workspace. This issue indicates that a previous fix was not effective in mitigating the vulnerability.</description>
-      <guid isPermaLink="false">CVE-2024-5208|2024-06-20T13:58:35.705Z</guid>
-      <pubDate>Wed, 19 Jun 2024 06:13:21 +0000</pubDate>
-    </item>
-    <item>
-      <title>CVE-2024-3153|2024-06-20T13:58:10.102Z -- mintplex-labs -- mintplex-labs%2Fanything-llm</title>
-      <link>https://www.cve.org/CVERecord?id=CVE-2024-3153</link>
-      <description>mintplex-labs/anything-llm is affected by an uncontrolled resource consumption vulnerability in its upload file endpoint, leading to a denial of service (DOS) condition. Specifically, the server can be shut down by sending an invalid upload request. An attacker with the ability to upload documents can exploit this vulnerability to cause a DOS condition by manipulating the upload request.</description>
-      <guid isPermaLink="false">CVE-2024-3153|2024-06-20T13:58:10.102Z</guid>
-      <pubDate>Thu, 06 Jun 2024 18:40:53 +0000</pubDate>
-    </item>
-    <item>
-      <title>CVE-2024-5216|2024-06-25T10:29:55.339Z -- mintplex-labs -- mintplex-labs%2Fanything-llm</title>
-      <link>https://www.cve.org/CVERecord?id=CVE-2024-5216</link>
-      <description>A vulnerability in mintplex-labs/anything-llm allows for a Denial of Service (DoS) condition due to uncontrolled resource consumption. Specifically, the issue arises from the application's failure to limit the size of usernames, enabling attackers to create users with excessively bulky texts in the username field. This exploit results in the user management panel becoming unresponsive, preventing administrators from performing critical user management actions such as editing, suspending, or deleting users. The impact of this vulnerability includes administrative paralysis, compromised security, and operational disruption, as it allows malicious users to perpetuate their presence within the system indefinitely, undermines the system's security posture, and degrades overall system performance.</description>
-      <guid isPermaLink="false">CVE-2024-5216|2024-06-25T10:29:55.339Z</guid>
-      <pubDate>Tue, 25 Jun 2024 10:29:55 +0000</pubDate>
-    </item>
-    <item>
-      <title>CVE-2024-3025|2024-07-03T18:04:34.134Z -- mintplex-labs -- mintplex-labs%2Fanything-llm</title>
-      <link>https://www.cve.org/CVERecord?id=CVE-2024-3025</link>
-      <description>mintplex-labs/anything-llm is vulnerable to path traversal attacks due to insufficient validation of user-supplied input in the logo filename functionality. Attackers can exploit this vulnerability by manipulating the logo filename to reference files outside of the restricted directory. This can lead to unauthorized reading or deletion of files by utilizing the `/api/system/upload-logo` and `/api/system/logo` endpoints. The issue stems from the lack of filtering or validation on the logo filename, allowing attackers to target sensitive files such as the application's database.</description>
-      <guid isPermaLink="false">CVE-2024-3025|2024-07-03T18:04:34.134Z</guid>
-      <pubDate>Wed, 10 Apr 2024 17:07:52 +0000</pubDate>
-    </item>
-    <item>
-      <title>CVE-2024-4084|2024-07-08T18:01:00.863Z -- mintplex-labs -- mintplex-labs%2Fanything-llm</title>
-      <link>https://www.cve.org/CVERecord?id=CVE-2024-4084</link>
-      <description>A Server-Side Request Forgery (SSRF) vulnerability exists in the latest version of mintplex-labs/anything-llm, allowing attackers to bypass the official fix intended to restrict access to intranet IP addresses and protocols. Despite efforts to filter out intranet IP addresses starting with 192, 172, 10, and 127 through regular expressions and limit access protocols to HTTP and HTTPS, attackers can still bypass these restrictions using alternative representations of IP addresses and accessing other ports running on localhost. This vulnerability enables attackers to access any asset on the internal network, attack web services on the internal network, scan hosts on the internal network, and potentially access AWS metadata endpoints. The vulnerability is due to insufficient validation of user-supplied URLs, which can be exploited to perform SSRF attacks.</description>
-      <guid isPermaLink="false">CVE-2024-4084|2024-07-08T18:01:00.863Z</guid>
-      <pubDate>Wed, 05 Jun 2024 00:00:14 +0000</pubDate>
-    </item>
-    <item>
-      <title>CVE-2024-4287|2024-07-23T15:56:38.352Z -- mintplex-labs -- mintplex-labs%2Fanything-llm</title>
-      <link>https://www.cve.org/CVERecord?id=CVE-2024-4287</link>
-      <description>In mintplex-labs/anything-llm, a vulnerability exists due to improper input validation in the workspace update process. Specifically, the application fails to validate or format JSON data sent in an HTTP POST request to `/api/workspace/:workspace-slug/update`, allowing it to be executed as part of a database query without restrictions. This flaw enables users with a manager role to craft a request that includes nested write operations, effectively allowing them to create new Administrator accounts.</description>
-      <guid isPermaLink="false">CVE-2024-4287|2024-07-23T15:56:38.352Z</guid>
-      <pubDate>Mon, 20 May 2024 12:24:51 +0000</pubDate>
-    </item>
-    <item>
-      <title>CVE-2024-0763|2024-07-25T15:31:51.485Z -- mintplex-labs -- mintplex-labs%2Fanything-llm</title>
-      <link>https://www.cve.org/CVERecord?id=CVE-2024-0763</link>
-      <description>Any user can delete an arbitrary folder (recursively) on a remote server due to bad input sanitization leading to path traversal. The attacker would need access to the server at some privilege level since this endpoint is protected and requires authorization.</description>
-      <guid isPermaLink="false">CVE-2024-0763|2024-07-25T15:31:51.485Z</guid>
-      <pubDate>Tue, 27 Feb 2024 21:14:56 +0000</pubDate>
-    </item>
-    <item>
-      <title>CVE-2024-0763|2024-08-01T18:18:18.272Z -- mintplex-labs -- mintplex-labs%2Fanything-llm</title>
-      <link>https://www.cve.org/CVERecord?id=CVE-2024-0763</link>
-      <description>Any user can delete an arbitrary folder (recursively) on a remote server due to bad input sanitization leading to path traversal. The attacker would need access to the server at some privilege level since this endpoint is protected and requires authorization.</description>
-      <guid isPermaLink="false">CVE-2024-0763|2024-08-01T18:18:18.272Z</guid>
-      <pubDate>Tue, 27 Feb 2024 21:14:56 +0000</pubDate>
-    </item>
-    <item>
-      <title>CVE-2024-0404|2024-08-01T18:04:49.675Z -- mintplex-labs -- mintplex-labs%2Fanything-llm</title>
-      <link>https://www.cve.org/CVERecord?id=CVE-2024-0404</link>
-      <description>A mass assignment vulnerability exists in the `/api/invite/:code` endpoint of the mintplex-labs/anything-llm repository, allowing unauthorized creation of high-privileged accounts. By intercepting and modifying the HTTP request during the account creation process via an invitation link, an attacker can add a `role` property with `admin` value, thereby gaining administrative access. This issue arises due to the lack of property allowlisting and blocklisting, enabling the attacker to exploit the system and perform actions as an administrator.</description>
-      <guid isPermaLink="false">CVE-2024-0404|2024-08-01T18:04:49.675Z</guid>
-      <pubDate>Tue, 16 Apr 2024 00:00:13 +0000</pubDate>
-    </item>
-    <item>
-      <title>CVE-2024-0439|2024-08-01T18:04:49.767Z -- mintplex-labs -- mintplex-labs%2Fanything-llm</title>
-      <link>https://www.cve.org/CVERecord?id=CVE-2024-0439</link>
-      <description>As a manager, you should not be able to modify a series of settings. In the UI this is indeed hidden as a convenience for the role since most managers would not be savvy enough to modify these settings. They can use their token to still modify those settings though through a standard HTTP request
-
-While this is not a critical vulnerability, it does indeed need to be patched to enforce the expected permission level.</description>
-      <guid isPermaLink="false">CVE-2024-0439|2024-08-01T18:04:49.767Z</guid>
-      <pubDate>Sun, 25 Feb 2024 19:48:56 +0000</pubDate>
-    </item>
-    <item>
-      <title>CVE-2024-0759|2024-08-01T18:18:18.647Z -- mintplex-labs -- mintplex-labs%2Fanything-llm</title>
-      <link>https://www.cve.org/CVERecord?id=CVE-2024-0759</link>
-      <description>Should an instance of AnythingLLM be hosted on an internal network and the attacked be explicitly granted a permission level of manager or admin, they could link-scrape internally resolving IPs of other services that are on the same network as AnythingLLM.
-
-This would require the attacker also be able to guess these internal IPs as `/*` ranging is not possible, but could be brute forced.
-
-There is a duty of care that other services on the same network would not be fully open and accessible via a simple CuRL with zero authentication as it is not possible to set headers or access via the link collector.</description>
-      <guid isPermaLink="false">CVE-2024-0759|2024-08-01T18:18:18.647Z</guid>
-      <pubDate>Tue, 27 Feb 2024 05:12:38 +0000</pubDate>
-    </item>
-    <item>
-      <title>CVE-2024-0798|2024-08-01T18:18:18.817Z -- mintplex-labs -- mintplex-labs%2Fanything-llm</title>
-      <link>https://www.cve.org/CVERecord?id=CVE-2024-0798</link>
-      <description>A privilege escalation vulnerability exists in mintplex-labs/anything-llm, allowing users with 'default' role to delete documents uploaded by 'admin'. Despite the intended restriction that prevents 'default' role users from deleting admin-uploaded documents, an attacker can exploit this vulnerability by sending a crafted DELETE request to the /api/system/remove-document endpoint. This vulnerability is due to improper access control checks, enabling unauthorized document deletion and potentially leading to loss of data integrity.</description>
-      <guid isPermaLink="false">CVE-2024-0798|2024-08-01T18:18:18.817Z</guid>
-      <pubDate>Sun, 25 Feb 2024 16:42:19 +0000</pubDate>
-    </item>
-    <item>
-      <title>CVE-2024-0795|2024-08-01T18:18:18.466Z -- mintplex-labs -- mintplex-labs%2Fanything-llm</title>
-      <link>https://www.cve.org/CVERecord?id=CVE-2024-0795</link>
-      <description>If an attacked was given access to an instance with the admin or manager role there is no backend authentication that would prevent the attacked from creating a new user with an `admin` role and then be able to use this new account to have elevated privileges on the instance</description>
-      <guid isPermaLink="false">CVE-2024-0795|2024-08-01T18:18:18.466Z</guid>
-      <pubDate>Sat, 02 Mar 2024 21:16:46 +0000</pubDate>
-    </item>
-    <item>
-      <title>CVE-2024-0550|2024-08-01T18:11:35.606Z -- mintplex-labs -- mintplex-labs%2Fanything-llm</title>
-      <link>https://www.cve.org/CVERecord?id=CVE-2024-0550</link>
-      <description>A user who is privileged already `manager` or `admin` can set their profile picture via the frontend API using a relative filepath to then user the PFP GET API to download any valid files.
-
-The attacker would have to have been granted privileged permissions to the system before executing this attack.</description>
-      <guid isPermaLink="false">CVE-2024-0550|2024-08-01T18:11:35.606Z</guid>
-      <pubDate>Wed, 28 Feb 2024 04:52:21 +0000</pubDate>
-    </item>
-    <item>
-      <title>CVE-2024-0551|2024-08-01T18:23:28.766Z -- mintplex-labs -- mintplex-labs%2Fanything-llm</title>
-      <link>https://www.cve.org/CVERecord?id=CVE-2024-0551</link>
-      <description>Enable exports of the database and associated exported information of the system via the default user role. The attacked would have to have been granted access to the system prior to the attack.
-
-It is worth noting that the deterministic nature of the export name is lower risk as the UI for exporting would start the download at the same time, which once downloaded - deletes the export from the system.
-
-The endpoint for exporting should simply be patched to a higher privilege level.</description>
-      <guid isPermaLink="false">CVE-2024-0551|2024-08-01T18:23:28.766Z</guid>
-      <pubDate>Tue, 27 Feb 2024 14:07:28 +0000</pubDate>
-    </item>
-    <item>
-      <title>CVE-2024-0549|2024-08-01T18:11:35.275Z -- mintplex-labs -- mintplex-labs%2Fanything-llm</title>
-      <link>https://www.cve.org/CVERecord?id=CVE-2024-0549</link>
-      <description>mintplex-labs/anything-llm is vulnerable to a relative path traversal attack, allowing unauthorized attackers with a default role account to delete files and folders within the filesystem, including critical database files such as 'anythingllm.db'. The vulnerability stems from insufficient input validation and normalization in the handling of file and folder deletion requests. Successful exploitation results in the compromise of data integrity and availability.</description>
-      <guid isPermaLink="false">CVE-2024-0549|2024-08-01T18:11:35.275Z</guid>
-      <pubDate>Tue, 16 Apr 2024 00:00:14 +0000</pubDate>
-    </item>
-    <item>
-      <title>CVE-2024-0765|2024-08-01T18:18:18.998Z -- mintplex-labs -- mintplex-labs%2Fanything-llm</title>
-      <link>https://www.cve.org/CVERecord?id=CVE-2024-0765</link>
-      <description>As a default user on a multi-user instance of AnythingLLM, you could execute a call to the `/export-data` endpoint of the system and then unzip and read that export that would enable you do exfiltrate data of the system at that save state.
-
-This would require the attacked to be granted explicit access to the system, but they can do this at any role. Additionally, post-download, the data is deleted so no evidence would exist that the exfiltration occured.</description>
-      <guid isPermaLink="false">CVE-2024-0765|2024-08-01T18:18:18.998Z</guid>
-      <pubDate>Sun, 03 Mar 2024 14:13:41 +0000</pubDate>
-    </item>
-    <item>
-      <title>CVE-2024-0436|2024-08-01T18:04:49.780Z -- mintplex-labs -- mintplex-labs%2Fanything-llm</title>
-      <link>https://www.cve.org/CVERecord?id=CVE-2024-0436</link>
-      <description>Theoretically, it would be possible for an attacker to brute-force the password for an instance in single-user password protection mode via a timing attack given the linear nature of the `!==` used for comparison.
-
-The risk is minified by the additional overhead of the request, which varies in a non-constant nature making the attack less reliable to execute</description>
-      <guid isPermaLink="false">CVE-2024-0436|2024-08-01T18:04:49.780Z</guid>
-      <pubDate>Sun, 25 Feb 2024 16:25:11 +0000</pubDate>
-    </item>
-    <item>
-      <title>CVE-2024-0435|2024-08-01T18:04:49.794Z -- mintplex-labs -- mintplex-labs%2Fanything-llm</title>
+      <title>CVE-2024-0435|2024-08-11T14:20:19.541Z -- mintplex-labs -- mintplex-labs%2Fanything-llm</title>
       <link>https://www.cve.org/CVERecord?id=CVE-2024-0435</link>
       <description>User can send a chat that contains an XSS opportunity that will then run when the chat is sent and on subsequent page loads.
 
 Given the minimum requirement for a user to send a chat is to be given access to a workspace via an admin the risk is low. Additionally, the location in which the XSS renders is only limited to the user who submits the XSS. 
 
 Ultimately, this attack is limited to the user attacking themselves. There is no anonymous chat submission unless the user does not take the minimum steps required to protect their instance.</description>
-      <guid isPermaLink="false">CVE-2024-0435|2024-08-01T18:04:49.794Z</guid>
+      <guid isPermaLink="false">CVE-2024-0435|2024-08-11T14:20:19.541Z</guid>
       <pubDate>Sun, 25 Feb 2024 17:04:13 +0000</pubDate>
     </item>
     <item>
-      <title>CVE-2024-0440|2024-08-01T18:04:49.867Z -- mintplex-labs -- mintplex-labs%2Fanything-llm</title>
-      <link>https://www.cve.org/CVERecord?id=CVE-2024-0440</link>
-      <description>Attacker, with permission to submit a link or submits a link via POST  to be collected that is using the file:// protocol can then introspect host files and other relatively stored files.</description>
-      <guid isPermaLink="false">CVE-2024-0440|2024-08-01T18:04:49.867Z</guid>
-      <pubDate>Sun, 25 Feb 2024 19:00:42 +0000</pubDate>
+      <title>CVE-2024-0759|2024-08-11T14:28:00.394Z -- mintplex-labs -- mintplex-labs%2Fanything-llm</title>
+      <link>https://www.cve.org/CVERecord?id=CVE-2024-0759</link>
+      <description>Should an instance of AnythingLLM be hosted on an internal network and the attacked be explicitly granted a permission level of manager or admin, they could link-scrape internally resolving IPs of other services that are on the same network as AnythingLLM.
+
+This would require the attacker also be able to guess these internal IPs as `/*` ranging is not possible, but could be brute forced.
+
+There is a duty of care that other services on the same network would not be fully open and accessible via a simple CuRL with zero authentication as it is not possible to set headers or access via the link collector.</description>
+      <guid isPermaLink="false">CVE-2024-0759|2024-08-11T14:28:00.394Z</guid>
+      <pubDate>Tue, 27 Feb 2024 05:12:38 +0000</pubDate>
+    </item>
+    <item>
+      <title>CVE-2024-3279|2024-08-09T15:31:45.692Z -- mintplex-labs -- mintplex-labs%2Fanything-llm</title>
+      <link>https://www.cve.org/CVERecord?id=CVE-2024-3279</link>
+      <description>An improper access control vulnerability exists in the mintplex-labs/anything-llm application, specifically within the import endpoint. This vulnerability allows an anonymous attacker, without an account in the application, to import their own database file, leading to the deletion or spoofing of the existing `anythingllm.db` file. By exploiting this vulnerability, attackers can serve malicious data to users or collect information about them. The vulnerability stems from the application's failure to properly restrict access to the data-import functionality, allowing unauthorized database manipulation.</description>
+      <guid isPermaLink="false">CVE-2024-3279|2024-08-09T15:31:45.692Z</guid>
+      <pubDate>Fri, 09 Aug 2024 00:00:14 +0000</pubDate>
+    </item>
+    <item>
+      <title>CVE-2024-3570|2024-08-01T20:12:07.798Z -- mintplex-labs -- mintplex-labs%2Fanything-llm</title>
+      <link>https://www.cve.org/CVERecord?id=CVE-2024-3570</link>
+      <description>A stored Cross-Site Scripting (XSS) vulnerability exists in the chat functionality of the mintplex-labs/anything-llm repository, allowing attackers to execute arbitrary JavaScript in the context of a user's session. By manipulating the ChatBot responses, an attacker can inject malicious scripts to perform actions on behalf of the user, such as creating a new admin account or changing the user's password, leading to a complete takeover of the AnythingLLM application. The vulnerability stems from the improper sanitization of user and ChatBot input, specifically through the use of `dangerouslySetInnerHTML`. Successful exploitation requires convincing an admin to add a malicious LocalAI ChatBot to their AnythingLLM instance.</description>
+      <guid isPermaLink="false">CVE-2024-3570|2024-08-01T20:12:07.798Z</guid>
+      <pubDate>Wed, 10 Apr 2024 17:08:15 +0000</pubDate>
+    </item>
+    <item>
+      <title>CVE-2024-3283|2024-08-01T20:05:08.424Z -- mintplex-labs -- mintplex-labs%2Fanything-llm</title>
+      <link>https://www.cve.org/CVERecord?id=CVE-2024-3283</link>
+      <description>A vulnerability in mintplex-labs/anything-llm allows users with manager roles to escalate their privileges to admin roles through a mass assignment issue. The '/admin/system-preferences' API endpoint improperly authorizes manager-level users to modify the 'multi_user_mode' system variable, enabling them to access the '/api/system/enable-multi-user' endpoint and create a new admin user. This issue results from the endpoint accepting a full JSON object in the request body without proper validation of modifiable fields, leading to unauthorized modification of system settings and subsequent privilege escalation.</description>
+      <guid isPermaLink="false">CVE-2024-3283|2024-08-01T20:05:08.424Z</guid>
+      <pubDate>Wed, 10 Apr 2024 17:07:59 +0000</pubDate>
+    </item>
+    <item>
+      <title>CVE-2024-3569|2024-08-01T20:12:07.794Z -- mintplex-labs -- mintplex-labs%2Fanything-llm</title>
+      <link>https://www.cve.org/CVERecord?id=CVE-2024-3569</link>
+      <description>A Denial of Service (DoS) vulnerability exists in the mintplex-labs/anything-llm repository when the application is running in 'just me' mode with a password. An attacker can exploit this vulnerability by making a request to the endpoint using the [validatedRequest] middleware with a specially crafted 'Authorization:' header. This vulnerability leads to uncontrolled resource consumption, causing a DoS condition.</description>
+      <guid isPermaLink="false">CVE-2024-3569|2024-08-01T20:12:07.794Z</guid>
+      <pubDate>Wed, 10 Apr 2024 17:07:57 +0000</pubDate>
+    </item>
+    <item>
+      <title>CVE-2024-4284|2024-08-01T20:33:53.194Z -- mintplex-labs -- mintplex-labs%2Fanything-llm</title>
+      <link>https://www.cve.org/CVERecord?id=CVE-2024-4284</link>
+      <description>A vulnerability in mintplex-labs/anything-llm allows for a denial of service (DoS) condition through the modification of a user's `id` attribute to a value of 0. This issue affects the current version of the software, with the latest commit id `57984fa85c31988b2eff429adfc654c46e0c342a`. By exploiting this vulnerability, an attacker, with manager or admin privileges, can render a chosen account completely inaccessible. The application's mechanism for suspending accounts does not provide a means to reverse this condition through the UI, leading to uncontrolled resource consumption. The vulnerability is introduced due to the lack of input validation and sanitization in the user modification endpoint and the middleware's token validation logic. This issue has been addressed in version 1.0.0 of the software.</description>
+      <guid isPermaLink="false">CVE-2024-4284|2024-08-01T20:33:53.194Z</guid>
+      <pubDate>Sun, 19 May 2024 22:23:48 +0000</pubDate>
+    </item>
+    <item>
+      <title>CVE-2024-3153|2024-08-01T20:05:07.642Z -- mintplex-labs -- mintplex-labs%2Fanything-llm</title>
+      <link>https://www.cve.org/CVERecord?id=CVE-2024-3153</link>
+      <description>mintplex-labs/anything-llm is affected by an uncontrolled resource consumption vulnerability in its upload file endpoint, leading to a denial of service (DOS) condition. Specifically, the server can be shut down by sending an invalid upload request. An attacker with the ability to upload documents can exploit this vulnerability to cause a DOS condition by manipulating the upload request.</description>
+      <guid isPermaLink="false">CVE-2024-3153|2024-08-01T20:05:07.642Z</guid>
+      <pubDate>Thu, 06 Jun 2024 18:40:53 +0000</pubDate>
+    </item>
+    <item>
+      <title>CVE-2024-3150|2024-08-01T20:05:07.622Z -- mintplex-labs -- mintplex-labs%2Fanything-llm</title>
+      <link>https://www.cve.org/CVERecord?id=CVE-2024-3150</link>
+      <description>In mintplex-labs/anything-llm, a vulnerability exists in the thread update process that allows users with Default or Manager roles to escalate their privileges to Administrator. The issue arises from improper input validation when handling HTTP POST requests to the endpoint `/workspace/:slug/thread/:threadSlug/update`. Specifically, the application fails to validate or check user input before passing it to the `workspace_thread` Prisma model for execution. This oversight allows attackers to craft a Prisma relation query operation that manipulates the `users` model to change a user's role to admin. Successful exploitation grants attackers the highest level of user privileges, enabling them to see and perform all actions within the system.</description>
+      <guid isPermaLink="false">CVE-2024-3150|2024-08-01T20:05:07.622Z</guid>
+      <pubDate>Thu, 06 Jun 2024 18:53:43 +0000</pubDate>
+    </item>
+    <item>
+      <title>CVE-2024-4286|2024-08-01T20:33:53.068Z -- mintplex-labs -- mintplex-labs%2Fanything-llm</title>
+      <link>https://www.cve.org/CVERecord?id=CVE-2024-4286</link>
+      <description>Mintplex-Labs' anything-llm application is vulnerable to improper neutralization of special elements used in an expression language statement, identified in the commit id `57984fa85c31988b2eff429adfc654c46e0c342a`. The vulnerability arises from the application's handling of user modifications by managers or admins, allowing for the modification of all existing attributes of the `user` database entity without proper checks or sanitization. This flaw can be exploited to delete user threads, denying users access to their previously submitted data, or to inject fake threads and/or chat history for social engineering attacks.</description>
+      <guid isPermaLink="false">CVE-2024-4286|2024-08-01T20:33:53.068Z</guid>
+      <pubDate>Sun, 26 May 2024 22:25:12 +0000</pubDate>
+    </item>
+    <item>
+      <title>CVE-2024-4287|2024-08-01T20:33:53.198Z -- mintplex-labs -- mintplex-labs%2Fanything-llm</title>
+      <link>https://www.cve.org/CVERecord?id=CVE-2024-4287</link>
+      <description>In mintplex-labs/anything-llm, a vulnerability exists due to improper input validation in the workspace update process. Specifically, the application fails to validate or format JSON data sent in an HTTP POST request to `/api/workspace/:workspace-slug/update`, allowing it to be executed as part of a database query without restrictions. This flaw enables users with a manager role to craft a request that includes nested write operations, effectively allowing them to create new Administrator accounts.</description>
+      <guid isPermaLink="false">CVE-2024-4287|2024-08-01T20:33:53.198Z</guid>
+      <pubDate>Mon, 20 May 2024 12:24:51 +0000</pubDate>
+    </item>
+    <item>
+      <title>CVE-2024-3152|2024-08-01T20:05:07.870Z -- mintplex-labs -- mintplex-labs%2Fanything-llm</title>
+      <link>https://www.cve.org/CVERecord?id=CVE-2024-3152</link>
+      <description>mintplex-labs/anything-llm is vulnerable to multiple security issues due to improper input validation in several endpoints. An attacker can exploit these vulnerabilities to escalate privileges from a default user role to an admin role, read and delete arbitrary files on the system, and perform Server-Side Request Forgery (SSRF) attacks. The vulnerabilities are present in the `/request-token`, `/workspace/:slug/thread/:threadSlug/update`, `/system/remove-logo`, `/system/logo`, and collector's `/process` endpoints. These issues are due to the application's failure to properly validate user input before passing it to `prisma` functions and other critical operations. Affected versions include the latest version prior to 1.0.0.</description>
+      <guid isPermaLink="false">CVE-2024-3152|2024-08-01T20:05:07.870Z</guid>
+      <pubDate>Thu, 06 Jun 2024 17:19:15 +0000</pubDate>
+    </item>
+    <item>
+      <title>CVE-2024-4084|2024-08-01T20:33:52.113Z -- mintplex-labs -- mintplex-labs%2Fanything-llm</title>
+      <link>https://www.cve.org/CVERecord?id=CVE-2024-4084</link>
+      <description>A Server-Side Request Forgery (SSRF) vulnerability exists in the latest version of mintplex-labs/anything-llm, allowing attackers to bypass the official fix intended to restrict access to intranet IP addresses and protocols. Despite efforts to filter out intranet IP addresses starting with 192, 172, 10, and 127 through regular expressions and limit access protocols to HTTP and HTTPS, attackers can still bypass these restrictions using alternative representations of IP addresses and accessing other ports running on localhost. This vulnerability enables attackers to access any asset on the internal network, attack web services on the internal network, scan hosts on the internal network, and potentially access AWS metadata endpoints. The vulnerability is due to insufficient validation of user-supplied URLs, which can be exploited to perform SSRF attacks.</description>
+      <guid isPermaLink="false">CVE-2024-4084|2024-08-01T20:33:52.113Z</guid>
+      <pubDate>Wed, 05 Jun 2024 00:00:14 +0000</pubDate>
+    </item>
+    <item>
+      <title>CVE-2024-3149|2024-08-01T20:05:07.017Z -- mintplex-labs -- mintplex-labs%2Fanything-llm</title>
+      <link>https://www.cve.org/CVERecord?id=CVE-2024-3149</link>
+      <description>A Server-Side Request Forgery (SSRF) vulnerability exists in the upload link feature of mintplex-labs/anything-llm. This feature, intended for users with manager or admin roles, processes uploaded links through an internal Collector API using a headless browser. An attacker can exploit this by hosting a malicious website and using it to perform actions such as internal port scanning, accessing internal web applications not exposed externally, and interacting with the Collector API. This interaction can lead to unauthorized actions such as arbitrary file deletion and limited Local File Inclusion (LFI), including accessing NGINX access logs which may contain sensitive information.</description>
+      <guid isPermaLink="false">CVE-2024-3149|2024-08-01T20:05:07.017Z</guid>
+      <pubDate>Thu, 06 Jun 2024 18:43:50 +0000</pubDate>
+    </item>
+    <item>
+      <title>CVE-2024-3166|2024-08-01T20:05:07.541Z -- mintplex-labs -- mintplex-labs%2Fanything-llm</title>
+      <link>https://www.cve.org/CVERecord?id=CVE-2024-3166</link>
+      <description>A Cross-Site Scripting (XSS) vulnerability exists in mintplex-labs/anything-llm, affecting both the desktop application version 1.2.0 and the latest version of the web application. The vulnerability arises from the application's feature to fetch and embed content from websites into workspaces, which can be exploited to execute arbitrary JavaScript code. In the desktop application, this flaw can be escalated to Remote Code Execution (RCE) due to insecure application settings, specifically the enabling of 'nodeIntegration' and the disabling of 'contextIsolation' in Electron's webPreferences. The issue has been addressed in version 1.4.2 of the desktop application.</description>
+      <guid isPermaLink="false">CVE-2024-3166|2024-08-01T20:05:07.541Z</guid>
+      <pubDate>Thu, 06 Jun 2024 18:23:36 +0000</pubDate>
     </item>
     <item>
       <title>CVE-2024-0455|2024-08-01T18:04:49.766Z -- mintplex-labs -- mintplex-labs%2Fanything-llm</title>
@@ -658,117 +143,639 @@ The user would have to have pre-existing knowledge of the hosting infra which th
       <pubDate>Sun, 25 Feb 2024 08:10:17 +0000</pubDate>
     </item>
     <item>
-      <title>CVE-2024-3166|2024-08-01T20:05:07.541Z -- mintplex-labs -- mintplex-labs%2Fanything-llm</title>
-      <link>https://www.cve.org/CVERecord?id=CVE-2024-3166</link>
-      <description>A Cross-Site Scripting (XSS) vulnerability exists in mintplex-labs/anything-llm, affecting both the desktop application version 1.2.0 and the latest version of the web application. The vulnerability arises from the application's feature to fetch and embed content from websites into workspaces, which can be exploited to execute arbitrary JavaScript code. In the desktop application, this flaw can be escalated to Remote Code Execution (RCE) due to insecure application settings, specifically the enabling of 'nodeIntegration' and the disabling of 'contextIsolation' in Electron's webPreferences. The issue has been addressed in version 1.4.2 of the desktop application.</description>
-      <guid isPermaLink="false">CVE-2024-3166|2024-08-01T20:05:07.541Z</guid>
-      <pubDate>Thu, 06 Jun 2024 18:23:36 +0000</pubDate>
+      <title>CVE-2024-0440|2024-08-01T18:04:49.867Z -- mintplex-labs -- mintplex-labs%2Fanything-llm</title>
+      <link>https://www.cve.org/CVERecord?id=CVE-2024-0440</link>
+      <description>Attacker, with permission to submit a link or submits a link via POST  to be collected that is using the file:// protocol can then introspect host files and other relatively stored files.</description>
+      <guid isPermaLink="false">CVE-2024-0440|2024-08-01T18:04:49.867Z</guid>
+      <pubDate>Sun, 25 Feb 2024 19:00:42 +0000</pubDate>
     </item>
     <item>
-      <title>CVE-2024-3149|2024-08-01T20:05:07.017Z -- mintplex-labs -- mintplex-labs%2Fanything-llm</title>
-      <link>https://www.cve.org/CVERecord?id=CVE-2024-3149</link>
-      <description>A Server-Side Request Forgery (SSRF) vulnerability exists in the upload link feature of mintplex-labs/anything-llm. This feature, intended for users with manager or admin roles, processes uploaded links through an internal Collector API using a headless browser. An attacker can exploit this by hosting a malicious website and using it to perform actions such as internal port scanning, accessing internal web applications not exposed externally, and interacting with the Collector API. This interaction can lead to unauthorized actions such as arbitrary file deletion and limited Local File Inclusion (LFI), including accessing NGINX access logs which may contain sensitive information.</description>
-      <guid isPermaLink="false">CVE-2024-3149|2024-08-01T20:05:07.017Z</guid>
-      <pubDate>Thu, 06 Jun 2024 18:43:50 +0000</pubDate>
-    </item>
-    <item>
-      <title>CVE-2024-4084|2024-08-01T20:33:52.113Z -- mintplex-labs -- mintplex-labs%2Fanything-llm</title>
-      <link>https://www.cve.org/CVERecord?id=CVE-2024-4084</link>
-      <description>A Server-Side Request Forgery (SSRF) vulnerability exists in the latest version of mintplex-labs/anything-llm, allowing attackers to bypass the official fix intended to restrict access to intranet IP addresses and protocols. Despite efforts to filter out intranet IP addresses starting with 192, 172, 10, and 127 through regular expressions and limit access protocols to HTTP and HTTPS, attackers can still bypass these restrictions using alternative representations of IP addresses and accessing other ports running on localhost. This vulnerability enables attackers to access any asset on the internal network, attack web services on the internal network, scan hosts on the internal network, and potentially access AWS metadata endpoints. The vulnerability is due to insufficient validation of user-supplied URLs, which can be exploited to perform SSRF attacks.</description>
-      <guid isPermaLink="false">CVE-2024-4084|2024-08-01T20:33:52.113Z</guid>
-      <pubDate>Wed, 05 Jun 2024 00:00:14 +0000</pubDate>
-    </item>
-    <item>
-      <title>CVE-2024-3152|2024-08-01T20:05:07.870Z -- mintplex-labs -- mintplex-labs%2Fanything-llm</title>
-      <link>https://www.cve.org/CVERecord?id=CVE-2024-3152</link>
-      <description>mintplex-labs/anything-llm is vulnerable to multiple security issues due to improper input validation in several endpoints. An attacker can exploit these vulnerabilities to escalate privileges from a default user role to an admin role, read and delete arbitrary files on the system, and perform Server-Side Request Forgery (SSRF) attacks. The vulnerabilities are present in the `/request-token`, `/workspace/:slug/thread/:threadSlug/update`, `/system/remove-logo`, `/system/logo`, and collector's `/process` endpoints. These issues are due to the application's failure to properly validate user input before passing it to `prisma` functions and other critical operations. Affected versions include the latest version prior to 1.0.0.</description>
-      <guid isPermaLink="false">CVE-2024-3152|2024-08-01T20:05:07.870Z</guid>
-      <pubDate>Thu, 06 Jun 2024 17:19:15 +0000</pubDate>
-    </item>
-    <item>
-      <title>CVE-2024-4287|2024-08-01T20:33:53.198Z -- mintplex-labs -- mintplex-labs%2Fanything-llm</title>
-      <link>https://www.cve.org/CVERecord?id=CVE-2024-4287</link>
-      <description>In mintplex-labs/anything-llm, a vulnerability exists due to improper input validation in the workspace update process. Specifically, the application fails to validate or format JSON data sent in an HTTP POST request to `/api/workspace/:workspace-slug/update`, allowing it to be executed as part of a database query without restrictions. This flaw enables users with a manager role to craft a request that includes nested write operations, effectively allowing them to create new Administrator accounts.</description>
-      <guid isPermaLink="false">CVE-2024-4287|2024-08-01T20:33:53.198Z</guid>
-      <pubDate>Mon, 20 May 2024 12:24:51 +0000</pubDate>
-    </item>
-    <item>
-      <title>CVE-2024-4286|2024-08-01T20:33:53.068Z -- mintplex-labs -- mintplex-labs%2Fanything-llm</title>
-      <link>https://www.cve.org/CVERecord?id=CVE-2024-4286</link>
-      <description>Mintplex-Labs' anything-llm application is vulnerable to improper neutralization of special elements used in an expression language statement, identified in the commit id `57984fa85c31988b2eff429adfc654c46e0c342a`. The vulnerability arises from the application's handling of user modifications by managers or admins, allowing for the modification of all existing attributes of the `user` database entity without proper checks or sanitization. This flaw can be exploited to delete user threads, denying users access to their previously submitted data, or to inject fake threads and/or chat history for social engineering attacks.</description>
-      <guid isPermaLink="false">CVE-2024-4286|2024-08-01T20:33:53.068Z</guid>
-      <pubDate>Sun, 26 May 2024 22:25:12 +0000</pubDate>
-    </item>
-    <item>
-      <title>CVE-2024-3150|2024-08-01T20:05:07.622Z -- mintplex-labs -- mintplex-labs%2Fanything-llm</title>
-      <link>https://www.cve.org/CVERecord?id=CVE-2024-3150</link>
-      <description>In mintplex-labs/anything-llm, a vulnerability exists in the thread update process that allows users with Default or Manager roles to escalate their privileges to Administrator. The issue arises from improper input validation when handling HTTP POST requests to the endpoint `/workspace/:slug/thread/:threadSlug/update`. Specifically, the application fails to validate or check user input before passing it to the `workspace_thread` Prisma model for execution. This oversight allows attackers to craft a Prisma relation query operation that manipulates the `users` model to change a user's role to admin. Successful exploitation grants attackers the highest level of user privileges, enabling them to see and perform all actions within the system.</description>
-      <guid isPermaLink="false">CVE-2024-3150|2024-08-01T20:05:07.622Z</guid>
-      <pubDate>Thu, 06 Jun 2024 18:53:43 +0000</pubDate>
-    </item>
-    <item>
-      <title>CVE-2024-3153|2024-08-01T20:05:07.642Z -- mintplex-labs -- mintplex-labs%2Fanything-llm</title>
-      <link>https://www.cve.org/CVERecord?id=CVE-2024-3153</link>
-      <description>mintplex-labs/anything-llm is affected by an uncontrolled resource consumption vulnerability in its upload file endpoint, leading to a denial of service (DOS) condition. Specifically, the server can be shut down by sending an invalid upload request. An attacker with the ability to upload documents can exploit this vulnerability to cause a DOS condition by manipulating the upload request.</description>
-      <guid isPermaLink="false">CVE-2024-3153|2024-08-01T20:05:07.642Z</guid>
-      <pubDate>Thu, 06 Jun 2024 18:40:53 +0000</pubDate>
-    </item>
-    <item>
-      <title>CVE-2024-4284|2024-08-01T20:33:53.194Z -- mintplex-labs -- mintplex-labs%2Fanything-llm</title>
-      <link>https://www.cve.org/CVERecord?id=CVE-2024-4284</link>
-      <description>A vulnerability in mintplex-labs/anything-llm allows for a denial of service (DoS) condition through the modification of a user's `id` attribute to a value of 0. This issue affects the current version of the software, with the latest commit id `57984fa85c31988b2eff429adfc654c46e0c342a`. By exploiting this vulnerability, an attacker, with manager or admin privileges, can render a chosen account completely inaccessible. The application's mechanism for suspending accounts does not provide a means to reverse this condition through the UI, leading to uncontrolled resource consumption. The vulnerability is introduced due to the lack of input validation and sanitization in the user modification endpoint and the middleware's token validation logic. This issue has been addressed in version 1.0.0 of the software.</description>
-      <guid isPermaLink="false">CVE-2024-4284|2024-08-01T20:33:53.194Z</guid>
-      <pubDate>Sun, 19 May 2024 22:23:48 +0000</pubDate>
-    </item>
-    <item>
-      <title>CVE-2024-3569|2024-08-01T20:12:07.794Z -- mintplex-labs -- mintplex-labs%2Fanything-llm</title>
-      <link>https://www.cve.org/CVERecord?id=CVE-2024-3569</link>
-      <description>A Denial of Service (DoS) vulnerability exists in the mintplex-labs/anything-llm repository when the application is running in 'just me' mode with a password. An attacker can exploit this vulnerability by making a request to the endpoint using the [validatedRequest] middleware with a specially crafted 'Authorization:' header. This vulnerability leads to uncontrolled resource consumption, causing a DoS condition.</description>
-      <guid isPermaLink="false">CVE-2024-3569|2024-08-01T20:12:07.794Z</guid>
-      <pubDate>Wed, 10 Apr 2024 17:07:57 +0000</pubDate>
-    </item>
-    <item>
-      <title>CVE-2024-3283|2024-08-01T20:05:08.424Z -- mintplex-labs -- mintplex-labs%2Fanything-llm</title>
-      <link>https://www.cve.org/CVERecord?id=CVE-2024-3283</link>
-      <description>A vulnerability in mintplex-labs/anything-llm allows users with manager roles to escalate their privileges to admin roles through a mass assignment issue. The '/admin/system-preferences' API endpoint improperly authorizes manager-level users to modify the 'multi_user_mode' system variable, enabling them to access the '/api/system/enable-multi-user' endpoint and create a new admin user. This issue results from the endpoint accepting a full JSON object in the request body without proper validation of modifiable fields, leading to unauthorized modification of system settings and subsequent privilege escalation.</description>
-      <guid isPermaLink="false">CVE-2024-3283|2024-08-01T20:05:08.424Z</guid>
-      <pubDate>Wed, 10 Apr 2024 17:07:59 +0000</pubDate>
-    </item>
-    <item>
-      <title>CVE-2024-3570|2024-08-01T20:12:07.798Z -- mintplex-labs -- mintplex-labs%2Fanything-llm</title>
-      <link>https://www.cve.org/CVERecord?id=CVE-2024-3570</link>
-      <description>A stored Cross-Site Scripting (XSS) vulnerability exists in the chat functionality of the mintplex-labs/anything-llm repository, allowing attackers to execute arbitrary JavaScript in the context of a user's session. By manipulating the ChatBot responses, an attacker can inject malicious scripts to perform actions on behalf of the user, such as creating a new admin account or changing the user's password, leading to a complete takeover of the AnythingLLM application. The vulnerability stems from the improper sanitization of user and ChatBot input, specifically through the use of `dangerouslySetInnerHTML`. Successful exploitation requires convincing an admin to add a malicious LocalAI ChatBot to their AnythingLLM instance.</description>
-      <guid isPermaLink="false">CVE-2024-3570|2024-08-01T20:12:07.798Z</guid>
-      <pubDate>Wed, 10 Apr 2024 17:08:15 +0000</pubDate>
-    </item>
-    <item>
-      <title>CVE-2024-3279|2024-08-09T15:31:45.692Z -- mintplex-labs -- mintplex-labs%2Fanything-llm</title>
-      <link>https://www.cve.org/CVERecord?id=CVE-2024-3279</link>
-      <description>An improper access control vulnerability exists in the mintplex-labs/anything-llm application, specifically within the import endpoint. This vulnerability allows an anonymous attacker, without an account in the application, to import their own database file, leading to the deletion or spoofing of the existing `anythingllm.db` file. By exploiting this vulnerability, attackers can serve malicious data to users or collect information about them. The vulnerability stems from the application's failure to properly restrict access to the data-import functionality, allowing unauthorized database manipulation.</description>
-      <guid isPermaLink="false">CVE-2024-3279|2024-08-09T15:31:45.692Z</guid>
-      <pubDate>Fri, 09 Aug 2024 00:00:14 +0000</pubDate>
-    </item>
-    <item>
-      <title>CVE-2024-0759|2024-08-11T14:28:00.394Z -- mintplex-labs -- mintplex-labs%2Fanything-llm</title>
-      <link>https://www.cve.org/CVERecord?id=CVE-2024-0759</link>
-      <description>Should an instance of AnythingLLM be hosted on an internal network and the attacked be explicitly granted a permission level of manager or admin, they could link-scrape internally resolving IPs of other services that are on the same network as AnythingLLM.
-
-This would require the attacker also be able to guess these internal IPs as `/*` ranging is not possible, but could be brute forced.
-
-There is a duty of care that other services on the same network would not be fully open and accessible via a simple CuRL with zero authentication as it is not possible to set headers or access via the link collector.</description>
-      <guid isPermaLink="false">CVE-2024-0759|2024-08-11T14:28:00.394Z</guid>
-      <pubDate>Tue, 27 Feb 2024 05:12:38 +0000</pubDate>
-    </item>
-    <item>
-      <title>CVE-2024-0435|2024-08-11T14:20:19.541Z -- mintplex-labs -- mintplex-labs%2Fanything-llm</title>
+      <title>CVE-2024-0435|2024-08-01T18:04:49.794Z -- mintplex-labs -- mintplex-labs%2Fanything-llm</title>
       <link>https://www.cve.org/CVERecord?id=CVE-2024-0435</link>
       <description>User can send a chat that contains an XSS opportunity that will then run when the chat is sent and on subsequent page loads.
 
 Given the minimum requirement for a user to send a chat is to be given access to a workspace via an admin the risk is low. Additionally, the location in which the XSS renders is only limited to the user who submits the XSS. 
 
 Ultimately, this attack is limited to the user attacking themselves. There is no anonymous chat submission unless the user does not take the minimum steps required to protect their instance.</description>
-      <guid isPermaLink="false">CVE-2024-0435|2024-08-11T14:20:19.541Z</guid>
+      <guid isPermaLink="false">CVE-2024-0435|2024-08-01T18:04:49.794Z</guid>
       <pubDate>Sun, 25 Feb 2024 17:04:13 +0000</pubDate>
+    </item>
+    <item>
+      <title>CVE-2024-0436|2024-08-01T18:04:49.780Z -- mintplex-labs -- mintplex-labs%2Fanything-llm</title>
+      <link>https://www.cve.org/CVERecord?id=CVE-2024-0436</link>
+      <description>Theoretically, it would be possible for an attacker to brute-force the password for an instance in single-user password protection mode via a timing attack given the linear nature of the `!==` used for comparison.
+
+The risk is minified by the additional overhead of the request, which varies in a non-constant nature making the attack less reliable to execute</description>
+      <guid isPermaLink="false">CVE-2024-0436|2024-08-01T18:04:49.780Z</guid>
+      <pubDate>Sun, 25 Feb 2024 16:25:11 +0000</pubDate>
+    </item>
+    <item>
+      <title>CVE-2024-0765|2024-08-01T18:18:18.998Z -- mintplex-labs -- mintplex-labs%2Fanything-llm</title>
+      <link>https://www.cve.org/CVERecord?id=CVE-2024-0765</link>
+      <description>As a default user on a multi-user instance of AnythingLLM, you could execute a call to the `/export-data` endpoint of the system and then unzip and read that export that would enable you do exfiltrate data of the system at that save state.
+
+This would require the attacked to be granted explicit access to the system, but they can do this at any role. Additionally, post-download, the data is deleted so no evidence would exist that the exfiltration occured.</description>
+      <guid isPermaLink="false">CVE-2024-0765|2024-08-01T18:18:18.998Z</guid>
+      <pubDate>Sun, 03 Mar 2024 14:13:41 +0000</pubDate>
+    </item>
+    <item>
+      <title>CVE-2024-0549|2024-08-01T18:11:35.275Z -- mintplex-labs -- mintplex-labs%2Fanything-llm</title>
+      <link>https://www.cve.org/CVERecord?id=CVE-2024-0549</link>
+      <description>mintplex-labs/anything-llm is vulnerable to a relative path traversal attack, allowing unauthorized attackers with a default role account to delete files and folders within the filesystem, including critical database files such as 'anythingllm.db'. The vulnerability stems from insufficient input validation and normalization in the handling of file and folder deletion requests. Successful exploitation results in the compromise of data integrity and availability.</description>
+      <guid isPermaLink="false">CVE-2024-0549|2024-08-01T18:11:35.275Z</guid>
+      <pubDate>Tue, 16 Apr 2024 00:00:14 +0000</pubDate>
+    </item>
+    <item>
+      <title>CVE-2024-0551|2024-08-01T18:23:28.766Z -- mintplex-labs -- mintplex-labs%2Fanything-llm</title>
+      <link>https://www.cve.org/CVERecord?id=CVE-2024-0551</link>
+      <description>Enable exports of the database and associated exported information of the system via the default user role. The attacked would have to have been granted access to the system prior to the attack.
+
+It is worth noting that the deterministic nature of the export name is lower risk as the UI for exporting would start the download at the same time, which once downloaded - deletes the export from the system.
+
+The endpoint for exporting should simply be patched to a higher privilege level.</description>
+      <guid isPermaLink="false">CVE-2024-0551|2024-08-01T18:23:28.766Z</guid>
+      <pubDate>Tue, 27 Feb 2024 14:07:28 +0000</pubDate>
+    </item>
+    <item>
+      <title>CVE-2024-0550|2024-08-01T18:11:35.606Z -- mintplex-labs -- mintplex-labs%2Fanything-llm</title>
+      <link>https://www.cve.org/CVERecord?id=CVE-2024-0550</link>
+      <description>A user who is privileged already `manager` or `admin` can set their profile picture via the frontend API using a relative filepath to then user the PFP GET API to download any valid files.
+
+The attacker would have to have been granted privileged permissions to the system before executing this attack.</description>
+      <guid isPermaLink="false">CVE-2024-0550|2024-08-01T18:11:35.606Z</guid>
+      <pubDate>Wed, 28 Feb 2024 04:52:21 +0000</pubDate>
+    </item>
+    <item>
+      <title>CVE-2024-0795|2024-08-01T18:18:18.466Z -- mintplex-labs -- mintplex-labs%2Fanything-llm</title>
+      <link>https://www.cve.org/CVERecord?id=CVE-2024-0795</link>
+      <description>If an attacked was given access to an instance with the admin or manager role there is no backend authentication that would prevent the attacked from creating a new user with an `admin` role and then be able to use this new account to have elevated privileges on the instance</description>
+      <guid isPermaLink="false">CVE-2024-0795|2024-08-01T18:18:18.466Z</guid>
+      <pubDate>Sat, 02 Mar 2024 21:16:46 +0000</pubDate>
+    </item>
+    <item>
+      <title>CVE-2024-0798|2024-08-01T18:18:18.817Z -- mintplex-labs -- mintplex-labs%2Fanything-llm</title>
+      <link>https://www.cve.org/CVERecord?id=CVE-2024-0798</link>
+      <description>A privilege escalation vulnerability exists in mintplex-labs/anything-llm, allowing users with 'default' role to delete documents uploaded by 'admin'. Despite the intended restriction that prevents 'default' role users from deleting admin-uploaded documents, an attacker can exploit this vulnerability by sending a crafted DELETE request to the /api/system/remove-document endpoint. This vulnerability is due to improper access control checks, enabling unauthorized document deletion and potentially leading to loss of data integrity.</description>
+      <guid isPermaLink="false">CVE-2024-0798|2024-08-01T18:18:18.817Z</guid>
+      <pubDate>Sun, 25 Feb 2024 16:42:19 +0000</pubDate>
+    </item>
+    <item>
+      <title>CVE-2024-0759|2024-08-01T18:18:18.647Z -- mintplex-labs -- mintplex-labs%2Fanything-llm</title>
+      <link>https://www.cve.org/CVERecord?id=CVE-2024-0759</link>
+      <description>Should an instance of AnythingLLM be hosted on an internal network and the attacked be explicitly granted a permission level of manager or admin, they could link-scrape internally resolving IPs of other services that are on the same network as AnythingLLM.
+
+This would require the attacker also be able to guess these internal IPs as `/*` ranging is not possible, but could be brute forced.
+
+There is a duty of care that other services on the same network would not be fully open and accessible via a simple CuRL with zero authentication as it is not possible to set headers or access via the link collector.</description>
+      <guid isPermaLink="false">CVE-2024-0759|2024-08-01T18:18:18.647Z</guid>
+      <pubDate>Tue, 27 Feb 2024 05:12:38 +0000</pubDate>
+    </item>
+    <item>
+      <title>CVE-2024-0439|2024-08-01T18:04:49.767Z -- mintplex-labs -- mintplex-labs%2Fanything-llm</title>
+      <link>https://www.cve.org/CVERecord?id=CVE-2024-0439</link>
+      <description>As a manager, you should not be able to modify a series of settings. In the UI this is indeed hidden as a convenience for the role since most managers would not be savvy enough to modify these settings. They can use their token to still modify those settings though through a standard HTTP request
+
+While this is not a critical vulnerability, it does indeed need to be patched to enforce the expected permission level.</description>
+      <guid isPermaLink="false">CVE-2024-0439|2024-08-01T18:04:49.767Z</guid>
+      <pubDate>Sun, 25 Feb 2024 19:48:56 +0000</pubDate>
+    </item>
+    <item>
+      <title>CVE-2024-0404|2024-08-01T18:04:49.675Z -- mintplex-labs -- mintplex-labs%2Fanything-llm</title>
+      <link>https://www.cve.org/CVERecord?id=CVE-2024-0404</link>
+      <description>A mass assignment vulnerability exists in the `/api/invite/:code` endpoint of the mintplex-labs/anything-llm repository, allowing unauthorized creation of high-privileged accounts. By intercepting and modifying the HTTP request during the account creation process via an invitation link, an attacker can add a `role` property with `admin` value, thereby gaining administrative access. This issue arises due to the lack of property allowlisting and blocklisting, enabling the attacker to exploit the system and perform actions as an administrator.</description>
+      <guid isPermaLink="false">CVE-2024-0404|2024-08-01T18:04:49.675Z</guid>
+      <pubDate>Tue, 16 Apr 2024 00:00:13 +0000</pubDate>
+    </item>
+    <item>
+      <title>CVE-2024-0763|2024-08-01T18:18:18.272Z -- mintplex-labs -- mintplex-labs%2Fanything-llm</title>
+      <link>https://www.cve.org/CVERecord?id=CVE-2024-0763</link>
+      <description>Any user can delete an arbitrary folder (recursively) on a remote server due to bad input sanitization leading to path traversal. The attacker would need access to the server at some privilege level since this endpoint is protected and requires authorization.</description>
+      <guid isPermaLink="false">CVE-2024-0763|2024-08-01T18:18:18.272Z</guid>
+      <pubDate>Tue, 27 Feb 2024 21:14:56 +0000</pubDate>
+    </item>
+    <item>
+      <title>CVE-2024-0763|2024-07-25T15:31:51.485Z -- mintplex-labs -- mintplex-labs%2Fanything-llm</title>
+      <link>https://www.cve.org/CVERecord?id=CVE-2024-0763</link>
+      <description>Any user can delete an arbitrary folder (recursively) on a remote server due to bad input sanitization leading to path traversal. The attacker would need access to the server at some privilege level since this endpoint is protected and requires authorization.</description>
+      <guid isPermaLink="false">CVE-2024-0763|2024-07-25T15:31:51.485Z</guid>
+      <pubDate>Tue, 27 Feb 2024 21:14:56 +0000</pubDate>
+    </item>
+    <item>
+      <title>CVE-2024-4287|2024-07-23T15:56:38.352Z -- mintplex-labs -- mintplex-labs%2Fanything-llm</title>
+      <link>https://www.cve.org/CVERecord?id=CVE-2024-4287</link>
+      <description>In mintplex-labs/anything-llm, a vulnerability exists due to improper input validation in the workspace update process. Specifically, the application fails to validate or format JSON data sent in an HTTP POST request to `/api/workspace/:workspace-slug/update`, allowing it to be executed as part of a database query without restrictions. This flaw enables users with a manager role to craft a request that includes nested write operations, effectively allowing them to create new Administrator accounts.</description>
+      <guid isPermaLink="false">CVE-2024-4287|2024-07-23T15:56:38.352Z</guid>
+      <pubDate>Mon, 20 May 2024 12:24:51 +0000</pubDate>
+    </item>
+    <item>
+      <title>CVE-2024-4084|2024-07-08T18:01:00.863Z -- mintplex-labs -- mintplex-labs%2Fanything-llm</title>
+      <link>https://www.cve.org/CVERecord?id=CVE-2024-4084</link>
+      <description>A Server-Side Request Forgery (SSRF) vulnerability exists in the latest version of mintplex-labs/anything-llm, allowing attackers to bypass the official fix intended to restrict access to intranet IP addresses and protocols. Despite efforts to filter out intranet IP addresses starting with 192, 172, 10, and 127 through regular expressions and limit access protocols to HTTP and HTTPS, attackers can still bypass these restrictions using alternative representations of IP addresses and accessing other ports running on localhost. This vulnerability enables attackers to access any asset on the internal network, attack web services on the internal network, scan hosts on the internal network, and potentially access AWS metadata endpoints. The vulnerability is due to insufficient validation of user-supplied URLs, which can be exploited to perform SSRF attacks.</description>
+      <guid isPermaLink="false">CVE-2024-4084|2024-07-08T18:01:00.863Z</guid>
+      <pubDate>Wed, 05 Jun 2024 00:00:14 +0000</pubDate>
+    </item>
+    <item>
+      <title>CVE-2024-3025|2024-07-03T18:04:34.134Z -- mintplex-labs -- mintplex-labs%2Fanything-llm</title>
+      <link>https://www.cve.org/CVERecord?id=CVE-2024-3025</link>
+      <description>mintplex-labs/anything-llm is vulnerable to path traversal attacks due to insufficient validation of user-supplied input in the logo filename functionality. Attackers can exploit this vulnerability by manipulating the logo filename to reference files outside of the restricted directory. This can lead to unauthorized reading or deletion of files by utilizing the `/api/system/upload-logo` and `/api/system/logo` endpoints. The issue stems from the lack of filtering or validation on the logo filename, allowing attackers to target sensitive files such as the application's database.</description>
+      <guid isPermaLink="false">CVE-2024-3025|2024-07-03T18:04:34.134Z</guid>
+      <pubDate>Wed, 10 Apr 2024 17:07:52 +0000</pubDate>
+    </item>
+    <item>
+      <title>CVE-2024-5216|2024-06-25T10:29:55.339Z -- mintplex-labs -- mintplex-labs%2Fanything-llm</title>
+      <link>https://www.cve.org/CVERecord?id=CVE-2024-5216</link>
+      <description>A vulnerability in mintplex-labs/anything-llm allows for a Denial of Service (DoS) condition due to uncontrolled resource consumption. Specifically, the issue arises from the application's failure to limit the size of usernames, enabling attackers to create users with excessively bulky texts in the username field. This exploit results in the user management panel becoming unresponsive, preventing administrators from performing critical user management actions such as editing, suspending, or deleting users. The impact of this vulnerability includes administrative paralysis, compromised security, and operational disruption, as it allows malicious users to perpetuate their presence within the system indefinitely, undermines the system's security posture, and degrades overall system performance.</description>
+      <guid isPermaLink="false">CVE-2024-5216|2024-06-25T10:29:55.339Z</guid>
+      <pubDate>Tue, 25 Jun 2024 10:29:55 +0000</pubDate>
+    </item>
+    <item>
+      <title>CVE-2024-3153|2024-06-20T13:58:10.102Z -- mintplex-labs -- mintplex-labs%2Fanything-llm</title>
+      <link>https://www.cve.org/CVERecord?id=CVE-2024-3153</link>
+      <description>mintplex-labs/anything-llm is affected by an uncontrolled resource consumption vulnerability in its upload file endpoint, leading to a denial of service (DOS) condition. Specifically, the server can be shut down by sending an invalid upload request. An attacker with the ability to upload documents can exploit this vulnerability to cause a DOS condition by manipulating the upload request.</description>
+      <guid isPermaLink="false">CVE-2024-3153|2024-06-20T13:58:10.102Z</guid>
+      <pubDate>Thu, 06 Jun 2024 18:40:53 +0000</pubDate>
+    </item>
+    <item>
+      <title>CVE-2024-5208|2024-06-20T13:58:35.705Z -- mintplex-labs -- mintplex-labs%2Fanything-llm</title>
+      <link>https://www.cve.org/CVERecord?id=CVE-2024-5208</link>
+      <description>An uncontrolled resource consumption vulnerability exists in the `upload-link` endpoint of mintplex-labs/anything-llm. This vulnerability allows attackers to cause a denial of service (DOS) by shutting down the server through sending invalid upload requests. Specifically, the server can be made to shut down by sending an empty body with a 'Content-Length: 0' header or by sending a body with arbitrary content, such as 'asdasdasd', with a 'Content-Length: 9' header. The vulnerability is reproducible by users with at least a 'Manager' role, sending a crafted request to any workspace. This issue indicates that a previous fix was not effective in mitigating the vulnerability.</description>
+      <guid isPermaLink="false">CVE-2024-5208|2024-06-20T13:58:35.705Z</guid>
+      <pubDate>Wed, 19 Jun 2024 06:13:21 +0000</pubDate>
+    </item>
+    <item>
+      <title>CVE-2024-3102|2024-06-20T13:57:49.007Z -- mintplex-labs -- mintplex-labs%2Fanything-llm</title>
+      <link>https://www.cve.org/CVERecord?id=CVE-2024-3102</link>
+      <description>A JSON Injection vulnerability exists in the `mintplex-labs/anything-llm` application, specifically within the username parameter during the login process at the `/api/request-token` endpoint. The vulnerability arises from improper handling of values, allowing attackers to perform brute force attacks without prior knowledge of the username. Once the password is known, attackers can conduct blind attacks to ascertain the full username, significantly compromising system security.</description>
+      <guid isPermaLink="false">CVE-2024-3102|2024-06-20T13:57:49.007Z</guid>
+      <pubDate>Thu, 06 Jun 2024 18:19:23 +0000</pubDate>
+    </item>
+    <item>
+      <title>CVE-2024-5213|2024-06-20T02:15:33.551Z -- mintplex-labs -- mintplex-labs%2Fanything-llm</title>
+      <link>https://www.cve.org/CVERecord?id=CVE-2024-5213</link>
+      <description>In mintplex-labs/anything-llm versions up to and including 1.5.3, an issue was discovered where the password hash of a user is returned in the response after login (`POST /api/request-token`) and after account creations (`POST /api/admin/users/new`). This exposure occurs because the entire User object, including the bcrypt password hash, is included in the response sent to the frontend. This practice could potentially lead to sensitive information exposure despite the use of bcrypt, a strong hashing algorithm. It is recommended not to expose any clues about passwords to the frontend.</description>
+      <guid isPermaLink="false">CVE-2024-5213|2024-06-20T02:15:33.551Z</guid>
+      <pubDate>Thu, 20 Jun 2024 02:15:33 +0000</pubDate>
+    </item>
+    <item>
+      <title>CVE-2024-5211|2024-06-12T19:18:16.735Z -- mintplex-labs -- mintplex-labs%2Fanything-llm</title>
+      <link>https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2024-5211</link>
+      <description>A path traversal vulnerability in mintplex-labs/anything-llm allowed a manager to bypass the `normalizePath()` function, intended to defend against path traversal attacks. This vulnerability enables the manager to read, delete, or overwrite the 'anythingllm.db' database file and other files stored in the 'storage' directory, such as internal communication keys and .env secrets. Exploitation of this vulnerability could lead to application compromise, denial of service (DoS) attacks, and unauthorized admin account takeover. The issue stems from improper validation of user-supplied input in the process of setting a custom logo for the app, which can be manipulated to achieve arbitrary file read, deletion, or overwrite, and to execute a DoS attack by deleting critical files required for the application's operation.</description>
+      <guid isPermaLink="false">CVE-2024-5211|2024-06-12T19:18:16.735Z</guid>
+      <pubDate>Wed, 12 Jun 2024 11:33:42 +0000</pubDate>
+    </item>
+    <item>
+      <title>CVE-2024-0795|2024-03-02T21:16:46.411Z -- mintplex-labs -- mintplex-labs%2Fanything-llm</title>
+      <link>https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2024-0795</link>
+      <description>If an attacked was given access to an instance with the admin or manager role there is no backend authentication that would prevent the attacked from creating a new user with an `admin` role and then be able to use this new account to have elevated privileges on the instance</description>
+      <guid isPermaLink="false">CVE-2024-0795|2024-03-02T21:16:46.411Z</guid>
+      <pubDate>Sat, 02 Mar 2024 21:16:46 +0000</pubDate>
+    </item>
+    <item>
+      <title>CVE-2024-0404|2024-06-04T17:59:20.562Z -- mintplex-labs -- mintplex-labs%2Fanything-llm</title>
+      <link>https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2024-0404</link>
+      <description>A mass assignment vulnerability exists in the `/api/invite/:code` endpoint of the mintplex-labs/anything-llm repository, allowing unauthorized creation of high-privileged accounts. By intercepting and modifying the HTTP request during the account creation process via an invitation link, an attacker can add a `role` property with `admin` value, thereby gaining administrative access. This issue arises due to the lack of property allowlisting and blocklisting, enabling the attacker to exploit the system and perform actions as an administrator.</description>
+      <guid isPermaLink="false">CVE-2024-0404|2024-06-04T17:59:20.562Z</guid>
+      <pubDate>Tue, 16 Apr 2024 00:00:13 +0000</pubDate>
+    </item>
+    <item>
+      <title>CVE-2024-0798|2024-04-16T11:10:42.092Z -- mintplex-labs -- mintplex-labs%2Fanything-llm</title>
+      <link>https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2024-0798</link>
+      <description>A privilege escalation vulnerability exists in mintplex-labs/anything-llm, allowing users with 'default' role to delete documents uploaded by 'admin'. Despite the intended restriction that prevents 'default' role users from deleting admin-uploaded documents, an attacker can exploit this vulnerability by sending a crafted DELETE request to the /api/system/remove-document endpoint. This vulnerability is due to improper access control checks, enabling unauthorized document deletion and potentially leading to loss of data integrity.</description>
+      <guid isPermaLink="false">CVE-2024-0798|2024-04-16T11:10:42.092Z</guid>
+      <pubDate>Sun, 25 Feb 2024 16:42:19 +0000</pubDate>
+    </item>
+    <item>
+      <title>CVE-2024-0455|2024-02-25T08:11:20.487Z -- mintplex-labs -- mintplex-labs%2Fanything-llm</title>
+      <link>https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2024-0455</link>
+      <description>The inclusion of the web scraper for AnythingLLM means that any user with the proper authorization level (manager, admin, and when in single user) could put in the URL
+```
+http://169.254.169.254/latest/meta-data/identity-credentials/ec2/security-credentials/ec2-instance
+```
+which is a special IP and URL that resolves only when the request comes from within an EC2 instance. This would allow the user to see the connection/secret credentials for their specific instance and be able to manage it regardless of who deployed it.
+
+The user would have to have pre-existing knowledge of the hosting infra which the target instance is deployed on, but if sent - would resolve if on EC2 and the proper `iptable` or firewall rule is not configured for their setup.</description>
+      <guid isPermaLink="false">CVE-2024-0455|2024-02-25T08:11:20.487Z</guid>
+      <pubDate>Sun, 25 Feb 2024 08:10:17 +0000</pubDate>
+    </item>
+    <item>
+      <title>CVE-2024-0551|2024-02-27T14:07:28.927Z -- mintplex-labs -- mintplex-labs%2Fanything-llm</title>
+      <link>https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2024-0551</link>
+      <description>Enable exports of the database and associated exported information of the system via the default user role. The attacked would have to have been granted access to the system prior to the attack.
+
+It is worth noting that the deterministic nature of the export name is lower risk as the UI for exporting would start the download at the same time, which once downloaded - deletes the export from the system.
+
+The endpoint for exporting should simply be patched to a higher privilege level.</description>
+      <guid isPermaLink="false">CVE-2024-0551|2024-02-27T14:07:28.927Z</guid>
+      <pubDate>Tue, 27 Feb 2024 14:07:28 +0000</pubDate>
+    </item>
+    <item>
+      <title>CVE-2024-0439|2024-02-25T19:48:56.527Z -- mintplex-labs -- mintplex-labs%2Fanything-llm</title>
+      <link>https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2024-0439</link>
+      <description>As a manager, you should not be able to modify a series of settings. In the UI this is indeed hidden as a convenience for the role since most managers would not be savvy enough to modify these settings. They can use their token to still modify those settings though through a standard HTTP request
+
+While this is not a critical vulnerability, it does indeed need to be patched to enforce the expected permission level.</description>
+      <guid isPermaLink="false">CVE-2024-0439|2024-02-25T19:48:56.527Z</guid>
+      <pubDate>Sun, 25 Feb 2024 19:48:56 +0000</pubDate>
+    </item>
+    <item>
+      <title>CVE-2024-0550|2024-02-28T04:52:21.831Z -- mintplex-labs -- mintplex-labs%2Fanything-llm</title>
+      <link>https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2024-0550</link>
+      <description>A user who is privileged already `manager` or `admin` can set their profile picture via the frontend API using a relative filepath to then user the PFP GET API to download any valid files.
+
+The attacker would have to have been granted privileged permissions to the system before executing this attack.</description>
+      <guid isPermaLink="false">CVE-2024-0550|2024-02-28T04:52:21.831Z</guid>
+      <pubDate>Wed, 28 Feb 2024 04:52:21 +0000</pubDate>
+    </item>
+    <item>
+      <title>CVE-2024-0435|2024-02-25T17:05:17.021Z -- mintplex-labs -- mintplex-labs%2Fanything-llm</title>
+      <link>https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2024-0435</link>
+      <description>User can send a chat that contains an XSS opportunity that will then run when the chat is sent and on subsequent page loads.
+
+Given the minimum requirement for a user to send a chat is to be given access to a workspace via an admin the risk is low. Additionally, the location in which the XSS renders is only limited to the user who submits the XSS. 
+
+Ultimately, this attack is limited to the user attacking themselves. There is no anonymous chat submission unless the user does not take the minimum steps required to protect their instance.</description>
+      <guid isPermaLink="false">CVE-2024-0435|2024-02-25T17:05:17.021Z</guid>
+      <pubDate>Sun, 25 Feb 2024 17:04:13 +0000</pubDate>
+    </item>
+    <item>
+      <title>CVE-2024-0436|2024-02-25T16:26:15.646Z -- mintplex-labs -- mintplex-labs%2Fanything-llm</title>
+      <link>https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2024-0436</link>
+      <description>Theoretically, it would be possible for an attacker to brute-force the password for an instance in single-user password protection mode via a timing attack given the linear nature of the `!==` used for comparison.
+
+The risk is minified by the additional overhead of the request, which varies in a non-constant nature making the attack less reliable to execute</description>
+      <guid isPermaLink="false">CVE-2024-0436|2024-02-25T16:26:15.646Z</guid>
+      <pubDate>Sun, 25 Feb 2024 16:25:11 +0000</pubDate>
+    </item>
+    <item>
+      <title>CVE-2024-0549|2024-04-16T11:10:49.469Z -- mintplex-labs -- mintplex-labs%2Fanything-llm</title>
+      <link>https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2024-0549</link>
+      <description>mintplex-labs/anything-llm is vulnerable to a relative path traversal attack, allowing unauthorized attackers with a default role account to delete files and folders within the filesystem, including critical database files such as 'anythingllm.db'. The vulnerability stems from insufficient input validation and normalization in the handling of file and folder deletion requests. Successful exploitation results in the compromise of data integrity and availability.</description>
+      <guid isPermaLink="false">CVE-2024-0549|2024-04-16T11:10:49.469Z</guid>
+      <pubDate>Tue, 16 Apr 2024 00:00:14 +0000</pubDate>
+    </item>
+    <item>
+      <title>CVE-2024-0440|2024-02-25T19:00:42.753Z -- mintplex-labs -- mintplex-labs%2Fanything-llm</title>
+      <link>https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2024-0440</link>
+      <description>Attacker, with permission to submit a link or submits a link via POST  to be collected that is using the file:// protocol can then introspect host files and other relatively stored files.</description>
+      <guid isPermaLink="false">CVE-2024-0440|2024-02-25T19:00:42.753Z</guid>
+      <pubDate>Sun, 25 Feb 2024 19:00:42 +0000</pubDate>
+    </item>
+    <item>
+      <title>CVE-2024-0765|2024-03-03T14:13:41.067Z -- mintplex-labs -- mintplex-labs%2Fanything-llm</title>
+      <link>https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2024-0765</link>
+      <description>As a default user on a multi-user instance of AnythingLLM, you could execute a call to the `/export-data` endpoint of the system and then unzip and read that export that would enable you do exfiltrate data of the system at that save state.
+
+This would require the attacked to be granted explicit access to the system, but they can do this at any role. Additionally, post-download, the data is deleted so no evidence would exist that the exfiltration occured.</description>
+      <guid isPermaLink="false">CVE-2024-0765|2024-03-03T14:13:41.067Z</guid>
+      <pubDate>Sun, 03 Mar 2024 14:13:41 +0000</pubDate>
+    </item>
+    <item>
+      <title>CVE-2024-0763|2024-02-27T21:15:58.863Z -- mintplex-labs -- mintplex-labs%2Fanything-llm</title>
+      <link>https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2024-0763</link>
+      <description>Any user can delete an arbitrary folder (recursively) on a remote server due to bad input sanitization leading to path traversal. The attacker would need access to the server at some privilege level since this endpoint is protected and requires authorization.</description>
+      <guid isPermaLink="false">CVE-2024-0763|2024-02-27T21:15:58.863Z</guid>
+      <pubDate>Tue, 27 Feb 2024 21:14:56 +0000</pubDate>
+    </item>
+    <item>
+      <title>CVE-2024-0759|2024-03-07T19:59:40.961Z -- mintplex-labs -- mintplex-labs%2Fanything-llm</title>
+      <link>https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2024-0759</link>
+      <description>Should an instance of AnythingLLM be hosted on an internal network and the attacked be explicitly granted a permission level of manager or admin, they could link-scrape internally resolving IPs of other services that are on the same network as AnythingLLM.
+
+This would require the attacker also be able to guess these internal IPs as `/*` ranging is not possible, but could be brute forced.
+
+There is a duty of care that other services on the same network would not be fully open and accessible via a simple CuRL with zero authentication as it is not possible to set headers or access via the link collector.</description>
+      <guid isPermaLink="false">CVE-2024-0759|2024-03-07T19:59:40.961Z</guid>
+      <pubDate>Tue, 27 Feb 2024 05:12:38 +0000</pubDate>
+    </item>
+    <item>
+      <title>CVE-2024-4284|2024-06-04T17:55:29.452Z -- mintplex-labs -- mintplex-labs%2Fanything-llm</title>
+      <link>https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2024-4284</link>
+      <description>A vulnerability in mintplex-labs/anything-llm allows for a denial of service (DoS) condition through the modification of a user's `id` attribute to a value of 0. This issue affects the current version of the software, with the latest commit id `57984fa85c31988b2eff429adfc654c46e0c342a`. By exploiting this vulnerability, an attacker, with manager or admin privileges, can render a chosen account completely inaccessible. The application's mechanism for suspending accounts does not provide a means to reverse this condition through the UI, leading to uncontrolled resource consumption. The vulnerability is introduced due to the lack of input validation and sanitization in the user modification endpoint and the middleware's token validation logic. This issue has been addressed in version 1.0.0 of the software.</description>
+      <guid isPermaLink="false">CVE-2024-4284|2024-06-04T17:55:29.452Z</guid>
+      <pubDate>Sun, 19 May 2024 22:23:48 +0000</pubDate>
+    </item>
+    <item>
+      <title>CVE-2024-4084|2024-06-05T00:00:14.901Z -- mintplex-labs -- mintplex-labs%2Fanything-llm</title>
+      <link>https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2024-4084</link>
+      <description>A Server-Side Request Forgery (SSRF) vulnerability exists in the latest version of mintplex-labs/anything-llm, allowing attackers to bypass the official fix intended to restrict access to intranet IP addresses and protocols. Despite efforts to filter out intranet IP addresses starting with 192, 172, 10, and 127 through regular expressions and limit access protocols to HTTP and HTTPS, attackers can still bypass these restrictions using alternative representations of IP addresses and accessing other ports running on localhost. This vulnerability enables attackers to access any asset on the internal network, attack web services on the internal network, scan hosts on the internal network, and potentially access AWS metadata endpoints. The vulnerability is due to insufficient validation of user-supplied URLs, which can be exploited to perform SSRF attacks.</description>
+      <guid isPermaLink="false">CVE-2024-4084|2024-06-05T00:00:14.901Z</guid>
+      <pubDate>Wed, 05 Jun 2024 00:00:14 +0000</pubDate>
+    </item>
+    <item>
+      <title>CVE-2024-4286|2024-06-04T17:54:25.287Z -- mintplex-labs -- mintplex-labs%2Fanything-llm</title>
+      <link>https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2024-4286</link>
+      <description>Mintplex-Labs' anything-llm application is vulnerable to improper neutralization of special elements used in an expression language statement, identified in the commit id `57984fa85c31988b2eff429adfc654c46e0c342a`. The vulnerability arises from the application's handling of user modifications by managers or admins, allowing for the modification of all existing attributes of the `user` database entity without proper checks or sanitization. This flaw can be exploited to delete user threads, denying users access to their previously submitted data, or to inject fake threads and/or chat history for social engineering attacks.</description>
+      <guid isPermaLink="false">CVE-2024-4286|2024-06-04T17:54:25.287Z</guid>
+      <pubDate>Sun, 26 May 2024 22:25:12 +0000</pubDate>
+    </item>
+    <item>
+      <title>CVE-2024-4287|2024-05-20T12:24:51.682Z -- mintplex-labs -- mintplex-labs%2Fanything-llm</title>
+      <link>https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2024-4287</link>
+      <description>In mintplex-labs/anything-llm, a vulnerability exists due to improper input validation in the workspace update process. Specifically, the application fails to validate or format JSON data sent in an HTTP POST request to `/api/workspace/:workspace-slug/update`, allowing it to be executed as part of a database query without restrictions. This flaw enables users with a manager role to craft a request that includes nested write operations, effectively allowing them to create new Administrator accounts.</description>
+      <guid isPermaLink="false">CVE-2024-4287|2024-05-20T12:24:51.682Z</guid>
+      <pubDate>Mon, 20 May 2024 12:24:51 +0000</pubDate>
+    </item>
+    <item>
+      <title>CVE-2024-3101|2024-04-16T11:10:36.819Z -- mintplex-labs -- mintplex-labs%2Fanything-llm</title>
+      <link>https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2024-3101</link>
+      <description>In mintplex-labs/anything-llm, an improper input validation vulnerability allows attackers to escalate privileges by deactivating 'Multi-User Mode'. By sending a specially crafted curl request with the 'multi_user_mode' parameter set to false, an attacker can deactivate 'Multi-User Mode'. This action permits the creation of a new admin user without requiring a password, leading to unauthorized administrative access.</description>
+      <guid isPermaLink="false">CVE-2024-3101|2024-04-16T11:10:36.819Z</guid>
+      <pubDate>Wed, 10 Apr 2024 17:08:08 +0000</pubDate>
+    </item>
+    <item>
+      <title>CVE-2024-3029|2024-04-16T11:10:37.781Z -- mintplex-labs -- mintplex-labs%2Fanything-llm</title>
+      <link>https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2024-3029</link>
+      <description>In mintplex-labs/anything-llm, an attacker can exploit improper input validation by sending a malformed JSON payload to the '/system/enable-multi-user' endpoint. This triggers an error that is caught by a catch block, which in turn deletes all users and disables the 'multi_user_mode'. The vulnerability allows an attacker to remove all existing users and potentially create a new admin user without requiring a password, leading to unauthorized access and control over the application.</description>
+      <guid isPermaLink="false">CVE-2024-3029|2024-04-16T11:10:37.781Z</guid>
+      <pubDate>Tue, 16 Apr 2024 00:00:14 +0000</pubDate>
+    </item>
+    <item>
+      <title>CVE-2024-3025|2024-04-16T11:10:20.884Z -- mintplex-labs -- mintplex-labs%2Fanything-llm</title>
+      <link>https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2024-3025</link>
+      <description>mintplex-labs/anything-llm is vulnerable to path traversal attacks due to insufficient validation of user-supplied input in the logo filename functionality. Attackers can exploit this vulnerability by manipulating the logo filename to reference files outside of the restricted directory. This can lead to unauthorized reading or deletion of files by utilizing the `/api/system/upload-logo` and `/api/system/logo` endpoints. The issue stems from the lack of filtering or validation on the logo filename, allowing attackers to target sensitive files such as the application's database.</description>
+      <guid isPermaLink="false">CVE-2024-3025|2024-04-16T11:10:20.884Z</guid>
+      <pubDate>Wed, 10 Apr 2024 17:07:52 +0000</pubDate>
+    </item>
+    <item>
+      <title>CVE-2024-3033|2024-06-06T18:41:42.155Z -- mintplex-labs -- mintplex-labs%2Fanything-llm</title>
+      <link>https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2024-3033</link>
+      <description>An improper authorization vulnerability exists in the mintplex-labs/anything-llm application, specifically within the '/api/v/' endpoint and its sub-routes. This flaw allows unauthenticated users to perform destructive actions on the VectorDB, including resetting the database and deleting specific namespaces, without requiring any authorization or permissions. The issue affects all versions up to and including the latest version, with a fix introduced in version 1.0.0. Exploitation of this vulnerability can lead to complete data loss of document embeddings across all workspaces, rendering workspace chats and embeddable chat widgets non-functional. Additionally, attackers can list all namespaces, potentially exposing private workspace names.</description>
+      <guid isPermaLink="false">CVE-2024-3033|2024-06-06T18:41:42.155Z</guid>
+      <pubDate>Thu, 06 Jun 2024 17:32:35 +0000</pubDate>
+    </item>
+    <item>
+      <title>CVE-2024-3570|2024-04-16T11:10:42.800Z -- mintplex-labs -- mintplex-labs%2Fanything-llm</title>
+      <link>https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2024-3570</link>
+      <description>A stored Cross-Site Scripting (XSS) vulnerability exists in the chat functionality of the mintplex-labs/anything-llm repository, allowing attackers to execute arbitrary JavaScript in the context of a user's session. By manipulating the ChatBot responses, an attacker can inject malicious scripts to perform actions on behalf of the user, such as creating a new admin account or changing the user's password, leading to a complete takeover of the AnythingLLM application. The vulnerability stems from the improper sanitization of user and ChatBot input, specifically through the use of `dangerouslySetInnerHTML`. Successful exploitation requires convincing an admin to add a malicious LocalAI ChatBot to their AnythingLLM instance.</description>
+      <guid isPermaLink="false">CVE-2024-3570|2024-04-16T11:10:42.800Z</guid>
+      <pubDate>Wed, 10 Apr 2024 17:08:15 +0000</pubDate>
+    </item>
+    <item>
+      <title>CVE-2024-3028|2024-04-16T11:10:37.293Z -- mintplex-labs -- mintplex-labs%2Fanything-llm</title>
+      <link>https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2024-3028</link>
+      <description>mintplex-labs/anything-llm is vulnerable to improper input validation, allowing attackers to read and delete arbitrary files on the server. By manipulating the 'logo_filename' parameter in the 'system-preferences' API endpoint, an attacker can construct requests to read sensitive files or the application's '.env' file, and even delete files by setting the 'logo_filename' to the path of the target file and invoking the 'remove-logo' API endpoint. This vulnerability is due to the lack of proper sanitization of user-supplied input.</description>
+      <guid isPermaLink="false">CVE-2024-3028|2024-04-16T11:10:37.293Z</guid>
+      <pubDate>Tue, 16 Apr 2024 00:00:14 +0000</pubDate>
+    </item>
+    <item>
+      <title>CVE-2024-3166|2024-06-07T17:05:17.694Z -- mintplex-labs -- mintplex-labs%2Fanything-llm</title>
+      <link>https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2024-3166</link>
+      <description>A Cross-Site Scripting (XSS) vulnerability exists in mintplex-labs/anything-llm, affecting both the desktop application version 1.2.0 and the latest version of the web application. The vulnerability arises from the application's feature to fetch and embed content from websites into workspaces, which can be exploited to execute arbitrary JavaScript code. In the desktop application, this flaw can be escalated to Remote Code Execution (RCE) due to insecure application settings, specifically the enabling of 'nodeIntegration' and the disabling of 'contextIsolation' in Electron's webPreferences. The issue has been addressed in version 1.4.2 of the desktop application.</description>
+      <guid isPermaLink="false">CVE-2024-3166|2024-06-07T17:05:17.694Z</guid>
+      <pubDate>Thu, 06 Jun 2024 18:23:36 +0000</pubDate>
+    </item>
+    <item>
+      <title>CVE-2024-3150|2024-06-07T12:31:01.744Z -- mintplex-labs -- mintplex-labs%2Fanything-llm</title>
+      <link>https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2024-3150</link>
+      <description>In mintplex-labs/anything-llm, a vulnerability exists in the thread update process that allows users with Default or Manager roles to escalate their privileges to Administrator. The issue arises from improper input validation when handling HTTP POST requests to the endpoint `/workspace/:slug/thread/:threadSlug/update`. Specifically, the application fails to validate or check user input before passing it to the `workspace_thread` Prisma model for execution. This oversight allows attackers to craft a Prisma relation query operation that manipulates the `users` model to change a user's role to admin. Successful exploitation grants attackers the highest level of user privileges, enabling them to see and perform all actions within the system.</description>
+      <guid isPermaLink="false">CVE-2024-3150|2024-06-07T12:31:01.744Z</guid>
+      <pubDate>Thu, 06 Jun 2024 18:53:43 +0000</pubDate>
+    </item>
+    <item>
+      <title>CVE-2024-3110|2024-06-06T20:37:31.481Z -- mintplex-labs -- mintplex-labs%2Fanything-llm</title>
+      <link>https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2024-3110</link>
+      <description>A stored Cross-Site Scripting (XSS) vulnerability exists in the mintplex-labs/anything-llm application, affecting versions up to and including the latest before 1.0.0. The vulnerability arises from the application's failure to properly sanitize and validate user-supplied URLs before embedding them into the application UI as external links with custom icons. Specifically, the application does not prevent the inclusion of 'javascript:' protocol payloads in URLs, which can be exploited by a user with manager role to execute arbitrary JavaScript code in the context of another user's session. This flaw can be leveraged to steal the admin's authorization token by crafting malicious URLs that, when clicked by the admin, send the token to an attacker-controlled server. The attacker can then use this token to perform unauthorized actions, escalate privileges to admin, or directly take over the admin account. The vulnerability is triggered when the malicious link is opened in a new tab using either the CTRL + left mouse button click or the mouse scroll wheel click, or in some non-updated versions of modern browsers, by directly clicking on the link.</description>
+      <guid isPermaLink="false">CVE-2024-3110|2024-06-06T20:37:31.481Z</guid>
+      <pubDate>Thu, 06 Jun 2024 18:11:33 +0000</pubDate>
+    </item>
+    <item>
+      <title>CVE-2024-3152|2024-06-06T18:36:30.092Z -- mintplex-labs -- mintplex-labs%2Fanything-llm</title>
+      <link>https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2024-3152</link>
+      <description>mintplex-labs/anything-llm is vulnerable to multiple security issues due to improper input validation in several endpoints. An attacker can exploit these vulnerabilities to escalate privileges from a default user role to an admin role, read and delete arbitrary files on the system, and perform Server-Side Request Forgery (SSRF) attacks. The vulnerabilities are present in the `/request-token`, `/workspace/:slug/thread/:threadSlug/update`, `/system/remove-logo`, `/system/logo`, and collector's `/process` endpoints. These issues are due to the application's failure to properly validate user input before passing it to `prisma` functions and other critical operations. Affected versions include the latest version prior to 1.0.0.</description>
+      <guid isPermaLink="false">CVE-2024-3152|2024-06-06T18:36:30.092Z</guid>
+      <pubDate>Thu, 06 Jun 2024 17:19:15 +0000</pubDate>
+    </item>
+    <item>
+      <title>CVE-2024-3153|2024-06-07T13:38:48.524Z -- mintplex-labs -- mintplex-labs%2Fanything-llm</title>
+      <link>https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2024-3153</link>
+      <description>mintplex-labs/anything-llm is affected by an uncontrolled resource consumption vulnerability in its upload file endpoint, leading to a denial of service (DOS) condition. Specifically, the server can be shut down by sending an invalid upload request. An attacker with the ability to upload documents can exploit this vulnerability to cause a DOS condition by manipulating the upload request.</description>
+      <guid isPermaLink="false">CVE-2024-3153|2024-06-07T13:38:48.524Z</guid>
+      <pubDate>Thu, 06 Jun 2024 18:40:53 +0000</pubDate>
+    </item>
+    <item>
+      <title>CVE-2024-3104|2024-06-06T20:42:41.198Z -- mintplex-labs -- mintplex-labs%2Fanything-llm</title>
+      <link>https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2024-3104</link>
+      <description>A remote code execution vulnerability exists in mintplex-labs/anything-llm due to improper handling of environment variables. Attackers can exploit this vulnerability by injecting arbitrary environment variables via the `POST /api/system/update-env` endpoint, which allows for the execution of arbitrary code on the host running anything-llm. The vulnerability is present in the latest version of anything-llm, with the latest commit identified as fde905aac1812b84066ff72e5f2f90b56d4c3a59. This issue has been fixed in version 1.0.0. Successful exploitation could lead to code execution on the host, enabling attackers to read and modify data accessible to the user running the service, potentially leading to a denial of service.</description>
+      <guid isPermaLink="false">CVE-2024-3104|2024-06-06T20:42:41.198Z</guid>
+      <pubDate>Thu, 06 Jun 2024 17:50:18 +0000</pubDate>
+    </item>
+    <item>
+      <title>CVE-2024-3283|2024-04-16T11:10:29.837Z -- mintplex-labs -- mintplex-labs%2Fanything-llm</title>
+      <link>https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2024-3283</link>
+      <description>A vulnerability in mintplex-labs/anything-llm allows users with manager roles to escalate their privileges to admin roles through a mass assignment issue. The '/admin/system-preferences' API endpoint improperly authorizes manager-level users to modify the 'multi_user_mode' system variable, enabling them to access the '/api/system/enable-multi-user' endpoint and create a new admin user. This issue results from the endpoint accepting a full JSON object in the request body without proper validation of modifiable fields, leading to unauthorized modification of system settings and subsequent privilege escalation.</description>
+      <guid isPermaLink="false">CVE-2024-3283|2024-04-16T11:10:29.837Z</guid>
+      <pubDate>Wed, 10 Apr 2024 17:07:59 +0000</pubDate>
+    </item>
+    <item>
+      <title>CVE-2024-3149|2024-06-06T18:43:50.967Z -- mintplex-labs -- mintplex-labs%2Fanything-llm</title>
+      <link>https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2024-3149</link>
+      <description>A Server-Side Request Forgery (SSRF) vulnerability exists in the upload link feature of mintplex-labs/anything-llm. This feature, intended for users with manager or admin roles, processes uploaded links through an internal Collector API using a headless browser. An attacker can exploit this by hosting a malicious website and using it to perform actions such as internal port scanning, accessing internal web applications not exposed externally, and interacting with the Collector API. This interaction can lead to unauthorized actions such as arbitrary file deletion and limited Local File Inclusion (LFI), including accessing NGINX access logs which may contain sensitive information.</description>
+      <guid isPermaLink="false">CVE-2024-3149|2024-06-06T18:43:50.967Z</guid>
+      <pubDate>Thu, 06 Jun 2024 18:43:50 +0000</pubDate>
+    </item>
+    <item>
+      <title>CVE-2024-3569|2024-04-16T11:10:24.721Z -- mintplex-labs -- mintplex-labs%2Fanything-llm</title>
+      <link>https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2024-3569</link>
+      <description>A Denial of Service (DoS) vulnerability exists in the mintplex-labs/anything-llm repository when the application is running in 'just me' mode with a password. An attacker can exploit this vulnerability by making a request to the endpoint using the [validatedRequest] middleware with a specially crafted 'Authorization:' header. This vulnerability leads to uncontrolled resource consumption, causing a DoS condition.</description>
+      <guid isPermaLink="false">CVE-2024-3569|2024-04-16T11:10:24.721Z</guid>
+      <pubDate>Wed, 10 Apr 2024 17:07:57 +0000</pubDate>
+    </item>
+    <item>
+      <title>CVE-2024-3102|2024-06-11T14:57:57.529Z -- mintplex-labs -- mintplex-labs%2Fanything-llm</title>
+      <link>https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2024-3102</link>
+      <description>A JSON Injection vulnerability exists in the `mintplex-labs/anything-llm` application, specifically within the username parameter during the login process at the `/api/request-token` endpoint. The vulnerability arises from improper handling of values, allowing attackers to perform brute force attacks without prior knowledge of the username. Once the password is known, attackers can conduct blind attacks to ascertain the full username, significantly compromising system security.</description>
+      <guid isPermaLink="false">CVE-2024-3102|2024-06-11T14:57:57.529Z</guid>
+      <pubDate>Thu, 06 Jun 2024 18:19:23 +0000</pubDate>
+    </item>
+    <item>
+      <title>CVE-2024-2913|2024-06-04T17:29:29.985Z -- mintplex-labs -- mintplex-labs%2Fanything-llm</title>
+      <link>https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2024-2913</link>
+      <description>A race condition vulnerability exists in the mintplex-labs/anything-llm repository, specifically within the user invite acceptance process. Attackers can exploit this vulnerability by sending multiple concurrent requests to accept a single user invite, allowing the creation of multiple user accounts from a single invite link intended for only one user. This bypasses the intended security mechanism that restricts invite acceptance to a single user, leading to unauthorized user creation without detection in the invite tab. The issue is due to the lack of validation for concurrent requests in the backend.</description>
+      <guid isPermaLink="false">CVE-2024-2913|2024-06-04T17:29:29.985Z</guid>
+      <pubDate>Mon, 06 May 2024 23:42:10 +0000</pubDate>
+    </item>
+    <item>
+      <title>CVE-2024-5211|2024-06-12T11:33:42.236Z -- mintplex-labs -- mintplex-labs%2Fanything-llm</title>
+      <link>https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2024-5211</link>
+      <description>A path traversal vulnerability in mintplex-labs/anything-llm allowed a manager to bypass the `normalizePath()` function, intended to defend against path traversal attacks. This vulnerability enables the manager to read, delete, or overwrite the 'anythingllm.db' database file and other files stored in the 'storage' directory, such as internal communication keys and .env secrets. Exploitation of this vulnerability could lead to application compromise, denial of service (DoS) attacks, and unauthorized admin account takeover. The issue stems from improper validation of user-supplied input in the process of setting a custom logo for the app, which can be manipulated to achieve arbitrary file read, deletion, or overwrite, and to execute a DoS attack by deleting critical files required for the application's operation.</description>
+      <guid isPermaLink="false">CVE-2024-5211|2024-06-12T11:33:42.236Z</guid>
+      <pubDate>Wed, 12 Jun 2024 11:33:42 +0000</pubDate>
+    </item>
+    <item>
+      <title>CVE-2024-5208|2024-06-19T06:13:21.660Z -- mintplex-labs -- mintplex-labs%2Fanything-llm</title>
+      <link>https://www.cve.org/CVERecord?id=CVE-2024-5208</link>
+      <description>An uncontrolled resource consumption vulnerability exists in the `upload-link` endpoint of mintplex-labs/anything-llm. This vulnerability allows attackers to cause a denial of service (DOS) by shutting down the server through sending invalid upload requests. Specifically, the server can be made to shut down by sending an empty body with a 'Content-Length: 0' header or by sending a body with arbitrary content, such as 'asdasdasd', with a 'Content-Length: 9' header. The vulnerability is reproducible by users with at least a 'Manager' role, sending a crafted request to any workspace. This issue indicates that a previous fix was not effective in mitigating the vulnerability.</description>
+      <guid isPermaLink="false">CVE-2024-5208|2024-06-19T06:13:21.660Z</guid>
+      <pubDate>Wed, 19 Jun 2024 06:13:21 +0000</pubDate>
+    </item>
+    <item>
+      <title>CVE-2024-5211|2024-06-20T13:56:43.624Z -- mintplex-labs -- mintplex-labs%2Fanything-llm</title>
+      <link>https://www.cve.org/CVERecord?id=CVE-2024-5211</link>
+      <description>A path traversal vulnerability in mintplex-labs/anything-llm allowed a manager to bypass the `normalizePath()` function, intended to defend against path traversal attacks. This vulnerability enables the manager to read, delete, or overwrite the 'anythingllm.db' database file and other files stored in the 'storage' directory, such as internal communication keys and .env secrets. Exploitation of this vulnerability could lead to application compromise, denial of service (DoS) attacks, and unauthorized admin account takeover. The issue stems from improper validation of user-supplied input in the process of setting a custom logo for the app, which can be manipulated to achieve arbitrary file read, deletion, or overwrite, and to execute a DoS attack by deleting critical files required for the application's operation.</description>
+      <guid isPermaLink="false">CVE-2024-5211|2024-06-20T13:56:43.624Z</guid>
+      <pubDate>Wed, 12 Jun 2024 11:33:42 +0000</pubDate>
+    </item>
+    <item>
+      <title>CVE-2024-5213|2024-06-20T16:23:43.095Z -- mintplex-labs -- mintplex-labs%2Fanything-llm</title>
+      <link>https://www.cve.org/CVERecord?id=CVE-2024-5213</link>
+      <description>In mintplex-labs/anything-llm versions up to and including 1.5.3, an issue was discovered where the password hash of a user is returned in the response after login (`POST /api/request-token`) and after account creations (`POST /api/admin/users/new`). This exposure occurs because the entire User object, including the bcrypt password hash, is included in the response sent to the frontend. This practice could potentially lead to sensitive information exposure despite the use of bcrypt, a strong hashing algorithm. It is recommended not to expose any clues about passwords to the frontend.</description>
+      <guid isPermaLink="false">CVE-2024-5213|2024-06-20T16:23:43.095Z</guid>
+      <pubDate>Thu, 20 Jun 2024 02:15:33 +0000</pubDate>
+    </item>
+    <item>
+      <title>CVE-2024-5216|2024-06-26T17:20:30.275Z -- mintplex-labs -- mintplex-labs%2Fanything-llm</title>
+      <link>https://www.cve.org/CVERecord?id=CVE-2024-5216</link>
+      <description>A vulnerability in mintplex-labs/anything-llm allows for a Denial of Service (DoS) condition due to uncontrolled resource consumption. Specifically, the issue arises from the application's failure to limit the size of usernames, enabling attackers to create users with excessively bulky texts in the username field. This exploit results in the user management panel becoming unresponsive, preventing administrators from performing critical user management actions such as editing, suspending, or deleting users. The impact of this vulnerability includes administrative paralysis, compromised security, and operational disruption, as it allows malicious users to perpetuate their presence within the system indefinitely, undermines the system's security posture, and degrades overall system performance.</description>
+      <guid isPermaLink="false">CVE-2024-5216|2024-06-26T17:20:30.275Z</guid>
+      <pubDate>Tue, 25 Jun 2024 10:29:55 +0000</pubDate>
+    </item>
+    <item>
+      <title>CVE-2024-3570|2024-07-05T17:21:18.133Z -- mintplex-labs -- mintplex-labs%2Fanything-llm</title>
+      <link>https://www.cve.org/CVERecord?id=CVE-2024-3570</link>
+      <description>A stored Cross-Site Scripting (XSS) vulnerability exists in the chat functionality of the mintplex-labs/anything-llm repository, allowing attackers to execute arbitrary JavaScript in the context of a user's session. By manipulating the ChatBot responses, an attacker can inject malicious scripts to perform actions on behalf of the user, such as creating a new admin account or changing the user's password, leading to a complete takeover of the AnythingLLM application. The vulnerability stems from the improper sanitization of user and ChatBot input, specifically through the use of `dangerouslySetInnerHTML`. Successful exploitation requires convincing an admin to add a malicious LocalAI ChatBot to their AnythingLLM instance.</description>
+      <guid isPermaLink="false">CVE-2024-3570|2024-07-05T17:21:18.133Z</guid>
+      <pubDate>Wed, 10 Apr 2024 17:08:15 +0000</pubDate>
+    </item>
+    <item>
+      <title>CVE-2024-3569|2024-07-05T17:22:39.767Z -- mintplex-labs -- mintplex-labs%2Fanything-llm</title>
+      <link>https://www.cve.org/CVERecord?id=CVE-2024-3569</link>
+      <description>A Denial of Service (DoS) vulnerability exists in the mintplex-labs/anything-llm repository when the application is running in 'just me' mode with a password. An attacker can exploit this vulnerability by making a request to the endpoint using the [validatedRequest] middleware with a specially crafted 'Authorization:' header. This vulnerability leads to uncontrolled resource consumption, causing a DoS condition.</description>
+      <guid isPermaLink="false">CVE-2024-3569|2024-07-05T17:22:39.767Z</guid>
+      <pubDate>Wed, 10 Apr 2024 17:07:57 +0000</pubDate>
+    </item>
+    <item>
+      <title>CVE-2024-0549|2024-07-10T16:33:03.406Z -- mintplex-labs -- mintplex-labs%2Fanything-llm</title>
+      <link>https://www.cve.org/CVERecord?id=CVE-2024-0549</link>
+      <description>mintplex-labs/anything-llm is vulnerable to a relative path traversal attack, allowing unauthorized attackers with a default role account to delete files and folders within the filesystem, including critical database files such as 'anythingllm.db'. The vulnerability stems from insufficient input validation and normalization in the handling of file and folder deletion requests. Successful exploitation results in the compromise of data integrity and availability.</description>
+      <guid isPermaLink="false">CVE-2024-0549|2024-07-10T16:33:03.406Z</guid>
+      <pubDate>Tue, 16 Apr 2024 00:00:14 +0000</pubDate>
+    </item>
+    <item>
+      <title>CVE-2024-3149|2024-07-23T16:21:19.742Z -- mintplex-labs -- mintplex-labs%2Fanything-llm</title>
+      <link>https://www.cve.org/CVERecord?id=CVE-2024-3149</link>
+      <description>A Server-Side Request Forgery (SSRF) vulnerability exists in the upload link feature of mintplex-labs/anything-llm. This feature, intended for users with manager or admin roles, processes uploaded links through an internal Collector API using a headless browser. An attacker can exploit this by hosting a malicious website and using it to perform actions such as internal port scanning, accessing internal web applications not exposed externally, and interacting with the Collector API. This interaction can lead to unauthorized actions such as arbitrary file deletion and limited Local File Inclusion (LFI), including accessing NGINX access logs which may contain sensitive information.</description>
+      <guid isPermaLink="false">CVE-2024-3149|2024-07-23T16:21:19.742Z</guid>
+      <pubDate>Thu, 06 Jun 2024 18:43:50 +0000</pubDate>
+    </item>
+    <item>
+      <title>CVE-2024-0436|2024-07-26T18:32:57.999Z -- mintplex-labs -- mintplex-labs%2Fanything-llm</title>
+      <link>https://www.cve.org/CVERecord?id=CVE-2024-0436</link>
+      <description>Theoretically, it would be possible for an attacker to brute-force the password for an instance in single-user password protection mode via a timing attack given the linear nature of the `!==` used for comparison.
+
+The risk is minified by the additional overhead of the request, which varies in a non-constant nature making the attack less reliable to execute</description>
+      <guid isPermaLink="false">CVE-2024-0436|2024-07-26T18:32:57.999Z</guid>
+      <pubDate>Sun, 25 Feb 2024 16:25:11 +0000</pubDate>
+    </item>
+    <item>
+      <title>CVE-2024-3025|2024-08-01T19:32:42.584Z -- mintplex-labs -- mintplex-labs%2Fanything-llm</title>
+      <link>https://www.cve.org/CVERecord?id=CVE-2024-3025</link>
+      <description>mintplex-labs/anything-llm is vulnerable to path traversal attacks due to insufficient validation of user-supplied input in the logo filename functionality. Attackers can exploit this vulnerability by manipulating the logo filename to reference files outside of the restricted directory. This can lead to unauthorized reading or deletion of files by utilizing the `/api/system/upload-logo` and `/api/system/logo` endpoints. The issue stems from the lack of filtering or validation on the logo filename, allowing attackers to target sensitive files such as the application's database.</description>
+      <guid isPermaLink="false">CVE-2024-3025|2024-08-01T19:32:42.584Z</guid>
+      <pubDate>Wed, 10 Apr 2024 17:07:52 +0000</pubDate>
+    </item>
+    <item>
+      <title>CVE-2024-2913|2024-08-01T19:25:42.157Z -- mintplex-labs -- mintplex-labs%2Fanything-llm</title>
+      <link>https://www.cve.org/CVERecord?id=CVE-2024-2913</link>
+      <description>A race condition vulnerability exists in the mintplex-labs/anything-llm repository, specifically within the user invite acceptance process. Attackers can exploit this vulnerability by sending multiple concurrent requests to accept a single user invite, allowing the creation of multiple user accounts from a single invite link intended for only one user. This bypasses the intended security mechanism that restricts invite acceptance to a single user, leading to unauthorized user creation without detection in the invite tab. The issue is due to the lack of validation for concurrent requests in the backend.</description>
+      <guid isPermaLink="false">CVE-2024-2913|2024-08-01T19:25:42.157Z</guid>
+      <pubDate>Mon, 06 May 2024 23:42:10 +0000</pubDate>
+    </item>
+    <item>
+      <title>CVE-2024-3104|2024-08-01T19:32:42.539Z -- mintplex-labs -- mintplex-labs%2Fanything-llm</title>
+      <link>https://www.cve.org/CVERecord?id=CVE-2024-3104</link>
+      <description>A remote code execution vulnerability exists in mintplex-labs/anything-llm due to improper handling of environment variables. Attackers can exploit this vulnerability by injecting arbitrary environment variables via the `POST /api/system/update-env` endpoint, which allows for the execution of arbitrary code on the host running anything-llm. The vulnerability is present in the latest version of anything-llm, with the latest commit identified as fde905aac1812b84066ff72e5f2f90b56d4c3a59. This issue has been fixed in version 1.0.0. Successful exploitation could lead to code execution on the host, enabling attackers to read and modify data accessible to the user running the service, potentially leading to a denial of service.</description>
+      <guid isPermaLink="false">CVE-2024-3104|2024-08-01T19:32:42.539Z</guid>
+      <pubDate>Thu, 06 Jun 2024 17:50:18 +0000</pubDate>
+    </item>
+    <item>
+      <title>CVE-2024-3033|2024-08-01T19:32:42.575Z -- mintplex-labs -- mintplex-labs%2Fanything-llm</title>
+      <link>https://www.cve.org/CVERecord?id=CVE-2024-3033</link>
+      <description>An improper authorization vulnerability exists in the mintplex-labs/anything-llm application, specifically within the '/api/v/' endpoint and its sub-routes. This flaw allows unauthenticated users to perform destructive actions on the VectorDB, including resetting the database and deleting specific namespaces, without requiring any authorization or permissions. The issue affects all versions up to and including the latest version, with a fix introduced in version 1.0.0. Exploitation of this vulnerability can lead to complete data loss of document embeddings across all workspaces, rendering workspace chats and embeddable chat widgets non-functional. Additionally, attackers can list all namespaces, potentially exposing private workspace names.</description>
+      <guid isPermaLink="false">CVE-2024-3033|2024-08-01T19:32:42.575Z</guid>
+      <pubDate>Thu, 06 Jun 2024 17:32:35 +0000</pubDate>
+    </item>
+    <item>
+      <title>CVE-2024-3029|2024-08-01T19:32:42.609Z -- mintplex-labs -- mintplex-labs%2Fanything-llm</title>
+      <link>https://www.cve.org/CVERecord?id=CVE-2024-3029</link>
+      <description>In mintplex-labs/anything-llm, an attacker can exploit improper input validation by sending a malformed JSON payload to the '/system/enable-multi-user' endpoint. This triggers an error that is caught by a catch block, which in turn deletes all users and disables the 'multi_user_mode'. The vulnerability allows an attacker to remove all existing users and potentially create a new admin user without requiring a password, leading to unauthorized access and control over the application.</description>
+      <guid isPermaLink="false">CVE-2024-3029|2024-08-01T19:32:42.609Z</guid>
+      <pubDate>Tue, 16 Apr 2024 00:00:14 +0000</pubDate>
+    </item>
+    <item>
+      <title>CVE-2024-3110|2024-08-01T19:32:42.667Z -- mintplex-labs -- mintplex-labs%2Fanything-llm</title>
+      <link>https://www.cve.org/CVERecord?id=CVE-2024-3110</link>
+      <description>A stored Cross-Site Scripting (XSS) vulnerability exists in the mintplex-labs/anything-llm application, affecting versions up to and including the latest before 1.0.0. The vulnerability arises from the application's failure to properly sanitize and validate user-supplied URLs before embedding them into the application UI as external links with custom icons. Specifically, the application does not prevent the inclusion of 'javascript:' protocol payloads in URLs, which can be exploited by a user with manager role to execute arbitrary JavaScript code in the context of another user's session. This flaw can be leveraged to steal the admin's authorization token by crafting malicious URLs that, when clicked by the admin, send the token to an attacker-controlled server. The attacker can then use this token to perform unauthorized actions, escalate privileges to admin, or directly take over the admin account. The vulnerability is triggered when the malicious link is opened in a new tab using either the CTRL + left mouse button click or the mouse scroll wheel click, or in some non-updated versions of modern browsers, by directly clicking on the link.</description>
+      <guid isPermaLink="false">CVE-2024-3110|2024-08-01T19:32:42.667Z</guid>
+      <pubDate>Thu, 06 Jun 2024 18:11:33 +0000</pubDate>
+    </item>
+    <item>
+      <title>CVE-2024-3102|2024-08-01T19:32:42.847Z -- mintplex-labs -- mintplex-labs%2Fanything-llm</title>
+      <link>https://www.cve.org/CVERecord?id=CVE-2024-3102</link>
+      <description>A JSON Injection vulnerability exists in the `mintplex-labs/anything-llm` application, specifically within the username parameter during the login process at the `/api/request-token` endpoint. The vulnerability arises from improper handling of values, allowing attackers to perform brute force attacks without prior knowledge of the username. Once the password is known, attackers can conduct blind attacks to ascertain the full username, significantly compromising system security.</description>
+      <guid isPermaLink="false">CVE-2024-3102|2024-08-01T19:32:42.847Z</guid>
+      <pubDate>Thu, 06 Jun 2024 18:19:23 +0000</pubDate>
+    </item>
+    <item>
+      <title>CVE-2024-3028|2024-08-01T19:32:42.699Z -- mintplex-labs -- mintplex-labs%2Fanything-llm</title>
+      <link>https://www.cve.org/CVERecord?id=CVE-2024-3028</link>
+      <description>mintplex-labs/anything-llm is vulnerable to improper input validation, allowing attackers to read and delete arbitrary files on the server. By manipulating the 'logo_filename' parameter in the 'system-preferences' API endpoint, an attacker can construct requests to read sensitive files or the application's '.env' file, and even delete files by setting the 'logo_filename' to the path of the target file and invoking the 'remove-logo' API endpoint. This vulnerability is due to the lack of proper sanitization of user-supplied input.</description>
+      <guid isPermaLink="false">CVE-2024-3028|2024-08-01T19:32:42.699Z</guid>
+      <pubDate>Tue, 16 Apr 2024 00:00:14 +0000</pubDate>
+    </item>
+    <item>
+      <title>CVE-2024-3101|2024-08-01T19:32:42.850Z -- mintplex-labs -- mintplex-labs%2Fanything-llm</title>
+      <link>https://www.cve.org/CVERecord?id=CVE-2024-3101</link>
+      <description>In mintplex-labs/anything-llm, an improper input validation vulnerability allows attackers to escalate privileges by deactivating 'Multi-User Mode'. By sending a specially crafted curl request with the 'multi_user_mode' parameter set to false, an attacker can deactivate 'Multi-User Mode'. This action permits the creation of a new admin user without requiring a password, leading to unauthorized administrative access.</description>
+      <guid isPermaLink="false">CVE-2024-3101|2024-08-01T19:32:42.850Z</guid>
+      <pubDate>Wed, 10 Apr 2024 17:08:08 +0000</pubDate>
+    </item>
+    <item>
+      <title>CVE-2024-5216|2024-08-01T21:03:11.036Z -- mintplex-labs -- mintplex-labs%2Fanything-llm</title>
+      <link>https://www.cve.org/CVERecord?id=CVE-2024-5216</link>
+      <description>A vulnerability in mintplex-labs/anything-llm allows for a Denial of Service (DoS) condition due to uncontrolled resource consumption. Specifically, the issue arises from the application's failure to limit the size of usernames, enabling attackers to create users with excessively bulky texts in the username field. This exploit results in the user management panel becoming unresponsive, preventing administrators from performing critical user management actions such as editing, suspending, or deleting users. The impact of this vulnerability includes administrative paralysis, compromised security, and operational disruption, as it allows malicious users to perpetuate their presence within the system indefinitely, undermines the system's security posture, and degrades overall system performance.</description>
+      <guid isPermaLink="false">CVE-2024-5216|2024-08-01T21:03:11.036Z</guid>
+      <pubDate>Tue, 25 Jun 2024 10:29:55 +0000</pubDate>
+    </item>
+    <item>
+      <title>CVE-2024-5213|2024-08-01T21:03:11.159Z -- mintplex-labs -- mintplex-labs%2Fanything-llm</title>
+      <link>https://www.cve.org/CVERecord?id=CVE-2024-5213</link>
+      <description>In mintplex-labs/anything-llm versions up to and including 1.5.3, an issue was discovered where the password hash of a user is returned in the response after login (`POST /api/request-token`) and after account creations (`POST /api/admin/users/new`). This exposure occurs because the entire User object, including the bcrypt password hash, is included in the response sent to the frontend. This practice could potentially lead to sensitive information exposure despite the use of bcrypt, a strong hashing algorithm. It is recommended not to expose any clues about passwords to the frontend.</description>
+      <guid isPermaLink="false">CVE-2024-5213|2024-08-01T21:03:11.159Z</guid>
+      <pubDate>Thu, 20 Jun 2024 02:15:33 +0000</pubDate>
+    </item>
+    <item>
+      <title>CVE-2024-5211|2024-08-01T21:03:10.993Z -- mintplex-labs -- mintplex-labs%2Fanything-llm</title>
+      <link>https://www.cve.org/CVERecord?id=CVE-2024-5211</link>
+      <description>A path traversal vulnerability in mintplex-labs/anything-llm allowed a manager to bypass the `normalizePath()` function, intended to defend against path traversal attacks. This vulnerability enables the manager to read, delete, or overwrite the 'anythingllm.db' database file and other files stored in the 'storage' directory, such as internal communication keys and .env secrets. Exploitation of this vulnerability could lead to application compromise, denial of service (DoS) attacks, and unauthorized admin account takeover. The issue stems from improper validation of user-supplied input in the process of setting a custom logo for the app, which can be manipulated to achieve arbitrary file read, deletion, or overwrite, and to execute a DoS attack by deleting critical files required for the application's operation.</description>
+      <guid isPermaLink="false">CVE-2024-5211|2024-08-01T21:03:10.993Z</guid>
+      <pubDate>Wed, 12 Jun 2024 11:33:42 +0000</pubDate>
+    </item>
+    <item>
+      <title>CVE-2024-5208|2024-08-01T21:03:11.057Z -- mintplex-labs -- mintplex-labs%2Fanything-llm</title>
+      <link>https://www.cve.org/CVERecord?id=CVE-2024-5208</link>
+      <description>An uncontrolled resource consumption vulnerability exists in the `upload-link` endpoint of mintplex-labs/anything-llm. This vulnerability allows attackers to cause a denial of service (DOS) by shutting down the server through sending invalid upload requests. Specifically, the server can be made to shut down by sending an empty body with a 'Content-Length: 0' header or by sending a body with arbitrary content, such as 'asdasdasd', with a 'Content-Length: 9' header. The vulnerability is reproducible by users with at least a 'Manager' role, sending a crafted request to any workspace. This issue indicates that a previous fix was not effective in mitigating the vulnerability.</description>
+      <guid isPermaLink="false">CVE-2024-5208|2024-08-01T21:03:11.057Z</guid>
+      <pubDate>Wed, 19 Jun 2024 06:13:21 +0000</pubDate>
+    </item>
+    <item>
+      <title>CVE-2024-3029|2024-08-09T18:56:41.106Z -- mintplex-labs -- mintplex-labs%2Fanything-llm</title>
+      <link>https://www.cve.org/CVERecord?id=CVE-2024-3029</link>
+      <description>In mintplex-labs/anything-llm, an attacker can exploit improper input validation by sending a malformed JSON payload to the '/system/enable-multi-user' endpoint. This triggers an error that is caught by a catch block, which in turn deletes all users and disables the 'multi_user_mode'. The vulnerability allows an attacker to remove all existing users and potentially create a new admin user without requiring a password, leading to unauthorized access and control over the application.</description>
+      <guid isPermaLink="false">CVE-2024-3029|2024-08-09T18:56:41.106Z</guid>
+      <pubDate>Tue, 16 Apr 2024 00:00:14 +0000</pubDate>
+    </item>
+    <item>
+      <title>CVE-2024-0455|2024-08-12T13:40:34.185Z -- mintplex-labs -- mintplex-labs%2Fanything-llm</title>
+      <link>https://www.cve.org/CVERecord?id=CVE-2024-0455</link>
+      <description>The inclusion of the web scraper for AnythingLLM means that any user with the proper authorization level (manager, admin, and when in single user) could put in the URL
+```
+http://169.254.169.254/latest/meta-data/identity-credentials/ec2/security-credentials/ec2-instance
+```
+which is a special IP and URL that resolves only when the request comes from within an EC2 instance. This would allow the user to see the connection/secret credentials for their specific instance and be able to manage it regardless of who deployed it.
+
+The user would have to have pre-existing knowledge of the hosting infra which the target instance is deployed on, but if sent - would resolve if on EC2 and the proper `iptable` or firewall rule is not configured for their setup.</description>
+      <guid isPermaLink="false">CVE-2024-0455|2024-08-12T13:40:34.185Z</guid>
+      <pubDate>Sun, 25 Feb 2024 08:10:17 +0000</pubDate>
     </item>
   </channel>
 </rss>
