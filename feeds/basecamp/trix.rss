@@ -6,21 +6,28 @@
     <description>The latest CVEs for basecamp -- trix</description>
     <docs>http://www.rssboard.org/rss-specification</docs>
     <generator>python-feedgen</generator>
-    <lastBuildDate>Fri, 02 Aug 2024 03:23:48 +0000</lastBuildDate>
+    <lastBuildDate>Wed, 14 Aug 2024 22:22:49 +0000</lastBuildDate>
     <ttl>60</ttl>
     <item>
-      <title>CVE-2024-34341|2024-08-02T02:51:09.811Z -- basecamp -- trix
+      <title>CVE-2024-43368|2024-08-14T21:12:24.240Z -- basecamp -- trix
 </title>
-      <link>https://www.cve.org/CVERecord?id=CVE-2024-34341</link>
-      <description>Trix is a rich text editor. The Trix editor, versions prior to 2.1.1, is vulnerable to arbitrary code execution when copying and pasting content from the web or other documents with markup into the editor. The vulnerability stems from improper sanitization of pasted content, allowing an attacker to embed malicious scripts which are executed within the context of the application. Users should upgrade to Trix editor version 2.1.1 or later, which incorporates proper sanitization of input from copied content.</description>
-      <guid isPermaLink="false">CVE-2024-34341|2024-08-02T02:51:09.811Z</guid>
-      <pubDate>Tue, 07 May 2024 15:13:03 +0000</pubDate>
+      <link>https://www.cve.org/CVERecord?id=CVE-2024-43368</link>
+      <description>The Trix editor, versions prior to 2.1.4, is vulnerable to XSS when pasting malicious code. This vulnerability is a bypass of the fix put in place for GHSA-qjqp-xr96-cj99. In pull request 1149, sanitation was added for Trix attachments with a `text/html` content type. However, Trix only checks the content type on the paste event's `dataTransfer` object. As long as the `dataTransfer` has a content type of `text/html`, Trix parses its contents and creates an `Attachment` with them, even if the attachment itself doesn't have a `text/html` content type. Trix then uses the attachment content to set the attachment element's `innerHTML`. An attacker could trick a user to copy and paste malicious code that would execute arbitrary JavaScript code within the context of the user's session, potentially leading to unauthorized actions being performed or sensitive information being disclosed. This vulnerability was fixed in version 2.1.4.</description>
+      <guid isPermaLink="false">CVE-2024-43368|2024-08-14T21:12:24.240Z</guid>
+      <pubDate>Wed, 14 Aug 2024 21:12:24 +0000</pubDate>
     </item>
     <item>
       <title>CVE-2024-34341|2024-06-04T17:41:09.585Z -- basecamp -- trix</title>
       <link>https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2024-34341</link>
       <description>Trix is a rich text editor. The Trix editor, versions prior to 2.1.1, is vulnerable to arbitrary code execution when copying and pasting content from the web or other documents with markup into the editor. The vulnerability stems from improper sanitization of pasted content, allowing an attacker to embed malicious scripts which are executed within the context of the application. Users should upgrade to Trix editor version 2.1.1 or later, which incorporates proper sanitization of input from copied content.</description>
       <guid isPermaLink="false">CVE-2024-34341|2024-06-04T17:41:09.585Z</guid>
+      <pubDate>Tue, 07 May 2024 15:13:03 +0000</pubDate>
+    </item>
+    <item>
+      <title>CVE-2024-34341|2024-08-02T02:51:09.811Z -- basecamp -- trix</title>
+      <link>https://www.cve.org/CVERecord?id=CVE-2024-34341</link>
+      <description>Trix is a rich text editor. The Trix editor, versions prior to 2.1.1, is vulnerable to arbitrary code execution when copying and pasting content from the web or other documents with markup into the editor. The vulnerability stems from improper sanitization of pasted content, allowing an attacker to embed malicious scripts which are executed within the context of the application. Users should upgrade to Trix editor version 2.1.1 or later, which incorporates proper sanitization of input from copied content.</description>
+      <guid isPermaLink="false">CVE-2024-34341|2024-08-02T02:51:09.811Z</guid>
       <pubDate>Tue, 07 May 2024 15:13:03 +0000</pubDate>
     </item>
   </channel>
