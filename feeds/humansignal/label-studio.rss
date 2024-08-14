@@ -6,43 +6,58 @@
     <description>The latest CVEs for HumanSignal -- label-studio</description>
     <docs>http://www.rssboard.org/rss-specification</docs>
     <generator>python-feedgen</generator>
-    <lastBuildDate>Fri, 02 Aug 2024 23:22:15 +0000</lastBuildDate>
+    <lastBuildDate>Wed, 14 Aug 2024 16:24:49 +0000</lastBuildDate>
     <ttl>60</ttl>
     <item>
-      <title>CVE-2023-43791|2024-08-02T19:52:11.411Z -- humansignal -- label-studio
+      <title>CVE-2024-26152|2024-08-14T15:32:05.054Z -- humansignal -- label-studio
 </title>
-      <link>https://www.cve.org/CVERecord?id=CVE-2023-43791</link>
-      <description>Label Studio is a multi-type data labeling and annotation tool with standardized output format. There is a vulnerability that can be chained within the ORM Leak vulnerability to impersonate any account on Label Studio. An attacker could exploit these vulnerabilities to escalate their privileges from a low privilege user to a Django Super Administrator user. The vulnerability was found to affect versions before `1.8.2`, where a patch was introduced.</description>
-      <guid isPermaLink="false">CVE-2023-43791|2024-08-02T19:52:11.411Z</guid>
-      <pubDate>Thu, 09 Nov 2023 14:42:40 +0000</pubDate>
-    </item>
-    <item>
-      <title>CVE-2023-47117|2024-08-02T21:01:22.695Z -- humansignal -- label-studio
-</title>
-      <link>https://www.cve.org/CVERecord?id=CVE-2023-47117</link>
-      <description>Label Studio is an open source data labeling tool. In all current versions of Label Studio prior to 1.9.2post0, the application allows users to insecurely set filters for filtering tasks. An attacker can construct a filter chain to filter tasks based on sensitive fields for all user accounts on the platform by exploiting Django's Object Relational Mapper (ORM). Since the results of query can be manipulated by the ORM filter, an attacker can leak these sensitive fields character by character. In addition, Label Studio had a hard coded secret key that an attacker can use to forge a session token of any user by exploiting this ORM Leak vulnerability to leak account password hashes. This vulnerability has been addressed in commit `f931d9d129` which is included in the 1.9.2post0 release. Users are advised to upgrade. There are no known workarounds for this vulnerability.</description>
-      <guid isPermaLink="false">CVE-2023-47117|2024-08-02T21:01:22.695Z</guid>
-      <pubDate>Mon, 13 Nov 2023 20:13:32 +0000</pubDate>
-    </item>
-    <item>
-      <title>CVE-2023-47115|2024-08-02T21:01:22.795Z -- humansignal -- label-studio
-</title>
-      <link>https://www.cve.org/CVERecord?id=CVE-2023-47115</link>
-      <description>Label Studio is an a popular open source data labeling tool. Versions prior to 1.9.2 have a cross-site scripting (XSS) vulnerability that could be exploited when an authenticated user uploads a crafted image file for their avatar that gets rendered as a HTML file on the website. Executing arbitrary JavaScript could result in an attacker performing malicious actions on Label Studio users if they visit the crafted avatar image. For an example, an attacker can craft a JavaScript payload that adds a new Django Super Administrator user if a Django administrator visits the image.
+      <link>https://www.cve.org/CVERecord?id=CVE-2024-26152</link>
+      <description>### Summary
+On all Label Studio versions prior to 1.11.0, data imported via file upload feature is not properly sanitized prior to being rendered within a [`Choices`](https://labelstud.io/tags/choices) or [`Labels`](https://labelstud.io/tags/labels) tag, resulting in an XSS vulnerability.
 
-The file `users/functions.py` lines 18-49 show that the only verification check is that the file is an image by extracting the dimensions from the file. Label Studio serves avatar images using Django's built-in `serve` view, which is not secure for production use according to Django's documentation. The issue with the Django `serve` view is that it determines the `Content-Type` of the response by the file extension in the URL path. Therefore, an attacker can upload an image that contains malicious HTML code and name the file with a `.html` extension to be rendered as a HTML page. The only file extension validation is performed on the client-side, which can be easily bypassed.
+### Details
+Need permission to use the "data import" function. This was reproduced on Label Studio 1.10.1.
 
-Version 1.9.2 fixes this issue. Other remediation strategies include validating the file extension on the server side, not in client-side code; removing the use of Django's `serve` view and implement a secure controller for viewing uploaded avatar images; saving file content in the database rather than on the filesystem to mitigate against other file related vulnerabilities; and avoiding trusting user controlled inputs.</description>
-      <guid isPermaLink="false">CVE-2023-47115|2024-08-02T21:01:22.795Z</guid>
-      <pubDate>Tue, 23 Jan 2024 22:49:03 +0000</pubDate>
-    </item>
-    <item>
-      <title>CVE-2023-47116|2024-08-02T21:01:22.711Z -- humansignal -- label-studio
-</title>
-      <link>https://www.cve.org/CVERecord?id=CVE-2023-47116</link>
-      <description>Label Studio is a popular open source data labeling tool. The vulnerability affects all versions of Label Studio prior to 1.11.0 and was tested on version 1.8.2. Label Studio's SSRF protections that can be enabled by setting the `SSRF_PROTECTION_ENABLED` environment variable can be bypassed to access internal web servers. This is because the current SSRF validation is done by executing a single DNS lookup to verify that the IP address is not in an excluded subnet range. This protection can be bypassed by either using HTTP redirection or performing a DNS rebinding attack.</description>
-      <guid isPermaLink="false">CVE-2023-47116|2024-08-02T21:01:22.711Z</guid>
-      <pubDate>Wed, 31 Jan 2024 16:21:50 +0000</pubDate>
+### PoC
+
+1. Create a project.
+![Create a project](https://github.com/HumanSignal/label-studio/assets/3943358/9b1536ad-feac-4238-a1bd-ca9b1b798673)
+
+2. Upload a file containing the payload using the "Upload Files" function.
+![2  Upload a file containing the payload using the Upload Files function](https://github.com/HumanSignal/label-studio/assets/3943358/26bb7af1-1cd2-408f-9adf-61e31a5b7328)
+![3  complete](https://github.com/HumanSignal/label-studio/assets/3943358/f2f62774-1fa6-4456-9e6f-8fa1ca0a2d2e)
+
+The following are the contents of the files used in the PoC
+```
+{
+  "data": {
+    "prompt": "labelstudio universe image",
+    "images": [
+      {
+        "value": "id123#0",
+        "style": "margin: 5px",
+        "html": "&lt;img width='400' src='https://labelstud.io/_astro/images-tab.64279c16_ZaBSvC.avif' onload=alert(document.cookie)&gt;"
+      }
+    ]
+  }
+}
+```
+
+3. Select the text-to-image generation labeling template of Ranking and scoring
+![3  Select the text-to-image generation labelling template for Ranking and scoring](https://github.com/HumanSignal/label-studio/assets/3943358/f227f49c-a718-4738-bc2a-807da4f97155)
+![5  save](https://github.com/HumanSignal/label-studio/assets/3943358/9b529f8a-8e99-4bb0-bdf6-bb7a95c9b75d)
+
+4. Select a task
+![4  Select a task](https://github.com/HumanSignal/label-studio/assets/3943358/71856b7a-2b1f-44ea-99ab-fc48bc20caa7)
+
+5. Check that the script is running
+![5  Check that the script is running](https://github.com/HumanSignal/label-studio/assets/3943358/e396ae7b-a591-4db7-afe9-5bab30b48cb9)
+
+### Impact
+Malicious scripts can be injected into the code, and when linked with vulnerabilities such as CSRF, it can cause even greater damage. In particular, It can become a source of further attacks, especially when linked to social engineering.
+</description>
+      <guid isPermaLink="false">CVE-2024-26152|2024-08-14T15:32:05.054Z</guid>
+      <pubDate>Thu, 22 Feb 2024 21:52:26 +0000</pubDate>
     </item>
     <item>
       <title>CVE-2024-26152|2024-02-22T21:52:26.193Z -- humansignal -- label-studio</title>
