@@ -6,53 +6,22 @@
     <description>The latest CVEs for mealie-recipes -- all products</description>
     <docs>http://www.rssboard.org/rss-specification</docs>
     <generator>python-feedgen</generator>
-    <lastBuildDate>Fri, 02 Aug 2024 02:28:28 +0000</lastBuildDate>
+    <lastBuildDate>Thu, 15 Aug 2024 16:24:09 +0000</lastBuildDate>
     <ttl>60</ttl>
     <item>
-      <title>CVE-2024-31993|2024-08-02T01:59:50.901Z -- mealie-recipes -- mealie
-</title>
-      <link>https://www.cve.org/CVERecord?id=CVE-2024-31993</link>
-      <description>Mealie is a self hosted recipe manager and meal planner. Prior to 1.4.0, the scrape_image function will retrieve an image based on a user-provided URL, however the provided URL is not validated to point to an external location and does not have any enforced rate limiting. The response from the Mealie server will also vary depending on whether or not the target file is an image, is not an image, or does not exist. Additionally, when a file is retrieved the file may remain stored on Mealie’s file system as original.jpg under the UUID of the recipe it was requested for. If the attacker has access to an admin account (e.g. the default changeme@example.com), this file can then be retrieved. Note that if Mealie is running in a development setting this could be leveraged by an attacker to retrieve any file that the Mealie server had downloaded in this fashion without the need for administrator access. This vulnerability is fixed in 1.4.0.</description>
-      <guid isPermaLink="false">CVE-2024-31993|2024-08-02T01:59:50.901Z</guid>
-      <pubDate>Fri, 19 Apr 2024 21:02:56 +0000</pubDate>
-    </item>
-    <item>
-      <title>CVE-2024-31994|2024-08-02T01:59:50.832Z -- mealie-recipes -- mealie
+      <title>CVE-2024-31994|2024-08-15T15:38:16.981Z -- mealie-recipes -- mealie
 </title>
       <link>https://www.cve.org/CVERecord?id=CVE-2024-31994</link>
       <description>Mealie is a self hosted recipe manager and meal planner. Prior to 1.4.0, an attacker can point the image request to an arbitrarily large file. Mealie will attempt to retrieve this file in whole. If it can be retrieved, it may be stored on the file system in whole (leading to possible disk consumption), however the more likely scenario given resource limitations is that the container will OOM during file retrieval if the target file size is greater than the allocated memory of the container. At best this can be used to force the container to infinitely restart due to OOM (if so configured in `docker-compose.yml), or at worst this can be used to force the Mealie container to crash and remain offline. In the event that the file can be retrieved, the lack of rate limiting on this endpoint also permits an attacker to generate ongoing requests to any target of their choice, potentially contributing to an external-facing DoS attack. This vulnerability is fixed in 1.4.0.</description>
-      <guid isPermaLink="false">CVE-2024-31994|2024-08-02T01:59:50.832Z</guid>
+      <guid isPermaLink="false">CVE-2024-31994|2024-08-15T15:38:16.981Z</guid>
       <pubDate>Fri, 19 Apr 2024 21:11:37 +0000</pubDate>
     </item>
     <item>
-      <title>CVE-2024-31992|2024-08-02T01:59:50.836Z -- mealie-recipes -- mealie
-</title>
-      <link>https://www.cve.org/CVERecord?id=CVE-2024-31992</link>
-      <description>Mealie is a self hosted recipe manager and meal planner. Prior to 1.4.0, the safe_scrape_html function utilizes a user-controlled URL to issue a request to a remote server, however these requests are not rate-limited. While there are efforts to prevent DDoS by implementing a timeout on requests, it is possible for an attacker to issue a large number of requests to the server which will be handled in batches based on the configuration of the Mealie server. The chunking of responses is helpful for mitigating memory exhaustion on the Mealie server, however a single request to an arbitrarily large external file (e.g. a Debian ISO) is often sufficient to completely saturate a CPU core assigned to the Mealie container. Without rate limiting in place, it is possible to not only sustain traffic against an external target indefinitely, but also to exhaust the CPU resources assigned to the Mealie container. This vulnerability is fixed in 1.4.0.</description>
-      <guid isPermaLink="false">CVE-2024-31992|2024-08-02T01:59:50.836Z</guid>
-      <pubDate>Fri, 19 Apr 2024 20:49:18 +0000</pubDate>
-    </item>
-    <item>
-      <title>CVE-2024-31991|2024-08-02T01:59:50.864Z -- mealie-recipes -- mealie
-</title>
-      <link>https://www.cve.org/CVERecord?id=CVE-2024-31991</link>
-      <description>Mealie is a self hosted recipe manager and meal planner. Prior to 1.4.0, the safe_scrape_html function utilizes a user-controlled URL to issue a request to a remote server. Based on the content of the response, it will either parse the content or disregard it. This function, nor those that call it, add any restrictions on the URL that can be provided, nor is it restricted to being an FQDN (i.e., an IP address can be provided). As this function’s return will be handled differently by its caller depending on the response, it is possible for an attacker to use this functionality to positively identify HTTP(s) servers on the local network with any IP/port combination. This issue can result in any authenticated user being able to map HTTP servers on a local network that the Mealie service has access to. Note that by default any user can create an account on a Mealie server, and that the default changeme@example.com user is available with its hard-coded password. This vulnerability is fixed in 1.4.0.</description>
-      <guid isPermaLink="false">CVE-2024-31991|2024-08-02T01:59:50.864Z</guid>
-      <pubDate>Fri, 19 Apr 2024 20:42:05 +0000</pubDate>
-    </item>
-    <item>
-      <title>CVE-2024-31991|2024-06-04T17:36:13.891Z -- mealie-recipes -- mealie</title>
-      <link>https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2024-31991</link>
-      <description>Mealie is a self hosted recipe manager and meal planner. Prior to 1.4.0, the safe_scrape_html function utilizes a user-controlled URL to issue a request to a remote server. Based on the content of the response, it will either parse the content or disregard it. This function, nor those that call it, add any restrictions on the URL that can be provided, nor is it restricted to being an FQDN (i.e., an IP address can be provided). As this function’s return will be handled differently by its caller depending on the response, it is possible for an attacker to use this functionality to positively identify HTTP(s) servers on the local network with any IP/port combination. This issue can result in any authenticated user being able to map HTTP servers on a local network that the Mealie service has access to. Note that by default any user can create an account on a Mealie server, and that the default changeme@example.com user is available with its hard-coded password. This vulnerability is fixed in 1.4.0.</description>
-      <guid isPermaLink="false">CVE-2024-31991|2024-06-04T17:36:13.891Z</guid>
-      <pubDate>Fri, 19 Apr 2024 20:42:05 +0000</pubDate>
-    </item>
-    <item>
-      <title>CVE-2024-31994|2024-04-19T21:11:37.890Z -- mealie-recipes -- mealie</title>
-      <link>https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2024-31994</link>
-      <description>Mealie is a self hosted recipe manager and meal planner. Prior to 1.4.0, an attacker can point the image request to an arbitrarily large file. Mealie will attempt to retrieve this file in whole. If it can be retrieved, it may be stored on the file system in whole (leading to possible disk consumption), however the more likely scenario given resource limitations is that the container will OOM during file retrieval if the target file size is greater than the allocated memory of the container. At best this can be used to force the container to infinitely restart due to OOM (if so configured in `docker-compose.yml), or at worst this can be used to force the Mealie container to crash and remain offline. In the event that the file can be retrieved, the lack of rate limiting on this endpoint also permits an attacker to generate ongoing requests to any target of their choice, potentially contributing to an external-facing DoS attack. This vulnerability is fixed in 1.4.0.</description>
-      <guid isPermaLink="false">CVE-2024-31994|2024-04-19T21:11:37.890Z</guid>
-      <pubDate>Fri, 19 Apr 2024 21:11:37 +0000</pubDate>
+      <title>CVE-2024-31993|2024-06-04T17:37:15.936Z -- mealie-recipes -- mealie</title>
+      <link>https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2024-31993</link>
+      <description>Mealie is a self hosted recipe manager and meal planner. Prior to 1.4.0, the scrape_image function will retrieve an image based on a user-provided URL, however the provided URL is not validated to point to an external location and does not have any enforced rate limiting. The response from the Mealie server will also vary depending on whether or not the target file is an image, is not an image, or does not exist. Additionally, when a file is retrieved the file may remain stored on Mealie’s file system as original.jpg under the UUID of the recipe it was requested for. If the attacker has access to an admin account (e.g. the default changeme@example.com), this file can then be retrieved. Note that if Mealie is running in a development setting this could be leveraged by an attacker to retrieve any file that the Mealie server had downloaded in this fashion without the need for administrator access. This vulnerability is fixed in 1.4.0.</description>
+      <guid isPermaLink="false">CVE-2024-31993|2024-06-04T17:37:15.936Z</guid>
+      <pubDate>Fri, 19 Apr 2024 21:02:56 +0000</pubDate>
     </item>
     <item>
       <title>CVE-2024-31992|2024-06-04T17:37:15.533Z -- mealie-recipes -- mealie</title>
@@ -62,10 +31,45 @@
       <pubDate>Fri, 19 Apr 2024 20:49:18 +0000</pubDate>
     </item>
     <item>
-      <title>CVE-2024-31993|2024-06-04T17:37:15.936Z -- mealie-recipes -- mealie</title>
-      <link>https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2024-31993</link>
+      <title>CVE-2024-31994|2024-04-19T21:11:37.890Z -- mealie-recipes -- mealie</title>
+      <link>https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2024-31994</link>
+      <description>Mealie is a self hosted recipe manager and meal planner. Prior to 1.4.0, an attacker can point the image request to an arbitrarily large file. Mealie will attempt to retrieve this file in whole. If it can be retrieved, it may be stored on the file system in whole (leading to possible disk consumption), however the more likely scenario given resource limitations is that the container will OOM during file retrieval if the target file size is greater than the allocated memory of the container. At best this can be used to force the container to infinitely restart due to OOM (if so configured in `docker-compose.yml), or at worst this can be used to force the Mealie container to crash and remain offline. In the event that the file can be retrieved, the lack of rate limiting on this endpoint also permits an attacker to generate ongoing requests to any target of their choice, potentially contributing to an external-facing DoS attack. This vulnerability is fixed in 1.4.0.</description>
+      <guid isPermaLink="false">CVE-2024-31994|2024-04-19T21:11:37.890Z</guid>
+      <pubDate>Fri, 19 Apr 2024 21:11:37 +0000</pubDate>
+    </item>
+    <item>
+      <title>CVE-2024-31991|2024-06-04T17:36:13.891Z -- mealie-recipes -- mealie</title>
+      <link>https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2024-31991</link>
+      <description>Mealie is a self hosted recipe manager and meal planner. Prior to 1.4.0, the safe_scrape_html function utilizes a user-controlled URL to issue a request to a remote server. Based on the content of the response, it will either parse the content or disregard it. This function, nor those that call it, add any restrictions on the URL that can be provided, nor is it restricted to being an FQDN (i.e., an IP address can be provided). As this function’s return will be handled differently by its caller depending on the response, it is possible for an attacker to use this functionality to positively identify HTTP(s) servers on the local network with any IP/port combination. This issue can result in any authenticated user being able to map HTTP servers on a local network that the Mealie service has access to. Note that by default any user can create an account on a Mealie server, and that the default changeme@example.com user is available with its hard-coded password. This vulnerability is fixed in 1.4.0.</description>
+      <guid isPermaLink="false">CVE-2024-31991|2024-06-04T17:36:13.891Z</guid>
+      <pubDate>Fri, 19 Apr 2024 20:42:05 +0000</pubDate>
+    </item>
+    <item>
+      <title>CVE-2024-31991|2024-08-02T01:59:50.864Z -- mealie-recipes -- mealie</title>
+      <link>https://www.cve.org/CVERecord?id=CVE-2024-31991</link>
+      <description>Mealie is a self hosted recipe manager and meal planner. Prior to 1.4.0, the safe_scrape_html function utilizes a user-controlled URL to issue a request to a remote server. Based on the content of the response, it will either parse the content or disregard it. This function, nor those that call it, add any restrictions on the URL that can be provided, nor is it restricted to being an FQDN (i.e., an IP address can be provided). As this function’s return will be handled differently by its caller depending on the response, it is possible for an attacker to use this functionality to positively identify HTTP(s) servers on the local network with any IP/port combination. This issue can result in any authenticated user being able to map HTTP servers on a local network that the Mealie service has access to. Note that by default any user can create an account on a Mealie server, and that the default changeme@example.com user is available with its hard-coded password. This vulnerability is fixed in 1.4.0.</description>
+      <guid isPermaLink="false">CVE-2024-31991|2024-08-02T01:59:50.864Z</guid>
+      <pubDate>Fri, 19 Apr 2024 20:42:05 +0000</pubDate>
+    </item>
+    <item>
+      <title>CVE-2024-31992|2024-08-02T01:59:50.836Z -- mealie-recipes -- mealie</title>
+      <link>https://www.cve.org/CVERecord?id=CVE-2024-31992</link>
+      <description>Mealie is a self hosted recipe manager and meal planner. Prior to 1.4.0, the safe_scrape_html function utilizes a user-controlled URL to issue a request to a remote server, however these requests are not rate-limited. While there are efforts to prevent DDoS by implementing a timeout on requests, it is possible for an attacker to issue a large number of requests to the server which will be handled in batches based on the configuration of the Mealie server. The chunking of responses is helpful for mitigating memory exhaustion on the Mealie server, however a single request to an arbitrarily large external file (e.g. a Debian ISO) is often sufficient to completely saturate a CPU core assigned to the Mealie container. Without rate limiting in place, it is possible to not only sustain traffic against an external target indefinitely, but also to exhaust the CPU resources assigned to the Mealie container. This vulnerability is fixed in 1.4.0.</description>
+      <guid isPermaLink="false">CVE-2024-31992|2024-08-02T01:59:50.836Z</guid>
+      <pubDate>Fri, 19 Apr 2024 20:49:18 +0000</pubDate>
+    </item>
+    <item>
+      <title>CVE-2024-31994|2024-08-02T01:59:50.832Z -- mealie-recipes -- mealie</title>
+      <link>https://www.cve.org/CVERecord?id=CVE-2024-31994</link>
+      <description>Mealie is a self hosted recipe manager and meal planner. Prior to 1.4.0, an attacker can point the image request to an arbitrarily large file. Mealie will attempt to retrieve this file in whole. If it can be retrieved, it may be stored on the file system in whole (leading to possible disk consumption), however the more likely scenario given resource limitations is that the container will OOM during file retrieval if the target file size is greater than the allocated memory of the container. At best this can be used to force the container to infinitely restart due to OOM (if so configured in `docker-compose.yml), or at worst this can be used to force the Mealie container to crash and remain offline. In the event that the file can be retrieved, the lack of rate limiting on this endpoint also permits an attacker to generate ongoing requests to any target of their choice, potentially contributing to an external-facing DoS attack. This vulnerability is fixed in 1.4.0.</description>
+      <guid isPermaLink="false">CVE-2024-31994|2024-08-02T01:59:50.832Z</guid>
+      <pubDate>Fri, 19 Apr 2024 21:11:37 +0000</pubDate>
+    </item>
+    <item>
+      <title>CVE-2024-31993|2024-08-02T01:59:50.901Z -- mealie-recipes -- mealie</title>
+      <link>https://www.cve.org/CVERecord?id=CVE-2024-31993</link>
       <description>Mealie is a self hosted recipe manager and meal planner. Prior to 1.4.0, the scrape_image function will retrieve an image based on a user-provided URL, however the provided URL is not validated to point to an external location and does not have any enforced rate limiting. The response from the Mealie server will also vary depending on whether or not the target file is an image, is not an image, or does not exist. Additionally, when a file is retrieved the file may remain stored on Mealie’s file system as original.jpg under the UUID of the recipe it was requested for. If the attacker has access to an admin account (e.g. the default changeme@example.com), this file can then be retrieved. Note that if Mealie is running in a development setting this could be leveraged by an attacker to retrieve any file that the Mealie server had downloaded in this fashion without the need for administrator access. This vulnerability is fixed in 1.4.0.</description>
-      <guid isPermaLink="false">CVE-2024-31993|2024-06-04T17:37:15.936Z</guid>
+      <guid isPermaLink="false">CVE-2024-31993|2024-08-02T01:59:50.901Z</guid>
       <pubDate>Fri, 19 Apr 2024 21:02:56 +0000</pubDate>
     </item>
   </channel>
