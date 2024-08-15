@@ -1,0 +1,33 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<rss xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/" version="2.0">
+  <channel>
+    <title>CVE Feed for tc39 -- ecma262</title>
+    <link>https://raw.githubusercontent.com/deepseas/cvelistV5monitor/main/feeds/tc39/ecma262.rss</link>
+    <description>The latest CVEs for tc39 -- ecma262</description>
+    <docs>http://www.rssboard.org/rss-specification</docs>
+    <generator>python-feedgen</generator>
+    <lastBuildDate>Thu, 15 Aug 2024 19:19:33 +0000</lastBuildDate>
+    <ttl>60</ttl>
+    <item>
+      <title>CVE-2024-43357|2024-08-15T18:36:49.012Z -- tc39 -- ecma262
+</title>
+      <link>https://www.cve.org/CVERecord?id=CVE-2024-43357</link>
+      <description>ECMA-262 is the language specification for the scripting language ECMAScript. A problem in the ECMAScript (JavaScript) specification of async generators, introduced by a May 2021 spec refactor, may lead to mis-implementation in a way that could present as a security vulnerability, such as type confusion and pointer dereference.
+
+The internal async generator machinery calls regular promise resolver functions on IteratorResult (`{ done, value }`) objects that it creates, assuming that the IteratorResult objects will not be then-ables. Unfortunately, these IteratorResult objects inherit from `Object.prototype`, so these IteratorResult objects can be made then-able, triggering arbitrary behaviour, including re-entering the async generator machinery in a way that violates some internal invariants.
+
+The ECMAScript specification is a living standard and the issue has been addressed at the time of this advisory's public disclosure. JavaScript engine implementors should refer to the latest specification and update their implementations to comply with the `AsyncGenerator` section.
+
+## References
+
+- https://github.com/tc39/ecma262/commit/1e24a286d0a327d08e1154926b3ee79820232727
+- https://bugzilla.mozilla.org/show_bug.cgi?id=1901411
+- https://github.com/boa-dev/boa/security/advisories/GHSA-f67q-wr6w-23jq
+- https://bugs.webkit.org/show_bug.cgi?id=275407
+- https://issues.chromium.org/issues/346692561
+- https://www.cve.org/CVERecord?id=CVE-2024-7652</description>
+      <guid isPermaLink="false">CVE-2024-43357|2024-08-15T18:36:49.012Z</guid>
+      <pubDate>Thu, 15 Aug 2024 18:36:49 +0000</pubDate>
+    </item>
+  </channel>
+</rss>
