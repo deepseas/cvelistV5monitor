@@ -6,164 +6,22 @@
     <description>The latest CVEs for Cacti -- cacti</description>
     <docs>http://www.rssboard.org/rss-specification</docs>
     <generator>python-feedgen</generator>
-    <lastBuildDate>Sat, 03 Aug 2024 23:23:24 +0000</lastBuildDate>
+    <lastBuildDate>Mon, 19 Aug 2024 08:24:14 +0000</lastBuildDate>
     <ttl>60</ttl>
     <item>
-      <title>CVE-2022-46169|2024-08-03T14:24:03.319Z -- cacti -- cacti
+      <title>CVE-2023-39362|2024-08-19T07:48:06.636Z -- cacti -- cacti
 </title>
-      <link>https://www.cve.org/CVERecord?id=CVE-2022-46169</link>
-      <description>Cacti is an open source platform which provides a robust and extensible operational monitoring and fault management framework for users. In affected versions a command injection vulnerability allows an unauthenticated user to execute arbitrary code on a server running Cacti, if a specific data source was selected for any monitored device. The vulnerability resides in the `remote_agent.php` file. This file can be accessed without authentication. This function retrieves the IP address of the client via `get_client_addr` and resolves this IP address to the corresponding hostname via `gethostbyaddr`. After this, it is verified that an entry within the `poller` table exists, where the hostname corresponds to the resolved hostname. If such an entry was found, the function returns `true` and the client is authorized. This authorization can be bypassed due to the implementation of the `get_client_addr` function. The function is defined in the file `lib/functions.php` and checks serval `$_SERVER` variables to determine the IP address of the client. The variables beginning with `HTTP_` can be arbitrarily set by an attacker. Since there is a default entry in the `poller` table with the hostname of the server running Cacti, an attacker can bypass the authentication e.g. by providing the header `Forwarded-For: &lt;TARGETIP&gt;`. This way the function `get_client_addr` returns the IP address of the server running Cacti. The following call to `gethostbyaddr` will resolve this IP address to the hostname of the server, which will pass the `poller` hostname check because of the default entry. After the authorization of the `remote_agent.php` file is bypassed, an attacker can trigger different actions. One of these actions is called `polldata`. The called function `poll_for_data` retrieves a few request parameters and loads the corresponding `poller_item` entries from the database. If the `action` of a `poller_item` equals `POLLER_ACTION_SCRIPT_PHP`, the function `proc_open` is used to execute a PHP script. The attacker-controlled parameter `$poller_id` is retrieved via the function `get_nfilter_request_var`, which allows arbitrary strings. This variable is later inserted into the string passed to `proc_open`, which leads to a command injection vulnerability. By e.g. providing the `poller_id=;id` the `id` command is executed. In order to reach the vulnerable call, the attacker must provide a `host_id` and `local_data_id`, where the `action` of the corresponding `poller_item` is set to `POLLER_ACTION_SCRIPT_PHP`. Both of these ids (`host_id` and `local_data_id`) can easily be bruteforced. The only requirement is that a `poller_item` with an `POLLER_ACTION_SCRIPT_PHP` action exists. This is very likely on a productive instance because this action is added by some predefined templates like `Device - Uptime` or `Device - Polling Time`.
-
-This command injection vulnerability allows an unauthenticated user to execute arbitrary commands if a `poller_item` with the `action` type `POLLER_ACTION_SCRIPT_PHP` (`2`) is configured. The authorization bypass should be prevented by not allowing an attacker to make `get_client_addr` (file `lib/functions.php`) return an arbitrary IP address. This could be done by not honoring the `HTTP_...` `$_SERVER` variables. If these should be kept for compatibility reasons it should at least be prevented to fake the IP address of the server running Cacti. This vulnerability has been addressed in both the 1.2.x and 1.3.x release branches with `1.2.23` being the first release containing the patch.</description>
-      <guid isPermaLink="false">CVE-2022-46169|2024-08-03T14:24:03.319Z</guid>
-      <pubDate>Mon, 05 Dec 2022 20:48:07 +0000</pubDate>
+      <link>https://www.cve.org/CVERecord?id=CVE-2023-39362</link>
+      <description>Cacti is an open source operational monitoring and fault management framework. In Cacti 1.2.24, under certain conditions, an authenticated privileged user, can use a malicious string in the SNMP options of a Device, performing command injection and obtaining remote code execution on the underlying server. The `lib/snmp.php` file has a set of functions, with similar behavior, that accept in input some variables and place them into an `exec` call without a proper escape or validation. This issue has been addressed in version 1.2.25. Users are advised to upgrade. There are no known workarounds for this vulnerability.</description>
+      <guid isPermaLink="false">CVE-2023-39362|2024-08-19T07:48:06.636Z</guid>
+      <pubDate>Tue, 05 Sep 2023 21:16:30 +0000</pubDate>
     </item>
     <item>
-      <title>CVE-2024-34340|2024-08-02T02:51:11.436Z -- cacti -- cacti</title>
-      <link>https://www.cve.org/CVERecord?id=CVE-2024-34340</link>
-      <description>Cacti provides an operational monitoring and fault management framework. Prior to version 1.2.27, Cacti calls `compat_password_hash` when users set their password. `compat_password_hash` use `password_hash` if there is it, else use `md5`. When verifying password, it calls `compat_password_verify`. In `compat_password_verify`, `password_verify` is called if there is it, else use `md5`. `password_verify` and `password_hash` are supported on PHP &lt; 5.5.0, following PHP manual. The vulnerability is in `compat_password_verify`. Md5-hashed user input is compared with correct password in database by `$md5 == $hash`. It is a loose comparison, not `===`. It is a type juggling vulnerability. Version 1.2.27 contains a patch for the issue.</description>
-      <guid isPermaLink="false">CVE-2024-34340|2024-08-02T02:51:11.436Z</guid>
-      <pubDate>Mon, 13 May 2024 15:26:32 +0000</pubDate>
-    </item>
-    <item>
-      <title>CVE-2024-27082|2024-08-02T00:27:57.834Z -- cacti -- cacti</title>
-      <link>https://www.cve.org/CVERecord?id=CVE-2024-27082</link>
-      <description>Cacti provides an operational monitoring and fault management framework. Versions of Cacti prior to 1.2.27 are vulnerable to stored cross-site scripting, a type of cross-site scripting where malicious scripts are permanently stored on a target server and served to users who access a particular page. Version 1.2.27 contains a patch for the issue.</description>
-      <guid isPermaLink="false">CVE-2024-27082|2024-08-02T00:27:57.834Z</guid>
-      <pubDate>Mon, 13 May 2024 13:49:10 +0000</pubDate>
-    </item>
-    <item>
-      <title>CVE-2024-29895|2024-08-02T01:17:58.192Z -- cacti -- cacti</title>
-      <link>https://www.cve.org/CVERecord?id=CVE-2024-29895</link>
-      <description>Cacti provides an operational monitoring and fault management framework. A command injection vulnerability on the 1.3.x DEV branch allows any unauthenticated user to execute arbitrary command on the server when `register_argc_argv` option of PHP is `On`. In `cmd_realtime.php` line 119, the `$poller_id` used as part of the command execution is sourced from `$_SERVER['argv']`, which can be controlled by URL when `register_argc_argv` option of PHP is `On`. And this option is `On` by default in many environments such as the main PHP Docker image for PHP. Commit 53e8014d1f082034e0646edc6286cde3800c683d contains a patch for the issue, but this commit was reverted in commit 99633903cad0de5ace636249de16f77e57a3c8fc.</description>
-      <guid isPermaLink="false">CVE-2024-29895|2024-08-02T01:17:58.192Z</guid>
-      <pubDate>Mon, 13 May 2024 14:33:27 +0000</pubDate>
-    </item>
-    <item>
-      <title>CVE-2024-29894|2024-08-02T01:17:58.331Z -- cacti -- cacti</title>
-      <link>https://www.cve.org/CVERecord?id=CVE-2024-29894</link>
-      <description>Cacti provides an operational monitoring and fault management framework. Versions of Cacti prior to 1.2.27 contain a residual cross-site scripting vulnerability caused by an incomplete fix for CVE-2023-50250. `raise_message_javascript` from `lib/functions.php` now uses purify.js to fix CVE-2023-50250 (among others). However, it still generates the code out of unescaped PHP variables `$title` and `$header`. If those variables contain single quotes, they can be used to inject JavaScript code. An attacker exploiting this vulnerability could execute actions on behalf of other users. This ability to impersonate users could lead to unauthorized changes to settings. Version 1.2.27 fixes this issue.</description>
-      <guid isPermaLink="false">CVE-2024-29894|2024-08-02T01:17:58.331Z</guid>
-      <pubDate>Mon, 13 May 2024 14:24:32 +0000</pubDate>
-    </item>
-    <item>
-      <title>CVE-2024-25641|2024-05-13T13:28:58.808Z -- cacti -- cacti</title>
-      <link>https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2024-25641</link>
-      <description>Cacti provides an operational monitoring and fault management framework. Prior to version 1.2.27, an arbitrary file write vulnerability, exploitable through the "Package Import" feature, allows authenticated users having the "Import Templates" permission to execute arbitrary PHP code on the web server. The vulnerability is located within the `import_package()` function defined into the `/lib/import.php` script. The function blindly trusts the filename and file content provided within the XML data, and writes such files into the Cacti base path (or even outside, since path traversal sequences are not filtered). This can be exploited to write or overwrite arbitrary files on the web server, leading to execution of arbitrary PHP code or other security impacts. Version 1.2.27 contains a patch for this issue.</description>
-      <guid isPermaLink="false">CVE-2024-25641|2024-05-13T13:28:58.808Z</guid>
-      <pubDate>Mon, 13 May 2024 13:28:58 +0000</pubDate>
-    </item>
-    <item>
-      <title>CVE-2024-31460|2024-05-13T15:14:38.689Z -- cacti -- cacti</title>
-      <link>https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2024-31460</link>
-      <description>Cacti provides an operational monitoring and fault management framework. Prior to version 1.2.27, some of the data stored in `automation_tree_rules.php` is not thoroughly checked and is used to concatenate the SQL statement in `create_all_header_nodes()`  function from `lib/api_automation.php` , finally resulting in SQL injection. Using SQL based secondary injection technology, attackers can modify the contents of the Cacti database, and based on the modified content, it may be possible to achieve further impact, such as arbitrary file reading, and even remote code execution through arbitrary file writing. Version 1.2.27 contains a patch for the issue.</description>
-      <guid isPermaLink="false">CVE-2024-31460|2024-05-13T15:14:38.689Z</guid>
-      <pubDate>Mon, 13 May 2024 15:14:38 +0000</pubDate>
-    </item>
-    <item>
-      <title>CVE-2024-31445|2024-05-13T15:05:56.662Z -- cacti -- cacti</title>
-      <link>https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2024-31445</link>
-      <description>Cacti provides an operational monitoring and fault management framework. Prior to version 1.2.27, a SQL injection vulnerability in `automation_get_new_graphs_sql` function of `api_automation.php` allows authenticated users to exploit these SQL injection vulnerabilities to perform privilege escalation and remote code execution. In `api_automation.php` line 856, the `get_request_var('filter')` is being concatenated into the SQL statement without any sanitization. In `api_automation.php` line 717, The filter of `'filter'` is `FILTER_DEFAULT`, which means there is no filter for it. Version 1.2.27 contains a patch for the issue.</description>
-      <guid isPermaLink="false">CVE-2024-31445|2024-05-13T15:05:56.662Z</guid>
-      <pubDate>Mon, 13 May 2024 15:05:56 +0000</pubDate>
-    </item>
-    <item>
-      <title>CVE-2024-31444|2024-05-13T15:03:58.385Z -- cacti -- cacti</title>
-      <link>https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2024-31444</link>
-      <description>Cacti provides an operational monitoring and fault management framework. Prior to version 1.2.27, some of the data stored in `automation_tree_rules_form_save()` function in `automation_tree_rules.php` is not thoroughly checked and is used to concatenate the HTML statement in `form_confirm()` function from `lib/html.php` , finally resulting in cross-site scripting. Version 1.2.27 contains a patch for the issue.</description>
-      <guid isPermaLink="false">CVE-2024-31444|2024-05-13T15:03:58.385Z</guid>
-      <pubDate>Mon, 13 May 2024 15:03:58 +0000</pubDate>
-    </item>
-    <item>
-      <title>CVE-2024-31459|2024-05-13T15:11:37.909Z -- cacti -- cacti</title>
-      <link>https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2024-31459</link>
-      <description>Cacti provides an operational monitoring and fault management framework. Prior to version 1.2.27, there is a file inclusion issue in the `lib/plugin.php` file. Combined with SQL injection vulnerabilities, remote code execution can be implemented. There is a file inclusion issue with the `api_plugin_hook()` function in the `lib/plugin.php` file, which reads the plugin_hooks and plugin_config tables in database. The read data is directly used to concatenate the file path which is used for file inclusion. Version 1.2.27 contains a patch for the issue.</description>
-      <guid isPermaLink="false">CVE-2024-31459|2024-05-13T15:11:37.909Z</guid>
-      <pubDate>Mon, 13 May 2024 15:11:37 +0000</pubDate>
-    </item>
-    <item>
-      <title>CVE-2024-31443|2024-05-13T15:01:44.324Z -- cacti -- cacti</title>
-      <link>https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2024-31443</link>
-      <description>Cacti provides an operational monitoring and fault management framework. Prior to 1.2.27, some of the data stored in `form_save()` function in `data_queries.php` is not thoroughly checked and is used to concatenate the HTML statement in `grow_right_pane_tree()` function from `lib/html.php` , finally resulting in cross-site scripting. Version 1.2.27 contains a patch for the issue.</description>
-      <guid isPermaLink="false">CVE-2024-31443|2024-05-13T15:01:44.324Z</guid>
-      <pubDate>Mon, 13 May 2024 15:01:44 +0000</pubDate>
-    </item>
-    <item>
-      <title>CVE-2024-31458|2024-05-13T15:07:08.051Z -- cacti -- cacti</title>
-      <link>https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2024-31458</link>
+      <title>CVE-2024-31458|2024-08-02T01:52:57.036Z -- cacti -- cacti</title>
+      <link>https://www.cve.org/CVERecord?id=CVE-2024-31458</link>
       <description>Cacti provides an operational monitoring and fault management framework. Prior to version 1.2.27, some of the data stored in `form_save()` function in `graph_template_inputs.php` is not thoroughly checked and is used to concatenate the SQL statement in `draw_nontemplated_fields_graph_item()` function from `lib/html_form_templates.php` , finally resulting in SQL injection. Version 1.2.27 contains a patch for the issue.</description>
-      <guid isPermaLink="false">CVE-2024-31458|2024-05-13T15:07:08.051Z</guid>
+      <guid isPermaLink="false">CVE-2024-31458|2024-08-02T01:52:57.036Z</guid>
       <pubDate>Mon, 13 May 2024 15:07:08 +0000</pubDate>
-    </item>
-    <item>
-      <title>CVE-2024-30268|2024-06-04T17:39:38.687Z -- cacti -- cacti</title>
-      <link>https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2024-30268</link>
-      <description>Cacti provides an operational monitoring and fault management framework. A reflected cross-site scripting vulnerability on the 1.3.x DEV branch allows attackers to obtain cookies of administrator and other users and fake their login using obtained cookies. This issue is fixed in commit a38b9046e9772612fda847b46308f9391a49891e.</description>
-      <guid isPermaLink="false">CVE-2024-30268|2024-06-04T17:39:38.687Z</guid>
-      <pubDate>Mon, 13 May 2024 14:56:18 +0000</pubDate>
-    </item>
-    <item>
-      <title>CVE-2024-34340|2024-05-13T15:26:32.364Z -- cacti -- cacti</title>
-      <link>https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2024-34340</link>
-      <description>Cacti provides an operational monitoring and fault management framework. Prior to version 1.2.27, Cacti calls `compat_password_hash` when users set their password. `compat_password_hash` use `password_hash` if there is it, else use `md5`. When verifying password, it calls `compat_password_verify`. In `compat_password_verify`, `password_verify` is called if there is it, else use `md5`. `password_verify` and `password_hash` are supported on PHP &lt; 5.5.0, following PHP manual. The vulnerability is in `compat_password_verify`. Md5-hashed user input is compared with correct password in database by `$md5 == $hash`. It is a loose comparison, not `===`. It is a type juggling vulnerability. Version 1.2.27 contains a patch for the issue.</description>
-      <guid isPermaLink="false">CVE-2024-34340|2024-05-13T15:26:32.364Z</guid>
-      <pubDate>Mon, 13 May 2024 15:26:32 +0000</pubDate>
-    </item>
-    <item>
-      <title>CVE-2024-27082|2024-06-04T17:47:23.551Z -- cacti -- cacti</title>
-      <link>https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2024-27082</link>
-      <description>Cacti provides an operational monitoring and fault management framework. Versions of Cacti prior to 1.2.27 are vulnerable to stored cross-site scripting, a type of cross-site scripting where malicious scripts are permanently stored on a target server and served to users who access a particular page. Version 1.2.27 contains a patch for the issue.</description>
-      <guid isPermaLink="false">CVE-2024-27082|2024-06-04T17:47:23.551Z</guid>
-      <pubDate>Mon, 13 May 2024 13:49:10 +0000</pubDate>
-    </item>
-    <item>
-      <title>CVE-2024-29895|2024-06-04T17:56:45.934Z -- cacti -- cacti</title>
-      <link>https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2024-29895</link>
-      <description>Cacti provides an operational monitoring and fault management framework. A command injection vulnerability on the 1.3.x DEV branch allows any unauthenticated user to execute arbitrary command on the server when `register_argc_argv` option of PHP is `On`. In `cmd_realtime.php` line 119, the `$poller_id` used as part of the command execution is sourced from `$_SERVER['argv']`, which can be controlled by URL when `register_argc_argv` option of PHP is `On`. And this option is `On` by default in many environments such as the main PHP Docker image for PHP. Commit 53e8014d1f082034e0646edc6286cde3800c683d contains a patch for the issue, but this commit was reverted in commit 99633903cad0de5ace636249de16f77e57a3c8fc.</description>
-      <guid isPermaLink="false">CVE-2024-29895|2024-06-04T17:56:45.934Z</guid>
-      <pubDate>Mon, 13 May 2024 14:33:27 +0000</pubDate>
-    </item>
-    <item>
-      <title>CVE-2024-29894|2024-05-13T14:24:32.871Z -- cacti -- cacti</title>
-      <link>https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2024-29894</link>
-      <description>Cacti provides an operational monitoring and fault management framework. Versions of Cacti prior to 1.2.27 contain a residual cross-site scripting vulnerability caused by an incomplete fix for CVE-2023-50250. `raise_message_javascript` from `lib/functions.php` now uses purify.js to fix CVE-2023-50250 (among others). However, it still generates the code out of unescaped PHP variables `$title` and `$header`. If those variables contain single quotes, they can be used to inject JavaScript code. An attacker exploiting this vulnerability could execute actions on behalf of other users. This ability to impersonate users could lead to unauthorized changes to settings. Version 1.2.27 fixes this issue.</description>
-      <guid isPermaLink="false">CVE-2024-29894|2024-05-13T14:24:32.871Z</guid>
-      <pubDate>Mon, 13 May 2024 14:24:32 +0000</pubDate>
-    </item>
-    <item>
-      <title>CVE-2024-31459|2024-08-02T01:52:57.038Z -- cacti -- cacti</title>
-      <link>https://www.cve.org/CVERecord?id=CVE-2024-31459</link>
-      <description>Cacti provides an operational monitoring and fault management framework. Prior to version 1.2.27, there is a file inclusion issue in the `lib/plugin.php` file. Combined with SQL injection vulnerabilities, remote code execution can be implemented. There is a file inclusion issue with the `api_plugin_hook()` function in the `lib/plugin.php` file, which reads the plugin_hooks and plugin_config tables in database. The read data is directly used to concatenate the file path which is used for file inclusion. Version 1.2.27 contains a patch for the issue.</description>
-      <guid isPermaLink="false">CVE-2024-31459|2024-08-02T01:52:57.038Z</guid>
-      <pubDate>Mon, 13 May 2024 15:11:37 +0000</pubDate>
-    </item>
-    <item>
-      <title>CVE-2024-31444|2024-08-02T01:52:56.953Z -- cacti -- cacti</title>
-      <link>https://www.cve.org/CVERecord?id=CVE-2024-31444</link>
-      <description>Cacti provides an operational monitoring and fault management framework. Prior to version 1.2.27, some of the data stored in `automation_tree_rules_form_save()` function in `automation_tree_rules.php` is not thoroughly checked and is used to concatenate the HTML statement in `form_confirm()` function from `lib/html.php` , finally resulting in cross-site scripting. Version 1.2.27 contains a patch for the issue.</description>
-      <guid isPermaLink="false">CVE-2024-31444|2024-08-02T01:52:56.953Z</guid>
-      <pubDate>Mon, 13 May 2024 15:03:58 +0000</pubDate>
-    </item>
-    <item>
-      <title>CVE-2024-31460|2024-08-02T01:52:57.065Z -- cacti -- cacti</title>
-      <link>https://www.cve.org/CVERecord?id=CVE-2024-31460</link>
-      <description>Cacti provides an operational monitoring and fault management framework. Prior to version 1.2.27, some of the data stored in `automation_tree_rules.php` is not thoroughly checked and is used to concatenate the SQL statement in `create_all_header_nodes()`  function from `lib/api_automation.php` , finally resulting in SQL injection. Using SQL based secondary injection technology, attackers can modify the contents of the Cacti database, and based on the modified content, it may be possible to achieve further impact, such as arbitrary file reading, and even remote code execution through arbitrary file writing. Version 1.2.27 contains a patch for the issue.</description>
-      <guid isPermaLink="false">CVE-2024-31460|2024-08-02T01:52:57.065Z</guid>
-      <pubDate>Mon, 13 May 2024 15:14:38 +0000</pubDate>
-    </item>
-    <item>
-      <title>CVE-2024-31445|2024-08-02T01:52:56.986Z -- cacti -- cacti</title>
-      <link>https://www.cve.org/CVERecord?id=CVE-2024-31445</link>
-      <description>Cacti provides an operational monitoring and fault management framework. Prior to version 1.2.27, a SQL injection vulnerability in `automation_get_new_graphs_sql` function of `api_automation.php` allows authenticated users to exploit these SQL injection vulnerabilities to perform privilege escalation and remote code execution. In `api_automation.php` line 856, the `get_request_var('filter')` is being concatenated into the SQL statement without any sanitization. In `api_automation.php` line 717, The filter of `'filter'` is `FILTER_DEFAULT`, which means there is no filter for it. Version 1.2.27 contains a patch for the issue.</description>
-      <guid isPermaLink="false">CVE-2024-31445|2024-08-02T01:52:56.986Z</guid>
-      <pubDate>Mon, 13 May 2024 15:05:56 +0000</pubDate>
-    </item>
-    <item>
-      <title>CVE-2024-31443|2024-08-02T01:52:56.980Z -- cacti -- cacti</title>
-      <link>https://www.cve.org/CVERecord?id=CVE-2024-31443</link>
-      <description>Cacti provides an operational monitoring and fault management framework. Prior to 1.2.27, some of the data stored in `form_save()` function in `data_queries.php` is not thoroughly checked and is used to concatenate the HTML statement in `grow_right_pane_tree()` function from `lib/html.php` , finally resulting in cross-site scripting. Version 1.2.27 contains a patch for the issue.</description>
-      <guid isPermaLink="false">CVE-2024-31443|2024-08-02T01:52:56.980Z</guid>
-      <pubDate>Mon, 13 May 2024 15:01:44 +0000</pubDate>
     </item>
     <item>
       <title>CVE-2024-30268|2024-08-02T01:32:06.680Z -- cacti -- cacti</title>
@@ -173,11 +31,151 @@ This command injection vulnerability allows an unauthenticated user to execute a
       <pubDate>Mon, 13 May 2024 14:56:18 +0000</pubDate>
     </item>
     <item>
-      <title>CVE-2024-31458|2024-08-02T01:52:57.036Z -- cacti -- cacti</title>
-      <link>https://www.cve.org/CVERecord?id=CVE-2024-31458</link>
+      <title>CVE-2024-31443|2024-08-02T01:52:56.980Z -- cacti -- cacti</title>
+      <link>https://www.cve.org/CVERecord?id=CVE-2024-31443</link>
+      <description>Cacti provides an operational monitoring and fault management framework. Prior to 1.2.27, some of the data stored in `form_save()` function in `data_queries.php` is not thoroughly checked and is used to concatenate the HTML statement in `grow_right_pane_tree()` function from `lib/html.php` , finally resulting in cross-site scripting. Version 1.2.27 contains a patch for the issue.</description>
+      <guid isPermaLink="false">CVE-2024-31443|2024-08-02T01:52:56.980Z</guid>
+      <pubDate>Mon, 13 May 2024 15:01:44 +0000</pubDate>
+    </item>
+    <item>
+      <title>CVE-2024-31445|2024-08-02T01:52:56.986Z -- cacti -- cacti</title>
+      <link>https://www.cve.org/CVERecord?id=CVE-2024-31445</link>
+      <description>Cacti provides an operational monitoring and fault management framework. Prior to version 1.2.27, a SQL injection vulnerability in `automation_get_new_graphs_sql` function of `api_automation.php` allows authenticated users to exploit these SQL injection vulnerabilities to perform privilege escalation and remote code execution. In `api_automation.php` line 856, the `get_request_var('filter')` is being concatenated into the SQL statement without any sanitization. In `api_automation.php` line 717, The filter of `'filter'` is `FILTER_DEFAULT`, which means there is no filter for it. Version 1.2.27 contains a patch for the issue.</description>
+      <guid isPermaLink="false">CVE-2024-31445|2024-08-02T01:52:56.986Z</guid>
+      <pubDate>Mon, 13 May 2024 15:05:56 +0000</pubDate>
+    </item>
+    <item>
+      <title>CVE-2024-31460|2024-08-02T01:52:57.065Z -- cacti -- cacti</title>
+      <link>https://www.cve.org/CVERecord?id=CVE-2024-31460</link>
+      <description>Cacti provides an operational monitoring and fault management framework. Prior to version 1.2.27, some of the data stored in `automation_tree_rules.php` is not thoroughly checked and is used to concatenate the SQL statement in `create_all_header_nodes()`  function from `lib/api_automation.php` , finally resulting in SQL injection. Using SQL based secondary injection technology, attackers can modify the contents of the Cacti database, and based on the modified content, it may be possible to achieve further impact, such as arbitrary file reading, and even remote code execution through arbitrary file writing. Version 1.2.27 contains a patch for the issue.</description>
+      <guid isPermaLink="false">CVE-2024-31460|2024-08-02T01:52:57.065Z</guid>
+      <pubDate>Mon, 13 May 2024 15:14:38 +0000</pubDate>
+    </item>
+    <item>
+      <title>CVE-2024-31444|2024-08-02T01:52:56.953Z -- cacti -- cacti</title>
+      <link>https://www.cve.org/CVERecord?id=CVE-2024-31444</link>
+      <description>Cacti provides an operational monitoring and fault management framework. Prior to version 1.2.27, some of the data stored in `automation_tree_rules_form_save()` function in `automation_tree_rules.php` is not thoroughly checked and is used to concatenate the HTML statement in `form_confirm()` function from `lib/html.php` , finally resulting in cross-site scripting. Version 1.2.27 contains a patch for the issue.</description>
+      <guid isPermaLink="false">CVE-2024-31444|2024-08-02T01:52:56.953Z</guid>
+      <pubDate>Mon, 13 May 2024 15:03:58 +0000</pubDate>
+    </item>
+    <item>
+      <title>CVE-2024-31459|2024-08-02T01:52:57.038Z -- cacti -- cacti</title>
+      <link>https://www.cve.org/CVERecord?id=CVE-2024-31459</link>
+      <description>Cacti provides an operational monitoring and fault management framework. Prior to version 1.2.27, there is a file inclusion issue in the `lib/plugin.php` file. Combined with SQL injection vulnerabilities, remote code execution can be implemented. There is a file inclusion issue with the `api_plugin_hook()` function in the `lib/plugin.php` file, which reads the plugin_hooks and plugin_config tables in database. The read data is directly used to concatenate the file path which is used for file inclusion. Version 1.2.27 contains a patch for the issue.</description>
+      <guid isPermaLink="false">CVE-2024-31459|2024-08-02T01:52:57.038Z</guid>
+      <pubDate>Mon, 13 May 2024 15:11:37 +0000</pubDate>
+    </item>
+    <item>
+      <title>CVE-2024-29894|2024-05-13T14:24:32.871Z -- cacti -- cacti</title>
+      <link>https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2024-29894</link>
+      <description>Cacti provides an operational monitoring and fault management framework. Versions of Cacti prior to 1.2.27 contain a residual cross-site scripting vulnerability caused by an incomplete fix for CVE-2023-50250. `raise_message_javascript` from `lib/functions.php` now uses purify.js to fix CVE-2023-50250 (among others). However, it still generates the code out of unescaped PHP variables `$title` and `$header`. If those variables contain single quotes, they can be used to inject JavaScript code. An attacker exploiting this vulnerability could execute actions on behalf of other users. This ability to impersonate users could lead to unauthorized changes to settings. Version 1.2.27 fixes this issue.</description>
+      <guid isPermaLink="false">CVE-2024-29894|2024-05-13T14:24:32.871Z</guid>
+      <pubDate>Mon, 13 May 2024 14:24:32 +0000</pubDate>
+    </item>
+    <item>
+      <title>CVE-2024-29895|2024-06-04T17:56:45.934Z -- cacti -- cacti</title>
+      <link>https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2024-29895</link>
+      <description>Cacti provides an operational monitoring and fault management framework. A command injection vulnerability on the 1.3.x DEV branch allows any unauthenticated user to execute arbitrary command on the server when `register_argc_argv` option of PHP is `On`. In `cmd_realtime.php` line 119, the `$poller_id` used as part of the command execution is sourced from `$_SERVER['argv']`, which can be controlled by URL when `register_argc_argv` option of PHP is `On`. And this option is `On` by default in many environments such as the main PHP Docker image for PHP. Commit 53e8014d1f082034e0646edc6286cde3800c683d contains a patch for the issue, but this commit was reverted in commit 99633903cad0de5ace636249de16f77e57a3c8fc.</description>
+      <guid isPermaLink="false">CVE-2024-29895|2024-06-04T17:56:45.934Z</guid>
+      <pubDate>Mon, 13 May 2024 14:33:27 +0000</pubDate>
+    </item>
+    <item>
+      <title>CVE-2024-27082|2024-06-04T17:47:23.551Z -- cacti -- cacti</title>
+      <link>https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2024-27082</link>
+      <description>Cacti provides an operational monitoring and fault management framework. Versions of Cacti prior to 1.2.27 are vulnerable to stored cross-site scripting, a type of cross-site scripting where malicious scripts are permanently stored on a target server and served to users who access a particular page. Version 1.2.27 contains a patch for the issue.</description>
+      <guid isPermaLink="false">CVE-2024-27082|2024-06-04T17:47:23.551Z</guid>
+      <pubDate>Mon, 13 May 2024 13:49:10 +0000</pubDate>
+    </item>
+    <item>
+      <title>CVE-2024-34340|2024-05-13T15:26:32.364Z -- cacti -- cacti</title>
+      <link>https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2024-34340</link>
+      <description>Cacti provides an operational monitoring and fault management framework. Prior to version 1.2.27, Cacti calls `compat_password_hash` when users set their password. `compat_password_hash` use `password_hash` if there is it, else use `md5`. When verifying password, it calls `compat_password_verify`. In `compat_password_verify`, `password_verify` is called if there is it, else use `md5`. `password_verify` and `password_hash` are supported on PHP &lt; 5.5.0, following PHP manual. The vulnerability is in `compat_password_verify`. Md5-hashed user input is compared with correct password in database by `$md5 == $hash`. It is a loose comparison, not `===`. It is a type juggling vulnerability. Version 1.2.27 contains a patch for the issue.</description>
+      <guid isPermaLink="false">CVE-2024-34340|2024-05-13T15:26:32.364Z</guid>
+      <pubDate>Mon, 13 May 2024 15:26:32 +0000</pubDate>
+    </item>
+    <item>
+      <title>CVE-2024-30268|2024-06-04T17:39:38.687Z -- cacti -- cacti</title>
+      <link>https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2024-30268</link>
+      <description>Cacti provides an operational monitoring and fault management framework. A reflected cross-site scripting vulnerability on the 1.3.x DEV branch allows attackers to obtain cookies of administrator and other users and fake their login using obtained cookies. This issue is fixed in commit a38b9046e9772612fda847b46308f9391a49891e.</description>
+      <guid isPermaLink="false">CVE-2024-30268|2024-06-04T17:39:38.687Z</guid>
+      <pubDate>Mon, 13 May 2024 14:56:18 +0000</pubDate>
+    </item>
+    <item>
+      <title>CVE-2024-31458|2024-05-13T15:07:08.051Z -- cacti -- cacti</title>
+      <link>https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2024-31458</link>
       <description>Cacti provides an operational monitoring and fault management framework. Prior to version 1.2.27, some of the data stored in `form_save()` function in `graph_template_inputs.php` is not thoroughly checked and is used to concatenate the SQL statement in `draw_nontemplated_fields_graph_item()` function from `lib/html_form_templates.php` , finally resulting in SQL injection. Version 1.2.27 contains a patch for the issue.</description>
-      <guid isPermaLink="false">CVE-2024-31458|2024-08-02T01:52:57.036Z</guid>
+      <guid isPermaLink="false">CVE-2024-31458|2024-05-13T15:07:08.051Z</guid>
       <pubDate>Mon, 13 May 2024 15:07:08 +0000</pubDate>
+    </item>
+    <item>
+      <title>CVE-2024-31443|2024-05-13T15:01:44.324Z -- cacti -- cacti</title>
+      <link>https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2024-31443</link>
+      <description>Cacti provides an operational monitoring and fault management framework. Prior to 1.2.27, some of the data stored in `form_save()` function in `data_queries.php` is not thoroughly checked and is used to concatenate the HTML statement in `grow_right_pane_tree()` function from `lib/html.php` , finally resulting in cross-site scripting. Version 1.2.27 contains a patch for the issue.</description>
+      <guid isPermaLink="false">CVE-2024-31443|2024-05-13T15:01:44.324Z</guid>
+      <pubDate>Mon, 13 May 2024 15:01:44 +0000</pubDate>
+    </item>
+    <item>
+      <title>CVE-2024-31459|2024-05-13T15:11:37.909Z -- cacti -- cacti</title>
+      <link>https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2024-31459</link>
+      <description>Cacti provides an operational monitoring and fault management framework. Prior to version 1.2.27, there is a file inclusion issue in the `lib/plugin.php` file. Combined with SQL injection vulnerabilities, remote code execution can be implemented. There is a file inclusion issue with the `api_plugin_hook()` function in the `lib/plugin.php` file, which reads the plugin_hooks and plugin_config tables in database. The read data is directly used to concatenate the file path which is used for file inclusion. Version 1.2.27 contains a patch for the issue.</description>
+      <guid isPermaLink="false">CVE-2024-31459|2024-05-13T15:11:37.909Z</guid>
+      <pubDate>Mon, 13 May 2024 15:11:37 +0000</pubDate>
+    </item>
+    <item>
+      <title>CVE-2024-31444|2024-05-13T15:03:58.385Z -- cacti -- cacti</title>
+      <link>https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2024-31444</link>
+      <description>Cacti provides an operational monitoring and fault management framework. Prior to version 1.2.27, some of the data stored in `automation_tree_rules_form_save()` function in `automation_tree_rules.php` is not thoroughly checked and is used to concatenate the HTML statement in `form_confirm()` function from `lib/html.php` , finally resulting in cross-site scripting. Version 1.2.27 contains a patch for the issue.</description>
+      <guid isPermaLink="false">CVE-2024-31444|2024-05-13T15:03:58.385Z</guid>
+      <pubDate>Mon, 13 May 2024 15:03:58 +0000</pubDate>
+    </item>
+    <item>
+      <title>CVE-2024-31445|2024-05-13T15:05:56.662Z -- cacti -- cacti</title>
+      <link>https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2024-31445</link>
+      <description>Cacti provides an operational monitoring and fault management framework. Prior to version 1.2.27, a SQL injection vulnerability in `automation_get_new_graphs_sql` function of `api_automation.php` allows authenticated users to exploit these SQL injection vulnerabilities to perform privilege escalation and remote code execution. In `api_automation.php` line 856, the `get_request_var('filter')` is being concatenated into the SQL statement without any sanitization. In `api_automation.php` line 717, The filter of `'filter'` is `FILTER_DEFAULT`, which means there is no filter for it. Version 1.2.27 contains a patch for the issue.</description>
+      <guid isPermaLink="false">CVE-2024-31445|2024-05-13T15:05:56.662Z</guid>
+      <pubDate>Mon, 13 May 2024 15:05:56 +0000</pubDate>
+    </item>
+    <item>
+      <title>CVE-2024-31460|2024-05-13T15:14:38.689Z -- cacti -- cacti</title>
+      <link>https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2024-31460</link>
+      <description>Cacti provides an operational monitoring and fault management framework. Prior to version 1.2.27, some of the data stored in `automation_tree_rules.php` is not thoroughly checked and is used to concatenate the SQL statement in `create_all_header_nodes()`  function from `lib/api_automation.php` , finally resulting in SQL injection. Using SQL based secondary injection technology, attackers can modify the contents of the Cacti database, and based on the modified content, it may be possible to achieve further impact, such as arbitrary file reading, and even remote code execution through arbitrary file writing. Version 1.2.27 contains a patch for the issue.</description>
+      <guid isPermaLink="false">CVE-2024-31460|2024-05-13T15:14:38.689Z</guid>
+      <pubDate>Mon, 13 May 2024 15:14:38 +0000</pubDate>
+    </item>
+    <item>
+      <title>CVE-2024-25641|2024-05-13T13:28:58.808Z -- cacti -- cacti</title>
+      <link>https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2024-25641</link>
+      <description>Cacti provides an operational monitoring and fault management framework. Prior to version 1.2.27, an arbitrary file write vulnerability, exploitable through the "Package Import" feature, allows authenticated users having the "Import Templates" permission to execute arbitrary PHP code on the web server. The vulnerability is located within the `import_package()` function defined into the `/lib/import.php` script. The function blindly trusts the filename and file content provided within the XML data, and writes such files into the Cacti base path (or even outside, since path traversal sequences are not filtered). This can be exploited to write or overwrite arbitrary files on the web server, leading to execution of arbitrary PHP code or other security impacts. Version 1.2.27 contains a patch for this issue.</description>
+      <guid isPermaLink="false">CVE-2024-25641|2024-05-13T13:28:58.808Z</guid>
+      <pubDate>Mon, 13 May 2024 13:28:58 +0000</pubDate>
+    </item>
+    <item>
+      <title>CVE-2024-29894|2024-08-02T01:17:58.331Z -- cacti -- cacti</title>
+      <link>https://www.cve.org/CVERecord?id=CVE-2024-29894</link>
+      <description>Cacti provides an operational monitoring and fault management framework. Versions of Cacti prior to 1.2.27 contain a residual cross-site scripting vulnerability caused by an incomplete fix for CVE-2023-50250. `raise_message_javascript` from `lib/functions.php` now uses purify.js to fix CVE-2023-50250 (among others). However, it still generates the code out of unescaped PHP variables `$title` and `$header`. If those variables contain single quotes, they can be used to inject JavaScript code. An attacker exploiting this vulnerability could execute actions on behalf of other users. This ability to impersonate users could lead to unauthorized changes to settings. Version 1.2.27 fixes this issue.</description>
+      <guid isPermaLink="false">CVE-2024-29894|2024-08-02T01:17:58.331Z</guid>
+      <pubDate>Mon, 13 May 2024 14:24:32 +0000</pubDate>
+    </item>
+    <item>
+      <title>CVE-2024-29895|2024-08-02T01:17:58.192Z -- cacti -- cacti</title>
+      <link>https://www.cve.org/CVERecord?id=CVE-2024-29895</link>
+      <description>Cacti provides an operational monitoring and fault management framework. A command injection vulnerability on the 1.3.x DEV branch allows any unauthenticated user to execute arbitrary command on the server when `register_argc_argv` option of PHP is `On`. In `cmd_realtime.php` line 119, the `$poller_id` used as part of the command execution is sourced from `$_SERVER['argv']`, which can be controlled by URL when `register_argc_argv` option of PHP is `On`. And this option is `On` by default in many environments such as the main PHP Docker image for PHP. Commit 53e8014d1f082034e0646edc6286cde3800c683d contains a patch for the issue, but this commit was reverted in commit 99633903cad0de5ace636249de16f77e57a3c8fc.</description>
+      <guid isPermaLink="false">CVE-2024-29895|2024-08-02T01:17:58.192Z</guid>
+      <pubDate>Mon, 13 May 2024 14:33:27 +0000</pubDate>
+    </item>
+    <item>
+      <title>CVE-2024-27082|2024-08-02T00:27:57.834Z -- cacti -- cacti</title>
+      <link>https://www.cve.org/CVERecord?id=CVE-2024-27082</link>
+      <description>Cacti provides an operational monitoring and fault management framework. Versions of Cacti prior to 1.2.27 are vulnerable to stored cross-site scripting, a type of cross-site scripting where malicious scripts are permanently stored on a target server and served to users who access a particular page. Version 1.2.27 contains a patch for the issue.</description>
+      <guid isPermaLink="false">CVE-2024-27082|2024-08-02T00:27:57.834Z</guid>
+      <pubDate>Mon, 13 May 2024 13:49:10 +0000</pubDate>
+    </item>
+    <item>
+      <title>CVE-2024-34340|2024-08-02T02:51:11.436Z -- cacti -- cacti</title>
+      <link>https://www.cve.org/CVERecord?id=CVE-2024-34340</link>
+      <description>Cacti provides an operational monitoring and fault management framework. Prior to version 1.2.27, Cacti calls `compat_password_hash` when users set their password. `compat_password_hash` use `password_hash` if there is it, else use `md5`. When verifying password, it calls `compat_password_verify`. In `compat_password_verify`, `password_verify` is called if there is it, else use `md5`. `password_verify` and `password_hash` are supported on PHP &lt; 5.5.0, following PHP manual. The vulnerability is in `compat_password_verify`. Md5-hashed user input is compared with correct password in database by `$md5 == $hash`. It is a loose comparison, not `===`. It is a type juggling vulnerability. Version 1.2.27 contains a patch for the issue.</description>
+      <guid isPermaLink="false">CVE-2024-34340|2024-08-02T02:51:11.436Z</guid>
+      <pubDate>Mon, 13 May 2024 15:26:32 +0000</pubDate>
     </item>
   </channel>
 </rss>

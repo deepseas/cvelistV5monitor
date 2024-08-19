@@ -6,23 +6,15 @@
     <description>The latest CVEs for opencontainers -- all products</description>
     <docs>http://www.rssboard.org/rss-specification</docs>
     <generator>python-feedgen</generator>
-    <lastBuildDate>Sun, 04 Aug 2024 23:23:26 +0000</lastBuildDate>
+    <lastBuildDate>Mon, 19 Aug 2024 08:24:13 +0000</lastBuildDate>
     <ttl>60</ttl>
     <item>
-      <title>CVE-2021-41190|2024-08-04T03:08:31.262Z -- opencontainers -- distribution-spec
+      <title>CVE-2024-21626|2024-08-19T07:48:05.378Z -- opencontainers -- runc
 </title>
-      <link>https://www.cve.org/CVERecord?id=CVE-2021-41190</link>
-      <description>The OCI Distribution Spec project defines an API protocol to facilitate and standardize the distribution of content. In the OCI Distribution Specification version 1.0.0 and prior, the Content-Type header alone was used to determine the type of document during push and pull operations. Documents that contain both “manifests” and “layers” fields could be interpreted as either a manifest or an index in the absence of an accompanying Content-Type header. If a Content-Type header changed between two pulls of the same digest, a client may interpret the resulting content differently. The OCI Distribution Specification has been updated to require that a mediaType value present in a manifest or index match the Content-Type header used during the push and pull operations. Clients pulling from a registry may distrust the Content-Type header and reject an ambiguous document that contains both “manifests” and “layers” fields or “manifests” and “config” fields if they are unable to update to version 1.0.1 of the spec.</description>
-      <guid isPermaLink="false">CVE-2021-41190|2024-08-04T03:08:31.262Z</guid>
-      <pubDate>Wed, 17 Nov 2021 19:20:11 +0000</pubDate>
-    </item>
-    <item>
-      <title>CVE-2021-43784|2024-08-04T04:03:08.907Z -- opencontainers -- runc
-</title>
-      <link>https://www.cve.org/CVERecord?id=CVE-2021-43784</link>
-      <description>runc is a CLI tool for spawning and running containers on Linux according to the OCI specification. In runc, netlink is used internally as a serialization system for specifying the relevant container configuration to the `C` portion of the code (responsible for the based namespace setup of containers). In all versions of runc prior to 1.0.3, the encoder did not handle the possibility of an integer overflow in the 16-bit length field for the byte array attribute type, meaning that a large enough malicious byte array attribute could result in the length overflowing and the attribute contents being parsed as netlink messages for container configuration. This vulnerability requires the attacker to have some control over the configuration of the container and would allow the attacker to bypass the namespace restrictions of the container by simply adding their own netlink payload which disables all namespaces. The main users impacted are those who allow untrusted images with untrusted configurations to run on their machines (such as with shared cloud infrastructure). runc version 1.0.3 contains a fix for this bug. As a workaround, one may try disallowing untrusted namespace paths from your container. It should be noted that untrusted namespace paths would allow the attacker to disable namespace protections entirely even in the absence of this bug.</description>
-      <guid isPermaLink="false">CVE-2021-43784|2024-08-04T04:03:08.907Z</guid>
-      <pubDate>Mon, 06 Dec 2021 00:00:00 +0000</pubDate>
+      <link>https://www.cve.org/CVERecord?id=CVE-2024-21626</link>
+      <description>runc is a CLI tool for spawning and running containers on Linux according to the OCI specification. In runc 1.1.11 and earlier, due to an internal file descriptor leak, an attacker could cause a newly-spawned container process (from runc exec) to have a working directory in the host filesystem namespace, allowing for a container escape by giving access to the host filesystem ("attack 2"). The same attack could be used by a malicious image to allow a container process to gain access to the host filesystem through runc run ("attack 1"). Variants of attacks 1 and 2 could be also be used to overwrite semi-arbitrary host binaries, allowing for complete container escapes ("attack 3a" and "attack 3b"). runc 1.1.12 includes patches for this issue. </description>
+      <guid isPermaLink="false">CVE-2024-21626|2024-08-19T07:48:05.378Z</guid>
+      <pubDate>Wed, 31 Jan 2024 21:31:14 +0000</pubDate>
     </item>
   </channel>
 </rss>
