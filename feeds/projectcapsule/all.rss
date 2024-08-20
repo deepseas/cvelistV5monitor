@@ -6,23 +6,15 @@
     <description>The latest CVEs for projectcapsule -- all products</description>
     <docs>http://www.rssboard.org/rss-specification</docs>
     <generator>python-feedgen</generator>
-    <lastBuildDate>Fri, 02 Aug 2024 23:22:09 +0000</lastBuildDate>
+    <lastBuildDate>Tue, 20 Aug 2024 15:23:22 +0000</lastBuildDate>
     <ttl>60</ttl>
     <item>
-      <title>CVE-2023-46254|2024-08-02T20:37:40.135Z -- projectcapsule -- capsule-proxy
+      <title>CVE-2024-39690|2024-08-20T14:33:24.518Z -- projectcapsule -- capsule
 </title>
-      <link>https://www.cve.org/CVERecord?id=CVE-2023-46254</link>
-      <description>capsule-proxy is a reverse proxy for Capsule kubernetes multi-tenancy framework. A bug in the RoleBinding reflector used by `capsule-proxy` gives ServiceAccount tenant owners the right to list Namespaces of other tenants backed by the same owner kind and name. For example consider two tenants `solar` and `wind`. Tenant `solar`, owned by a ServiceAccount named `tenant-owner` in the Namespace `solar`. Tenant `wind`, owned by a ServiceAccount named `tenant-owner` in the Namespace `wind`. The Tenant owner `solar` would be able to list the namespaces of the Tenant `wind` and vice-versa, although this is not correct. The bug introduces an exfiltration vulnerability since allows the listing of Namespace resources of other Tenants, although just in some specific conditions: 1. `capsule-proxy` runs with the `--disable-caching=false` (default value: `false`) and 2. Tenant owners are ServiceAccount, with the same resource name, but in different Namespaces. This vulnerability doesn't allow any privilege escalation on the outer tenant Namespace-scoped resources, since the Kubernetes RBAC is enforcing this. This issue has been addressed in version 0.4.5. Users are advised to upgrade. There are no known workarounds for this vulnerability.</description>
-      <guid isPermaLink="false">CVE-2023-46254|2024-08-02T20:37:40.135Z</guid>
-      <pubDate>Mon, 06 Nov 2023 18:34:13 +0000</pubDate>
-    </item>
-    <item>
-      <title>CVE-2023-48312|2024-08-02T21:23:39.496Z -- projectcapsule -- capsule-proxy
-</title>
-      <link>https://www.cve.org/CVERecord?id=CVE-2023-48312</link>
-      <description>capsule-proxy is a reverse proxy for the capsule operator project. Affected versions are subject to a privilege escalation vulnerability which is based on a missing check if the user is authenticated based on the `TokenReview` result. All the clusters running with the `anonymous-auth` Kubernetes API Server setting disable (set to `false`) are affected since it would be possible to bypass the token review mechanism, interacting with the upper Kubernetes API Server. This privilege escalation cannot be exploited if you're relying only on client certificates (SSL/TLS). This vulnerability has been addressed in version 0.4.6. Users are advised to upgrade.</description>
-      <guid isPermaLink="false">CVE-2023-48312|2024-08-02T21:23:39.496Z</guid>
-      <pubDate>Fri, 24 Nov 2023 17:12:39 +0000</pubDate>
+      <link>https://www.cve.org/CVERecord?id=CVE-2024-39690</link>
+      <description>Capsule is a multi-tenancy and policy-based framework for Kubernetes. In Capsule v0.7.0 and earlier, the tenant-owner can patch any arbitrary namespace that has not been taken over by a tenant (i.e., namespaces without the ownerReference field), thereby gaining control of that namespace.</description>
+      <guid isPermaLink="false">CVE-2024-39690|2024-08-20T14:33:24.518Z</guid>
+      <pubDate>Tue, 20 Aug 2024 14:33:24 +0000</pubDate>
     </item>
   </channel>
 </rss>
