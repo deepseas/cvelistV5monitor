@@ -6,78 +6,15 @@
     <description>The latest CVEs for codeigniter4 -- all products</description>
     <docs>http://www.rssboard.org/rss-specification</docs>
     <generator>python-feedgen</generator>
-    <lastBuildDate>Sat, 03 Aug 2024 23:22:56 +0000</lastBuildDate>
+    <lastBuildDate>Wed, 21 Aug 2024 23:21:56 +0000</lastBuildDate>
     <ttl>60</ttl>
     <item>
-      <title>CVE-2022-24712|2024-08-03T04:20:49.797Z -- codeigniter4 -- codeigniter4
+      <title>CVE-2024-29904|2024-08-21T22:44:16.609Z -- codeigniter4 -- codeigniter4
 </title>
-      <link>https://www.cve.org/CVERecord?id=CVE-2022-24712</link>
-      <description>CodeIgniter4 is the 4.x branch of CodeIgniter, a PHP full-stack web framework. A vulnerability in versions prior to 4.1.9 might allow remote attackers to bypass the CodeIgniter4 Cross-Site Request Forgery (CSRF) protection mechanism. Users should upgrade to version 4.1.9. There are workarounds for this vulnerability, but users will still need to code as these after upgrading to v4.1.9. Otherwise, the CSRF protection may be bypassed. If auto-routing is enabled, check the request method in the controller method before processing. If auto-routing is disabled, either avoid using `$routes-&gt;add()` and instead use HTTP verbs in routes; or check the request method in the controller method before processing.</description>
-      <guid isPermaLink="false">CVE-2022-24712|2024-08-03T04:20:49.797Z</guid>
-      <pubDate>Mon, 28 Feb 2022 16:00:12 +0000</pubDate>
-    </item>
-    <item>
-      <title>CVE-2022-35943|2024-08-03T09:51:59.707Z -- codeigniter4 -- shield
-</title>
-      <link>https://www.cve.org/CVERecord?id=CVE-2022-35943</link>
-      <description>Shield is an authentication and authorization framework for CodeIgniter 4. This vulnerability may allow [SameSite Attackers](https://canitakeyoursubdomain.name/) to bypass the [CodeIgniter4 CSRF protection](https://codeigniter4.github.io/userguide/libraries/security.html) mechanism with CodeIgniter Shield. For this attack to succeed, the attacker must have direct (or indirect, e.g., XSS) control over a subdomain site (e.g., `https://a.example.com/`) of the target site (e.g., `http://example.com/`). Upgrade to **CodeIgniter v4.2.3 or later** and **Shield v1.0.0-beta.2 or later**. As a workaround: set `Config\Security::$csrfProtection` to `'session,'`remove old session data right after login (immediately after ID and password match) and regenerate CSRF token right after login (immediately after ID and password match)</description>
-      <guid isPermaLink="false">CVE-2022-35943|2024-08-03T09:51:59.707Z</guid>
-      <pubDate>Fri, 12 Aug 2022 20:55:10 +0000</pubDate>
-    </item>
-    <item>
-      <title>CVE-2022-21715|2024-08-03T02:53:35.389Z -- codeigniter4 -- codeigniter4
-</title>
-      <link>https://www.cve.org/CVERecord?id=CVE-2022-21715</link>
-      <description>CodeIgniter4 is the 4.x branch of CodeIgniter, a PHP full-stack web framework. A cross-site scripting (XSS) vulnerability was found in `API\ResponseTrait` in Codeigniter4 prior to version 4.1.8. Attackers can do XSS attacks if a potential victim is using `API\ResponseTrait`. Version 4.1.8 contains a patch for this vulnerability. There are two potential workarounds available. Users may avoid using `API\ResponseTrait` or `ResourceController` Users may also disable Auto Route and use defined routes only.</description>
-      <guid isPermaLink="false">CVE-2022-21715|2024-08-03T02:53:35.389Z</guid>
-      <pubDate>Mon, 24 Jan 2022 19:55:10 +0000</pubDate>
-    </item>
-    <item>
-      <title>CVE-2022-21647|2024-08-03T02:46:39.441Z -- codeigniter4 -- codeigniter4
-</title>
-      <link>https://www.cve.org/CVERecord?id=CVE-2022-21647</link>
-      <description>CodeIgniter is an open source PHP full-stack web framework. Deserialization of Untrusted Data was found in the `old()` function in CodeIgniter4. Remote attackers may inject auto-loadable arbitrary objects with this vulnerability, and possibly execute existing PHP code on the server. We are aware of a working exploit, which can lead to SQL injection. Users are advised to upgrade to v4.1.6 or later. Users unable to upgrade as advised to not use the `old()` function and form_helper nor `RedirectResponse::withInput()` and `redirect()-&gt;withInput()`.</description>
-      <guid isPermaLink="false">CVE-2022-21647|2024-08-03T02:46:39.441Z</guid>
-      <pubDate>Tue, 04 Jan 2022 20:05:11 +0000</pubDate>
-    </item>
-    <item>
-      <title>CVE-2022-39284|2024-08-03T12:00:43.631Z -- codeigniter4 -- codeigniter4
-</title>
-      <link>https://www.cve.org/CVERecord?id=CVE-2022-39284</link>
-      <description>CodeIgniter is a PHP full-stack web framework. In versions prior to 4.2.7 setting `$secure` or `$httponly` value to `true` in `Config\Cookie` is not reflected in `set_cookie()` or `Response::setCookie()`. As a result cookie values are erroneously exposed to scripts. It should be noted that this vulnerability does not affect session cookies. Users are advised to upgrade to v4.2.7 or later. Users unable to upgrade are advised to manually construct their cookies either by setting the options in code or by constructing Cookie objects. Examples of each workaround are available in the linked GHSA.</description>
-      <guid isPermaLink="false">CVE-2022-39284|2024-08-03T12:00:43.631Z</guid>
-      <pubDate>Thu, 06 Oct 2022 00:00:00 +0000</pubDate>
-    </item>
-    <item>
-      <title>CVE-2022-46170|2024-08-03T14:24:03.375Z -- codeigniter4 -- codeigniter4
-</title>
-      <link>https://www.cve.org/CVERecord?id=CVE-2022-46170</link>
-      <description>CodeIgniter is a PHP full-stack web framework. When an application uses (1) multiple session cookies (e.g., one for user pages and one for admin pages) and (2)  a session handler is set to `DatabaseHandler`, `MemcachedHandler`, or `RedisHandler`, then if an attacker gets one session cookie (e.g., one for user pages), they may be able to access pages that require another session cookie (e.g., for admin pages). This issue has been patched, please upgrade to version 4.2.11 or later. As a workaround, use only one session cookie.</description>
-      <guid isPermaLink="false">CVE-2022-46170|2024-08-03T14:24:03.375Z</guid>
-      <pubDate>Thu, 22 Dec 2022 18:58:17 +0000</pubDate>
-    </item>
-    <item>
-      <title>CVE-2022-24711|2024-08-03T04:20:49.801Z -- codeigniter4 -- codeigniter4
-</title>
-      <link>https://www.cve.org/CVERecord?id=CVE-2022-24711</link>
-      <description>CodeIgniter4 is the 4.x branch of CodeIgniter, a PHP full-stack web framework. Prior to version 4.1.9, an improper input validation vulnerability allows attackers to execute CLI routes via HTTP request. Version 4.1.9 contains a patch. There are currently no known workarounds for this vulnerability.</description>
-      <guid isPermaLink="false">CVE-2022-24711|2024-08-03T04:20:49.801Z</guid>
-      <pubDate>Mon, 28 Feb 2022 15:45:11 +0000</pubDate>
-    </item>
-    <item>
-      <title>CVE-2022-23556|2024-08-03T03:43:46.542Z -- codeigniter4 -- codeigniter4
-</title>
-      <link>https://www.cve.org/CVERecord?id=CVE-2022-23556</link>
-      <description>CodeIgniter is a PHP full-stack web framework. This vulnerability may allow attackers to spoof their IP address when the server is behind a reverse proxy. This issue has been patched, please upgrade to version 4.2.11 or later, and configure `Config\App::$proxyIPs`. As a workaround, do not use `$request-&gt;getIPAddress()`.
-</description>
-      <guid isPermaLink="false">CVE-2022-23556|2024-08-03T03:43:46.542Z</guid>
-      <pubDate>Thu, 22 Dec 2022 18:50:55 +0000</pubDate>
-    </item>
-    <item>
-      <title>CVE-2024-29904|2024-08-02T01:17:58.591Z -- codeigniter4 -- codeigniter4</title>
       <link>https://www.cve.org/CVERecord?id=CVE-2024-29904</link>
-      <description>CodeIgniter is a PHP full-stack web framework A vulnerability was found in the Language class that allowed DoS attacks. This vulnerability can be exploited by an attacker to consume a large amount of memory on the server. Upgrade to v4.4.7 or later.</description>
-      <guid isPermaLink="false">CVE-2024-29904|2024-08-02T01:17:58.591Z</guid>
+      <description>CodeIgniter is a PHP full-stack web framework A vulnerability was found in the Language class that allowed DoS attacks. This vulnerability can be exploited by an attacker to consume a large amount of memory on the server. Upgrade to v4.4.7 or later. 
+</description>
+      <guid isPermaLink="false">CVE-2024-29904|2024-08-21T22:44:16.609Z</guid>
       <pubDate>Fri, 29 Mar 2024 15:32:38 +0000</pubDate>
     </item>
     <item>
@@ -85,6 +22,13 @@
       <link>https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2024-29904</link>
       <description>CodeIgniter is a PHP full-stack web framework A vulnerability was found in the Language class that allowed DoS attacks. This vulnerability can be exploited by an attacker to consume a large amount of memory on the server. Upgrade to v4.4.7 or later.</description>
       <guid isPermaLink="false">CVE-2024-29904|2024-03-29T15:32:38.686Z</guid>
+      <pubDate>Fri, 29 Mar 2024 15:32:38 +0000</pubDate>
+    </item>
+    <item>
+      <title>CVE-2024-29904|2024-08-02T01:17:58.591Z -- codeigniter4 -- codeigniter4</title>
+      <link>https://www.cve.org/CVERecord?id=CVE-2024-29904</link>
+      <description>CodeIgniter is a PHP full-stack web framework A vulnerability was found in the Language class that allowed DoS attacks. This vulnerability can be exploited by an attacker to consume a large amount of memory on the server. Upgrade to v4.4.7 or later.</description>
+      <guid isPermaLink="false">CVE-2024-29904|2024-08-02T01:17:58.591Z</guid>
       <pubDate>Fri, 29 Mar 2024 15:32:38 +0000</pubDate>
     </item>
   </channel>
