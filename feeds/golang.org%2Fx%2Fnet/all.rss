@@ -6,37 +6,14 @@
     <description>The latest CVEs for golang.org/x/net -- all products</description>
     <docs>http://www.rssboard.org/rss-specification</docs>
     <generator>python-feedgen</generator>
-    <lastBuildDate>Sat, 03 Aug 2024 23:23:05 +0000</lastBuildDate>
+    <lastBuildDate>Mon, 26 Aug 2024 21:21:43 +0000</lastBuildDate>
     <ttl>60</ttl>
     <item>
-      <title>CVE-2022-41721|2024-08-03T12:49:43.550Z -- golang.org%2Fx%2Fnet -- golang.org%2Fx%2Fnet%2Fhttp2%2Fh2c
+      <title>CVE-2023-45288|2024-08-26T20:40:01.996Z -- golang.org%2Fx%2Fnet -- golang.org%2Fx%2Fnet%2Fhttp2
 </title>
-      <link>https://www.cve.org/CVERecord?id=CVE-2022-41721</link>
-      <description>A request smuggling attack is possible when using MaxBytesHandler. When using MaxBytesHandler, the body of an HTTP request is not fully consumed. When the server attempts to read HTTP2 frames from the connection, it will instead be reading the body of the HTTP request, which could be attacker-manipulated to represent arbitrary HTTP2 requests.</description>
-      <guid isPermaLink="false">CVE-2022-41721|2024-08-03T12:49:43.550Z</guid>
-      <pubDate>Fri, 13 Jan 2023 22:46:22 +0000</pubDate>
-    </item>
-    <item>
-      <title>CVE-2022-41717|2024-08-03T12:49:43.657Z -- golang.org%2Fx%2Fnet -- golang.org%2Fx%2Fnet%2Fhttp2
-</title>
-      <link>https://www.cve.org/CVERecord?id=CVE-2022-41717</link>
-      <description>An attacker can cause excessive memory growth in a Go server accepting HTTP/2 requests. HTTP/2 server connections contain a cache of HTTP header keys sent by the client. While the total number of entries in this cache is capped, an attacker sending very large keys can cause the server to allocate approximately 64 MiB per open connection.</description>
-      <guid isPermaLink="false">CVE-2022-41717|2024-08-03T12:49:43.657Z</guid>
-      <pubDate>Thu, 08 Dec 2022 19:03:53 +0000</pubDate>
-    </item>
-    <item>
-      <title>CVE-2022-41723|2024-08-03T12:49:43.617Z -- golang.org%2Fx%2Fnet -- golang.org%2Fx%2Fnet%2Fhttp2
-</title>
-      <link>https://www.cve.org/CVERecord?id=CVE-2022-41723</link>
-      <description>A maliciously crafted HTTP/2 stream could cause excessive CPU consumption in the HPACK decoder, sufficient to cause a denial of service from a small number of small requests.</description>
-      <guid isPermaLink="false">CVE-2022-41723|2024-08-03T12:49:43.617Z</guid>
-      <pubDate>Tue, 28 Feb 2023 17:19:45 +0000</pubDate>
-    </item>
-    <item>
-      <title>CVE-2023-45288|2024-04-04T20:37:30.714Z -- golang.org%2Fx%2Fnet -- golang.org%2Fx%2Fnet%2Fhttp2</title>
-      <link>https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2023-45288</link>
+      <link>https://www.cve.org/CVERecord?id=CVE-2023-45288</link>
       <description>An attacker may cause an HTTP/2 endpoint to read arbitrary amounts of header data by sending an excessive number of CONTINUATION frames. Maintaining HPACK state requires parsing and processing all HEADERS and CONTINUATION frames on a connection. When a request's headers exceed MaxHeaderBytes, no memory is allocated to store the excess headers, but they are still parsed. This permits an attacker to cause an HTTP/2 endpoint to read arbitrary amounts of header data, all associated with a request which is going to be rejected. These headers can include Huffman-encoded data which is significantly more expensive for the receiver to decode than for an attacker to send. The fix sets a limit on the amount of excess header frames we will process before closing a connection.</description>
-      <guid isPermaLink="false">CVE-2023-45288|2024-04-04T20:37:30.714Z</guid>
+      <guid isPermaLink="false">CVE-2023-45288|2024-08-26T20:40:01.996Z</guid>
       <pubDate>Thu, 04 Apr 2024 20:37:30 +0000</pubDate>
     </item>
     <item>
@@ -44,6 +21,13 @@
       <link>https://www.cve.org/CVERecord?id=CVE-2023-45288</link>
       <description>An attacker may cause an HTTP/2 endpoint to read arbitrary amounts of header data by sending an excessive number of CONTINUATION frames. Maintaining HPACK state requires parsing and processing all HEADERS and CONTINUATION frames on a connection. When a request's headers exceed MaxHeaderBytes, no memory is allocated to store the excess headers, but they are still parsed. This permits an attacker to cause an HTTP/2 endpoint to read arbitrary amounts of header data, all associated with a request which is going to be rejected. These headers can include Huffman-encoded data which is significantly more expensive for the receiver to decode than for an attacker to send. The fix sets a limit on the amount of excess header frames we will process before closing a connection.</description>
       <guid isPermaLink="false">CVE-2023-45288|2024-08-02T20:21:15.329Z</guid>
+      <pubDate>Thu, 04 Apr 2024 20:37:30 +0000</pubDate>
+    </item>
+    <item>
+      <title>CVE-2023-45288|2024-04-04T20:37:30.714Z -- golang.org%2Fx%2Fnet -- golang.org%2Fx%2Fnet%2Fhttp2</title>
+      <link>https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2023-45288</link>
+      <description>An attacker may cause an HTTP/2 endpoint to read arbitrary amounts of header data by sending an excessive number of CONTINUATION frames. Maintaining HPACK state requires parsing and processing all HEADERS and CONTINUATION frames on a connection. When a request's headers exceed MaxHeaderBytes, no memory is allocated to store the excess headers, but they are still parsed. This permits an attacker to cause an HTTP/2 endpoint to read arbitrary amounts of header data, all associated with a request which is going to be rejected. These headers can include Huffman-encoded data which is significantly more expensive for the receiver to decode than for an attacker to send. The fix sets a limit on the amount of excess header frames we will process before closing a connection.</description>
+      <guid isPermaLink="false">CVE-2023-45288|2024-04-04T20:37:30.714Z</guid>
       <pubDate>Thu, 04 Apr 2024 20:37:30 +0000</pubDate>
     </item>
   </channel>
