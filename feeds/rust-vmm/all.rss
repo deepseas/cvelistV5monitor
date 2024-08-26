@@ -6,15 +6,15 @@
     <description>The latest CVEs for rust-vmm -- all products</description>
     <docs>http://www.rssboard.org/rss-specification</docs>
     <generator>python-feedgen</generator>
-    <lastBuildDate>Sat, 03 Aug 2024 23:23:17 +0000</lastBuildDate>
+    <lastBuildDate>Mon, 26 Aug 2024 19:20:09 +0000</lastBuildDate>
     <ttl>60</ttl>
     <item>
-      <title>CVE-2022-23523|2024-08-03T03:43:46.487Z -- rust-vmm -- linux-loader
+      <title>CVE-2023-50711|2024-08-26T18:53:29.950Z -- rust-vmm -- vmm-sys-util
 </title>
-      <link>https://www.cve.org/CVERecord?id=CVE-2022-23523</link>
-      <description>In versions prior to 0.8.1, the linux-loader crate uses the offsets and sizes provided in the ELF headers to determine the offsets to read from. If those offsets point beyond the end of the file this could lead to Virtual Machine Monitors using the `linux-loader` crate entering an infinite loop if the ELF header of the kernel they are loading was modified in a malicious manner. This issue has been addressed in 0.8.1. The issue can be mitigated by ensuring that only trusted kernel images are loaded or by verifying that the headers do not point beyond the end of the file.</description>
-      <guid isPermaLink="false">CVE-2022-23523|2024-08-03T03:43:46.487Z</guid>
-      <pubDate>Tue, 13 Dec 2022 07:41:47 +0000</pubDate>
+      <link>https://www.cve.org/CVERecord?id=CVE-2023-50711</link>
+      <description>vmm-sys-util is a collection of modules that provides helpers and utilities used by multiple rust-vmm components. Starting in version 0.5.0 and prior to version 0.12.0, an issue in the `FamStructWrapper::deserialize` implementation provided by the crate for `vmm_sys_util::fam::FamStructWrapper` can lead to out of bounds memory accesses. The deserialization does not check that the length stored in the header matches the flexible array length. Mismatch in the lengths might allow out of bounds memory access through Rust-safe methods. The issue was corrected in version 0.12.0 by inserting a check that verifies the lengths of compared flexible arrays are equal for any deserialized header and aborting deserialization otherwise. Moreover, the API was changed so that header length can only be modified through Rust-unsafe code. This ensures that users cannot trigger out-of-bounds memory access from Rust-safe code.</description>
+      <guid isPermaLink="false">CVE-2023-50711|2024-08-26T18:53:29.950Z</guid>
+      <pubDate>Tue, 02 Jan 2024 20:02:28 +0000</pubDate>
     </item>
   </channel>
 </rss>

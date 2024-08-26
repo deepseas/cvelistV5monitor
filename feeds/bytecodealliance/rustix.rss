@@ -1,9 +1,9 @@
 <?xml version='1.0' encoding='UTF-8'?>
 <rss xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/" version="2.0">
   <channel>
-    <title>CVE Feed for bytecodealliance -- all</title>
-    <link>https://raw.githubusercontent.com/deepseas/cvelistV5monitor/main/feeds/bytecodealliance/all.rss</link>
-    <description>The latest CVEs for bytecodealliance -- all products</description>
+    <title>CVE Feed for bytecodealliance -- rustix</title>
+    <link>https://raw.githubusercontent.com/deepseas/cvelistV5monitor/main/feeds/bytecodealliance/rustix.rss</link>
+    <description>The latest CVEs for bytecodealliance -- rustix</description>
     <docs>http://www.rssboard.org/rss-specification</docs>
     <generator>python-feedgen</generator>
     <lastBuildDate>Mon, 26 Aug 2024 19:20:13 +0000</lastBuildDate>
@@ -15,20 +15,6 @@
       <description>Rustix is a set of safe Rust bindings to POSIX-ish APIs. When using `rustix::fs::Dir` using the `linux_raw` backend, it's possible for the iterator to "get stuck" when an IO error is encountered. Combined with a memory over-allocation issue in `rustix::fs::Dir::read_more`, this can cause quick and unbounded memory explosion (gigabytes in a few seconds if used on a hot path) and eventually lead to an OOM crash of the application. The symptoms were initially discovered in https://github.com/imsnif/bandwhich/issues/284. That post has lots of details of our investigation. Full details can be read on the GHSA-c827-hfw6-qwvm repo advisory. If a program tries to access a directory with its file descriptor after the file has been unlinked (or any other action that leaves the `Dir` iterator in the stuck state), and the implementation does not break after seeing an error, it can cause a memory explosion. As an example, Linux's various virtual file systems (e.g. `/proc`, `/sys`) can contain directories that spontaneously pop in and out of existence. Attempting to iterate over them using `rustix::fs::Dir` directly or indirectly (e.g. with the `procfs` crate) can trigger this fault condition if the implementation decides to continue on errors. An attacker knowledgeable about the implementation details of a vulnerable target can therefore try to trigger this fault condition via any one or a combination of several available APIs. If successful, the application host will quickly run out of memory, after which the application will likely be terminated by an OOM killer, leading to denial of service. This issue has been addressed in release versions 0.35.15, 0.36.16, 0.37.25, and 0.38.19. Users are advised to upgrade. There are no known workarounds for this issue.</description>
       <guid isPermaLink="false">CVE-2024-43806|2024-08-26T18:43:22.626Z</guid>
       <pubDate>Mon, 26 Aug 2024 18:43:22 +0000</pubDate>
-    </item>
-    <item>
-      <title>CVE-2024-30266|2024-06-04T17:38:20.190Z -- bytecodealliance -- wasmtime</title>
-      <link>https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2024-30266</link>
-      <description>wasmtime is a runtime for WebAssembly. The 19.0.0 release of Wasmtime contains a regression introduced during its development which can lead to a guest WebAssembly module causing a panic in the host runtime. A valid WebAssembly module, when executed at runtime, may cause this panic. This vulnerability has been patched in version 19.0.1.</description>
-      <guid isPermaLink="false">CVE-2024-30266|2024-06-04T17:38:20.190Z</guid>
-      <pubDate>Thu, 04 Apr 2024 15:42:00 +0000</pubDate>
-    </item>
-    <item>
-      <title>CVE-2024-30266|2024-08-02T01:32:07.072Z -- bytecodealliance -- wasmtime</title>
-      <link>https://www.cve.org/CVERecord?id=CVE-2024-30266</link>
-      <description>wasmtime is a runtime for WebAssembly. The 19.0.0 release of Wasmtime contains a regression introduced during its development which can lead to a guest WebAssembly module causing a panic in the host runtime. A valid WebAssembly module, when executed at runtime, may cause this panic. This vulnerability has been patched in version 19.0.1.</description>
-      <guid isPermaLink="false">CVE-2024-30266|2024-08-02T01:32:07.072Z</guid>
-      <pubDate>Thu, 04 Apr 2024 15:42:00 +0000</pubDate>
     </item>
   </channel>
 </rss>
