@@ -6,7 +6,7 @@
     <description>The latest CVEs for Cloudflare -- all products</description>
     <docs>http://www.rssboard.org/rss-specification</docs>
     <generator>python-feedgen</generator>
-    <lastBuildDate>Mon, 26 Aug 2024 22:23:02 +0000</lastBuildDate>
+    <lastBuildDate>Mon, 26 Aug 2024 23:22:47 +0000</lastBuildDate>
     <ttl>60</ttl>
     <item>
       <title>CVE-2023-7078|2024-08-26T20:31:04.794Z -- cloudflare -- miniflare
@@ -19,10 +19,20 @@
       <pubDate>Fri, 29 Dec 2023 11:53:06 +0000</pubDate>
     </item>
     <item>
-      <title>CVE-2024-1410|2024-06-04T17:59:28.523Z -- cloudflare -- quiche</title>
-      <link>https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2024-1410</link>
+      <title>CVE-2024-1765|2024-08-01T18:48:22.108Z -- cloudflare -- quiche</title>
+      <link>https://www.cve.org/CVERecord?id=CVE-2024-1765</link>
+      <description>Cloudflare Quiche (through version 0.19.1/0.20.0) was affected by an unlimited resource allocation vulnerability causing rapid increase of memory usage of the system running quiche server or client.
+A remote attacker could take advantage of this vulnerability by repeatedly sending an unlimited number of 1-RTT CRYPTO frames after previously completing the QUIC handshake.
+Exploitation was possible for the duration of the connection which could be extended by the attacker. 
+quiche 0.19.2 and 0.20.1 are the earliest versions containing the fix for this issue.</description>
+      <guid isPermaLink="false">CVE-2024-1765|2024-08-01T18:48:22.108Z</guid>
+      <pubDate>Tue, 12 Mar 2024 18:04:54 +0000</pubDate>
+    </item>
+    <item>
+      <title>CVE-2024-1410|2024-08-01T18:40:20.619Z -- cloudflare -- quiche</title>
+      <link>https://www.cve.org/CVERecord?id=CVE-2024-1410</link>
       <description>Cloudflare quiche was discovered to be vulnerable to unbounded storage of information related to connection ID retirement, which could lead to excessive resource consumption. Each QUIC connection possesses a set of connection Identifiers (IDs); see  RFC 9000 Section 5.1 https://datatracker.ietf.org/doc/html/rfc9000#section-5.1 . Endpoints declare the number of active connection IDs they are willing to support using the active_connection_id_limit transport parameter. The peer can create new IDs using a NEW_CONNECTION_ID frame but must stay within the active ID limit. This is done by retirement of old IDs, the endpoint sends NEW_CONNECTION_ID includes a value in the retire_prior_to field, which elicits a RETIRE_CONNECTION_ID frame as confirmation. An unauthenticated remote attacker can exploit the vulnerability by sending NEW_CONNECTION_ID frames and manipulating the connection (e.g. by restricting the peer's congestion window size) so that RETIRE_CONNECTION_ID frames can only be sent at a slower rate than they are received, leading to storage of information related to connection IDs in an unbounded queue. Quiche versions 0.19.2 and 0.20.1 are the earliest to address this problem. There is no workaround for affected versions.</description>
-      <guid isPermaLink="false">CVE-2024-1410|2024-06-04T17:59:28.523Z</guid>
+      <guid isPermaLink="false">CVE-2024-1410|2024-08-01T18:40:20.619Z</guid>
       <pubDate>Tue, 12 Mar 2024 18:06:05 +0000</pubDate>
     </item>
     <item>
@@ -36,21 +46,11 @@ quiche 0.19.2 and 0.20.1 are the earliest versions containing the fix for this i
       <pubDate>Tue, 12 Mar 2024 18:04:54 +0000</pubDate>
     </item>
     <item>
-      <title>CVE-2024-1410|2024-08-01T18:40:20.619Z -- cloudflare -- quiche</title>
-      <link>https://www.cve.org/CVERecord?id=CVE-2024-1410</link>
+      <title>CVE-2024-1410|2024-06-04T17:59:28.523Z -- cloudflare -- quiche</title>
+      <link>https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2024-1410</link>
       <description>Cloudflare quiche was discovered to be vulnerable to unbounded storage of information related to connection ID retirement, which could lead to excessive resource consumption. Each QUIC connection possesses a set of connection Identifiers (IDs); see  RFC 9000 Section 5.1 https://datatracker.ietf.org/doc/html/rfc9000#section-5.1 . Endpoints declare the number of active connection IDs they are willing to support using the active_connection_id_limit transport parameter. The peer can create new IDs using a NEW_CONNECTION_ID frame but must stay within the active ID limit. This is done by retirement of old IDs, the endpoint sends NEW_CONNECTION_ID includes a value in the retire_prior_to field, which elicits a RETIRE_CONNECTION_ID frame as confirmation. An unauthenticated remote attacker can exploit the vulnerability by sending NEW_CONNECTION_ID frames and manipulating the connection (e.g. by restricting the peer's congestion window size) so that RETIRE_CONNECTION_ID frames can only be sent at a slower rate than they are received, leading to storage of information related to connection IDs in an unbounded queue. Quiche versions 0.19.2 and 0.20.1 are the earliest to address this problem. There is no workaround for affected versions.</description>
-      <guid isPermaLink="false">CVE-2024-1410|2024-08-01T18:40:20.619Z</guid>
+      <guid isPermaLink="false">CVE-2024-1410|2024-06-04T17:59:28.523Z</guid>
       <pubDate>Tue, 12 Mar 2024 18:06:05 +0000</pubDate>
-    </item>
-    <item>
-      <title>CVE-2024-1765|2024-08-01T18:48:22.108Z -- cloudflare -- quiche</title>
-      <link>https://www.cve.org/CVERecord?id=CVE-2024-1765</link>
-      <description>Cloudflare Quiche (through version 0.19.1/0.20.0) was affected by an unlimited resource allocation vulnerability causing rapid increase of memory usage of the system running quiche server or client.
-A remote attacker could take advantage of this vulnerability by repeatedly sending an unlimited number of 1-RTT CRYPTO frames after previously completing the QUIC handshake.
-Exploitation was possible for the duration of the connection which could be extended by the attacker. 
-quiche 0.19.2 and 0.20.1 are the earliest versions containing the fix for this issue.</description>
-      <guid isPermaLink="false">CVE-2024-1765|2024-08-01T18:48:22.108Z</guid>
-      <pubDate>Tue, 12 Mar 2024 18:04:54 +0000</pubDate>
     </item>
   </channel>
 </rss>
