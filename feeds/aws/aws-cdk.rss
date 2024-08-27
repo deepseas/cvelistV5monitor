@@ -6,21 +6,15 @@
     <description>The latest CVEs for aws -- aws-cdk</description>
     <docs>http://www.rssboard.org/rss-specification</docs>
     <generator>python-feedgen</generator>
-    <lastBuildDate>Fri, 02 Aug 2024 23:22:23 +0000</lastBuildDate>
+    <lastBuildDate>Tue, 27 Aug 2024 19:19:49 +0000</lastBuildDate>
     <ttl>60</ttl>
     <item>
-      <title>CVE-2023-35165|2024-08-02T16:23:59.222Z -- aws -- aws-cdk
+      <title>CVE-2024-45037|2024-08-27T18:33:31.486Z -- aws -- aws-cdk
 </title>
-      <link>https://www.cve.org/CVERecord?id=CVE-2023-35165</link>
-      <description>AWS Cloud Development Kit (AWS CDK) is an open-source software development framework to define cloud infrastructure in code and provision it through AWS CloudFormation. In the packages `aws-cdk-lib` 2.0.0 until 2.80.0 and `@aws-cdk/aws-eks` 1.57.0 until 1.202.0, `eks.Cluster` and `eks.FargateCluster` constructs create two roles, `CreationRole` and `default MastersRole`, that have an overly permissive trust policy. 
- 
-The first, referred to as the `CreationRole`, is used by lambda handlers to create the cluster and deploy Kubernetes resources (e.g `KubernetesManifest`, `HelmChart`, ...) onto it. Users with CDK version higher or equal to 1.62.0 (including v2 users) may be affected.
- 
-The second, referred to as the `default MastersRole`, is provisioned only if the `mastersRole` property isn't provided and has permissions to execute `kubectl` commands on the cluster. Users with CDK version higher or equal to 1.57.0 (including v2 users) may be affected.
-
-The issue has been fixed in `@aws-cdk/aws-eks` v1.202.0 and `aws-cdk-lib` v2.80.0. These versions no longer use the account root principal. Instead, they restrict the trust policy to the specific roles of lambda handlers that need it. There is no workaround available for CreationRole. To avoid creating the `default MastersRole`, use the `mastersRole` property to explicitly provide a role.</description>
-      <guid isPermaLink="false">CVE-2023-35165|2024-08-02T16:23:59.222Z</guid>
-      <pubDate>Fri, 23 Jun 2023 20:32:49 +0000</pubDate>
+      <link>https://www.cve.org/CVERecord?id=CVE-2024-45037</link>
+      <description>The AWS Cloud Development Kit (CDK) is an open-source framework for defining cloud infrastructure using code. Customers use it to create their own applications which are converted to AWS CloudFormation templates during deployment to a customer’s AWS account. CDK contains pre-built components called "constructs" that are higher-level abstractions providing defaults and best practices. This approach enables developers to use familiar programming languages to define complex cloud infrastructure more efficiently than writing raw CloudFormation templates. We identified an issue in AWS Cloud Development Kit (CDK) which, under certain conditions, can result in granting authenticated Amazon Cognito users broader than intended access. Specifically, if a CDK application uses the "RestApi" construct with "CognitoUserPoolAuthorizer" as the authorizer and uses authorization scopes to limit access. This issue does not affect the availability of the specific API resources. Authenticated Cognito users may gain unintended access to protected API resources or methods, leading to potential data disclosure, and modification issues.  Impacted versions: &gt;=2.142.0;&lt;=2.148.0. A patch is included in CDK versions &gt;=2.148.1. Users are advised to upgrade their AWS CDK version to 2.148.1 or newer and re-deploy their application(s) to address this issue.</description>
+      <guid isPermaLink="false">CVE-2024-45037|2024-08-27T18:33:31.486Z</guid>
+      <pubDate>Tue, 27 Aug 2024 18:33:31 +0000</pubDate>
     </item>
   </channel>
 </rss>
