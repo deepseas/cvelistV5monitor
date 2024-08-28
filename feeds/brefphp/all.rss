@@ -6,10 +6,10 @@
     <description>The latest CVEs for brefphp -- all products</description>
     <docs>http://www.rssboard.org/rss-specification</docs>
     <generator>python-feedgen</generator>
-    <lastBuildDate>Fri, 02 Aug 2024 01:43:28 +0000</lastBuildDate>
+    <lastBuildDate>Wed, 28 Aug 2024 15:23:44 +0000</lastBuildDate>
     <ttl>60</ttl>
     <item>
-      <title>CVE-2024-29186|2024-08-02T01:10:54.072Z -- brefphp -- bref
+      <title>CVE-2024-29186|2024-08-28T14:01:37.957Z -- brefphp -- bref
 </title>
       <link>https://www.cve.org/CVERecord?id=CVE-2024-29186</link>
       <description>Bref is an open-source project that helps users go serverless on Amazon Web Services with PHP. When Bref prior to version 2.1.17 is used with the Event-Driven Function runtime and the handler is a `RequestHandlerInterface`, then the Lambda event is converted to a PSR7 object. During the conversion process, if the request is a MultiPart, each part is parsed. In the parsing process, the `Content-Type` header of each part is read using the `Riverline/multipart-parser` library.
@@ -22,7 +22,7 @@ An attacker could send specifically crafted requests which would force the serve
 The attack has the following requirements and limitations: The Lambda should use the Event-Driven Function runtime and the `RequestHandlerInterface` handler and should implement at least an endpoint accepting POST requests; the attacker can send requests up to 6MB long (this is enough to cause a billed duration between 400ms and 500ms with the default 1024MB RAM Lambda image of Bref); and if the Lambda uses a PHP runtime &lt;= php-82, the impact is higher as the billed duration in the default 1024MB RAM Lambda image of Bref could be brought to more than 900ms for each request. Notice that the vulnerability applies only to headers read from the request body as the request header has a limitation which allows a total maximum size of ~10KB.
 
 Version 2.1.17 contains a fix for this issue.</description>
-      <guid isPermaLink="false">CVE-2024-29186|2024-08-02T01:10:54.072Z</guid>
+      <guid isPermaLink="false">CVE-2024-29186|2024-08-28T14:01:37.957Z</guid>
       <pubDate>Fri, 22 Mar 2024 17:07:10 +0000</pubDate>
     </item>
     <item>
@@ -39,6 +39,22 @@ The attack has the following requirements and limitations: The Lambda should use
 
 Version 2.1.17 contains a fix for this issue.</description>
       <guid isPermaLink="false">CVE-2024-29186|2024-03-22T17:07:10.899Z</guid>
+      <pubDate>Fri, 22 Mar 2024 17:07:10 +0000</pubDate>
+    </item>
+    <item>
+      <title>CVE-2024-29186|2024-08-02T01:10:54.072Z -- brefphp -- bref</title>
+      <link>https://www.cve.org/CVERecord?id=CVE-2024-29186</link>
+      <description>Bref is an open-source project that helps users go serverless on Amazon Web Services with PHP. When Bref prior to version 2.1.17 is used with the Event-Driven Function runtime and the handler is a `RequestHandlerInterface`, then the Lambda event is converted to a PSR7 object. During the conversion process, if the request is a MultiPart, each part is parsed. In the parsing process, the `Content-Type` header of each part is read using the `Riverline/multipart-parser` library.
+
+The library, in the `StreamedPart::parseHeaderContent` function, performs slow multi-byte string operations on the header value.
+Precisely, the `mb_convert_encoding` function is used with the first (`$string`) and third (`$from_encoding`) parameters read from the header value.
+
+An attacker could send specifically crafted requests which would force the server into performing long operations with a consequent long billed duration.
+
+The attack has the following requirements and limitations: The Lambda should use the Event-Driven Function runtime and the `RequestHandlerInterface` handler and should implement at least an endpoint accepting POST requests; the attacker can send requests up to 6MB long (this is enough to cause a billed duration between 400ms and 500ms with the default 1024MB RAM Lambda image of Bref); and if the Lambda uses a PHP runtime &lt;= php-82, the impact is higher as the billed duration in the default 1024MB RAM Lambda image of Bref could be brought to more than 900ms for each request. Notice that the vulnerability applies only to headers read from the request body as the request header has a limitation which allows a total maximum size of ~10KB.
+
+Version 2.1.17 contains a fix for this issue.</description>
+      <guid isPermaLink="false">CVE-2024-29186|2024-08-02T01:10:54.072Z</guid>
       <pubDate>Fri, 22 Mar 2024 17:07:10 +0000</pubDate>
     </item>
   </channel>
