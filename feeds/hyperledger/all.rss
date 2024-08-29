@@ -6,31 +6,15 @@
     <description>The latest CVEs for hyperledger -- all products</description>
     <docs>http://www.rssboard.org/rss-specification</docs>
     <generator>python-feedgen</generator>
-    <lastBuildDate>Sun, 04 Aug 2024 23:23:13 +0000</lastBuildDate>
+    <lastBuildDate>Thu, 29 Aug 2024 21:22:34 +0000</lastBuildDate>
     <ttl>60</ttl>
     <item>
-      <title>CVE-2020-11090|2024-08-04T11:21:14.678Z -- hyperledger -- indy%20node
+      <title>CVE-2023-46132|2024-08-29T20:19:53.164Z -- hyperledger -- fabric
 </title>
-      <link>https://www.cve.org/CVERecord?id=CVE-2020-11090</link>
-      <description>In Indy Node 1.12.2, there is an Uncontrolled Resource Consumption vulnerability. Indy Node has a bug in TAA handling code. The current primary can be crashed with a malformed transaction from a client, which leads to a view change. Repeated rapid view changes have the potential of bringing down the network. This is fixed in version 1.12.3.</description>
-      <guid isPermaLink="false">CVE-2020-11090|2024-08-04T11:21:14.678Z</guid>
-      <pubDate>Thu, 11 Jun 2020 00:05:14 +0000</pubDate>
-    </item>
-    <item>
-      <title>CVE-2020-11093|2024-08-04T11:21:14.718Z -- hyperledger -- indy-node
-</title>
-      <link>https://www.cve.org/CVERecord?id=CVE-2020-11093</link>
-      <description>Hyperledger Indy Node is the server portion of a distributed ledger purpose-built for decentralized identity. In Hyperledger Indy before version 1.12.4, there is lack of signature verification on a specific transaction which enables an attacker to make certain unauthorized alterations to the ledger. Updating a DID with a nym transaction will be written to the ledger if neither ROLE or VERKEY are being changed, regardless of sender. A malicious DID with no particular role can ask an update for another DID (but cannot modify its verkey or role). This is bad because 1) Any DID can write a nym transaction to the ledger (i.e., any DID can spam the ledger with nym transactions), 2) Any DID can change any other DID's alias, 3) The update transaction modifies the ledger metadata associated with a DID.</description>
-      <guid isPermaLink="false">CVE-2020-11093|2024-08-04T11:21:14.718Z</guid>
-      <pubDate>Thu, 24 Dec 2020 20:05:15 +0000</pubDate>
-    </item>
-    <item>
-      <title>CVE-2021-41272|2024-08-04T03:08:31.638Z -- hyperledger -- besu
-</title>
-      <link>https://www.cve.org/CVERecord?id=CVE-2021-41272</link>
-      <description>Besu is an Ethereum client written in Java. Starting in version 21.10.0, changes in the implementation of the SHL, SHR, and SAR operations resulted in the introduction of a signed type coercion error in values that represent negative values for 32 bit signed integers. Smart contracts that ask for shifts between approximately 2 billion and 4 billion bits (nonsensical but valid values for the operation) will fail to execute and hence fail to validate. In networks where vulnerable versions are mining with other clients or non-vulnerable versions this will result in a fork and the relevant transactions will not be included in the fork. In networks where vulnerable versions are not mining (such as Rinkeby) no fork will result and the validator nodes will stop accepting blocks. In networks where only vulnerable versions are mining the relevant transaction will not be included in any blocks. When the network adds a non-vulnerable version the network will act as in the first case. Besu 21.10.2 contains a patch for this issue. Besu 21.7.4 is not vulnerable and clients can roll back to that version. There is a workaround available: Once a transaction with the relevant shift operations is included in the canonical chain, the only remediation is to make sure all nodes are on non-vulnerable versions.</description>
-      <guid isPermaLink="false">CVE-2021-41272|2024-08-04T03:08:31.638Z</guid>
-      <pubDate>Mon, 13 Dec 2021 21:10:11 +0000</pubDate>
+      <link>https://www.cve.org/CVERecord?id=CVE-2023-46132</link>
+      <description>Hyperledger Fabric is an open source permissioned distributed ledger framework. Combining two molecules to one another, called "cross-linking" results in a molecule with a chemical formula that is composed of all atoms of the original two molecules. In Fabric, one can take a block of transactions and cross-link the transactions in a way that alters the way the peers parse the transactions. If a first peer receives a block B and a second peer receives a block identical to B but with the transactions being cross-linked, the second peer will parse transactions in a different way and thus its world state will deviate from the first peer. Orderers or peers cannot detect that a block has its transactions cross-linked, because there is a vulnerability in the way Fabric hashes the transactions of blocks. It simply and naively concatenates them, which is insecure and lets an adversary craft a "cross-linked block" (block with cross-linked transactions) which alters the way peers process transactions. For example, it is possible to select a transaction and manipulate a peer to completely avoid processing it, without changing the computed hash of the block. Additional validations have been added in v2.2.14 and v2.5.5 to detect potential cross-linking issues before processing blocks. Users are advised to upgrade. There are no known workarounds for this vulnerability.</description>
+      <guid isPermaLink="false">CVE-2023-46132|2024-08-29T20:19:53.164Z</guid>
+      <pubDate>Tue, 14 Nov 2023 20:23:15 +0000</pubDate>
     </item>
   </channel>
 </rss>
