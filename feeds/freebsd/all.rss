@@ -6,7 +6,7 @@
     <description>The latest CVEs for FreeBSD -- all products</description>
     <docs>http://www.rssboard.org/rss-specification</docs>
     <generator>python-feedgen</generator>
-    <lastBuildDate>Thu, 29 Aug 2024 19:20:38 +0000</lastBuildDate>
+    <lastBuildDate>Thu, 29 Aug 2024 20:23:20 +0000</lastBuildDate>
     <ttl>60</ttl>
     <item>
       <title>CVE-2022-23084|2024-08-29T18:48:40.014Z -- freebsd -- freebsd
@@ -29,53 +29,58 @@ The bug can be triggered by a malicious bhyve guest kernel to overwrite memory i
       <pubDate>Thu, 15 Feb 2024 05:13:50 +0000</pubDate>
     </item>
     <item>
-      <title>CVE-2024-6759|2024-08-16T17:02:45.727Z -- freebsd -- freebsd</title>
-      <link>https://www.cve.org/CVERecord?id=CVE-2024-6759</link>
-      <description>When mounting a remote filesystem using NFS, the kernel did not sanitize remotely provided filenames for the path separator character, "/".  This allows readdir(3) and related functions to return filesystem entries with names containing additional path components.
-
-The lack of validation described above gives rise to a confused deputy problem.  For example, a program copying files from an NFS mount could be tricked into copying from outside the intended source directory, and/or to a location outside the intended destination directory.</description>
-      <guid isPermaLink="false">CVE-2024-6759|2024-08-16T17:02:45.727Z</guid>
-      <pubDate>Sun, 11 Aug 2024 02:45:15 +0000</pubDate>
-    </item>
-    <item>
-      <title>CVE-2024-7589|2024-08-16T17:02:48.552Z -- freebsd -- freebsd</title>
-      <link>https://www.cve.org/CVERecord?id=CVE-2024-7589</link>
-      <description>A signal handler in sshd(8) may call a logging function that is not async-signal-safe.  The signal handler is invoked when a client does not authenticate within the LoginGraceTime seconds (120 by default).  This signal handler executes in the context of the sshd(8)'s privileged code, which is not sandboxed and runs with full root privileges.
-
-This issue is another instance of the problem in CVE-2024-6387 addressed by FreeBSD-SA-24:04.openssh.  The faulty code in this case is from the integration of blacklistd in OpenSSH in FreeBSD.
-
-As a result of calling functions that are not async-signal-safe in the privileged sshd(8) context, a race condition exists that a determined attacker may be able to exploit to allow an unauthenticated remote code execution as root.</description>
-      <guid isPermaLink="false">CVE-2024-7589|2024-08-16T17:02:48.552Z</guid>
-      <pubDate>Sun, 11 Aug 2024 03:15:52 +0000</pubDate>
-    </item>
-    <item>
-      <title>CVE-2024-6640|2024-08-16T17:02:44.316Z -- freebsd -- freebsd</title>
+      <title>CVE-2024-6640|2024-08-13T18:58:48.187Z -- freebsd -- freebsd</title>
       <link>https://www.cve.org/CVERecord?id=CVE-2024-6640</link>
       <description>In ICMPv6 Neighbor Discovery (ND), the ID is always 0.  When pf is configured to allow ND and block incoming Echo Requests, a crafted Echo Request packet after a Neighbor Solicitation (NS) can trigger an Echo Reply.  The packet has to come from the same host as the NS and have a zero as identifier to match the state created by the Neighbor Discovery and allow replies to be generated.
 
 ICMPv6 packets with identifier value of zero bypass firewall rules written on the assumption that the incoming packets are going to create a state in the state table.</description>
-      <guid isPermaLink="false">CVE-2024-6640|2024-08-16T17:02:44.316Z</guid>
+      <guid isPermaLink="false">CVE-2024-6640|2024-08-13T18:58:48.187Z</guid>
       <pubDate>Sun, 11 Aug 2024 02:33:42 +0000</pubDate>
     </item>
     <item>
-      <title>CVE-2024-6760|2024-08-16T17:02:47.133Z -- freebsd -- freebsd</title>
+      <title>CVE-2024-6759|2024-08-12T14:24:35.396Z -- freebsd -- freebsd</title>
+      <link>https://www.cve.org/CVERecord?id=CVE-2024-6759</link>
+      <description>When mounting a remote filesystem using NFS, the kernel did not sanitize remotely provided filenames for the path separator character, "/".  This allows readdir(3) and related functions to return filesystem entries with names containing additional path components.
+
+The lack of validation described above gives rise to a confused deputy problem.  For example, a program copying files from an NFS mount could be tricked into copying from outside the intended source directory, and/or to a location outside the intended destination directory.</description>
+      <guid isPermaLink="false">CVE-2024-6759|2024-08-12T14:24:35.396Z</guid>
+      <pubDate>Sun, 11 Aug 2024 02:45:15 +0000</pubDate>
+    </item>
+    <item>
+      <title>CVE-2024-6760|2024-08-12T14:42:59.647Z -- freebsd -- freebsd</title>
       <link>https://www.cve.org/CVERecord?id=CVE-2024-6760</link>
       <description>A logic bug in the code which disables kernel tracing for setuid programs meant that tracing was not disabled when it should have, allowing unprivileged users to trace and inspect the behavior of setuid programs.
 
 The bug may be used by an unprivileged user to read the contents of files to which they would not otherwise have access, such as the local password database.</description>
-      <guid isPermaLink="false">CVE-2024-6760|2024-08-16T17:02:47.133Z</guid>
+      <guid isPermaLink="false">CVE-2024-6760|2024-08-12T14:42:59.647Z</guid>
       <pubDate>Sun, 11 Aug 2024 02:40:03 +0000</pubDate>
     </item>
     <item>
-      <title>CVE-2024-7589|2024-08-12T15:27:57.346Z -- freebsd -- freebsd</title>
-      <link>https://www.cve.org/CVERecord?id=CVE-2024-7589</link>
-      <description>A signal handler in sshd(8) may call a logging function that is not async-signal-safe.  The signal handler is invoked when a client does not authenticate within the LoginGraceTime seconds (120 by default).  This signal handler executes in the context of the sshd(8)'s privileged code, which is not sandboxed and runs with full root privileges.
+      <title>CVE-2024-6759|2024-08-11T02:45:15.024Z -- freebsd -- freebsd</title>
+      <link>https://www.cve.org/CVERecord?id=CVE-2024-6759</link>
+      <description>When mounting a remote filesystem using NFS, the kernel did not sanitize remotely provided filenames for the path separator character, "/".  This allows readdir(3) and related functions to return filesystem entries with names containing additional path components.
 
-This issue is another instance of the problem in CVE-2024-6387 addressed by FreeBSD-SA-24:04.openssh.  The faulty code in this case is from the integration of blacklistd in OpenSSH in FreeBSD.
+The lack of validation described above gives rise to a confused deputy problem.  For example, a program copying files from an NFS mount could be tricked into copying from outside the intended source directory, and/or to a location outside the intended destination directory.</description>
+      <guid isPermaLink="false">CVE-2024-6759|2024-08-11T02:45:15.024Z</guid>
+      <pubDate>Sun, 11 Aug 2024 02:45:15 +0000</pubDate>
+    </item>
+    <item>
+      <title>CVE-2024-6640|2024-08-11T02:33:42.590Z -- freebsd -- freebsd</title>
+      <link>https://www.cve.org/CVERecord?id=CVE-2024-6640</link>
+      <description>In ICMPv6 Neighbor Discovery (ND), the ID is always 0.  When pf is configured to allow ND and block incoming Echo Requests, a crafted Echo Request packet after a Neighbor Solicitation (NS) can trigger an Echo Reply.  The packet has to come from the same host as the NS and have a zero as identifier to match the state created by the Neighbor Discovery and allow replies to be generated.
 
-As a result of calling functions that are not async-signal-safe in the privileged sshd(8) context, a race condition exists that a determined attacker may be able to exploit to allow an unauthenticated remote code execution as root.</description>
-      <guid isPermaLink="false">CVE-2024-7589|2024-08-12T15:27:57.346Z</guid>
-      <pubDate>Sun, 11 Aug 2024 03:15:52 +0000</pubDate>
+ICMPv6 packets with identifier value of zero bypass firewall rules written on the assumption that the incoming packets are going to create a state in the state table.</description>
+      <guid isPermaLink="false">CVE-2024-6640|2024-08-11T02:33:42.590Z</guid>
+      <pubDate>Sun, 11 Aug 2024 02:33:42 +0000</pubDate>
+    </item>
+    <item>
+      <title>CVE-2024-6760|2024-08-11T02:40:03.814Z -- freebsd -- freebsd</title>
+      <link>https://www.cve.org/CVERecord?id=CVE-2024-6760</link>
+      <description>A logic bug in the code which disables kernel tracing for setuid programs meant that tracing was not disabled when it should have, allowing unprivileged users to trace and inspect the behavior of setuid programs.
+
+The bug may be used by an unprivileged user to read the contents of files to which they would not otherwise have access, such as the local password database.</description>
+      <guid isPermaLink="false">CVE-2024-6760|2024-08-11T02:40:03.814Z</guid>
+      <pubDate>Sun, 11 Aug 2024 02:40:03 +0000</pubDate>
     </item>
     <item>
       <title>CVE-2024-7589|2024-08-11T03:15:52.181Z -- freebsd -- freebsd</title>
@@ -89,58 +94,53 @@ As a result of calling functions that are not async-signal-safe in the privilege
       <pubDate>Sun, 11 Aug 2024 03:15:52 +0000</pubDate>
     </item>
     <item>
-      <title>CVE-2024-6760|2024-08-11T02:40:03.814Z -- freebsd -- freebsd</title>
+      <title>CVE-2024-7589|2024-08-12T15:27:57.346Z -- freebsd -- freebsd</title>
+      <link>https://www.cve.org/CVERecord?id=CVE-2024-7589</link>
+      <description>A signal handler in sshd(8) may call a logging function that is not async-signal-safe.  The signal handler is invoked when a client does not authenticate within the LoginGraceTime seconds (120 by default).  This signal handler executes in the context of the sshd(8)'s privileged code, which is not sandboxed and runs with full root privileges.
+
+This issue is another instance of the problem in CVE-2024-6387 addressed by FreeBSD-SA-24:04.openssh.  The faulty code in this case is from the integration of blacklistd in OpenSSH in FreeBSD.
+
+As a result of calling functions that are not async-signal-safe in the privileged sshd(8) context, a race condition exists that a determined attacker may be able to exploit to allow an unauthenticated remote code execution as root.</description>
+      <guid isPermaLink="false">CVE-2024-7589|2024-08-12T15:27:57.346Z</guid>
+      <pubDate>Sun, 11 Aug 2024 03:15:52 +0000</pubDate>
+    </item>
+    <item>
+      <title>CVE-2024-6760|2024-08-16T17:02:47.133Z -- freebsd -- freebsd</title>
       <link>https://www.cve.org/CVERecord?id=CVE-2024-6760</link>
       <description>A logic bug in the code which disables kernel tracing for setuid programs meant that tracing was not disabled when it should have, allowing unprivileged users to trace and inspect the behavior of setuid programs.
 
 The bug may be used by an unprivileged user to read the contents of files to which they would not otherwise have access, such as the local password database.</description>
-      <guid isPermaLink="false">CVE-2024-6760|2024-08-11T02:40:03.814Z</guid>
+      <guid isPermaLink="false">CVE-2024-6760|2024-08-16T17:02:47.133Z</guid>
       <pubDate>Sun, 11 Aug 2024 02:40:03 +0000</pubDate>
     </item>
     <item>
-      <title>CVE-2024-6640|2024-08-11T02:33:42.590Z -- freebsd -- freebsd</title>
+      <title>CVE-2024-6640|2024-08-16T17:02:44.316Z -- freebsd -- freebsd</title>
       <link>https://www.cve.org/CVERecord?id=CVE-2024-6640</link>
       <description>In ICMPv6 Neighbor Discovery (ND), the ID is always 0.  When pf is configured to allow ND and block incoming Echo Requests, a crafted Echo Request packet after a Neighbor Solicitation (NS) can trigger an Echo Reply.  The packet has to come from the same host as the NS and have a zero as identifier to match the state created by the Neighbor Discovery and allow replies to be generated.
 
 ICMPv6 packets with identifier value of zero bypass firewall rules written on the assumption that the incoming packets are going to create a state in the state table.</description>
-      <guid isPermaLink="false">CVE-2024-6640|2024-08-11T02:33:42.590Z</guid>
+      <guid isPermaLink="false">CVE-2024-6640|2024-08-16T17:02:44.316Z</guid>
       <pubDate>Sun, 11 Aug 2024 02:33:42 +0000</pubDate>
     </item>
     <item>
-      <title>CVE-2024-6759|2024-08-11T02:45:15.024Z -- freebsd -- freebsd</title>
+      <title>CVE-2024-7589|2024-08-16T17:02:48.552Z -- freebsd -- freebsd</title>
+      <link>https://www.cve.org/CVERecord?id=CVE-2024-7589</link>
+      <description>A signal handler in sshd(8) may call a logging function that is not async-signal-safe.  The signal handler is invoked when a client does not authenticate within the LoginGraceTime seconds (120 by default).  This signal handler executes in the context of the sshd(8)'s privileged code, which is not sandboxed and runs with full root privileges.
+
+This issue is another instance of the problem in CVE-2024-6387 addressed by FreeBSD-SA-24:04.openssh.  The faulty code in this case is from the integration of blacklistd in OpenSSH in FreeBSD.
+
+As a result of calling functions that are not async-signal-safe in the privileged sshd(8) context, a race condition exists that a determined attacker may be able to exploit to allow an unauthenticated remote code execution as root.</description>
+      <guid isPermaLink="false">CVE-2024-7589|2024-08-16T17:02:48.552Z</guid>
+      <pubDate>Sun, 11 Aug 2024 03:15:52 +0000</pubDate>
+    </item>
+    <item>
+      <title>CVE-2024-6759|2024-08-16T17:02:45.727Z -- freebsd -- freebsd</title>
       <link>https://www.cve.org/CVERecord?id=CVE-2024-6759</link>
       <description>When mounting a remote filesystem using NFS, the kernel did not sanitize remotely provided filenames for the path separator character, "/".  This allows readdir(3) and related functions to return filesystem entries with names containing additional path components.
 
 The lack of validation described above gives rise to a confused deputy problem.  For example, a program copying files from an NFS mount could be tricked into copying from outside the intended source directory, and/or to a location outside the intended destination directory.</description>
-      <guid isPermaLink="false">CVE-2024-6759|2024-08-11T02:45:15.024Z</guid>
+      <guid isPermaLink="false">CVE-2024-6759|2024-08-16T17:02:45.727Z</guid>
       <pubDate>Sun, 11 Aug 2024 02:45:15 +0000</pubDate>
-    </item>
-    <item>
-      <title>CVE-2024-6760|2024-08-12T14:42:59.647Z -- freebsd -- freebsd</title>
-      <link>https://www.cve.org/CVERecord?id=CVE-2024-6760</link>
-      <description>A logic bug in the code which disables kernel tracing for setuid programs meant that tracing was not disabled when it should have, allowing unprivileged users to trace and inspect the behavior of setuid programs.
-
-The bug may be used by an unprivileged user to read the contents of files to which they would not otherwise have access, such as the local password database.</description>
-      <guid isPermaLink="false">CVE-2024-6760|2024-08-12T14:42:59.647Z</guid>
-      <pubDate>Sun, 11 Aug 2024 02:40:03 +0000</pubDate>
-    </item>
-    <item>
-      <title>CVE-2024-6759|2024-08-12T14:24:35.396Z -- freebsd -- freebsd</title>
-      <link>https://www.cve.org/CVERecord?id=CVE-2024-6759</link>
-      <description>When mounting a remote filesystem using NFS, the kernel did not sanitize remotely provided filenames for the path separator character, "/".  This allows readdir(3) and related functions to return filesystem entries with names containing additional path components.
-
-The lack of validation described above gives rise to a confused deputy problem.  For example, a program copying files from an NFS mount could be tricked into copying from outside the intended source directory, and/or to a location outside the intended destination directory.</description>
-      <guid isPermaLink="false">CVE-2024-6759|2024-08-12T14:24:35.396Z</guid>
-      <pubDate>Sun, 11 Aug 2024 02:45:15 +0000</pubDate>
-    </item>
-    <item>
-      <title>CVE-2024-6640|2024-08-13T18:58:48.187Z -- freebsd -- freebsd</title>
-      <link>https://www.cve.org/CVERecord?id=CVE-2024-6640</link>
-      <description>In ICMPv6 Neighbor Discovery (ND), the ID is always 0.  When pf is configured to allow ND and block incoming Echo Requests, a crafted Echo Request packet after a Neighbor Solicitation (NS) can trigger an Echo Reply.  The packet has to come from the same host as the NS and have a zero as identifier to match the state created by the Neighbor Discovery and allow replies to be generated.
-
-ICMPv6 packets with identifier value of zero bypass firewall rules written on the assumption that the incoming packets are going to create a state in the state table.</description>
-      <guid isPermaLink="false">CVE-2024-6640|2024-08-13T18:58:48.187Z</guid>
-      <pubDate>Sun, 11 Aug 2024 02:33:42 +0000</pubDate>
     </item>
   </channel>
 </rss>
