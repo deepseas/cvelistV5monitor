@@ -6,47 +6,25 @@
     <description>The latest CVEs for rundeck -- all products</description>
     <docs>http://www.rssboard.org/rss-specification</docs>
     <generator>python-feedgen</generator>
-    <lastBuildDate>Sun, 04 Aug 2024 23:23:22 +0000</lastBuildDate>
+    <lastBuildDate>Thu, 29 Aug 2024 15:23:38 +0000</lastBuildDate>
     <ttl>60</ttl>
     <item>
-      <title>CVE-2021-41111|2024-08-04T02:59:31.591Z -- rundeck -- rundeck
+      <title>CVE-2023-47112|2024-08-29T14:48:58.458Z -- rundeck -- rundeck
 </title>
-      <link>https://www.cve.org/CVERecord?id=CVE-2021-41111</link>
-      <description>Rundeck is an open source automation service with a web console, command line tools and a WebAPI. Prior to versions 3.4.5 and 3.3.15, an authenticated user with authorization to read webhooks in one project can craft a request to reveal Webhook definitions and tokens in another project. The user could use the revealed webhook tokens to trigger webhooks. Severity depends on trust level of authenticated users and whether any webhooks exist that trigger sensitive actions. There are patches for this vulnerability in versions 3.4.5 and 3.3.15. There are currently no known workarounds.</description>
-      <guid isPermaLink="false">CVE-2021-41111|2024-08-04T02:59:31.591Z</guid>
-      <pubDate>Mon, 28 Feb 2022 19:15:11 +0000</pubDate>
+      <link>https://www.cve.org/CVERecord?id=CVE-2023-47112</link>
+      <description>Rundeck is an open source automation service with a web console, command line tools and a WebAPI. In affected versions access to two URLs used in both Rundeck Open Source and Process Automation products could allow authenticated users to access the URL path, which provides a list of job names and groups for any project, without the necessary authorization checks. The output of these endpoints only exposes the name of job groups and the jobs contained within the specified project. The output is read-only and the access does not allow changes to the information. This vulnerability has been patched in version 4.17.3. Users are advised to upgrade. Users unable to upgrade may block access to the two URLs used in either Rundeck Open Source or Process Automation products at a load balancer level.</description>
+      <guid isPermaLink="false">CVE-2023-47112|2024-08-29T14:48:58.458Z</guid>
+      <pubDate>Thu, 16 Nov 2023 22:01:07 +0000</pubDate>
     </item>
     <item>
-      <title>CVE-2020-11009|2024-08-04T11:21:14.168Z -- rundeck -- rundeck
+      <title>CVE-2023-48222|2024-08-29T14:41:54.188Z -- rundeck -- rundeck
 </title>
-      <link>https://www.cve.org/CVERecord?id=CVE-2020-11009</link>
-      <description>In Rundeck before version 3.2.6, authenticated users can craft a request that reveals Execution data and logs and Job details that they are not authorized to see. Depending on the configuration and the way that Rundeck is used, this could result in anything between a high severity risk, or a very low risk. If access is tightly restricted and all users on the system have access to all projects, this is not really much of an issue. If access is wider and allows login for users that do not have access to any projects, or project access is restricted, there is a larger issue. If access is meant to be restricted and secrets, sensitive data, or intellectual property are exposed in Rundeck execution output and job data, the risk becomes much higher. This vulnerability is patched in version 3.2.6</description>
-      <guid isPermaLink="false">CVE-2020-11009|2024-08-04T11:21:14.168Z</guid>
-      <pubDate>Wed, 29 Apr 2020 16:30:14 +0000</pubDate>
-    </item>
-    <item>
-      <title>CVE-2021-39133|2024-08-04T01:58:17.706Z -- rundeck -- rundeck
-</title>
-      <link>https://www.cve.org/CVERecord?id=CVE-2021-39133</link>
-      <description>Rundeck is an open source automation service with a web console, command line tools and a WebAPI. Prior to version 3.3.14 and version 3.4.3, a user with `admin` access to the `system` resource type is potentially vulnerable to a CSRF attack that could cause the server to run untrusted code on all Rundeck editions. Patches are available in Rundeck versions 3.4.3 and 3.3.14.</description>
-      <guid isPermaLink="false">CVE-2021-39133|2024-08-04T01:58:17.706Z</guid>
-      <pubDate>Mon, 30 Aug 2021 19:50:10 +0000</pubDate>
-    </item>
-    <item>
-      <title>CVE-2021-41112|2024-08-04T02:59:31.420Z -- rundeck -- rundeck
-</title>
-      <link>https://www.cve.org/CVERecord?id=CVE-2021-41112</link>
-      <description>Rundeck is an open source automation service with a web console, command line tools and a WebAPI. In versions prior to 3.4.5, authenticated users could craft a request to modify or delete System or Project level Calendars, without appropriate authorization. Modifying or removing calendars could cause Scheduled Jobs to execute, or not execute on desired calendar days. Severity depends on trust level of authenticated users and impact of running or not running scheduled jobs on days governed by calendar definitions. Version 3.4.5 contains a patch for this issue. There are currently no known workarounds.</description>
-      <guid isPermaLink="false">CVE-2021-41112|2024-08-04T02:59:31.420Z</guid>
-      <pubDate>Mon, 28 Feb 2022 19:15:17 +0000</pubDate>
-    </item>
-    <item>
-      <title>CVE-2021-39132|2024-08-04T01:58:17.769Z -- rundeck -- rundeck
-</title>
-      <link>https://www.cve.org/CVERecord?id=CVE-2021-39132</link>
-      <description>Rundeck is an open source automation service with a web console, command line tools and a WebAPI. Prior to version 3.3.14 and version 3.4.3, an authorized user can upload a zip-format plugin with a crafted plugin.yaml, or a crafted aclpolicy yaml file, or upload an untrusted project archive with a crafted aclpolicy yaml file, that can cause the server to run untrusted code on Rundeck Community or Enterprise Edition. An authenticated user can make a POST request, that can cause the server to run untrusted code on Rundeck Enterprise Edition. The zip-format plugin issues requires authentication and authorization to these access levels, and affects all Rundeck editions:`admin` level access to the `system` resource type. The ACL Policy yaml file upload issues requires authentication and authorization to these access levels, and affects all Rundeck editions: `create` `update` or `admin` level access to a `project_acl` resource, and/or`create` `update` or `admin` level access to the `system_acl` resource. The unauthorized POST request requires authentication, but no specific authorization, and affects Rundeck Enterprise only. Patches are available in versions 3.4.3, 3.3.14</description>
-      <guid isPermaLink="false">CVE-2021-39132|2024-08-04T01:58:17.769Z</guid>
-      <pubDate>Mon, 30 Aug 2021 19:35:10 +0000</pubDate>
+      <link>https://www.cve.org/CVERecord?id=CVE-2023-48222</link>
+      <description>Rundeck is an open source automation service with a web console, command line tools and a WebAPI. In affected versions access to two URLs used in both Rundeck Open Source and Process Automation products could allow authenticated users to access the URL path, which would allow access to view or delete jobs, without the necessary authorization checks. This issue has been addressed in version 4.17.3. Users are advised to upgrade. There are no known workarounds for this vulnerability.
+
+</description>
+      <guid isPermaLink="false">CVE-2023-48222|2024-08-29T14:41:54.188Z</guid>
+      <pubDate>Thu, 16 Nov 2023 21:59:17 +0000</pubDate>
     </item>
   </channel>
 </rss>
