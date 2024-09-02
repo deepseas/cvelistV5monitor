@@ -1,0 +1,28 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<rss xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/" version="2.0">
+  <channel>
+    <title>CVE Feed for overleaf -- all</title>
+    <link>https://raw.githubusercontent.com/deepseas/cvelistV5monitor/main/feeds/overleaf/all.rss</link>
+    <description>The latest CVEs for overleaf -- all products</description>
+    <docs>http://www.rssboard.org/rss-specification</docs>
+    <generator>python-feedgen</generator>
+    <lastBuildDate>Mon, 02 Sep 2024 17:22:13 +0000</lastBuildDate>
+    <ttl>60</ttl>
+    <item>
+      <title>CVE-2024-45313|2024-09-02T16:54:19.915Z -- overleaf -- overleaf
+</title>
+      <link>https://www.cve.org/CVERecord?id=CVE-2024-45313</link>
+      <description>Overleaf is a web-based collaborative LaTeX editor. When installing Server Pro using the Overleaf Toolkit from before 2024-07-17 or legacy docker-compose.yml from before 2024-08-28, the configuration for LaTeX compiles was insecure by default, requiring the administrator to enable the security features via a configuration setting (`SIBLING_CONTAINERS_ENABLED` in Toolkit, `SANDBOXED_COMPILES` in legacy docker-compose/custom deployments). If these security features are not enabled then users have access to the `sharelatex` container resources (filesystem, network, environment variables) when running compiles, leading to multiple file access vulnerabilities, either directly or via symlinks created during compiles. The setting has now been changed to be secure by default for new installs in the Toolkit and legacy docker-compose deployment. The Overleaf Toolkit has been updated to set `SIBLING_CONTAINERS_ENABLED=true` by default for new installs. It is recommended that any existing installations using the previous default setting migrate to using sibling containers. Existing installations can set `SIBLING_CONTAINERS_ENABLED=true` in `config/overleaf.rc` as a mitigation. In legacy docker-compose/custom deployments `SANDBOXED_COMPILES=true` should be used.</description>
+      <guid isPermaLink="false">CVE-2024-45313|2024-09-02T16:54:19.915Z</guid>
+      <pubDate>Mon, 02 Sep 2024 16:54:19 +0000</pubDate>
+    </item>
+    <item>
+      <title>CVE-2024-45312|2024-09-02T16:50:08.305Z -- overleaf -- overleaf
+</title>
+      <link>https://www.cve.org/CVERecord?id=CVE-2024-45312</link>
+      <description>Overleaf is a web-based collaborative LaTeX editor. Overleaf Community Edition and Server Pro prior to version 5.0.7 (or 4.2.7 for the 4.x series) contain a vulnerability that allows an arbitrary language parameter in client spelling requests to be passed to the `aspell` executable running on the server.  This causes `aspell` to attempt to load  a dictionary file with an arbitrary filename. File access is limited to the scope of the overleaf server. The problem is patched in versions 5.0.7 and 4.2.7.  Previous versions can be upgraded using the Overleaf toolkit `bin/upgrade` command. Users unable to upgrade may block POST requests to `/spelling/check` via a Web Application Firewall will prevent access to the vulnerable spell check feature.  However, upgrading is advised.</description>
+      <guid isPermaLink="false">CVE-2024-45312|2024-09-02T16:50:08.305Z</guid>
+      <pubDate>Mon, 02 Sep 2024 16:50:08 +0000</pubDate>
+    </item>
+  </channel>
+</rss>

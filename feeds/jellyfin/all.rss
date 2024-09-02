@@ -6,23 +6,15 @@
     <description>The latest CVEs for jellyfin -- all products</description>
     <docs>http://www.rssboard.org/rss-specification</docs>
     <generator>python-feedgen</generator>
-    <lastBuildDate>Sat, 03 Aug 2024 23:23:22 +0000</lastBuildDate>
+    <lastBuildDate>Mon, 02 Sep 2024 17:22:13 +0000</lastBuildDate>
     <ttl>60</ttl>
     <item>
-      <title>CVE-2021-29490|2024-08-03T22:11:05.554Z -- jellyfin -- jellyfin
+      <title>CVE-2024-43801|2024-09-02T16:26:58.884Z -- jellyfin -- jellyfin
 </title>
-      <link>https://www.cve.org/CVERecord?id=CVE-2021-29490</link>
-      <description>Jellyfin is a free software media system that provides media from a dedicated server to end-user devices via multiple apps. Verions prior to 10.7.3 vulnerable to unauthenticated Server-Side Request Forgery (SSRF) attacks via the imageUrl parameter. This issue potentially exposes both internal and external HTTP servers or other resources available via HTTP `GET` that are visible from the Jellyfin server. The vulnerability is patched in version 10.7.3. As a workaround, disable external access to the API endpoints `/Items/*/RemoteImages/Download`, `/Items/RemoteSearch/Image` and `/Images/Remote` via reverse proxy, or limit to known-friendly IPs.</description>
-      <guid isPermaLink="false">CVE-2021-29490|2024-08-03T22:11:05.554Z</guid>
-      <pubDate>Wed, 05 May 2021 18:25:13 +0000</pubDate>
-    </item>
-    <item>
-      <title>CVE-2021-21402|2024-08-03T18:09:16.077Z -- jellyfin -- jellyfin
-</title>
-      <link>https://www.cve.org/CVERecord?id=CVE-2021-21402</link>
-      <description>Jellyfin is a Free Software Media System. In Jellyfin before version 10.7.1, with certain endpoints, well crafted requests will allow arbitrary file read from a Jellyfin server's file system. This issue is more prevalent when Windows is used as the host OS. Servers that are exposed to the public Internet are potentially at risk. This is fixed in version 10.7.1. As a workaround, users may be able to restrict some access by enforcing strict security permissions on their filesystem, however, it is recommended to update as soon as possible.</description>
-      <guid isPermaLink="false">CVE-2021-21402|2024-08-03T18:09:16.077Z</guid>
-      <pubDate>Tue, 23 Mar 2021 19:35:13 +0000</pubDate>
+      <link>https://www.cve.org/CVERecord?id=CVE-2024-43801</link>
+      <description>Jellyfin is an open source self hosted media server. The Jellyfin user profile image upload accepts SVG files, allowing for a stored XSS attack against an admin user via a specially crafted malicious SVG file. When viewed by an admin outside of the Jellyfin Web UI (e.g. via "view image" in a browser), this malicious SVG file could interact with the browser's LocalStorage and retrieve an AccessToken, which in turn can be used in an API call to elevate the target user to a Jellyfin administrator. The actual attack vector is unlikely to be exploited, as it requires specific actions by the administrator to view the SVG image outside of Jellyfin's WebUI, i.e. it is not a passive attack. The underlying exploit mechanism is solved by PR #12490, which forces attached images (including the potential malicious SVG) to be treated as attachments and thus downloaded by browsers, rather than viewed. This prevents exploitation of the LocalStorage of the browser. This PR has been merged and the relevant code changes are included in release version 10.9.10. All users are advised to upgrade.</description>
+      <guid isPermaLink="false">CVE-2024-43801|2024-09-02T16:26:58.884Z</guid>
+      <pubDate>Mon, 02 Sep 2024 16:26:58 +0000</pubDate>
     </item>
   </channel>
 </rss>

@@ -6,15 +6,15 @@
     <description>The latest CVEs for quinn-rs -- all products</description>
     <docs>http://www.rssboard.org/rss-specification</docs>
     <generator>python-feedgen</generator>
-    <lastBuildDate>Fri, 02 Aug 2024 23:22:01 +0000</lastBuildDate>
+    <lastBuildDate>Mon, 02 Sep 2024 17:22:13 +0000</lastBuildDate>
     <ttl>60</ttl>
     <item>
-      <title>CVE-2023-42805|2024-08-02T19:30:24.143Z -- quinn-rs -- quinn
+      <title>CVE-2024-45311|2024-09-02T16:45:39.465Z -- quinn-rs -- quinn
 </title>
-      <link>https://www.cve.org/CVERecord?id=CVE-2023-42805</link>
-      <description>quinn-proto is a state machine for the QUIC transport protocol. Prior to versions 0.9.5 and 0.10.5, receiving unknown QUIC frames in a QUIC packet could result in a panic. The problem has been fixed in 0.9.5 and 0.10.5 maintenance releases.</description>
-      <guid isPermaLink="false">CVE-2023-42805|2024-08-02T19:30:24.143Z</guid>
-      <pubDate>Thu, 21 Sep 2023 16:39:56 +0000</pubDate>
+      <link>https://www.cve.org/CVERecord?id=CVE-2024-45311</link>
+      <description>Quinn is a pure-Rust, async-compatible implementation of the IETF QUIC transport protocol. As of quinn-proto 0.11, it is possible for a server to `accept()`, `retry()`, `refuse()`, or `ignore()` an `Incoming` connection. However, calling `retry()` on an unvalidated connection exposes the server to a likely panic in the following situations:  1. Calling `refuse` or `ignore` on the resulting validated connection, if a duplicate initial packet is received. This issue can go undetected until a server's `refuse()`/`ignore()` code path is exercised, such as to stop a denial of service attack. 2. Accepting when the initial packet for the resulting validated connection fails to decrypt or exhausts connection IDs, if a similar initial packet that successfully decrypts and doesn't exhaust connection IDs is received. This issue can go undetected if clients are well-behaved. The former situation was observed in a real application, while the latter is only theoretical.</description>
+      <guid isPermaLink="false">CVE-2024-45311|2024-09-02T16:45:39.465Z</guid>
+      <pubDate>Mon, 02 Sep 2024 16:45:39 +0000</pubDate>
     </item>
   </channel>
 </rss>
