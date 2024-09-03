@@ -6,63 +6,31 @@
     <description>The latest CVEs for symfony -- all products</description>
     <docs>http://www.rssboard.org/rss-specification</docs>
     <generator>python-feedgen</generator>
-    <lastBuildDate>Sun, 04 Aug 2024 23:23:18 +0000</lastBuildDate>
+    <lastBuildDate>Tue, 03 Sep 2024 16:24:23 +0000</lastBuildDate>
     <ttl>60</ttl>
     <item>
-      <title>CVE-2020-5255|2024-08-04T08:22:09.086Z -- symfony -- symfony
+      <title>CVE-2023-46735|2024-09-03T15:24:36.945Z -- symfony -- symfony
 </title>
-      <link>https://www.cve.org/CVERecord?id=CVE-2020-5255</link>
-      <description>In Symfony before versions 4.4.7 and 5.0.7, when a `Response` does not contain a `Content-Type` header, affected versions of Symfony can fallback to the format defined in the `Accept` header of the request, leading to a possible mismatch between the response&amp;#39;s content and `Content-Type` header. When the response is cached, this can prevent the use of the website by other users. This has been patched in versions 4.4.7 and 5.0.7.</description>
-      <guid isPermaLink="false">CVE-2020-5255|2024-08-04T08:22:09.086Z</guid>
-      <pubDate>Mon, 30 Mar 2020 19:30:15 +0000</pubDate>
+      <link>https://www.cve.org/CVERecord?id=CVE-2023-46735</link>
+      <description>Symfony is a PHP framework for web and console applications and a set of reusable PHP components. Starting in version 6.0.0 and prior to version 6.3.8, the error message in `WebhookController` returns unescaped user-submitted input. As of version 6.3.8, `WebhookController` now doesn't return any user-submitted input in its response.</description>
+      <guid isPermaLink="false">CVE-2023-46735|2024-09-03T15:24:36.945Z</guid>
+      <pubDate>Fri, 10 Nov 2023 17:58:18 +0000</pubDate>
     </item>
     <item>
-      <title>CVE-2021-41267|2024-08-04T03:08:31.656Z -- symfony -- symfony
+      <title>CVE-2023-46734|2024-09-03T15:36:18.165Z -- symfony -- symfony
 </title>
-      <link>https://www.cve.org/CVERecord?id=CVE-2021-41267</link>
-      <description>Symfony/Http-Kernel is the HTTP kernel component for Symfony, a PHP framework for web and console applications and a set of reusable PHP components. Headers that are not part of the "trusted_headers" allowed list are ignored and protect users from "Cache poisoning" attacks. In Symfony 5.2, maintainers added support for the `X-Forwarded-Prefix` headers, but this header was accessible in SubRequest, even if it was not part of the "trusted_headers" allowed list. An attacker could leverage this opportunity to forge requests containing a `X-Forwarded-Prefix` header, leading to a web cache poisoning issue. Versions 5.3.12 and later have a patch to ensure that the `X-Forwarded-Prefix` header is not forwarded to subrequests when it is not trusted.</description>
-      <guid isPermaLink="false">CVE-2021-41267|2024-08-04T03:08:31.656Z</guid>
-      <pubDate>Wed, 24 Nov 2021 18:55:17 +0000</pubDate>
+      <link>https://www.cve.org/CVERecord?id=CVE-2023-46734</link>
+      <description>Symfony is a PHP framework for web and console applications and a set of reusable PHP components. Starting in versions 2.0.0, 5.0.0, and 6.0.0 and prior to versions 4.4.51, 5.4.31, and 6.3.8, some Twig filters in CodeExtension use `is_safe=html` but don't actually ensure their input is safe. As of versions 4.4.51, 5.4.31, and 6.3.8, Symfony now escapes the output of the affected filters.</description>
+      <guid isPermaLink="false">CVE-2023-46734|2024-09-03T15:36:18.165Z</guid>
+      <pubDate>Fri, 10 Nov 2023 17:49:55 +0000</pubDate>
     </item>
     <item>
-      <title>CVE-2020-5275|2024-08-04T08:22:09.094Z -- symfony -- symfony
+      <title>CVE-2023-46733|2024-09-03T15:36:38.571Z -- symfony -- symfony
 </title>
-      <link>https://www.cve.org/CVERecord?id=CVE-2020-5275</link>
-      <description>In symfony/security-http before versions 4.4.7 and 5.0.7, when a `Firewall` checks access control rule, it iterate overs each rule's attributes and stops as soon as the accessDecisionManager decides to grant access on the attribute, preventing the check of next attributes that should have been take into account in an unanimous strategy. The accessDecisionManager is now called with all attributes at once, allowing the unanimous strategy being applied on each attribute. This issue is patched in versions 4.4.7 and 5.0.7.</description>
-      <guid isPermaLink="false">CVE-2020-5275|2024-08-04T08:22:09.094Z</guid>
-      <pubDate>Mon, 30 Mar 2020 19:45:14 +0000</pubDate>
-    </item>
-    <item>
-      <title>CVE-2020-5274|2024-08-04T08:22:09.100Z -- symfony -- symfony
-</title>
-      <link>https://www.cve.org/CVERecord?id=CVE-2020-5274</link>
-      <description>In Symfony before versions 5.0.5 and 4.4.5, some properties of the Exception were not properly escaped when the `ErrorHandler` rendered it stacktrace. In addition, the stacktrace were displayed even in a non-debug configuration. The ErrorHandler now escape alls properties of the exception, and the stacktrace is only display in debug configuration. This issue is patched in symfony/http-foundation versions 4.4.5 and 5.0.5</description>
-      <guid isPermaLink="false">CVE-2020-5274|2024-08-04T08:22:09.100Z</guid>
-      <pubDate>Mon, 30 Mar 2020 19:40:14 +0000</pubDate>
-    </item>
-    <item>
-      <title>CVE-2021-41268|2024-08-04T03:08:31.842Z -- symfony -- symfony
-</title>
-      <link>https://www.cve.org/CVERecord?id=CVE-2021-41268</link>
-      <description>Symfony/SecurityBundle is the security system for Symfony, a PHP framework for web and console applications and a set of reusable PHP components. Since the rework of the Remember me cookie in version 5.3.0, the cookie is not invalidated when the user changes their password. Attackers can therefore maintain their access to the account even if the password is changed as long as they have had the chance to login once and get a valid remember me cookie. Starting with version 5.3.12, Symfony makes the password part of the signature by default. In that way, when the password changes, then the cookie is not valid anymore.</description>
-      <guid isPermaLink="false">CVE-2021-41268|2024-08-04T03:08:31.842Z</guid>
-      <pubDate>Wed, 24 Nov 2021 18:55:12 +0000</pubDate>
-    </item>
-    <item>
-      <title>CVE-2020-15094|2024-08-04T13:08:22.072Z -- symfony -- symfony
-</title>
-      <link>https://www.cve.org/CVERecord?id=CVE-2020-15094</link>
-      <description>In Symfony before versions 4.4.13 and 5.1.5, the CachingHttpClient class from the HttpClient Symfony component relies on the HttpCache class to handle requests. HttpCache uses internal headers like X-Body-Eval and X-Body-File to control the restoration of cached responses. The class was initially written with surrogate caching and ESI support in mind (all HTTP calls come from a trusted backend in that scenario). But when used by CachingHttpClient and if an attacker can control the response for a request being made by the CachingHttpClient, remote code execution is possible. This has been fixed in versions 4.4.13 and 5.1.5.</description>
-      <guid isPermaLink="false">CVE-2020-15094|2024-08-04T13:08:22.072Z</guid>
-      <pubDate>Wed, 02 Sep 2020 17:35:15 +0000</pubDate>
-    </item>
-    <item>
-      <title>CVE-2021-41270|2024-08-04T03:08:31.658Z -- symfony -- symfony
-</title>
-      <link>https://www.cve.org/CVERecord?id=CVE-2021-41270</link>
-      <description>Symfony/Serializer handles serializing and deserializing data structures for Symfony, a PHP framework for web and console applications and a set of reusable PHP components. Symfony versions 4.1.0 before 4.4.35 and versions 5.0.0 before 5.3.12 are vulnerable to CSV injection, also known as formula injection. In Symfony 4.1, maintainers added the opt-in `csv_escape_formulas` option in the `CsvEncoder`, to prefix all cells starting with `=`, `+`, `-` or `@` with a tab `\t`. Since then, OWASP added 2 chars in that list: Tab (0x09) and Carriage return (0x0D). This makes the previous prefix char (Tab `\t`) part of the vulnerable characters, and OWASP suggests using the single quote `'` for prefixing the value. Starting with versions 4.4.34 and 5.3.12, Symfony now follows the OWASP recommendations and uses the single quote `'` to prefix formulas and add the prefix to cells starting by `\t`, `\r` as well as `=`, `+`, `-` and `@`.</description>
-      <guid isPermaLink="false">CVE-2021-41270|2024-08-04T03:08:31.658Z</guid>
-      <pubDate>Wed, 24 Nov 2021 19:05:11 +0000</pubDate>
+      <link>https://www.cve.org/CVERecord?id=CVE-2023-46733</link>
+      <description>Symfony is a PHP framework for web and console applications and a set of reusable PHP components. Starting in versions 5.4.21 and 6.2.7 and prior to versions 5.4.31 and 6.3.8, `SessionStrategyListener` does not migrate the session after every successful login. It does so only in case the logged in user changes by means of checking the user identifier. In some use cases, the user identifier doesn't change between the verification phase and the successful login, while the token itself changes from one type (partially-authenticated) to another (fully-authenticated). When this happens, the session id should be regenerated to prevent possible session fixations, which is not the case at the moment. As of versions 5.4.31 and 6.3.8, Symfony now checks the type of the token in addition to the user identifier before deciding whether the session id should be regenerated.</description>
+      <guid isPermaLink="false">CVE-2023-46733|2024-09-03T15:36:38.571Z</guid>
+      <pubDate>Fri, 10 Nov 2023 17:09:13 +0000</pubDate>
     </item>
   </channel>
 </rss>
