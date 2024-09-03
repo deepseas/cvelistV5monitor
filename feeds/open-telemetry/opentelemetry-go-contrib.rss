@@ -6,31 +6,15 @@
     <description>The latest CVEs for open-telemetry -- opentelemetry-go-contrib</description>
     <docs>http://www.rssboard.org/rss-specification</docs>
     <generator>python-feedgen</generator>
-    <lastBuildDate>Fri, 02 Aug 2024 23:21:44 +0000</lastBuildDate>
+    <lastBuildDate>Tue, 03 Sep 2024 18:24:34 +0000</lastBuildDate>
     <ttl>60</ttl>
     <item>
-      <title>CVE-2023-47108|2024-08-02T21:01:22.674Z -- open-telemetry -- opentelemetry-go-contrib
+      <title>CVE-2023-47108|2024-09-03T17:26:56.850Z -- open-telemetry -- opentelemetry-go-contrib
 </title>
       <link>https://www.cve.org/CVERecord?id=CVE-2023-47108</link>
       <description>OpenTelemetry-Go Contrib is a collection of third-party packages for OpenTelemetry-Go. Prior to version 0.46.0, the grpc Unary Server Interceptor out of the box adds labels `net.peer.sock.addr` and `net.peer.sock.port` that have unbound cardinality. It leads to the server's potential memory exhaustion when many malicious requests are sent. An attacker can easily flood the peer address and port for requests. Version 0.46.0 contains a fix for this issue. As a workaround to stop being affected, a view removing the attributes can be used. The other possibility is to disable grpc metrics instrumentation by passing `otelgrpc.WithMeterProvider` option with `noop.NewMeterProvider`.</description>
-      <guid isPermaLink="false">CVE-2023-47108|2024-08-02T21:01:22.674Z</guid>
+      <guid isPermaLink="false">CVE-2023-47108|2024-09-03T17:26:56.850Z</guid>
       <pubDate>Fri, 10 Nov 2023 18:31:33 +0000</pubDate>
-    </item>
-    <item>
-      <title>CVE-2023-45142|2024-08-02T20:14:19.751Z -- open-telemetry -- opentelemetry-go-contrib
-</title>
-      <link>https://www.cve.org/CVERecord?id=CVE-2023-45142</link>
-      <description>OpenTelemetry-Go Contrib is a collection of third-party packages for OpenTelemetry-Go. A handler wrapper out of the box adds labels `http.user_agent` and `http.method` that have unbound cardinality. It leads to the server's potential memory exhaustion when many malicious requests are sent to it. HTTP header User-Agent or HTTP method for requests can be easily set by an attacker to be random and long. The library internally uses `httpconv.ServerRequest` that records every value for HTTP `method` and `User-Agent`. In order to be affected, a program has to use the `otelhttp.NewHandler` wrapper and not filter any unknown HTTP methods or User agents on the level of CDN, LB, previous middleware, etc. Version 0.44.0 fixed this issue when the values collected for attribute `http.request.method` were changed to be restricted to a set of well-known values and other high cardinality attributes were removed. As a workaround to stop being affected, `otelhttp.WithFilter()` can be used, but it requires manual careful configuration to not log certain requests entirely. For convenience and safe usage of this library, it should by default mark with the label `unknown` non-standard HTTP methods and User agents to show that such requests were made but do not increase cardinality. In case someone wants to stay with the current behavior, library API should allow to enable it.</description>
-      <guid isPermaLink="false">CVE-2023-45142|2024-08-02T20:14:19.751Z</guid>
-      <pubDate>Thu, 12 Oct 2023 16:33:21 +0000</pubDate>
-    </item>
-    <item>
-      <title>CVE-2023-25151|2024-08-02T11:18:35.672Z -- open-telemetry -- opentelemetry-go-contrib
-</title>
-      <link>https://www.cve.org/CVERecord?id=CVE-2023-25151</link>
-      <description>opentelemetry-go-contrib is a collection of extensions for OpenTelemetry-Go. The v0.38.0 release of `go.opentelemetry.io/contrib/instrumentation/net/http/otelhttp` uses the `httpconv.ServerRequest` function to annotate metric measurements for the `http.server.request_content_length`, `http.server.response_content_length`, and `http.server.duration` instruments. The `ServerRequest` function sets the `http.target` attribute value to be the whole request URI (including the query string)[^1]. The metric instruments do not "forget" previous measurement attributes when `cumulative` temporality is used, this means the cardinality of the measurements allocated is directly correlated with the unique URIs handled. If the query string is constantly random, this will result in a constant increase in memory allocation that can be used in a denial-of-service attack. This issue has been addressed in version 0.39.0. Users are advised to upgrade. There are no known workarounds for this issue.</description>
-      <guid isPermaLink="false">CVE-2023-25151|2024-08-02T11:18:35.672Z</guid>
-      <pubDate>Wed, 08 Feb 2023 19:21:37 +0000</pubDate>
     </item>
   </channel>
 </rss>
