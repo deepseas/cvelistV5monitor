@@ -6,15 +6,18 @@
     <description>The latest CVEs for opencontainers -- all products</description>
     <docs>http://www.rssboard.org/rss-specification</docs>
     <generator>python-feedgen</generator>
-    <lastBuildDate>Mon, 19 Aug 2024 23:22:48 +0000</lastBuildDate>
+    <lastBuildDate>Tue, 03 Sep 2024 20:23:25 +0000</lastBuildDate>
     <ttl>60</ttl>
     <item>
-      <title>CVE-2024-21626|2024-08-19T07:48:05.378Z -- opencontainers -- runc
+      <title>CVE-2024-45310|2024-09-03T19:07:34.060Z -- opencontainers -- runc
 </title>
-      <link>https://www.cve.org/CVERecord?id=CVE-2024-21626</link>
-      <description>runc is a CLI tool for spawning and running containers on Linux according to the OCI specification. In runc 1.1.11 and earlier, due to an internal file descriptor leak, an attacker could cause a newly-spawned container process (from runc exec) to have a working directory in the host filesystem namespace, allowing for a container escape by giving access to the host filesystem ("attack 2"). The same attack could be used by a malicious image to allow a container process to gain access to the host filesystem through runc run ("attack 1"). Variants of attacks 1 and 2 could be also be used to overwrite semi-arbitrary host binaries, allowing for complete container escapes ("attack 3a" and "attack 3b"). runc 1.1.12 includes patches for this issue. </description>
-      <guid isPermaLink="false">CVE-2024-21626|2024-08-19T07:48:05.378Z</guid>
-      <pubDate>Wed, 31 Jan 2024 21:31:14 +0000</pubDate>
+      <link>https://www.cve.org/CVERecord?id=CVE-2024-45310</link>
+      <description>runc is a CLI tool for spawning and running containers according to the OCI specification. runc 1.1.13 and earlier, as well as 1.2.0-rc2 and earlier, can be tricked into creating empty files or directories in arbitrary locations in the host filesystem by sharing a volume between two containers and exploiting a race with `os.MkdirAll`. While this could be used to create empty files, existing files would not be truncated. An attacker must have the ability to start containers using some kind of custom volume configuration. Containers using user namespaces are still affected, but the scope of places an attacker can create inodes can be significantly reduced. Sufficiently strict LSM policies (SELinux/Apparmor) can also in principle block this attack -- we suspect the industry standard SELinux policy may restrict this attack's scope but the exact scope of protection hasn't been analysed. This is exploitable using runc directly as well as through Docker and Kubernetes. The issue is fixed in runc v1.1.14 and v1.2.0-rc3.
+
+Some workarounds are available. Using user namespaces restricts this attack fairly significantly such that the attacker can only create inodes in directories that the remapped root user/group has write access to. Unless the root user is remapped to an actual
+user on the host (such as with rootless containers that don't use `/etc/sub[ug]id`), this in practice means that an attacker would only be able to create inodes in world-writable directories. A strict enough SELinux or AppArmor policy could in principle also restrict the scope if a specific label is applied to the runc runtime, though neither the extent to which the standard existing policies block this attack nor what exact policies are needed to sufficiently restrict this attack have been thoroughly tested.</description>
+      <guid isPermaLink="false">CVE-2024-45310|2024-09-03T19:07:34.060Z</guid>
+      <pubDate>Tue, 03 Sep 2024 19:07:34 +0000</pubDate>
     </item>
   </channel>
 </rss>

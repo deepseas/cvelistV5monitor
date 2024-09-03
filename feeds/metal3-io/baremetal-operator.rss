@@ -6,15 +6,19 @@
     <description>The latest CVEs for metal3-io -- baremetal-operator</description>
     <docs>http://www.rssboard.org/rss-specification</docs>
     <generator>python-feedgen</generator>
-    <lastBuildDate>Fri, 02 Aug 2024 23:22:12 +0000</lastBuildDate>
+    <lastBuildDate>Tue, 03 Sep 2024 20:23:28 +0000</lastBuildDate>
     <ttl>60</ttl>
     <item>
-      <title>CVE-2023-30841|2024-08-02T14:37:15.430Z -- metal3-io -- baremetal-operator
+      <title>CVE-2024-43803|2024-09-03T19:30:44.895Z -- metal3-io -- baremetal-operator
 </title>
-      <link>https://www.cve.org/CVERecord?id=CVE-2023-30841</link>
-      <description>Baremetal Operator (BMO) is a bare metal host provisioning integration for Kubernetes. Prior to version 0.3.0, ironic and ironic-inspector deployed within Baremetal Operator using the included `deploy.sh` store their `.htpasswd` files as ConfigMaps instead of Secrets. This causes the plain-text username and hashed password to be readable by anyone having a cluster-wide read-access to the management cluster, or access to the management cluster's Etcd storage. This issue is patched in baremetal-operator PR#1241, and is included in BMO release 0.3.0 onwards. As a workaround, users may modify the kustomizations and redeploy the BMO, or recreate the required ConfigMaps as Secrets per instructions in baremetal-operator PR#1241.</description>
-      <guid isPermaLink="false">CVE-2023-30841|2024-08-02T14:37:15.430Z</guid>
-      <pubDate>Wed, 26 Apr 2023 18:24:04 +0000</pubDate>
+      <link>https://www.cve.org/CVERecord?id=CVE-2024-43803</link>
+      <description>The Bare Metal Operator (BMO) implements a Kubernetes API for managing bare metal hosts in Metal3. The `BareMetalHost` (BMH) CRD allows the `userData`, `metaData`, and `networkData` for the provisioned host to be specified as links to Kubernetes Secrets. There are fields for both the `Name` and `Namespace` of the Secret, meaning that versions of the baremetal-operator prior to 0.8.0, 0.6.2, and 0.5.2 will read a `Secret` from any namespace. A user with access to create or edit a `BareMetalHost` can thus exfiltrate a `Secret` from another namespace by using it as e.g. the `userData` for provisioning some host (note that this need not be a real host, it could be a VM somewhere).
+
+BMO will only read a key with the name `value` (or `userData`, `metaData`, or `networkData`), so that limits the exposure somewhat. `value` is probably a pretty common key though. Secrets used by _other_ `BareMetalHost`s in different namespaces are always vulnerable. It is probably relatively unusual for anyone other than cluster administrators to have RBAC access to create/edit a `BareMetalHost`. This vulnerability is only meaningful, if the cluster has users other than administrators and users' privileges are limited to their respective namespaces.
+
+The patch prevents BMO from accepting links to Secrets from other namespaces as BMH input. Any BMH configuration is only read from the same namespace only. The problem is patched in BMO releases v0.7.0, v0.6.2 and v0.5.2 and users should upgrade to those versions. Prior upgrading, duplicate the BMC Secrets to the namespace where the corresponding BMH is. After upgrade, remove the old Secrets. As a workaround, an operator can configure BMO RBAC to be namespace scoped for Secrets, instead of cluster scoped, to prevent BMO from accessing Secrets from other namespaces.</description>
+      <guid isPermaLink="false">CVE-2024-43803|2024-09-03T19:30:44.895Z</guid>
+      <pubDate>Tue, 03 Sep 2024 18:56:29 +0000</pubDate>
     </item>
   </channel>
 </rss>
