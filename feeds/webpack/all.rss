@@ -6,23 +6,30 @@
     <description>The latest CVEs for webpack -- all products</description>
     <docs>http://www.rssboard.org/rss-specification</docs>
     <generator>python-feedgen</generator>
-    <lastBuildDate>Tue, 27 Aug 2024 19:19:50 +0000</lastBuildDate>
+    <lastBuildDate>Tue, 03 Sep 2024 15:23:37 +0000</lastBuildDate>
     <ttl>60</ttl>
     <item>
-      <title>CVE-2024-43788|2024-08-27T18:12:00.577Z -- webpack -- webpack
+      <title>CVE-2024-43788|2024-09-03T14:51:39.140Z -- webpack -- webpack
 </title>
       <link>https://www.cve.org/CVERecord?id=CVE-2024-43788</link>
       <description>Webpack is a module bundler. Its main purpose is to bundle JavaScript files for usage in a browser, yet it is also capable of transforming, bundling, or packaging just about any resource or asset. The webpack developers have discovered a DOM Clobbering vulnerability in Webpack’s `AutoPublicPathRuntimeModule`. The DOM Clobbering gadget in the module can lead to cross-site scripting (XSS) in web pages where scriptless attacker-controlled HTML elements (e.g., an `img` tag with an unsanitized `name` attribute) are present. Real-world exploitation of this gadget has been observed in the Canvas LMS which allows a XSS attack to happen through a javascript code compiled by Webpack (the vulnerable part is from Webpack). DOM Clobbering is a type of code-reuse attack where the attacker first embeds a piece of non-script, seemingly benign HTML markups in the webpage (e.g. through a post or comment) and leverages the gadgets (pieces of js code) living in the existing javascript code to transform it into executable code. This vulnerability can lead to cross-site scripting (XSS) on websites that include Webpack-generated files and allow users to inject certain scriptless HTML tags with improperly sanitized name or id attributes. This issue has been addressed in release version 5.94.0. All users are advised to upgrade. There are no known workarounds for this issue.</description>
-      <guid isPermaLink="false">CVE-2024-43788|2024-08-27T18:12:00.577Z</guid>
+      <guid isPermaLink="false">CVE-2024-43788|2024-09-03T14:51:39.140Z</guid>
       <pubDate>Tue, 27 Aug 2024 17:07:16 +0000</pubDate>
     </item>
     <item>
-      <title>CVE-2024-29180|2024-08-02T14:58:57.526Z -- webpack -- webpack-dev-middleware</title>
+      <title>CVE-2024-43788|2024-08-27T17:07:16.285Z -- webpack -- webpack</title>
+      <link>https://www.cve.org/CVERecord?id=CVE-2024-43788</link>
+      <description>Webpack is a module bundler. Its main purpose is to bundle JavaScript files for usage in a browser, yet it is also capable of transforming, bundling, or packaging just about any resource or asset. The webpack developers have discovered a DOM Clobbering vulnerability in Webpack’s `AutoPublicPathRuntimeModule`. The DOM Clobbering gadget in the module can lead to cross-site scripting (XSS) in web pages where scriptless attacker-controlled HTML elements (e.g., an `img` tag with an unsanitized `name` attribute) are present. Real-world exploitation of this gadget has been observed in the Canvas LMS which allows a XSS attack to happen through a javascript code compiled by Webpack (the vulnerable part is from Webpack). DOM Clobbering is a type of code-reuse attack where the attacker first embeds a piece of non-script, seemingly benign HTML markups in the webpage (e.g. through a post or comment) and leverages the gadgets (pieces of js code) living in the existing javascript code to transform it into executable code. This vulnerability can lead to cross-site scripting (XSS) on websites that include Webpack-generated files and allow users to inject certain scriptless HTML tags with improperly sanitized name or id attributes. This issue has been addressed in release version 5.94.0. All users are advised to upgrade. There are no known workarounds for this issue.</description>
+      <guid isPermaLink="false">CVE-2024-43788|2024-08-27T17:07:16.285Z</guid>
+      <pubDate>Tue, 27 Aug 2024 17:07:16 +0000</pubDate>
+    </item>
+    <item>
+      <title>CVE-2024-29180|2024-08-02T01:10:54.074Z -- webpack -- webpack-dev-middleware</title>
       <link>https://www.cve.org/CVERecord?id=CVE-2024-29180</link>
       <description>Prior to versions 7.1.0, 6.1.2, and 5.3.4, the webpack-dev-middleware development middleware for devpack does not validate the supplied URL address sufficiently before returning the local file. It is possible to access any file on the developer's machine. The middleware can either work with the physical filesystem when reading the files or it can use a virtualized in-memory `memfs` filesystem. If `writeToDisk` configuration option is set to `true`, the physical filesystem is used. The `getFilenameFromUrl` method is used to parse URL and build the local file path. The public path prefix is stripped from the URL, and the `unsecaped` path suffix is appended to the `outputPath`. As the URL is not unescaped and normalized automatically before calling the midlleware, it is possible to use `%2e` and `%2f` sequences to perform path traversal attack.
 
 Developers using `webpack-dev-server` or `webpack-dev-middleware` are affected by the issue. When the project is started, an attacker might access any file on the developer's machine and exfiltrate the content. If the development server is listening on a public IP address (or `0.0.0.0`), an attacker on the local network can access the local files without any interaction from the victim (direct connection to the port). If the server allows access from third-party domains, an attacker can send a malicious link to the victim. When visited, the client side script can connect to the local server and exfiltrate the local files. Starting with fixed versions 7.1.0, 6.1.2, and 5.3.4, the URL is unescaped and normalized before any further processing.</description>
-      <guid isPermaLink="false">CVE-2024-29180|2024-08-02T14:58:57.526Z</guid>
+      <guid isPermaLink="false">CVE-2024-29180|2024-08-02T01:10:54.074Z</guid>
       <pubDate>Thu, 21 Mar 2024 16:47:53 +0000</pubDate>
     </item>
     <item>
@@ -35,19 +42,19 @@ Developers using `webpack-dev-server` or `webpack-dev-middleware` are affected b
       <pubDate>Thu, 21 Mar 2024 16:47:53 +0000</pubDate>
     </item>
     <item>
-      <title>CVE-2024-29180|2024-08-02T01:10:54.074Z -- webpack -- webpack-dev-middleware</title>
+      <title>CVE-2024-29180|2024-08-02T14:58:57.526Z -- webpack -- webpack-dev-middleware</title>
       <link>https://www.cve.org/CVERecord?id=CVE-2024-29180</link>
       <description>Prior to versions 7.1.0, 6.1.2, and 5.3.4, the webpack-dev-middleware development middleware for devpack does not validate the supplied URL address sufficiently before returning the local file. It is possible to access any file on the developer's machine. The middleware can either work with the physical filesystem when reading the files or it can use a virtualized in-memory `memfs` filesystem. If `writeToDisk` configuration option is set to `true`, the physical filesystem is used. The `getFilenameFromUrl` method is used to parse URL and build the local file path. The public path prefix is stripped from the URL, and the `unsecaped` path suffix is appended to the `outputPath`. As the URL is not unescaped and normalized automatically before calling the midlleware, it is possible to use `%2e` and `%2f` sequences to perform path traversal attack.
 
 Developers using `webpack-dev-server` or `webpack-dev-middleware` are affected by the issue. When the project is started, an attacker might access any file on the developer's machine and exfiltrate the content. If the development server is listening on a public IP address (or `0.0.0.0`), an attacker on the local network can access the local files without any interaction from the victim (direct connection to the port). If the server allows access from third-party domains, an attacker can send a malicious link to the victim. When visited, the client side script can connect to the local server and exfiltrate the local files. Starting with fixed versions 7.1.0, 6.1.2, and 5.3.4, the URL is unescaped and normalized before any further processing.</description>
-      <guid isPermaLink="false">CVE-2024-29180|2024-08-02T01:10:54.074Z</guid>
+      <guid isPermaLink="false">CVE-2024-29180|2024-08-02T14:58:57.526Z</guid>
       <pubDate>Thu, 21 Mar 2024 16:47:53 +0000</pubDate>
     </item>
     <item>
-      <title>CVE-2024-43788|2024-08-27T17:07:16.285Z -- webpack -- webpack</title>
+      <title>CVE-2024-43788|2024-08-27T18:12:00.577Z -- webpack -- webpack</title>
       <link>https://www.cve.org/CVERecord?id=CVE-2024-43788</link>
       <description>Webpack is a module bundler. Its main purpose is to bundle JavaScript files for usage in a browser, yet it is also capable of transforming, bundling, or packaging just about any resource or asset. The webpack developers have discovered a DOM Clobbering vulnerability in Webpack’s `AutoPublicPathRuntimeModule`. The DOM Clobbering gadget in the module can lead to cross-site scripting (XSS) in web pages where scriptless attacker-controlled HTML elements (e.g., an `img` tag with an unsanitized `name` attribute) are present. Real-world exploitation of this gadget has been observed in the Canvas LMS which allows a XSS attack to happen through a javascript code compiled by Webpack (the vulnerable part is from Webpack). DOM Clobbering is a type of code-reuse attack where the attacker first embeds a piece of non-script, seemingly benign HTML markups in the webpage (e.g. through a post or comment) and leverages the gadgets (pieces of js code) living in the existing javascript code to transform it into executable code. This vulnerability can lead to cross-site scripting (XSS) on websites that include Webpack-generated files and allow users to inject certain scriptless HTML tags with improperly sanitized name or id attributes. This issue has been addressed in release version 5.94.0. All users are advised to upgrade. There are no known workarounds for this issue.</description>
-      <guid isPermaLink="false">CVE-2024-43788|2024-08-27T17:07:16.285Z</guid>
+      <guid isPermaLink="false">CVE-2024-43788|2024-08-27T18:12:00.577Z</guid>
       <pubDate>Tue, 27 Aug 2024 17:07:16 +0000</pubDate>
     </item>
   </channel>

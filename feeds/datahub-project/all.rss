@@ -6,15 +6,23 @@
     <description>The latest CVEs for datahub-project -- all products</description>
     <docs>http://www.rssboard.org/rss-specification</docs>
     <generator>python-feedgen</generator>
-    <lastBuildDate>Sat, 03 Aug 2024 23:23:19 +0000</lastBuildDate>
+    <lastBuildDate>Tue, 03 Sep 2024 15:23:34 +0000</lastBuildDate>
     <ttl>60</ttl>
     <item>
-      <title>CVE-2022-39366|2024-08-03T12:00:44.118Z -- datahub-project -- datahub
+      <title>CVE-2023-47629|2024-09-03T14:41:13.540Z -- datahub-project -- datahub
 </title>
-      <link>https://www.cve.org/CVERecord?id=CVE-2022-39366</link>
-      <description>DataHub is an open-source metadata platform. Prior to version 0.8.45, the `StatelessTokenService` of the DataHub metadata service (GMS) does not verify the signature of JWT tokens. This allows an attacker to connect to DataHub instances as any user if Metadata Service authentication is enabled. This vulnerability occurs because the `StatelessTokenService` of the Metadata service uses the `parse` method of `io.jsonwebtoken.JwtParser`, which does not perform a verification of the cryptographic token signature. This means that JWTs are accepted regardless of the used algorithm. This issue may lead to an authentication bypass. Version 0.8.45 contains a patch for the issue. There are no known workarounds.</description>
-      <guid isPermaLink="false">CVE-2022-39366|2024-08-03T12:00:44.118Z</guid>
-      <pubDate>Fri, 28 Oct 2022 00:00:00 +0000</pubDate>
+      <link>https://www.cve.org/CVERecord?id=CVE-2023-47629</link>
+      <description>DataHub is an open-source metadata platform. In affected versions sign-up through an invite link does not properly restrict users from signing up as privileged accounts. If a user is given an email sign-up link they can potentially create an admin account given certain preconditions. If the default datahub user has been removed, then the user can sign up for an account that leverages the default policies giving admin privileges to the datahub user. All DataHub instances prior to the patch that have removed the datahub user, but not the default policies applying to that user are affected. Users are advised to update to version 0.12.1 which addresses the issue. There are no known workarounds for this vulnerability.</description>
+      <guid isPermaLink="false">CVE-2023-47629|2024-09-03T14:41:13.540Z</guid>
+      <pubDate>Tue, 14 Nov 2023 00:32:12 +0000</pubDate>
+    </item>
+    <item>
+      <title>CVE-2023-47628|2024-09-03T14:35:43.816Z -- datahub-project -- datahub
+</title>
+      <link>https://www.cve.org/CVERecord?id=CVE-2023-47628</link>
+      <description>DataHub is an open-source metadata platform. DataHub Frontend's sessions are configured using Play Framework's default settings for stateless session which do not set an expiration time for a cookie. Due to this, if a session cookie were ever leaked, it would be valid forever. DataHub uses a stateless session cookie that is not invalidated on logout, it is just removed from the browser forcing the user to login again. However, if an attacker extracted a cookie from an authenticated user it would continue to be valid as there is no validation on a time window the session token is valid for due to a combination of the usage of LegacyCookiesModule from Play Framework and using default settings which do not set an expiration time. All DataHub instances prior to the patch that have removed the datahub user, but not the default policies applying to that user are affected. Users are advised to update to version 0.12.1 which addresses the issue. There are no known workarounds for this vulnerability.</description>
+      <guid isPermaLink="false">CVE-2023-47628|2024-09-03T14:35:43.816Z</guid>
+      <pubDate>Tue, 14 Nov 2023 00:33:12 +0000</pubDate>
     </item>
   </channel>
 </rss>
