@@ -6,8 +6,16 @@
     <description>The latest CVEs for squidex -- all products</description>
     <docs>http://www.rssboard.org/rss-specification</docs>
     <generator>python-feedgen</generator>
-    <lastBuildDate>Wed, 04 Sep 2024 18:24:19 +0000</lastBuildDate>
+    <lastBuildDate>Wed, 04 Sep 2024 19:20:16 +0000</lastBuildDate>
     <ttl>60</ttl>
+    <item>
+      <title>CVE-2023-46253|2024-09-04T18:09:47.423Z -- squidex -- squidex
+</title>
+      <link>https://www.cve.org/CVERecord?id=CVE-2023-46253</link>
+      <description>Squidex is an open source headless CMS and content management hub. Affected versions are subject to an arbitrary file write vulnerability in the backup restore feature which allows an authenticated attacker to gain remote code execution (RCE). Squidex allows users with the `squidex.admin.restore` permission to create and restore backups. Part of these backups are the assets uploaded to an App. For each asset, the backup zip archive contains a `.asset` file with the actual content of the asset as well as a related `AssetCreatedEventV2` event, which is stored in a JSON file. Amongst other things, the JSON file contains the event type (`AssetCreatedEventV2`), the ID of the asset (`46c05041-9588-4179-b5eb-ddfcd9463e1e`), its filename (`test.txt`), and its file version (`0`). When a backup with this event is restored, the `BackupAssets.ReadAssetAsync` method is responsible for re-creating the asset. For this purpose, it determines the name of the `.asset` file in the zip archive, reads its content, and stores the content in the filestore. When the asset is stored in the filestore via the UploadAsync method, the assetId and fileVersion are passed as arguments. These are further passed to the method GetFileName, which determines the filename where the asset should be stored. The assetId is inserted into the filename without any sanitization and an attacker with squidex.admin.restore privileges to run arbitrary operating system commands on the underlying server (RCE).</description>
+      <guid isPermaLink="false">CVE-2023-46253|2024-09-04T18:09:47.423Z</guid>
+      <pubDate>Tue, 07 Nov 2023 18:56:21 +0000</pubDate>
+    </item>
     <item>
       <title>CVE-2023-46744|2024-09-04T15:24:18.995Z -- squidex -- squidex
 </title>
