@@ -6,15 +6,15 @@
     <description>The latest CVEs for rust-lang -- rust</description>
     <docs>http://www.rssboard.org/rss-specification</docs>
     <generator>python-feedgen</generator>
-    <lastBuildDate>Sat, 03 Aug 2024 23:23:04 +0000</lastBuildDate>
+    <lastBuildDate>Wed, 04 Sep 2024 16:24:21 +0000</lastBuildDate>
     <ttl>60</ttl>
     <item>
-      <title>CVE-2022-21658|2024-08-03T02:46:39.244Z -- rust-lang -- rust
+      <title>CVE-2024-43402|2024-09-04T15:50:20.290Z -- rust-lang -- rust
 </title>
-      <link>https://www.cve.org/CVERecord?id=CVE-2022-21658</link>
-      <description>Rust is a multi-paradigm, general-purpose programming language designed for performance and safety, especially safe concurrency. The Rust Security Response WG was notified that the `std::fs::remove_dir_all` standard library function is vulnerable a race condition enabling symlink following (CWE-363). An attacker could use this security issue to trick a privileged program into deleting files and directories the attacker couldn't otherwise access or delete. Rust 1.0.0 through Rust 1.58.0 is affected by this vulnerability with 1.58.1 containing a patch. Note that the following build targets don't have usable APIs to properly mitigate the attack, and are thus still vulnerable even with a patched toolchain: macOS before version 10.10 (Yosemite) and REDOX. We recommend everyone to update to Rust 1.58.1 as soon as possible, especially people developing programs expected to run in privileged contexts (including system daemons and setuid binaries), as those have the highest risk of being affected by this. Note that adding checks in your codebase before calling remove_dir_all will not mitigate the vulnerability, as they would also be vulnerable to race conditions like remove_dir_all itself. The existing mitigation is working as intended outside of race conditions.</description>
-      <guid isPermaLink="false">CVE-2022-21658|2024-08-03T02:46:39.244Z</guid>
-      <pubDate>Thu, 20 Jan 2022 00:00:00 +0000</pubDate>
+      <link>https://www.cve.org/CVERecord?id=CVE-2024-43402</link>
+      <description>Rust is a programming language. The fix for CVE-2024-24576, where `std::process::Command` incorrectly escaped arguments when invoking batch files on Windows, was incomplete. Prior to Rust version 1.81.0, it was possible to bypass the fix when the batch file name had trailing whitespace or periods (which are ignored and stripped by Windows). To determine whether to apply the `cmd.exe` escaping rules, the original fix for the vulnerability checked whether the command name ended with `.bat` or `.cmd`. At the time that seemed enough, as we refuse to invoke batch scripts with no file extension. Windows removes trailing whitespace and periods when parsing file paths. For example, `.bat. .` is interpreted by Windows as `.bat`, but the original fix didn't check for that. Affected users who are using Rust 1.77.2 or greater can remove the trailing whitespace (ASCII 0x20) and trailing periods (ASCII 0x2E) from the batch file name to bypass the incomplete fix and enable the mitigations. Users are affected if their code or one of their dependencies invoke a batch script on Windows with trailing whitespace or trailing periods in the name, and pass untrusted arguments to it. Rust 1.81.0 will update the standard library to apply the CVE-2024-24576 mitigations to all batch files invocations, regardless of the trailing chars in the file name.</description>
+      <guid isPermaLink="false">CVE-2024-43402|2024-09-04T15:50:20.290Z</guid>
+      <pubDate>Wed, 04 Sep 2024 15:29:04 +0000</pubDate>
     </item>
     <item>
       <title>CVE-2024-24576|2024-06-06T14:12:09.344Z -- rust-lang -- rust</title>

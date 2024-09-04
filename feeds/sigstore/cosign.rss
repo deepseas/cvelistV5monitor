@@ -6,52 +6,22 @@
     <description>The latest CVEs for sigstore -- cosign</description>
     <docs>http://www.rssboard.org/rss-specification</docs>
     <generator>python-feedgen</generator>
-    <lastBuildDate>Sat, 03 Aug 2024 23:23:06 +0000</lastBuildDate>
+    <lastBuildDate>Wed, 04 Sep 2024 16:24:23 +0000</lastBuildDate>
     <ttl>60</ttl>
     <item>
-      <title>CVE-2022-35929|2024-08-03T09:51:59.114Z -- sigstore -- cosign
+      <title>CVE-2023-46737|2024-09-04T15:23:23.311Z -- sigstore -- cosign
 </title>
-      <link>https://www.cve.org/CVERecord?id=CVE-2022-35929</link>
-      <description>cosign is a container signing and verification utility. In versions prior to 1.10.1 cosign can report a false positive if any attestation exists. `cosign verify-attestation` used with the `--type` flag will report a false positive verification when there is at least one attestation with a valid signature and there are NO attestations of the type being verified (--type defaults to "custom"). This can happen when signing with a standard keypair and with "keyless" signing with Fulcio. This vulnerability can be reproduced with the `distroless.dev/static@sha256:dd7614b5a12bc4d617b223c588b4e0c833402b8f4991fb5702ea83afad1986e2` image. This image has a `vuln` attestation but not an `spdx` attestation. However, if you run `cosign verify-attestation --type=spdx` on this image, it incorrectly succeeds. This issue has been addressed in version 1.10.1 of cosign. Users are advised to upgrade. There are no known workarounds for this issue.</description>
-      <guid isPermaLink="false">CVE-2022-35929|2024-08-03T09:51:59.114Z</guid>
-      <pubDate>Thu, 04 Aug 2022 18:45:14 +0000</pubDate>
+      <link>https://www.cve.org/CVERecord?id=CVE-2023-46737</link>
+      <description>Cosign is a sigstore signing tool for OCI containers. Cosign is susceptible to a denial of service by an attacker controlled registry. An attacker who controls a remote registry can return a high number of attestations and/or signatures to Cosign and cause Cosign to enter a long loop resulting in an endless data attack. The root cause is that Cosign loops through all attestations fetched from the remote registry in pkg/cosign.FetchAttestations. The attacker needs to compromise the registry or make a request to a registry they control. When doing so, the attacker must return a high number of attestations in the response to Cosign. The result will be that the attacker can cause Cosign to go into a long or infinite loop that will prevent other users from verifying their data. In Kyvernos case, an attacker whose privileges are limited to making requests to the cluster can make a request with an image reference to their own registry, trigger the infinite loop and deny other users from completing their admission requests. Alternatively, the attacker can obtain control of the registry used by an organization and return a high number of attestations instead the expected number of attestations. The issue can be mitigated rather simply by setting a limit to the limit of attestations that Cosign will loop through. The limit does not need to be high to be within the vast majority of use cases and still prevent the endless data attack. This issue has been patched in version 2.2.1 and users are advised to upgrade.</description>
+      <guid isPermaLink="false">CVE-2023-46737|2024-09-04T15:23:23.311Z</guid>
+      <pubDate>Tue, 07 Nov 2023 17:30:25 +0000</pubDate>
     </item>
     <item>
-      <title>CVE-2022-23649|2024-08-03T03:51:45.645Z -- sigstore -- cosign
-</title>
-      <link>https://www.cve.org/CVERecord?id=CVE-2022-23649</link>
-      <description>Cosign provides container signing, verification, and storage in an OCI registry for the sigstore project. Prior to version 1.5.2, Cosign can be manipulated to claim that an entry for a signature exists in the Rekor transparency log even if it doesn't. This requires the attacker to have pull and push permissions for the signature in OCI. This can happen with both standard signing with a keypair and "keyless signing" with Fulcio. If an attacker has access to the signature in OCI, they can manipulate cosign into believing the entry was stored in Rekor even though it wasn't. The vulnerability has been patched in v1.5.2 of Cosign. The `signature` in the `signedEntryTimestamp` provided by Rekor is now compared to the `signature` that is being verified. If these don't match, then an error is returned. If a valid bundle is copied to a different signature, verification should fail. Cosign output now only informs the user that certificates were verified if a certificate was in fact verified. There is currently no known workaround.</description>
-      <guid isPermaLink="false">CVE-2022-23649|2024-08-03T03:51:45.645Z</guid>
-      <pubDate>Fri, 18 Feb 2022 21:30:10 +0000</pubDate>
-    </item>
-    <item>
-      <title>CVE-2022-36056|2024-08-03T09:52:00.499Z -- sigstore -- cosign
-</title>
-      <link>https://www.cve.org/CVERecord?id=CVE-2022-36056</link>
-      <description>Cosign is a project under the sigstore organization which aims to make signatures invisible infrastructure. In versions prior to 1.12.0 a number of vulnerabilities have been found in cosign verify-blob, where Cosign would successfully verify an artifact when verification should have failed. First a cosign bundle can be crafted to successfully verify a blob even if the embedded rekorBundle does not reference the given signature. Second, when providing identity flags, the email and issuer of a certificate is not checked when verifying a Rekor bundle, and the GitHub Actions identity is never checked. Third, providing an invalid Rekor bundle without the experimental flag results in a successful verification. And fourth an invalid transparency log entry will result in immediate success for verification. Details and examples of these issues can be seen in the GHSA-8gw7-4j42-w388 advisory linked. Users are advised to upgrade to 1.12.0. There are no known workarounds for these issues.</description>
-      <guid isPermaLink="false">CVE-2022-36056|2024-08-03T09:52:00.499Z</guid>
-      <pubDate>Wed, 14 Sep 2022 19:50:09 +0000</pubDate>
-    </item>
-    <item>
-      <title>CVE-2024-29903|2024-07-03T18:10:27.323Z -- sigstore -- cosign</title>
+      <title>CVE-2024-29903|2024-08-02T01:17:58.600Z -- sigstore -- cosign</title>
       <link>https://www.cve.org/CVERecord?id=CVE-2024-29903</link>
       <description>Cosign provides code signing and transparency for containers and binaries. Prior to version 2.2.4, maliciously-crafted software artifacts can cause denial of service of the machine running Cosign thereby impacting all services on the machine. The root cause is that Cosign creates slices based on the number of signatures, manifests or attestations in untrusted artifacts. As such, the untrusted artifact can control the amount of memory that Cosign allocates. The exact issue is Cosign allocates excessive memory on the lines that creates a slice of the same length as the manifests. Version 2.2.4 contains a patch for the vulnerability.</description>
-      <guid isPermaLink="false">CVE-2024-29903|2024-07-03T18:10:27.323Z</guid>
+      <guid isPermaLink="false">CVE-2024-29903|2024-08-02T01:17:58.600Z</guid>
       <pubDate>Wed, 10 Apr 2024 22:30:50 +0000</pubDate>
-    </item>
-    <item>
-      <title>CVE-2024-29903|2024-04-10T22:30:50.890Z -- sigstore -- cosign</title>
-      <link>https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2024-29903</link>
-      <description>Cosign provides code signing and transparency for containers and binaries. Prior to version 2.2.4, maliciously-crafted software artifacts can cause denial of service of the machine running Cosign thereby impacting all services on the machine. The root cause is that Cosign creates slices based on the number of signatures, manifests or attestations in untrusted artifacts. As such, the untrusted artifact can control the amount of memory that Cosign allocates. The exact issue is Cosign allocates excessive memory on the lines that creates a slice of the same length as the manifests. Version 2.2.4 contains a patch for the vulnerability.</description>
-      <guid isPermaLink="false">CVE-2024-29903|2024-04-10T22:30:50.890Z</guid>
-      <pubDate>Wed, 10 Apr 2024 22:30:50 +0000</pubDate>
-    </item>
-    <item>
-      <title>CVE-2024-29902|2024-06-04T17:57:24.059Z -- sigstore -- cosign</title>
-      <link>https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2024-29902</link>
-      <description>Cosign provides code signing and transparency for containers and binaries. Prior to version 2.2.4, a remote image with a malicious attachment can cause denial of service of the host machine running Cosign. This can impact other services on the machine that rely on having memory available such as a Redis database which can result in data loss. It can also impact the availability of other services on the machine that will not be available for the duration of the machine denial. The root cause of this issue is that Cosign reads the attachment from a remote image entirely into memory without checking the size of the attachment first. As such, a large attachment can make Cosign read a large attachment into memory; If the attachments size is larger than the machine has memory available, the machine will be denied of service. The Go runtime will make a SigKill after a few seconds of system-wide denial. This issue can allow a supply-chain escalation from a compromised registry to the Cosign user: If an attacher has compromised a registry or the account of an image vendor, they can include a malicious attachment and hurt the image consumer. Version 2.2.4 contains a patch for the vulnerability.</description>
-      <guid isPermaLink="false">CVE-2024-29902|2024-06-04T17:57:24.059Z</guid>
-      <pubDate>Wed, 10 Apr 2024 22:28:19 +0000</pubDate>
     </item>
     <item>
       <title>CVE-2024-29902|2024-08-02T01:17:58.609Z -- sigstore -- cosign</title>
@@ -61,10 +31,24 @@
       <pubDate>Wed, 10 Apr 2024 22:28:19 +0000</pubDate>
     </item>
     <item>
-      <title>CVE-2024-29903|2024-08-02T01:17:58.600Z -- sigstore -- cosign</title>
+      <title>CVE-2024-29902|2024-06-04T17:57:24.059Z -- sigstore -- cosign</title>
+      <link>https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2024-29902</link>
+      <description>Cosign provides code signing and transparency for containers and binaries. Prior to version 2.2.4, a remote image with a malicious attachment can cause denial of service of the host machine running Cosign. This can impact other services on the machine that rely on having memory available such as a Redis database which can result in data loss. It can also impact the availability of other services on the machine that will not be available for the duration of the machine denial. The root cause of this issue is that Cosign reads the attachment from a remote image entirely into memory without checking the size of the attachment first. As such, a large attachment can make Cosign read a large attachment into memory; If the attachments size is larger than the machine has memory available, the machine will be denied of service. The Go runtime will make a SigKill after a few seconds of system-wide denial. This issue can allow a supply-chain escalation from a compromised registry to the Cosign user: If an attacher has compromised a registry or the account of an image vendor, they can include a malicious attachment and hurt the image consumer. Version 2.2.4 contains a patch for the vulnerability.</description>
+      <guid isPermaLink="false">CVE-2024-29902|2024-06-04T17:57:24.059Z</guid>
+      <pubDate>Wed, 10 Apr 2024 22:28:19 +0000</pubDate>
+    </item>
+    <item>
+      <title>CVE-2024-29903|2024-04-10T22:30:50.890Z -- sigstore -- cosign</title>
+      <link>https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2024-29903</link>
+      <description>Cosign provides code signing and transparency for containers and binaries. Prior to version 2.2.4, maliciously-crafted software artifacts can cause denial of service of the machine running Cosign thereby impacting all services on the machine. The root cause is that Cosign creates slices based on the number of signatures, manifests or attestations in untrusted artifacts. As such, the untrusted artifact can control the amount of memory that Cosign allocates. The exact issue is Cosign allocates excessive memory on the lines that creates a slice of the same length as the manifests. Version 2.2.4 contains a patch for the vulnerability.</description>
+      <guid isPermaLink="false">CVE-2024-29903|2024-04-10T22:30:50.890Z</guid>
+      <pubDate>Wed, 10 Apr 2024 22:30:50 +0000</pubDate>
+    </item>
+    <item>
+      <title>CVE-2024-29903|2024-07-03T18:10:27.323Z -- sigstore -- cosign</title>
       <link>https://www.cve.org/CVERecord?id=CVE-2024-29903</link>
       <description>Cosign provides code signing and transparency for containers and binaries. Prior to version 2.2.4, maliciously-crafted software artifacts can cause denial of service of the machine running Cosign thereby impacting all services on the machine. The root cause is that Cosign creates slices based on the number of signatures, manifests or attestations in untrusted artifacts. As such, the untrusted artifact can control the amount of memory that Cosign allocates. The exact issue is Cosign allocates excessive memory on the lines that creates a slice of the same length as the manifests. Version 2.2.4 contains a patch for the vulnerability.</description>
-      <guid isPermaLink="false">CVE-2024-29903|2024-08-02T01:17:58.600Z</guid>
+      <guid isPermaLink="false">CVE-2024-29903|2024-07-03T18:10:27.323Z</guid>
       <pubDate>Wed, 10 Apr 2024 22:30:50 +0000</pubDate>
     </item>
   </channel>

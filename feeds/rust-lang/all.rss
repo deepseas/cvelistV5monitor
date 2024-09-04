@@ -6,15 +6,15 @@
     <description>The latest CVEs for rust-lang -- all products</description>
     <docs>http://www.rssboard.org/rss-specification</docs>
     <generator>python-feedgen</generator>
-    <lastBuildDate>Sun, 04 Aug 2024 23:23:33 +0000</lastBuildDate>
+    <lastBuildDate>Wed, 04 Sep 2024 16:24:21 +0000</lastBuildDate>
     <ttl>60</ttl>
     <item>
-      <title>CVE-2020-26297|2024-08-04T15:56:04.096Z -- rust-lang -- mdbook
+      <title>CVE-2024-43402|2024-09-04T15:50:20.290Z -- rust-lang -- rust
 </title>
-      <link>https://www.cve.org/CVERecord?id=CVE-2020-26297</link>
-      <description>mdBook is a utility to create modern online books from Markdown files and is written in Rust. In mdBook before version 0.4.5, there is a vulnerability affecting the search feature of mdBook, which could allow an attacker to execute arbitrary JavaScript code on the page. The search feature of mdBook (introduced in version 0.1.4) was affected by a cross site scripting vulnerability that allowed an attacker to execute arbitrary JavaScript code on an user's browser by tricking the user into typing a malicious search query, or tricking the user into clicking a link to the search page with the malicious search query prefilled. mdBook 0.4.5 fixes the vulnerability by properly escaping the search query. Owners of websites built with mdBook have to upgrade to mdBook 0.4.5 or greater and rebuild their website contents with it.</description>
-      <guid isPermaLink="false">CVE-2020-26297|2024-08-04T15:56:04.096Z</guid>
-      <pubDate>Mon, 04 Jan 2021 18:45:15 +0000</pubDate>
+      <link>https://www.cve.org/CVERecord?id=CVE-2024-43402</link>
+      <description>Rust is a programming language. The fix for CVE-2024-24576, where `std::process::Command` incorrectly escaped arguments when invoking batch files on Windows, was incomplete. Prior to Rust version 1.81.0, it was possible to bypass the fix when the batch file name had trailing whitespace or periods (which are ignored and stripped by Windows). To determine whether to apply the `cmd.exe` escaping rules, the original fix for the vulnerability checked whether the command name ended with `.bat` or `.cmd`. At the time that seemed enough, as we refuse to invoke batch scripts with no file extension. Windows removes trailing whitespace and periods when parsing file paths. For example, `.bat. .` is interpreted by Windows as `.bat`, but the original fix didn't check for that. Affected users who are using Rust 1.77.2 or greater can remove the trailing whitespace (ASCII 0x20) and trailing periods (ASCII 0x2E) from the batch file name to bypass the incomplete fix and enable the mitigations. Users are affected if their code or one of their dependencies invoke a batch script on Windows with trailing whitespace or trailing periods in the name, and pass untrusted arguments to it. Rust 1.81.0 will update the standard library to apply the CVE-2024-24576 mitigations to all batch files invocations, regardless of the trailing chars in the file name.</description>
+      <guid isPermaLink="false">CVE-2024-43402|2024-09-04T15:50:20.290Z</guid>
+      <pubDate>Wed, 04 Sep 2024 15:29:04 +0000</pubDate>
     </item>
     <item>
       <title>CVE-2024-24576|2024-06-06T14:12:09.344Z -- rust-lang -- rust</title>
