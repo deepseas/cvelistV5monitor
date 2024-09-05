@@ -6,27 +6,21 @@
     <description>The latest CVEs for 1E -- all products</description>
     <docs>http://www.rssboard.org/rss-specification</docs>
     <generator>python-feedgen</generator>
-    <lastBuildDate>Fri, 02 Aug 2024 23:21:47 +0000</lastBuildDate>
+    <lastBuildDate>Thu, 05 Sep 2024 14:22:52 +0000</lastBuildDate>
     <ttl>60</ttl>
     <item>
-      <title>CVE-2023-45160|2024-08-02T20:14:19.027Z -- 1e -- 1e%20client
+      <title>CVE-2023-5964|2024-09-05T13:46:41.751Z -- 1e -- platform
 </title>
-      <link>https://www.cve.org/CVERecord?id=CVE-2023-45160</link>
+      <link>https://www.cve.org/CVERecord?id=CVE-2023-5964</link>
       <description>
-In the affected version of the 1E Client, an ordinary user could subvert downloaded instruction resource files, e.g., to substitute a harmful script. by replacing a resource script file created by an instruction at run time with a malicious script. The 1E Client's temporary directory is now locked down in the released patch.
+The 1E-Exchange-DisplayMessageinstruction that is part of the End-User Interaction product pack available on the 1E Exchange does not properly validate the Caption or Message parameters, which allows for a specially crafted input to perform arbitrary code execution with SYSTEM permissions. This instruction only runs on Windows clients.
 
-
-
-Resolution: This has been fixed in patch Q23094 
-
-This issue has also been fixed in the Mac Client in updated versions of Non-Windows release v8.1.2.62 - please re-download from the 1E Support site. 
-
-Customers with Mac Client versions higher than v8.1 will need to upgrade to v23.11 to remediate this vulnerability.</description>
-      <guid isPermaLink="false">CVE-2023-45160|2024-08-02T20:14:19.027Z</guid>
-      <pubDate>Thu, 05 Oct 2023 15:12:20 +0000</pubDate>
+To remediate this issue DELETE the instruction “Show dialogue with caption %Caption% and message %Message%” from the list of instructions in the Settings UI, and replace it with the new instruction 1E-Exchange-ShowNotification instruction available in the updated End-User Interaction product pack. The new instruction should show as “Show %Type% type notification with header %Header% and message %Message%” with a version of 7.1 or above.</description>
+      <guid isPermaLink="false">CVE-2023-5964|2024-09-05T13:46:41.751Z</guid>
+      <pubDate>Mon, 06 Nov 2023 12:27:12 +0000</pubDate>
     </item>
     <item>
-      <title>CVE-2023-45163|2024-08-02T20:14:19.022Z -- 1e -- platform
+      <title>CVE-2023-45163|2024-09-05T13:51:18.601Z -- 1e -- platform
 </title>
       <link>https://www.cve.org/CVERecord?id=CVE-2023-45163</link>
       <description>
@@ -35,71 +29,34 @@ The 1E-Exchange-CommandLinePing instruction that is part of the Network product 
 To remediate this issue download the updated Network product pack from the 1E Exchange and update the 1E-Exchange-CommandLinePing instruction to v18.1 by uploading it through the 1E Platform instruction upload UI
 
 </description>
-      <guid isPermaLink="false">CVE-2023-45163|2024-08-02T20:14:19.022Z</guid>
+      <guid isPermaLink="false">CVE-2023-45163|2024-09-05T13:51:18.601Z</guid>
       <pubDate>Mon, 06 Nov 2023 12:19:20 +0000</pubDate>
     </item>
     <item>
-      <title>CVE-2023-45161|2024-08-02T20:14:19.524Z -- 1e -- platform
+      <title>CVE-2023-45161|2024-09-05T13:52:59.032Z -- 1e -- platform
 </title>
       <link>https://www.cve.org/CVERecord?id=CVE-2023-45161</link>
       <description>The 1E-Exchange-URLResponseTime instruction that is part of the Network product pack available on the 1E Exchange does not properly validate the URL parameter, which allows for a specially crafted input to perform arbitrary code execution with SYSTEM permissions. This instruction only runs on Windows clients.
 
 To remediate this issue download the updated Network product pack from the 1E Exchange and update the 1E-Exchange-URLResponseTime instruction to v20.1 by uploading it through the 1E Platform instruction upload UI</description>
-      <guid isPermaLink="false">CVE-2023-45161|2024-08-02T20:14:19.524Z</guid>
+      <guid isPermaLink="false">CVE-2023-45161|2024-09-05T13:52:59.032Z</guid>
       <pubDate>Mon, 06 Nov 2023 12:13:09 +0000</pubDate>
     </item>
     <item>
-      <title>CVE-2023-45159|2024-08-02T20:14:19.830Z -- 1e -- 1e%20client
-</title>
-      <link>https://www.cve.org/CVERecord?id=CVE-2023-45159</link>
-      <description>1E Client installer can perform arbitrary file deletion on protected files.  
-
-A non-privileged user could provide a symbolic link or Windows junction to point to a protected directory in the installer that the 1E Client would then clear on service startup. 
-
-A hotfix is available from the 1E support portal that forces the 1E Client to check for a symbolic link or junction and if it finds one refuses to use that path and instead creates a path involving a random GUID.
-
-for v8.1 use hotfix Q23097
-for v8.4 use hotfix Q23105
-for v9.0 use hotfix Q23115
-
-for SaaS customers, use 1EClient v23.7 plus hotfix Q23121</description>
-      <guid isPermaLink="false">CVE-2023-45159|2024-08-02T20:14:19.830Z</guid>
-      <pubDate>Thu, 05 Oct 2023 10:11:20 +0000</pubDate>
-    </item>
-    <item>
-      <title>CVE-2023-5964|2024-08-02T08:14:25.152Z -- 1e -- platform
-</title>
-      <link>https://www.cve.org/CVERecord?id=CVE-2023-5964</link>
-      <description>
-The 1E-Exchange-DisplayMessageinstruction that is part of the End-User Interaction product pack available on the 1E Exchange does not properly validate the Caption or Message parameters, which allows for a specially crafted input to perform arbitrary code execution with SYSTEM permissions. This instruction only runs on Windows clients.
-
-To remediate this issue DELETE the instruction “Show dialogue with caption %Caption% and message %Message%” from the list of instructions in the Settings UI, and replace it with the new instruction 1E-Exchange-ShowNotification instruction available in the updated End-User Interaction product pack. The new instruction should show as “Show %Type% type notification with header %Header% and message %Message%” with a version of 7.1 or above.</description>
-      <guid isPermaLink="false">CVE-2023-5964|2024-08-02T08:14:25.152Z</guid>
-      <pubDate>Mon, 06 Nov 2023 12:27:12 +0000</pubDate>
-    </item>
-    <item>
-      <title>CVE-2023-45162|2024-08-02T20:14:19.735Z -- 1e -- 1e%20platform
-</title>
-      <link>https://www.cve.org/CVERecord?id=CVE-2023-45162</link>
-      <description>Affected 1E Platform versions have a Blind SQL Injection vulnerability that can lead to arbitrary code execution. 
-
-Application of the relevant hotfix remediates this issue.
-
-for v8.1.2 apply hotfix Q23166
-for v8.4.1 apply hotfix Q23164
-for v9.0.1 apply hotfix Q23169
-
-SaaS implementations on v23.7.1 will automatically have hotfix Q23173 applied. Customers with SaaS versions below this are urged to upgrade urgently - please contact 1E to arrange this</description>
-      <guid isPermaLink="false">CVE-2023-45162|2024-08-02T20:14:19.735Z</guid>
-      <pubDate>Fri, 13 Oct 2023 12:48:01 +0000</pubDate>
-    </item>
-    <item>
-      <title>CVE-2024-7211|2024-08-02T12:56:59.320Z -- 1e -- 1e%20platform</title>
+      <title>CVE-2024-7211|2024-08-02T11:40:03.921Z -- 1e -- 1e%20platform</title>
       <link>https://www.cve.org/CVERecord?id=CVE-2024-7211</link>
-      <description>The 1E Platform's component utilized the third-party Duende Identity Server, which suffered from an open redirect vulnerability, permitting an attacker to control the redirection path of end users.
+      <description>The 1E Platform’s Identity Server was impacted by an open redirect vulnerability, allowing an attacker to dictate the redirection path of an end user.
 
-Note: 1E Platform's component utilizing the third-party Duende Identity Server has been updated with the patch that includes the fix.</description>
-      <guid isPermaLink="false">CVE-2024-7211|2024-08-02T12:56:59.320Z</guid>
+Note: The Identity Server on 1E Platform has been updated with the patch that includes the fix.</description>
+      <guid isPermaLink="false">CVE-2024-7211|2024-08-02T11:40:03.921Z</guid>
+      <pubDate>Thu, 01 Aug 2024 16:49:47 +0000</pubDate>
+    </item>
+    <item>
+      <title>CVE-2024-7211|2024-08-01T17:33:36.133Z -- 1e -- 1e%20platform</title>
+      <link>https://www.cve.org/CVERecord?id=CVE-2024-7211</link>
+      <description>The Identity Server used by 1E Platform could enable URL redirection to untrusted sites.
+Note: The Identity Server on 1E Platform has been updated with the necessary patch.</description>
+      <guid isPermaLink="false">CVE-2024-7211|2024-08-01T17:33:36.133Z</guid>
       <pubDate>Thu, 01 Aug 2024 16:49:47 +0000</pubDate>
     </item>
     <item>
@@ -112,20 +69,12 @@ Note: The Identity Server on 1E Platform has been updated with the necessary pat
       <pubDate>Thu, 01 Aug 2024 16:49:47 +0000</pubDate>
     </item>
     <item>
-      <title>CVE-2024-7211|2024-08-01T17:33:36.133Z -- 1e -- 1e%20platform</title>
+      <title>CVE-2024-7211|2024-08-02T12:56:59.320Z -- 1e -- 1e%20platform</title>
       <link>https://www.cve.org/CVERecord?id=CVE-2024-7211</link>
-      <description>The Identity Server used by 1E Platform could enable URL redirection to untrusted sites.
-Note: The Identity Server on 1E Platform has been updated with the necessary patch.</description>
-      <guid isPermaLink="false">CVE-2024-7211|2024-08-01T17:33:36.133Z</guid>
-      <pubDate>Thu, 01 Aug 2024 16:49:47 +0000</pubDate>
-    </item>
-    <item>
-      <title>CVE-2024-7211|2024-08-02T11:40:03.921Z -- 1e -- 1e%20platform</title>
-      <link>https://www.cve.org/CVERecord?id=CVE-2024-7211</link>
-      <description>The 1E Platform’s Identity Server was impacted by an open redirect vulnerability, allowing an attacker to dictate the redirection path of an end user.
+      <description>The 1E Platform's component utilized the third-party Duende Identity Server, which suffered from an open redirect vulnerability, permitting an attacker to control the redirection path of end users.
 
-Note: The Identity Server on 1E Platform has been updated with the patch that includes the fix.</description>
-      <guid isPermaLink="false">CVE-2024-7211|2024-08-02T11:40:03.921Z</guid>
+Note: 1E Platform's component utilizing the third-party Duende Identity Server has been updated with the patch that includes the fix.</description>
+      <guid isPermaLink="false">CVE-2024-7211|2024-08-02T12:56:59.320Z</guid>
       <pubDate>Thu, 01 Aug 2024 16:49:47 +0000</pubDate>
     </item>
   </channel>
