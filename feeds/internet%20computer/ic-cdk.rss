@@ -6,11 +6,21 @@
     <description>The latest CVEs for Internet Computer -- ic-cdk</description>
     <docs>http://www.rssboard.org/rss-specification</docs>
     <generator>python-feedgen</generator>
-    <lastBuildDate>Thu, 05 Sep 2024 14:22:53 +0000</lastBuildDate>
+    <lastBuildDate>Thu, 05 Sep 2024 15:23:36 +0000</lastBuildDate>
     <ttl>60</ttl>
     <item>
-      <title>CVE-2024-7884|2024-09-05T13:01:20.585Z -- internet%20computer -- ic-cdk
+      <title>CVE-2024-7884|2024-09-05T14:42:09.085Z -- internet%20computer -- ic-cdk
 </title>
+      <link>https://www.cve.org/CVERecord?id=CVE-2024-7884</link>
+      <description>When a canister method is called via ic_cdk::call* , a new Future CallFuture is created  and can be awaited by the caller to get the execution result. Internally, the state of the Future is tracked and stored in a struct called CallFutureState.  A bug in the polling implementation of the CallFuture allows multiple references to be held for this internal state and not all references were dropped before the Future is resolved. Since we have unaccounted references held, a copy of the internal state ended up being persisted in the canister's heap and thus causing a memory leak. 
+Impact Canisters built in Rust with ic_cdk and ic_cdk_timers are affected. If these canisters call a canister method, use timers or heartbeat, they will likely leak a small amount of memory on every such operation. In the worst case, this could lead to heap memory exhaustion triggered by an attacker. Motoko based canisters are not affected by the bug.
+PatchesThe patch has been backported to all minor versions between &gt;= 0.8.0, &lt;= 0.15.0. The patched versions available are 0.8.2, 0.9.3, 0.10.1, 0.11.6, 0.12.2, 0.13.5, 0.14.1, 0.15.1 and their previous versions have been yanked. WorkaroundsThere are no known workarounds at the moment. Developers are recommended to upgrade their canister as soon as possible to the latest available patched version of ic_cdk to avoid running out of Wasm heap memory. 
+Upgrading the canisters (without updating `ic_cdk`) also frees the leaked memory but it's only a temporary solution.</description>
+      <guid isPermaLink="false">CVE-2024-7884|2024-09-05T14:42:09.085Z</guid>
+      <pubDate>Thu, 05 Sep 2024 13:01:20 +0000</pubDate>
+    </item>
+    <item>
+      <title>CVE-2024-7884|2024-09-05T13:01:20.585Z -- internet%20computer -- ic-cdk</title>
       <link>https://www.cve.org/CVERecord?id=CVE-2024-7884</link>
       <description>When a canister method is called via ic_cdk::call* , a new Future CallFuture is created  and can be awaited by the caller to get the execution result. Internally, the state of the Future is tracked and stored in a struct called CallFutureState.  A bug in the polling implementation of the CallFuture allows multiple references to be held for this internal state and not all references were dropped before the Future is resolved. Since we have unaccounted references held, a copy of the internal state ended up being persisted in the canister's heap and thus causing a memory leak. 
 Impact Canisters built in Rust with ic_cdk and ic_cdk_timers are affected. If these canisters call a canister method, use timers or heartbeat, they will likely leak a small amount of memory on every such operation. In the worst case, this could lead to heap memory exhaustion triggered by an attacker. Motoko based canisters are not affected by the bug.
