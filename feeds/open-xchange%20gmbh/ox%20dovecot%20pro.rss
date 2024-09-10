@@ -6,21 +6,36 @@
     <description>The latest CVEs for Open-Xchange GmbH -- OX Dovecot Pro</description>
     <docs>http://www.rssboard.org/rss-specification</docs>
     <generator>python-feedgen</generator>
-    <lastBuildDate>Fri, 06 Sep 2024 16:24:35 +0000</lastBuildDate>
+    <lastBuildDate>Tue, 10 Sep 2024 15:23:45 +0000</lastBuildDate>
     <ttl>60</ttl>
     <item>
-      <title>CVE-2024-25584|2024-09-06T15:28:02.638Z -- open-xchange%20gmbh -- ox%20dovecot%20pro
+      <title>CVE-2024-23185|2024-09-10T14:45:05.763Z -- open-xchange%20gmbh -- ox%20dovecot%20pro
 </title>
-      <link>https://www.cve.org/CVERecord?id=CVE-2024-25584</link>
-      <description>Dovecot accepts dot LF DOT LF symbol as end of DATA command. RFC requires that it should always be CR LF DOT CR LF. This causes Dovecot to convert single mail with LF DOT LF in middle, into two emails when relaying to SMTP. Dovecot will split mail with LF DOT LF into two mails. Upgrade to latest released version. No publicly available exploits are known.</description>
-      <guid isPermaLink="false">CVE-2024-25584|2024-09-06T15:28:02.638Z</guid>
-      <pubDate>Fri, 06 Sep 2024 15:02:48 +0000</pubDate>
+      <link>https://www.cve.org/CVERecord?id=CVE-2024-23185</link>
+      <description>Very large headers can cause resource exhaustion when parsing message. The message-parser normally reads reasonably sized chunks of the message. However, when it feeds them to message-header-parser, it starts building up "full_value" buffer out of the smaller chunks. The full_value buffer has no size limit, so large headers can cause large memory usage. It doesn't matter whether it's a single long header line, or a single header split into multiple lines. This bug exists in all Dovecot versions. Incoming mails typically have some size limits set by MTA, so even largest possible header size may still fit into Dovecot's vsz_limit. So attackers probably can't DoS a victim user this way. A user could APPEND larger mails though, allowing them to DoS themselves (although maybe cause some memory issues for the backend in general). One can implement restrictions on headers on MTA component preceding Dovecot. No publicly available exploits are known.</description>
+      <guid isPermaLink="false">CVE-2024-23185|2024-09-10T14:45:05.763Z</guid>
+      <pubDate>Tue, 10 Sep 2024 14:38:50 +0000</pubDate>
+    </item>
+    <item>
+      <title>CVE-2024-23184|2024-09-10T14:33:34.166Z -- open-xchange%20gmbh -- ox%20dovecot%20pro
+</title>
+      <link>https://www.cve.org/CVERecord?id=CVE-2024-23184</link>
+      <description>Having a large number of address headers (From, To, Cc, Bcc, etc.) becomes excessively CPU intensive. With 100k header lines CPU usage is already 12 seconds, and in a production environment we observed 500k header lines taking 18 minutes to parse. Since this can be triggered by external actors sending emails to a victim, this is a security issue. An external attacker can send specially crafted messages that consume target system resources and cause outage. One can implement restrictions on address headers on MTA component preceding Dovecot. No publicly available exploits are known.</description>
+      <guid isPermaLink="false">CVE-2024-23184|2024-09-10T14:33:34.166Z</guid>
+      <pubDate>Tue, 10 Sep 2024 14:33:34 +0000</pubDate>
     </item>
     <item>
       <title>CVE-2024-25584|2024-09-06T15:02:48.487Z -- open-xchange%20gmbh -- ox%20dovecot%20pro</title>
       <link>https://www.cve.org/CVERecord?id=CVE-2024-25584</link>
       <description>Dovecot accepts dot LF DOT LF symbol as end of DATA command. RFC requires that it should always be CR LF DOT CR LF. This causes Dovecot to convert single mail with LF DOT LF in middle, into two emails when relaying to SMTP. Dovecot will split mail with LF DOT LF into two mails. Upgrade to latest released version. No publicly available exploits are known.</description>
       <guid isPermaLink="false">CVE-2024-25584|2024-09-06T15:02:48.487Z</guid>
+      <pubDate>Fri, 06 Sep 2024 15:02:48 +0000</pubDate>
+    </item>
+    <item>
+      <title>CVE-2024-25584|2024-09-06T15:28:02.638Z -- open-xchange%20gmbh -- ox%20dovecot%20pro</title>
+      <link>https://www.cve.org/CVERecord?id=CVE-2024-25584</link>
+      <description>Dovecot accepts dot LF DOT LF symbol as end of DATA command. RFC requires that it should always be CR LF DOT CR LF. This causes Dovecot to convert single mail with LF DOT LF in middle, into two emails when relaying to SMTP. Dovecot will split mail with LF DOT LF into two mails. Upgrade to latest released version. No publicly available exploits are known.</description>
+      <guid isPermaLink="false">CVE-2024-25584|2024-09-06T15:28:02.638Z</guid>
       <pubDate>Fri, 06 Sep 2024 15:02:48 +0000</pubDate>
     </item>
   </channel>
