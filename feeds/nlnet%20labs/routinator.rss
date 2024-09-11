@@ -6,60 +6,15 @@
     <description>The latest CVEs for NLnet Labs -- Routinator</description>
     <docs>http://www.rssboard.org/rss-specification</docs>
     <generator>python-feedgen</generator>
-    <lastBuildDate>Sun, 04 Aug 2024 23:23:23 +0000</lastBuildDate>
+    <lastBuildDate>Wed, 11 Sep 2024 16:24:29 +0000</lastBuildDate>
     <ttl>60</ttl>
     <item>
-      <title>CVE-2021-43172|2024-08-04T03:47:13.607Z -- nlnet%20labs -- routinator
+      <title>CVE-2023-39915|2024-09-11T15:36:54.043Z -- nlnet%20labs -- routinator
 </title>
-      <link>https://www.cve.org/CVERecord?id=CVE-2021-43172</link>
-      <description>NLnet Labs Routinator prior to 0.10.2 happily processes a chain of RRDP repositories of infinite length causing it to never finish a validation run. In RPKI, a CA can choose the RRDP repository it wishes to publish its data in. By continuously generating a new child CA that only consists of another CA using a different RRDP repository, a malicious CA can create a chain of CAs of de-facto infinite length. Routinator prior to version 0.10.2 did not contain a limit on the length of such a chain and will therefore continue to process this chain forever. As a result, the validation run will never finish, leading to Routinator continuing to serve the old data set or, if in the initial validation run directly after starting, never serve any data at all.</description>
-      <guid isPermaLink="false">CVE-2021-43172|2024-08-04T03:47:13.607Z</guid>
-      <pubDate>Tue, 09 Nov 2021 00:00:00 +0000</pubDate>
-    </item>
-    <item>
-      <title>CVE-2021-41531|2024-08-04T03:15:29.202Z -- nlnet%20labs -- routinator
-</title>
-      <link>https://www.cve.org/CVERecord?id=CVE-2021-41531</link>
-      <description>NLnet Labs Routinator prior to 0.10.0 produces invalid RTR payload if an RPKI CA uses too large values in the max-length parameter in a ROA. This will lead to RTR clients such as routers to reject the RPKI data set, effectively disabling Route Origin Validation.</description>
-      <guid isPermaLink="false">CVE-2021-41531|2024-08-04T03:15:29.202Z</guid>
-      <pubDate>Tue, 21 Sep 2021 00:00:00 +0000</pubDate>
-    </item>
-    <item>
-      <title>CVE-2021-43173|2024-08-04T03:47:13.592Z -- nlnet%20labs -- routinator
-</title>
-      <link>https://www.cve.org/CVERecord?id=CVE-2021-43173</link>
-      <description>In NLnet Labs Routinator prior to 0.10.2, a validation run can be delayed significantly by an RRDP repository by not answering but slowly drip-feeding bytes to keep the connection alive. This can be used to effectively stall validation. While Routinator has a configurable time-out value for RRDP connections, this time-out was only applied to individual read or write operations rather than the complete request. Thus, if an RRDP repository sends a little bit of data before that time-out expired, it can continuously extend the time it takes for the request to finish. Since validation will only continue once the update of an RRDP repository has concluded, this delay will cause validation to stall, leading to Routinator continuing to serve the old data set or, if in the initial validation run directly after starting, never serve any data at all.</description>
-      <guid isPermaLink="false">CVE-2021-43173|2024-08-04T03:47:13.592Z</guid>
-      <pubDate>Tue, 09 Nov 2021 00:00:00 +0000</pubDate>
-    </item>
-    <item>
-      <title>CVE-2021-43174|2024-08-04T03:47:13.587Z -- nlnet%20labs -- routinator
-</title>
-      <link>https://www.cve.org/CVERecord?id=CVE-2021-43174</link>
-      <description>NLnet Labs Routinator versions 0.9.0 up to and including 0.10.1, support the gzip transfer encoding when querying RRDP repositories. This encoding can be used by an RRDP repository to cause an out-of-memory crash in these versions of Routinator. RRDP uses XML which allows arbitrary amounts of white space in the encoded data. The gzip scheme compresses such white space extremely well, leading to very small compressed files that become huge when being decompressed for further processing, big enough that Routinator runs out of memory when parsing input data waiting for the next XML element.</description>
-      <guid isPermaLink="false">CVE-2021-43174|2024-08-04T03:47:13.587Z</guid>
-      <pubDate>Tue, 09 Nov 2021 00:00:00 +0000</pubDate>
-    </item>
-    <item>
-      <title>CVE-2024-1622|2024-08-01T18:48:21.895Z -- nlnet%20labs -- routinator</title>
-      <link>https://www.cve.org/CVERecord?id=CVE-2024-1622</link>
-      <description>Due to a mistake in error checking, Routinator will terminate when an incoming RTR connection is reset by the peer too quickly after opening.</description>
-      <guid isPermaLink="false">CVE-2024-1622|2024-08-01T18:48:21.895Z</guid>
-      <pubDate>Mon, 26 Feb 2024 13:35:51 +0000</pubDate>
-    </item>
-    <item>
-      <title>CVE-2024-1622|2024-02-26T13:35:51.909Z -- nlnet%20labs -- routinator</title>
-      <link>https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2024-1622</link>
-      <description>Due to a mistake in error checking, Routinator will terminate when an incoming RTR connection is reset by the peer too quickly after opening.</description>
-      <guid isPermaLink="false">CVE-2024-1622|2024-02-26T13:35:51.909Z</guid>
-      <pubDate>Mon, 26 Feb 2024 13:35:51 +0000</pubDate>
-    </item>
-    <item>
-      <title>CVE-2024-1622|2024-07-05T17:22:01.305Z -- nlnet%20labs -- routinator</title>
-      <link>https://www.cve.org/CVERecord?id=CVE-2024-1622</link>
-      <description>Due to a mistake in error checking, Routinator will terminate when an incoming RTR connection is reset by the peer too quickly after opening.</description>
-      <guid isPermaLink="false">CVE-2024-1622|2024-07-05T17:22:01.305Z</guid>
-      <pubDate>Mon, 26 Feb 2024 13:35:51 +0000</pubDate>
+      <link>https://www.cve.org/CVERecord?id=CVE-2023-39915</link>
+      <description>NLnet Labs' Routinator up to and including version 0.12.1 may crash when trying to parse certain malformed RPKI objects. This is due to insufficient input checking in the bcder library covered by CVE-2023-39914.</description>
+      <guid isPermaLink="false">CVE-2023-39915|2024-09-11T15:36:54.043Z</guid>
+      <pubDate>Wed, 13 Sep 2023 14:20:59 +0000</pubDate>
     </item>
   </channel>
 </rss>
