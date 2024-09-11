@@ -6,121 +6,15 @@
     <description>The latest CVEs for nothings -- all products</description>
     <docs>http://www.rssboard.org/rss-specification</docs>
     <generator>python-feedgen</generator>
-    <lastBuildDate>Fri, 02 Aug 2024 23:21:48 +0000</lastBuildDate>
+    <lastBuildDate>Wed, 11 Sep 2024 21:22:40 +0000</lastBuildDate>
     <ttl>60</ttl>
     <item>
-      <title>CVE-2023-45662|2024-08-02T20:21:16.822Z -- nothings -- stb
-</title>
-      <link>https://www.cve.org/CVERecord?id=CVE-2023-45662</link>
-      <description>stb_image is a single file MIT licensed library for processing images. When `stbi_set_flip_vertically_on_load` is set to `TRUE` and `req_comp` is set to a number that doesn’t match the real number of components per pixel, the library attempts to flip the image vertically. A crafted image file can trigger `memcpy` out-of-bounds read because `bytes_per_pixel` used to calculate `bytes_per_row` doesn’t match the real image array dimensions. </description>
-      <guid isPermaLink="false">CVE-2023-45662|2024-08-02T20:21:16.822Z</guid>
-      <pubDate>Fri, 20 Oct 2023 23:26:11 +0000</pubDate>
-    </item>
-    <item>
-      <title>CVE-2023-45661|2024-08-02T20:21:16.847Z -- nothings -- stb
-</title>
-      <link>https://www.cve.org/CVERecord?id=CVE-2023-45661</link>
-      <description>stb_image is a single file MIT licensed library for processing images. A crafted image file may trigger out of bounds memcpy read in `stbi__gif_load_next`. This happens because two_back points to a memory address lower than the start of the buffer out. This issue may be used to leak internal memory allocation information.</description>
-      <guid isPermaLink="false">CVE-2023-45661|2024-08-02T20:21:16.847Z</guid>
-      <pubDate>Fri, 20 Oct 2023 23:26:08 +0000</pubDate>
-    </item>
-    <item>
-      <title>CVE-2023-45667|2024-08-02T20:21:16.870Z -- nothings -- stb
-</title>
-      <link>https://www.cve.org/CVERecord?id=CVE-2023-45667</link>
-      <description>stb_image is a single file MIT licensed library for processing images.
-
-If `stbi__load_gif_main` in `stbi_load_gif_from_memory` fails it returns a null pointer and may keep the `z` variable uninitialized. In case the caller also sets the flip vertically flag, it continues and calls `stbi__vertical_flip_slices` with the null pointer result value and the uninitialized `z` value. This may result in a program crash.</description>
-      <guid isPermaLink="false">CVE-2023-45667|2024-08-02T20:21:16.870Z</guid>
-      <pubDate>Fri, 20 Oct 2023 23:26:44 +0000</pubDate>
-    </item>
-    <item>
-      <title>CVE-2023-45680|2024-08-02T20:29:31.640Z -- nothings -- stb
+      <title>CVE-2023-45680|2024-09-11T20:22:52.057Z -- nothings -- stb
 </title>
       <link>https://www.cve.org/CVERecord?id=CVE-2023-45680</link>
       <description>stb_vorbis is a single file MIT licensed library for processing ogg vorbis files. A crafted file may trigger memory allocation failure in `start_decoder`. In that case the function returns early, the `f-&gt;comment_list` is set to `NULL`, but `f-&gt;comment_list_length` is not reset. Later in `vorbis_deinit` it tries to dereference the `NULL` pointer. This issue may lead to denial of service.</description>
-      <guid isPermaLink="false">CVE-2023-45680|2024-08-02T20:29:31.640Z</guid>
+      <guid isPermaLink="false">CVE-2023-45680|2024-09-11T20:22:52.057Z</guid>
       <pubDate>Fri, 20 Oct 2023 23:26:54 +0000</pubDate>
-    </item>
-    <item>
-      <title>CVE-2023-45677|2024-08-02T20:29:31.184Z -- nothings -- stb
-</title>
-      <link>https://www.cve.org/CVERecord?id=CVE-2023-45677</link>
-      <description>stb_vorbis is a single file MIT licensed library for processing ogg vorbis files. A crafted file may trigger out of bounds write in `f-&gt;vendor[len] = (char)'\0';`. The root cause is that if `len` read in `start_decoder` is a negative number and `setup_malloc` successfully allocates memory in that case, but memory write is done with a negative index `len`. Similarly if len is INT_MAX the integer overflow len+1 happens in `f-&gt;vendor = (char*)setup_malloc(f, sizeof(char) * (len+1));` and `f-&gt;comment_list[i] = (char*)setup_malloc(f, sizeof(char) * (len+1));`. This issue may lead to code execution.</description>
-      <guid isPermaLink="false">CVE-2023-45677|2024-08-02T20:29:31.184Z</guid>
-      <pubDate>Fri, 20 Oct 2023 23:26:49 +0000</pubDate>
-    </item>
-    <item>
-      <title>CVE-2023-45676|2024-08-02T20:21:16.812Z -- nothings -- stb
-</title>
-      <link>https://www.cve.org/CVERecord?id=CVE-2023-45676</link>
-      <description>stb_vorbis is a single file MIT licensed library for processing ogg vorbis files. A crafted file may trigger out of bounds write in `f-&gt;vendor[i] = get8_packet(f);`. The root cause is an integer overflow in `setup_malloc`. A sufficiently large value in the variable `sz` overflows with `sz+7` in and the negative value passes the maximum available memory buffer check. This issue may lead to code execution.</description>
-      <guid isPermaLink="false">CVE-2023-45676|2024-08-02T20:21:16.812Z</guid>
-      <pubDate>Fri, 20 Oct 2023 23:26:47 +0000</pubDate>
-    </item>
-    <item>
-      <title>CVE-2023-45663|2024-08-02T20:21:16.922Z -- nothings -- stb
-</title>
-      <link>https://www.cve.org/CVERecord?id=CVE-2023-45663</link>
-      <description>stb_image is a single file MIT licensed library for processing images. The stbi__getn function reads a specified number of bytes from context (typically a file) into the specified buffer. In case the file stream points to the end, it returns zero. There are two places where its return value is not checked: In the `stbi__hdr_load` function and in the `stbi__tga_load` function. The latter of the two is likely more exploitable as an attacker may also control the size of an uninitialized buffer.</description>
-      <guid isPermaLink="false">CVE-2023-45663|2024-08-02T20:21:16.922Z</guid>
-      <pubDate>Fri, 20 Oct 2023 23:26:13 +0000</pubDate>
-    </item>
-    <item>
-      <title>CVE-2023-45675|2024-08-02T20:21:16.836Z -- nothings -- stb
-</title>
-      <link>https://www.cve.org/CVERecord?id=CVE-2023-45675</link>
-      <description>stb_vorbis is a single file MIT licensed library for processing ogg vorbis files. A crafted file may trigger out of bounds write in `f-&gt;vendor[len] = (char)'\0';`. The root cause is that if the len read in `start_decoder` is `-1` and `len + 1` becomes 0 when passed to `setup_malloc`. The `setup_malloc` behaves differently when `f-&gt;alloc.alloc_buffer` is pre-allocated. Instead of returning `NULL` as in `malloc` case it shifts the pre-allocated buffer by zero and returns the currently available memory block. This issue may lead to code execution.</description>
-      <guid isPermaLink="false">CVE-2023-45675|2024-08-02T20:21:16.836Z</guid>
-      <pubDate>Fri, 20 Oct 2023 23:26:45 +0000</pubDate>
-    </item>
-    <item>
-      <title>CVE-2023-45679|2024-08-02T20:29:31.241Z -- nothings -- stb
-</title>
-      <link>https://www.cve.org/CVERecord?id=CVE-2023-45679</link>
-      <description>stb_vorbis is a single file MIT licensed library for processing ogg vorbis files. A crafted file may trigger memory allocation failure in `start_decoder`. In that case the function returns early, but some of the pointers in `f-&gt;comment_list` are left initialized and later `setup_free` is called on these pointers in `vorbis_deinit`. This issue may lead to code execution.</description>
-      <guid isPermaLink="false">CVE-2023-45679|2024-08-02T20:29:31.241Z</guid>
-      <pubDate>Fri, 20 Oct 2023 23:26:52 +0000</pubDate>
-    </item>
-    <item>
-      <title>CVE-2023-45666|2024-08-02T20:21:16.909Z -- nothings -- stb
-</title>
-      <link>https://www.cve.org/CVERecord?id=CVE-2023-45666</link>
-      <description>stb_image is a single file MIT licensed library for processing images.  It may look like `stbi__load_gif_main` doesn’t give guarantees about the content of output value `*delays` upon failure. Although it sets `*delays` to zero at the beginning, it doesn’t do it in case the image is not recognized as GIF and a call to `stbi__load_gif_main_outofmem` only frees possibly allocated memory in `*delays` without resetting it to zero. Thus it would be fair to say the caller of `stbi__load_gif_main` is responsible to free the allocated memory in `*delays` only if `stbi__load_gif_main` returns a non null value. However at the same time the function may return null value, but fail to free the memory in `*delays` if internally `stbi__convert_format` is called and fails. Thus the issue may lead to a memory leak if the caller chooses to free `delays` only when `stbi__load_gif_main` didn’t fail or to a double-free if the `delays` is always freed</description>
-      <guid isPermaLink="false">CVE-2023-45666|2024-08-02T20:21:16.909Z</guid>
-      <pubDate>Fri, 20 Oct 2023 23:26:42 +0000</pubDate>
-    </item>
-    <item>
-      <title>CVE-2023-45664|2024-08-02T20:21:16.925Z -- nothings -- stb
-</title>
-      <link>https://www.cve.org/CVERecord?id=CVE-2023-45664</link>
-      <description>stb_image is a single file MIT licensed library for processing images. A crafted image file can trigger `stbi__load_gif_main_outofmem` attempt to double-free the out variable. This happens in `stbi__load_gif_main` because when the `layers * stride` value is zero the behavior is implementation defined, but common that realloc frees the old memory and returns null pointer. Since it attempts to double-free the memory a few lines below the first “free”, the issue can be potentially exploited only in a multi-threaded environment. In the worst case this may lead to code execution.</description>
-      <guid isPermaLink="false">CVE-2023-45664|2024-08-02T20:21:16.925Z</guid>
-      <pubDate>Fri, 20 Oct 2023 23:26:40 +0000</pubDate>
-    </item>
-    <item>
-      <title>CVE-2023-45682|2024-08-02T20:29:32.523Z -- nothings -- stb
-</title>
-      <link>https://www.cve.org/CVERecord?id=CVE-2023-45682</link>
-      <description>stb_vorbis is a single file MIT licensed library for processing ogg vorbis files. A crafted file may trigger out of bounds read in `DECODE` macro when `var` is negative. As it can be seen in the definition of `DECODE_RAW` a negative `var` is a valid value. This issue may be used to leak internal memory allocation information.</description>
-      <guid isPermaLink="false">CVE-2023-45682|2024-08-02T20:29:32.523Z</guid>
-      <pubDate>Fri, 20 Oct 2023 23:27:04 +0000</pubDate>
-    </item>
-    <item>
-      <title>CVE-2023-45681|2024-08-02T20:29:31.597Z -- nothings -- stb
-</title>
-      <link>https://www.cve.org/CVERecord?id=CVE-2023-45681</link>
-      <description>stb_vorbis is a single file MIT licensed library for processing ogg vorbis files. A crafted file may trigger memory write past an allocated heap buffer in `start_decoder`. The root cause is a potential integer overflow in `sizeof(char*) * (f-&gt;comment_list_length)` which may make `setup_malloc` allocate less memory than required. Since there is another integer overflow an attacker may overflow it too to force `setup_malloc` to return 0 and make the exploit more reliable. This issue may lead to code execution.</description>
-      <guid isPermaLink="false">CVE-2023-45681|2024-08-02T20:29:31.597Z</guid>
-      <pubDate>Fri, 20 Oct 2023 23:26:56 +0000</pubDate>
-    </item>
-    <item>
-      <title>CVE-2023-45678|2024-08-02T20:29:31.223Z -- nothings -- stb
-</title>
-      <link>https://www.cve.org/CVERecord?id=CVE-2023-45678</link>
-      <description>stb_vorbis is a single file MIT licensed library for processing ogg vorbis files. A crafted file may trigger out of buffer write in `start_decoder` because at maximum `m-&gt;submaps` can be 16 but `submap_floor` and `submap_residue` are declared as arrays of 15 elements. This issue may lead to code execution.</description>
-      <guid isPermaLink="false">CVE-2023-45678|2024-08-02T20:29:31.223Z</guid>
-      <pubDate>Fri, 20 Oct 2023 23:26:51 +0000</pubDate>
     </item>
   </channel>
 </rss>
