@@ -6,50 +6,22 @@
     <description>The latest CVEs for significant-gravitas -- significant-gravitas/autogpt</description>
     <docs>http://www.rssboard.org/rss-specification</docs>
     <generator>python-feedgen</generator>
-    <lastBuildDate>Wed, 21 Aug 2024 15:22:55 +0000</lastBuildDate>
+    <lastBuildDate>Wed, 11 Sep 2024 13:24:19 +0000</lastBuildDate>
     <ttl>60</ttl>
     <item>
-      <title>CVE-2024-1879|2024-08-21T14:26:56.090Z -- significant-gravitas -- significant-gravitas%2Fautogpt
+      <title>CVE-2024-6091|2024-09-11T12:49:07.293Z -- significant-gravitas -- significant-gravitas%2Fautogpt
 </title>
-      <link>https://www.cve.org/CVERecord?id=CVE-2024-1879</link>
-      <description>A Cross-Site Request Forgery (CSRF) vulnerability in significant-gravitas/autogpt version v0.5.0 allows attackers to execute arbitrary commands on the AutoGPT server. The vulnerability stems from the lack of protections on the API endpoint receiving instructions, enabling an attacker to direct a user running AutoGPT in their local network to a malicious website. This site can then send crafted requests to the AutoGPT server, leading to command execution. The issue is exacerbated by CORS being enabled for arbitrary origins by default, allowing the attacker to read the response of all cross-site queries. This vulnerability was addressed in version 5.1.</description>
-      <guid isPermaLink="false">CVE-2024-1879|2024-08-21T14:26:56.090Z</guid>
-      <pubDate>Thu, 06 Jun 2024 17:53:21 +0000</pubDate>
+      <link>https://www.cve.org/CVERecord?id=CVE-2024-6091</link>
+      <description>A vulnerability in significant-gravitas/autogpt version 0.5.1 allows an attacker to bypass the shell commands denylist settings. The issue arises when the denylist is configured to block specific commands, such as 'whoami' and '/bin/whoami'. An attacker can circumvent this restriction by executing commands with a modified path, such as '/bin/./whoami', which is not recognized by the denylist.</description>
+      <guid isPermaLink="false">CVE-2024-6091|2024-09-11T12:49:07.293Z</guid>
+      <pubDate>Wed, 11 Sep 2024 12:49:07 +0000</pubDate>
     </item>
     <item>
-      <title>CVE-2024-1881|2024-07-19T20:57:23.522Z -- significant-gravitas -- significant-gravitas%2Fautogpt</title>
+      <title>CVE-2024-1881|2024-08-01T18:56:22.433Z -- significant-gravitas -- significant-gravitas%2Fautogpt</title>
       <link>https://www.cve.org/CVERecord?id=CVE-2024-1881</link>
       <description>AutoGPT, a component of significant-gravitas/autogpt, is vulnerable to an improper neutralization of special elements used in an OS command ('OS Command Injection') due to a flaw in its shell command validation function. Specifically, the vulnerability exists in versions v0.5.0 up to but not including 5.1.0. The issue arises from the application's method of validating shell commands against an allowlist or denylist, where it only checks the first word of the command. This allows an attacker to bypass the intended restrictions by crafting commands that are executed despite not being on the allowlist or by including malicious commands not present in the denylist. Successful exploitation of this vulnerability could allow an attacker to execute arbitrary shell commands.</description>
-      <guid isPermaLink="false">CVE-2024-1881|2024-07-19T20:57:23.522Z</guid>
+      <guid isPermaLink="false">CVE-2024-1881|2024-08-01T18:56:22.433Z</guid>
       <pubDate>Thu, 06 Jun 2024 18:19:08 +0000</pubDate>
-    </item>
-    <item>
-      <title>CVE-2024-1880|2024-06-06T19:48:31.759Z -- significant-gravitas -- significant-gravitas%2Fautogpt</title>
-      <link>https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2024-1880</link>
-      <description>An OS command injection vulnerability exists in the MacOS Text-To-Speech class MacOSTTS of the significant-gravitas/autogpt project, affecting versions up to v0.5.0. The vulnerability arises from the improper neutralization of special elements used in an OS command within the `_speech` method of the MacOSTTS class. Specifically, the use of `os.system` to execute the `say` command with user-supplied text allows for arbitrary code execution if an attacker can inject shell commands. This issue is triggered when the AutoGPT instance is run with the `--speak` option enabled and configured with `TEXT_TO_SPEECH_PROVIDER=macos`, reflecting back a shell injection snippet. The impact of this vulnerability is the potential execution of arbitrary code on the instance running AutoGPT. The issue was addressed in version 5.1.0.</description>
-      <guid isPermaLink="false">CVE-2024-1880|2024-06-06T19:48:31.759Z</guid>
-      <pubDate>Thu, 06 Jun 2024 18:39:43 +0000</pubDate>
-    </item>
-    <item>
-      <title>CVE-2024-1879|2024-06-06T17:53:21.654Z -- significant-gravitas -- significant-gravitas%2Fautogpt</title>
-      <link>https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2024-1879</link>
-      <description>A Cross-Site Request Forgery (CSRF) vulnerability in significant-gravitas/autogpt version v0.5.0 allows attackers to execute arbitrary commands on the AutoGPT server. The vulnerability stems from the lack of protections on the API endpoint receiving instructions, enabling an attacker to direct a user running AutoGPT in their local network to a malicious website. This site can then send crafted requests to the AutoGPT server, leading to command execution. The issue is exacerbated by CORS being enabled for arbitrary origins by default, allowing the attacker to read the response of all cross-site queries. This vulnerability was addressed in version 5.1.</description>
-      <guid isPermaLink="false">CVE-2024-1879|2024-06-06T17:53:21.654Z</guid>
-      <pubDate>Thu, 06 Jun 2024 17:53:21 +0000</pubDate>
-    </item>
-    <item>
-      <title>CVE-2024-1881|2024-06-06T18:19:08.151Z -- significant-gravitas -- significant-gravitas%2Fautogpt</title>
-      <link>https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2024-1881</link>
-      <description>AutoGPT, a component of significant-gravitas/autogpt, is vulnerable to an improper neutralization of special elements used in an OS command ('OS Command Injection') due to a flaw in its shell command validation function. Specifically, the vulnerability exists in versions v0.5.0 up to but not including 5.1.0. The issue arises from the application's method of validating shell commands against an allowlist or denylist, where it only checks the first word of the command. This allows an attacker to bypass the intended restrictions by crafting commands that are executed despite not being on the allowlist or by including malicious commands not present in the denylist. Successful exploitation of this vulnerability could allow an attacker to execute arbitrary shell commands.</description>
-      <guid isPermaLink="false">CVE-2024-1881|2024-06-06T18:19:08.151Z</guid>
-      <pubDate>Thu, 06 Jun 2024 18:19:08 +0000</pubDate>
-    </item>
-    <item>
-      <title>CVE-2024-1880|2024-08-01T18:56:22.364Z -- significant-gravitas -- significant-gravitas%2Fautogpt</title>
-      <link>https://www.cve.org/CVERecord?id=CVE-2024-1880</link>
-      <description>An OS command injection vulnerability exists in the MacOS Text-To-Speech class MacOSTTS of the significant-gravitas/autogpt project, affecting versions up to v0.5.0. The vulnerability arises from the improper neutralization of special elements used in an OS command within the `_speech` method of the MacOSTTS class. Specifically, the use of `os.system` to execute the `say` command with user-supplied text allows for arbitrary code execution if an attacker can inject shell commands. This issue is triggered when the AutoGPT instance is run with the `--speak` option enabled and configured with `TEXT_TO_SPEECH_PROVIDER=macos`, reflecting back a shell injection snippet. The impact of this vulnerability is the potential execution of arbitrary code on the instance running AutoGPT. The issue was addressed in version 5.1.0.</description>
-      <guid isPermaLink="false">CVE-2024-1880|2024-08-01T18:56:22.364Z</guid>
-      <pubDate>Thu, 06 Jun 2024 18:39:43 +0000</pubDate>
     </item>
     <item>
       <title>CVE-2024-1879|2024-08-01T18:56:22.272Z -- significant-gravitas -- significant-gravitas%2Fautogpt</title>
@@ -59,11 +31,46 @@
       <pubDate>Thu, 06 Jun 2024 17:53:21 +0000</pubDate>
     </item>
     <item>
-      <title>CVE-2024-1881|2024-08-01T18:56:22.433Z -- significant-gravitas -- significant-gravitas%2Fautogpt</title>
+      <title>CVE-2024-1880|2024-08-01T18:56:22.364Z -- significant-gravitas -- significant-gravitas%2Fautogpt</title>
+      <link>https://www.cve.org/CVERecord?id=CVE-2024-1880</link>
+      <description>An OS command injection vulnerability exists in the MacOS Text-To-Speech class MacOSTTS of the significant-gravitas/autogpt project, affecting versions up to v0.5.0. The vulnerability arises from the improper neutralization of special elements used in an OS command within the `_speech` method of the MacOSTTS class. Specifically, the use of `os.system` to execute the `say` command with user-supplied text allows for arbitrary code execution if an attacker can inject shell commands. This issue is triggered when the AutoGPT instance is run with the `--speak` option enabled and configured with `TEXT_TO_SPEECH_PROVIDER=macos`, reflecting back a shell injection snippet. The impact of this vulnerability is the potential execution of arbitrary code on the instance running AutoGPT. The issue was addressed in version 5.1.0.</description>
+      <guid isPermaLink="false">CVE-2024-1880|2024-08-01T18:56:22.364Z</guid>
+      <pubDate>Thu, 06 Jun 2024 18:39:43 +0000</pubDate>
+    </item>
+    <item>
+      <title>CVE-2024-1881|2024-06-06T18:19:08.151Z -- significant-gravitas -- significant-gravitas%2Fautogpt</title>
+      <link>https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2024-1881</link>
+      <description>AutoGPT, a component of significant-gravitas/autogpt, is vulnerable to an improper neutralization of special elements used in an OS command ('OS Command Injection') due to a flaw in its shell command validation function. Specifically, the vulnerability exists in versions v0.5.0 up to but not including 5.1.0. The issue arises from the application's method of validating shell commands against an allowlist or denylist, where it only checks the first word of the command. This allows an attacker to bypass the intended restrictions by crafting commands that are executed despite not being on the allowlist or by including malicious commands not present in the denylist. Successful exploitation of this vulnerability could allow an attacker to execute arbitrary shell commands.</description>
+      <guid isPermaLink="false">CVE-2024-1881|2024-06-06T18:19:08.151Z</guid>
+      <pubDate>Thu, 06 Jun 2024 18:19:08 +0000</pubDate>
+    </item>
+    <item>
+      <title>CVE-2024-1879|2024-06-06T17:53:21.654Z -- significant-gravitas -- significant-gravitas%2Fautogpt</title>
+      <link>https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2024-1879</link>
+      <description>A Cross-Site Request Forgery (CSRF) vulnerability in significant-gravitas/autogpt version v0.5.0 allows attackers to execute arbitrary commands on the AutoGPT server. The vulnerability stems from the lack of protections on the API endpoint receiving instructions, enabling an attacker to direct a user running AutoGPT in their local network to a malicious website. This site can then send crafted requests to the AutoGPT server, leading to command execution. The issue is exacerbated by CORS being enabled for arbitrary origins by default, allowing the attacker to read the response of all cross-site queries. This vulnerability was addressed in version 5.1.</description>
+      <guid isPermaLink="false">CVE-2024-1879|2024-06-06T17:53:21.654Z</guid>
+      <pubDate>Thu, 06 Jun 2024 17:53:21 +0000</pubDate>
+    </item>
+    <item>
+      <title>CVE-2024-1880|2024-06-06T19:48:31.759Z -- significant-gravitas -- significant-gravitas%2Fautogpt</title>
+      <link>https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2024-1880</link>
+      <description>An OS command injection vulnerability exists in the MacOS Text-To-Speech class MacOSTTS of the significant-gravitas/autogpt project, affecting versions up to v0.5.0. The vulnerability arises from the improper neutralization of special elements used in an OS command within the `_speech` method of the MacOSTTS class. Specifically, the use of `os.system` to execute the `say` command with user-supplied text allows for arbitrary code execution if an attacker can inject shell commands. This issue is triggered when the AutoGPT instance is run with the `--speak` option enabled and configured with `TEXT_TO_SPEECH_PROVIDER=macos`, reflecting back a shell injection snippet. The impact of this vulnerability is the potential execution of arbitrary code on the instance running AutoGPT. The issue was addressed in version 5.1.0.</description>
+      <guid isPermaLink="false">CVE-2024-1880|2024-06-06T19:48:31.759Z</guid>
+      <pubDate>Thu, 06 Jun 2024 18:39:43 +0000</pubDate>
+    </item>
+    <item>
+      <title>CVE-2024-1881|2024-07-19T20:57:23.522Z -- significant-gravitas -- significant-gravitas%2Fautogpt</title>
       <link>https://www.cve.org/CVERecord?id=CVE-2024-1881</link>
       <description>AutoGPT, a component of significant-gravitas/autogpt, is vulnerable to an improper neutralization of special elements used in an OS command ('OS Command Injection') due to a flaw in its shell command validation function. Specifically, the vulnerability exists in versions v0.5.0 up to but not including 5.1.0. The issue arises from the application's method of validating shell commands against an allowlist or denylist, where it only checks the first word of the command. This allows an attacker to bypass the intended restrictions by crafting commands that are executed despite not being on the allowlist or by including malicious commands not present in the denylist. Successful exploitation of this vulnerability could allow an attacker to execute arbitrary shell commands.</description>
-      <guid isPermaLink="false">CVE-2024-1881|2024-08-01T18:56:22.433Z</guid>
+      <guid isPermaLink="false">CVE-2024-1881|2024-07-19T20:57:23.522Z</guid>
       <pubDate>Thu, 06 Jun 2024 18:19:08 +0000</pubDate>
+    </item>
+    <item>
+      <title>CVE-2024-1879|2024-08-21T14:26:56.090Z -- significant-gravitas -- significant-gravitas%2Fautogpt</title>
+      <link>https://www.cve.org/CVERecord?id=CVE-2024-1879</link>
+      <description>A Cross-Site Request Forgery (CSRF) vulnerability in significant-gravitas/autogpt version v0.5.0 allows attackers to execute arbitrary commands on the AutoGPT server. The vulnerability stems from the lack of protections on the API endpoint receiving instructions, enabling an attacker to direct a user running AutoGPT in their local network to a malicious website. This site can then send crafted requests to the AutoGPT server, leading to command execution. The issue is exacerbated by CORS being enabled for arbitrary origins by default, allowing the attacker to read the response of all cross-site queries. This vulnerability was addressed in version 5.1.</description>
+      <guid isPermaLink="false">CVE-2024-1879|2024-08-21T14:26:56.090Z</guid>
+      <pubDate>Thu, 06 Jun 2024 17:53:21 +0000</pubDate>
     </item>
   </channel>
 </rss>
