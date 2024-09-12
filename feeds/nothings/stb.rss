@@ -6,7 +6,7 @@
     <description>The latest CVEs for nothings -- stb</description>
     <docs>http://www.rssboard.org/rss-specification</docs>
     <generator>python-feedgen</generator>
-    <lastBuildDate>Thu, 12 Sep 2024 16:24:31 +0000</lastBuildDate>
+    <lastBuildDate>Thu, 12 Sep 2024 17:22:41 +0000</lastBuildDate>
     <ttl>60</ttl>
     <item>
       <title>CVE-2023-45679|2024-09-12T13:36:24.697Z -- nothings -- stb
@@ -39,6 +39,14 @@
       <description>stb_vorbis is a single file MIT licensed library for processing ogg vorbis files. A crafted file may trigger out of bounds write in `f-&gt;vendor[len] = (char)'\0';`. The root cause is that if the len read in `start_decoder` is `-1` and `len + 1` becomes 0 when passed to `setup_malloc`. The `setup_malloc` behaves differently when `f-&gt;alloc.alloc_buffer` is pre-allocated. Instead of returning `NULL` as in `malloc` case it shifts the pre-allocated buffer by zero and returns the currently available memory block. This issue may lead to code execution.</description>
       <guid isPermaLink="false">CVE-2023-45675|2024-09-12T13:40:37.887Z</guid>
       <pubDate>Fri, 20 Oct 2023 23:26:45 +0000</pubDate>
+    </item>
+    <item>
+      <title>CVE-2023-45661|2024-09-12T16:02:39.001Z -- nothings -- stb
+</title>
+      <link>https://www.cve.org/CVERecord?id=CVE-2023-45661</link>
+      <description>stb_image is a single file MIT licensed library for processing images. A crafted image file may trigger out of bounds memcpy read in `stbi__gif_load_next`. This happens because two_back points to a memory address lower than the start of the buffer out. This issue may be used to leak internal memory allocation information.</description>
+      <guid isPermaLink="false">CVE-2023-45661|2024-09-12T16:02:39.001Z</guid>
+      <pubDate>Fri, 20 Oct 2023 23:26:08 +0000</pubDate>
     </item>
     <item>
       <title>CVE-2023-45678|2024-09-12T13:37:04.169Z -- nothings -- stb
