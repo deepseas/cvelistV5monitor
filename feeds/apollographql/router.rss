@@ -6,7 +6,7 @@
     <description>The latest CVEs for apollographql -- router</description>
     <docs>http://www.rssboard.org/rss-specification</docs>
     <generator>python-feedgen</generator>
-    <lastBuildDate>Fri, 13 Sep 2024 22:23:19 +0000</lastBuildDate>
+    <lastBuildDate>Fri, 13 Sep 2024 23:23:35 +0000</lastBuildDate>
     <ttl>60</ttl>
     <item>
       <title>CVE-2023-45812|2024-09-13T15:02:17.414Z -- apollographql -- router
@@ -17,17 +17,17 @@
       <pubDate>Wed, 18 Oct 2023 21:29:32 +0000</pubDate>
     </item>
     <item>
-      <title>CVE-2024-43783|2024-08-27T17:16:28.571Z -- apollographql -- router</title>
+      <title>CVE-2024-43783|2024-08-27T18:06:45.142Z -- apollographql -- router</title>
       <link>https://www.cve.org/CVERecord?id=CVE-2024-43783</link>
       <description>The Apollo Router Core is a configurable, high-performance graph router written in Rust to run a federated supergraph that uses Apollo Federation 2. Instances of the Apollo Router running versions &gt;=1.21.0 and &lt; 1.52.1 are impacted by a denial of service vulnerability if _all_ of the following are true: 1. The Apollo Router has been configured to support [External Coprocessing](https://www.apollographql.com/docs/router/customizations/coprocessor). 2. The Apollo Router has been configured to send request bodies to coprocessors. This is a non-default configuration and must be configured intentionally by administrators. Instances of the Apollo Router running versions &gt;=1.7.0 and &lt;1.52.1 are impacted by a denial-of-service vulnerability if all of the following are true: 1. Router has been configured to use a custom-developed Native Rust Plugin. 2. The plugin accesses Request.router_request in the RouterService layer. 3. You are accumulating the body from Request.router_request into memory. If using an impacted configuration, the Router will load entire HTTP request bodies into memory without respect to other HTTP request size-limiting configurations like limits.http_max_request_bytes. This can cause the Router to be out-of-memory (OOM) terminated if a sufficiently large request is sent to the Router. By default, the Router sets limits.http_max_request_bytes to 2 MB. If you have an impacted configuration as defined above, please upgrade to at least Apollo Router 1.52.1. If you cannot upgrade, you can mitigate the denial-of-service opportunity impacting External Coprocessors by setting the coprocessor.router.request.body configuration option to false. Please note that changing this configuration option will change the information sent to any coprocessors you have configured and may impact functionality implemented by those coprocessors. If you have developed a Native Rust Plugin and cannot upgrade, you can update your plugin to either not accumulate the request body or enforce a maximum body size limit. You can also mitigate this issue by limiting HTTP body payload sizes prior to the Router (e.g., in a proxy or web application firewall appliance).</description>
-      <guid isPermaLink="false">CVE-2024-43783|2024-08-27T17:16:28.571Z</guid>
+      <guid isPermaLink="false">CVE-2024-43783|2024-08-27T18:06:45.142Z</guid>
       <pubDate>Tue, 27 Aug 2024 17:16:28 +0000</pubDate>
     </item>
     <item>
-      <title>CVE-2024-32971|2024-05-02T06:43:27.646Z -- apollographql -- router</title>
-      <link>https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2024-32971</link>
+      <title>CVE-2024-32971|2024-08-02T02:27:52.865Z -- apollographql -- router</title>
+      <link>https://www.cve.org/CVERecord?id=CVE-2024-32971</link>
       <description>Apollo Router is a configurable, graph router written in Rust to run a federated supergraph that uses Apollo Federation 2. The affected versions of Apollo Router contain a bug that in limited circumstances, could lead to unexpected operations being executed which can result in unintended data or effects. This only affects Router instances configured to use distributed query plan caching. The root cause of this defect is a bug in Apollo Router’s cache retrieval logic: When this defect is present and distributed query planning caching is enabled, asking the Router to execute an operation (whether it is a query, a mutation, or a subscription) may result in an unexpected variation of that operation being executed or the generation of unexpected errors. The issue stems from inadvertently executing a modified version of a previously executed operation, whose query plan is stored in the underlying cache (specifically, Redis). Depending on the type of the operation, the result may vary. For a query, results may be fetched that don’t match what was requested (e.g., rather than running `fetchUsers(type: ENTERPRISE)` the Router may run `fetchUsers(type: TRIAL)`. For a mutation, this may result in incorrect mutations being sent to underlying subgraph servers (e.g., rather than sending `deleteUser(id: 10)` to a subgraph, the Router may run `deleteUser(id: 12)`. Users who are using distributed query plan caching, are advised to either upgrade to version 1.45.1 or above or downgrade to version 1.43.2 of the Apollo Router. Apollo Router versions 1.44.0 or 1.45.0 are not recommended for use and have been withdrawn. Users unable to upgrade can disable distributed query plan caching to mitigate this issue.</description>
-      <guid isPermaLink="false">CVE-2024-32971|2024-05-02T06:43:27.646Z</guid>
+      <guid isPermaLink="false">CVE-2024-32971|2024-08-02T02:27:52.865Z</guid>
       <pubDate>Thu, 02 May 2024 06:43:27 +0000</pubDate>
     </item>
     <item>
@@ -38,17 +38,17 @@
       <pubDate>Thu, 02 May 2024 06:43:27 +0000</pubDate>
     </item>
     <item>
-      <title>CVE-2024-32971|2024-08-02T02:27:52.865Z -- apollographql -- router</title>
-      <link>https://www.cve.org/CVERecord?id=CVE-2024-32971</link>
+      <title>CVE-2024-32971|2024-05-02T06:43:27.646Z -- apollographql -- router</title>
+      <link>https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2024-32971</link>
       <description>Apollo Router is a configurable, graph router written in Rust to run a federated supergraph that uses Apollo Federation 2. The affected versions of Apollo Router contain a bug that in limited circumstances, could lead to unexpected operations being executed which can result in unintended data or effects. This only affects Router instances configured to use distributed query plan caching. The root cause of this defect is a bug in Apollo Router’s cache retrieval logic: When this defect is present and distributed query planning caching is enabled, asking the Router to execute an operation (whether it is a query, a mutation, or a subscription) may result in an unexpected variation of that operation being executed or the generation of unexpected errors. The issue stems from inadvertently executing a modified version of a previously executed operation, whose query plan is stored in the underlying cache (specifically, Redis). Depending on the type of the operation, the result may vary. For a query, results may be fetched that don’t match what was requested (e.g., rather than running `fetchUsers(type: ENTERPRISE)` the Router may run `fetchUsers(type: TRIAL)`. For a mutation, this may result in incorrect mutations being sent to underlying subgraph servers (e.g., rather than sending `deleteUser(id: 10)` to a subgraph, the Router may run `deleteUser(id: 12)`. Users who are using distributed query plan caching, are advised to either upgrade to version 1.45.1 or above or downgrade to version 1.43.2 of the Apollo Router. Apollo Router versions 1.44.0 or 1.45.0 are not recommended for use and have been withdrawn. Users unable to upgrade can disable distributed query plan caching to mitigate this issue.</description>
-      <guid isPermaLink="false">CVE-2024-32971|2024-08-02T02:27:52.865Z</guid>
+      <guid isPermaLink="false">CVE-2024-32971|2024-05-02T06:43:27.646Z</guid>
       <pubDate>Thu, 02 May 2024 06:43:27 +0000</pubDate>
     </item>
     <item>
-      <title>CVE-2024-43783|2024-08-27T18:06:45.142Z -- apollographql -- router</title>
+      <title>CVE-2024-43783|2024-08-27T17:16:28.571Z -- apollographql -- router</title>
       <link>https://www.cve.org/CVERecord?id=CVE-2024-43783</link>
       <description>The Apollo Router Core is a configurable, high-performance graph router written in Rust to run a federated supergraph that uses Apollo Federation 2. Instances of the Apollo Router running versions &gt;=1.21.0 and &lt; 1.52.1 are impacted by a denial of service vulnerability if _all_ of the following are true: 1. The Apollo Router has been configured to support [External Coprocessing](https://www.apollographql.com/docs/router/customizations/coprocessor). 2. The Apollo Router has been configured to send request bodies to coprocessors. This is a non-default configuration and must be configured intentionally by administrators. Instances of the Apollo Router running versions &gt;=1.7.0 and &lt;1.52.1 are impacted by a denial-of-service vulnerability if all of the following are true: 1. Router has been configured to use a custom-developed Native Rust Plugin. 2. The plugin accesses Request.router_request in the RouterService layer. 3. You are accumulating the body from Request.router_request into memory. If using an impacted configuration, the Router will load entire HTTP request bodies into memory without respect to other HTTP request size-limiting configurations like limits.http_max_request_bytes. This can cause the Router to be out-of-memory (OOM) terminated if a sufficiently large request is sent to the Router. By default, the Router sets limits.http_max_request_bytes to 2 MB. If you have an impacted configuration as defined above, please upgrade to at least Apollo Router 1.52.1. If you cannot upgrade, you can mitigate the denial-of-service opportunity impacting External Coprocessors by setting the coprocessor.router.request.body configuration option to false. Please note that changing this configuration option will change the information sent to any coprocessors you have configured and may impact functionality implemented by those coprocessors. If you have developed a Native Rust Plugin and cannot upgrade, you can update your plugin to either not accumulate the request body or enforce a maximum body size limit. You can also mitigate this issue by limiting HTTP body payload sizes prior to the Router (e.g., in a proxy or web application firewall appliance).</description>
-      <guid isPermaLink="false">CVE-2024-43783|2024-08-27T18:06:45.142Z</guid>
+      <guid isPermaLink="false">CVE-2024-43783|2024-08-27T17:16:28.571Z</guid>
       <pubDate>Tue, 27 Aug 2024 17:16:28 +0000</pubDate>
     </item>
   </channel>
