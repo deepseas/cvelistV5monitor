@@ -6,74 +6,22 @@
     <description>The latest CVEs for wolfSSL -- wolfSSL</description>
     <docs>http://www.rssboard.org/rss-specification</docs>
     <generator>python-feedgen</generator>
-    <lastBuildDate>Fri, 30 Aug 2024 15:23:32 +0000</lastBuildDate>
+    <lastBuildDate>Mon, 16 Sep 2024 18:25:15 +0000</lastBuildDate>
     <ttl>60</ttl>
     <item>
-      <title>CVE-2024-1543|2024-08-30T14:19:32.248Z -- wolfssl -- wolfssl
+      <title>CVE-2017-13099|2024-09-16T17:08:12.140Z -- wolfssl -- wolfssl
 </title>
+      <link>https://www.cve.org/CVERecord?id=CVE-2017-13099</link>
+      <description>wolfSSL prior to version 3.12.2 provides a weak Bleichenbacher oracle when any TLS cipher suite using RSA key exchange is negotiated. An attacker can recover the private key from a vulnerable wolfSSL application. This vulnerability is referred to as "ROBOT."</description>
+      <guid isPermaLink="false">CVE-2017-13099|2024-09-16T17:08:12.140Z</guid>
+      <pubDate>Wed, 13 Dec 2017 01:00:00 +0000</pubDate>
+    </item>
+    <item>
+      <title>CVE-2024-1543|2024-08-29T22:43:35.775Z -- wolfssl -- wolfssl</title>
       <link>https://www.cve.org/CVERecord?id=CVE-2024-1543</link>
       <description>The side-channel protected T-Table implementation in wolfSSL up to version 5.6.5 protects against a side-channel attacker with cache-line resolution. In a controlled environment such as Intel SGX, an attacker can gain a per instruction sub-cache-line resolution allowing them to break the cache-line-level protection. For details on the attack refer to:  https://doi.org/10.46586/tches.v2024.i1.457-500</description>
-      <guid isPermaLink="false">CVE-2024-1543|2024-08-30T14:19:32.248Z</guid>
+      <guid isPermaLink="false">CVE-2024-1543|2024-08-29T22:43:35.775Z</guid>
       <pubDate>Thu, 29 Aug 2024 22:43:35 +0000</pubDate>
-    </item>
-    <item>
-      <title>CVE-2024-5991|2024-08-27T20:06:24.558Z -- wolfssl -- wolfssl</title>
-      <link>https://www.cve.org/CVERecord?id=CVE-2024-5991</link>
-      <description>In function MatchDomainName(), input param str is treated as a NULL terminated string despite being user provided and unchecked. Specifically, the function X509_check_host() takes in a pointer and length to check against, with no requirements that it be NULL terminated. If a caller was attempting to do a name check on a non-NULL terminated buffer, the code would read beyond the bounds of the input array until it found a NULL terminator.This issue affects wolfSSL: through 5.7.0.</description>
-      <guid isPermaLink="false">CVE-2024-5991|2024-08-27T20:06:24.558Z</guid>
-      <pubDate>Tue, 27 Aug 2024 18:33:27 +0000</pubDate>
-    </item>
-    <item>
-      <title>CVE-2024-5991|2024-08-27T18:33:27.550Z -- wolfssl -- wolfssl</title>
-      <link>https://www.cve.org/CVERecord?id=CVE-2024-5991</link>
-      <description>In function MatchDomainName(), input param str is treated as a NULL terminated string despite being user provided and unchecked. Specifically, the function X509_check_host() takes in a pointer and length to check against, with no requirements that it be NULL terminated. If a caller was attempting to do a name check on a non-NULL terminated buffer, the code would read beyond the bounds of the input array until it found a NULL terminator.This issue affects wolfSSL: through 5.7.0.</description>
-      <guid isPermaLink="false">CVE-2024-5991|2024-08-27T18:33:27.550Z</guid>
-      <pubDate>Tue, 27 Aug 2024 18:33:27 +0000</pubDate>
-    </item>
-    <item>
-      <title>CVE-2024-1544|2024-08-27T18:44:52.770Z -- wolfssl -- wolfssl</title>
-      <link>https://www.cve.org/CVERecord?id=CVE-2024-1544</link>
-      <description>Generating the ECDSA nonce k samples a random number r and then 
-truncates this randomness with a modular reduction mod n where n is the 
-order of the elliptic curve. Meaning k = r mod n. The division used 
-during the reduction estimates a factor q_e by dividing the upper two 
-digits (a digit having e.g. a size of 8 byte) of r by the upper digit of 
-n and then decrements q_e in a loop until it has the correct size. 
-Observing the number of times q_e is decremented through a control-flow 
-revealing side-channel reveals a bias in the most significant bits of 
-k. Depending on the curve this is either a negligible bias or a 
-significant bias large enough to reconstruct k with lattice reduction 
-methods. For SECP160R1, e.g., we find a bias of 15 bits.</description>
-      <guid isPermaLink="false">CVE-2024-1544|2024-08-27T18:44:52.770Z</guid>
-      <pubDate>Tue, 27 Aug 2024 18:44:52 +0000</pubDate>
-    </item>
-    <item>
-      <title>CVE-2024-5814|2024-08-27T18:38:08.974Z -- wolfssl -- wolfssl</title>
-      <link>https://www.cve.org/CVERecord?id=CVE-2024-5814</link>
-      <description>A malicious TLS1.2 server can force a TLS1.3 client with downgrade capability to use a ciphersuite that it did not agree to and achieve a successful connection. This is because, aside from the extensions, the client was skipping fully parsing the server hello.  https://doi.org/10.46586/tches.v2024.i1.457-500</description>
-      <guid isPermaLink="false">CVE-2024-5814|2024-08-27T18:38:08.974Z</guid>
-      <pubDate>Tue, 27 Aug 2024 18:38:08 +0000</pubDate>
-    </item>
-    <item>
-      <title>CVE-2024-0901|2024-08-01T18:39:44.207Z -- wolfssl -- wolfssl</title>
-      <link>https://www.cve.org/CVERecord?id=CVE-2024-0901</link>
-      <description>Remotely executed SEGV and out of bounds read allows malicious packet sender to crash or cause an out of bounds read via sending a malformed packet with the correct length.</description>
-      <guid isPermaLink="false">CVE-2024-0901|2024-08-01T18:39:44.207Z</guid>
-      <pubDate>Mon, 25 Mar 2024 22:37:56 +0000</pubDate>
-    </item>
-    <item>
-      <title>CVE-2024-0901|2024-03-25T22:37:56.581Z -- wolfssl -- wolfssl</title>
-      <link>https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2024-0901</link>
-      <description>Remotely executed SEGV and out of bounds read allows malicious packet sender to crash or cause an out of bounds read via sending a malformed packet with the correct length.</description>
-      <guid isPermaLink="false">CVE-2024-0901|2024-03-25T22:37:56.581Z</guid>
-      <pubDate>Mon, 25 Mar 2024 22:37:56 +0000</pubDate>
-    </item>
-    <item>
-      <title>CVE-2024-5814|2024-08-27T19:21:04.561Z -- wolfssl -- wolfssl</title>
-      <link>https://www.cve.org/CVERecord?id=CVE-2024-5814</link>
-      <description>A malicious TLS1.2 server can force a TLS1.3 client with downgrade capability to use a ciphersuite that it did not agree to and achieve a successful connection. This is because, aside from the extensions, the client was skipping fully parsing the server hello.  https://doi.org/10.46586/tches.v2024.i1.457-500</description>
-      <guid isPermaLink="false">CVE-2024-5814|2024-08-27T19:21:04.561Z</guid>
-      <pubDate>Tue, 27 Aug 2024 18:38:08 +0000</pubDate>
     </item>
     <item>
       <title>CVE-2024-1544|2024-08-27T19:14:35.190Z -- wolfssl -- wolfssl</title>
@@ -93,10 +41,69 @@ methods. For SECP160R1, e.g., we find a bias of 15 bits.</description>
       <pubDate>Tue, 27 Aug 2024 18:44:52 +0000</pubDate>
     </item>
     <item>
-      <title>CVE-2024-1543|2024-08-29T22:43:35.775Z -- wolfssl -- wolfssl</title>
+      <title>CVE-2024-5814|2024-08-27T19:21:04.561Z -- wolfssl -- wolfssl</title>
+      <link>https://www.cve.org/CVERecord?id=CVE-2024-5814</link>
+      <description>A malicious TLS1.2 server can force a TLS1.3 client with downgrade capability to use a ciphersuite that it did not agree to and achieve a successful connection. This is because, aside from the extensions, the client was skipping fully parsing the server hello.  https://doi.org/10.46586/tches.v2024.i1.457-500</description>
+      <guid isPermaLink="false">CVE-2024-5814|2024-08-27T19:21:04.561Z</guid>
+      <pubDate>Tue, 27 Aug 2024 18:38:08 +0000</pubDate>
+    </item>
+    <item>
+      <title>CVE-2024-0901|2024-03-25T22:37:56.581Z -- wolfssl -- wolfssl</title>
+      <link>https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2024-0901</link>
+      <description>Remotely executed SEGV and out of bounds read allows malicious packet sender to crash or cause an out of bounds read via sending a malformed packet with the correct length.</description>
+      <guid isPermaLink="false">CVE-2024-0901|2024-03-25T22:37:56.581Z</guid>
+      <pubDate>Mon, 25 Mar 2024 22:37:56 +0000</pubDate>
+    </item>
+    <item>
+      <title>CVE-2024-0901|2024-08-01T18:39:44.207Z -- wolfssl -- wolfssl</title>
+      <link>https://www.cve.org/CVERecord?id=CVE-2024-0901</link>
+      <description>Remotely executed SEGV and out of bounds read allows malicious packet sender to crash or cause an out of bounds read via sending a malformed packet with the correct length.</description>
+      <guid isPermaLink="false">CVE-2024-0901|2024-08-01T18:39:44.207Z</guid>
+      <pubDate>Mon, 25 Mar 2024 22:37:56 +0000</pubDate>
+    </item>
+    <item>
+      <title>CVE-2024-5814|2024-08-27T18:38:08.974Z -- wolfssl -- wolfssl</title>
+      <link>https://www.cve.org/CVERecord?id=CVE-2024-5814</link>
+      <description>A malicious TLS1.2 server can force a TLS1.3 client with downgrade capability to use a ciphersuite that it did not agree to and achieve a successful connection. This is because, aside from the extensions, the client was skipping fully parsing the server hello.  https://doi.org/10.46586/tches.v2024.i1.457-500</description>
+      <guid isPermaLink="false">CVE-2024-5814|2024-08-27T18:38:08.974Z</guid>
+      <pubDate>Tue, 27 Aug 2024 18:38:08 +0000</pubDate>
+    </item>
+    <item>
+      <title>CVE-2024-1544|2024-08-27T18:44:52.770Z -- wolfssl -- wolfssl</title>
+      <link>https://www.cve.org/CVERecord?id=CVE-2024-1544</link>
+      <description>Generating the ECDSA nonce k samples a random number r and then 
+truncates this randomness with a modular reduction mod n where n is the 
+order of the elliptic curve. Meaning k = r mod n. The division used 
+during the reduction estimates a factor q_e by dividing the upper two 
+digits (a digit having e.g. a size of 8 byte) of r by the upper digit of 
+n and then decrements q_e in a loop until it has the correct size. 
+Observing the number of times q_e is decremented through a control-flow 
+revealing side-channel reveals a bias in the most significant bits of 
+k. Depending on the curve this is either a negligible bias or a 
+significant bias large enough to reconstruct k with lattice reduction 
+methods. For SECP160R1, e.g., we find a bias of 15 bits.</description>
+      <guid isPermaLink="false">CVE-2024-1544|2024-08-27T18:44:52.770Z</guid>
+      <pubDate>Tue, 27 Aug 2024 18:44:52 +0000</pubDate>
+    </item>
+    <item>
+      <title>CVE-2024-5991|2024-08-27T18:33:27.550Z -- wolfssl -- wolfssl</title>
+      <link>https://www.cve.org/CVERecord?id=CVE-2024-5991</link>
+      <description>In function MatchDomainName(), input param str is treated as a NULL terminated string despite being user provided and unchecked. Specifically, the function X509_check_host() takes in a pointer and length to check against, with no requirements that it be NULL terminated. If a caller was attempting to do a name check on a non-NULL terminated buffer, the code would read beyond the bounds of the input array until it found a NULL terminator.This issue affects wolfSSL: through 5.7.0.</description>
+      <guid isPermaLink="false">CVE-2024-5991|2024-08-27T18:33:27.550Z</guid>
+      <pubDate>Tue, 27 Aug 2024 18:33:27 +0000</pubDate>
+    </item>
+    <item>
+      <title>CVE-2024-5991|2024-08-27T20:06:24.558Z -- wolfssl -- wolfssl</title>
+      <link>https://www.cve.org/CVERecord?id=CVE-2024-5991</link>
+      <description>In function MatchDomainName(), input param str is treated as a NULL terminated string despite being user provided and unchecked. Specifically, the function X509_check_host() takes in a pointer and length to check against, with no requirements that it be NULL terminated. If a caller was attempting to do a name check on a non-NULL terminated buffer, the code would read beyond the bounds of the input array until it found a NULL terminator.This issue affects wolfSSL: through 5.7.0.</description>
+      <guid isPermaLink="false">CVE-2024-5991|2024-08-27T20:06:24.558Z</guid>
+      <pubDate>Tue, 27 Aug 2024 18:33:27 +0000</pubDate>
+    </item>
+    <item>
+      <title>CVE-2024-1543|2024-08-30T14:19:32.248Z -- wolfssl -- wolfssl</title>
       <link>https://www.cve.org/CVERecord?id=CVE-2024-1543</link>
       <description>The side-channel protected T-Table implementation in wolfSSL up to version 5.6.5 protects against a side-channel attacker with cache-line resolution. In a controlled environment such as Intel SGX, an attacker can gain a per instruction sub-cache-line resolution allowing them to break the cache-line-level protection. For details on the attack refer to:  https://doi.org/10.46586/tches.v2024.i1.457-500</description>
-      <guid isPermaLink="false">CVE-2024-1543|2024-08-29T22:43:35.775Z</guid>
+      <guid isPermaLink="false">CVE-2024-1543|2024-08-30T14:19:32.248Z</guid>
       <pubDate>Thu, 29 Aug 2024 22:43:35 +0000</pubDate>
     </item>
   </channel>

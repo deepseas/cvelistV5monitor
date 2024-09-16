@@ -6,23 +6,23 @@
     <description>The latest CVEs for NLnet Labs -- all products</description>
     <docs>http://www.rssboard.org/rss-specification</docs>
     <generator>python-feedgen</generator>
-    <lastBuildDate>Thu, 12 Sep 2024 23:23:47 +0000</lastBuildDate>
+    <lastBuildDate>Mon, 16 Sep 2024 18:24:59 +0000</lastBuildDate>
     <ttl>60</ttl>
     <item>
-      <title>CVE-2023-39915|2024-09-12T13:22:03.133Z -- nlnet%20labs -- routinator
+      <title>CVE-2022-3029|2024-09-16T17:49:23.765Z -- nlnet%20labs -- routinator
 </title>
-      <link>https://www.cve.org/CVERecord?id=CVE-2023-39915</link>
-      <description>NLnet Labs' Routinator up to and including version 0.12.1 may crash when trying to parse certain malformed RPKI objects. This is due to insufficient input checking in the bcder library covered by CVE-2023-39914.</description>
-      <guid isPermaLink="false">CVE-2023-39915|2024-09-12T13:22:03.133Z</guid>
-      <pubDate>Wed, 13 Sep 2023 14:20:59 +0000</pubDate>
+      <link>https://www.cve.org/CVERecord?id=CVE-2022-3029</link>
+      <description>In NLnet Labs Routinator 0.9.0 up to and including 0.11.2, due to a mistake in error handling, data in RRDP snapshot and delta files that isn’t correctly base 64 encoded is treated as a fatal error and causes Routinator to exit. Worst case impact of this vulnerability is denial of service for the RPKI data that Routinator provides to routers. This may stop your network from validating route origins based on RPKI data. This vulnerability does not allow an attacker to manipulate RPKI data.</description>
+      <guid isPermaLink="false">CVE-2022-3029|2024-09-16T17:49:23.765Z</guid>
+      <pubDate>Tue, 13 Sep 2022 15:17:57 +0000</pubDate>
     </item>
     <item>
-      <title>CVE-2023-39914|2024-09-12T13:22:36.893Z -- nlnet%20labs -- bcder
+      <title>CVE-2021-43172|2024-09-16T17:03:32.303Z -- nlnet%20labs -- routinator
 </title>
-      <link>https://www.cve.org/CVERecord?id=CVE-2023-39914</link>
-      <description>NLnet Labs' bcder library up to and including version 0.7.2 panics while decoding certain invalid input data rather than rejecting the data with an error. This can affect both the actual decoding stage as well as accessing content of types that utilized delayed decoding.</description>
-      <guid isPermaLink="false">CVE-2023-39914|2024-09-12T13:22:36.893Z</guid>
-      <pubDate>Wed, 13 Sep 2023 14:17:49 +0000</pubDate>
+      <link>https://www.cve.org/CVERecord?id=CVE-2021-43172</link>
+      <description>NLnet Labs Routinator prior to 0.10.2 happily processes a chain of RRDP repositories of infinite length causing it to never finish a validation run. In RPKI, a CA can choose the RRDP repository it wishes to publish its data in. By continuously generating a new child CA that only consists of another CA using a different RRDP repository, a malicious CA can create a chain of CAs of de-facto infinite length. Routinator prior to version 0.10.2 did not contain a limit on the length of such a chain and will therefore continue to process this chain forever. As a result, the validation run will never finish, leading to Routinator continuing to serve the old data set or, if in the initial validation run directly after starting, never serve any data at all.</description>
+      <guid isPermaLink="false">CVE-2021-43172|2024-09-16T17:03:32.303Z</guid>
+      <pubDate>Tue, 09 Nov 2021 16:41:39 +0000</pubDate>
     </item>
   </channel>
 </rss>
