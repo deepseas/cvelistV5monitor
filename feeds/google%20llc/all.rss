@@ -6,209 +6,23 @@
     <description>The latest CVEs for Google LLC -- all products</description>
     <docs>http://www.rssboard.org/rss-specification</docs>
     <generator>python-feedgen</generator>
-    <lastBuildDate>Sun, 04 Aug 2024 23:23:12 +0000</lastBuildDate>
+    <lastBuildDate>Mon, 16 Sep 2024 17:23:01 +0000</lastBuildDate>
     <ttl>60</ttl>
     <item>
-      <title>CVE-2020-8938|2024-08-04T10:12:11.012Z -- google%20llc -- asylo
+      <title>CVE-2021-22545|2024-09-16T16:18:11.919Z -- google%20llc -- bindiff
 </title>
-      <link>https://www.cve.org/CVERecord?id=CVE-2020-8938</link>
-      <description>An arbitrary memory overwrite vulnerability in Asylo versions up to 0.6.0 allows an attacker to make a host call to FromkLinuxSockAddr with attacker controlled content and size of klinux_addr which allows an attacker to write memory values from within the enclave. We recommend upgrading past commit a37fb6a0e7daf30134dbbf357c9a518a1026aa02</description>
-      <guid isPermaLink="false">CVE-2020-8938|2024-08-04T10:12:11.012Z</guid>
-      <pubDate>Tue, 15 Dec 2020 14:55:35 +0000</pubDate>
+      <link>https://www.cve.org/CVERecord?id=CVE-2021-22545</link>
+      <description>An attacker can craft a specific IdaPro *.i64 file that will cause the BinDiff plugin to load an invalid memory offset. This can allow the attacker to control the instruction pointer and execute arbitrary code. It is recommended to upgrade BinDiff 7</description>
+      <guid isPermaLink="false">CVE-2021-22545|2024-09-16T16:18:11.919Z</guid>
+      <pubDate>Tue, 29 Jun 2021 11:55:11 +0000</pubDate>
     </item>
     <item>
-      <title>CVE-2020-8927|2024-08-04T10:12:11.066Z -- google%20llc -- brotli
+      <title>CVE-2022-0317|2024-09-16T16:43:20.808Z -- google%20llc -- go-attestation
 </title>
-      <link>https://www.cve.org/CVERecord?id=CVE-2020-8927</link>
-      <description>A buffer overflow exists in the Brotli library versions prior to 1.0.8 where an attacker controlling the input length of a "one-shot" decompression request to a script can trigger a crash, which happens when copying over chunks of data larger than 2 GiB. It is recommended to update your Brotli library to 1.0.8 or later. If one cannot update, we recommend to use the "streaming" API as opposed to the "one-shot" API, and impose chunk size limits.</description>
-      <guid isPermaLink="false">CVE-2020-8927|2024-08-04T10:12:11.066Z</guid>
-      <pubDate>Tue, 15 Sep 2020 09:15:12 +0000</pubDate>
-    </item>
-    <item>
-      <title>CVE-2020-8943|2024-08-04T10:12:11.017Z -- google%20llc -- asylo
-</title>
-      <link>https://www.cve.org/CVERecord?id=CVE-2020-8943</link>
-      <description>An arbitrary memory read vulnerability in Asylo versions up to 0.6.0 allows an untrusted attacker to make a call to enc_untrusted_recvfrom whose return size was not validated against the requested size. The parameter size is unchecked allowing the attacker to read memory locations outside of the intended buffer size including memory addresses within the secure enclave. We recommend upgrading past commit 6e158d558abd3c29a0208e30c97c9a8c5bd4230f</description>
-      <guid isPermaLink="false">CVE-2020-8943|2024-08-04T10:12:11.017Z</guid>
-      <pubDate>Tue, 15 Dec 2020 14:55:38 +0000</pubDate>
-    </item>
-    <item>
-      <title>CVE-2020-8911|2024-08-04T10:12:11.063Z -- google%20llc -- aws%20s3%20crypto%20sdk%20for%20golang
-</title>
-      <link>https://www.cve.org/CVERecord?id=CVE-2020-8911</link>
-      <description>A padding oracle vulnerability exists in the AWS S3 Crypto SDK for GoLang versions prior to V2. The SDK allows users to encrypt files with AES-CBC without computing a Message Authentication Code (MAC), which then allows an attacker who has write access to the target's S3 bucket and can observe whether or not an endpoint with access to the key can decrypt a file, they can reconstruct the plaintext with (on average) 128*length (plaintext) queries to the endpoint, by exploiting CBC's ability to manipulate the bytes of the next block and PKCS5 padding errors. It is recommended to update your SDK to V2 or later, and re-encrypt your files.</description>
-      <guid isPermaLink="false">CVE-2020-8911|2024-08-04T10:12:11.063Z</guid>
-      <pubDate>Tue, 11 Aug 2020 19:20:14 +0000</pubDate>
-    </item>
-    <item>
-      <title>CVE-2020-8941|2024-08-04T10:12:10.981Z -- google%20llc -- asylo
-</title>
-      <link>https://www.cve.org/CVERecord?id=CVE-2020-8941</link>
-      <description>An arbitrary memory read vulnerability in Asylo versions up to 0.6.0 allows an untrusted attacker to make a call to enc_untrusted_inet_pton using an attacker controlled klinux_addr_buffer parameter. The parameter size is unchecked allowing the attacker to read memory locations outside of the intended buffer size including memory addresses within the secure enclave. We recommend upgrading past commit 8fed5e334131abaf9c5e17307642fbf6ce4a57ec</description>
-      <guid isPermaLink="false">CVE-2020-8941|2024-08-04T10:12:10.981Z</guid>
-      <pubDate>Tue, 15 Dec 2020 14:55:37 +0000</pubDate>
-    </item>
-    <item>
-      <title>CVE-2020-8908|2024-08-04T10:12:10.998Z -- google%20llc -- guava
-</title>
-      <link>https://www.cve.org/CVERecord?id=CVE-2020-8908</link>
-      <description>A temp directory creation vulnerability exists in all versions of Guava, allowing an attacker with access to the machine to potentially access data in a temporary directory created by the Guava API com.google.common.io.Files.createTempDir(). By default, on unix-like systems, the created directory is world-readable (readable by an attacker with access to the system). The method in question has been marked @Deprecated in versions 30.0 and later and should not be used. For Android developers, we recommend choosing a temporary directory API provided by Android, such as context.getCacheDir(). For other Java developers, we recommend migrating to the Java 7 API java.nio.file.Files.createTempDirectory() which explicitly configures permissions of 700, or configuring the Java runtime's java.io.tmpdir system property to point to a location whose permissions are appropriately configured.
-
-</description>
-      <guid isPermaLink="false">CVE-2020-8908|2024-08-04T10:12:10.998Z</guid>
-      <pubDate>Thu, 10 Dec 2020 22:10:58 +0000</pubDate>
-    </item>
-    <item>
-      <title>CVE-2020-8940|2024-08-04T10:12:10.977Z -- google%20llc -- asylo
-</title>
-      <link>https://www.cve.org/CVERecord?id=CVE-2020-8940</link>
-      <description>An arbitrary memory read vulnerability in Asylo versions up to 0.6.0 allows an untrusted attacker to make a call to enc_untrusted_recvmsg using an attacker controlled result parameter. The parameter size is unchecked allowing the attacker to read memory locations outside of the intended buffer size including memory addresses within the secure enclave. We recommend upgrading or past commit fa6485c5d16a7355eab047d4a44345a73bc9131e</description>
-      <guid isPermaLink="false">CVE-2020-8940|2024-08-04T10:12:10.977Z</guid>
-      <pubDate>Tue, 15 Dec 2020 14:55:36 +0000</pubDate>
-    </item>
-    <item>
-      <title>CVE-2020-8944|2024-08-04T10:12:10.992Z -- google%20llc -- asylo
-</title>
-      <link>https://www.cve.org/CVERecord?id=CVE-2020-8944</link>
-      <description>An arbitrary memory write vulnerability in Asylo versions up to 0.6.0 allows an untrusted attacker to make a call to ecall_restore using the attribute output which fails to check the range of a pointer. An attacker can use this pointer to write to arbitrary memory addresses including those within the secure enclave We recommend upgrading past commit 382da2b8b09cbf928668a2445efb778f76bd9c8a</description>
-      <guid isPermaLink="false">CVE-2020-8944|2024-08-04T10:12:10.992Z</guid>
-      <pubDate>Tue, 15 Dec 2020 14:55:39 +0000</pubDate>
-    </item>
-    <item>
-      <title>CVE-2020-8912|2024-08-04T10:12:10.969Z -- google%20llc -- aws%20s3%20crypto%20sdk%20for%20golang
-</title>
-      <link>https://www.cve.org/CVERecord?id=CVE-2020-8912</link>
-      <description>A vulnerability in the in-band key negotiation exists in the AWS S3 Crypto SDK for GoLang versions prior to V2. An attacker with write access to the targeted bucket can change the encryption algorithm of an object in the bucket, which can then allow them to change AES-GCM to AES-CTR. Using this in combination with a decryption oracle can reveal the authentication key used by AES-GCM as decrypting the GMAC tag leaves the authentication key recoverable as an algebraic equation. It is recommended to update your SDK to V2 or later, and re-encrypt your files.</description>
-      <guid isPermaLink="false">CVE-2020-8912|2024-08-04T10:12:10.969Z</guid>
-      <pubDate>Tue, 11 Aug 2020 19:20:14 +0000</pubDate>
-    </item>
-    <item>
-      <title>CVE-2020-8902|2024-08-04T10:12:11.061Z -- google%20llc -- rendertron
-</title>
-      <link>https://www.cve.org/CVERecord?id=CVE-2020-8902</link>
-      <description>Rendertron versions prior to 3.0.0 are are susceptible to a Server-Side Request Forgery (SSRF) attack. An attacker can use a specially crafted webpage to force a rendertron headless chrome process to render internal sites it has access to, and display it as a screenshot. Suggested mitigations are to upgrade your rendertron to version 3.0.0, or, if you cannot update, to secure the infrastructure to limit the headless chrome's access to your internal domain.</description>
-      <guid isPermaLink="false">CVE-2020-8902|2024-08-04T10:12:11.061Z</guid>
-      <pubDate>Tue, 23 Feb 2021 12:00:16 +0000</pubDate>
-    </item>
-    <item>
-      <title>CVE-2020-8933|2024-08-04T10:12:10.996Z -- google%20llc -- guest-oslogin
-</title>
-      <link>https://www.cve.org/CVERecord?id=CVE-2020-8933</link>
-      <description>A vulnerability in Google Cloud Platform's guest-oslogin versions between 20190304 and 20200507 allows a user that is only granted the role "roles/compute.osLogin" to escalate privileges to root. Using the membership to the "lxd" group, an attacker can attach host devices and filesystems. Within an lxc container, it is possible to attach the host OS filesystem and modify /etc/sudoers to then gain administrative privileges. All images created after 2020-May-07 (20200507) are fixed, and if you cannot update, we recommend you edit /etc/group/security.conf and remove the "lxd" user from the OS Login entry.</description>
-      <guid isPermaLink="false">CVE-2020-8933|2024-08-04T10:12:10.996Z</guid>
-      <pubDate>Mon, 22 Jun 2020 13:45:26 +0000</pubDate>
-    </item>
-    <item>
-      <title>CVE-2020-8913|2024-08-04T10:12:10.972Z -- google%20llc -- android%20play%20core
-</title>
-      <link>https://www.cve.org/CVERecord?id=CVE-2020-8913</link>
-      <description>A local, arbitrary code execution vulnerability exists in the SplitCompat.install endpoint in Android's Play Core Library versions prior to 1.7.2. A malicious attacker could create an apk which targets a specific application, and if a victim were to install this apk, the attacker could perform a directory traversal, execute code as the targeted application and access the targeted application's data on the Android device. We recommend all users update Play Core to version 1.7.2 or later.</description>
-      <guid isPermaLink="false">CVE-2020-8913|2024-08-04T10:12:10.972Z</guid>
-      <pubDate>Wed, 12 Aug 2020 07:10:12 +0000</pubDate>
-    </item>
-    <item>
-      <title>CVE-2020-8896|2024-08-04T10:12:11.000Z -- google%20llc -- google%20earth%20pro
-</title>
-      <link>https://www.cve.org/CVERecord?id=CVE-2020-8896</link>
-      <description>A Buffer Overflow vulnerability in the khcrypt implementation in Google Earth Pro versions up to and including 7.3.2 allows an attacker to perform a Man-in-the-Middle attack using a specially crafted key to read data past the end of the buffer used to hold it. Mitigation: Update to Google Earth Pro 7.3.3.</description>
-      <guid isPermaLink="false">CVE-2020-8896|2024-08-04T10:12:11.000Z</guid>
-      <pubDate>Mon, 04 May 2020 13:25:04 +0000</pubDate>
-    </item>
-    <item>
-      <title>CVE-2020-8905|2024-08-04T10:12:11.061Z -- google%20llc -- asylo
-</title>
-      <link>https://www.cve.org/CVERecord?id=CVE-2020-8905</link>
-      <description>A buffer length validation vulnerability in Asylo versions prior to 0.6.0 allows an attacker to read data they should not have access to. The 'enc_untrusted_recvfrom' function generates a return value which is deserialized by 'MessageReader', and copied into three different 'extents'. The length of the third 'extents' is controlled by the outside world, and not verified on copy, allowing the attacker to force Asylo to copy trusted memory data into an untrusted buffer of significantly small length.. We recommend updating Asylo to version 0.6.0 or later.</description>
-      <guid isPermaLink="false">CVE-2020-8905|2024-08-04T10:12:11.061Z</guid>
-      <pubDate>Wed, 22 Jul 2020 00:00:00 +0000</pubDate>
-    </item>
-    <item>
-      <title>CVE-2020-8918|2024-08-04T10:12:11.062Z -- google%20llc -- google%2Fgo-tpm%20library
-</title>
-      <link>https://www.cve.org/CVERecord?id=CVE-2020-8918</link>
-      <description>An improperly initialized 'migrationAuth' value in Google's go-tpm TPM1.2 library versions prior to 0.3.0 can lead an eavesdropping attacker to discover the auth value for a key created with CreateWrapKey. An attacker listening in on the channel can collect both 'encUsageAuth' and 'encMigrationAuth', and then can calculate 'usageAuth ^ encMigrationAuth' as the 'migrationAuth' can be guessed for all keys created with CreateWrapKey. TPM2.0 is not impacted by this. We recommend updating your library to 0.3.0 or later, or, if you cannot update, to call CreateWrapKey with a random 20-byte value for 'migrationAuth'.</description>
-      <guid isPermaLink="false">CVE-2020-8918|2024-08-04T10:12:11.062Z</guid>
-      <pubDate>Tue, 11 Aug 2020 18:35:11 +0000</pubDate>
-    </item>
-    <item>
-      <title>CVE-2020-8935|2024-08-04T10:12:11.011Z -- google%20llc -- asylo
-</title>
-      <link>https://www.cve.org/CVERecord?id=CVE-2020-8935</link>
-      <description>An arbitrary memory overwrite vulnerability in Asylo versions up to 0.6.0 allow an attacker to make an Ecall_restore function call to reallocate untrusted code and overwrite sections of the Enclave memory address. We recommend updating your library.</description>
-      <guid isPermaLink="false">CVE-2020-8935|2024-08-04T10:12:11.011Z</guid>
-      <pubDate>Tue, 15 Dec 2020 14:55:32 +0000</pubDate>
-    </item>
-    <item>
-      <title>CVE-2020-8929|2024-08-04T10:12:11.052Z -- google%20llc -- tink
-</title>
-      <link>https://www.cve.org/CVERecord?id=CVE-2020-8929</link>
-      <description>A mis-handling of invalid unicode characters in the Java implementation of Tink versions prior to 1.5 allows an attacker to change the ID part of a ciphertext, which result in the creation of a second ciphertext that can decrypt to the same plaintext. This can be a problem with encrypting deterministic AEAD with a single key, and rely on a unique ciphertext-per-plaintext.</description>
-      <guid isPermaLink="false">CVE-2020-8929|2024-08-04T10:12:11.052Z</guid>
-      <pubDate>Mon, 19 Oct 2020 12:15:16 +0000</pubDate>
-    </item>
-    <item>
-      <title>CVE-2020-8904|2024-08-04T10:12:11.014Z -- google%20llc -- asylo
-</title>
-      <link>https://www.cve.org/CVERecord?id=CVE-2020-8904</link>
-      <description>An arbitrary memory overwrite vulnerability in the trusted memory of Asylo exists in versions prior to 0.6.0. As the ecall_restore function fails to validate the range of the output_len pointer, an attacker can manipulate the tmp_output_len value and write to an arbitrary location in the trusted (enclave) memory. We recommend updating Asylo to version 0.6.0 or later.</description>
-      <guid isPermaLink="false">CVE-2020-8904|2024-08-04T10:12:11.014Z</guid>
-      <pubDate>Wed, 22 Jul 2020 00:00:00 +0000</pubDate>
-    </item>
-    <item>
-      <title>CVE-2020-8903|2024-08-04T10:12:11.047Z -- google%20llc -- guest-oslogin
-</title>
-      <link>https://www.cve.org/CVERecord?id=CVE-2020-8903</link>
-      <description>A vulnerability in Google Cloud Platform's guest-oslogin versions between 20190304 and 20200507 allows a user that is only granted the role "roles/compute.osLogin" to escalate privileges to root. Using their membership to the "adm" group, users with this role are able to read the DHCP XID from the systemd journal. Using the DHCP XID, it is then possible to set the IP address and hostname of the instance to any value, which is then stored in /etc/hosts. An attacker can then point metadata.google.internal to an arbitrary IP address and impersonate the GCE metadata server which make it is possible to instruct the OS Login PAM module to grant administrative privileges. All images created after 2020-May-07 (20200507) are fixed, and if you cannot update, we recommend you edit /etc/group/security.conf and remove the "adm" user from the OS Login entry.</description>
-      <guid isPermaLink="false">CVE-2020-8903|2024-08-04T10:12:11.047Z</guid>
-      <pubDate>Mon, 22 Jun 2020 13:45:25 +0000</pubDate>
-    </item>
-    <item>
-      <title>CVE-2020-8916|2024-08-04T10:12:11.054Z -- google%20llc -- wpantund
-</title>
-      <link>https://www.cve.org/CVERecord?id=CVE-2020-8916</link>
-      <description>A memory leak in Openthread's wpantund versions up to commit 0e5d1601febb869f583e944785e5685c6c747be7, when used in an environment where wpanctl is directly interfacing with the control driver (eg: debug environments) can allow an attacker to crash the service (DoS). We recommend updating, or to restrict access in your debug environments.</description>
-      <guid isPermaLink="false">CVE-2020-8916|2024-08-04T10:12:11.054Z</guid>
-      <pubDate>Tue, 07 Jul 2020 20:15:12 +0000</pubDate>
-    </item>
-    <item>
-      <title>CVE-2020-8936|2024-08-04T10:12:11.009Z -- google%20llc -- asylo
-</title>
-      <link>https://www.cve.org/CVERecord?id=CVE-2020-8936</link>
-      <description>An arbitrary memory overwrite vulnerability in Asylo versions up to 0.6.0 allows an attacker to make a host call to UntrustedCall. UntrustedCall failed to validate the buffer range within sgx_params and allowed the host to return a pointer that was an address within the enclave memory. This allowed an attacker to read memory values from within the enclave.</description>
-      <guid isPermaLink="false">CVE-2020-8936|2024-08-04T10:12:11.009Z</guid>
-      <pubDate>Tue, 15 Dec 2020 14:55:33 +0000</pubDate>
-    </item>
-    <item>
-      <title>CVE-2020-8942|2024-08-04T10:12:11.000Z -- google%20llc -- asylo
-</title>
-      <link>https://www.cve.org/CVERecord?id=CVE-2020-8942</link>
-      <description>An arbitrary memory read vulnerability in Asylo versions up to 0.6.0 allows an untrusted attacker to make a call to enc_untrusted_read whose return size was not validated against the requrested size. The parameter size is unchecked allowing the attacker to read memory locations outside of the intended buffer size including memory addresses within the secure enclave. We recommend upgrading past commit b1d120a2c7d7446d2cc58d517e20a1b184b82200</description>
-      <guid isPermaLink="false">CVE-2020-8942|2024-08-04T10:12:11.000Z</guid>
-      <pubDate>Tue, 15 Dec 2020 14:55:38 +0000</pubDate>
-    </item>
-    <item>
-      <title>CVE-2020-8937|2024-08-04T10:12:11.093Z -- google%20llc -- asylo
-</title>
-      <link>https://www.cve.org/CVERecord?id=CVE-2020-8937</link>
-      <description>An arbitrary memory overwrite vulnerability in Asylo versions up to 0.6.0 allows an attacker to make a host call to enc_untrusted_create_wait_queue that uses a pointer queue that relies on UntrustedLocalMemcpy, which fails to validate where the pointer is located. This allows an attacker to write memory values from within the enclave. We recommend upgrading past commit a37fb6a0e7daf30134dbbf357c9a518a1026aa02</description>
-      <guid isPermaLink="false">CVE-2020-8937|2024-08-04T10:12:11.093Z</guid>
-      <pubDate>Tue, 15 Dec 2020 14:55:34 +0000</pubDate>
-    </item>
-    <item>
-      <title>CVE-2020-8939|2024-08-04T10:12:11.010Z -- google%20llc -- asylo
-</title>
-      <link>https://www.cve.org/CVERecord?id=CVE-2020-8939</link>
-      <description>An out of bounds read on the enc_untrusted_inet_ntop function allows an attack to extend the result size that is used by memcpy() to read memory from within the enclave heap. We recommend upgrading past commit 6ff3b77ffe110a33a2f93848a6333f33616f02c4</description>
-      <guid isPermaLink="false">CVE-2020-8939|2024-08-04T10:12:11.010Z</guid>
-      <pubDate>Tue, 15 Dec 2020 14:55:35 +0000</pubDate>
-    </item>
-    <item>
-      <title>CVE-2020-8907|2024-08-04T10:12:10.984Z -- google%20llc -- guest-oslogin
-</title>
-      <link>https://www.cve.org/CVERecord?id=CVE-2020-8907</link>
-      <description>A vulnerability in Google Cloud Platform's guest-oslogin versions between 20190304 and 20200507 allows a user that is only granted the role "roles/compute.osLogin" to escalate privileges to root. Using their membership to the "docker" group, an attacker with this role is able to run docker and mount the host OS. Within docker, it is possible to modify the host OS filesystem and modify /etc/groups to gain administrative privileges. All images created after 2020-May-07 (20200507) are fixed, and if you cannot update, we recommend you edit /etc/group/security.conf and remove the "docker" user from the OS Login entry.</description>
-      <guid isPermaLink="false">CVE-2020-8907|2024-08-04T10:12:10.984Z</guid>
-      <pubDate>Mon, 22 Jun 2020 13:45:25 +0000</pubDate>
+      <link>https://www.cve.org/CVERecord?id=CVE-2022-0317</link>
+      <description>An improper input validation vulnerability in go-attestation before 0.3.3 allows local users to provide a maliciously-formed Quote over no/some PCRs, causing AKPublic.Verify to succeed despite the inconsistency. Subsequent use of the same set of PCR values in Eventlog.Verify lacks the authentication performed by quote verification, meaning a local attacker could couple this vulnerability with a maliciously-crafted TCG log in Eventlog.Verify to spoof events in the TCG log, hence defeating remotely-attested measured-boot. We recommend upgrading to Version 0.4.0 or above.</description>
+      <guid isPermaLink="false">CVE-2022-0317|2024-09-16T16:43:20.808Z</guid>
+      <pubDate>Fri, 04 Feb 2022 22:33:03 +0000</pubDate>
     </item>
   </channel>
 </rss>
