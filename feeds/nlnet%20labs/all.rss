@@ -6,7 +6,7 @@
     <description>The latest CVEs for NLnet Labs -- all products</description>
     <docs>http://www.rssboard.org/rss-specification</docs>
     <generator>python-feedgen</generator>
-    <lastBuildDate>Mon, 16 Sep 2024 19:20:14 +0000</lastBuildDate>
+    <lastBuildDate>Mon, 16 Sep 2024 20:23:43 +0000</lastBuildDate>
     <ttl>60</ttl>
     <item>
       <title>CVE-2022-30699|2024-09-16T18:29:59.438Z -- nlnet%20labs -- unbound
@@ -15,6 +15,14 @@
       <description>NLnet Labs Unbound, up to and including version 1.16.1, is vulnerable to a novel type of the "ghost domain names" attack. The vulnerability works by targeting an Unbound instance. Unbound is queried for a rogue domain name when the cached delegation information is about to expire. The rogue nameserver delays the response so that the cached delegation information is expired. Upon receiving the delayed answer containing the delegation information, Unbound overwrites the now expired entries. This action can be repeated when the delegation information is about to expire making the rogue delegation information ever-updating. From version 1.16.2 on, Unbound stores the start time for a query and uses that to decide if the cached delegation information can be overwritten.</description>
       <guid isPermaLink="false">CVE-2022-30699|2024-09-16T18:29:59.438Z</guid>
       <pubDate>Mon, 01 Aug 2022 14:13:58 +0000</pubDate>
+    </item>
+    <item>
+      <title>CVE-2022-30698|2024-09-16T19:35:09.568Z -- nlnet%20labs -- unbound
+</title>
+      <link>https://www.cve.org/CVERecord?id=CVE-2022-30698</link>
+      <description>NLnet Labs Unbound, up to and including version 1.16.1 is vulnerable to a novel type of the "ghost domain names" attack. The vulnerability works by targeting an Unbound instance. Unbound is queried for a subdomain of a rogue domain name. The rogue nameserver returns delegation information for the subdomain that updates Unbound's delegation cache. This action can be repeated before expiry of the delegation information by querying Unbound for a second level subdomain which the rogue nameserver provides new delegation information. Since Unbound is a child-centric resolver, the ever-updating child delegation information can keep a rogue domain name resolvable long after revocation. From version 1.16.2 on, Unbound checks the validity of parent delegation records before using cached delegation information.</description>
+      <guid isPermaLink="false">CVE-2022-30698|2024-09-16T19:35:09.568Z</guid>
+      <pubDate>Mon, 01 Aug 2022 14:13:44 +0000</pubDate>
     </item>
     <item>
       <title>CVE-2021-43173|2024-09-16T18:18:51.653Z -- nlnet%20labs -- routinator
