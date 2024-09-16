@@ -6,7 +6,7 @@
     <description>The latest CVEs for ISC -- BIND 9</description>
     <docs>http://www.rssboard.org/rss-specification</docs>
     <generator>python-feedgen</generator>
-    <lastBuildDate>Mon, 16 Sep 2024 22:22:28 +0000</lastBuildDate>
+    <lastBuildDate>Mon, 16 Sep 2024 23:21:18 +0000</lastBuildDate>
     <ttl>60</ttl>
     <item>
       <title>CVE-2019-6465|2024-09-16T20:37:52.694Z -- isc -- bind%209
@@ -49,6 +49,14 @@
       <pubDate>Wed, 16 Jan 2019 20:00:00 +0000</pubDate>
     </item>
     <item>
+      <title>CVE-2017-3138|2024-09-16T22:40:54.323Z -- isc -- bind%209
+</title>
+      <link>https://www.cve.org/CVERecord?id=CVE-2017-3138</link>
+      <description>named contains a feature which allows operators to issue commands to a running server by communicating with the server process over a control channel, using a utility program such as rndc. A regression introduced in a recent feature change has created a situation under which some versions of named can be caused to exit with a REQUIRE assertion failure if they are sent a null command string. Affects BIND 9.9.9-&gt;9.9.9-P7, 9.9.10b1-&gt;9.9.10rc2, 9.10.4-&gt;9.10.4-P7, 9.10.5b1-&gt;9.10.5rc2, 9.11.0-&gt;9.11.0-P4, 9.11.1b1-&gt;9.11.1rc2, 9.9.9-S1-&gt;9.9.9-S9.</description>
+      <guid isPermaLink="false">CVE-2017-3138|2024-09-16T22:40:54.323Z</guid>
+      <pubDate>Wed, 16 Jan 2019 20:00:00 +0000</pubDate>
+    </item>
+    <item>
       <title>CVE-2017-3142|2024-09-16T17:08:46.835Z -- isc -- bind%209
 </title>
       <link>https://www.cve.org/CVERecord?id=CVE-2017-3142</link>
@@ -73,6 +81,22 @@
       <pubDate>Wed, 16 Jan 2019 20:00:00 +0000</pubDate>
     </item>
     <item>
+      <title>CVE-2018-5737|2024-09-16T22:40:22.628Z -- isc -- bind%209
+</title>
+      <link>https://www.cve.org/CVERecord?id=CVE-2018-5737</link>
+      <description>A problem with the implementation of the new serve-stale feature in BIND 9.12 can lead to an assertion failure in rbtdb.c, even when stale-answer-enable is off. Additionally, problematic interaction between the serve-stale feature and NSEC aggressive negative caching can in some cases cause undesirable behavior from named, such as a recursion loop or excessive logging. Deliberate exploitation of this condition could cause operational problems depending on the particular manifestation -- either degradation or denial of service. Affects BIND 9.12.0 and 9.12.1.</description>
+      <guid isPermaLink="false">CVE-2018-5737|2024-09-16T22:40:22.628Z</guid>
+      <pubDate>Wed, 16 Jan 2019 20:00:00 +0000</pubDate>
+    </item>
+    <item>
+      <title>CVE-2018-5738|2024-09-16T22:20:36.711Z -- isc -- bind%209
+</title>
+      <link>https://www.cve.org/CVERecord?id=CVE-2018-5738</link>
+      <description>Change #4777 (introduced in October 2017) introduced an unforeseen issue in releases which were issued after that date, affecting which clients are permitted to make recursive queries to a BIND nameserver. The intended (and documented) behavior is that if an operator has not specified a value for the "allow-recursion" setting, it SHOULD default to one of the following: none, if "recursion no;" is set in named.conf; a value inherited from the "allow-query-cache" or "allow-query" settings IF "recursion yes;" (the default for that setting) AND match lists are explicitly set for "allow-query-cache" or "allow-query" (see the BIND9 Administrative Reference Manual section 6.2 for more details); or the intended default of "allow-recursion {localhost; localnets;};" if "recursion yes;" is in effect and no values are explicitly set for "allow-query-cache" or "allow-query". However, because of the regression introduced by change #4777, it is possible when "recursion yes;" is in effect and no match list values are provided for "allow-query-cache" or "allow-query" for the setting of "allow-recursion" to inherit a setting of all hosts from the "allow-query" setting default, improperly permitting recursion to all clients. Affects BIND 9.9.12, 9.10.7, 9.11.3, 9.12.0-&gt;9.12.1-P2, the development release 9.13.0, and also releases 9.9.12-S1, 9.10.7-S1, 9.11.3-S1, and 9.11.3-S2 from BIND 9 Supported Preview Edition.</description>
+      <guid isPermaLink="false">CVE-2018-5738|2024-09-16T22:20:36.711Z</guid>
+      <pubDate>Wed, 16 Jan 2019 20:00:00 +0000</pubDate>
+    </item>
+    <item>
       <title>CVE-2016-9778|2024-09-16T20:01:47.192Z -- isc -- bind%209
 </title>
       <link>https://www.cve.org/CVERecord?id=CVE-2016-9778</link>
@@ -81,107 +105,43 @@
       <pubDate>Wed, 16 Jan 2019 20:00:00 +0000</pubDate>
     </item>
     <item>
-      <title>CVE-2024-0760|2024-08-13T20:36:51.162Z -- isc -- bind%209</title>
-      <link>https://www.cve.org/CVERecord?id=CVE-2024-0760</link>
-      <description>A malicious client can send many DNS messages over TCP, potentially causing the server to become unstable while the attack is in progress. The server may recover after the attack ceases. Use of ACLs will not mitigate the attack. 
-This issue affects BIND 9 versions 9.18.1 through 9.18.27, 9.19.0 through 9.19.24, and 9.18.11-S1 through 9.18.27-S1.</description>
-      <guid isPermaLink="false">CVE-2024-0760|2024-08-13T20:36:51.162Z</guid>
-      <pubDate>Tue, 23 Jul 2024 14:26:54 +0000</pubDate>
+      <title>CVE-2018-5744|2024-09-16T22:21:17.098Z -- isc -- bind%209
+</title>
+      <link>https://www.cve.org/CVERecord?id=CVE-2018-5744</link>
+      <description>A failure to free memory can occur when processing messages having a specific combination of EDNS options. Versions affected are: BIND 9.10.7 -&gt; 9.10.8-P1, 9.11.3 -&gt; 9.11.5-P1, 9.12.0 -&gt; 9.12.3-P1, and versions 9.10.7-S1 -&gt; 9.11.5-S3 of BIND 9 Supported Preview Edition. Versions 9.13.0 -&gt; 9.13.6 of the 9.13 development branch are also affected.</description>
+      <guid isPermaLink="false">CVE-2018-5744|2024-09-16T22:21:17.098Z</guid>
+      <pubDate>Wed, 09 Oct 2019 14:17:14 +0000</pubDate>
     </item>
     <item>
-      <title>CVE-2024-1737|2024-08-01T18:48:21.779Z -- isc -- bind%209</title>
-      <link>https://www.cve.org/CVERecord?id=CVE-2024-1737</link>
-      <description>Resolver caches and authoritative zone databases that hold significant numbers of RRs for the same hostname (of any RTYPE) can suffer from degraded performance as content is being added or updated, and also when handling client queries for this name.
-This issue affects BIND 9 versions 9.11.0 through 9.11.37, 9.16.0 through 9.16.50, 9.18.0 through 9.18.27, 9.19.0 through 9.19.24, 9.11.4-S1 through 9.11.37-S1, 9.16.8-S1 through 9.16.50-S1, and 9.18.11-S1 through 9.18.27-S1.</description>
-      <guid isPermaLink="false">CVE-2024-1737|2024-08-01T18:48:21.779Z</guid>
-      <pubDate>Tue, 23 Jul 2024 14:34:09 +0000</pubDate>
-    </item>
-    <item>
-      <title>CVE-2024-1975|2024-08-01T18:56:22.635Z -- isc -- bind%209</title>
-      <link>https://www.cve.org/CVERecord?id=CVE-2024-1975</link>
-      <description>If a server hosts a zone containing a "KEY" Resource Record, or a resolver DNSSEC-validates a "KEY" Resource Record from a DNSSEC-signed domain in cache, a client can exhaust resolver CPU resources by sending a stream of SIG(0) signed requests.
-This issue affects BIND 9 versions 9.0.0 through 9.11.37, 9.16.0 through 9.16.50, 9.18.0 through 9.18.27, 9.19.0 through 9.19.24, 9.9.3-S1 through 9.11.37-S1, 9.16.8-S1 through 9.16.49-S1, and 9.18.11-S1 through 9.18.27-S1.</description>
-      <guid isPermaLink="false">CVE-2024-1975|2024-08-01T18:56:22.635Z</guid>
-      <pubDate>Tue, 23 Jul 2024 14:38:57 +0000</pubDate>
-    </item>
-    <item>
-      <title>CVE-2024-0760|2024-08-01T18:18:18.515Z -- isc -- bind%209</title>
-      <link>https://www.cve.org/CVERecord?id=CVE-2024-0760</link>
-      <description>A malicious client can send many DNS messages over TCP, potentially causing the server to become unstable while the attack is in progress. The server may recover after the attack ceases. Use of ACLs will not mitigate the attack. 
-This issue affects BIND 9 versions 9.18.1 through 9.18.27, 9.19.0 through 9.19.24, and 9.18.11-S1 through 9.18.27-S1.</description>
-      <guid isPermaLink="false">CVE-2024-0760|2024-08-01T18:18:18.515Z</guid>
-      <pubDate>Tue, 23 Jul 2024 14:26:54 +0000</pubDate>
-    </item>
-    <item>
-      <title>CVE-2024-1737|2024-07-26T17:35:12.133Z -- isc -- bind%209</title>
-      <link>https://www.cve.org/CVERecord?id=CVE-2024-1737</link>
-      <description>Resolver caches and authoritative zone databases that hold significant numbers of RRs for the same hostname (of any RTYPE) can suffer from degraded performance as content is being added or updated, and also when handling client queries for this name.
-This issue affects BIND 9 versions 9.11.0 through 9.11.37, 9.16.0 through 9.16.50, 9.18.0 through 9.18.27, 9.19.0 through 9.19.24, 9.11.4-S1 through 9.11.37-S1, 9.16.8-S1 through 9.16.50-S1, and 9.18.11-S1 through 9.18.27-S1.</description>
-      <guid isPermaLink="false">CVE-2024-1737|2024-07-26T17:35:12.133Z</guid>
-      <pubDate>Tue, 23 Jul 2024 14:34:09 +0000</pubDate>
-    </item>
-    <item>
-      <title>CVE-2024-4076|2024-07-24T18:47:06.657Z -- isc -- bind%209</title>
+      <title>CVE-2024-4076|2024-08-01T20:33:51.640Z -- isc -- bind%209</title>
       <link>https://www.cve.org/CVERecord?id=CVE-2024-4076</link>
       <description>Client queries that trigger serving stale data and that also require lookups in local authoritative zone data may result in an assertion failure.
 This issue affects BIND 9 versions 9.16.13 through 9.16.50, 9.18.0 through 9.18.27, 9.19.0 through 9.19.24, 9.11.33-S1 through 9.11.37-S1, 9.16.13-S1 through 9.16.50-S1, and 9.18.11-S1 through 9.18.27-S1.</description>
-      <guid isPermaLink="false">CVE-2024-4076|2024-07-24T18:47:06.657Z</guid>
+      <guid isPermaLink="false">CVE-2024-4076|2024-08-01T20:33:51.640Z</guid>
       <pubDate>Tue, 23 Jul 2024 14:40:57 +0000</pubDate>
     </item>
     <item>
-      <title>CVE-2024-0760|2024-07-23T16:13:05.915Z -- isc -- bind%209</title>
-      <link>https://www.cve.org/CVERecord?id=CVE-2024-0760</link>
-      <description>A malicious client can send many DNS messages over TCP, potentially causing the server to become unstable while the attack is in progress. The server may recover after the attack ceases. Use of ACLs will not mitigate the attack. 
-This issue affects BIND 9 versions 9.18.1 through 9.18.27, 9.19.0 through 9.19.24, and 9.18.11-S1 through 9.18.27-S1.</description>
-      <guid isPermaLink="false">CVE-2024-0760|2024-07-23T16:13:05.915Z</guid>
-      <pubDate>Tue, 23 Jul 2024 14:26:54 +0000</pubDate>
-    </item>
-    <item>
-      <title>CVE-2024-1975|2024-07-23T14:38:57.143Z -- isc -- bind%209</title>
-      <link>https://www.cve.org/CVERecord?id=CVE-2024-1975</link>
-      <description>If a server hosts a zone containing a "KEY" Resource Record, or a resolver DNSSEC-validates a "KEY" Resource Record from a DNSSEC-signed domain in cache, a client can exhaust resolver CPU resources by sending a stream of SIG(0) signed requests.
-This issue affects BIND 9 versions 9.0.0 through 9.11.37, 9.16.0 through 9.16.50, 9.18.0 through 9.18.27, 9.19.0 through 9.19.24, 9.9.3-S1 through 9.11.37-S1, 9.16.8-S1 through 9.16.49-S1, and 9.18.11-S1 through 9.18.27-S1.</description>
-      <guid isPermaLink="false">CVE-2024-1975|2024-07-23T14:38:57.143Z</guid>
-      <pubDate>Tue, 23 Jul 2024 14:38:57 +0000</pubDate>
-    </item>
-    <item>
-      <title>CVE-2024-1737|2024-07-23T14:34:09.750Z -- isc -- bind%209</title>
-      <link>https://www.cve.org/CVERecord?id=CVE-2024-1737</link>
-      <description>Resolver caches and authoritative zone databases that hold significant numbers of RRs for the same hostname (of any RTYPE) can suffer from degraded performance as content is being added or updated, and also when handling client queries for this name.
-This issue affects BIND 9 versions 9.11.0 through 9.11.37, 9.16.0 through 9.16.50, 9.18.0 through 9.18.27, 9.19.0 through 9.19.24, 9.11.4-S1 through 9.11.37-S1, 9.16.8-S1 through 9.16.50-S1, and 9.18.11-S1 through 9.18.27-S1.</description>
-      <guid isPermaLink="false">CVE-2024-1737|2024-07-23T14:34:09.750Z</guid>
-      <pubDate>Tue, 23 Jul 2024 14:34:09 +0000</pubDate>
-    </item>
-    <item>
-      <title>CVE-2024-0760|2024-07-23T14:26:54.983Z -- isc -- bind%209</title>
-      <link>https://www.cve.org/CVERecord?id=CVE-2024-0760</link>
-      <description>A malicious client can send many DNS messages over TCP, potentially causing the server to become unstable while the attack is in progress. The server may recover after the attack ceases. Use of ACLs will not mitigate the attack. 
-This issue affects BIND 9 versions 9.18.1 through 9.18.27, 9.19.0 through 9.19.24, and 9.18.11-S1 through 9.18.27-S1.</description>
-      <guid isPermaLink="false">CVE-2024-0760|2024-07-23T14:26:54.983Z</guid>
-      <pubDate>Tue, 23 Jul 2024 14:26:54 +0000</pubDate>
-    </item>
-    <item>
-      <title>CVE-2024-4076|2024-07-23T14:40:57.256Z -- isc -- bind%209</title>
+      <title>CVE-2024-4076|2024-07-31T20:17:03.288Z -- isc -- bind%209</title>
       <link>https://www.cve.org/CVERecord?id=CVE-2024-4076</link>
       <description>Client queries that trigger serving stale data and that also require lookups in local authoritative zone data may result in an assertion failure.
 This issue affects BIND 9 versions 9.16.13 through 9.16.50, 9.18.0 through 9.18.27, 9.19.0 through 9.19.24, 9.11.33-S1 through 9.11.37-S1, 9.16.13-S1 through 9.16.50-S1, and 9.18.11-S1 through 9.18.27-S1.</description>
-      <guid isPermaLink="false">CVE-2024-4076|2024-07-23T14:40:57.256Z</guid>
+      <guid isPermaLink="false">CVE-2024-4076|2024-07-31T20:17:03.288Z</guid>
       <pubDate>Tue, 23 Jul 2024 14:40:57 +0000</pubDate>
     </item>
     <item>
-      <title>CVE-2024-1737|2024-07-23T20:43:33.244Z -- isc -- bind%209</title>
+      <title>CVE-2024-1737|2024-07-31T20:16:55.479Z -- isc -- bind%209</title>
       <link>https://www.cve.org/CVERecord?id=CVE-2024-1737</link>
       <description>Resolver caches and authoritative zone databases that hold significant numbers of RRs for the same hostname (of any RTYPE) can suffer from degraded performance as content is being added or updated, and also when handling client queries for this name.
 This issue affects BIND 9 versions 9.11.0 through 9.11.37, 9.16.0 through 9.16.50, 9.18.0 through 9.18.27, 9.19.0 through 9.19.24, 9.11.4-S1 through 9.11.37-S1, 9.16.8-S1 through 9.16.50-S1, and 9.18.11-S1 through 9.18.27-S1.</description>
-      <guid isPermaLink="false">CVE-2024-1737|2024-07-23T20:43:33.244Z</guid>
+      <guid isPermaLink="false">CVE-2024-1737|2024-07-31T20:16:55.479Z</guid>
       <pubDate>Tue, 23 Jul 2024 14:34:09 +0000</pubDate>
     </item>
     <item>
-      <title>CVE-2024-1975|2024-07-24T20:08:56.485Z -- isc -- bind%209</title>
+      <title>CVE-2024-1975|2024-07-31T20:16:56.440Z -- isc -- bind%209</title>
       <link>https://www.cve.org/CVERecord?id=CVE-2024-1975</link>
       <description>If a server hosts a zone containing a "KEY" Resource Record, or a resolver DNSSEC-validates a "KEY" Resource Record from a DNSSEC-signed domain in cache, a client can exhaust resolver CPU resources by sending a stream of SIG(0) signed requests.
 This issue affects BIND 9 versions 9.0.0 through 9.11.37, 9.16.0 through 9.16.50, 9.18.0 through 9.18.27, 9.19.0 through 9.19.24, 9.9.3-S1 through 9.11.37-S1, 9.16.8-S1 through 9.16.49-S1, and 9.18.11-S1 through 9.18.27-S1.</description>
-      <guid isPermaLink="false">CVE-2024-1975|2024-07-24T20:08:56.485Z</guid>
+      <guid isPermaLink="false">CVE-2024-1975|2024-07-31T20:16:56.440Z</guid>
       <pubDate>Tue, 23 Jul 2024 14:38:57 +0000</pubDate>
     </item>
     <item>
@@ -193,36 +153,108 @@ This issue affects BIND 9 versions 9.18.1 through 9.18.27, 9.19.0 through 9.19.2
       <pubDate>Tue, 23 Jul 2024 14:26:54 +0000</pubDate>
     </item>
     <item>
-      <title>CVE-2024-1975|2024-07-31T20:16:56.440Z -- isc -- bind%209</title>
+      <title>CVE-2024-1975|2024-07-24T20:08:56.485Z -- isc -- bind%209</title>
       <link>https://www.cve.org/CVERecord?id=CVE-2024-1975</link>
       <description>If a server hosts a zone containing a "KEY" Resource Record, or a resolver DNSSEC-validates a "KEY" Resource Record from a DNSSEC-signed domain in cache, a client can exhaust resolver CPU resources by sending a stream of SIG(0) signed requests.
 This issue affects BIND 9 versions 9.0.0 through 9.11.37, 9.16.0 through 9.16.50, 9.18.0 through 9.18.27, 9.19.0 through 9.19.24, 9.9.3-S1 through 9.11.37-S1, 9.16.8-S1 through 9.16.49-S1, and 9.18.11-S1 through 9.18.27-S1.</description>
-      <guid isPermaLink="false">CVE-2024-1975|2024-07-31T20:16:56.440Z</guid>
+      <guid isPermaLink="false">CVE-2024-1975|2024-07-24T20:08:56.485Z</guid>
       <pubDate>Tue, 23 Jul 2024 14:38:57 +0000</pubDate>
     </item>
     <item>
-      <title>CVE-2024-1737|2024-07-31T20:16:55.479Z -- isc -- bind%209</title>
+      <title>CVE-2024-1737|2024-07-23T20:43:33.244Z -- isc -- bind%209</title>
       <link>https://www.cve.org/CVERecord?id=CVE-2024-1737</link>
       <description>Resolver caches and authoritative zone databases that hold significant numbers of RRs for the same hostname (of any RTYPE) can suffer from degraded performance as content is being added or updated, and also when handling client queries for this name.
 This issue affects BIND 9 versions 9.11.0 through 9.11.37, 9.16.0 through 9.16.50, 9.18.0 through 9.18.27, 9.19.0 through 9.19.24, 9.11.4-S1 through 9.11.37-S1, 9.16.8-S1 through 9.16.50-S1, and 9.18.11-S1 through 9.18.27-S1.</description>
-      <guid isPermaLink="false">CVE-2024-1737|2024-07-31T20:16:55.479Z</guid>
+      <guid isPermaLink="false">CVE-2024-1737|2024-07-23T20:43:33.244Z</guid>
       <pubDate>Tue, 23 Jul 2024 14:34:09 +0000</pubDate>
     </item>
     <item>
-      <title>CVE-2024-4076|2024-07-31T20:17:03.288Z -- isc -- bind%209</title>
+      <title>CVE-2024-4076|2024-07-23T14:40:57.256Z -- isc -- bind%209</title>
       <link>https://www.cve.org/CVERecord?id=CVE-2024-4076</link>
       <description>Client queries that trigger serving stale data and that also require lookups in local authoritative zone data may result in an assertion failure.
 This issue affects BIND 9 versions 9.16.13 through 9.16.50, 9.18.0 through 9.18.27, 9.19.0 through 9.19.24, 9.11.33-S1 through 9.11.37-S1, 9.16.13-S1 through 9.16.50-S1, and 9.18.11-S1 through 9.18.27-S1.</description>
-      <guid isPermaLink="false">CVE-2024-4076|2024-07-31T20:17:03.288Z</guid>
+      <guid isPermaLink="false">CVE-2024-4076|2024-07-23T14:40:57.256Z</guid>
       <pubDate>Tue, 23 Jul 2024 14:40:57 +0000</pubDate>
     </item>
     <item>
-      <title>CVE-2024-4076|2024-08-01T20:33:51.640Z -- isc -- bind%209</title>
+      <title>CVE-2024-0760|2024-07-23T14:26:54.983Z -- isc -- bind%209</title>
+      <link>https://www.cve.org/CVERecord?id=CVE-2024-0760</link>
+      <description>A malicious client can send many DNS messages over TCP, potentially causing the server to become unstable while the attack is in progress. The server may recover after the attack ceases. Use of ACLs will not mitigate the attack. 
+This issue affects BIND 9 versions 9.18.1 through 9.18.27, 9.19.0 through 9.19.24, and 9.18.11-S1 through 9.18.27-S1.</description>
+      <guid isPermaLink="false">CVE-2024-0760|2024-07-23T14:26:54.983Z</guid>
+      <pubDate>Tue, 23 Jul 2024 14:26:54 +0000</pubDate>
+    </item>
+    <item>
+      <title>CVE-2024-1737|2024-07-23T14:34:09.750Z -- isc -- bind%209</title>
+      <link>https://www.cve.org/CVERecord?id=CVE-2024-1737</link>
+      <description>Resolver caches and authoritative zone databases that hold significant numbers of RRs for the same hostname (of any RTYPE) can suffer from degraded performance as content is being added or updated, and also when handling client queries for this name.
+This issue affects BIND 9 versions 9.11.0 through 9.11.37, 9.16.0 through 9.16.50, 9.18.0 through 9.18.27, 9.19.0 through 9.19.24, 9.11.4-S1 through 9.11.37-S1, 9.16.8-S1 through 9.16.50-S1, and 9.18.11-S1 through 9.18.27-S1.</description>
+      <guid isPermaLink="false">CVE-2024-1737|2024-07-23T14:34:09.750Z</guid>
+      <pubDate>Tue, 23 Jul 2024 14:34:09 +0000</pubDate>
+    </item>
+    <item>
+      <title>CVE-2024-1975|2024-07-23T14:38:57.143Z -- isc -- bind%209</title>
+      <link>https://www.cve.org/CVERecord?id=CVE-2024-1975</link>
+      <description>If a server hosts a zone containing a "KEY" Resource Record, or a resolver DNSSEC-validates a "KEY" Resource Record from a DNSSEC-signed domain in cache, a client can exhaust resolver CPU resources by sending a stream of SIG(0) signed requests.
+This issue affects BIND 9 versions 9.0.0 through 9.11.37, 9.16.0 through 9.16.50, 9.18.0 through 9.18.27, 9.19.0 through 9.19.24, 9.9.3-S1 through 9.11.37-S1, 9.16.8-S1 through 9.16.49-S1, and 9.18.11-S1 through 9.18.27-S1.</description>
+      <guid isPermaLink="false">CVE-2024-1975|2024-07-23T14:38:57.143Z</guid>
+      <pubDate>Tue, 23 Jul 2024 14:38:57 +0000</pubDate>
+    </item>
+    <item>
+      <title>CVE-2024-0760|2024-07-23T16:13:05.915Z -- isc -- bind%209</title>
+      <link>https://www.cve.org/CVERecord?id=CVE-2024-0760</link>
+      <description>A malicious client can send many DNS messages over TCP, potentially causing the server to become unstable while the attack is in progress. The server may recover after the attack ceases. Use of ACLs will not mitigate the attack. 
+This issue affects BIND 9 versions 9.18.1 through 9.18.27, 9.19.0 through 9.19.24, and 9.18.11-S1 through 9.18.27-S1.</description>
+      <guid isPermaLink="false">CVE-2024-0760|2024-07-23T16:13:05.915Z</guid>
+      <pubDate>Tue, 23 Jul 2024 14:26:54 +0000</pubDate>
+    </item>
+    <item>
+      <title>CVE-2024-4076|2024-07-24T18:47:06.657Z -- isc -- bind%209</title>
       <link>https://www.cve.org/CVERecord?id=CVE-2024-4076</link>
       <description>Client queries that trigger serving stale data and that also require lookups in local authoritative zone data may result in an assertion failure.
 This issue affects BIND 9 versions 9.16.13 through 9.16.50, 9.18.0 through 9.18.27, 9.19.0 through 9.19.24, 9.11.33-S1 through 9.11.37-S1, 9.16.13-S1 through 9.16.50-S1, and 9.18.11-S1 through 9.18.27-S1.</description>
-      <guid isPermaLink="false">CVE-2024-4076|2024-08-01T20:33:51.640Z</guid>
+      <guid isPermaLink="false">CVE-2024-4076|2024-07-24T18:47:06.657Z</guid>
       <pubDate>Tue, 23 Jul 2024 14:40:57 +0000</pubDate>
+    </item>
+    <item>
+      <title>CVE-2024-1737|2024-07-26T17:35:12.133Z -- isc -- bind%209</title>
+      <link>https://www.cve.org/CVERecord?id=CVE-2024-1737</link>
+      <description>Resolver caches and authoritative zone databases that hold significant numbers of RRs for the same hostname (of any RTYPE) can suffer from degraded performance as content is being added or updated, and also when handling client queries for this name.
+This issue affects BIND 9 versions 9.11.0 through 9.11.37, 9.16.0 through 9.16.50, 9.18.0 through 9.18.27, 9.19.0 through 9.19.24, 9.11.4-S1 through 9.11.37-S1, 9.16.8-S1 through 9.16.50-S1, and 9.18.11-S1 through 9.18.27-S1.</description>
+      <guid isPermaLink="false">CVE-2024-1737|2024-07-26T17:35:12.133Z</guid>
+      <pubDate>Tue, 23 Jul 2024 14:34:09 +0000</pubDate>
+    </item>
+    <item>
+      <title>CVE-2024-0760|2024-08-01T18:18:18.515Z -- isc -- bind%209</title>
+      <link>https://www.cve.org/CVERecord?id=CVE-2024-0760</link>
+      <description>A malicious client can send many DNS messages over TCP, potentially causing the server to become unstable while the attack is in progress. The server may recover after the attack ceases. Use of ACLs will not mitigate the attack. 
+This issue affects BIND 9 versions 9.18.1 through 9.18.27, 9.19.0 through 9.19.24, and 9.18.11-S1 through 9.18.27-S1.</description>
+      <guid isPermaLink="false">CVE-2024-0760|2024-08-01T18:18:18.515Z</guid>
+      <pubDate>Tue, 23 Jul 2024 14:26:54 +0000</pubDate>
+    </item>
+    <item>
+      <title>CVE-2024-1975|2024-08-01T18:56:22.635Z -- isc -- bind%209</title>
+      <link>https://www.cve.org/CVERecord?id=CVE-2024-1975</link>
+      <description>If a server hosts a zone containing a "KEY" Resource Record, or a resolver DNSSEC-validates a "KEY" Resource Record from a DNSSEC-signed domain in cache, a client can exhaust resolver CPU resources by sending a stream of SIG(0) signed requests.
+This issue affects BIND 9 versions 9.0.0 through 9.11.37, 9.16.0 through 9.16.50, 9.18.0 through 9.18.27, 9.19.0 through 9.19.24, 9.9.3-S1 through 9.11.37-S1, 9.16.8-S1 through 9.16.49-S1, and 9.18.11-S1 through 9.18.27-S1.</description>
+      <guid isPermaLink="false">CVE-2024-1975|2024-08-01T18:56:22.635Z</guid>
+      <pubDate>Tue, 23 Jul 2024 14:38:57 +0000</pubDate>
+    </item>
+    <item>
+      <title>CVE-2024-1737|2024-08-01T18:48:21.779Z -- isc -- bind%209</title>
+      <link>https://www.cve.org/CVERecord?id=CVE-2024-1737</link>
+      <description>Resolver caches and authoritative zone databases that hold significant numbers of RRs for the same hostname (of any RTYPE) can suffer from degraded performance as content is being added or updated, and also when handling client queries for this name.
+This issue affects BIND 9 versions 9.11.0 through 9.11.37, 9.16.0 through 9.16.50, 9.18.0 through 9.18.27, 9.19.0 through 9.19.24, 9.11.4-S1 through 9.11.37-S1, 9.16.8-S1 through 9.16.50-S1, and 9.18.11-S1 through 9.18.27-S1.</description>
+      <guid isPermaLink="false">CVE-2024-1737|2024-08-01T18:48:21.779Z</guid>
+      <pubDate>Tue, 23 Jul 2024 14:34:09 +0000</pubDate>
+    </item>
+    <item>
+      <title>CVE-2024-0760|2024-08-13T20:36:51.162Z -- isc -- bind%209</title>
+      <link>https://www.cve.org/CVERecord?id=CVE-2024-0760</link>
+      <description>A malicious client can send many DNS messages over TCP, potentially causing the server to become unstable while the attack is in progress. The server may recover after the attack ceases. Use of ACLs will not mitigate the attack. 
+This issue affects BIND 9 versions 9.18.1 through 9.18.27, 9.19.0 through 9.19.24, and 9.18.11-S1 through 9.18.27-S1.</description>
+      <guid isPermaLink="false">CVE-2024-0760|2024-08-13T20:36:51.162Z</guid>
+      <pubDate>Tue, 23 Jul 2024 14:26:54 +0000</pubDate>
     </item>
   </channel>
 </rss>
