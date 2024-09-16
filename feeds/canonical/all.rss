@@ -6,8 +6,16 @@
     <description>The latest CVEs for Canonical -- all products</description>
     <docs>http://www.rssboard.org/rss-specification</docs>
     <generator>python-feedgen</generator>
-    <lastBuildDate>Mon, 16 Sep 2024 18:25:07 +0000</lastBuildDate>
+    <lastBuildDate>Mon, 16 Sep 2024 19:20:14 +0000</lastBuildDate>
     <ttl>60</ttl>
+    <item>
+      <title>CVE-2020-16119|2024-09-16T18:19:48.160Z -- canonical -- linux%20kernel
+</title>
+      <link>https://www.cve.org/CVERecord?id=CVE-2020-16119</link>
+      <description>Use-after-free vulnerability in the Linux kernel exploitable by a local attacker due to reuse of a DCCP socket with an attached dccps_hc_tx_ccid object as a listener after being released. Fixed in Ubuntu Linux kernel 5.4.0-51.56, 5.3.0-68.63, 4.15.0-121.123, 4.4.0-193.224, 3.13.0.182.191 and 3.2.0-149.196.</description>
+      <guid isPermaLink="false">CVE-2020-16119|2024-09-16T18:19:48.160Z</guid>
+      <pubDate>Thu, 14 Jan 2021 01:10:20 +0000</pubDate>
+    </item>
     <item>
       <title>CVE-2021-32557|2024-09-16T17:53:05.508Z -- canonical -- apport
 </title>
@@ -17,12 +25,28 @@
       <pubDate>Sat, 12 Jun 2021 03:40:43 +0000</pubDate>
     </item>
     <item>
+      <title>CVE-2021-32548|2024-09-16T18:29:09.540Z -- canonical -- apport
+</title>
+      <link>https://www.cve.org/CVERecord?id=CVE-2021-32548</link>
+      <description>It was discovered that read_file() in apport/hookutils.py would follow symbolic links or open FIFOs. When this function is used by the openjdk-8 package apport hooks, it could expose private data to other local users.</description>
+      <guid isPermaLink="false">CVE-2021-32548|2024-09-16T18:29:09.540Z</guid>
+      <pubDate>Sat, 12 Jun 2021 03:40:37 +0000</pubDate>
+    </item>
+    <item>
       <title>CVE-2012-0955|2024-09-16T17:14:04.258Z -- canonical -- software-properties
 </title>
       <link>https://www.cve.org/CVERecord?id=CVE-2012-0955</link>
       <description>software-properties was vulnerable to a person-in-the-middle attack due to incorrect TLS certificate validation in softwareproperties/ppa.py. software-properties didn't check TLS certificates under python2 and only checked certificates under python3 if a valid certificate bundle was provided. Fixed in software-properties version 0.92.</description>
       <guid isPermaLink="false">CVE-2012-0955|2024-09-16T17:14:04.258Z</guid>
       <pubDate>Wed, 02 Dec 2020 00:50:15 +0000</pubDate>
+    </item>
+    <item>
+      <title>CVE-2019-7304|2024-09-16T18:38:22.569Z -- canonical -- snapd
+</title>
+      <link>https://www.cve.org/CVERecord?id=CVE-2019-7304</link>
+      <description>Canonical snapd before version 2.37.1 incorrectly performed socket owner validation, allowing an attacker to run arbitrary commands as root. This issue affects: Canonical snapd versions prior to 2.37.1.</description>
+      <guid isPermaLink="false">CVE-2019-7304|2024-09-16T18:38:22.569Z</guid>
+      <pubDate>Tue, 23 Apr 2019 15:57:32 +0000</pubDate>
     </item>
     <item>
       <title>CVE-2019-11485|2024-09-16T16:57:41.110Z -- canonical -- apport
@@ -73,65 +97,30 @@
       <pubDate>Wed, 13 Jan 2021 23:00:16 +0000</pubDate>
     </item>
     <item>
-      <title>CVE-2024-29068|2024-08-02T01:03:51.709Z -- canonical -- snapd</title>
-      <link>https://www.cve.org/CVERecord?id=CVE-2024-29068</link>
-      <description>In snapd versions prior to 2.62, snapd failed to properly check the file
-type when extracting a snap. The snap format is a squashfs file-system
-image and so can contain files that are non-regular files (such as pipes 
-or sockets etc). Various file entries within the snap squashfs image
-(such as icons etc) are directly read by snapd when it is extracted. An 
-attacker who could convince a user to install a malicious snap which
-contained non-regular files at these paths could then cause snapd to block
-indefinitely trying to read from such files and cause a denial of service.</description>
-      <guid isPermaLink="false">CVE-2024-29068|2024-08-02T01:03:51.709Z</guid>
-      <pubDate>Thu, 25 Jul 2024 19:28:05 +0000</pubDate>
+      <title>CVE-2020-27349|2024-09-16T18:50:26.180Z -- canonical -- aptdaemon
+</title>
+      <link>https://www.cve.org/CVERecord?id=CVE-2020-27349</link>
+      <description>Aptdaemon performed policykit checks after interacting with potentially untrusted files with elevated privileges. This affected versions prior to 1.1.1+bzr982-0ubuntu34.1, 1.1.1+bzr982-0ubuntu32.3, 1.1.1+bzr982-0ubuntu19.5, 1.1.1+bzr982-0ubuntu14.5.</description>
+      <guid isPermaLink="false">CVE-2020-27349|2024-09-16T18:50:26.180Z</guid>
+      <pubDate>Wed, 09 Dec 2020 03:35:17 +0000</pubDate>
     </item>
     <item>
-      <title>CVE-2024-29069|2024-08-02T01:03:51.700Z -- canonical -- snapd</title>
-      <link>https://www.cve.org/CVERecord?id=CVE-2024-29069</link>
-      <description>In snapd versions prior to 2.62, snapd failed to properly check the
-destination of symbolic links when extracting a snap. The snap format 
-is a squashfs file-system image and so can contain symbolic links and
-other file types. Various file entries within the snap squashfs image
-(such as icons and desktop files etc) are directly read by snapd when
-it is extracted. An attacker who could convince a user to install a
-malicious snap which contained symbolic links at these paths could then 
-cause snapd to write out the contents of the symbolic link destination
-into a world-readable directory. This in-turn could allow an unprivileged
-user to gain access to privileged information.</description>
-      <guid isPermaLink="false">CVE-2024-29069|2024-08-02T01:03:51.700Z</guid>
-      <pubDate>Thu, 25 Jul 2024 19:39:41 +0000</pubDate>
+      <title>CVE-2019-11483|2024-09-16T18:17:50.401Z -- canonical -- apport
+</title>
+      <link>https://www.cve.org/CVERecord?id=CVE-2019-11483</link>
+      <description>Sander Bos discovered Apport mishandled crash dumps originating from containers. This could be used by a local attacker to generate a crash report for a privileged process that is readable by an unprivileged user.</description>
+      <guid isPermaLink="false">CVE-2019-11483|2024-09-16T18:17:50.401Z</guid>
+      <pubDate>Sat, 08 Feb 2020 04:50:22 +0000</pubDate>
     </item>
     <item>
-      <title>CVE-2024-41129|2024-07-30T16:08:06.843Z -- canonical -- operator</title>
+      <title>CVE-2024-41129|2024-08-02T04:46:52.414Z -- canonical -- operator</title>
       <link>https://www.cve.org/CVERecord?id=CVE-2024-41129</link>
       <description>The ops library is a Python framework for developing and testing Kubernetes and machine charms. The issue here is that ops passes the secret content as one of the args via CLI. This issue may affect any of the charms that are using: Juju (&gt;=3.0), Juju secrets and not correctly capturing and processing `subprocess.CalledProcessError`. This vulnerability is fixed in 2.15.0.</description>
-      <guid isPermaLink="false">CVE-2024-41129|2024-07-30T16:08:06.843Z</guid>
+      <guid isPermaLink="false">CVE-2024-41129|2024-08-02T04:46:52.414Z</guid>
       <pubDate>Mon, 22 Jul 2024 14:20:08 +0000</pubDate>
     </item>
     <item>
-      <title>CVE-2024-29068|2024-07-25T20:21:43.831Z -- canonical -- snapd</title>
-      <link>https://www.cve.org/CVERecord?id=CVE-2024-29068</link>
-      <description>In snapd versions prior to 2.62, snapd failed to properly check the file
-type when extracting a snap. The snap format is a squashfs file-system
-image and so can contain files that are non-regular files (such as pipes 
-or sockets etc). Various file entries within the snap squashfs image
-(such as icons etc) are directly read by snapd when it is extracted. An 
-attacker who could convince a user to install a malicious snap which
-contained non-regular files at these paths could then cause snapd to block
-indefinitely trying to read from such files and cause a denial of service.</description>
-      <guid isPermaLink="false">CVE-2024-29068|2024-07-25T20:21:43.831Z</guid>
-      <pubDate>Thu, 25 Jul 2024 19:28:05 +0000</pubDate>
-    </item>
-    <item>
-      <title>CVE-2024-41129|2024-07-22T14:20:08.920Z -- canonical -- operator</title>
-      <link>https://www.cve.org/CVERecord?id=CVE-2024-41129</link>
-      <description>The ops library is a Python framework for developing and testing Kubernetes and machine charms. The issue here is that ops passes the secret content as one of the args via CLI. This issue may affect any of the charms that are using: Juju (&gt;=3.0), Juju secrets and not correctly capturing and processing `subprocess.CalledProcessError`. This vulnerability is fixed in 2.15.0.</description>
-      <guid isPermaLink="false">CVE-2024-41129|2024-07-22T14:20:08.920Z</guid>
-      <pubDate>Mon, 22 Jul 2024 14:20:08 +0000</pubDate>
-    </item>
-    <item>
-      <title>CVE-2024-1724|2024-07-25T19:28:23.939Z -- canonical -- snap</title>
+      <title>CVE-2024-1724|2024-08-01T18:48:21.887Z -- canonical -- snap</title>
       <link>https://www.cve.org/CVERecord?id=CVE-2024-1724</link>
       <description>In snapd versions prior to 2.62, when using AppArmor for enforcement of 
 sandbox permissions, snapd failed to restrict writes to the $HOME/bin
@@ -141,38 +130,8 @@ malicious snap which used the 'home' plug could use this vulnerability
 to install arbitrary scripts into the users PATH which may then be run
 by the user outside of the expected snap sandbox and hence allow them
 to escape confinement.</description>
-      <guid isPermaLink="false">CVE-2024-1724|2024-07-25T19:28:23.939Z</guid>
+      <guid isPermaLink="false">CVE-2024-1724|2024-08-01T18:48:21.887Z</guid>
       <pubDate>Thu, 25 Jul 2024 19:05:23 +0000</pubDate>
-    </item>
-    <item>
-      <title>CVE-2024-29069|2024-07-25T19:39:41.050Z -- canonical -- snapd</title>
-      <link>https://www.cve.org/CVERecord?id=CVE-2024-29069</link>
-      <description>In snapd versions prior to 2.62, snapd failed to properly check the
-destination of symbolic links when extracting a snap. The snap format 
-is a squashfs file-system image and so can contain symbolic links and
-other file types. Various file entries within the snap squashfs image
-(such as icons and desktop files etc) are directly read by snapd when
-it is extracted. An attacker who could convince a user to install a
-malicious snap which contained symbolic links at these paths could then 
-cause snapd to write out the contents of the symbolic link destination
-into a world-readable directory. This in-turn could allow an unprivileged
-user to gain access to privileged information.</description>
-      <guid isPermaLink="false">CVE-2024-29069|2024-07-25T19:39:41.050Z</guid>
-      <pubDate>Thu, 25 Jul 2024 19:39:41 +0000</pubDate>
-    </item>
-    <item>
-      <title>CVE-2024-29068|2024-07-25T19:28:05.480Z -- canonical -- snapd</title>
-      <link>https://www.cve.org/CVERecord?id=CVE-2024-29068</link>
-      <description>In snapd versions prior to 2.62, snapd failed to properly check the file
-type when extracting a snap. The snap format is a squashfs file-system
-image and so can contain files that are non-regular files (such as pipes 
-or sockets etc). Various file entries within the snap squashfs image
-(such as icons etc) are directly read by snapd when it is extracted. An 
-attacker who could convince a user to install a malicious snap which
-contained non-regular files at these paths could then cause snapd to block
-indefinitely trying to read from such files and cause a denial of service.</description>
-      <guid isPermaLink="false">CVE-2024-29068|2024-07-25T19:28:05.480Z</guid>
-      <pubDate>Thu, 25 Jul 2024 19:28:05 +0000</pubDate>
     </item>
     <item>
       <title>CVE-2024-29069|2024-07-26T13:27:49.253Z -- canonical -- snapd</title>
@@ -191,7 +150,37 @@ user to gain access to privileged information.</description>
       <pubDate>Thu, 25 Jul 2024 19:39:41 +0000</pubDate>
     </item>
     <item>
-      <title>CVE-2024-1724|2024-08-01T18:48:21.887Z -- canonical -- snap</title>
+      <title>CVE-2024-29068|2024-07-25T19:28:05.480Z -- canonical -- snapd</title>
+      <link>https://www.cve.org/CVERecord?id=CVE-2024-29068</link>
+      <description>In snapd versions prior to 2.62, snapd failed to properly check the file
+type when extracting a snap. The snap format is a squashfs file-system
+image and so can contain files that are non-regular files (such as pipes 
+or sockets etc). Various file entries within the snap squashfs image
+(such as icons etc) are directly read by snapd when it is extracted. An 
+attacker who could convince a user to install a malicious snap which
+contained non-regular files at these paths could then cause snapd to block
+indefinitely trying to read from such files and cause a denial of service.</description>
+      <guid isPermaLink="false">CVE-2024-29068|2024-07-25T19:28:05.480Z</guid>
+      <pubDate>Thu, 25 Jul 2024 19:28:05 +0000</pubDate>
+    </item>
+    <item>
+      <title>CVE-2024-29069|2024-07-25T19:39:41.050Z -- canonical -- snapd</title>
+      <link>https://www.cve.org/CVERecord?id=CVE-2024-29069</link>
+      <description>In snapd versions prior to 2.62, snapd failed to properly check the
+destination of symbolic links when extracting a snap. The snap format 
+is a squashfs file-system image and so can contain symbolic links and
+other file types. Various file entries within the snap squashfs image
+(such as icons and desktop files etc) are directly read by snapd when
+it is extracted. An attacker who could convince a user to install a
+malicious snap which contained symbolic links at these paths could then 
+cause snapd to write out the contents of the symbolic link destination
+into a world-readable directory. This in-turn could allow an unprivileged
+user to gain access to privileged information.</description>
+      <guid isPermaLink="false">CVE-2024-29069|2024-07-25T19:39:41.050Z</guid>
+      <pubDate>Thu, 25 Jul 2024 19:39:41 +0000</pubDate>
+    </item>
+    <item>
+      <title>CVE-2024-1724|2024-07-25T19:28:23.939Z -- canonical -- snap</title>
       <link>https://www.cve.org/CVERecord?id=CVE-2024-1724</link>
       <description>In snapd versions prior to 2.62, when using AppArmor for enforcement of 
 sandbox permissions, snapd failed to restrict writes to the $HOME/bin
@@ -201,15 +190,66 @@ malicious snap which used the 'home' plug could use this vulnerability
 to install arbitrary scripts into the users PATH which may then be run
 by the user outside of the expected snap sandbox and hence allow them
 to escape confinement.</description>
-      <guid isPermaLink="false">CVE-2024-1724|2024-08-01T18:48:21.887Z</guid>
+      <guid isPermaLink="false">CVE-2024-1724|2024-07-25T19:28:23.939Z</guid>
       <pubDate>Thu, 25 Jul 2024 19:05:23 +0000</pubDate>
     </item>
     <item>
-      <title>CVE-2024-41129|2024-08-02T04:46:52.414Z -- canonical -- operator</title>
+      <title>CVE-2024-41129|2024-07-22T14:20:08.920Z -- canonical -- operator</title>
       <link>https://www.cve.org/CVERecord?id=CVE-2024-41129</link>
       <description>The ops library is a Python framework for developing and testing Kubernetes and machine charms. The issue here is that ops passes the secret content as one of the args via CLI. This issue may affect any of the charms that are using: Juju (&gt;=3.0), Juju secrets and not correctly capturing and processing `subprocess.CalledProcessError`. This vulnerability is fixed in 2.15.0.</description>
-      <guid isPermaLink="false">CVE-2024-41129|2024-08-02T04:46:52.414Z</guid>
+      <guid isPermaLink="false">CVE-2024-41129|2024-07-22T14:20:08.920Z</guid>
       <pubDate>Mon, 22 Jul 2024 14:20:08 +0000</pubDate>
+    </item>
+    <item>
+      <title>CVE-2024-29068|2024-07-25T20:21:43.831Z -- canonical -- snapd</title>
+      <link>https://www.cve.org/CVERecord?id=CVE-2024-29068</link>
+      <description>In snapd versions prior to 2.62, snapd failed to properly check the file
+type when extracting a snap. The snap format is a squashfs file-system
+image and so can contain files that are non-regular files (such as pipes 
+or sockets etc). Various file entries within the snap squashfs image
+(such as icons etc) are directly read by snapd when it is extracted. An 
+attacker who could convince a user to install a malicious snap which
+contained non-regular files at these paths could then cause snapd to block
+indefinitely trying to read from such files and cause a denial of service.</description>
+      <guid isPermaLink="false">CVE-2024-29068|2024-07-25T20:21:43.831Z</guid>
+      <pubDate>Thu, 25 Jul 2024 19:28:05 +0000</pubDate>
+    </item>
+    <item>
+      <title>CVE-2024-41129|2024-07-30T16:08:06.843Z -- canonical -- operator</title>
+      <link>https://www.cve.org/CVERecord?id=CVE-2024-41129</link>
+      <description>The ops library is a Python framework for developing and testing Kubernetes and machine charms. The issue here is that ops passes the secret content as one of the args via CLI. This issue may affect any of the charms that are using: Juju (&gt;=3.0), Juju secrets and not correctly capturing and processing `subprocess.CalledProcessError`. This vulnerability is fixed in 2.15.0.</description>
+      <guid isPermaLink="false">CVE-2024-41129|2024-07-30T16:08:06.843Z</guid>
+      <pubDate>Mon, 22 Jul 2024 14:20:08 +0000</pubDate>
+    </item>
+    <item>
+      <title>CVE-2024-29069|2024-08-02T01:03:51.700Z -- canonical -- snapd</title>
+      <link>https://www.cve.org/CVERecord?id=CVE-2024-29069</link>
+      <description>In snapd versions prior to 2.62, snapd failed to properly check the
+destination of symbolic links when extracting a snap. The snap format 
+is a squashfs file-system image and so can contain symbolic links and
+other file types. Various file entries within the snap squashfs image
+(such as icons and desktop files etc) are directly read by snapd when
+it is extracted. An attacker who could convince a user to install a
+malicious snap which contained symbolic links at these paths could then 
+cause snapd to write out the contents of the symbolic link destination
+into a world-readable directory. This in-turn could allow an unprivileged
+user to gain access to privileged information.</description>
+      <guid isPermaLink="false">CVE-2024-29069|2024-08-02T01:03:51.700Z</guid>
+      <pubDate>Thu, 25 Jul 2024 19:39:41 +0000</pubDate>
+    </item>
+    <item>
+      <title>CVE-2024-29068|2024-08-02T01:03:51.709Z -- canonical -- snapd</title>
+      <link>https://www.cve.org/CVERecord?id=CVE-2024-29068</link>
+      <description>In snapd versions prior to 2.62, snapd failed to properly check the file
+type when extracting a snap. The snap format is a squashfs file-system
+image and so can contain files that are non-regular files (such as pipes 
+or sockets etc). Various file entries within the snap squashfs image
+(such as icons etc) are directly read by snapd when it is extracted. An 
+attacker who could convince a user to install a malicious snap which
+contained non-regular files at these paths could then cause snapd to block
+indefinitely trying to read from such files and cause a denial of service.</description>
+      <guid isPermaLink="false">CVE-2024-29068|2024-08-02T01:03:51.709Z</guid>
+      <pubDate>Thu, 25 Jul 2024 19:28:05 +0000</pubDate>
     </item>
   </channel>
 </rss>

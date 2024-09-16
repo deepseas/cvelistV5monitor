@@ -6,15 +6,15 @@
     <description>The latest CVEs for Linux Kernel -- all products</description>
     <docs>http://www.rssboard.org/rss-specification</docs>
     <generator>python-feedgen</generator>
-    <lastBuildDate>Tue, 06 Aug 2024 23:22:33 +0000</lastBuildDate>
+    <lastBuildDate>Mon, 16 Sep 2024 19:20:16 +0000</lastBuildDate>
     <ttl>60</ttl>
     <item>
-      <title>CVE-2012-0055|2024-08-06T18:09:17.246Z -- linux%20kernel -- overlayfs
+      <title>CVE-2020-16120|2024-09-16T18:49:11.997Z -- linux%20kernel -- linux%20kernel
 </title>
-      <link>https://www.cve.org/CVERecord?id=CVE-2012-0055</link>
-      <description>OverlayFS in the Linux kernel before 3.0.0-16.28, as used in Ubuntu 10.0.4 LTS and 11.10, is missing inode security checks which could allow attackers to bypass security restrictions and perform unauthorized actions.</description>
-      <guid isPermaLink="false">CVE-2012-0055|2024-08-06T18:09:17.246Z</guid>
-      <pubDate>Wed, 19 Feb 2020 17:28:53 +0000</pubDate>
+      <link>https://www.cve.org/CVERecord?id=CVE-2020-16120</link>
+      <description>Overlayfs did not properly perform permission checking when copying up files in an overlayfs and could be exploited from within a user namespace, if, for example, unprivileged user namespaces were allowed. It was possible to have a file not readable by an unprivileged user to be copied to a mountpoint controlled by the user, like a removable device. This was introduced in kernel version 4.19 by commit d1d04ef ("ovl: stack file ops"). This was fixed in kernel version 5.8 by commits 56230d9 ("ovl: verify permissions in ovl_path_open()"), 48bd024 ("ovl: switch to mounter creds in readdir") and 05acefb ("ovl: check permission to open real file"). Additionally, commits 130fdbc ("ovl: pass correct flags for opening real directory") and 292f902 ("ovl: call secutiry hook in ovl_real_ioctl()") in kernel 5.8 might also be desired or necessary. These additional commits introduced a regression in overlay mounts within user namespaces which prevented access to files with ownership outside of the user namespace. This regression was mitigated by subsequent commit b6650da ("ovl: do not fail because of O_NOATIMEi") in kernel 5.11.</description>
+      <guid isPermaLink="false">CVE-2020-16120|2024-09-16T18:49:11.997Z</guid>
+      <pubDate>Wed, 10 Feb 2021 19:45:26 +0000</pubDate>
     </item>
   </channel>
 </rss>
