@@ -6,7 +6,7 @@
     <description>The latest CVEs for FreeBSD -- FreeBSD</description>
     <docs>http://www.rssboard.org/rss-specification</docs>
     <generator>python-feedgen</generator>
-    <lastBuildDate>Tue, 17 Sep 2024 11:21:09 +0000</lastBuildDate>
+    <lastBuildDate>Tue, 17 Sep 2024 12:25:57 +0000</lastBuildDate>
     <ttl>60</ttl>
     <item>
       <title>CVE-2018-6919|2024-09-17T01:21:29.786Z -- freebsd -- freebsd
@@ -57,187 +57,92 @@
       <pubDate>Wed, 04 Apr 2018 14:00:00 +0000</pubDate>
     </item>
     <item>
-      <title>CVE-2024-43102|2024-09-16T21:02:44.154Z -- freebsd -- freebsd</title>
-      <link>https://www.cve.org/CVERecord?id=CVE-2024-43102</link>
-      <description>Concurrent removals of certain anonymous shared memory mappings by using the UMTX_SHM_DESTROY sub-request of UMTX_OP_SHM can lead to decreasing the reference count of the object representing the mapping too many times, causing it to be freed too early.
-
-A malicious code exercizing the UMTX_SHM_DESTROY sub-request in parallel can panic the kernel or enable further Use-After-Free attacks, potentially including code execution or Capsicum sandbox escape.</description>
-      <guid isPermaLink="false">CVE-2024-43102|2024-09-16T21:02:44.154Z</guid>
-      <pubDate>Thu, 05 Sep 2024 04:54:52 +0000</pubDate>
+      <title>CVE-2024-41928|2024-09-06T16:18:40.362Z -- freebsd -- freebsd</title>
+      <link>https://www.cve.org/CVERecord?id=CVE-2024-41928</link>
+      <description>Malicious software running in a guest VM can exploit the buffer overflow to achieve code execution on the host in the bhyve userspace process, which typically runs as root. Note that bhyve runs in a Capsicum sandbox, so malicious code is constrained by the capabilities available to the bhyve process.</description>
+      <guid isPermaLink="false">CVE-2024-41928|2024-09-06T16:18:40.362Z</guid>
+      <pubDate>Thu, 05 Sep 2024 03:32:56 +0000</pubDate>
     </item>
     <item>
-      <title>CVE-2024-43102|2024-09-13T03:55:21.813Z -- freebsd -- freebsd</title>
-      <link>https://www.cve.org/CVERecord?id=CVE-2024-43102</link>
-      <description>Concurrent removals of certain anonymous shared memory mappings by using the UMTX_SHM_DESTROY sub-request of UMTX_OP_SHM can lead to decreasing the reference count of the object representing the mapping too many times, causing it to be freed too early.
+      <title>CVE-2024-8178|2024-09-06T16:18:28.901Z -- freebsd -- freebsd</title>
+      <link>https://www.cve.org/CVERecord?id=CVE-2024-8178</link>
+      <description>The ctl_write_buffer and ctl_read_buffer functions allocated memory to be returned to userspace, without initializing it.
 
-A malicious code exercizing the UMTX_SHM_DESTROY sub-request in parallel can panic the kernel or enable further Use-After-Free attacks, potentially including code execution or Capsicum sandbox escape.</description>
-      <guid isPermaLink="false">CVE-2024-43102|2024-09-13T03:55:21.813Z</guid>
-      <pubDate>Thu, 05 Sep 2024 04:54:52 +0000</pubDate>
+Malicious software running in a guest VM that exposes virtio_scsi can exploit the vulnerabilities to achieve code execution on the host in the bhyve userspace process, which typically runs as root.  Note that bhyve runs in a Capsicum sandbox, so malicious code is constrained by the capabilities available to the bhyve process.  A malicious iSCSI initiator could achieve remote code execution on the iSCSI target host.</description>
+      <guid isPermaLink="false">CVE-2024-8178|2024-09-06T16:18:28.901Z</guid>
+      <pubDate>Thu, 05 Sep 2024 04:31:12 +0000</pubDate>
     </item>
     <item>
-      <title>CVE-2024-43110|2024-09-05T13:11:27.145Z -- freebsd -- freebsd</title>
+      <title>CVE-2024-45063|2024-09-06T16:18:12.181Z -- freebsd -- freebsd</title>
+      <link>https://www.cve.org/CVERecord?id=CVE-2024-45063</link>
+      <description>The function ctl_write_buffer incorrectly set a flag which resulted in a kernel Use-After-Free when a command finished processing.
+
+Malicious software running in a guest VM that exposes virtio_scsi can exploit the vulnerabilities to achieve code execution on the host in the bhyve userspace process, which typically runs as root.  Note that bhyve runs in a Capsicum sandbox, so malicious code is constrained by the capabilities available to the bhyve process.  A malicious iSCSI initiator could achieve remote code execution on the iSCSI target host.</description>
+      <guid isPermaLink="false">CVE-2024-45063|2024-09-06T16:18:12.181Z</guid>
+      <pubDate>Thu, 05 Sep 2024 04:31:22 +0000</pubDate>
+    </item>
+    <item>
+      <title>CVE-2024-43110|2024-09-05T04:31:19.166Z -- freebsd -- freebsd</title>
       <link>https://www.cve.org/CVERecord?id=CVE-2024-43110</link>
       <description>The ctl_request_sense function could expose up to three bytes of the kernel heap to userspace.
 
 Malicious software running in a guest VM that exposes virtio_scsi can exploit the vulnerabilities to achieve code execution on the host in the bhyve userspace process, which typically runs as root.  Note that bhyve runs in a Capsicum sandbox, so malicious code is constrained by the capabilities available to the bhyve process.  A malicious iSCSI initiator could achieve remote code execution on the iSCSI target host.</description>
-      <guid isPermaLink="false">CVE-2024-43110|2024-09-05T13:11:27.145Z</guid>
+      <guid isPermaLink="false">CVE-2024-43110|2024-09-05T04:31:19.166Z</guid>
       <pubDate>Thu, 05 Sep 2024 04:31:19 +0000</pubDate>
     </item>
     <item>
-      <title>CVE-2024-32668|2024-09-05T13:09:38.450Z -- freebsd -- freebsd</title>
+      <title>CVE-2024-8178|2024-09-05T04:31:12.231Z -- freebsd -- freebsd</title>
+      <link>https://www.cve.org/CVERecord?id=CVE-2024-8178</link>
+      <description>The ctl_write_buffer and ctl_read_buffer functions allocated memory to be returned to userspace, without initializing it.
+
+Malicious software running in a guest VM that exposes virtio_scsi can exploit the vulnerabilities to achieve code execution on the host in the bhyve userspace process, which typically runs as root.  Note that bhyve runs in a Capsicum sandbox, so malicious code is constrained by the capabilities available to the bhyve process.  A malicious iSCSI initiator could achieve remote code execution on the iSCSI target host.</description>
+      <guid isPermaLink="false">CVE-2024-8178|2024-09-05T04:31:12.231Z</guid>
+      <pubDate>Thu, 05 Sep 2024 04:31:12 +0000</pubDate>
+    </item>
+    <item>
+      <title>CVE-2024-45063|2024-09-05T04:31:22.649Z -- freebsd -- freebsd</title>
+      <link>https://www.cve.org/CVERecord?id=CVE-2024-45063</link>
+      <description>The function ctl_write_buffer incorrectly set a flag which resulted in a kernel Use-After-Free when a command finished processing.
+
+Malicious software running in a guest VM that exposes virtio_scsi can exploit the vulnerabilities to achieve code execution on the host in the bhyve userspace process, which typically runs as root.  Note that bhyve runs in a Capsicum sandbox, so malicious code is constrained by the capabilities available to the bhyve process.  A malicious iSCSI initiator could achieve remote code execution on the iSCSI target host.</description>
+      <guid isPermaLink="false">CVE-2024-45063|2024-09-05T04:31:22.649Z</guid>
+      <pubDate>Thu, 05 Sep 2024 04:31:22 +0000</pubDate>
+    </item>
+    <item>
+      <title>CVE-2024-32668|2024-09-05T04:42:25.457Z -- freebsd -- freebsd</title>
       <link>https://www.cve.org/CVERecord?id=CVE-2024-32668</link>
       <description>An insufficient boundary validation in the USB code could lead to an out-of-bounds write on the heap, with data controlled by the caller.
 
 A malicious, privileged software running in a guest VM can exploit the vulnerability to achieve code execution on the host in the bhyve userspace process, which typically runs as root. Note that bhyve runs in a Capsicum sandbox, so malicious code is constrained by the capabilities available to the bhyve process.</description>
-      <guid isPermaLink="false">CVE-2024-32668|2024-09-05T13:09:38.450Z</guid>
+      <guid isPermaLink="false">CVE-2024-32668|2024-09-05T04:42:25.457Z</guid>
       <pubDate>Thu, 05 Sep 2024 04:42:25 +0000</pubDate>
     </item>
     <item>
-      <title>CVE-2024-42416|2024-09-05T13:12:10.303Z -- freebsd -- freebsd</title>
+      <title>CVE-2024-42416|2024-09-05T04:31:15.698Z -- freebsd -- freebsd</title>
       <link>https://www.cve.org/CVERecord?id=CVE-2024-42416</link>
       <description>The ctl_report_supported_opcodes function did not sufficiently validate a field provided by userspace, allowing an arbitrary write to a limited amount of kernel help memory.
 
 Malicious software running in a guest VM that exposes virtio_scsi can exploit the vulnerabilities to achieve code execution on the host in the bhyve userspace process, which typically runs as root.  Note that bhyve runs in a Capsicum sandbox, so malicious code is constrained by the capabilities available to the bhyve process.  A malicious iSCSI initiator could achieve remote code execution on the iSCSI target host.</description>
-      <guid isPermaLink="false">CVE-2024-42416|2024-09-05T13:12:10.303Z</guid>
+      <guid isPermaLink="false">CVE-2024-42416|2024-09-05T04:31:15.698Z</guid>
       <pubDate>Thu, 05 Sep 2024 04:31:15 +0000</pubDate>
     </item>
     <item>
-      <title>CVE-2024-43102|2024-09-05T13:08:29.115Z -- freebsd -- freebsd</title>
+      <title>CVE-2024-43102|2024-09-05T04:54:52.452Z -- freebsd -- freebsd</title>
       <link>https://www.cve.org/CVERecord?id=CVE-2024-43102</link>
       <description>Concurrent removals of certain anonymous shared memory mappings by using the UMTX_SHM_DESTROY sub-request of UMTX_OP_SHM can lead to decreasing the reference count of the object representing the mapping too many times, causing it to be freed too early.
 
 A malicious code exercizing the UMTX_SHM_DESTROY sub-request in parallel can panic the kernel or enable further Use-After-Free attacks, potentially including code execution or Capsicum sandbox escape.</description>
-      <guid isPermaLink="false">CVE-2024-43102|2024-09-05T13:08:29.115Z</guid>
+      <guid isPermaLink="false">CVE-2024-43102|2024-09-05T04:54:52.452Z</guid>
       <pubDate>Thu, 05 Sep 2024 04:54:52 +0000</pubDate>
     </item>
     <item>
-      <title>CVE-2024-45288|2024-09-05T13:15:32.799Z -- freebsd -- freebsd</title>
-      <link>https://www.cve.org/CVERecord?id=CVE-2024-45288</link>
-      <description>A missing null-termination character in the last element of an nvlist array string can lead to writing outside the allocated buffer.</description>
-      <guid isPermaLink="false">CVE-2024-45288|2024-09-05T13:15:32.799Z</guid>
-      <pubDate>Thu, 05 Sep 2024 03:18:26 +0000</pubDate>
-    </item>
-    <item>
-      <title>CVE-2024-45287|2024-09-05T13:16:36.226Z -- freebsd -- freebsd</title>
-      <link>https://www.cve.org/CVERecord?id=CVE-2024-45287</link>
-      <description>A malicious value of size in a structure of packed libnv can cause an integer overflow, leading to the allocation of a smaller buffer than required for the parsed data.</description>
-      <guid isPermaLink="false">CVE-2024-45287|2024-09-05T13:16:36.226Z</guid>
-      <pubDate>Thu, 05 Sep 2024 03:18:16 +0000</pubDate>
-    </item>
-    <item>
-      <title>CVE-2024-41928|2024-09-05T03:32:56.561Z -- freebsd -- freebsd</title>
-      <link>https://www.cve.org/CVERecord?id=CVE-2024-41928</link>
-      <description>Malicious software running in a guest VM can exploit the buffer overflow to achieve code execution on the host in the bhyve userspace process, which typically runs as root. Note that bhyve runs in a Capsicum sandbox, so malicious code is constrained by the capabilities available to the bhyve process.</description>
-      <guid isPermaLink="false">CVE-2024-41928|2024-09-05T03:32:56.561Z</guid>
-      <pubDate>Thu, 05 Sep 2024 03:32:56 +0000</pubDate>
-    </item>
-    <item>
-      <title>CVE-2024-45288|2024-09-05T03:18:26.407Z -- freebsd -- freebsd</title>
-      <link>https://www.cve.org/CVERecord?id=CVE-2024-45288</link>
-      <description>A missing null-termination character in the last element of an nvlist array string can lead to writing outside the allocated buffer.</description>
-      <guid isPermaLink="false">CVE-2024-45288|2024-09-05T03:18:26.407Z</guid>
-      <pubDate>Thu, 05 Sep 2024 03:18:26 +0000</pubDate>
-    </item>
-    <item>
-      <title>CVE-2024-45287|2024-09-05T03:18:16.076Z -- freebsd -- freebsd</title>
-      <link>https://www.cve.org/CVERecord?id=CVE-2024-45287</link>
-      <description>A malicious value of size in a structure of packed libnv can cause an integer overflow, leading to the allocation of a smaller buffer than required for the parsed data.</description>
-      <guid isPermaLink="false">CVE-2024-45287|2024-09-05T03:18:16.076Z</guid>
-      <pubDate>Thu, 05 Sep 2024 03:18:16 +0000</pubDate>
-    </item>
-    <item>
-      <title>CVE-2024-6640|2024-08-13T18:58:48.187Z -- freebsd -- freebsd</title>
-      <link>https://www.cve.org/CVERecord?id=CVE-2024-6640</link>
-      <description>In ICMPv6 Neighbor Discovery (ND), the ID is always 0.  When pf is configured to allow ND and block incoming Echo Requests, a crafted Echo Request packet after a Neighbor Solicitation (NS) can trigger an Echo Reply.  The packet has to come from the same host as the NS and have a zero as identifier to match the state created by the Neighbor Discovery and allow replies to be generated.
-
-ICMPv6 packets with identifier value of zero bypass firewall rules written on the assumption that the incoming packets are going to create a state in the state table.</description>
-      <guid isPermaLink="false">CVE-2024-6640|2024-08-13T18:58:48.187Z</guid>
-      <pubDate>Sun, 11 Aug 2024 02:33:42 +0000</pubDate>
-    </item>
-    <item>
-      <title>CVE-2024-6759|2024-08-12T14:24:35.396Z -- freebsd -- freebsd</title>
+      <title>CVE-2024-6759|2024-08-16T17:02:45.727Z -- freebsd -- freebsd</title>
       <link>https://www.cve.org/CVERecord?id=CVE-2024-6759</link>
       <description>When mounting a remote filesystem using NFS, the kernel did not sanitize remotely provided filenames for the path separator character, "/".  This allows readdir(3) and related functions to return filesystem entries with names containing additional path components.
 
 The lack of validation described above gives rise to a confused deputy problem.  For example, a program copying files from an NFS mount could be tricked into copying from outside the intended source directory, and/or to a location outside the intended destination directory.</description>
-      <guid isPermaLink="false">CVE-2024-6759|2024-08-12T14:24:35.396Z</guid>
+      <guid isPermaLink="false">CVE-2024-6759|2024-08-16T17:02:45.727Z</guid>
       <pubDate>Sun, 11 Aug 2024 02:45:15 +0000</pubDate>
-    </item>
-    <item>
-      <title>CVE-2024-6760|2024-08-12T14:42:59.647Z -- freebsd -- freebsd</title>
-      <link>https://www.cve.org/CVERecord?id=CVE-2024-6760</link>
-      <description>A logic bug in the code which disables kernel tracing for setuid programs meant that tracing was not disabled when it should have, allowing unprivileged users to trace and inspect the behavior of setuid programs.
-
-The bug may be used by an unprivileged user to read the contents of files to which they would not otherwise have access, such as the local password database.</description>
-      <guid isPermaLink="false">CVE-2024-6760|2024-08-12T14:42:59.647Z</guid>
-      <pubDate>Sun, 11 Aug 2024 02:40:03 +0000</pubDate>
-    </item>
-    <item>
-      <title>CVE-2024-6759|2024-08-11T02:45:15.024Z -- freebsd -- freebsd</title>
-      <link>https://www.cve.org/CVERecord?id=CVE-2024-6759</link>
-      <description>When mounting a remote filesystem using NFS, the kernel did not sanitize remotely provided filenames for the path separator character, "/".  This allows readdir(3) and related functions to return filesystem entries with names containing additional path components.
-
-The lack of validation described above gives rise to a confused deputy problem.  For example, a program copying files from an NFS mount could be tricked into copying from outside the intended source directory, and/or to a location outside the intended destination directory.</description>
-      <guid isPermaLink="false">CVE-2024-6759|2024-08-11T02:45:15.024Z</guid>
-      <pubDate>Sun, 11 Aug 2024 02:45:15 +0000</pubDate>
-    </item>
-    <item>
-      <title>CVE-2024-6640|2024-08-11T02:33:42.590Z -- freebsd -- freebsd</title>
-      <link>https://www.cve.org/CVERecord?id=CVE-2024-6640</link>
-      <description>In ICMPv6 Neighbor Discovery (ND), the ID is always 0.  When pf is configured to allow ND and block incoming Echo Requests, a crafted Echo Request packet after a Neighbor Solicitation (NS) can trigger an Echo Reply.  The packet has to come from the same host as the NS and have a zero as identifier to match the state created by the Neighbor Discovery and allow replies to be generated.
-
-ICMPv6 packets with identifier value of zero bypass firewall rules written on the assumption that the incoming packets are going to create a state in the state table.</description>
-      <guid isPermaLink="false">CVE-2024-6640|2024-08-11T02:33:42.590Z</guid>
-      <pubDate>Sun, 11 Aug 2024 02:33:42 +0000</pubDate>
-    </item>
-    <item>
-      <title>CVE-2024-6760|2024-08-11T02:40:03.814Z -- freebsd -- freebsd</title>
-      <link>https://www.cve.org/CVERecord?id=CVE-2024-6760</link>
-      <description>A logic bug in the code which disables kernel tracing for setuid programs meant that tracing was not disabled when it should have, allowing unprivileged users to trace and inspect the behavior of setuid programs.
-
-The bug may be used by an unprivileged user to read the contents of files to which they would not otherwise have access, such as the local password database.</description>
-      <guid isPermaLink="false">CVE-2024-6760|2024-08-11T02:40:03.814Z</guid>
-      <pubDate>Sun, 11 Aug 2024 02:40:03 +0000</pubDate>
-    </item>
-    <item>
-      <title>CVE-2024-7589|2024-08-11T03:15:52.181Z -- freebsd -- freebsd</title>
-      <link>https://www.cve.org/CVERecord?id=CVE-2024-7589</link>
-      <description>A signal handler in sshd(8) may call a logging function that is not async-signal-safe.  The signal handler is invoked when a client does not authenticate within the LoginGraceTime seconds (120 by default).  This signal handler executes in the context of the sshd(8)'s privileged code, which is not sandboxed and runs with full root privileges.
-
-This issue is another instance of the problem in CVE-2024-6387 addressed by FreeBSD-SA-24:04.openssh.  The faulty code in this case is from the integration of blacklistd in OpenSSH in FreeBSD.
-
-As a result of calling functions that are not async-signal-safe in the privileged sshd(8) context, a race condition exists that a determined attacker may be able to exploit to allow an unauthenticated remote code execution as root.</description>
-      <guid isPermaLink="false">CVE-2024-7589|2024-08-11T03:15:52.181Z</guid>
-      <pubDate>Sun, 11 Aug 2024 03:15:52 +0000</pubDate>
-    </item>
-    <item>
-      <title>CVE-2024-7589|2024-08-12T15:27:57.346Z -- freebsd -- freebsd</title>
-      <link>https://www.cve.org/CVERecord?id=CVE-2024-7589</link>
-      <description>A signal handler in sshd(8) may call a logging function that is not async-signal-safe.  The signal handler is invoked when a client does not authenticate within the LoginGraceTime seconds (120 by default).  This signal handler executes in the context of the sshd(8)'s privileged code, which is not sandboxed and runs with full root privileges.
-
-This issue is another instance of the problem in CVE-2024-6387 addressed by FreeBSD-SA-24:04.openssh.  The faulty code in this case is from the integration of blacklistd in OpenSSH in FreeBSD.
-
-As a result of calling functions that are not async-signal-safe in the privileged sshd(8) context, a race condition exists that a determined attacker may be able to exploit to allow an unauthenticated remote code execution as root.</description>
-      <guid isPermaLink="false">CVE-2024-7589|2024-08-12T15:27:57.346Z</guid>
-      <pubDate>Sun, 11 Aug 2024 03:15:52 +0000</pubDate>
-    </item>
-    <item>
-      <title>CVE-2024-6760|2024-08-16T17:02:47.133Z -- freebsd -- freebsd</title>
-      <link>https://www.cve.org/CVERecord?id=CVE-2024-6760</link>
-      <description>A logic bug in the code which disables kernel tracing for setuid programs meant that tracing was not disabled when it should have, allowing unprivileged users to trace and inspect the behavior of setuid programs.
-
-The bug may be used by an unprivileged user to read the contents of files to which they would not otherwise have access, such as the local password database.</description>
-      <guid isPermaLink="false">CVE-2024-6760|2024-08-16T17:02:47.133Z</guid>
-      <pubDate>Sun, 11 Aug 2024 02:40:03 +0000</pubDate>
-    </item>
-    <item>
-      <title>CVE-2024-6640|2024-08-16T17:02:44.316Z -- freebsd -- freebsd</title>
-      <link>https://www.cve.org/CVERecord?id=CVE-2024-6640</link>
-      <description>In ICMPv6 Neighbor Discovery (ND), the ID is always 0.  When pf is configured to allow ND and block incoming Echo Requests, a crafted Echo Request packet after a Neighbor Solicitation (NS) can trigger an Echo Reply.  The packet has to come from the same host as the NS and have a zero as identifier to match the state created by the Neighbor Discovery and allow replies to be generated.
-
-ICMPv6 packets with identifier value of zero bypass firewall rules written on the assumption that the incoming packets are going to create a state in the state table.</description>
-      <guid isPermaLink="false">CVE-2024-6640|2024-08-16T17:02:44.316Z</guid>
-      <pubDate>Sun, 11 Aug 2024 02:33:42 +0000</pubDate>
     </item>
     <item>
       <title>CVE-2024-7589|2024-08-16T17:02:48.552Z -- freebsd -- freebsd</title>
@@ -251,92 +156,187 @@ As a result of calling functions that are not async-signal-safe in the privilege
       <pubDate>Sun, 11 Aug 2024 03:15:52 +0000</pubDate>
     </item>
     <item>
-      <title>CVE-2024-6759|2024-08-16T17:02:45.727Z -- freebsd -- freebsd</title>
+      <title>CVE-2024-6640|2024-08-16T17:02:44.316Z -- freebsd -- freebsd</title>
+      <link>https://www.cve.org/CVERecord?id=CVE-2024-6640</link>
+      <description>In ICMPv6 Neighbor Discovery (ND), the ID is always 0.  When pf is configured to allow ND and block incoming Echo Requests, a crafted Echo Request packet after a Neighbor Solicitation (NS) can trigger an Echo Reply.  The packet has to come from the same host as the NS and have a zero as identifier to match the state created by the Neighbor Discovery and allow replies to be generated.
+
+ICMPv6 packets with identifier value of zero bypass firewall rules written on the assumption that the incoming packets are going to create a state in the state table.</description>
+      <guid isPermaLink="false">CVE-2024-6640|2024-08-16T17:02:44.316Z</guid>
+      <pubDate>Sun, 11 Aug 2024 02:33:42 +0000</pubDate>
+    </item>
+    <item>
+      <title>CVE-2024-6760|2024-08-16T17:02:47.133Z -- freebsd -- freebsd</title>
+      <link>https://www.cve.org/CVERecord?id=CVE-2024-6760</link>
+      <description>A logic bug in the code which disables kernel tracing for setuid programs meant that tracing was not disabled when it should have, allowing unprivileged users to trace and inspect the behavior of setuid programs.
+
+The bug may be used by an unprivileged user to read the contents of files to which they would not otherwise have access, such as the local password database.</description>
+      <guid isPermaLink="false">CVE-2024-6760|2024-08-16T17:02:47.133Z</guid>
+      <pubDate>Sun, 11 Aug 2024 02:40:03 +0000</pubDate>
+    </item>
+    <item>
+      <title>CVE-2024-7589|2024-08-12T15:27:57.346Z -- freebsd -- freebsd</title>
+      <link>https://www.cve.org/CVERecord?id=CVE-2024-7589</link>
+      <description>A signal handler in sshd(8) may call a logging function that is not async-signal-safe.  The signal handler is invoked when a client does not authenticate within the LoginGraceTime seconds (120 by default).  This signal handler executes in the context of the sshd(8)'s privileged code, which is not sandboxed and runs with full root privileges.
+
+This issue is another instance of the problem in CVE-2024-6387 addressed by FreeBSD-SA-24:04.openssh.  The faulty code in this case is from the integration of blacklistd in OpenSSH in FreeBSD.
+
+As a result of calling functions that are not async-signal-safe in the privileged sshd(8) context, a race condition exists that a determined attacker may be able to exploit to allow an unauthenticated remote code execution as root.</description>
+      <guid isPermaLink="false">CVE-2024-7589|2024-08-12T15:27:57.346Z</guid>
+      <pubDate>Sun, 11 Aug 2024 03:15:52 +0000</pubDate>
+    </item>
+    <item>
+      <title>CVE-2024-7589|2024-08-11T03:15:52.181Z -- freebsd -- freebsd</title>
+      <link>https://www.cve.org/CVERecord?id=CVE-2024-7589</link>
+      <description>A signal handler in sshd(8) may call a logging function that is not async-signal-safe.  The signal handler is invoked when a client does not authenticate within the LoginGraceTime seconds (120 by default).  This signal handler executes in the context of the sshd(8)'s privileged code, which is not sandboxed and runs with full root privileges.
+
+This issue is another instance of the problem in CVE-2024-6387 addressed by FreeBSD-SA-24:04.openssh.  The faulty code in this case is from the integration of blacklistd in OpenSSH in FreeBSD.
+
+As a result of calling functions that are not async-signal-safe in the privileged sshd(8) context, a race condition exists that a determined attacker may be able to exploit to allow an unauthenticated remote code execution as root.</description>
+      <guid isPermaLink="false">CVE-2024-7589|2024-08-11T03:15:52.181Z</guid>
+      <pubDate>Sun, 11 Aug 2024 03:15:52 +0000</pubDate>
+    </item>
+    <item>
+      <title>CVE-2024-6760|2024-08-11T02:40:03.814Z -- freebsd -- freebsd</title>
+      <link>https://www.cve.org/CVERecord?id=CVE-2024-6760</link>
+      <description>A logic bug in the code which disables kernel tracing for setuid programs meant that tracing was not disabled when it should have, allowing unprivileged users to trace and inspect the behavior of setuid programs.
+
+The bug may be used by an unprivileged user to read the contents of files to which they would not otherwise have access, such as the local password database.</description>
+      <guid isPermaLink="false">CVE-2024-6760|2024-08-11T02:40:03.814Z</guid>
+      <pubDate>Sun, 11 Aug 2024 02:40:03 +0000</pubDate>
+    </item>
+    <item>
+      <title>CVE-2024-6640|2024-08-11T02:33:42.590Z -- freebsd -- freebsd</title>
+      <link>https://www.cve.org/CVERecord?id=CVE-2024-6640</link>
+      <description>In ICMPv6 Neighbor Discovery (ND), the ID is always 0.  When pf is configured to allow ND and block incoming Echo Requests, a crafted Echo Request packet after a Neighbor Solicitation (NS) can trigger an Echo Reply.  The packet has to come from the same host as the NS and have a zero as identifier to match the state created by the Neighbor Discovery and allow replies to be generated.
+
+ICMPv6 packets with identifier value of zero bypass firewall rules written on the assumption that the incoming packets are going to create a state in the state table.</description>
+      <guid isPermaLink="false">CVE-2024-6640|2024-08-11T02:33:42.590Z</guid>
+      <pubDate>Sun, 11 Aug 2024 02:33:42 +0000</pubDate>
+    </item>
+    <item>
+      <title>CVE-2024-6759|2024-08-11T02:45:15.024Z -- freebsd -- freebsd</title>
       <link>https://www.cve.org/CVERecord?id=CVE-2024-6759</link>
       <description>When mounting a remote filesystem using NFS, the kernel did not sanitize remotely provided filenames for the path separator character, "/".  This allows readdir(3) and related functions to return filesystem entries with names containing additional path components.
 
 The lack of validation described above gives rise to a confused deputy problem.  For example, a program copying files from an NFS mount could be tricked into copying from outside the intended source directory, and/or to a location outside the intended destination directory.</description>
-      <guid isPermaLink="false">CVE-2024-6759|2024-08-16T17:02:45.727Z</guid>
+      <guid isPermaLink="false">CVE-2024-6759|2024-08-11T02:45:15.024Z</guid>
       <pubDate>Sun, 11 Aug 2024 02:45:15 +0000</pubDate>
     </item>
     <item>
-      <title>CVE-2024-43102|2024-09-05T04:54:52.452Z -- freebsd -- freebsd</title>
+      <title>CVE-2024-6760|2024-08-12T14:42:59.647Z -- freebsd -- freebsd</title>
+      <link>https://www.cve.org/CVERecord?id=CVE-2024-6760</link>
+      <description>A logic bug in the code which disables kernel tracing for setuid programs meant that tracing was not disabled when it should have, allowing unprivileged users to trace and inspect the behavior of setuid programs.
+
+The bug may be used by an unprivileged user to read the contents of files to which they would not otherwise have access, such as the local password database.</description>
+      <guid isPermaLink="false">CVE-2024-6760|2024-08-12T14:42:59.647Z</guid>
+      <pubDate>Sun, 11 Aug 2024 02:40:03 +0000</pubDate>
+    </item>
+    <item>
+      <title>CVE-2024-6759|2024-08-12T14:24:35.396Z -- freebsd -- freebsd</title>
+      <link>https://www.cve.org/CVERecord?id=CVE-2024-6759</link>
+      <description>When mounting a remote filesystem using NFS, the kernel did not sanitize remotely provided filenames for the path separator character, "/".  This allows readdir(3) and related functions to return filesystem entries with names containing additional path components.
+
+The lack of validation described above gives rise to a confused deputy problem.  For example, a program copying files from an NFS mount could be tricked into copying from outside the intended source directory, and/or to a location outside the intended destination directory.</description>
+      <guid isPermaLink="false">CVE-2024-6759|2024-08-12T14:24:35.396Z</guid>
+      <pubDate>Sun, 11 Aug 2024 02:45:15 +0000</pubDate>
+    </item>
+    <item>
+      <title>CVE-2024-6640|2024-08-13T18:58:48.187Z -- freebsd -- freebsd</title>
+      <link>https://www.cve.org/CVERecord?id=CVE-2024-6640</link>
+      <description>In ICMPv6 Neighbor Discovery (ND), the ID is always 0.  When pf is configured to allow ND and block incoming Echo Requests, a crafted Echo Request packet after a Neighbor Solicitation (NS) can trigger an Echo Reply.  The packet has to come from the same host as the NS and have a zero as identifier to match the state created by the Neighbor Discovery and allow replies to be generated.
+
+ICMPv6 packets with identifier value of zero bypass firewall rules written on the assumption that the incoming packets are going to create a state in the state table.</description>
+      <guid isPermaLink="false">CVE-2024-6640|2024-08-13T18:58:48.187Z</guid>
+      <pubDate>Sun, 11 Aug 2024 02:33:42 +0000</pubDate>
+    </item>
+    <item>
+      <title>CVE-2024-45287|2024-09-05T03:18:16.076Z -- freebsd -- freebsd</title>
+      <link>https://www.cve.org/CVERecord?id=CVE-2024-45287</link>
+      <description>A malicious value of size in a structure of packed libnv can cause an integer overflow, leading to the allocation of a smaller buffer than required for the parsed data.</description>
+      <guid isPermaLink="false">CVE-2024-45287|2024-09-05T03:18:16.076Z</guid>
+      <pubDate>Thu, 05 Sep 2024 03:18:16 +0000</pubDate>
+    </item>
+    <item>
+      <title>CVE-2024-45288|2024-09-05T03:18:26.407Z -- freebsd -- freebsd</title>
+      <link>https://www.cve.org/CVERecord?id=CVE-2024-45288</link>
+      <description>A missing null-termination character in the last element of an nvlist array string can lead to writing outside the allocated buffer.</description>
+      <guid isPermaLink="false">CVE-2024-45288|2024-09-05T03:18:26.407Z</guid>
+      <pubDate>Thu, 05 Sep 2024 03:18:26 +0000</pubDate>
+    </item>
+    <item>
+      <title>CVE-2024-41928|2024-09-05T03:32:56.561Z -- freebsd -- freebsd</title>
+      <link>https://www.cve.org/CVERecord?id=CVE-2024-41928</link>
+      <description>Malicious software running in a guest VM can exploit the buffer overflow to achieve code execution on the host in the bhyve userspace process, which typically runs as root. Note that bhyve runs in a Capsicum sandbox, so malicious code is constrained by the capabilities available to the bhyve process.</description>
+      <guid isPermaLink="false">CVE-2024-41928|2024-09-05T03:32:56.561Z</guid>
+      <pubDate>Thu, 05 Sep 2024 03:32:56 +0000</pubDate>
+    </item>
+    <item>
+      <title>CVE-2024-45287|2024-09-05T13:16:36.226Z -- freebsd -- freebsd</title>
+      <link>https://www.cve.org/CVERecord?id=CVE-2024-45287</link>
+      <description>A malicious value of size in a structure of packed libnv can cause an integer overflow, leading to the allocation of a smaller buffer than required for the parsed data.</description>
+      <guid isPermaLink="false">CVE-2024-45287|2024-09-05T13:16:36.226Z</guid>
+      <pubDate>Thu, 05 Sep 2024 03:18:16 +0000</pubDate>
+    </item>
+    <item>
+      <title>CVE-2024-45288|2024-09-05T13:15:32.799Z -- freebsd -- freebsd</title>
+      <link>https://www.cve.org/CVERecord?id=CVE-2024-45288</link>
+      <description>A missing null-termination character in the last element of an nvlist array string can lead to writing outside the allocated buffer.</description>
+      <guid isPermaLink="false">CVE-2024-45288|2024-09-05T13:15:32.799Z</guid>
+      <pubDate>Thu, 05 Sep 2024 03:18:26 +0000</pubDate>
+    </item>
+    <item>
+      <title>CVE-2024-43102|2024-09-05T13:08:29.115Z -- freebsd -- freebsd</title>
       <link>https://www.cve.org/CVERecord?id=CVE-2024-43102</link>
       <description>Concurrent removals of certain anonymous shared memory mappings by using the UMTX_SHM_DESTROY sub-request of UMTX_OP_SHM can lead to decreasing the reference count of the object representing the mapping too many times, causing it to be freed too early.
 
 A malicious code exercizing the UMTX_SHM_DESTROY sub-request in parallel can panic the kernel or enable further Use-After-Free attacks, potentially including code execution or Capsicum sandbox escape.</description>
-      <guid isPermaLink="false">CVE-2024-43102|2024-09-05T04:54:52.452Z</guid>
+      <guid isPermaLink="false">CVE-2024-43102|2024-09-05T13:08:29.115Z</guid>
       <pubDate>Thu, 05 Sep 2024 04:54:52 +0000</pubDate>
     </item>
     <item>
-      <title>CVE-2024-42416|2024-09-05T04:31:15.698Z -- freebsd -- freebsd</title>
+      <title>CVE-2024-42416|2024-09-05T13:12:10.303Z -- freebsd -- freebsd</title>
       <link>https://www.cve.org/CVERecord?id=CVE-2024-42416</link>
       <description>The ctl_report_supported_opcodes function did not sufficiently validate a field provided by userspace, allowing an arbitrary write to a limited amount of kernel help memory.
 
 Malicious software running in a guest VM that exposes virtio_scsi can exploit the vulnerabilities to achieve code execution on the host in the bhyve userspace process, which typically runs as root.  Note that bhyve runs in a Capsicum sandbox, so malicious code is constrained by the capabilities available to the bhyve process.  A malicious iSCSI initiator could achieve remote code execution on the iSCSI target host.</description>
-      <guid isPermaLink="false">CVE-2024-42416|2024-09-05T04:31:15.698Z</guid>
+      <guid isPermaLink="false">CVE-2024-42416|2024-09-05T13:12:10.303Z</guid>
       <pubDate>Thu, 05 Sep 2024 04:31:15 +0000</pubDate>
     </item>
     <item>
-      <title>CVE-2024-32668|2024-09-05T04:42:25.457Z -- freebsd -- freebsd</title>
+      <title>CVE-2024-32668|2024-09-05T13:09:38.450Z -- freebsd -- freebsd</title>
       <link>https://www.cve.org/CVERecord?id=CVE-2024-32668</link>
       <description>An insufficient boundary validation in the USB code could lead to an out-of-bounds write on the heap, with data controlled by the caller.
 
 A malicious, privileged software running in a guest VM can exploit the vulnerability to achieve code execution on the host in the bhyve userspace process, which typically runs as root. Note that bhyve runs in a Capsicum sandbox, so malicious code is constrained by the capabilities available to the bhyve process.</description>
-      <guid isPermaLink="false">CVE-2024-32668|2024-09-05T04:42:25.457Z</guid>
+      <guid isPermaLink="false">CVE-2024-32668|2024-09-05T13:09:38.450Z</guid>
       <pubDate>Thu, 05 Sep 2024 04:42:25 +0000</pubDate>
     </item>
     <item>
-      <title>CVE-2024-45063|2024-09-05T04:31:22.649Z -- freebsd -- freebsd</title>
-      <link>https://www.cve.org/CVERecord?id=CVE-2024-45063</link>
-      <description>The function ctl_write_buffer incorrectly set a flag which resulted in a kernel Use-After-Free when a command finished processing.
-
-Malicious software running in a guest VM that exposes virtio_scsi can exploit the vulnerabilities to achieve code execution on the host in the bhyve userspace process, which typically runs as root.  Note that bhyve runs in a Capsicum sandbox, so malicious code is constrained by the capabilities available to the bhyve process.  A malicious iSCSI initiator could achieve remote code execution on the iSCSI target host.</description>
-      <guid isPermaLink="false">CVE-2024-45063|2024-09-05T04:31:22.649Z</guid>
-      <pubDate>Thu, 05 Sep 2024 04:31:22 +0000</pubDate>
-    </item>
-    <item>
-      <title>CVE-2024-8178|2024-09-05T04:31:12.231Z -- freebsd -- freebsd</title>
-      <link>https://www.cve.org/CVERecord?id=CVE-2024-8178</link>
-      <description>The ctl_write_buffer and ctl_read_buffer functions allocated memory to be returned to userspace, without initializing it.
-
-Malicious software running in a guest VM that exposes virtio_scsi can exploit the vulnerabilities to achieve code execution on the host in the bhyve userspace process, which typically runs as root.  Note that bhyve runs in a Capsicum sandbox, so malicious code is constrained by the capabilities available to the bhyve process.  A malicious iSCSI initiator could achieve remote code execution on the iSCSI target host.</description>
-      <guid isPermaLink="false">CVE-2024-8178|2024-09-05T04:31:12.231Z</guid>
-      <pubDate>Thu, 05 Sep 2024 04:31:12 +0000</pubDate>
-    </item>
-    <item>
-      <title>CVE-2024-43110|2024-09-05T04:31:19.166Z -- freebsd -- freebsd</title>
+      <title>CVE-2024-43110|2024-09-05T13:11:27.145Z -- freebsd -- freebsd</title>
       <link>https://www.cve.org/CVERecord?id=CVE-2024-43110</link>
       <description>The ctl_request_sense function could expose up to three bytes of the kernel heap to userspace.
 
 Malicious software running in a guest VM that exposes virtio_scsi can exploit the vulnerabilities to achieve code execution on the host in the bhyve userspace process, which typically runs as root.  Note that bhyve runs in a Capsicum sandbox, so malicious code is constrained by the capabilities available to the bhyve process.  A malicious iSCSI initiator could achieve remote code execution on the iSCSI target host.</description>
-      <guid isPermaLink="false">CVE-2024-43110|2024-09-05T04:31:19.166Z</guid>
+      <guid isPermaLink="false">CVE-2024-43110|2024-09-05T13:11:27.145Z</guid>
       <pubDate>Thu, 05 Sep 2024 04:31:19 +0000</pubDate>
     </item>
     <item>
-      <title>CVE-2024-45063|2024-09-06T16:18:12.181Z -- freebsd -- freebsd</title>
-      <link>https://www.cve.org/CVERecord?id=CVE-2024-45063</link>
-      <description>The function ctl_write_buffer incorrectly set a flag which resulted in a kernel Use-After-Free when a command finished processing.
+      <title>CVE-2024-43102|2024-09-13T03:55:21.813Z -- freebsd -- freebsd</title>
+      <link>https://www.cve.org/CVERecord?id=CVE-2024-43102</link>
+      <description>Concurrent removals of certain anonymous shared memory mappings by using the UMTX_SHM_DESTROY sub-request of UMTX_OP_SHM can lead to decreasing the reference count of the object representing the mapping too many times, causing it to be freed too early.
 
-Malicious software running in a guest VM that exposes virtio_scsi can exploit the vulnerabilities to achieve code execution on the host in the bhyve userspace process, which typically runs as root.  Note that bhyve runs in a Capsicum sandbox, so malicious code is constrained by the capabilities available to the bhyve process.  A malicious iSCSI initiator could achieve remote code execution on the iSCSI target host.</description>
-      <guid isPermaLink="false">CVE-2024-45063|2024-09-06T16:18:12.181Z</guid>
-      <pubDate>Thu, 05 Sep 2024 04:31:22 +0000</pubDate>
+A malicious code exercizing the UMTX_SHM_DESTROY sub-request in parallel can panic the kernel or enable further Use-After-Free attacks, potentially including code execution or Capsicum sandbox escape.</description>
+      <guid isPermaLink="false">CVE-2024-43102|2024-09-13T03:55:21.813Z</guid>
+      <pubDate>Thu, 05 Sep 2024 04:54:52 +0000</pubDate>
     </item>
     <item>
-      <title>CVE-2024-8178|2024-09-06T16:18:28.901Z -- freebsd -- freebsd</title>
-      <link>https://www.cve.org/CVERecord?id=CVE-2024-8178</link>
-      <description>The ctl_write_buffer and ctl_read_buffer functions allocated memory to be returned to userspace, without initializing it.
+      <title>CVE-2024-43102|2024-09-16T21:02:44.154Z -- freebsd -- freebsd</title>
+      <link>https://www.cve.org/CVERecord?id=CVE-2024-43102</link>
+      <description>Concurrent removals of certain anonymous shared memory mappings by using the UMTX_SHM_DESTROY sub-request of UMTX_OP_SHM can lead to decreasing the reference count of the object representing the mapping too many times, causing it to be freed too early.
 
-Malicious software running in a guest VM that exposes virtio_scsi can exploit the vulnerabilities to achieve code execution on the host in the bhyve userspace process, which typically runs as root.  Note that bhyve runs in a Capsicum sandbox, so malicious code is constrained by the capabilities available to the bhyve process.  A malicious iSCSI initiator could achieve remote code execution on the iSCSI target host.</description>
-      <guid isPermaLink="false">CVE-2024-8178|2024-09-06T16:18:28.901Z</guid>
-      <pubDate>Thu, 05 Sep 2024 04:31:12 +0000</pubDate>
-    </item>
-    <item>
-      <title>CVE-2024-41928|2024-09-06T16:18:40.362Z -- freebsd -- freebsd</title>
-      <link>https://www.cve.org/CVERecord?id=CVE-2024-41928</link>
-      <description>Malicious software running in a guest VM can exploit the buffer overflow to achieve code execution on the host in the bhyve userspace process, which typically runs as root. Note that bhyve runs in a Capsicum sandbox, so malicious code is constrained by the capabilities available to the bhyve process.</description>
-      <guid isPermaLink="false">CVE-2024-41928|2024-09-06T16:18:40.362Z</guid>
-      <pubDate>Thu, 05 Sep 2024 03:32:56 +0000</pubDate>
+A malicious code exercizing the UMTX_SHM_DESTROY sub-request in parallel can panic the kernel or enable further Use-After-Free attacks, potentially including code execution or Capsicum sandbox escape.</description>
+      <guid isPermaLink="false">CVE-2024-43102|2024-09-16T21:02:44.154Z</guid>
+      <pubDate>Thu, 05 Sep 2024 04:54:52 +0000</pubDate>
     </item>
   </channel>
 </rss>
