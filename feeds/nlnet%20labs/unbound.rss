@@ -6,31 +6,15 @@
     <description>The latest CVEs for NLnet Labs -- Unbound</description>
     <docs>http://www.rssboard.org/rss-specification</docs>
     <generator>python-feedgen</generator>
-    <lastBuildDate>Mon, 16 Sep 2024 23:21:35 +0000</lastBuildDate>
+    <lastBuildDate>Tue, 17 Sep 2024 04:24:50 +0000</lastBuildDate>
     <ttl>60</ttl>
     <item>
-      <title>CVE-2022-30699|2024-09-16T18:29:59.438Z -- nlnet%20labs -- unbound
+      <title>CVE-2022-3204|2024-09-17T03:19:03.035Z -- nlnet%20labs -- unbound
 </title>
-      <link>https://www.cve.org/CVERecord?id=CVE-2022-30699</link>
-      <description>NLnet Labs Unbound, up to and including version 1.16.1, is vulnerable to a novel type of the "ghost domain names" attack. The vulnerability works by targeting an Unbound instance. Unbound is queried for a rogue domain name when the cached delegation information is about to expire. The rogue nameserver delays the response so that the cached delegation information is expired. Upon receiving the delayed answer containing the delegation information, Unbound overwrites the now expired entries. This action can be repeated when the delegation information is about to expire making the rogue delegation information ever-updating. From version 1.16.2 on, Unbound stores the start time for a query and uses that to decide if the cached delegation information can be overwritten.</description>
-      <guid isPermaLink="false">CVE-2022-30699|2024-09-16T18:29:59.438Z</guid>
-      <pubDate>Mon, 01 Aug 2022 14:13:58 +0000</pubDate>
-    </item>
-    <item>
-      <title>CVE-2017-15105|2024-09-16T21:56:27.390Z -- nlnet%20labs -- unbound
-</title>
-      <link>https://www.cve.org/CVERecord?id=CVE-2017-15105</link>
-      <description>A flaw was found in the way unbound before 1.6.8 validated wildcard-synthesized NSEC records. An improperly validated wildcard NSEC record could be used to prove the non-existence (NXDOMAIN answer) of an existing wildcard record, or trick unbound into accepting a NODATA proof.</description>
-      <guid isPermaLink="false">CVE-2017-15105|2024-09-16T21:56:27.390Z</guid>
-      <pubDate>Tue, 23 Jan 2018 16:00:00 +0000</pubDate>
-    </item>
-    <item>
-      <title>CVE-2022-30698|2024-09-16T19:35:09.568Z -- nlnet%20labs -- unbound
-</title>
-      <link>https://www.cve.org/CVERecord?id=CVE-2022-30698</link>
-      <description>NLnet Labs Unbound, up to and including version 1.16.1 is vulnerable to a novel type of the "ghost domain names" attack. The vulnerability works by targeting an Unbound instance. Unbound is queried for a subdomain of a rogue domain name. The rogue nameserver returns delegation information for the subdomain that updates Unbound's delegation cache. This action can be repeated before expiry of the delegation information by querying Unbound for a second level subdomain which the rogue nameserver provides new delegation information. Since Unbound is a child-centric resolver, the ever-updating child delegation information can keep a rogue domain name resolvable long after revocation. From version 1.16.2 on, Unbound checks the validity of parent delegation records before using cached delegation information.</description>
-      <guid isPermaLink="false">CVE-2022-30698|2024-09-16T19:35:09.568Z</guid>
-      <pubDate>Mon, 01 Aug 2022 14:13:44 +0000</pubDate>
+      <link>https://www.cve.org/CVERecord?id=CVE-2022-3204</link>
+      <description>A vulnerability named 'Non-Responsive Delegation Attack' (NRDelegation Attack) has been discovered in various DNS resolving software. The NRDelegation Attack works by having a malicious delegation with a considerable number of non responsive nameservers. The attack starts by querying a resolver for a record that relies on those unresponsive nameservers. The attack can cause a resolver to spend a lot of time/resources resolving records under a malicious delegation point where a considerable number of unresponsive NS records reside. It can trigger high CPU usage in some resolver implementations that continually look in the cache for resolved NS records in that delegation. This can lead to degraded performance and eventually denial of service in orchestrated attacks. Unbound does not suffer from high CPU usage, but resources are still needed for resolving the malicious delegation. Unbound will keep trying to resolve the record until hard limits are reached. Based on the nature of the attack and the replies, different limits could be reached. From version 1.16.3 on, Unbound introduces fixes for better performance when under load, by cutting opportunistic queries for nameserver discovery and DNSKEY prefetching and limiting the number of times a delegation point can issue a cache lookup for missing records.</description>
+      <guid isPermaLink="false">CVE-2022-3204|2024-09-17T03:19:03.035Z</guid>
+      <pubDate>Mon, 26 Sep 2022 13:41:46 +0000</pubDate>
     </item>
   </channel>
 </rss>
