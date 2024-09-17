@@ -6,191 +6,28 @@
     <description>The latest CVEs for Kubernetes -- Kubernetes</description>
     <docs>http://www.rssboard.org/rss-specification</docs>
     <generator>python-feedgen</generator>
-    <lastBuildDate>Mon, 16 Sep 2024 23:21:06 +0000</lastBuildDate>
+    <lastBuildDate>Tue, 17 Sep 2024 00:27:37 +0000</lastBuildDate>
     <ttl>60</ttl>
     <item>
-      <title>CVE-2019-11245|2024-09-16T22:09:44.877Z -- kubernetes -- kubernetes
+      <title>CVE-2020-8565|2024-09-17T00:05:58.669Z -- kubernetes -- kubernetes
 </title>
-      <link>https://www.cve.org/CVERecord?id=CVE-2019-11245</link>
-      <description>In kubelet v1.13.6 and v1.14.2, containers for pods that do not specify an explicit runAsUser attempt to run as uid 0 (root) on container restart, or if the image was previously pulled to the node. If the pod specified mustRunAsNonRoot: true, the kubelet will refuse to start the container as root. If the pod did not specify mustRunAsNonRoot: true, the kubelet will run the container as uid 0.</description>
-      <guid isPermaLink="false">CVE-2019-11245|2024-09-16T22:09:44.877Z</guid>
-      <pubDate>Thu, 29 Aug 2019 00:22:24 +0000</pubDate>
+      <link>https://www.cve.org/CVERecord?id=CVE-2020-8565</link>
+      <description>In Kubernetes, if the logging level is set to at least 9, authorization and bearer tokens will be written to log files. This can occur both in API server logs and client tool output like kubectl. This affects &lt;= v1.19.3, &lt;= v1.18.10, &lt;= v1.17.13, &lt; v1.20.0-alpha2.</description>
+      <guid isPermaLink="false">CVE-2020-8565|2024-09-17T00:05:58.669Z</guid>
+      <pubDate>Mon, 07 Dec 2020 22:00:19 +0000</pubDate>
     </item>
     <item>
-      <title>CVE-2020-8559|2024-09-16T17:58:15.587Z -- kubernetes -- kubernetes
-</title>
-      <link>https://www.cve.org/CVERecord?id=CVE-2020-8559</link>
-      <description>The Kubernetes kube-apiserver in versions v1.6-v1.15, and versions prior to v1.16.13, v1.17.9 and v1.18.6 are vulnerable to an unvalidated redirect on proxied upgrade requests that could allow an attacker to escalate privileges from a node compromise to a full cluster compromise.</description>
-      <guid isPermaLink="false">CVE-2020-8559|2024-09-16T17:58:15.587Z</guid>
-      <pubDate>Wed, 22 Jul 2020 13:47:08 +0000</pubDate>
-    </item>
-    <item>
-      <title>CVE-2019-11247|2024-09-16T18:04:25.053Z -- kubernetes -- kubernetes
-</title>
-      <link>https://www.cve.org/CVERecord?id=CVE-2019-11247</link>
-      <description>The Kubernetes kube-apiserver mistakenly allows access to a cluster-scoped custom resource if the request is made as if the resource were namespaced. Authorizations for the resource accessed in this manner are enforced using roles and role bindings within the namespace, meaning that a user with access only to a resource in one namespace could create, view update or delete the cluster-scoped resource (according to their namespace role privileges). Kubernetes affected versions include versions prior to 1.13.9, versions prior to 1.14.5, versions prior to 1.15.2, and versions 1.7, 1.8, 1.9, 1.10, 1.11, 1.12.</description>
-      <guid isPermaLink="false">CVE-2019-11247|2024-09-16T18:04:25.053Z</guid>
-      <pubDate>Thu, 29 Aug 2019 00:25:27 +0000</pubDate>
-    </item>
-    <item>
-      <title>CVE-2020-8555|2024-09-16T18:39:58.006Z -- kubernetes -- kubernetes
-</title>
-      <link>https://www.cve.org/CVERecord?id=CVE-2020-8555</link>
-      <description>The Kubernetes kube-controller-manager in versions v1.0-1.14, versions prior to v1.15.12, v1.16.9, v1.17.5, and version v1.18.0 are vulnerable to a Server Side Request Forgery (SSRF) that allows certain authorized users to leak up to 500 bytes of arbitrary information from unprotected endpoints within the master's host network (such as link-local or loopback services).</description>
-      <guid isPermaLink="false">CVE-2020-8555|2024-09-16T18:39:58.006Z</guid>
-      <pubDate>Thu, 04 Jun 2020 21:50:11 +0000</pubDate>
-    </item>
-    <item>
-      <title>CVE-2021-25737|2024-09-16T21:04:34.209Z -- kubernetes -- kubernetes
-</title>
-      <link>https://www.cve.org/CVERecord?id=CVE-2021-25737</link>
-      <description>A security issue was discovered in Kubernetes where a user may be able to redirect pod traffic to private networks on a Node. Kubernetes already prevents creation of Endpoint IPs in the localhost or link-local range, but the same validation was not performed on EndpointSlice IPs.</description>
-      <guid isPermaLink="false">CVE-2021-25737|2024-09-16T21:04:34.209Z</guid>
-      <pubDate>Mon, 06 Sep 2021 11:32:01 +0000</pubDate>
-    </item>
-    <item>
-      <title>CVE-2019-11249|2024-09-16T18:19:22.322Z -- kubernetes -- kubernetes
-</title>
-      <link>https://www.cve.org/CVERecord?id=CVE-2019-11249</link>
-      <description>The kubectl cp command allows copying files between containers and the user machine. To copy files from a container, Kubernetes runs tar inside the container to create a tar archive, copies it over the network, and kubectl unpacks it on the user’s machine. If the tar binary in the container is malicious, it could run any code and output unexpected, malicious results. An attacker could use this to write files to any path on the user’s machine when kubectl cp is called, limited only by the system permissions of the local user. Kubernetes affected versions include versions prior to 1.13.9, versions prior to 1.14.5, versions prior to 1.15.2, and versions 1.1, 1.2, 1.4, 1.4, 1.5, 1.6, 1.7, 1.8, 1.9, 1.10, 1.11, 1.12.</description>
-      <guid isPermaLink="false">CVE-2019-11249|2024-09-16T18:19:22.322Z</guid>
-      <pubDate>Thu, 29 Aug 2019 00:26:18 +0000</pubDate>
-    </item>
-    <item>
-      <title>CVE-2020-8566|2024-09-16T20:17:09.853Z -- kubernetes -- kubernetes
-</title>
-      <link>https://www.cve.org/CVERecord?id=CVE-2020-8566</link>
-      <description>In Kubernetes clusters using Ceph RBD as a storage provisioner, with logging level of at least 4, Ceph RBD admin secrets can be written to logs. This occurs in kube-controller-manager's logs during provisioning of Ceph RBD persistent claims. This affects &lt; v1.19.3, &lt; v1.18.10, &lt; v1.17.13.</description>
-      <guid isPermaLink="false">CVE-2020-8566|2024-09-16T20:17:09.853Z</guid>
-      <pubDate>Mon, 07 Dec 2020 22:00:16 +0000</pubDate>
-    </item>
-    <item>
-      <title>CVE-2018-1002100|2024-09-16T16:17:37.665Z -- kubernetes -- kubernetes
-</title>
-      <link>https://www.cve.org/CVERecord?id=CVE-2018-1002100</link>
-      <description>In Kubernetes versions 1.5.x, 1.6.x, 1.7.x, 1.8.x, and prior to version 1.9.6, the kubectl cp command insecurely handles tar data returned from the container, and can be caused to overwrite arbitrary local files.</description>
-      <guid isPermaLink="false">CVE-2018-1002100|2024-09-16T16:17:37.665Z</guid>
-      <pubDate>Fri, 01 Jun 2018 21:00:00 +0000</pubDate>
-    </item>
-    <item>
-      <title>CVE-2020-8562|2024-09-16T17:08:37.065Z -- kubernetes -- kubernetes
-</title>
-      <link>https://www.cve.org/CVERecord?id=CVE-2020-8562</link>
-      <description>As mitigations to a report from 2019 and CVE-2020-8555, Kubernetes attempts to prevent proxied connections from accessing link-local or localhost networks when making user-driven connections to Services, Pods, Nodes, or StorageClass service providers. As part of this mitigation Kubernetes does a DNS name resolution check and validates that response IPs are not in the link-local (169.254.0.0/16) or localhost (127.0.0.0/8) range. Kubernetes then performs a second DNS resolution without validation for the actual connection. If a non-standard DNS server returns different non-cached responses, a user may be able to bypass the proxy IP restriction and access private networks on the control plane.</description>
-      <guid isPermaLink="false">CVE-2020-8562|2024-09-16T17:08:37.065Z</guid>
-      <pubDate>Tue, 01 Feb 2022 10:33:00 +0000</pubDate>
-    </item>
-    <item>
-      <title>CVE-2019-1002101|2024-09-16T20:46:49.730Z -- kubernetes -- kubernetes
-</title>
-      <link>https://www.cve.org/CVERecord?id=CVE-2019-1002101</link>
-      <description>The kubectl cp command allows copying files between containers and the user machine. To copy files from a container, Kubernetes creates a tar inside the container, copies it over the network, and kubectl unpacks it on the user’s machine. If the tar binary in the container is malicious, it could run any code and output unexpected, malicious results. An attacker could use this to write files to any path on the user’s machine when kubectl cp is called, limited only by the system permissions of the local user. The untar function can both create and follow symbolic links. The issue is resolved in kubectl v1.11.9, v1.12.7, v1.13.5, and v1.14.0.</description>
-      <guid isPermaLink="false">CVE-2019-1002101|2024-09-16T20:46:49.730Z</guid>
-      <pubDate>Mon, 01 Apr 2019 14:14:27 +0000</pubDate>
-    </item>
-    <item>
-      <title>CVE-2020-8558|2024-09-16T22:40:40.949Z -- kubernetes -- kubernetes
-</title>
-      <link>https://www.cve.org/CVERecord?id=CVE-2020-8558</link>
-      <description>The Kubelet and kube-proxy components in versions 1.1.0-1.16.10, 1.17.0-1.17.6, and 1.18.0-1.18.3 were found to contain a security issue which allows adjacent hosts to reach TCP and UDP services bound to 127.0.0.1 running on the node or in the node's network namespace. Such a service is generally thought to be reachable only by other processes on the same host, but due to this defeect, could be reachable by other hosts on the same LAN as the node, or by containers running on the same node as the service.</description>
-      <guid isPermaLink="false">CVE-2020-8558|2024-09-16T22:40:40.949Z</guid>
-      <pubDate>Mon, 27 Jul 2020 19:55:19 +0000</pubDate>
-    </item>
-    <item>
-      <title>CVE-2019-11246|2024-09-16T23:01:11.541Z -- kubernetes -- kubernetes
-</title>
-      <link>https://www.cve.org/CVERecord?id=CVE-2019-11246</link>
-      <description>The kubectl cp command allows copying files between containers and the user machine. To copy files from a container, Kubernetes runs tar inside the container to create a tar archive, copies it over the network, and kubectl unpacks it on the user’s machine. If the tar binary in the container is malicious, it could run any code and output unexpected, malicious results. An attacker could use this to write files to any path on the user’s machine when kubectl cp is called, limited only by the system permissions of the local user. Kubernetes affected versions include versions prior to 1.12.9, versions prior to 1.13.6, versions prior to 1.14.2, and versions 1.1, 1.2, 1.4, 1.4, 1.5, 1.6, 1.7, 1.8, 1.9, 1.10, 1.11.</description>
-      <guid isPermaLink="false">CVE-2019-11246|2024-09-16T23:01:11.541Z</guid>
-      <pubDate>Thu, 29 Aug 2019 00:23:54 +0000</pubDate>
-    </item>
-    <item>
-      <title>CVE-2020-8563|2024-09-16T17:18:26.773Z -- kubernetes -- kubernetes
-</title>
-      <link>https://www.cve.org/CVERecord?id=CVE-2020-8563</link>
-      <description>In Kubernetes clusters using VSphere as a cloud provider, with a logging level set to 4 or above, VSphere cloud credentials will be leaked in the cloud controller manager's log. This affects &lt; v1.19.3.</description>
-      <guid isPermaLink="false">CVE-2020-8563|2024-09-16T17:18:26.773Z</guid>
-      <pubDate>Mon, 07 Dec 2020 22:00:25 +0000</pubDate>
-    </item>
-    <item>
-      <title>CVE-2020-8564|2024-09-16T17:32:40.199Z -- kubernetes -- kubernetes
-</title>
-      <link>https://www.cve.org/CVERecord?id=CVE-2020-8564</link>
-      <description>In Kubernetes clusters using a logging level of at least 4, processing a malformed docker config file will result in the contents of the docker config file being leaked, which can include pull secrets or other registry credentials. This affects &lt; v1.19.3, &lt; v1.18.10, &lt; v1.17.13.</description>
-      <guid isPermaLink="false">CVE-2020-8564|2024-09-16T17:32:40.199Z</guid>
-      <pubDate>Mon, 07 Dec 2020 22:00:22 +0000</pubDate>
-    </item>
-    <item>
-      <title>CVE-2020-8561|2024-09-16T22:29:49.855Z -- kubernetes -- kubernetes
-</title>
-      <link>https://www.cve.org/CVERecord?id=CVE-2020-8561</link>
-      <description>A security issue was discovered in Kubernetes where actors that control the responses of MutatingWebhookConfiguration or ValidatingWebhookConfiguration requests are able to redirect kube-apiserver requests to private networks of the apiserver. If that user can view kube-apiserver logs when the log level is set to 10, they can view the redirected responses and headers in the logs.</description>
-      <guid isPermaLink="false">CVE-2020-8561|2024-09-16T22:29:49.855Z</guid>
-      <pubDate>Mon, 20 Sep 2021 17:05:16 +0000</pubDate>
-    </item>
-    <item>
-      <title>CVE-2021-25740|2024-09-16T19:30:45.241Z -- kubernetes -- kubernetes
-</title>
-      <link>https://www.cve.org/CVERecord?id=CVE-2021-25740</link>
-      <description>A security issue was discovered with Kubernetes that could enable users to send network traffic to locations they would otherwise not have access to via a confused deputy attack.</description>
-      <guid isPermaLink="false">CVE-2021-25740|2024-09-16T19:30:45.241Z</guid>
-      <pubDate>Mon, 20 Sep 2021 17:05:18 +0000</pubDate>
-    </item>
-    <item>
-      <title>CVE-2017-1002100|2024-09-16T16:53:57.251Z -- kubernetes -- kubernetes
-</title>
-      <link>https://www.cve.org/CVERecord?id=CVE-2017-1002100</link>
-      <description>Default access permissions for Persistent Volumes (PVs) created by the Kubernetes Azure cloud provider in versions 1.6.0 to 1.6.5 are set to "container" which exposes a URI that can be accessed without authentication on the public internet. Access to the URI string requires privileged access to the Kubernetes cluster or authenticated access to the Azure portal.</description>
-      <guid isPermaLink="false">CVE-2017-1002100|2024-09-16T16:53:57.251Z</guid>
-      <pubDate>Thu, 14 Sep 2017 13:00:00 +0000</pubDate>
-    </item>
-    <item>
-      <title>CVE-2024-3177|2024-09-10T20:48:09.780Z -- kubernetes -- kubernetes</title>
-      <link>https://www.cve.org/CVERecord?id=CVE-2024-3177</link>
-      <description>A security issue was discovered in Kubernetes where users may be able to launch containers that bypass the mountable secrets policy enforced by the ServiceAccount admission plugin when using containers, init containers, and ephemeral containers with the envFrom field populated. The policy ensures pods running with a service account may only reference secrets specified in the service account’s secrets field. Kubernetes clusters are only affected if the ServiceAccount admission plugin and the kubernetes.io/enforce-mountable-secrets annotation are used together with containers, init containers, and ephemeral containers with the envFrom field populated.</description>
-      <guid isPermaLink="false">CVE-2024-3177|2024-09-10T20:48:09.780Z</guid>
-      <pubDate>Mon, 22 Apr 2024 23:00:39 +0000</pubDate>
-    </item>
-    <item>
-      <title>CVE-2021-25741|2024-08-20T13:37:41.191Z -- kubernetes -- kubernetes</title>
-      <link>https://www.cve.org/CVERecord?id=CVE-2021-25741</link>
-      <description>A security issue was discovered in Kubernetes where a user may be able to create a container with subpath volume mounts to access files &amp; directories outside of the volume, including on the host filesystem.</description>
-      <guid isPermaLink="false">CVE-2021-25741|2024-08-20T13:37:41.191Z</guid>
-      <pubDate>Tue, 20 Aug 2024 13:37:41 +0000</pubDate>
-    </item>
-    <item>
-      <title>CVE-2024-3177|2024-08-01T20:05:07.568Z -- kubernetes -- kubernetes</title>
-      <link>https://www.cve.org/CVERecord?id=CVE-2024-3177</link>
-      <description>A security issue was discovered in Kubernetes where users may be able to launch containers that bypass the mountable secrets policy enforced by the ServiceAccount admission plugin when using containers, init containers, and ephemeral containers with the envFrom field populated. The policy ensures pods running with a service account may only reference secrets specified in the service account’s secrets field. Kubernetes clusters are only affected if the ServiceAccount admission plugin and the kubernetes.io/enforce-mountable-secrets annotation are used together with containers, init containers, and ephemeral containers with the envFrom field populated.</description>
-      <guid isPermaLink="false">CVE-2024-3177|2024-08-01T20:05:07.568Z</guid>
-      <pubDate>Mon, 22 Apr 2024 23:00:39 +0000</pubDate>
-    </item>
-    <item>
-      <title>CVE-2024-5321|2024-07-18T18:15:25.270Z -- kubernetes -- kubernetes</title>
+      <title>CVE-2024-5321|2024-09-13T17:05:30.545Z -- kubernetes -- kubernetes</title>
       <link>https://www.cve.org/CVERecord?id=CVE-2024-5321</link>
       <description>A security issue was discovered in Kubernetes clusters with Windows nodes where BUILTIN\Users may be able to read container logs and NT AUTHORITY\Authenticated Users may be able to modify container logs.</description>
-      <guid isPermaLink="false">CVE-2024-5321|2024-07-18T18:15:25.270Z</guid>
+      <guid isPermaLink="false">CVE-2024-5321|2024-09-13T17:05:30.545Z</guid>
       <pubDate>Thu, 18 Jul 2024 18:15:25 +0000</pubDate>
     </item>
     <item>
-      <title>CVE-2024-3177|2024-06-04T17:33:03.250Z -- kubernetes -- kubernetes</title>
-      <link>https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2024-3177</link>
-      <description>A security issue was discovered in Kubernetes where users may be able to launch containers that bypass the mountable secrets policy enforced by the ServiceAccount admission plugin when using containers, init containers, and ephemeral containers with the envFrom field populated. The policy ensures pods running with a service account may only reference secrets specified in the service account’s secrets field. Kubernetes clusters are only affected if the ServiceAccount admission plugin and the kubernetes.io/enforce-mountable-secrets annotation are used together with containers, init containers, and ephemeral containers with the envFrom field populated.</description>
-      <guid isPermaLink="false">CVE-2024-3177|2024-06-04T17:33:03.250Z</guid>
-      <pubDate>Mon, 22 Apr 2024 23:00:39 +0000</pubDate>
-    </item>
-    <item>
-      <title>CVE-2024-5321|2024-07-18T19:30:48.148Z -- kubernetes -- kubernetes</title>
+      <title>CVE-2024-5321|2024-09-06T14:15:20.038Z -- kubernetes -- kubernetes</title>
       <link>https://www.cve.org/CVERecord?id=CVE-2024-5321</link>
       <description>A security issue was discovered in Kubernetes clusters with Windows nodes where BUILTIN\Users may be able to read container logs and NT AUTHORITY\Authenticated Users may be able to modify container logs.</description>
-      <guid isPermaLink="false">CVE-2024-5321|2024-07-18T19:30:48.148Z</guid>
-      <pubDate>Thu, 18 Jul 2024 18:15:25 +0000</pubDate>
-    </item>
-    <item>
-      <title>CVE-2024-5321|2024-08-01T21:11:12.421Z -- kubernetes -- kubernetes</title>
-      <link>https://www.cve.org/CVERecord?id=CVE-2024-5321</link>
-      <description>A security issue was discovered in Kubernetes clusters with Windows nodes where BUILTIN\Users may be able to read container logs and NT AUTHORITY\Authenticated Users may be able to modify container logs.</description>
-      <guid isPermaLink="false">CVE-2024-5321|2024-08-01T21:11:12.421Z</guid>
+      <guid isPermaLink="false">CVE-2024-5321|2024-09-06T14:15:20.038Z</guid>
       <pubDate>Thu, 18 Jul 2024 18:15:25 +0000</pubDate>
     </item>
     <item>
@@ -201,18 +38,53 @@
       <pubDate>Sat, 03 Aug 2024 20:11:27 +0000</pubDate>
     </item>
     <item>
-      <title>CVE-2024-5321|2024-09-06T14:15:20.038Z -- kubernetes -- kubernetes</title>
+      <title>CVE-2024-5321|2024-08-01T21:11:12.421Z -- kubernetes -- kubernetes</title>
       <link>https://www.cve.org/CVERecord?id=CVE-2024-5321</link>
       <description>A security issue was discovered in Kubernetes clusters with Windows nodes where BUILTIN\Users may be able to read container logs and NT AUTHORITY\Authenticated Users may be able to modify container logs.</description>
-      <guid isPermaLink="false">CVE-2024-5321|2024-09-06T14:15:20.038Z</guid>
+      <guid isPermaLink="false">CVE-2024-5321|2024-08-01T21:11:12.421Z</guid>
       <pubDate>Thu, 18 Jul 2024 18:15:25 +0000</pubDate>
     </item>
     <item>
-      <title>CVE-2024-5321|2024-09-13T17:05:30.545Z -- kubernetes -- kubernetes</title>
+      <title>CVE-2024-5321|2024-07-18T19:30:48.148Z -- kubernetes -- kubernetes</title>
       <link>https://www.cve.org/CVERecord?id=CVE-2024-5321</link>
       <description>A security issue was discovered in Kubernetes clusters with Windows nodes where BUILTIN\Users may be able to read container logs and NT AUTHORITY\Authenticated Users may be able to modify container logs.</description>
-      <guid isPermaLink="false">CVE-2024-5321|2024-09-13T17:05:30.545Z</guid>
+      <guid isPermaLink="false">CVE-2024-5321|2024-07-18T19:30:48.148Z</guid>
       <pubDate>Thu, 18 Jul 2024 18:15:25 +0000</pubDate>
+    </item>
+    <item>
+      <title>CVE-2024-3177|2024-06-04T17:33:03.250Z -- kubernetes -- kubernetes</title>
+      <link>https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2024-3177</link>
+      <description>A security issue was discovered in Kubernetes where users may be able to launch containers that bypass the mountable secrets policy enforced by the ServiceAccount admission plugin when using containers, init containers, and ephemeral containers with the envFrom field populated. The policy ensures pods running with a service account may only reference secrets specified in the service account’s secrets field. Kubernetes clusters are only affected if the ServiceAccount admission plugin and the kubernetes.io/enforce-mountable-secrets annotation are used together with containers, init containers, and ephemeral containers with the envFrom field populated.</description>
+      <guid isPermaLink="false">CVE-2024-3177|2024-06-04T17:33:03.250Z</guid>
+      <pubDate>Mon, 22 Apr 2024 23:00:39 +0000</pubDate>
+    </item>
+    <item>
+      <title>CVE-2024-5321|2024-07-18T18:15:25.270Z -- kubernetes -- kubernetes</title>
+      <link>https://www.cve.org/CVERecord?id=CVE-2024-5321</link>
+      <description>A security issue was discovered in Kubernetes clusters with Windows nodes where BUILTIN\Users may be able to read container logs and NT AUTHORITY\Authenticated Users may be able to modify container logs.</description>
+      <guid isPermaLink="false">CVE-2024-5321|2024-07-18T18:15:25.270Z</guid>
+      <pubDate>Thu, 18 Jul 2024 18:15:25 +0000</pubDate>
+    </item>
+    <item>
+      <title>CVE-2024-3177|2024-08-01T20:05:07.568Z -- kubernetes -- kubernetes</title>
+      <link>https://www.cve.org/CVERecord?id=CVE-2024-3177</link>
+      <description>A security issue was discovered in Kubernetes where users may be able to launch containers that bypass the mountable secrets policy enforced by the ServiceAccount admission plugin when using containers, init containers, and ephemeral containers with the envFrom field populated. The policy ensures pods running with a service account may only reference secrets specified in the service account’s secrets field. Kubernetes clusters are only affected if the ServiceAccount admission plugin and the kubernetes.io/enforce-mountable-secrets annotation are used together with containers, init containers, and ephemeral containers with the envFrom field populated.</description>
+      <guid isPermaLink="false">CVE-2024-3177|2024-08-01T20:05:07.568Z</guid>
+      <pubDate>Mon, 22 Apr 2024 23:00:39 +0000</pubDate>
+    </item>
+    <item>
+      <title>CVE-2021-25741|2024-08-20T13:37:41.191Z -- kubernetes -- kubernetes</title>
+      <link>https://www.cve.org/CVERecord?id=CVE-2021-25741</link>
+      <description>A security issue was discovered in Kubernetes where a user may be able to create a container with subpath volume mounts to access files &amp; directories outside of the volume, including on the host filesystem.</description>
+      <guid isPermaLink="false">CVE-2021-25741|2024-08-20T13:37:41.191Z</guid>
+      <pubDate>Tue, 20 Aug 2024 13:37:41 +0000</pubDate>
+    </item>
+    <item>
+      <title>CVE-2024-3177|2024-09-10T20:48:09.780Z -- kubernetes -- kubernetes</title>
+      <link>https://www.cve.org/CVERecord?id=CVE-2024-3177</link>
+      <description>A security issue was discovered in Kubernetes where users may be able to launch containers that bypass the mountable secrets policy enforced by the ServiceAccount admission plugin when using containers, init containers, and ephemeral containers with the envFrom field populated. The policy ensures pods running with a service account may only reference secrets specified in the service account’s secrets field. Kubernetes clusters are only affected if the ServiceAccount admission plugin and the kubernetes.io/enforce-mountable-secrets annotation are used together with containers, init containers, and ephemeral containers with the envFrom field populated.</description>
+      <guid isPermaLink="false">CVE-2024-3177|2024-09-10T20:48:09.780Z</guid>
+      <pubDate>Mon, 22 Apr 2024 23:00:39 +0000</pubDate>
     </item>
   </channel>
 </rss>
