@@ -6,36 +6,36 @@
     <description>The latest CVEs for vitejs -- all products</description>
     <docs>http://www.rssboard.org/rss-specification</docs>
     <generator>python-feedgen</generator>
-    <lastBuildDate>Fri, 02 Aug 2024 23:21:34 +0000</lastBuildDate>
+    <lastBuildDate>Tue, 17 Sep 2024 21:22:40 +0000</lastBuildDate>
     <ttl>60</ttl>
     <item>
-      <title>CVE-2023-49293|2024-08-02T21:53:44.657Z -- vitejs -- vite
+      <title>CVE-2024-45812|2024-09-17T20:08:13.372Z -- vitejs -- vite
 </title>
-      <link>https://www.cve.org/CVERecord?id=CVE-2023-49293</link>
-      <description>Vite is a website frontend framework. When Vite's HTML transformation is invoked manually via `server.transformIndexHtml`, the original request URL is passed in unmodified, and the `html` being transformed contains inline module scripts (`&lt;script type="module"&gt;...&lt;/script&gt;`), it is possible to inject arbitrary HTML into the transformed output by supplying a malicious URL query string to `server.transformIndexHtml`. Only apps using `appType: 'custom'` and using the default Vite HTML middleware are affected. The HTML entry must also contain an inline script. The attack requires a user to click on a malicious URL while running the dev server. Restricted files aren't exposed to the attacker. This issue has been addressed in vite@5.0.5, vite@4.5.1, and vite@4.4.12. There are no known workarounds for this vulnerability.</description>
-      <guid isPermaLink="false">CVE-2023-49293|2024-08-02T21:53:44.657Z</guid>
-      <pubDate>Mon, 04 Dec 2023 23:03:30 +0000</pubDate>
+      <link>https://www.cve.org/CVERecord?id=CVE-2024-45812</link>
+      <description>Vite a frontend build tooling framework for javascript. Affected versions of vite were discovered to contain a DOM Clobbering vulnerability when building scripts to `cjs`/`iife`/`umd` output format. The DOM Clobbering gadget in the module can lead to cross-site scripting (XSS) in web pages where scriptless attacker-controlled HTML elements (e.g., an img tag with an unsanitized name attribute) are present. DOM Clobbering is a type of code-reuse attack where the attacker first embeds a piece of non-script, seemingly benign HTML markups in the webpage (e.g. through a post or comment) and leverages the gadgets (pieces of js code) living in the existing javascript code to transform it into executable code. We have identified a DOM Clobbering vulnerability in Vite bundled scripts, particularly when the scripts dynamically import other scripts from the assets folder and the developer sets the build output format to `cjs`, `iife`, or `umd`. In such cases, Vite replaces relative paths starting with `__VITE_ASSET__` using the URL retrieved from `document.currentScript`. However, this implementation is vulnerable to a DOM Clobbering attack. The `document.currentScript` lookup can be shadowed by an attacker via the browser's named DOM tree element access mechanism. This manipulation allows an attacker to replace the intended script element with a malicious HTML element. When this happens, the src attribute of the attacker-controlled element is used as the URL for importing scripts, potentially leading to the dynamic loading of scripts from an attacker-controlled server. This vulnerability can result in cross-site scripting (XSS) attacks on websites that include Vite-bundled files (configured with an output format of `cjs`, `iife`, or `umd`) and allow users to inject certain scriptless HTML tags without properly sanitizing the name or id attributes. This issue has been patched in versions 5.4.6, 5.3.6, 5.2.14, 4.5.5, and 3.2.11. Users are advised to upgrade. There are no known workarounds for this vulnerability.</description>
+      <guid isPermaLink="false">CVE-2024-45812|2024-09-17T20:08:13.372Z</guid>
+      <pubDate>Tue, 17 Sep 2024 20:08:13 +0000</pubDate>
     </item>
     <item>
-      <title>CVE-2023-34092|2024-08-02T16:01:53.638Z -- vitejs -- vite
+      <title>CVE-2024-45811|2024-09-17T20:08:11.801Z -- vitejs -- vite
 </title>
-      <link>https://www.cve.org/CVERecord?id=CVE-2023-34092</link>
-      <description>Vite provides frontend tooling. Prior to versions 2.9.16, 3.2.7, 4.0.5, 4.1.5, 4.2.3, and 4.3.9, Vite Server Options (`server.fs.deny`) can be bypassed using double forward-slash (//) allows any unauthenticated user to read file from the Vite root-path of the application including the default `fs.deny` settings (`['.env', '.env.*', '*.{crt,pem}']`). Only users explicitly exposing the Vite dev server to the network (using `--host` or `server.host` config option) are affected, and only files in the immediate Vite project root folder could be exposed. This issue is fixed in vite@4.3.9, vite@4.2.3, vite@4.1.5, vite@4.0.5, vite@3.2.7, and vite@2.9.16.</description>
-      <guid isPermaLink="false">CVE-2023-34092|2024-08-02T16:01:53.638Z</guid>
-      <pubDate>Thu, 01 Jun 2023 16:29:51 +0000</pubDate>
-    </item>
-    <item>
-      <title>CVE-2024-31207|2024-08-02T01:46:04.483Z -- vitejs -- vite</title>
-      <link>https://www.cve.org/CVERecord?id=CVE-2024-31207</link>
-      <description>Vite (French word for "quick", pronounced /vit/, like "veet") is a frontend build tooling to improve the frontend development experience.`server.fs.deny` does not deny requests for patterns with directories. This vulnerability has been patched in version(s) 5.2.6, 5.1.7, 5.0.13, 4.5.3, 3.2.10 and 2.9.18.</description>
-      <guid isPermaLink="false">CVE-2024-31207|2024-08-02T01:46:04.483Z</guid>
-      <pubDate>Thu, 04 Apr 2024 15:51:54 +0000</pubDate>
+      <link>https://www.cve.org/CVERecord?id=CVE-2024-45811</link>
+      <description>Vite a frontend build tooling framework for javascript. In affected versions the contents of arbitrary files can be returned to the browser. `@fs` denies access to files outside of Vite serving allow list. Adding `?import&amp;raw` to the URL bypasses this limitation and returns the file content if it exists. This issue has been patched in versions 5.4.6, 5.3.6, 5.2.14, 4.5.5, and 3.2.11. Users are advised to upgrade. There are no known workarounds for this vulnerability.</description>
+      <guid isPermaLink="false">CVE-2024-45811|2024-09-17T20:08:11.801Z</guid>
+      <pubDate>Tue, 17 Sep 2024 20:08:11 +0000</pubDate>
     </item>
     <item>
       <title>CVE-2024-31207|2024-06-04T17:36:11.128Z -- vitejs -- vite</title>
       <link>https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2024-31207</link>
       <description>Vite (French word for "quick", pronounced /vit/, like "veet") is a frontend build tooling to improve the frontend development experience.`server.fs.deny` does not deny requests for patterns with directories. This vulnerability has been patched in version(s) 5.2.6, 5.1.7, 5.0.13, 4.5.3, 3.2.10 and 2.9.18.</description>
       <guid isPermaLink="false">CVE-2024-31207|2024-06-04T17:36:11.128Z</guid>
+      <pubDate>Thu, 04 Apr 2024 15:51:54 +0000</pubDate>
+    </item>
+    <item>
+      <title>CVE-2024-31207|2024-08-02T01:46:04.483Z -- vitejs -- vite</title>
+      <link>https://www.cve.org/CVERecord?id=CVE-2024-31207</link>
+      <description>Vite (French word for "quick", pronounced /vit/, like "veet") is a frontend build tooling to improve the frontend development experience.`server.fs.deny` does not deny requests for patterns with directories. This vulnerability has been patched in version(s) 5.2.6, 5.1.7, 5.0.13, 4.5.3, 3.2.10 and 2.9.18.</description>
+      <guid isPermaLink="false">CVE-2024-31207|2024-08-02T01:46:04.483Z</guid>
       <pubDate>Thu, 04 Apr 2024 15:51:54 +0000</pubDate>
     </item>
   </channel>

@@ -6,7 +6,7 @@
     <description>The latest CVEs for geoserver -- all products</description>
     <docs>http://www.rssboard.org/rss-specification</docs>
     <generator>python-feedgen</generator>
-    <lastBuildDate>Tue, 17 Sep 2024 20:24:04 +0000</lastBuildDate>
+    <lastBuildDate>Tue, 17 Sep 2024 21:22:43 +0000</lastBuildDate>
     <ttl>60</ttl>
     <item>
       <title>CVE-2023-43795|2024-09-17T14:15:26.074Z -- geoserver -- geoserver
@@ -17,171 +17,14 @@
       <pubDate>Tue, 24 Oct 2023 22:14:30 +0000</pubDate>
     </item>
     <item>
-      <title>CVE-2024-24749|2024-08-19T14:44:36.419Z -- geoserver -- geoserver</title>
-      <link>https://www.cve.org/CVERecord?id=CVE-2024-24749</link>
-      <description>GeoServer is an open source server that allows users to share and edit geospatial data. Prior to versions 2.23.5 and 2.24.3, if GeoServer is deployed in the Windows operating system using an Apache Tomcat web application server, it is possible to bypass existing input validation in the GeoWebCache ByteStreamController class and read arbitrary classpath resources with specific file name extensions. If GeoServer is also deployed as a web archive using the data directory embedded in the `geoserver.war` file (rather than an external data directory), it will likely be possible to read specific resources to gain administrator privileges. However, it is very unlikely that production environments will be using the embedded data directory since, depending on how GeoServer is deployed, it will be erased and re-installed (which would also reset to the default password) either every time the server restarts or every time a new GeoServer WAR is installed and is therefore difficult to maintain. An external data directory will always be used if GeoServer is running in standalone mode (via an installer or a binary). Versions 2.23.5 and 2.24.3 contain a patch for the issue. Some workarounds are available. One may change from a Windows environment to a Linux environment; or change from Apache Tomcat to Jetty application server. One may also disable anonymous access to the embeded GeoWebCache administration and status pages.</description>
-      <guid isPermaLink="false">CVE-2024-24749|2024-08-19T14:44:36.419Z</guid>
-      <pubDate>Mon, 01 Jul 2024 14:07:33 +0000</pubDate>
-    </item>
-    <item>
-      <title>CVE-2024-36401|2024-08-02T03:37:04.978Z -- geoserver -- geoserver</title>
+      <title>CVE-2024-36401|2024-08-19T07:47:49.937Z -- geoserver -- geoserver</title>
       <link>https://www.cve.org/CVERecord?id=CVE-2024-36401</link>
       <description>GeoServer is an open source server that allows users to share and edit geospatial data. Prior to versions 2.23.6, 2.24.4, and 2.25.2, multiple OGC request parameters allow Remote Code Execution (RCE) by unauthenticated users through specially crafted input against a default GeoServer installation due to unsafely evaluating property names as XPath expressions.
 
 The GeoTools library API that GeoServer calls evaluates property/attribute names for feature types in a way that unsafely passes them to the commons-jxpath library which can execute arbitrary code when evaluating XPath expressions. This XPath evaluation is intended to be used only by complex feature types (i.e., Application Schema data stores) but is incorrectly being applied to simple feature types as well which makes this vulnerability apply to **ALL** GeoServer instances. No public PoC is provided but this vulnerability has been confirmed to be exploitable through WFS GetFeature, WFS GetPropertyValue, WMS GetMap, WMS GetFeatureInfo, WMS GetLegendGraphic and WPS Execute requests. This vulnerability can lead to executing arbitrary code.
 
 Versions 2.23.6, 2.24.4, and 2.25.2 contain a patch for the issue. A workaround exists by removing the `gt-complex-x.y.jar` file from the GeoServer where `x.y` is the GeoTools version (e.g., `gt-complex-31.1.jar` if running GeoServer 2.25.1). This will remove the vulnerable code from GeoServer but may break some GeoServer functionality or prevent GeoServer from deploying if the gt-complex module is needed.</description>
-      <guid isPermaLink="false">CVE-2024-36401|2024-08-02T03:37:04.978Z</guid>
-      <pubDate>Mon, 01 Jul 2024 15:25:41 +0000</pubDate>
-    </item>
-    <item>
-      <title>CVE-2024-36401|2024-07-18T21:28:49.687Z -- geoserver -- geoserver</title>
-      <link>https://www.cve.org/CVERecord?id=CVE-2024-36401</link>
-      <description>GeoServer is an open source server that allows users to share and edit geospatial data. Prior to versions 2.23.6, 2.24.4, and 2.25.2, multiple OGC request parameters allow Remote Code Execution (RCE) by unauthenticated users through specially crafted input against a default GeoServer installation due to unsafely evaluating property names as XPath expressions.
-
-The GeoTools library API that GeoServer calls evaluates property/attribute names for feature types in a way that unsafely passes them to the commons-jxpath library which can execute arbitrary code when evaluating XPath expressions. This XPath evaluation is intended to be used only by complex feature types (i.e., Application Schema data stores) but is incorrectly being applied to simple feature types as well which makes this vulnerability apply to **ALL** GeoServer instances. No public PoC is provided but this vulnerability has been confirmed to be exploitable through WFS GetFeature, WFS GetPropertyValue, WMS GetMap, WMS GetFeatureInfo, WMS GetLegendGraphic and WPS Execute requests. This vulnerability can lead to executing arbitrary code.
-
-Versions 2.23.6, 2.24.4, and 2.25.2 contain a patch for the issue. A workaround exists by removing the `gt-complex-x.y.jar` file from the GeoServer where `x.y` is the GeoTools version (e.g., `gt-complex-31.1.jar` if running GeoServer 2.25.1). This will remove the vulnerable code from GeoServer but may break some GeoServer functionality or prevent GeoServer from deploying if the gt-complex module is needed.</description>
-      <guid isPermaLink="false">CVE-2024-36401|2024-07-18T21:28:49.687Z</guid>
-      <pubDate>Mon, 01 Jul 2024 15:25:41 +0000</pubDate>
-    </item>
-    <item>
-      <title>CVE-2024-36401|2024-07-15T12:13:22.962Z -- geoserver -- geoserver</title>
-      <link>https://www.cve.org/CVERecord?id=CVE-2024-36401</link>
-      <description>GeoServer is an open source server that allows users to share and edit geospatial data. Prior to versions 2.23.6, 2.24.4, and 2.25.2, multiple OGC request parameters allow Remote Code Execution (RCE) by unauthenticated users through specially crafted input against a default GeoServer installation due to unsafely evaluating property names as XPath expressions.
-
-The GeoTools library API that GeoServer calls evaluates property/attribute names for feature types in a way that unsafely passes them to the commons-jxpath library which can execute arbitrary code when evaluating XPath expressions. This XPath evaluation is intended to be used only by complex feature types (i.e., Application Schema data stores) but is incorrectly being applied to simple feature types as well which makes this vulnerability apply to **ALL** GeoServer instances. No public PoC is provided but this vulnerability has been confirmed to be exploitable through WFS GetFeature, WFS GetPropertyValue, WMS GetMap, WMS GetFeatureInfo, WMS GetLegendGraphic and WPS Execute requests. This vulnerability can lead to executing arbitrary code.
-
-Versions 2.23.6, 2.24.4, and 2.25.2 contain a patch for the issue. A workaround exists by removing the `gt-complex-x.y.jar` file from the GeoServer where `x.y` is the GeoTools version (e.g., `gt-complex-31.1.jar` if running GeoServer 2.25.1). This will remove the vulnerable code from GeoServer but may break some GeoServer functionality or prevent GeoServer from deploying if the gt-complex module is needed.</description>
-      <guid isPermaLink="false">CVE-2024-36401|2024-07-15T12:13:22.962Z</guid>
-      <pubDate>Mon, 01 Jul 2024 15:25:41 +0000</pubDate>
-    </item>
-    <item>
-      <title>CVE-2024-36401|2024-07-12T03:55:17.909Z -- geoserver -- geoserver</title>
-      <link>https://www.cve.org/CVERecord?id=CVE-2024-36401</link>
-      <description>GeoServer is an open source server that allows users to share and edit geospatial data. Prior to versions 2.23.6, 2.24.4, and 2.25.2, multiple OGC request parameters allow Remote Code Execution (RCE) by unauthenticated users through specially crafted input against a default GeoServer installation due to unsafely evaluating property names as XPath expressions.
-
-The GeoTools library API that GeoServer calls evaluates property/attribute names for feature types in a way that unsafely passes them to the commons-jxpath library which can execute arbitrary code when evaluating XPath expressions. This XPath evaluation is intended to be used only by complex feature types (i.e., Application Schema data stores) but is incorrectly being applied to simple feature types as well which makes this vulnerability apply to **ALL** GeoServer instances. No public PoC is provided but this vulnerability has been confirmed to be exploitable through WFS GetFeature, WFS GetPropertyValue, WMS GetMap, WMS GetFeatureInfo, WMS GetLegendGraphic and WPS Execute requests. This vulnerability can lead to executing arbitrary code.
-
-Versions 2.23.6, 2.24.4, and 2.25.2 contain a patch for the issue. A workaround exists by removing the `gt-complex-x.y.jar` file from the GeoServer where `x.y` is the GeoTools version (e.g., `gt-complex-31.1.jar` if running GeoServer 2.25.1). This will remove the vulnerable code from GeoServer but may break some GeoServer functionality or prevent GeoServer from deploying if the gt-complex module is needed.</description>
-      <guid isPermaLink="false">CVE-2024-36401|2024-07-12T03:55:17.909Z</guid>
-      <pubDate>Mon, 01 Jul 2024 15:25:41 +0000</pubDate>
-    </item>
-    <item>
-      <title>CVE-2024-36401|2024-07-04T03:55:49.444Z -- geoserver -- geoserver</title>
-      <link>https://www.cve.org/CVERecord?id=CVE-2024-36401</link>
-      <description>GeoServer is an open source server that allows users to share and edit geospatial data. Prior to versions 2.23.6, 2.24.4, and 2.25.2, multiple OGC request parameters allow Remote Code Execution (RCE) by unauthenticated users through specially crafted input against a default GeoServer installation due to unsafely evaluating property names as XPath expressions.
-
-The GeoTools library API that GeoServer calls evaluates property/attribute names for feature types in a way that unsafely passes them to the commons-jxpath library which can execute arbitrary code when evaluating XPath expressions. This XPath evaluation is intended to be used only by complex feature types (i.e., Application Schema data stores) but is incorrectly being applied to simple feature types as well which makes this vulnerability apply to **ALL** GeoServer instances. No public PoC is provided but this vulnerability has been confirmed to be exploitable through WFS GetFeature, WFS GetPropertyValue, WMS GetMap, WMS GetFeatureInfo, WMS GetLegendGraphic and WPS Execute requests. This vulnerability can lead to executing arbitrary code.
-
-Versions 2.23.6, 2.24.4, and 2.25.2 contain a patch for the issue. A workaround exists by removing the `gt-complex-x.y.jar` file from the GeoServer where `x.y` is the GeoTools version (e.g., `gt-complex-31.1.jar` if running GeoServer 2.25.1). This will remove the vulnerable code from GeoServer but may break some GeoServer functionality or prevent GeoServer from deploying if the gt-complex module is needed.</description>
-      <guid isPermaLink="false">CVE-2024-36401|2024-07-04T03:55:49.444Z</guid>
-      <pubDate>Mon, 01 Jul 2024 15:25:41 +0000</pubDate>
-    </item>
-    <item>
-      <title>CVE-2024-36401|2024-07-02T14:34:55.543Z -- geoserver -- geoserver</title>
-      <link>https://www.cve.org/CVERecord?id=CVE-2024-36401</link>
-      <description>GeoServer is an open source server that allows users to share and edit geospatial data. Prior to versions 2.23.6, 2.24.4, and 2.25.2, multiple OGC request parameters allow Remote Code Execution (RCE) by unauthenticated users through specially crafted input against a default GeoServer installation due to unsafely evaluating property names as XPath expressions.
-
-The GeoTools library API that GeoServer calls evaluates property/attribute names for feature types in a way that unsafely passes them to the commons-jxpath library which can execute arbitrary code when evaluating XPath expressions. This XPath evaluation is intended to be used only by complex feature types (i.e., Application Schema data stores) but is incorrectly being applied to simple feature types as well which makes this vulnerability apply to **ALL** GeoServer instances. No public PoC is provided but this vulnerability has been confirmed to be exploitable through WFS GetFeature, WFS GetPropertyValue, WMS GetMap, WMS GetFeatureInfo, WMS GetLegendGraphic and WPS Execute requests. This vulnerability can lead to executing arbitrary code.
-
-Versions 2.23.6, 2.24.4, and 2.25.2 contain a patch for the issue. A workaround exists by removing the `gt-complex-x.y.jar` file from the GeoServer where `x.y` is the GeoTools version (e.g., `gt-complex-31.1.jar` if running GeoServer 2.25.1). This will remove the vulnerable code from GeoServer but may break some GeoServer functionality or prevent GeoServer from deploying if the gt-complex module is needed.</description>
-      <guid isPermaLink="false">CVE-2024-36401|2024-07-02T14:34:55.543Z</guid>
-      <pubDate>Mon, 01 Jul 2024 15:25:41 +0000</pubDate>
-    </item>
-    <item>
-      <title>CVE-2024-36401|2024-07-01T15:25:41.873Z -- geoserver -- geoserver</title>
-      <link>https://www.cve.org/CVERecord?id=CVE-2024-36401</link>
-      <description>GeoServer is an open source server that allows users to share and edit geospatial data. Prior to versions 2.23.6, 2.24.4, and 2.25.2, multiple OGC request parameters allow Remote Code Execution (RCE) by unauthenticated users through specially crafted input against a default GeoServer installation due to unsafely evaluating property names as XPath expressions.
-
-The GeoTools library API that GeoServer calls evaluates property/attribute names for feature types in a way that unsafely passes them to the commons-jxpath library which can execute arbitrary code when evaluating XPath expressions. This XPath evaluation is intended to be used only by complex feature types (i.e., Application Schema data stores) but is incorrectly being applied to simple feature types as well which makes this vulnerability apply to **ALL** GeoServer instances. No public PoC is provided but this vulnerability has been confirmed to be exploitable through WFS GetFeature, WFS GetPropertyValue, WMS GetMap, WMS GetFeatureInfo, WMS GetLegendGraphic and WPS Execute requests. This vulnerability can lead to executing arbitrary code.
-
-Versions 2.23.6, 2.24.4, and 2.25.2 contain a patch for the issue. A workaround exists by removing the `gt-complex-x.y.jar` file from the GeoServer where `x.y` is the GeoTools version (e.g., `gt-complex-31.1.jar` if running GeoServer 2.25.1). This will remove the vulnerable code from GeoServer but may break some GeoServer functionality or prevent GeoServer from deploying if the gt-complex module is needed.</description>
-      <guid isPermaLink="false">CVE-2024-36401|2024-07-01T15:25:41.873Z</guid>
-      <pubDate>Mon, 01 Jul 2024 15:25:41 +0000</pubDate>
-    </item>
-    <item>
-      <title>CVE-2024-34696|2024-07-01T14:36:05.084Z -- geoserver -- geoserver</title>
-      <link>https://www.cve.org/CVERecord?id=CVE-2024-34696</link>
-      <description>GeoServer is an open source server that allows users to share and edit geospatial data. Starting in version 2.10.0 and prior to versions 2.24.4 and 2.25.1, GeoServer's Server Status page and REST API lists all environment variables and Java properties to any GeoServer user with administrative rights as part of those modules' status message. These variables/properties can also contain sensitive information, such as database passwords or API keys/tokens. Additionally, many community-developed GeoServer container images `export` other credentials from their start-up scripts as environment variables to the GeoServer (`java`) process. The precise scope of the issue depends on which container image is used and how it is configured.
-
-The `about status` API endpoint which powers the Server Status page is only available to administrators.Depending on the operating environment, administrators might have legitimate access to credentials in other ways, but this issue defeats more sophisticated controls (like break-glass access to secrets or role accounts).By default, GeoServer only allows same-origin authenticated API access. This limits the scope for a third-party attacker to use an administrator’s credentials to gain access to credentials. The researchers who found the vulnerability were unable to determine any other conditions under which the GeoServer REST API may be available more broadly.
-
-Users should update container images to use GeoServer 2.24.4 or 2.25.1 to get the bug fix. As a workaround, leave environment variables and Java system properties hidden by default. Those who provide the option to re-enable it should communicate the impact and risks so that users can make an informed choice.</description>
-      <guid isPermaLink="false">CVE-2024-34696|2024-07-01T14:36:05.084Z</guid>
-      <pubDate>Mon, 01 Jul 2024 14:36:05 +0000</pubDate>
-    </item>
-    <item>
-      <title>CVE-2024-24749|2024-07-01T14:07:33.314Z -- geoserver -- geoserver</title>
-      <link>https://www.cve.org/CVERecord?id=CVE-2024-24749</link>
-      <description>GeoServer is an open source server that allows users to share and edit geospatial data. Prior to versions 2.23.5 and 2.24.3, if GeoServer is deployed in the Windows operating system using an Apache Tomcat web application server, it is possible to bypass existing input validation in the GeoWebCache ByteStreamController class and read arbitrary classpath resources with specific file name extensions. If GeoServer is also deployed as a web archive using the data directory embedded in the `geoserver.war` file (rather than an external data directory), it will likely be possible to read specific resources to gain administrator privileges. However, it is very unlikely that production environments will be using the embedded data directory since, depending on how GeoServer is deployed, it will be erased and re-installed (which would also reset to the default password) either every time the server restarts or every time a new GeoServer WAR is installed and is therefore difficult to maintain. An external data directory will always be used if GeoServer is running in standalone mode (via an installer or a binary). Versions 2.23.5 and 2.24.3 contain a patch for the issue. Some workarounds are available. One may change from a Windows environment to a Linux environment; or change from Apache Tomcat to Jetty application server. One may also disable anonymous access to the embeded GeoWebCache administration and status pages.</description>
-      <guid isPermaLink="false">CVE-2024-24749|2024-07-01T14:07:33.314Z</guid>
-      <pubDate>Mon, 01 Jul 2024 14:07:33 +0000</pubDate>
-    </item>
-    <item>
-      <title>CVE-2024-34696|2024-07-01T17:08:44.885Z -- geoserver -- geoserver</title>
-      <link>https://www.cve.org/CVERecord?id=CVE-2024-34696</link>
-      <description>GeoServer is an open source server that allows users to share and edit geospatial data. Starting in version 2.10.0 and prior to versions 2.24.4 and 2.25.1, GeoServer's Server Status page and REST API lists all environment variables and Java properties to any GeoServer user with administrative rights as part of those modules' status message. These variables/properties can also contain sensitive information, such as database passwords or API keys/tokens. Additionally, many community-developed GeoServer container images `export` other credentials from their start-up scripts as environment variables to the GeoServer (`java`) process. The precise scope of the issue depends on which container image is used and how it is configured.
-
-The `about status` API endpoint which powers the Server Status page is only available to administrators.Depending on the operating environment, administrators might have legitimate access to credentials in other ways, but this issue defeats more sophisticated controls (like break-glass access to secrets or role accounts).By default, GeoServer only allows same-origin authenticated API access. This limits the scope for a third-party attacker to use an administrator’s credentials to gain access to credentials. The researchers who found the vulnerability were unable to determine any other conditions under which the GeoServer REST API may be available more broadly.
-
-Users should update container images to use GeoServer 2.24.4 or 2.25.1 to get the bug fix. As a workaround, leave environment variables and Java system properties hidden by default. Those who provide the option to re-enable it should communicate the impact and risks so that users can make an informed choice.</description>
-      <guid isPermaLink="false">CVE-2024-34696|2024-07-01T17:08:44.885Z</guid>
-      <pubDate>Mon, 01 Jul 2024 14:36:05 +0000</pubDate>
-    </item>
-    <item>
-      <title>CVE-2024-36401|2024-07-03T21:08:24.075Z -- geoserver -- geoserver</title>
-      <link>https://www.cve.org/CVERecord?id=CVE-2024-36401</link>
-      <description>GeoServer is an open source server that allows users to share and edit geospatial data. Prior to versions 2.23.6, 2.24.4, and 2.25.2, multiple OGC request parameters allow Remote Code Execution (RCE) by unauthenticated users through specially crafted input against a default GeoServer installation due to unsafely evaluating property names as XPath expressions.
-
-The GeoTools library API that GeoServer calls evaluates property/attribute names for feature types in a way that unsafely passes them to the commons-jxpath library which can execute arbitrary code when evaluating XPath expressions. This XPath evaluation is intended to be used only by complex feature types (i.e., Application Schema data stores) but is incorrectly being applied to simple feature types as well which makes this vulnerability apply to **ALL** GeoServer instances. No public PoC is provided but this vulnerability has been confirmed to be exploitable through WFS GetFeature, WFS GetPropertyValue, WMS GetMap, WMS GetFeatureInfo, WMS GetLegendGraphic and WPS Execute requests. This vulnerability can lead to executing arbitrary code.
-
-Versions 2.23.6, 2.24.4, and 2.25.2 contain a patch for the issue. A workaround exists by removing the `gt-complex-x.y.jar` file from the GeoServer where `x.y` is the GeoTools version (e.g., `gt-complex-31.1.jar` if running GeoServer 2.25.1). This will remove the vulnerable code from GeoServer but may break some GeoServer functionality or prevent GeoServer from deploying if the gt-complex module is needed.</description>
-      <guid isPermaLink="false">CVE-2024-36401|2024-07-03T21:08:24.075Z</guid>
-      <pubDate>Mon, 01 Jul 2024 15:25:41 +0000</pubDate>
-    </item>
-    <item>
-      <title>CVE-2024-36401|2024-07-05T12:55:13.361Z -- geoserver -- geoserver</title>
-      <link>https://www.cve.org/CVERecord?id=CVE-2024-36401</link>
-      <description>GeoServer is an open source server that allows users to share and edit geospatial data. Prior to versions 2.23.6, 2.24.4, and 2.25.2, multiple OGC request parameters allow Remote Code Execution (RCE) by unauthenticated users through specially crafted input against a default GeoServer installation due to unsafely evaluating property names as XPath expressions.
-
-The GeoTools library API that GeoServer calls evaluates property/attribute names for feature types in a way that unsafely passes them to the commons-jxpath library which can execute arbitrary code when evaluating XPath expressions. This XPath evaluation is intended to be used only by complex feature types (i.e., Application Schema data stores) but is incorrectly being applied to simple feature types as well which makes this vulnerability apply to **ALL** GeoServer instances. No public PoC is provided but this vulnerability has been confirmed to be exploitable through WFS GetFeature, WFS GetPropertyValue, WMS GetMap, WMS GetFeatureInfo, WMS GetLegendGraphic and WPS Execute requests. This vulnerability can lead to executing arbitrary code.
-
-Versions 2.23.6, 2.24.4, and 2.25.2 contain a patch for the issue. A workaround exists by removing the `gt-complex-x.y.jar` file from the GeoServer where `x.y` is the GeoTools version (e.g., `gt-complex-31.1.jar` if running GeoServer 2.25.1). This will remove the vulnerable code from GeoServer but may break some GeoServer functionality or prevent GeoServer from deploying if the gt-complex module is needed.</description>
-      <guid isPermaLink="false">CVE-2024-36401|2024-07-05T12:55:13.361Z</guid>
-      <pubDate>Mon, 01 Jul 2024 15:25:41 +0000</pubDate>
-    </item>
-    <item>
-      <title>CVE-2024-36401|2024-07-11T03:55:33.136Z -- geoserver -- geoserver</title>
-      <link>https://www.cve.org/CVERecord?id=CVE-2024-36401</link>
-      <description>GeoServer is an open source server that allows users to share and edit geospatial data. Prior to versions 2.23.6, 2.24.4, and 2.25.2, multiple OGC request parameters allow Remote Code Execution (RCE) by unauthenticated users through specially crafted input against a default GeoServer installation due to unsafely evaluating property names as XPath expressions.
-
-The GeoTools library API that GeoServer calls evaluates property/attribute names for feature types in a way that unsafely passes them to the commons-jxpath library which can execute arbitrary code when evaluating XPath expressions. This XPath evaluation is intended to be used only by complex feature types (i.e., Application Schema data stores) but is incorrectly being applied to simple feature types as well which makes this vulnerability apply to **ALL** GeoServer instances. No public PoC is provided but this vulnerability has been confirmed to be exploitable through WFS GetFeature, WFS GetPropertyValue, WMS GetMap, WMS GetFeatureInfo, WMS GetLegendGraphic and WPS Execute requests. This vulnerability can lead to executing arbitrary code.
-
-Versions 2.23.6, 2.24.4, and 2.25.2 contain a patch for the issue. A workaround exists by removing the `gt-complex-x.y.jar` file from the GeoServer where `x.y` is the GeoTools version (e.g., `gt-complex-31.1.jar` if running GeoServer 2.25.1). This will remove the vulnerable code from GeoServer but may break some GeoServer functionality or prevent GeoServer from deploying if the gt-complex module is needed.</description>
-      <guid isPermaLink="false">CVE-2024-36401|2024-07-11T03:55:33.136Z</guid>
-      <pubDate>Mon, 01 Jul 2024 15:25:41 +0000</pubDate>
-    </item>
-    <item>
-      <title>CVE-2024-36401|2024-07-13T03:55:16.440Z -- geoserver -- geoserver</title>
-      <link>https://www.cve.org/CVERecord?id=CVE-2024-36401</link>
-      <description>GeoServer is an open source server that allows users to share and edit geospatial data. Prior to versions 2.23.6, 2.24.4, and 2.25.2, multiple OGC request parameters allow Remote Code Execution (RCE) by unauthenticated users through specially crafted input against a default GeoServer installation due to unsafely evaluating property names as XPath expressions.
-
-The GeoTools library API that GeoServer calls evaluates property/attribute names for feature types in a way that unsafely passes them to the commons-jxpath library which can execute arbitrary code when evaluating XPath expressions. This XPath evaluation is intended to be used only by complex feature types (i.e., Application Schema data stores) but is incorrectly being applied to simple feature types as well which makes this vulnerability apply to **ALL** GeoServer instances. No public PoC is provided but this vulnerability has been confirmed to be exploitable through WFS GetFeature, WFS GetPropertyValue, WMS GetMap, WMS GetFeatureInfo, WMS GetLegendGraphic and WPS Execute requests. This vulnerability can lead to executing arbitrary code.
-
-Versions 2.23.6, 2.24.4, and 2.25.2 contain a patch for the issue. A workaround exists by removing the `gt-complex-x.y.jar` file from the GeoServer where `x.y` is the GeoTools version (e.g., `gt-complex-31.1.jar` if running GeoServer 2.25.1). This will remove the vulnerable code from GeoServer but may break some GeoServer functionality or prevent GeoServer from deploying if the gt-complex module is needed.</description>
-      <guid isPermaLink="false">CVE-2024-36401|2024-07-13T03:55:16.440Z</guid>
-      <pubDate>Mon, 01 Jul 2024 15:25:41 +0000</pubDate>
-    </item>
-    <item>
-      <title>CVE-2024-36401|2024-07-15T16:20:22.225Z -- geoserver -- geoserver</title>
-      <link>https://www.cve.org/CVERecord?id=CVE-2024-36401</link>
-      <description>GeoServer is an open source server that allows users to share and edit geospatial data. Prior to versions 2.23.6, 2.24.4, and 2.25.2, multiple OGC request parameters allow Remote Code Execution (RCE) by unauthenticated users through specially crafted input against a default GeoServer installation due to unsafely evaluating property names as XPath expressions.
-
-The GeoTools library API that GeoServer calls evaluates property/attribute names for feature types in a way that unsafely passes them to the commons-jxpath library which can execute arbitrary code when evaluating XPath expressions. This XPath evaluation is intended to be used only by complex feature types (i.e., Application Schema data stores) but is incorrectly being applied to simple feature types as well which makes this vulnerability apply to **ALL** GeoServer instances. No public PoC is provided but this vulnerability has been confirmed to be exploitable through WFS GetFeature, WFS GetPropertyValue, WMS GetMap, WMS GetFeatureInfo, WMS GetLegendGraphic and WPS Execute requests. This vulnerability can lead to executing arbitrary code.
-
-Versions 2.23.6, 2.24.4, and 2.25.2 contain a patch for the issue. A workaround exists by removing the `gt-complex-x.y.jar` file from the GeoServer where `x.y` is the GeoTools version (e.g., `gt-complex-31.1.jar` if running GeoServer 2.25.1). This will remove the vulnerable code from GeoServer but may break some GeoServer functionality or prevent GeoServer from deploying if the gt-complex module is needed.</description>
-      <guid isPermaLink="false">CVE-2024-36401|2024-07-15T16:20:22.225Z</guid>
+      <guid isPermaLink="false">CVE-2024-36401|2024-08-19T07:47:49.937Z</guid>
       <pubDate>Mon, 01 Jul 2024 15:25:41 +0000</pubDate>
     </item>
     <item>
@@ -196,15 +39,172 @@ Users should update container images to use GeoServer 2.24.4 or 2.25.1 to get th
       <pubDate>Mon, 01 Jul 2024 14:36:05 +0000</pubDate>
     </item>
     <item>
-      <title>CVE-2024-36401|2024-08-19T07:47:49.937Z -- geoserver -- geoserver</title>
+      <title>CVE-2024-36401|2024-07-15T16:20:22.225Z -- geoserver -- geoserver</title>
       <link>https://www.cve.org/CVERecord?id=CVE-2024-36401</link>
       <description>GeoServer is an open source server that allows users to share and edit geospatial data. Prior to versions 2.23.6, 2.24.4, and 2.25.2, multiple OGC request parameters allow Remote Code Execution (RCE) by unauthenticated users through specially crafted input against a default GeoServer installation due to unsafely evaluating property names as XPath expressions.
 
 The GeoTools library API that GeoServer calls evaluates property/attribute names for feature types in a way that unsafely passes them to the commons-jxpath library which can execute arbitrary code when evaluating XPath expressions. This XPath evaluation is intended to be used only by complex feature types (i.e., Application Schema data stores) but is incorrectly being applied to simple feature types as well which makes this vulnerability apply to **ALL** GeoServer instances. No public PoC is provided but this vulnerability has been confirmed to be exploitable through WFS GetFeature, WFS GetPropertyValue, WMS GetMap, WMS GetFeatureInfo, WMS GetLegendGraphic and WPS Execute requests. This vulnerability can lead to executing arbitrary code.
 
 Versions 2.23.6, 2.24.4, and 2.25.2 contain a patch for the issue. A workaround exists by removing the `gt-complex-x.y.jar` file from the GeoServer where `x.y` is the GeoTools version (e.g., `gt-complex-31.1.jar` if running GeoServer 2.25.1). This will remove the vulnerable code from GeoServer but may break some GeoServer functionality or prevent GeoServer from deploying if the gt-complex module is needed.</description>
-      <guid isPermaLink="false">CVE-2024-36401|2024-08-19T07:47:49.937Z</guid>
+      <guid isPermaLink="false">CVE-2024-36401|2024-07-15T16:20:22.225Z</guid>
       <pubDate>Mon, 01 Jul 2024 15:25:41 +0000</pubDate>
+    </item>
+    <item>
+      <title>CVE-2024-36401|2024-07-13T03:55:16.440Z -- geoserver -- geoserver</title>
+      <link>https://www.cve.org/CVERecord?id=CVE-2024-36401</link>
+      <description>GeoServer is an open source server that allows users to share and edit geospatial data. Prior to versions 2.23.6, 2.24.4, and 2.25.2, multiple OGC request parameters allow Remote Code Execution (RCE) by unauthenticated users through specially crafted input against a default GeoServer installation due to unsafely evaluating property names as XPath expressions.
+
+The GeoTools library API that GeoServer calls evaluates property/attribute names for feature types in a way that unsafely passes them to the commons-jxpath library which can execute arbitrary code when evaluating XPath expressions. This XPath evaluation is intended to be used only by complex feature types (i.e., Application Schema data stores) but is incorrectly being applied to simple feature types as well which makes this vulnerability apply to **ALL** GeoServer instances. No public PoC is provided but this vulnerability has been confirmed to be exploitable through WFS GetFeature, WFS GetPropertyValue, WMS GetMap, WMS GetFeatureInfo, WMS GetLegendGraphic and WPS Execute requests. This vulnerability can lead to executing arbitrary code.
+
+Versions 2.23.6, 2.24.4, and 2.25.2 contain a patch for the issue. A workaround exists by removing the `gt-complex-x.y.jar` file from the GeoServer where `x.y` is the GeoTools version (e.g., `gt-complex-31.1.jar` if running GeoServer 2.25.1). This will remove the vulnerable code from GeoServer but may break some GeoServer functionality or prevent GeoServer from deploying if the gt-complex module is needed.</description>
+      <guid isPermaLink="false">CVE-2024-36401|2024-07-13T03:55:16.440Z</guid>
+      <pubDate>Mon, 01 Jul 2024 15:25:41 +0000</pubDate>
+    </item>
+    <item>
+      <title>CVE-2024-36401|2024-07-11T03:55:33.136Z -- geoserver -- geoserver</title>
+      <link>https://www.cve.org/CVERecord?id=CVE-2024-36401</link>
+      <description>GeoServer is an open source server that allows users to share and edit geospatial data. Prior to versions 2.23.6, 2.24.4, and 2.25.2, multiple OGC request parameters allow Remote Code Execution (RCE) by unauthenticated users through specially crafted input against a default GeoServer installation due to unsafely evaluating property names as XPath expressions.
+
+The GeoTools library API that GeoServer calls evaluates property/attribute names for feature types in a way that unsafely passes them to the commons-jxpath library which can execute arbitrary code when evaluating XPath expressions. This XPath evaluation is intended to be used only by complex feature types (i.e., Application Schema data stores) but is incorrectly being applied to simple feature types as well which makes this vulnerability apply to **ALL** GeoServer instances. No public PoC is provided but this vulnerability has been confirmed to be exploitable through WFS GetFeature, WFS GetPropertyValue, WMS GetMap, WMS GetFeatureInfo, WMS GetLegendGraphic and WPS Execute requests. This vulnerability can lead to executing arbitrary code.
+
+Versions 2.23.6, 2.24.4, and 2.25.2 contain a patch for the issue. A workaround exists by removing the `gt-complex-x.y.jar` file from the GeoServer where `x.y` is the GeoTools version (e.g., `gt-complex-31.1.jar` if running GeoServer 2.25.1). This will remove the vulnerable code from GeoServer but may break some GeoServer functionality or prevent GeoServer from deploying if the gt-complex module is needed.</description>
+      <guid isPermaLink="false">CVE-2024-36401|2024-07-11T03:55:33.136Z</guid>
+      <pubDate>Mon, 01 Jul 2024 15:25:41 +0000</pubDate>
+    </item>
+    <item>
+      <title>CVE-2024-36401|2024-07-05T12:55:13.361Z -- geoserver -- geoserver</title>
+      <link>https://www.cve.org/CVERecord?id=CVE-2024-36401</link>
+      <description>GeoServer is an open source server that allows users to share and edit geospatial data. Prior to versions 2.23.6, 2.24.4, and 2.25.2, multiple OGC request parameters allow Remote Code Execution (RCE) by unauthenticated users through specially crafted input against a default GeoServer installation due to unsafely evaluating property names as XPath expressions.
+
+The GeoTools library API that GeoServer calls evaluates property/attribute names for feature types in a way that unsafely passes them to the commons-jxpath library which can execute arbitrary code when evaluating XPath expressions. This XPath evaluation is intended to be used only by complex feature types (i.e., Application Schema data stores) but is incorrectly being applied to simple feature types as well which makes this vulnerability apply to **ALL** GeoServer instances. No public PoC is provided but this vulnerability has been confirmed to be exploitable through WFS GetFeature, WFS GetPropertyValue, WMS GetMap, WMS GetFeatureInfo, WMS GetLegendGraphic and WPS Execute requests. This vulnerability can lead to executing arbitrary code.
+
+Versions 2.23.6, 2.24.4, and 2.25.2 contain a patch for the issue. A workaround exists by removing the `gt-complex-x.y.jar` file from the GeoServer where `x.y` is the GeoTools version (e.g., `gt-complex-31.1.jar` if running GeoServer 2.25.1). This will remove the vulnerable code from GeoServer but may break some GeoServer functionality or prevent GeoServer from deploying if the gt-complex module is needed.</description>
+      <guid isPermaLink="false">CVE-2024-36401|2024-07-05T12:55:13.361Z</guid>
+      <pubDate>Mon, 01 Jul 2024 15:25:41 +0000</pubDate>
+    </item>
+    <item>
+      <title>CVE-2024-36401|2024-07-03T21:08:24.075Z -- geoserver -- geoserver</title>
+      <link>https://www.cve.org/CVERecord?id=CVE-2024-36401</link>
+      <description>GeoServer is an open source server that allows users to share and edit geospatial data. Prior to versions 2.23.6, 2.24.4, and 2.25.2, multiple OGC request parameters allow Remote Code Execution (RCE) by unauthenticated users through specially crafted input against a default GeoServer installation due to unsafely evaluating property names as XPath expressions.
+
+The GeoTools library API that GeoServer calls evaluates property/attribute names for feature types in a way that unsafely passes them to the commons-jxpath library which can execute arbitrary code when evaluating XPath expressions. This XPath evaluation is intended to be used only by complex feature types (i.e., Application Schema data stores) but is incorrectly being applied to simple feature types as well which makes this vulnerability apply to **ALL** GeoServer instances. No public PoC is provided but this vulnerability has been confirmed to be exploitable through WFS GetFeature, WFS GetPropertyValue, WMS GetMap, WMS GetFeatureInfo, WMS GetLegendGraphic and WPS Execute requests. This vulnerability can lead to executing arbitrary code.
+
+Versions 2.23.6, 2.24.4, and 2.25.2 contain a patch for the issue. A workaround exists by removing the `gt-complex-x.y.jar` file from the GeoServer where `x.y` is the GeoTools version (e.g., `gt-complex-31.1.jar` if running GeoServer 2.25.1). This will remove the vulnerable code from GeoServer but may break some GeoServer functionality or prevent GeoServer from deploying if the gt-complex module is needed.</description>
+      <guid isPermaLink="false">CVE-2024-36401|2024-07-03T21:08:24.075Z</guid>
+      <pubDate>Mon, 01 Jul 2024 15:25:41 +0000</pubDate>
+    </item>
+    <item>
+      <title>CVE-2024-34696|2024-07-01T17:08:44.885Z -- geoserver -- geoserver</title>
+      <link>https://www.cve.org/CVERecord?id=CVE-2024-34696</link>
+      <description>GeoServer is an open source server that allows users to share and edit geospatial data. Starting in version 2.10.0 and prior to versions 2.24.4 and 2.25.1, GeoServer's Server Status page and REST API lists all environment variables and Java properties to any GeoServer user with administrative rights as part of those modules' status message. These variables/properties can also contain sensitive information, such as database passwords or API keys/tokens. Additionally, many community-developed GeoServer container images `export` other credentials from their start-up scripts as environment variables to the GeoServer (`java`) process. The precise scope of the issue depends on which container image is used and how it is configured.
+
+The `about status` API endpoint which powers the Server Status page is only available to administrators.Depending on the operating environment, administrators might have legitimate access to credentials in other ways, but this issue defeats more sophisticated controls (like break-glass access to secrets or role accounts).By default, GeoServer only allows same-origin authenticated API access. This limits the scope for a third-party attacker to use an administrator’s credentials to gain access to credentials. The researchers who found the vulnerability were unable to determine any other conditions under which the GeoServer REST API may be available more broadly.
+
+Users should update container images to use GeoServer 2.24.4 or 2.25.1 to get the bug fix. As a workaround, leave environment variables and Java system properties hidden by default. Those who provide the option to re-enable it should communicate the impact and risks so that users can make an informed choice.</description>
+      <guid isPermaLink="false">CVE-2024-34696|2024-07-01T17:08:44.885Z</guid>
+      <pubDate>Mon, 01 Jul 2024 14:36:05 +0000</pubDate>
+    </item>
+    <item>
+      <title>CVE-2024-24749|2024-07-01T14:07:33.314Z -- geoserver -- geoserver</title>
+      <link>https://www.cve.org/CVERecord?id=CVE-2024-24749</link>
+      <description>GeoServer is an open source server that allows users to share and edit geospatial data. Prior to versions 2.23.5 and 2.24.3, if GeoServer is deployed in the Windows operating system using an Apache Tomcat web application server, it is possible to bypass existing input validation in the GeoWebCache ByteStreamController class and read arbitrary classpath resources with specific file name extensions. If GeoServer is also deployed as a web archive using the data directory embedded in the `geoserver.war` file (rather than an external data directory), it will likely be possible to read specific resources to gain administrator privileges. However, it is very unlikely that production environments will be using the embedded data directory since, depending on how GeoServer is deployed, it will be erased and re-installed (which would also reset to the default password) either every time the server restarts or every time a new GeoServer WAR is installed and is therefore difficult to maintain. An external data directory will always be used if GeoServer is running in standalone mode (via an installer or a binary). Versions 2.23.5 and 2.24.3 contain a patch for the issue. Some workarounds are available. One may change from a Windows environment to a Linux environment; or change from Apache Tomcat to Jetty application server. One may also disable anonymous access to the embeded GeoWebCache administration and status pages.</description>
+      <guid isPermaLink="false">CVE-2024-24749|2024-07-01T14:07:33.314Z</guid>
+      <pubDate>Mon, 01 Jul 2024 14:07:33 +0000</pubDate>
+    </item>
+    <item>
+      <title>CVE-2024-34696|2024-07-01T14:36:05.084Z -- geoserver -- geoserver</title>
+      <link>https://www.cve.org/CVERecord?id=CVE-2024-34696</link>
+      <description>GeoServer is an open source server that allows users to share and edit geospatial data. Starting in version 2.10.0 and prior to versions 2.24.4 and 2.25.1, GeoServer's Server Status page and REST API lists all environment variables and Java properties to any GeoServer user with administrative rights as part of those modules' status message. These variables/properties can also contain sensitive information, such as database passwords or API keys/tokens. Additionally, many community-developed GeoServer container images `export` other credentials from their start-up scripts as environment variables to the GeoServer (`java`) process. The precise scope of the issue depends on which container image is used and how it is configured.
+
+The `about status` API endpoint which powers the Server Status page is only available to administrators.Depending on the operating environment, administrators might have legitimate access to credentials in other ways, but this issue defeats more sophisticated controls (like break-glass access to secrets or role accounts).By default, GeoServer only allows same-origin authenticated API access. This limits the scope for a third-party attacker to use an administrator’s credentials to gain access to credentials. The researchers who found the vulnerability were unable to determine any other conditions under which the GeoServer REST API may be available more broadly.
+
+Users should update container images to use GeoServer 2.24.4 or 2.25.1 to get the bug fix. As a workaround, leave environment variables and Java system properties hidden by default. Those who provide the option to re-enable it should communicate the impact and risks so that users can make an informed choice.</description>
+      <guid isPermaLink="false">CVE-2024-34696|2024-07-01T14:36:05.084Z</guid>
+      <pubDate>Mon, 01 Jul 2024 14:36:05 +0000</pubDate>
+    </item>
+    <item>
+      <title>CVE-2024-36401|2024-07-01T15:25:41.873Z -- geoserver -- geoserver</title>
+      <link>https://www.cve.org/CVERecord?id=CVE-2024-36401</link>
+      <description>GeoServer is an open source server that allows users to share and edit geospatial data. Prior to versions 2.23.6, 2.24.4, and 2.25.2, multiple OGC request parameters allow Remote Code Execution (RCE) by unauthenticated users through specially crafted input against a default GeoServer installation due to unsafely evaluating property names as XPath expressions.
+
+The GeoTools library API that GeoServer calls evaluates property/attribute names for feature types in a way that unsafely passes them to the commons-jxpath library which can execute arbitrary code when evaluating XPath expressions. This XPath evaluation is intended to be used only by complex feature types (i.e., Application Schema data stores) but is incorrectly being applied to simple feature types as well which makes this vulnerability apply to **ALL** GeoServer instances. No public PoC is provided but this vulnerability has been confirmed to be exploitable through WFS GetFeature, WFS GetPropertyValue, WMS GetMap, WMS GetFeatureInfo, WMS GetLegendGraphic and WPS Execute requests. This vulnerability can lead to executing arbitrary code.
+
+Versions 2.23.6, 2.24.4, and 2.25.2 contain a patch for the issue. A workaround exists by removing the `gt-complex-x.y.jar` file from the GeoServer where `x.y` is the GeoTools version (e.g., `gt-complex-31.1.jar` if running GeoServer 2.25.1). This will remove the vulnerable code from GeoServer but may break some GeoServer functionality or prevent GeoServer from deploying if the gt-complex module is needed.</description>
+      <guid isPermaLink="false">CVE-2024-36401|2024-07-01T15:25:41.873Z</guid>
+      <pubDate>Mon, 01 Jul 2024 15:25:41 +0000</pubDate>
+    </item>
+    <item>
+      <title>CVE-2024-36401|2024-07-02T14:34:55.543Z -- geoserver -- geoserver</title>
+      <link>https://www.cve.org/CVERecord?id=CVE-2024-36401</link>
+      <description>GeoServer is an open source server that allows users to share and edit geospatial data. Prior to versions 2.23.6, 2.24.4, and 2.25.2, multiple OGC request parameters allow Remote Code Execution (RCE) by unauthenticated users through specially crafted input against a default GeoServer installation due to unsafely evaluating property names as XPath expressions.
+
+The GeoTools library API that GeoServer calls evaluates property/attribute names for feature types in a way that unsafely passes them to the commons-jxpath library which can execute arbitrary code when evaluating XPath expressions. This XPath evaluation is intended to be used only by complex feature types (i.e., Application Schema data stores) but is incorrectly being applied to simple feature types as well which makes this vulnerability apply to **ALL** GeoServer instances. No public PoC is provided but this vulnerability has been confirmed to be exploitable through WFS GetFeature, WFS GetPropertyValue, WMS GetMap, WMS GetFeatureInfo, WMS GetLegendGraphic and WPS Execute requests. This vulnerability can lead to executing arbitrary code.
+
+Versions 2.23.6, 2.24.4, and 2.25.2 contain a patch for the issue. A workaround exists by removing the `gt-complex-x.y.jar` file from the GeoServer where `x.y` is the GeoTools version (e.g., `gt-complex-31.1.jar` if running GeoServer 2.25.1). This will remove the vulnerable code from GeoServer but may break some GeoServer functionality or prevent GeoServer from deploying if the gt-complex module is needed.</description>
+      <guid isPermaLink="false">CVE-2024-36401|2024-07-02T14:34:55.543Z</guid>
+      <pubDate>Mon, 01 Jul 2024 15:25:41 +0000</pubDate>
+    </item>
+    <item>
+      <title>CVE-2024-36401|2024-07-04T03:55:49.444Z -- geoserver -- geoserver</title>
+      <link>https://www.cve.org/CVERecord?id=CVE-2024-36401</link>
+      <description>GeoServer is an open source server that allows users to share and edit geospatial data. Prior to versions 2.23.6, 2.24.4, and 2.25.2, multiple OGC request parameters allow Remote Code Execution (RCE) by unauthenticated users through specially crafted input against a default GeoServer installation due to unsafely evaluating property names as XPath expressions.
+
+The GeoTools library API that GeoServer calls evaluates property/attribute names for feature types in a way that unsafely passes them to the commons-jxpath library which can execute arbitrary code when evaluating XPath expressions. This XPath evaluation is intended to be used only by complex feature types (i.e., Application Schema data stores) but is incorrectly being applied to simple feature types as well which makes this vulnerability apply to **ALL** GeoServer instances. No public PoC is provided but this vulnerability has been confirmed to be exploitable through WFS GetFeature, WFS GetPropertyValue, WMS GetMap, WMS GetFeatureInfo, WMS GetLegendGraphic and WPS Execute requests. This vulnerability can lead to executing arbitrary code.
+
+Versions 2.23.6, 2.24.4, and 2.25.2 contain a patch for the issue. A workaround exists by removing the `gt-complex-x.y.jar` file from the GeoServer where `x.y` is the GeoTools version (e.g., `gt-complex-31.1.jar` if running GeoServer 2.25.1). This will remove the vulnerable code from GeoServer but may break some GeoServer functionality or prevent GeoServer from deploying if the gt-complex module is needed.</description>
+      <guid isPermaLink="false">CVE-2024-36401|2024-07-04T03:55:49.444Z</guid>
+      <pubDate>Mon, 01 Jul 2024 15:25:41 +0000</pubDate>
+    </item>
+    <item>
+      <title>CVE-2024-36401|2024-07-12T03:55:17.909Z -- geoserver -- geoserver</title>
+      <link>https://www.cve.org/CVERecord?id=CVE-2024-36401</link>
+      <description>GeoServer is an open source server that allows users to share and edit geospatial data. Prior to versions 2.23.6, 2.24.4, and 2.25.2, multiple OGC request parameters allow Remote Code Execution (RCE) by unauthenticated users through specially crafted input against a default GeoServer installation due to unsafely evaluating property names as XPath expressions.
+
+The GeoTools library API that GeoServer calls evaluates property/attribute names for feature types in a way that unsafely passes them to the commons-jxpath library which can execute arbitrary code when evaluating XPath expressions. This XPath evaluation is intended to be used only by complex feature types (i.e., Application Schema data stores) but is incorrectly being applied to simple feature types as well which makes this vulnerability apply to **ALL** GeoServer instances. No public PoC is provided but this vulnerability has been confirmed to be exploitable through WFS GetFeature, WFS GetPropertyValue, WMS GetMap, WMS GetFeatureInfo, WMS GetLegendGraphic and WPS Execute requests. This vulnerability can lead to executing arbitrary code.
+
+Versions 2.23.6, 2.24.4, and 2.25.2 contain a patch for the issue. A workaround exists by removing the `gt-complex-x.y.jar` file from the GeoServer where `x.y` is the GeoTools version (e.g., `gt-complex-31.1.jar` if running GeoServer 2.25.1). This will remove the vulnerable code from GeoServer but may break some GeoServer functionality or prevent GeoServer from deploying if the gt-complex module is needed.</description>
+      <guid isPermaLink="false">CVE-2024-36401|2024-07-12T03:55:17.909Z</guid>
+      <pubDate>Mon, 01 Jul 2024 15:25:41 +0000</pubDate>
+    </item>
+    <item>
+      <title>CVE-2024-36401|2024-07-15T12:13:22.962Z -- geoserver -- geoserver</title>
+      <link>https://www.cve.org/CVERecord?id=CVE-2024-36401</link>
+      <description>GeoServer is an open source server that allows users to share and edit geospatial data. Prior to versions 2.23.6, 2.24.4, and 2.25.2, multiple OGC request parameters allow Remote Code Execution (RCE) by unauthenticated users through specially crafted input against a default GeoServer installation due to unsafely evaluating property names as XPath expressions.
+
+The GeoTools library API that GeoServer calls evaluates property/attribute names for feature types in a way that unsafely passes them to the commons-jxpath library which can execute arbitrary code when evaluating XPath expressions. This XPath evaluation is intended to be used only by complex feature types (i.e., Application Schema data stores) but is incorrectly being applied to simple feature types as well which makes this vulnerability apply to **ALL** GeoServer instances. No public PoC is provided but this vulnerability has been confirmed to be exploitable through WFS GetFeature, WFS GetPropertyValue, WMS GetMap, WMS GetFeatureInfo, WMS GetLegendGraphic and WPS Execute requests. This vulnerability can lead to executing arbitrary code.
+
+Versions 2.23.6, 2.24.4, and 2.25.2 contain a patch for the issue. A workaround exists by removing the `gt-complex-x.y.jar` file from the GeoServer where `x.y` is the GeoTools version (e.g., `gt-complex-31.1.jar` if running GeoServer 2.25.1). This will remove the vulnerable code from GeoServer but may break some GeoServer functionality or prevent GeoServer from deploying if the gt-complex module is needed.</description>
+      <guid isPermaLink="false">CVE-2024-36401|2024-07-15T12:13:22.962Z</guid>
+      <pubDate>Mon, 01 Jul 2024 15:25:41 +0000</pubDate>
+    </item>
+    <item>
+      <title>CVE-2024-36401|2024-07-18T21:28:49.687Z -- geoserver -- geoserver</title>
+      <link>https://www.cve.org/CVERecord?id=CVE-2024-36401</link>
+      <description>GeoServer is an open source server that allows users to share and edit geospatial data. Prior to versions 2.23.6, 2.24.4, and 2.25.2, multiple OGC request parameters allow Remote Code Execution (RCE) by unauthenticated users through specially crafted input against a default GeoServer installation due to unsafely evaluating property names as XPath expressions.
+
+The GeoTools library API that GeoServer calls evaluates property/attribute names for feature types in a way that unsafely passes them to the commons-jxpath library which can execute arbitrary code when evaluating XPath expressions. This XPath evaluation is intended to be used only by complex feature types (i.e., Application Schema data stores) but is incorrectly being applied to simple feature types as well which makes this vulnerability apply to **ALL** GeoServer instances. No public PoC is provided but this vulnerability has been confirmed to be exploitable through WFS GetFeature, WFS GetPropertyValue, WMS GetMap, WMS GetFeatureInfo, WMS GetLegendGraphic and WPS Execute requests. This vulnerability can lead to executing arbitrary code.
+
+Versions 2.23.6, 2.24.4, and 2.25.2 contain a patch for the issue. A workaround exists by removing the `gt-complex-x.y.jar` file from the GeoServer where `x.y` is the GeoTools version (e.g., `gt-complex-31.1.jar` if running GeoServer 2.25.1). This will remove the vulnerable code from GeoServer but may break some GeoServer functionality or prevent GeoServer from deploying if the gt-complex module is needed.</description>
+      <guid isPermaLink="false">CVE-2024-36401|2024-07-18T21:28:49.687Z</guid>
+      <pubDate>Mon, 01 Jul 2024 15:25:41 +0000</pubDate>
+    </item>
+    <item>
+      <title>CVE-2024-36401|2024-08-02T03:37:04.978Z -- geoserver -- geoserver</title>
+      <link>https://www.cve.org/CVERecord?id=CVE-2024-36401</link>
+      <description>GeoServer is an open source server that allows users to share and edit geospatial data. Prior to versions 2.23.6, 2.24.4, and 2.25.2, multiple OGC request parameters allow Remote Code Execution (RCE) by unauthenticated users through specially crafted input against a default GeoServer installation due to unsafely evaluating property names as XPath expressions.
+
+The GeoTools library API that GeoServer calls evaluates property/attribute names for feature types in a way that unsafely passes them to the commons-jxpath library which can execute arbitrary code when evaluating XPath expressions. This XPath evaluation is intended to be used only by complex feature types (i.e., Application Schema data stores) but is incorrectly being applied to simple feature types as well which makes this vulnerability apply to **ALL** GeoServer instances. No public PoC is provided but this vulnerability has been confirmed to be exploitable through WFS GetFeature, WFS GetPropertyValue, WMS GetMap, WMS GetFeatureInfo, WMS GetLegendGraphic and WPS Execute requests. This vulnerability can lead to executing arbitrary code.
+
+Versions 2.23.6, 2.24.4, and 2.25.2 contain a patch for the issue. A workaround exists by removing the `gt-complex-x.y.jar` file from the GeoServer where `x.y` is the GeoTools version (e.g., `gt-complex-31.1.jar` if running GeoServer 2.25.1). This will remove the vulnerable code from GeoServer but may break some GeoServer functionality or prevent GeoServer from deploying if the gt-complex module is needed.</description>
+      <guid isPermaLink="false">CVE-2024-36401|2024-08-02T03:37:04.978Z</guid>
+      <pubDate>Mon, 01 Jul 2024 15:25:41 +0000</pubDate>
+    </item>
+    <item>
+      <title>CVE-2024-24749|2024-08-19T14:44:36.419Z -- geoserver -- geoserver</title>
+      <link>https://www.cve.org/CVERecord?id=CVE-2024-24749</link>
+      <description>GeoServer is an open source server that allows users to share and edit geospatial data. Prior to versions 2.23.5 and 2.24.3, if GeoServer is deployed in the Windows operating system using an Apache Tomcat web application server, it is possible to bypass existing input validation in the GeoWebCache ByteStreamController class and read arbitrary classpath resources with specific file name extensions. If GeoServer is also deployed as a web archive using the data directory embedded in the `geoserver.war` file (rather than an external data directory), it will likely be possible to read specific resources to gain administrator privileges. However, it is very unlikely that production environments will be using the embedded data directory since, depending on how GeoServer is deployed, it will be erased and re-installed (which would also reset to the default password) either every time the server restarts or every time a new GeoServer WAR is installed and is therefore difficult to maintain. An external data directory will always be used if GeoServer is running in standalone mode (via an installer or a binary). Versions 2.23.5 and 2.24.3 contain a patch for the issue. Some workarounds are available. One may change from a Windows environment to a Linux environment; or change from Apache Tomcat to Jetty application server. One may also disable anonymous access to the embeded GeoWebCache administration and status pages.</description>
+      <guid isPermaLink="false">CVE-2024-24749|2024-08-19T14:44:36.419Z</guid>
+      <pubDate>Mon, 01 Jul 2024 14:07:33 +0000</pubDate>
     </item>
   </channel>
 </rss>
