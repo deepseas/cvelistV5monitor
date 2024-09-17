@@ -6,15 +6,15 @@
     <description>The latest CVEs for Ubuntu -- Shiftfs in the Linux kernel</description>
     <docs>http://www.rssboard.org/rss-specification</docs>
     <generator>python-feedgen</generator>
-    <lastBuildDate>Mon, 16 Sep 2024 23:21:33 +0000</lastBuildDate>
+    <lastBuildDate>Tue, 17 Sep 2024 01:37:25 +0000</lastBuildDate>
     <ttl>60</ttl>
     <item>
-      <title>CVE-2019-15793|2024-09-16T16:58:57.384Z -- ubuntu -- shiftfs%20in%20the%20linux%20kernel
+      <title>CVE-2019-15791|2024-09-17T00:11:12.912Z -- ubuntu -- shiftfs%20in%20the%20linux%20kernel
 </title>
-      <link>https://www.cve.org/CVERecord?id=CVE-2019-15793</link>
-      <description>In shiftfs, a non-upstream patch to the Linux kernel included in the Ubuntu 5.0 and 5.3 kernel series, several locations which shift ids translate user/group ids before performing operations in the lower filesystem were translating them into init_user_ns, whereas they should have been translated into the s_user_ns for the lower filesystem. This resulted in using ids other than the intended ones in the lower fs, which likely did not map into the shifts s_user_ns. A local attacker could use this to possibly bypass discretionary access control permissions.</description>
-      <guid isPermaLink="false">CVE-2019-15793|2024-09-16T16:58:57.384Z</guid>
-      <pubDate>Thu, 23 Apr 2020 23:55:24 +0000</pubDate>
+      <link>https://www.cve.org/CVERecord?id=CVE-2019-15791</link>
+      <description>In shiftfs, a non-upstream patch to the Linux kernel included in the Ubuntu 5.0 and 5.3 kernel series, shiftfs_btrfs_ioctl_fd_replace() installs an fd referencing a file from the lower filesystem without taking an additional reference to that file. After the btrfs ioctl completes this fd is closed, which then puts a reference to that file, leading to a refcount underflow.</description>
+      <guid isPermaLink="false">CVE-2019-15791|2024-09-17T00:11:12.912Z</guid>
+      <pubDate>Thu, 23 Apr 2020 23:55:23 +0000</pubDate>
     </item>
   </channel>
 </rss>
