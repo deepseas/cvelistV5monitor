@@ -6,39 +6,15 @@
     <description>The latest CVEs for Apache Software Foundation -- Apache Impala</description>
     <docs>http://www.rssboard.org/rss-specification</docs>
     <generator>python-feedgen</generator>
-    <lastBuildDate>Mon, 16 Sep 2024 23:21:11 +0000</lastBuildDate>
+    <lastBuildDate>Tue, 17 Sep 2024 05:23:17 +0000</lastBuildDate>
     <ttl>60</ttl>
     <item>
-      <title>CVE-2018-11785|2024-09-16T20:06:46.672Z -- apache%20software%20foundation -- apache%20impala
+      <title>CVE-2017-9792|2024-09-17T04:24:31.508Z -- apache%20software%20foundation -- apache%20impala
 </title>
-      <link>https://www.cve.org/CVERecord?id=CVE-2018-11785</link>
-      <description>Missing authorization check in Apache Impala before 3.0.1 allows a Kerberos-authenticated but unauthorized user to inject random data into a running query, leading to wrong results for a query.</description>
-      <guid isPermaLink="false">CVE-2018-11785|2024-09-16T20:06:46.672Z</guid>
-      <pubDate>Wed, 24 Oct 2018 20:00:00 +0000</pubDate>
-    </item>
-    <item>
-      <title>CVE-2017-5652|2024-09-16T16:42:27.591Z -- apache%20software%20foundation -- apache%20impala
-</title>
-      <link>https://www.cve.org/CVERecord?id=CVE-2017-5652</link>
-      <description>During a routine security analysis, it was found that one of the ports in Apache Impala (incubating) 2.7.0 to 2.8.0 sent data in plaintext even when the cluster was configured to use TLS. The port in question was used by the StatestoreSubscriber class which did not use the appropriate secure Thrift transport when TLS was turned on. It was therefore possible for an adversary, with access to the network, to eavesdrop on the packets going to and coming from that port and view the data in plaintext.</description>
-      <guid isPermaLink="false">CVE-2017-5652|2024-09-16T16:42:27.591Z</guid>
-      <pubDate>Mon, 10 Jul 2017 20:00:00 +0000</pubDate>
-    </item>
-    <item>
-      <title>CVE-2017-5640|2024-09-16T22:50:44.601Z -- apache%20software%20foundation -- apache%20impala
-</title>
-      <link>https://www.cve.org/CVERecord?id=CVE-2017-5640</link>
-      <description>It was noticed that a malicious process impersonating an Impala daemon in Apache Impala (incubating) 2.7.0 to 2.8.0 could cause Impala daemons to skip authentication checks when Kerberos is enabled (but TLS is not). If the malicious server responds with 'COMPLETE' before the SASL handshake has completed, the client will consider the handshake as completed even though no exchange of credentials has happened.</description>
-      <guid isPermaLink="false">CVE-2017-5640|2024-09-16T22:50:44.601Z</guid>
-      <pubDate>Mon, 10 Jul 2017 20:00:00 +0000</pubDate>
-    </item>
-    <item>
-      <title>CVE-2018-11792|2024-09-16T19:52:28.202Z -- apache%20software%20foundation -- apache%20impala
-</title>
-      <link>https://www.cve.org/CVERecord?id=CVE-2018-11792</link>
-      <description>In Apache Impala before 3.0.1, ALTER TABLE/VIEW RENAME required ALTER on the old table. This may pose a potential security risk, such as having ALTER on a table and ALL on a particular database allows a user to move the table to a database with ALL, which will automatically grant that user with ALL privilege on that table due to the privilege inherited from the database.</description>
-      <guid isPermaLink="false">CVE-2018-11792|2024-09-16T19:52:28.202Z</guid>
-      <pubDate>Wed, 24 Oct 2018 20:00:00 +0000</pubDate>
+      <link>https://www.cve.org/CVERecord?id=CVE-2017-9792</link>
+      <description>In Apache Impala (incubating) before 2.10.0, a malicious user with "ALTER" permissions on an Impala table can access any other Kudu table data by altering the table properties to make it "external" and then changing the underlying table mapping to point to other Kudu tables. This violates and works around the authorization requirement that creating a Kudu external table via Impala requires an "ALL" privilege at the server scope. This privilege requirement for "CREATE" commands is enforced to precisely avoid this scenario where a malicious user can change the underlying Kudu table mapping. The fix is to enforce the same privilege requirement for "ALTER" commands that would make existing non-external Kudu tables external.</description>
+      <guid isPermaLink="false">CVE-2017-9792|2024-09-17T04:24:31.508Z</guid>
+      <pubDate>Tue, 03 Oct 2017 01:00:00 +0000</pubDate>
     </item>
   </channel>
 </rss>

@@ -6,8 +6,16 @@
     <description>The latest CVEs for Tabit  -- Tabit</description>
     <docs>http://www.rssboard.org/rss-specification</docs>
     <generator>python-feedgen</generator>
-    <lastBuildDate>Tue, 17 Sep 2024 04:24:44 +0000</lastBuildDate>
+    <lastBuildDate>Tue, 17 Sep 2024 05:23:09 +0000</lastBuildDate>
     <ttl>60</ttl>
+    <item>
+      <title>CVE-2022-34770|2024-09-17T04:24:31.052Z -- tabit -- tabit
+</title>
+      <link>https://www.cve.org/CVERecord?id=CVE-2022-34770</link>
+      <description>Tabit - sensitive information disclosure. Several APIs on the web system display, without authorization, sensitive information such as health statements, previous bills in a specific restaurant, alcohol consumption and smoking habits. Each of the described API’s, has in its URL one or more MongoDB ID which is not so simple to enumerate. However, they each receive a ‘tiny URL’ in Tabit’s domain, in the form of https://tbit.be/{suffix} with suffix being a 5 characters long string containing numbers, lower- and upper-case letters. It is not so simple to enumerate them all, but really easy to find some that work and lead to a personal endpoint. This is both an example of OWASP: API4 - rate limiting and OWASP: API1 - Broken object level authorization. Furthermore, the redirect URL disclosed the MongoDB IDs discussed above, and we could use them to query other endpoints disclosing more personal information. For example: The URL https://tabitisrael.co.il/online-reservations/health-statement?orgId={org_id}&amp;healthStatementId={health_statement_id} is used to invite friends to fill a health statement before attending the restaurant. We can use the health_statement_id to access the https://tgm-api.tabit.cloud/health-statement/{health_statement_id} API which disclose medical information as well as id number.</description>
+      <guid isPermaLink="false">CVE-2022-34770|2024-09-17T04:24:31.052Z</guid>
+      <pubDate>Mon, 22 Aug 2022 14:41:16 +0000</pubDate>
+    </item>
     <item>
       <title>CVE-2022-34772|2024-09-17T02:57:43.020Z -- tabit -- tabit
 </title>
@@ -23,6 +31,14 @@
       <description>Tabit - Arbitrary account modification. One of the endpoints mapped by the tiny URL, was a page where an adversary can modify personal details, such as email addresses and phone numbers of a specific user in a restaurant's loyalty program. Possibly allowing account takeover (the mail can be used to reset password).</description>
       <guid isPermaLink="false">CVE-2022-34774|2024-09-17T03:55:05.773Z</guid>
       <pubDate>Mon, 22 Aug 2022 14:41:59 +0000</pubDate>
+    </item>
+    <item>
+      <title>CVE-2022-34775|2024-09-17T04:09:02.934Z -- tabit -- tabit
+</title>
+      <link>https://www.cve.org/CVERecord?id=CVE-2022-34775</link>
+      <description>Tabit - Excessive data exposure. Another endpoint mapped by the tiny url, was one for reservation cancellation, containing the MongoDB ID of the reservation, and organization. This can be used to query the http://tgm-api.tabit.cloud/rsv/management/{reservationId}?organization={orgId} API which returns a lot of data regarding the reservation (OWASP: API3): Name, mail, phone number, the number of visits of the user to this specific restaurant, the money he spent there, the money he spent on alcohol, whether he left a deposit etc. This information can easily be used for a phishing attack.</description>
+      <guid isPermaLink="false">CVE-2022-34775|2024-09-17T04:09:02.934Z</guid>
+      <pubDate>Mon, 22 Aug 2022 14:42:21 +0000</pubDate>
     </item>
   </channel>
 </rss>
