@@ -6,31 +6,15 @@
     <description>The latest CVEs for Linux Kernel -- Linux Kernel</description>
     <docs>http://www.rssboard.org/rss-specification</docs>
     <generator>python-feedgen</generator>
-    <lastBuildDate>Mon, 16 Sep 2024 23:21:21 +0000</lastBuildDate>
+    <lastBuildDate>Tue, 17 Sep 2024 02:24:23 +0000</lastBuildDate>
     <ttl>60</ttl>
     <item>
-      <title>CVE-2021-23133|2024-09-16T19:04:20.684Z -- linux%20kernel -- linux%20kernel
+      <title>CVE-2018-6554|2024-09-17T01:41:05.683Z -- linux%20kernel -- linux%20kernel
 </title>
-      <link>https://www.cve.org/CVERecord?id=CVE-2021-23133</link>
-      <description>A race condition in Linux kernel SCTP sockets (net/sctp/socket.c) before 5.12-rc8 can lead to kernel privilege escalation from the context of a network service or an unprivileged process. If sctp_destroy_sock is called without sock_net(sk)-&gt;sctp.addr_wq_lock then an element is removed from the auto_asconf_splist list without any proper locking. This can be exploited by an attacker with network service privileges to escalate to root or from the context of an unprivileged user directly if a BPF_CGROUP_INET_SOCK_CREATE is attached which denies creation of some SCTP socket.</description>
-      <guid isPermaLink="false">CVE-2021-23133|2024-09-16T19:04:20.684Z</guid>
-      <pubDate>Thu, 22 Apr 2021 18:00:18 +0000</pubDate>
-    </item>
-    <item>
-      <title>CVE-2020-8834|2024-09-16T22:03:01.562Z -- linux%20kernel -- linux%20kernel
-</title>
-      <link>https://www.cve.org/CVERecord?id=CVE-2020-8834</link>
-      <description>KVM in the Linux kernel on Power8 processors has a conflicting use of HSTATE_HOST_R1 to store r1 state in kvmppc_hv_entry plus in kvmppc_{save,restore}_tm, leading to a stack corruption. Because of this, an attacker with the ability run code in kernel space of a guest VM can cause the host kernel to panic. There were two commits that, according to the reporter, introduced the vulnerability: f024ee098476 ("KVM: PPC: Book3S HV: Pull out TM state save/restore into separate procedures") 87a11bb6a7f7 ("KVM: PPC: Book3S HV: Work around XER[SO] bug in fake suspend mode") The former landed in 4.8, the latter in 4.17. This was fixed without realizing the impact in 4.18 with the following three commits, though it's believed the first is the only strictly necessary commit: 6f597c6b63b6 ("KVM: PPC: Book3S PR: Add guest MSR parameter for kvmppc_save_tm()/kvmppc_restore_tm()") 7b0e827c6970 ("KVM: PPC: Book3S HV: Factor fake-suspend handling out of kvmppc_save/restore_tm") 009c872a8bc4 ("KVM: PPC: Book3S PR: Move kvmppc_save_tm/kvmppc_restore_tm to separate file")</description>
-      <guid isPermaLink="false">CVE-2020-8834|2024-09-16T22:03:01.562Z</guid>
-      <pubDate>Thu, 09 Apr 2020 22:10:14 +0000</pubDate>
-    </item>
-    <item>
-      <title>CVE-2020-16120|2024-09-16T18:49:11.997Z -- linux%20kernel -- linux%20kernel
-</title>
-      <link>https://www.cve.org/CVERecord?id=CVE-2020-16120</link>
-      <description>Overlayfs did not properly perform permission checking when copying up files in an overlayfs and could be exploited from within a user namespace, if, for example, unprivileged user namespaces were allowed. It was possible to have a file not readable by an unprivileged user to be copied to a mountpoint controlled by the user, like a removable device. This was introduced in kernel version 4.19 by commit d1d04ef ("ovl: stack file ops"). This was fixed in kernel version 5.8 by commits 56230d9 ("ovl: verify permissions in ovl_path_open()"), 48bd024 ("ovl: switch to mounter creds in readdir") and 05acefb ("ovl: check permission to open real file"). Additionally, commits 130fdbc ("ovl: pass correct flags for opening real directory") and 292f902 ("ovl: call secutiry hook in ovl_real_ioctl()") in kernel 5.8 might also be desired or necessary. These additional commits introduced a regression in overlay mounts within user namespaces which prevented access to files with ownership outside of the user namespace. This regression was mitigated by subsequent commit b6650da ("ovl: do not fail because of O_NOATIMEi") in kernel 5.11.</description>
-      <guid isPermaLink="false">CVE-2020-16120|2024-09-16T18:49:11.997Z</guid>
-      <pubDate>Wed, 10 Feb 2021 19:45:26 +0000</pubDate>
+      <link>https://www.cve.org/CVERecord?id=CVE-2018-6554</link>
+      <description>Memory leak in the irda_bind function in net/irda/af_irda.c and later in drivers/staging/irda/net/af_irda.c in the Linux kernel before 4.17 allows local users to cause a denial of service (memory consumption) by repeatedly binding an AF_IRDA socket.</description>
+      <guid isPermaLink="false">CVE-2018-6554|2024-09-17T01:41:05.683Z</guid>
+      <pubDate>Tue, 04 Sep 2018 18:00:00 +0000</pubDate>
     </item>
   </channel>
 </rss>
