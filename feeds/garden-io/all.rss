@@ -6,15 +6,15 @@
     <description>The latest CVEs for garden-io -- all products</description>
     <docs>http://www.rssboard.org/rss-specification</docs>
     <generator>python-feedgen</generator>
-    <lastBuildDate>Sat, 03 Aug 2024 23:23:15 +0000</lastBuildDate>
+    <lastBuildDate>Wed, 18 Sep 2024 21:22:15 +0000</lastBuildDate>
     <ttl>60</ttl>
     <item>
-      <title>CVE-2022-24829|2024-08-03T04:20:50.552Z -- garden-io -- garden
+      <title>CVE-2023-44392|2024-09-18T20:23:40.475Z -- garden-io -- garden
 </title>
-      <link>https://www.cve.org/CVERecord?id=CVE-2022-24829</link>
-      <description>Garden is an automation platform for Kubernetes development and testing. In versions prior to 0.12.39 multiple endpoints did not require authentication. In some operating modes this allows for an attacker to gain access to the application erroneously. The configuration is leaked through the /api endpoint on the local server that is responsible for serving the Garden dashboard. At the moment, this server is accessible to 0.0.0.0 which makes it accessible to anyone on the same network (or anyone on the internet if they are on a public, static IP). This may lead to the ability to compromise credentials, secrets or environment variables. Users are advised to upgrade to version 0.12.39 as soon as possible. Users unable to upgrade should use a firewall blocking access to port 9777 from all untrusted network machines.</description>
-      <guid isPermaLink="false">CVE-2022-24829|2024-08-03T04:20:50.552Z</guid>
-      <pubDate>Mon, 11 Apr 2022 19:45:16 +0000</pubDate>
+      <link>https://www.cve.org/CVERecord?id=CVE-2023-44392</link>
+      <description>Garden provides automation for Kubernetes development and testing. Prior tov ersions 0.13.17 and 0.12.65, Garden has a dependency on the cryo library, which is vulnerable to code injection due to an insecure implementation of deserialization. Garden stores serialized objects using cryo in the Kubernetes `ConfigMap` resources prefixed with `test-result` and `run-result` to cache Garden test and run results. These `ConfigMaps` are stored either in the `garden-system` namespace or the configured user namespace. When a user invokes the command `garden test` or `garden run` objects stored in the `ConfigMap` are retrieved and deserialized. This can be used by an attacker with access to the Kubernetes cluster to store malicious objects in the `ConfigMap`, which can trigger a remote code execution on the users machine when cryo deserializes the object. In order to exploit this vulnerability, an attacker must have access to the Kubernetes cluster used to deploy garden remote environments. Further, a user must actively invoke either a `garden test` or `garden run` which has previously cached results. The issue has been patched in Garden versions `0.13.17` (Bonsai) and `0.12.65` (Acorn). Only Garden versions prior to these are vulnerable. No known workarounds are available.</description>
+      <guid isPermaLink="false">CVE-2023-44392|2024-09-18T20:23:40.475Z</guid>
+      <pubDate>Mon, 09 Oct 2023 19:06:04 +0000</pubDate>
     </item>
   </channel>
 </rss>
