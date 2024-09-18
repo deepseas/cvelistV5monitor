@@ -6,130 +6,46 @@
     <description>The latest CVEs for Apache Software Foundation -- Apache Tomcat</description>
     <docs>http://www.rssboard.org/rss-specification</docs>
     <generator>python-feedgen</generator>
-    <lastBuildDate>Tue, 17 Sep 2024 23:24:05 +0000</lastBuildDate>
+    <lastBuildDate>Wed, 18 Sep 2024 17:22:42 +0000</lastBuildDate>
     <ttl>60</ttl>
     <item>
-      <title>CVE-2017-7674|2024-09-17T03:47:49.467Z -- apache%20software%20foundation -- apache%20tomcat
+      <title>CVE-2023-42795|2024-09-18T16:26:54.828Z -- apache%20software%20foundation -- apache%20tomcat
 </title>
-      <link>https://www.cve.org/CVERecord?id=CVE-2017-7674</link>
-      <description>The CORS Filter in Apache Tomcat 9.0.0.M1 to 9.0.0.M21, 8.5.0 to 8.5.15, 8.0.0.RC1 to 8.0.44 and 7.0.41 to 7.0.78 did not add an HTTP Vary header indicating that the response varies depending on Origin. This permitted client and server side cache poisoning in some circumstances.</description>
-      <guid isPermaLink="false">CVE-2017-7674|2024-09-17T03:47:49.467Z</guid>
-      <pubDate>Fri, 11 Aug 2017 02:00:00 +0000</pubDate>
+      <link>https://www.cve.org/CVERecord?id=CVE-2023-42795</link>
+      <description>Incomplete Cleanup vulnerability in Apache Tomcat.When recycling various internal objects in Apache Tomcat from 11.0.0-M1 through 11.0.0-M11, from 10.1.0-M1 through 10.1.13, from 9.0.0-M1 through 9.0.80 and from 8.5.0 through 8.5.93, an error could 
+cause Tomcat to skip some parts of the recycling process leading to 
+information leaking from the current request/response to the next.
+
+Users are recommended to upgrade to version 11.0.0-M12 onwards, 10.1.14 onwards, 9.0.81 onwards or 8.5.94 onwards, which fixes the issue.
+
+</description>
+      <guid isPermaLink="false">CVE-2023-42795|2024-09-18T16:26:54.828Z</guid>
+      <pubDate>Tue, 10 Oct 2023 17:42:16 +0000</pubDate>
     </item>
     <item>
-      <title>CVE-2018-1305|2024-09-17T01:12:10.097Z -- apache%20software%20foundation -- apache%20tomcat
+      <title>CVE-2023-45648|2024-09-18T16:22:44.080Z -- apache%20software%20foundation -- apache%20tomcat
 </title>
-      <link>https://www.cve.org/CVERecord?id=CVE-2018-1305</link>
-      <description>Security constraints defined by annotations of Servlets in Apache Tomcat 9.0.0.M1 to 9.0.4, 8.5.0 to 8.5.27, 8.0.0.RC1 to 8.0.49 and 7.0.0 to 7.0.84 were only applied once a Servlet had been loaded. Because security constraints defined in this way apply to the URL pattern and any URLs below that point, it was possible - depending on the order Servlets were loaded - for some security constraints not to be applied. This could have exposed resources to users who were not authorised to access them.</description>
-      <guid isPermaLink="false">CVE-2018-1305|2024-09-17T01:12:10.097Z</guid>
-      <pubDate>Fri, 23 Feb 2018 23:00:00 +0000</pubDate>
+      <link>https://www.cve.org/CVERecord?id=CVE-2023-45648</link>
+      <description>Improper Input Validation vulnerability in Apache Tomcat.Tomcat from 11.0.0-M1 through 11.0.0-M11, from 10.1.0-M1 through 10.1.13, from 9.0.0-M1 through 9.0.81 and from 8.5.0 through 8.5.93 did not correctly parse HTTP trailer headers. A specially 
+crafted, invalid trailer header could cause Tomcat to treat a single 
+request as multiple requests leading to the possibility of request 
+smuggling when behind a reverse proxy.
+
+Users are recommended to upgrade to version 11.0.0-M12 onwards, 10.1.14 onwards, 9.0.81 onwards or 8.5.94 onwards, which fix the issue.
+
+</description>
+      <guid isPermaLink="false">CVE-2023-45648|2024-09-18T16:22:44.080Z</guid>
+      <pubDate>Tue, 10 Oct 2023 18:38:34 +0000</pubDate>
     </item>
     <item>
-      <title>CVE-2017-12615|2024-09-17T01:56:38.037Z -- apache%20software%20foundation -- apache%20tomcat
-</title>
-      <link>https://www.cve.org/CVERecord?id=CVE-2017-12615</link>
-      <description>When running Apache Tomcat 7.0.0 to 7.0.79 on Windows with HTTP PUTs enabled (e.g. via setting the readonly initialisation parameter of the Default to false) it was possible to upload a JSP file to the server via a specially crafted request. This JSP could then be requested and any code it contained would be executed by the server.</description>
-      <guid isPermaLink="false">CVE-2017-12615|2024-09-17T01:56:38.037Z</guid>
-      <pubDate>Tue, 19 Sep 2017 13:00:00 +0000</pubDate>
-    </item>
-    <item>
-      <title>CVE-2016-8745|2024-09-17T01:00:39.008Z -- apache%20software%20foundation -- apache%20tomcat
-</title>
-      <link>https://www.cve.org/CVERecord?id=CVE-2016-8745</link>
-      <description>A bug in the error handling of the send file code for the NIO HTTP connector in Apache Tomcat 9.0.0.M1 to 9.0.0.M13, 8.5.0 to 8.5.8, 8.0.0.RC1 to 8.0.39, 7.0.0 to 7.0.73 and 6.0.16 to 6.0.48 resulted in the current Processor object being added to the Processor cache multiple times. This in turn meant that the same Processor could be used for concurrent requests. Sharing a Processor can result in information leakage between requests including, not not limited to, session ID and the response body. The bug was first noticed in 8.5.x onwards where it appears the refactoring of the Connector code for 8.5.x onwards made it more likely that the bug was observed. Initially it was thought that the 8.5.x refactoring introduced the bug but further investigation has shown that the bug is present in all currently supported Tomcat versions.</description>
-      <guid isPermaLink="false">CVE-2016-8745|2024-09-17T01:00:39.008Z</guid>
-      <pubDate>Thu, 10 Aug 2017 22:00:00 +0000</pubDate>
-    </item>
-    <item>
-      <title>CVE-2016-0762|2024-09-17T01:36:51.388Z -- apache%20software%20foundation -- apache%20tomcat
-</title>
-      <link>https://www.cve.org/CVERecord?id=CVE-2016-0762</link>
-      <description>The Realm implementations in Apache Tomcat versions 9.0.0.M1 to 9.0.0.M9, 8.5.0 to 8.5.4, 8.0.0.RC1 to 8.0.36, 7.0.0 to 7.0.70 and 6.0.0 to 6.0.45 did not process the supplied password if the supplied user name did not exist. This made a timing attack possible to determine valid user names. Note that the default configuration includes the LockOutRealm which makes exploitation of this vulnerability harder.</description>
-      <guid isPermaLink="false">CVE-2016-0762|2024-09-17T01:36:51.388Z</guid>
-      <pubDate>Thu, 10 Aug 2017 16:00:00 +0000</pubDate>
-    </item>
-    <item>
-      <title>CVE-2016-6794|2024-09-17T04:24:06.893Z -- apache%20software%20foundation -- apache%20tomcat
-</title>
-      <link>https://www.cve.org/CVERecord?id=CVE-2016-6794</link>
-      <description>When a SecurityManager is configured, a web application's ability to read system properties should be controlled by the SecurityManager. In Apache Tomcat 9.0.0.M1 to 9.0.0.M9, 8.5.0 to 8.5.4, 8.0.0.RC1 to 8.0.36, 7.0.0 to 7.0.70, 6.0.0 to 6.0.45 the system property replacement feature for configuration files could be used by a malicious web application to bypass the SecurityManager and read system properties that should not be visible.</description>
-      <guid isPermaLink="false">CVE-2016-6794|2024-09-17T04:24:06.893Z</guid>
-      <pubDate>Thu, 10 Aug 2017 16:00:00 +0000</pubDate>
-    </item>
-    <item>
-      <title>CVE-2017-7675|2024-09-17T03:48:21.726Z -- apache%20software%20foundation -- apache%20tomcat
-</title>
-      <link>https://www.cve.org/CVERecord?id=CVE-2017-7675</link>
-      <description>The HTTP/2 implementation in Apache Tomcat 9.0.0.M1 to 9.0.0.M21 and 8.5.0 to 8.5.15 bypassed a number of security checks that prevented directory traversal attacks. It was therefore possible to bypass security constraints using a specially crafted URL.</description>
-      <guid isPermaLink="false">CVE-2017-7675|2024-09-17T03:48:21.726Z</guid>
-      <pubDate>Fri, 11 Aug 2017 02:00:00 +0000</pubDate>
-    </item>
-    <item>
-      <title>CVE-2016-6796|2024-09-17T03:32:53.822Z -- apache%20software%20foundation -- apache%20tomcat
-</title>
-      <link>https://www.cve.org/CVERecord?id=CVE-2016-6796</link>
-      <description>A malicious web application running on Apache Tomcat 9.0.0.M1 to 9.0.0.M9, 8.5.0 to 8.5.4, 8.0.0.RC1 to 8.0.36, 7.0.0 to 7.0.70 and 6.0.0 to 6.0.45 was able to bypass a configured SecurityManager via manipulation of the configuration parameters for the JSP Servlet.</description>
-      <guid isPermaLink="false">CVE-2016-6796|2024-09-17T03:32:53.822Z</guid>
-      <pubDate>Fri, 11 Aug 2017 02:00:00 +0000</pubDate>
-    </item>
-    <item>
-      <title>CVE-2016-6797|2024-09-17T04:24:37.373Z -- apache%20software%20foundation -- apache%20tomcat
-</title>
-      <link>https://www.cve.org/CVERecord?id=CVE-2016-6797</link>
-      <description>The ResourceLinkFactory implementation in Apache Tomcat 9.0.0.M1 to 9.0.0.M9, 8.5.0 to 8.5.4, 8.0.0.RC1 to 8.0.36, 7.0.0 to 7.0.70 and 6.0.0 to 6.0.45 did not limit web application access to global JNDI resources to those resources explicitly linked to the web application. Therefore, it was possible for a web application to access any global JNDI resource whether an explicit ResourceLink had been configured or not.</description>
-      <guid isPermaLink="false">CVE-2016-6797|2024-09-17T04:24:37.373Z</guid>
-      <pubDate>Thu, 10 Aug 2017 22:00:00 +0000</pubDate>
-    </item>
-    <item>
-      <title>CVE-2018-1304|2024-09-17T01:35:47.135Z -- apache%20software%20foundation -- apache%20tomcat
-</title>
-      <link>https://www.cve.org/CVERecord?id=CVE-2018-1304</link>
-      <description>The URL pattern of "" (the empty string) which exactly maps to the context root was not correctly handled in Apache Tomcat 9.0.0.M1 to 9.0.4, 8.5.0 to 8.5.27, 8.0.0.RC1 to 8.0.49 and 7.0.0 to 7.0.84 when used as part of a security constraint definition. This caused the constraint to be ignored. It was, therefore, possible for unauthorised users to gain access to web application resources that should have been protected. Only security constraints with a URL pattern of the empty string were affected.</description>
-      <guid isPermaLink="false">CVE-2018-1304|2024-09-17T01:35:47.135Z</guid>
-      <pubDate>Wed, 28 Feb 2018 20:00:00 +0000</pubDate>
-    </item>
-    <item>
-      <title>CVE-2024-34750|2024-08-16T17:02:39.887Z -- apache%20software%20foundation -- apache%20tomcat</title>
+      <title>CVE-2024-34750|2024-08-13T16:05:56.107Z -- apache%20software%20foundation -- apache%20tomcat</title>
       <link>https://www.cve.org/CVERecord?id=CVE-2024-34750</link>
       <description>Improper Handling of Exceptional Conditions, Uncontrolled Resource Consumption vulnerability in Apache Tomcat. When processing an HTTP/2 stream, Tomcat did not handle some cases of excessive HTTP headers correctly. This led to a miscounting of active HTTP/2 streams which in turn led to the use of an incorrect infinite timeout which allowed connections to remain open which should have been closed.
 
 This issue affects Apache Tomcat: from 11.0.0-M1 through 11.0.0-M20, from 10.1.0-M1 through 10.1.24, from 9.0.0-M1 through 9.0.89.
 
 Users are recommended to upgrade to version 11.0.0-M21, 10.1.25 or 9.0.90, which fixes the issue.</description>
-      <guid isPermaLink="false">CVE-2024-34750|2024-08-16T17:02:39.887Z</guid>
-      <pubDate>Wed, 03 Jul 2024 19:32:34 +0000</pubDate>
-    </item>
-    <item>
-      <title>CVE-2024-34750|2024-08-08T18:00:55.903Z -- apache%20software%20foundation -- apache%20tomcat</title>
-      <link>https://www.cve.org/CVERecord?id=CVE-2024-34750</link>
-      <description>Improper Handling of Exceptional Conditions, Uncontrolled Resource Consumption vulnerability in Apache Tomcat. When processing an HTTP/2 stream, Tomcat did not handle some cases of excessive HTTP headers correctly. This led to a miscounting of active HTTP/2 streams which in turn led to the use of an incorrect infinite timeout which allowed connections to remain open which should have been closed.
-
-This issue affects Apache Tomcat: from 11.0.0-M1 through 11.0.0-M20, from 10.1.0-M1 through 10.1.24, from 9.0.0-M1 through 9.0.89.
-
-Users are recommended to upgrade to version 11.0.0-M21, 10.1.25 or 9.0.90, which fixes the issue.</description>
-      <guid isPermaLink="false">CVE-2024-34750|2024-08-08T18:00:55.903Z</guid>
-      <pubDate>Wed, 03 Jul 2024 19:32:34 +0000</pubDate>
-    </item>
-    <item>
-      <title>CVE-2024-34750|2024-07-08T16:54:49.822Z -- apache%20software%20foundation -- apache%20tomcat</title>
-      <link>https://www.cve.org/CVERecord?id=CVE-2024-34750</link>
-      <description>Improper Handling of Exceptional Conditions, Uncontrolled Resource Consumption vulnerability in Apache Tomcat. When processing an HTTP/2 stream, Tomcat did not handle some cases of excessive HTTP headers correctly. This led to a miscounting of active HTTP/2 streams which in turn led to the use of an incorrect infinite timeout which allowed connections to remain open which should have been closed.
-
-This issue affects Apache Tomcat: from 11.0.0-M1 through 11.0.0-M20, from 10.1.0-M1 through 10.1.24, from 9.0.0-M1 through 9.0.89.
-
-Users are recommended to upgrade to version 11.0.0-M21, 10.1.25 or 9.0.90, which fixes the issue.</description>
-      <guid isPermaLink="false">CVE-2024-34750|2024-07-08T16:54:49.822Z</guid>
-      <pubDate>Wed, 03 Jul 2024 19:32:34 +0000</pubDate>
-    </item>
-    <item>
-      <title>CVE-2024-34750|2024-07-03T19:32:34.695Z -- apache%20software%20foundation -- apache%20tomcat</title>
-      <link>https://www.cve.org/CVERecord?id=CVE-2024-34750</link>
-      <description>Improper Handling of Exceptional Conditions, Uncontrolled Resource Consumption vulnerability in Apache Tomcat. When processing an HTTP/2 stream, Tomcat did not handle some cases of excessive HTTP headers correctly. This led to a miscounting of active HTTP/2 streams which in turn led to the use of an incorrect infinite timeout which allowed connections to remain open which should have been closed.
-
-This issue affects Apache Tomcat: from 11.0.0-M1 through 11.0.0-M20, from 10.1.0-M1 through 10.1.24, from 9.0.0-M1 through 9.0.89.
-
-Users are recommended to upgrade to version 11.0.0-M21, 10.1.25 or 9.0.90, which fixes the issue.</description>
-      <guid isPermaLink="false">CVE-2024-34750|2024-07-03T19:32:34.695Z</guid>
+      <guid isPermaLink="false">CVE-2024-34750|2024-08-13T16:05:56.107Z</guid>
       <pubDate>Wed, 03 Jul 2024 19:32:34 +0000</pubDate>
     </item>
     <item>
@@ -144,14 +60,47 @@ Users are recommended to upgrade to version 11.0.0-M21, 10.1.25 or 9.0.90, which
       <pubDate>Wed, 03 Jul 2024 19:32:34 +0000</pubDate>
     </item>
     <item>
-      <title>CVE-2024-34750|2024-08-13T16:05:56.107Z -- apache%20software%20foundation -- apache%20tomcat</title>
+      <title>CVE-2024-34750|2024-07-03T19:32:34.695Z -- apache%20software%20foundation -- apache%20tomcat</title>
       <link>https://www.cve.org/CVERecord?id=CVE-2024-34750</link>
       <description>Improper Handling of Exceptional Conditions, Uncontrolled Resource Consumption vulnerability in Apache Tomcat. When processing an HTTP/2 stream, Tomcat did not handle some cases of excessive HTTP headers correctly. This led to a miscounting of active HTTP/2 streams which in turn led to the use of an incorrect infinite timeout which allowed connections to remain open which should have been closed.
 
 This issue affects Apache Tomcat: from 11.0.0-M1 through 11.0.0-M20, from 10.1.0-M1 through 10.1.24, from 9.0.0-M1 through 9.0.89.
 
 Users are recommended to upgrade to version 11.0.0-M21, 10.1.25 or 9.0.90, which fixes the issue.</description>
-      <guid isPermaLink="false">CVE-2024-34750|2024-08-13T16:05:56.107Z</guid>
+      <guid isPermaLink="false">CVE-2024-34750|2024-07-03T19:32:34.695Z</guid>
+      <pubDate>Wed, 03 Jul 2024 19:32:34 +0000</pubDate>
+    </item>
+    <item>
+      <title>CVE-2024-34750|2024-07-08T16:54:49.822Z -- apache%20software%20foundation -- apache%20tomcat</title>
+      <link>https://www.cve.org/CVERecord?id=CVE-2024-34750</link>
+      <description>Improper Handling of Exceptional Conditions, Uncontrolled Resource Consumption vulnerability in Apache Tomcat. When processing an HTTP/2 stream, Tomcat did not handle some cases of excessive HTTP headers correctly. This led to a miscounting of active HTTP/2 streams which in turn led to the use of an incorrect infinite timeout which allowed connections to remain open which should have been closed.
+
+This issue affects Apache Tomcat: from 11.0.0-M1 through 11.0.0-M20, from 10.1.0-M1 through 10.1.24, from 9.0.0-M1 through 9.0.89.
+
+Users are recommended to upgrade to version 11.0.0-M21, 10.1.25 or 9.0.90, which fixes the issue.</description>
+      <guid isPermaLink="false">CVE-2024-34750|2024-07-08T16:54:49.822Z</guid>
+      <pubDate>Wed, 03 Jul 2024 19:32:34 +0000</pubDate>
+    </item>
+    <item>
+      <title>CVE-2024-34750|2024-08-08T18:00:55.903Z -- apache%20software%20foundation -- apache%20tomcat</title>
+      <link>https://www.cve.org/CVERecord?id=CVE-2024-34750</link>
+      <description>Improper Handling of Exceptional Conditions, Uncontrolled Resource Consumption vulnerability in Apache Tomcat. When processing an HTTP/2 stream, Tomcat did not handle some cases of excessive HTTP headers correctly. This led to a miscounting of active HTTP/2 streams which in turn led to the use of an incorrect infinite timeout which allowed connections to remain open which should have been closed.
+
+This issue affects Apache Tomcat: from 11.0.0-M1 through 11.0.0-M20, from 10.1.0-M1 through 10.1.24, from 9.0.0-M1 through 9.0.89.
+
+Users are recommended to upgrade to version 11.0.0-M21, 10.1.25 or 9.0.90, which fixes the issue.</description>
+      <guid isPermaLink="false">CVE-2024-34750|2024-08-08T18:00:55.903Z</guid>
+      <pubDate>Wed, 03 Jul 2024 19:32:34 +0000</pubDate>
+    </item>
+    <item>
+      <title>CVE-2024-34750|2024-08-16T17:02:39.887Z -- apache%20software%20foundation -- apache%20tomcat</title>
+      <link>https://www.cve.org/CVERecord?id=CVE-2024-34750</link>
+      <description>Improper Handling of Exceptional Conditions, Uncontrolled Resource Consumption vulnerability in Apache Tomcat. When processing an HTTP/2 stream, Tomcat did not handle some cases of excessive HTTP headers correctly. This led to a miscounting of active HTTP/2 streams which in turn led to the use of an incorrect infinite timeout which allowed connections to remain open which should have been closed.
+
+This issue affects Apache Tomcat: from 11.0.0-M1 through 11.0.0-M20, from 10.1.0-M1 through 10.1.24, from 9.0.0-M1 through 9.0.89.
+
+Users are recommended to upgrade to version 11.0.0-M21, 10.1.25 or 9.0.90, which fixes the issue.</description>
+      <guid isPermaLink="false">CVE-2024-34750|2024-08-16T17:02:39.887Z</guid>
       <pubDate>Wed, 03 Jul 2024 19:32:34 +0000</pubDate>
     </item>
   </channel>
