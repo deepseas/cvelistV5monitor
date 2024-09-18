@@ -6,135 +6,78 @@
     <description>The latest CVEs for Kubernetes -- all products</description>
     <docs>http://www.rssboard.org/rss-specification</docs>
     <generator>python-feedgen</generator>
-    <lastBuildDate>Tue, 17 Sep 2024 23:24:07 +0000</lastBuildDate>
+    <lastBuildDate>Wed, 18 Sep 2024 16:24:41 +0000</lastBuildDate>
     <ttl>60</ttl>
     <item>
-      <title>CVE-2019-11250|2024-09-17T02:06:55.457Z -- kubernetes -- kubernetes
+      <title>CVE-2023-1943|2024-09-18T15:06:31.946Z -- kubernetes -- kops
 </title>
-      <link>https://www.cve.org/CVERecord?id=CVE-2019-11250</link>
-      <description>The Kubernetes client-go library logs request headers at verbosity levels of 7 or higher. This can disclose credentials to unauthorized users via logs or command output. Kubernetes components (such as kube-apiserver) prior to v1.16.0, which make use of basic or bearer token authentication, and run at high verbosity levels, are affected.</description>
-      <guid isPermaLink="false">CVE-2019-11250|2024-09-17T02:06:55.457Z</guid>
-      <pubDate>Thu, 29 Aug 2019 00:40:43 +0000</pubDate>
+      <link>https://www.cve.org/CVERecord?id=CVE-2023-1943</link>
+      <description>Privilege Escalation in kOps using GCE/GCP Provider in Gossip Mode.
+</description>
+      <guid isPermaLink="false">CVE-2023-1943|2024-09-18T15:06:31.946Z</guid>
+      <pubDate>Wed, 11 Oct 2023 23:01:50 +0000</pubDate>
     </item>
     <item>
-      <title>CVE-2020-8557|2024-09-17T03:14:05.177Z -- kubernetes -- kubernetes
-</title>
-      <link>https://www.cve.org/CVERecord?id=CVE-2020-8557</link>
-      <description>The Kubernetes kubelet component in versions 1.1-1.16.12, 1.17.0-1.17.8 and 1.18.0-1.18.5 do not account for disk usage by a pod which writes to its own /etc/hosts file. The /etc/hosts file mounted in a pod by kubelet is not included by the kubelet eviction manager when calculating ephemeral storage usage by a pod. If a pod writes a large amount of data to the /etc/hosts file, it could fill the storage space of the node and cause the node to fail.</description>
-      <guid isPermaLink="false">CVE-2020-8557|2024-09-17T03:14:05.177Z</guid>
-      <pubDate>Thu, 23 Jul 2020 16:59:38 +0000</pubDate>
+      <title>CVE-2024-3177|2024-09-10T20:48:09.780Z -- kubernetes -- kubernetes</title>
+      <link>https://www.cve.org/CVERecord?id=CVE-2024-3177</link>
+      <description>A security issue was discovered in Kubernetes where users may be able to launch containers that bypass the mountable secrets policy enforced by the ServiceAccount admission plugin when using containers, init containers, and ephemeral containers with the envFrom field populated. The policy ensures pods running with a service account may only reference secrets specified in the service account’s secrets field. Kubernetes clusters are only affected if the ServiceAccount admission plugin and the kubernetes.io/enforce-mountable-secrets annotation are used together with containers, init containers, and ephemeral containers with the envFrom field populated.</description>
+      <guid isPermaLink="false">CVE-2024-3177|2024-09-10T20:48:09.780Z</guid>
+      <pubDate>Mon, 22 Apr 2024 23:00:39 +0000</pubDate>
     </item>
     <item>
-      <title>CVE-2020-8554|2024-09-17T00:40:57.713Z -- kubernetes -- kubernetes
-</title>
-      <link>https://www.cve.org/CVERecord?id=CVE-2020-8554</link>
-      <description>Kubernetes API server in all versions allow an attacker who is able to create a ClusterIP service and set the spec.externalIPs field, to intercept traffic to that IP address. Additionally, an attacker who is able to patch the status (which is considered a privileged operation and should not typically be granted to users) of a LoadBalancer service can set the status.loadBalancer.ingress.ip to similar effect.</description>
-      <guid isPermaLink="false">CVE-2020-8554|2024-09-17T00:40:57.713Z</guid>
-      <pubDate>Thu, 21 Jan 2021 17:09:21 +0000</pubDate>
-    </item>
-    <item>
-      <title>CVE-2020-8565|2024-09-17T00:05:58.669Z -- kubernetes -- kubernetes
-</title>
-      <link>https://www.cve.org/CVERecord?id=CVE-2020-8565</link>
-      <description>In Kubernetes, if the logging level is set to at least 9, authorization and bearer tokens will be written to log files. This can occur both in API server logs and client tool output like kubectl. This affects &lt;= v1.19.3, &lt;= v1.18.10, &lt;= v1.17.13, &lt; v1.20.0-alpha2.</description>
-      <guid isPermaLink="false">CVE-2020-8565|2024-09-17T00:05:58.669Z</guid>
-      <pubDate>Mon, 07 Dec 2020 22:00:19 +0000</pubDate>
-    </item>
-    <item>
-      <title>CVE-2018-1002102|2024-09-17T00:56:37.681Z -- kubernetes -- kubernetes
-</title>
-      <link>https://www.cve.org/CVERecord?id=CVE-2018-1002102</link>
-      <description>Improper validation of URL redirection in the Kubernetes API server in versions prior to v1.14.0 allows an attacker-controlled Kubelet to redirect API server requests from streaming endpoints to arbitrary hosts. Impacted API servers will follow the redirect as a GET request with client-certificate credentials for authenticating to the Kubelet.</description>
-      <guid isPermaLink="false">CVE-2018-1002102|2024-09-17T00:56:37.681Z</guid>
-      <pubDate>Thu, 05 Dec 2019 16:05:18 +0000</pubDate>
-    </item>
-    <item>
-      <title>CVE-2020-8569|2024-09-17T01:47:07.863Z -- kubernetes -- csi%20snapshotter
-</title>
-      <link>https://www.cve.org/CVERecord?id=CVE-2020-8569</link>
-      <description>Kubernetes CSI snapshot-controller prior to v2.1.3 and v3.0.2 could panic when processing a VolumeSnapshot custom resource when: - The VolumeSnapshot referenced a non-existing PersistentVolumeClaim and the VolumeSnapshot did not reference any VolumeSnapshotClass. - The snapshot-controller crashes, is automatically restarted by Kubernetes, and processes the same VolumeSnapshot custom resource after the restart, entering an endless crashloop. Only the volume snapshot feature is affected by this vulnerability. When exploited, users can’t take snapshots of their volumes or delete the snapshots. All other Kubernetes functionality is not affected.</description>
-      <guid isPermaLink="false">CVE-2020-8569|2024-09-17T01:47:07.863Z</guid>
-      <pubDate>Thu, 21 Jan 2021 17:09:21 +0000</pubDate>
-    </item>
-    <item>
-      <title>CVE-2019-11248|2024-09-17T03:28:37.165Z -- kubernetes -- kubernetes
-</title>
-      <link>https://www.cve.org/CVERecord?id=CVE-2019-11248</link>
-      <description>The debugging endpoint /debug/pprof is exposed over the unauthenticated Kubelet healthz port. The go pprof endpoint is exposed over the Kubelet's healthz port. This debugging endpoint can potentially leak sensitive information such as internal Kubelet memory addresses and configuration, or for limited denial of service. Versions prior to 1.15.0, 1.14.4, 1.13.8, and 1.12.10 are affected. The issue is of medium severity, but not exposed by the default configuration.</description>
-      <guid isPermaLink="false">CVE-2019-11248|2024-09-17T03:28:37.165Z</guid>
-      <pubDate>Thu, 29 Aug 2019 00:26:08 +0000</pubDate>
-    </item>
-    <item>
-      <title>CVE-2021-25746|2024-09-17T03:48:11.881Z -- kubernetes -- kubernetes%20ingress-nginx
-</title>
-      <link>https://www.cve.org/CVERecord?id=CVE-2021-25746</link>
-      <description>A security issue was discovered in ingress-nginx where a user that can create or update ingress objects can use .metadata.annotations in an Ingress object (in the networking.k8s.io or extensions API group) to obtain the credentials of the ingress-nginx controller. In the default configuration, that credential has access to all secrets in the cluster.</description>
-      <guid isPermaLink="false">CVE-2021-25746|2024-09-17T03:48:11.881Z</guid>
-      <pubDate>Fri, 06 May 2022 00:50:15 +0000</pubDate>
-    </item>
-    <item>
-      <title>CVE-2020-8568|2024-09-17T03:28:40.493Z -- kubernetes -- kubernetes%20secrets%20store%20csi%20driver
-</title>
-      <link>https://www.cve.org/CVERecord?id=CVE-2020-8568</link>
-      <description>Kubernetes Secrets Store CSI Driver versions v0.0.15 and v0.0.16 allow an attacker who can modify a SecretProviderClassPodStatus/Status resource the ability to write content to the host filesystem and sync file contents to Kubernetes Secrets. This includes paths under var/lib/kubelet/pods that contain other Kubernetes Secrets.</description>
-      <guid isPermaLink="false">CVE-2020-8568|2024-09-17T03:28:40.493Z</guid>
-      <pubDate>Thu, 21 Jan 2021 17:09:21 +0000</pubDate>
-    </item>
-    <item>
-      <title>CVE-2019-11252|2024-09-17T04:24:20.027Z -- kubernetes -- kubernetes
-</title>
-      <link>https://www.cve.org/CVERecord?id=CVE-2019-11252</link>
-      <description>The Kubernetes kube-controller-manager in versions v1.0-v1.17 is vulnerable to a credential leakage via error messages in mount failure logs and events for AzureFile and CephFS volumes.</description>
-      <guid isPermaLink="false">CVE-2019-11252|2024-09-17T04:24:20.027Z</guid>
-      <pubDate>Thu, 23 Jul 2020 14:47:38 +0000</pubDate>
-    </item>
-    <item>
-      <title>CVE-2024-5321|2024-09-13T17:05:30.545Z -- kubernetes -- kubernetes</title>
-      <link>https://www.cve.org/CVERecord?id=CVE-2024-5321</link>
-      <description>A security issue was discovered in Kubernetes clusters with Windows nodes where BUILTIN\Users may be able to read container logs and NT AUTHORITY\Authenticated Users may be able to modify container logs.</description>
-      <guid isPermaLink="false">CVE-2024-5321|2024-09-13T17:05:30.545Z</guid>
-      <pubDate>Thu, 18 Jul 2024 18:15:25 +0000</pubDate>
-    </item>
-    <item>
-      <title>CVE-2024-5321|2024-09-06T14:15:20.038Z -- kubernetes -- kubernetes</title>
-      <link>https://www.cve.org/CVERecord?id=CVE-2024-5321</link>
-      <description>A security issue was discovered in Kubernetes clusters with Windows nodes where BUILTIN\Users may be able to read container logs and NT AUTHORITY\Authenticated Users may be able to modify container logs.</description>
-      <guid isPermaLink="false">CVE-2024-5321|2024-09-06T14:15:20.038Z</guid>
-      <pubDate>Thu, 18 Jul 2024 18:15:25 +0000</pubDate>
-    </item>
-    <item>
-      <title>CVE-2024-7646|2024-08-19T18:28:09.677Z -- kubernetes -- ingress-nginx</title>
-      <link>https://www.cve.org/CVERecord?id=CVE-2024-7646</link>
-      <description>A security issue was discovered in ingress-nginx where an actor with permission to create Ingress objects (in the `networking.k8s.io` or `extensions` API group) can bypass annotation validation to inject arbitrary commands and obtain the credentials of the ingress-nginx controller. In the default configuration, that credential has access to all secrets in the cluster.</description>
-      <guid isPermaLink="false">CVE-2024-7646|2024-08-19T18:28:09.677Z</guid>
-      <pubDate>Fri, 16 Aug 2024 17:36:53 +0000</pubDate>
-    </item>
-    <item>
-      <title>CVE-2024-7646|2024-08-16T20:02:54.833Z -- kubernetes -- ingress-nginx</title>
-      <link>https://www.cve.org/CVERecord?id=CVE-2024-7646</link>
-      <description>A security issue was discovered in ingress-nginx where an actor with permission to create Ingress objects (in the `networking.k8s.io` or `extensions` API group) can bypass annotation validation to inject arbitrary commands and obtain the credentials of the ingress-nginx controller. In the default configuration, that credential has access to all secrets in the cluster.</description>
-      <guid isPermaLink="false">CVE-2024-7646|2024-08-16T20:02:54.833Z</guid>
-      <pubDate>Fri, 16 Aug 2024 17:36:53 +0000</pubDate>
-    </item>
-    <item>
-      <title>CVE-2021-25741|2024-08-03T20:11:27.655Z -- kubernetes -- kubernetes</title>
+      <title>CVE-2021-25741|2024-08-20T13:37:41.191Z -- kubernetes -- kubernetes</title>
       <link>https://www.cve.org/CVERecord?id=CVE-2021-25741</link>
       <description>A security issue was discovered in Kubernetes where a user may be able to create a container with subpath volume mounts to access files &amp; directories outside of the volume, including on the host filesystem.</description>
-      <guid isPermaLink="false">CVE-2021-25741|2024-08-03T20:11:27.655Z</guid>
-      <pubDate>Sat, 03 Aug 2024 20:11:27 +0000</pubDate>
+      <guid isPermaLink="false">CVE-2021-25741|2024-08-20T13:37:41.191Z</guid>
+      <pubDate>Tue, 20 Aug 2024 13:37:41 +0000</pubDate>
     </item>
     <item>
-      <title>CVE-2024-3744|2024-08-01T20:20:01.141Z -- kubernetes -- azure-file-csi-driver</title>
+      <title>CVE-2024-7646|2024-08-19T16:35:33.217Z -- kubernetes -- ingress-nginx</title>
+      <link>https://www.cve.org/CVERecord?id=CVE-2024-7646</link>
+      <description>A security issue was discovered in ingress-nginx where an actor with permission to create Ingress objects (in the `networking.k8s.io` or `extensions` API group) can bypass annotation validation to inject arbitrary commands and obtain the credentials of the ingress-nginx controller. In the default configuration, that credential has access to all secrets in the cluster.</description>
+      <guid isPermaLink="false">CVE-2024-7646|2024-08-19T16:35:33.217Z</guid>
+      <pubDate>Fri, 16 Aug 2024 17:36:53 +0000</pubDate>
+    </item>
+    <item>
+      <title>CVE-2024-7646|2024-08-16T17:36:53.783Z -- kubernetes -- ingress-nginx</title>
+      <link>https://www.cve.org/CVERecord?id=CVE-2024-7646</link>
+      <description>A security issue was discovered in ingress-nginx where an actor with permission to create Ingress objects (in the `networking.k8s.io` or `extensions` API group) can bypass annotation validation to inject arbitrary commands and obtain the credentials of the ingress-nginx controller. In the default configuration, that credential has access to all secrets in the cluster.</description>
+      <guid isPermaLink="false">CVE-2024-7646|2024-08-16T17:36:53.783Z</guid>
+      <pubDate>Fri, 16 Aug 2024 17:36:53 +0000</pubDate>
+    </item>
+    <item>
+      <title>CVE-2024-5321|2024-08-01T21:11:12.421Z -- kubernetes -- kubernetes</title>
+      <link>https://www.cve.org/CVERecord?id=CVE-2024-5321</link>
+      <description>A security issue was discovered in Kubernetes clusters with Windows nodes where BUILTIN\Users may be able to read container logs and NT AUTHORITY\Authenticated Users may be able to modify container logs.</description>
+      <guid isPermaLink="false">CVE-2024-5321|2024-08-01T21:11:12.421Z</guid>
+      <pubDate>Thu, 18 Jul 2024 18:15:25 +0000</pubDate>
+    </item>
+    <item>
+      <title>CVE-2024-5321|2024-07-18T19:30:48.148Z -- kubernetes -- kubernetes</title>
+      <link>https://www.cve.org/CVERecord?id=CVE-2024-5321</link>
+      <description>A security issue was discovered in Kubernetes clusters with Windows nodes where BUILTIN\Users may be able to read container logs and NT AUTHORITY\Authenticated Users may be able to modify container logs.</description>
+      <guid isPermaLink="false">CVE-2024-5321|2024-07-18T19:30:48.148Z</guid>
+      <pubDate>Thu, 18 Jul 2024 18:15:25 +0000</pubDate>
+    </item>
+    <item>
+      <title>CVE-2024-3744|2024-06-17T18:38:53.285Z -- kubernetes -- azure-file-csi-driver</title>
       <link>https://www.cve.org/CVERecord?id=CVE-2024-3744</link>
       <description>A security issue was discovered in azure-file-csi-driver where an actor with access to the driver logs could observe service account tokens. These tokens could then potentially be exchanged with external cloud providers to access secrets stored in cloud vault solutions. Tokens are only logged when TokenRequests is configured in the CSIDriver object and the driver is set to run at log level 2 or greater via the -v flag.</description>
-      <guid isPermaLink="false">CVE-2024-3744|2024-08-01T20:20:01.141Z</guid>
+      <guid isPermaLink="false">CVE-2024-3744|2024-06-17T18:38:53.285Z</guid>
       <pubDate>Wed, 15 May 2024 00:42:36 +0000</pubDate>
     </item>
     <item>
-      <title>CVE-2024-3177|2024-08-01T20:05:07.568Z -- kubernetes -- kubernetes</title>
-      <link>https://www.cve.org/CVERecord?id=CVE-2024-3177</link>
+      <title>CVE-2024-3744|2024-05-15T00:42:36.881Z -- kubernetes -- azure-file-csi-driver</title>
+      <link>https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2024-3744</link>
+      <description>A security issue was discovered in azure-file-csi-driver where an actor with access to the driver logs could observe service account tokens. These tokens could then potentially be exchanged with external cloud providers to access secrets stored in cloud vault solutions. Tokens are only logged when TokenRequests is configured in the CSIDriver object and the driver is set to run at log level 2 or greater via the -v flag.</description>
+      <guid isPermaLink="false">CVE-2024-3744|2024-05-15T00:42:36.881Z</guid>
+      <pubDate>Wed, 15 May 2024 00:42:36 +0000</pubDate>
+    </item>
+    <item>
+      <title>CVE-2024-3177|2024-06-04T17:33:03.250Z -- kubernetes -- kubernetes</title>
+      <link>https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2024-3177</link>
       <description>A security issue was discovered in Kubernetes where users may be able to launch containers that bypass the mountable secrets policy enforced by the ServiceAccount admission plugin when using containers, init containers, and ephemeral containers with the envFrom field populated. The policy ensures pods running with a service account may only reference secrets specified in the service account’s secrets field. Kubernetes clusters are only affected if the ServiceAccount admission plugin and the kubernetes.io/enforce-mountable-secrets annotation are used together with containers, init containers, and ephemeral containers with the envFrom field populated.</description>
-      <guid isPermaLink="false">CVE-2024-3177|2024-08-01T20:05:07.568Z</guid>
+      <guid isPermaLink="false">CVE-2024-3177|2024-06-04T17:33:03.250Z</guid>
       <pubDate>Mon, 22 Apr 2024 23:00:39 +0000</pubDate>
     </item>
     <item>
@@ -145,67 +88,53 @@
       <pubDate>Thu, 18 Jul 2024 18:15:25 +0000</pubDate>
     </item>
     <item>
-      <title>CVE-2024-3177|2024-06-04T17:33:03.250Z -- kubernetes -- kubernetes</title>
-      <link>https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2024-3177</link>
-      <description>A security issue was discovered in Kubernetes where users may be able to launch containers that bypass the mountable secrets policy enforced by the ServiceAccount admission plugin when using containers, init containers, and ephemeral containers with the envFrom field populated. The policy ensures pods running with a service account may only reference secrets specified in the service account’s secrets field. Kubernetes clusters are only affected if the ServiceAccount admission plugin and the kubernetes.io/enforce-mountable-secrets annotation are used together with containers, init containers, and ephemeral containers with the envFrom field populated.</description>
-      <guid isPermaLink="false">CVE-2024-3177|2024-06-04T17:33:03.250Z</guid>
-      <pubDate>Mon, 22 Apr 2024 23:00:39 +0000</pubDate>
-    </item>
-    <item>
-      <title>CVE-2024-3744|2024-05-15T00:42:36.881Z -- kubernetes -- azure-file-csi-driver</title>
-      <link>https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2024-3744</link>
-      <description>A security issue was discovered in azure-file-csi-driver where an actor with access to the driver logs could observe service account tokens. These tokens could then potentially be exchanged with external cloud providers to access secrets stored in cloud vault solutions. Tokens are only logged when TokenRequests is configured in the CSIDriver object and the driver is set to run at log level 2 or greater via the -v flag.</description>
-      <guid isPermaLink="false">CVE-2024-3744|2024-05-15T00:42:36.881Z</guid>
-      <pubDate>Wed, 15 May 2024 00:42:36 +0000</pubDate>
-    </item>
-    <item>
-      <title>CVE-2024-3744|2024-06-17T18:38:53.285Z -- kubernetes -- azure-file-csi-driver</title>
-      <link>https://www.cve.org/CVERecord?id=CVE-2024-3744</link>
-      <description>A security issue was discovered in azure-file-csi-driver where an actor with access to the driver logs could observe service account tokens. These tokens could then potentially be exchanged with external cloud providers to access secrets stored in cloud vault solutions. Tokens are only logged when TokenRequests is configured in the CSIDriver object and the driver is set to run at log level 2 or greater via the -v flag.</description>
-      <guid isPermaLink="false">CVE-2024-3744|2024-06-17T18:38:53.285Z</guid>
-      <pubDate>Wed, 15 May 2024 00:42:36 +0000</pubDate>
-    </item>
-    <item>
-      <title>CVE-2024-5321|2024-07-18T19:30:48.148Z -- kubernetes -- kubernetes</title>
-      <link>https://www.cve.org/CVERecord?id=CVE-2024-5321</link>
-      <description>A security issue was discovered in Kubernetes clusters with Windows nodes where BUILTIN\Users may be able to read container logs and NT AUTHORITY\Authenticated Users may be able to modify container logs.</description>
-      <guid isPermaLink="false">CVE-2024-5321|2024-07-18T19:30:48.148Z</guid>
-      <pubDate>Thu, 18 Jul 2024 18:15:25 +0000</pubDate>
-    </item>
-    <item>
-      <title>CVE-2024-5321|2024-08-01T21:11:12.421Z -- kubernetes -- kubernetes</title>
-      <link>https://www.cve.org/CVERecord?id=CVE-2024-5321</link>
-      <description>A security issue was discovered in Kubernetes clusters with Windows nodes where BUILTIN\Users may be able to read container logs and NT AUTHORITY\Authenticated Users may be able to modify container logs.</description>
-      <guid isPermaLink="false">CVE-2024-5321|2024-08-01T21:11:12.421Z</guid>
-      <pubDate>Thu, 18 Jul 2024 18:15:25 +0000</pubDate>
-    </item>
-    <item>
-      <title>CVE-2024-7646|2024-08-16T17:36:53.783Z -- kubernetes -- ingress-nginx</title>
-      <link>https://www.cve.org/CVERecord?id=CVE-2024-7646</link>
-      <description>A security issue was discovered in ingress-nginx where an actor with permission to create Ingress objects (in the `networking.k8s.io` or `extensions` API group) can bypass annotation validation to inject arbitrary commands and obtain the credentials of the ingress-nginx controller. In the default configuration, that credential has access to all secrets in the cluster.</description>
-      <guid isPermaLink="false">CVE-2024-7646|2024-08-16T17:36:53.783Z</guid>
-      <pubDate>Fri, 16 Aug 2024 17:36:53 +0000</pubDate>
-    </item>
-    <item>
-      <title>CVE-2024-7646|2024-08-19T16:35:33.217Z -- kubernetes -- ingress-nginx</title>
-      <link>https://www.cve.org/CVERecord?id=CVE-2024-7646</link>
-      <description>A security issue was discovered in ingress-nginx where an actor with permission to create Ingress objects (in the `networking.k8s.io` or `extensions` API group) can bypass annotation validation to inject arbitrary commands and obtain the credentials of the ingress-nginx controller. In the default configuration, that credential has access to all secrets in the cluster.</description>
-      <guid isPermaLink="false">CVE-2024-7646|2024-08-19T16:35:33.217Z</guid>
-      <pubDate>Fri, 16 Aug 2024 17:36:53 +0000</pubDate>
-    </item>
-    <item>
-      <title>CVE-2021-25741|2024-08-20T13:37:41.191Z -- kubernetes -- kubernetes</title>
-      <link>https://www.cve.org/CVERecord?id=CVE-2021-25741</link>
-      <description>A security issue was discovered in Kubernetes where a user may be able to create a container with subpath volume mounts to access files &amp; directories outside of the volume, including on the host filesystem.</description>
-      <guid isPermaLink="false">CVE-2021-25741|2024-08-20T13:37:41.191Z</guid>
-      <pubDate>Tue, 20 Aug 2024 13:37:41 +0000</pubDate>
-    </item>
-    <item>
-      <title>CVE-2024-3177|2024-09-10T20:48:09.780Z -- kubernetes -- kubernetes</title>
+      <title>CVE-2024-3177|2024-08-01T20:05:07.568Z -- kubernetes -- kubernetes</title>
       <link>https://www.cve.org/CVERecord?id=CVE-2024-3177</link>
       <description>A security issue was discovered in Kubernetes where users may be able to launch containers that bypass the mountable secrets policy enforced by the ServiceAccount admission plugin when using containers, init containers, and ephemeral containers with the envFrom field populated. The policy ensures pods running with a service account may only reference secrets specified in the service account’s secrets field. Kubernetes clusters are only affected if the ServiceAccount admission plugin and the kubernetes.io/enforce-mountable-secrets annotation are used together with containers, init containers, and ephemeral containers with the envFrom field populated.</description>
-      <guid isPermaLink="false">CVE-2024-3177|2024-09-10T20:48:09.780Z</guid>
+      <guid isPermaLink="false">CVE-2024-3177|2024-08-01T20:05:07.568Z</guid>
       <pubDate>Mon, 22 Apr 2024 23:00:39 +0000</pubDate>
+    </item>
+    <item>
+      <title>CVE-2024-3744|2024-08-01T20:20:01.141Z -- kubernetes -- azure-file-csi-driver</title>
+      <link>https://www.cve.org/CVERecord?id=CVE-2024-3744</link>
+      <description>A security issue was discovered in azure-file-csi-driver where an actor with access to the driver logs could observe service account tokens. These tokens could then potentially be exchanged with external cloud providers to access secrets stored in cloud vault solutions. Tokens are only logged when TokenRequests is configured in the CSIDriver object and the driver is set to run at log level 2 or greater via the -v flag.</description>
+      <guid isPermaLink="false">CVE-2024-3744|2024-08-01T20:20:01.141Z</guid>
+      <pubDate>Wed, 15 May 2024 00:42:36 +0000</pubDate>
+    </item>
+    <item>
+      <title>CVE-2021-25741|2024-08-03T20:11:27.655Z -- kubernetes -- kubernetes</title>
+      <link>https://www.cve.org/CVERecord?id=CVE-2021-25741</link>
+      <description>A security issue was discovered in Kubernetes where a user may be able to create a container with subpath volume mounts to access files &amp; directories outside of the volume, including on the host filesystem.</description>
+      <guid isPermaLink="false">CVE-2021-25741|2024-08-03T20:11:27.655Z</guid>
+      <pubDate>Sat, 03 Aug 2024 20:11:27 +0000</pubDate>
+    </item>
+    <item>
+      <title>CVE-2024-7646|2024-08-16T20:02:54.833Z -- kubernetes -- ingress-nginx</title>
+      <link>https://www.cve.org/CVERecord?id=CVE-2024-7646</link>
+      <description>A security issue was discovered in ingress-nginx where an actor with permission to create Ingress objects (in the `networking.k8s.io` or `extensions` API group) can bypass annotation validation to inject arbitrary commands and obtain the credentials of the ingress-nginx controller. In the default configuration, that credential has access to all secrets in the cluster.</description>
+      <guid isPermaLink="false">CVE-2024-7646|2024-08-16T20:02:54.833Z</guid>
+      <pubDate>Fri, 16 Aug 2024 17:36:53 +0000</pubDate>
+    </item>
+    <item>
+      <title>CVE-2024-7646|2024-08-19T18:28:09.677Z -- kubernetes -- ingress-nginx</title>
+      <link>https://www.cve.org/CVERecord?id=CVE-2024-7646</link>
+      <description>A security issue was discovered in ingress-nginx where an actor with permission to create Ingress objects (in the `networking.k8s.io` or `extensions` API group) can bypass annotation validation to inject arbitrary commands and obtain the credentials of the ingress-nginx controller. In the default configuration, that credential has access to all secrets in the cluster.</description>
+      <guid isPermaLink="false">CVE-2024-7646|2024-08-19T18:28:09.677Z</guid>
+      <pubDate>Fri, 16 Aug 2024 17:36:53 +0000</pubDate>
+    </item>
+    <item>
+      <title>CVE-2024-5321|2024-09-06T14:15:20.038Z -- kubernetes -- kubernetes</title>
+      <link>https://www.cve.org/CVERecord?id=CVE-2024-5321</link>
+      <description>A security issue was discovered in Kubernetes clusters with Windows nodes where BUILTIN\Users may be able to read container logs and NT AUTHORITY\Authenticated Users may be able to modify container logs.</description>
+      <guid isPermaLink="false">CVE-2024-5321|2024-09-06T14:15:20.038Z</guid>
+      <pubDate>Thu, 18 Jul 2024 18:15:25 +0000</pubDate>
+    </item>
+    <item>
+      <title>CVE-2024-5321|2024-09-13T17:05:30.545Z -- kubernetes -- kubernetes</title>
+      <link>https://www.cve.org/CVERecord?id=CVE-2024-5321</link>
+      <description>A security issue was discovered in Kubernetes clusters with Windows nodes where BUILTIN\Users may be able to read container logs and NT AUTHORITY\Authenticated Users may be able to modify container logs.</description>
+      <guid isPermaLink="false">CVE-2024-5321|2024-09-13T17:05:30.545Z</guid>
+      <pubDate>Thu, 18 Jul 2024 18:15:25 +0000</pubDate>
     </item>
   </channel>
 </rss>
