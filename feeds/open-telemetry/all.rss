@@ -6,7 +6,7 @@
     <description>The latest CVEs for open-telemetry -- all products</description>
     <docs>http://www.rssboard.org/rss-specification</docs>
     <generator>python-feedgen</generator>
-    <lastBuildDate>Thu, 19 Sep 2024 20:23:41 +0000</lastBuildDate>
+    <lastBuildDate>Thu, 19 Sep 2024 21:21:53 +0000</lastBuildDate>
     <ttl>60</ttl>
     <item>
       <title>CVE-2023-43810|2024-09-19T18:45:01.962Z -- open-telemetry -- opentelemetry-python-contrib
@@ -17,45 +17,17 @@
       <pubDate>Fri, 06 Oct 2023 13:53:17 +0000</pubDate>
     </item>
     <item>
-      <title>CVE-2024-45043|2024-08-28T20:20:49.512Z -- open-telemetry -- opentelemetry-collector-contrib</title>
-      <link>https://www.cve.org/CVERecord?id=CVE-2024-45043</link>
-      <description>The OpenTelemetry Collector module AWS firehose receiver is for ingesting AWS Kinesis Data Firehose delivery stream messages and parsing the records received based on the configured record type. `awsfirehosereceiver` allows unauthenticated remote requests, even when configured to require a key. OpenTelemetry Collector can be configured to receive CloudWatch metrics via an AWS Firehose Stream. Firehose sets the header `X-Amz-Firehose-Access-Key` with an arbitrary configured string. The OpenTelemetry Collector awsfirehosereceiver can optionally be configured to require this key on incoming requests. However, when this is configured it **still accepts incoming requests with no key**. Only OpenTelemetry Collector users configured with the “alpha” `awsfirehosereceiver` module are affected. This module was added in version v0.49.0 of the “Contrib” distribution (or may be included in custom builds). There is a risk of unauthorized users writing metrics. Carefully crafted metrics could hide other malicious activity. There is no risk of exfiltrating data. It’s likely these endpoints will be exposed to the public internet, as Firehose does not support private HTTP endpoints. A fix was introduced in PR #34847 and released with v0.108.0. All users are advised to upgrade. There are no known workarounds for this vulnerability.</description>
-      <guid isPermaLink="false">CVE-2024-45043|2024-08-28T20:20:49.512Z</guid>
-      <pubDate>Wed, 28 Aug 2024 20:06:34 +0000</pubDate>
-    </item>
-    <item>
-      <title>CVE-2024-42368|2024-08-13T19:31:16.814Z -- open-telemetry -- opentelemetry-collector-contrib</title>
+      <title>CVE-2024-42368|2024-08-14T13:38:51.917Z -- open-telemetry -- opentelemetry-collector-contrib</title>
       <link>https://www.cve.org/CVERecord?id=CVE-2024-42368</link>
       <description>OpenTelemetry, also known as OTel, is a vendor-neutral open source Observability framework for instrumenting, generating, collecting, and exporting telemetry data such as traces, metrics, and logs. The bearertokenauth extension's server authenticator performs a simple, non-constant time string comparison of the received &amp; configured bearer tokens. This impacts anyone using the `bearertokenauth` server authenticator. Malicious clients with network access to the collector may perform a timing attack against a collector with this authenticator to guess the configured token, by iteratively sending tokens and comparing the response time. This would allow an attacker to introduce fabricated or bad data into the collector's telemetry pipeline. The observable timing vulnerability was fixed by using constant-time comparison in  0.107.0</description>
-      <guid isPermaLink="false">CVE-2024-42368|2024-08-13T19:31:16.814Z</guid>
+      <guid isPermaLink="false">CVE-2024-42368|2024-08-14T13:38:51.917Z</guid>
       <pubDate>Tue, 13 Aug 2024 19:31:16 +0000</pubDate>
     </item>
     <item>
-      <title>CVE-2024-32028|2024-08-02T01:59:50.898Z -- open-telemetry -- opentelemetry-dotnet</title>
-      <link>https://www.cve.org/CVERecord?id=CVE-2024-32028</link>
-      <description>OpenTelemetry dotnet is a dotnet telemetry framework. In affected versions of `OpenTelemetry.Instrumentation.Http` and `OpenTelemetry.Instrumentation.AspNetCore` the `url.full` writes attribute/tag on spans (`Activity`) when tracing is enabled for outgoing http requests and `OpenTelemetry.Instrumentation.AspNetCore` writes the `url.query` attribute/tag on spans (`Activity`) when tracing is enabled for incoming http requests. These attributes are defined by the Semantic Conventions for HTTP Spans. Up until version `1.8.1` the values written by `OpenTelemetry.Instrumentation.Http` &amp; `OpenTelemetry.Instrumentation.AspNetCore` will pass-through the raw query string as was sent or received (respectively). This may lead to sensitive information (e.g. EUII - End User Identifiable Information, credentials, etc.) being leaked into telemetry backends (depending on the application(s) being instrumented) which could cause privacy and/or security incidents. Note: Older versions of `OpenTelemetry.Instrumentation.Http` &amp; `OpenTelemetry.Instrumentation.AspNetCore` may use different tag names but have the same vulnerability. The `1.8.1` versions of `OpenTelemetry.Instrumentation.Http` &amp; `OpenTelemetry.Instrumentation.AspNetCore` will now redact by default all values detected on transmitted or received query strings. Users are advised to upgrade. There are no known workarounds for this vulnerability.</description>
-      <guid isPermaLink="false">CVE-2024-32028|2024-08-02T01:59:50.898Z</guid>
-      <pubDate>Fri, 12 Apr 2024 22:58:30 +0000</pubDate>
-    </item>
-    <item>
-      <title>CVE-2024-32028|2024-06-04T17:51:34.444Z -- open-telemetry -- opentelemetry-dotnet</title>
-      <link>https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2024-32028</link>
-      <description>OpenTelemetry dotnet is a dotnet telemetry framework. In affected versions of `OpenTelemetry.Instrumentation.Http` and `OpenTelemetry.Instrumentation.AspNetCore` the `url.full` writes attribute/tag on spans (`Activity`) when tracing is enabled for outgoing http requests and `OpenTelemetry.Instrumentation.AspNetCore` writes the `url.query` attribute/tag on spans (`Activity`) when tracing is enabled for incoming http requests. These attributes are defined by the Semantic Conventions for HTTP Spans. Up until version `1.8.1` the values written by `OpenTelemetry.Instrumentation.Http` &amp; `OpenTelemetry.Instrumentation.AspNetCore` will pass-through the raw query string as was sent or received (respectively). This may lead to sensitive information (e.g. EUII - End User Identifiable Information, credentials, etc.) being leaked into telemetry backends (depending on the application(s) being instrumented) which could cause privacy and/or security incidents. Note: Older versions of `OpenTelemetry.Instrumentation.Http` &amp; `OpenTelemetry.Instrumentation.AspNetCore` may use different tag names but have the same vulnerability. The `1.8.1` versions of `OpenTelemetry.Instrumentation.Http` &amp; `OpenTelemetry.Instrumentation.AspNetCore` will now redact by default all values detected on transmitted or received query strings. Users are advised to upgrade. There are no known workarounds for this vulnerability.</description>
-      <guid isPermaLink="false">CVE-2024-32028|2024-06-04T17:51:34.444Z</guid>
-      <pubDate>Fri, 12 Apr 2024 22:58:30 +0000</pubDate>
-    </item>
-    <item>
-      <title>CVE-2024-36129|2024-06-05T17:26:13.903Z -- open-telemetry -- opentelemetry-collector</title>
-      <link>https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2024-36129</link>
-      <description>The OpenTelemetry Collector offers a vendor-agnostic implementation on how to receive, process and export telemetry data. An unsafe decompression vulnerability allows unauthenticated attackers to crash the collector via excessive memory consumption. OTel Collector version 0.102.1 fixes this issue.  It is also fixed in the confighttp module version 0.102.0 and configgrpc module version 0.102.1.</description>
-      <guid isPermaLink="false">CVE-2024-36129|2024-06-05T17:26:13.903Z</guid>
-      <pubDate>Wed, 05 Jun 2024 17:26:13 +0000</pubDate>
-    </item>
-    <item>
-      <title>CVE-2024-36129|2024-07-23T15:38:47.454Z -- open-telemetry -- opentelemetry-collector</title>
+      <title>CVE-2024-36129|2024-08-02T03:30:13.165Z -- open-telemetry -- opentelemetry-collector</title>
       <link>https://www.cve.org/CVERecord?id=CVE-2024-36129</link>
       <description>The OpenTelemetry Collector offers a vendor-agnostic implementation on how to receive, process and export telemetry data. An unsafe decompression vulnerability allows unauthenticated attackers to crash the collector via excessive memory consumption. OTel Collector version 0.102.1 fixes this issue.  It is also fixed in the confighttp module version 0.102.0 and configgrpc module version 0.102.1.</description>
-      <guid isPermaLink="false">CVE-2024-36129|2024-07-23T15:38:47.454Z</guid>
+      <guid isPermaLink="false">CVE-2024-36129|2024-08-02T03:30:13.165Z</guid>
       <pubDate>Wed, 05 Jun 2024 17:26:13 +0000</pubDate>
     </item>
     <item>
@@ -66,18 +38,46 @@
       <pubDate>Fri, 12 Apr 2024 22:58:30 +0000</pubDate>
     </item>
     <item>
-      <title>CVE-2024-36129|2024-08-02T03:30:13.165Z -- open-telemetry -- opentelemetry-collector</title>
+      <title>CVE-2024-36129|2024-07-23T15:38:47.454Z -- open-telemetry -- opentelemetry-collector</title>
       <link>https://www.cve.org/CVERecord?id=CVE-2024-36129</link>
       <description>The OpenTelemetry Collector offers a vendor-agnostic implementation on how to receive, process and export telemetry data. An unsafe decompression vulnerability allows unauthenticated attackers to crash the collector via excessive memory consumption. OTel Collector version 0.102.1 fixes this issue.  It is also fixed in the confighttp module version 0.102.0 and configgrpc module version 0.102.1.</description>
-      <guid isPermaLink="false">CVE-2024-36129|2024-08-02T03:30:13.165Z</guid>
+      <guid isPermaLink="false">CVE-2024-36129|2024-07-23T15:38:47.454Z</guid>
       <pubDate>Wed, 05 Jun 2024 17:26:13 +0000</pubDate>
     </item>
     <item>
-      <title>CVE-2024-42368|2024-08-14T13:38:51.917Z -- open-telemetry -- opentelemetry-collector-contrib</title>
+      <title>CVE-2024-36129|2024-06-05T17:26:13.903Z -- open-telemetry -- opentelemetry-collector</title>
+      <link>https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2024-36129</link>
+      <description>The OpenTelemetry Collector offers a vendor-agnostic implementation on how to receive, process and export telemetry data. An unsafe decompression vulnerability allows unauthenticated attackers to crash the collector via excessive memory consumption. OTel Collector version 0.102.1 fixes this issue.  It is also fixed in the confighttp module version 0.102.0 and configgrpc module version 0.102.1.</description>
+      <guid isPermaLink="false">CVE-2024-36129|2024-06-05T17:26:13.903Z</guid>
+      <pubDate>Wed, 05 Jun 2024 17:26:13 +0000</pubDate>
+    </item>
+    <item>
+      <title>CVE-2024-32028|2024-06-04T17:51:34.444Z -- open-telemetry -- opentelemetry-dotnet</title>
+      <link>https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2024-32028</link>
+      <description>OpenTelemetry dotnet is a dotnet telemetry framework. In affected versions of `OpenTelemetry.Instrumentation.Http` and `OpenTelemetry.Instrumentation.AspNetCore` the `url.full` writes attribute/tag on spans (`Activity`) when tracing is enabled for outgoing http requests and `OpenTelemetry.Instrumentation.AspNetCore` writes the `url.query` attribute/tag on spans (`Activity`) when tracing is enabled for incoming http requests. These attributes are defined by the Semantic Conventions for HTTP Spans. Up until version `1.8.1` the values written by `OpenTelemetry.Instrumentation.Http` &amp; `OpenTelemetry.Instrumentation.AspNetCore` will pass-through the raw query string as was sent or received (respectively). This may lead to sensitive information (e.g. EUII - End User Identifiable Information, credentials, etc.) being leaked into telemetry backends (depending on the application(s) being instrumented) which could cause privacy and/or security incidents. Note: Older versions of `OpenTelemetry.Instrumentation.Http` &amp; `OpenTelemetry.Instrumentation.AspNetCore` may use different tag names but have the same vulnerability. The `1.8.1` versions of `OpenTelemetry.Instrumentation.Http` &amp; `OpenTelemetry.Instrumentation.AspNetCore` will now redact by default all values detected on transmitted or received query strings. Users are advised to upgrade. There are no known workarounds for this vulnerability.</description>
+      <guid isPermaLink="false">CVE-2024-32028|2024-06-04T17:51:34.444Z</guid>
+      <pubDate>Fri, 12 Apr 2024 22:58:30 +0000</pubDate>
+    </item>
+    <item>
+      <title>CVE-2024-32028|2024-08-02T01:59:50.898Z -- open-telemetry -- opentelemetry-dotnet</title>
+      <link>https://www.cve.org/CVERecord?id=CVE-2024-32028</link>
+      <description>OpenTelemetry dotnet is a dotnet telemetry framework. In affected versions of `OpenTelemetry.Instrumentation.Http` and `OpenTelemetry.Instrumentation.AspNetCore` the `url.full` writes attribute/tag on spans (`Activity`) when tracing is enabled for outgoing http requests and `OpenTelemetry.Instrumentation.AspNetCore` writes the `url.query` attribute/tag on spans (`Activity`) when tracing is enabled for incoming http requests. These attributes are defined by the Semantic Conventions for HTTP Spans. Up until version `1.8.1` the values written by `OpenTelemetry.Instrumentation.Http` &amp; `OpenTelemetry.Instrumentation.AspNetCore` will pass-through the raw query string as was sent or received (respectively). This may lead to sensitive information (e.g. EUII - End User Identifiable Information, credentials, etc.) being leaked into telemetry backends (depending on the application(s) being instrumented) which could cause privacy and/or security incidents. Note: Older versions of `OpenTelemetry.Instrumentation.Http` &amp; `OpenTelemetry.Instrumentation.AspNetCore` may use different tag names but have the same vulnerability. The `1.8.1` versions of `OpenTelemetry.Instrumentation.Http` &amp; `OpenTelemetry.Instrumentation.AspNetCore` will now redact by default all values detected on transmitted or received query strings. Users are advised to upgrade. There are no known workarounds for this vulnerability.</description>
+      <guid isPermaLink="false">CVE-2024-32028|2024-08-02T01:59:50.898Z</guid>
+      <pubDate>Fri, 12 Apr 2024 22:58:30 +0000</pubDate>
+    </item>
+    <item>
+      <title>CVE-2024-42368|2024-08-13T19:31:16.814Z -- open-telemetry -- opentelemetry-collector-contrib</title>
       <link>https://www.cve.org/CVERecord?id=CVE-2024-42368</link>
       <description>OpenTelemetry, also known as OTel, is a vendor-neutral open source Observability framework for instrumenting, generating, collecting, and exporting telemetry data such as traces, metrics, and logs. The bearertokenauth extension's server authenticator performs a simple, non-constant time string comparison of the received &amp; configured bearer tokens. This impacts anyone using the `bearertokenauth` server authenticator. Malicious clients with network access to the collector may perform a timing attack against a collector with this authenticator to guess the configured token, by iteratively sending tokens and comparing the response time. This would allow an attacker to introduce fabricated or bad data into the collector's telemetry pipeline. The observable timing vulnerability was fixed by using constant-time comparison in  0.107.0</description>
-      <guid isPermaLink="false">CVE-2024-42368|2024-08-14T13:38:51.917Z</guid>
+      <guid isPermaLink="false">CVE-2024-42368|2024-08-13T19:31:16.814Z</guid>
       <pubDate>Tue, 13 Aug 2024 19:31:16 +0000</pubDate>
+    </item>
+    <item>
+      <title>CVE-2024-45043|2024-08-28T20:20:49.512Z -- open-telemetry -- opentelemetry-collector-contrib</title>
+      <link>https://www.cve.org/CVERecord?id=CVE-2024-45043</link>
+      <description>The OpenTelemetry Collector module AWS firehose receiver is for ingesting AWS Kinesis Data Firehose delivery stream messages and parsing the records received based on the configured record type. `awsfirehosereceiver` allows unauthenticated remote requests, even when configured to require a key. OpenTelemetry Collector can be configured to receive CloudWatch metrics via an AWS Firehose Stream. Firehose sets the header `X-Amz-Firehose-Access-Key` with an arbitrary configured string. The OpenTelemetry Collector awsfirehosereceiver can optionally be configured to require this key on incoming requests. However, when this is configured it **still accepts incoming requests with no key**. Only OpenTelemetry Collector users configured with the “alpha” `awsfirehosereceiver` module are affected. This module was added in version v0.49.0 of the “Contrib” distribution (or may be included in custom builds). There is a risk of unauthorized users writing metrics. Carefully crafted metrics could hide other malicious activity. There is no risk of exfiltrating data. It’s likely these endpoints will be exposed to the public internet, as Firehose does not support private HTTP endpoints. A fix was introduced in PR #34847 and released with v0.108.0. All users are advised to upgrade. There are no known workarounds for this vulnerability.</description>
+      <guid isPermaLink="false">CVE-2024-45043|2024-08-28T20:20:49.512Z</guid>
+      <pubDate>Wed, 28 Aug 2024 20:06:34 +0000</pubDate>
     </item>
   </channel>
 </rss>
