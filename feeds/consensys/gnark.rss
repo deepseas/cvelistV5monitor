@@ -6,7 +6,7 @@
     <description>The latest CVEs for Consensys -- gnark</description>
     <docs>http://www.rssboard.org/rss-specification</docs>
     <generator>python-feedgen</generator>
-    <lastBuildDate>Thu, 19 Sep 2024 22:22:55 +0000</lastBuildDate>
+    <lastBuildDate>Thu, 19 Sep 2024 23:23:12 +0000</lastBuildDate>
     <ttl>60</ttl>
     <item>
       <title>CVE-2023-44378|2024-09-19T13:52:13.521Z -- consensys -- gnark
@@ -17,18 +17,11 @@
       <pubDate>Mon, 09 Oct 2023 13:33:54 +0000</pubDate>
     </item>
     <item>
-      <title>CVE-2024-45040|2024-09-06T13:57:49.796Z -- consensys -- gnark</title>
-      <link>https://www.cve.org/CVERecord?id=CVE-2024-45040</link>
-      <description>gnark is a fast zk-SNARK library that offers a high-level API to design circuits. Prior to version 0.11.0, commitments to private witnesses in Groth16 as implemented break the zero-knowledge property. The vulnerability affects only Groth16 proofs with commitments. Notably, PLONK proofs are not affected. The vulnerability affects the zero-knowledge property of the proofs - in case the witness (secret or internal) values are small, then the attacker may be able to enumerate all possible choices to deduce the actual value. If the possible choices for the variables to be committed is large or there are many values committed, then it would be computationally infeasible to enumerate all valid choices. It doesn't affect the completeness/soundness of the proofs. The vulnerability has been fixed in version 0.11.0. The patch to fix the issue is to add additional randomized value to the list of committed value at proving time to mask the rest of the values which were committed. As a workaround, the user can manually commit to a randomized value.</description>
-      <guid isPermaLink="false">CVE-2024-45040|2024-09-06T13:57:49.796Z</guid>
-      <pubDate>Fri, 06 Sep 2024 12:53:30 +0000</pubDate>
-    </item>
-    <item>
-      <title>CVE-2024-45040|2024-09-06T12:53:30.622Z -- consensys -- gnark</title>
-      <link>https://www.cve.org/CVERecord?id=CVE-2024-45040</link>
-      <description>gnark is a fast zk-SNARK library that offers a high-level API to design circuits. Prior to version 0.11.0, commitments to private witnesses in Groth16 as implemented break the zero-knowledge property. The vulnerability affects only Groth16 proofs with commitments. Notably, PLONK proofs are not affected. The vulnerability affects the zero-knowledge property of the proofs - in case the witness (secret or internal) values are small, then the attacker may be able to enumerate all possible choices to deduce the actual value. If the possible choices for the variables to be committed is large or there are many values committed, then it would be computationally infeasible to enumerate all valid choices. It doesn't affect the completeness/soundness of the proofs. The vulnerability has been fixed in version 0.11.0. The patch to fix the issue is to add additional randomized value to the list of committed value at proving time to mask the rest of the values which were committed. As a workaround, the user can manually commit to a randomized value.</description>
-      <guid isPermaLink="false">CVE-2024-45040|2024-09-06T12:53:30.622Z</guid>
-      <pubDate>Fri, 06 Sep 2024 12:53:30 +0000</pubDate>
+      <title>CVE-2024-45039|2024-09-06T13:59:16.727Z -- consensys -- gnark</title>
+      <link>https://www.cve.org/CVERecord?id=CVE-2024-45039</link>
+      <description>gnark is a fast zk-SNARK library that offers a high-level API to design circuits. Versions prior to 0.11.0 have a soundness issue - in case of multiple commitments used inside the circuit the prover is able to choose all but the last commitment. As gnark uses the commitments for optimized non-native multiplication, lookup checks etc. as random challenges, then it could impact the soundness of the whole circuit. However, using multiple commitments has been discouraged due to the additional cost to the verifier and it has not been supported in the recursive in-circuit Groth16 verifier and Solidity verifier. gnark's maintainers expect the impact of the issue be very small - only for the users who have implemented the native Groth16 verifier or are using it with multiple commitments. We do not have information of such users. The issue has been patched in version 0.11.0. As a workaround, users should follow gnark maintainers' recommendation to use only a single commitment and then derive in-circuit commitments as needed using the `std/multicommit` package.</description>
+      <guid isPermaLink="false">CVE-2024-45039|2024-09-06T13:59:16.727Z</guid>
+      <pubDate>Fri, 06 Sep 2024 12:56:15 +0000</pubDate>
     </item>
     <item>
       <title>CVE-2024-45039|2024-09-06T12:56:15.080Z -- consensys -- gnark</title>
@@ -38,11 +31,18 @@
       <pubDate>Fri, 06 Sep 2024 12:56:15 +0000</pubDate>
     </item>
     <item>
-      <title>CVE-2024-45039|2024-09-06T13:59:16.727Z -- consensys -- gnark</title>
-      <link>https://www.cve.org/CVERecord?id=CVE-2024-45039</link>
-      <description>gnark is a fast zk-SNARK library that offers a high-level API to design circuits. Versions prior to 0.11.0 have a soundness issue - in case of multiple commitments used inside the circuit the prover is able to choose all but the last commitment. As gnark uses the commitments for optimized non-native multiplication, lookup checks etc. as random challenges, then it could impact the soundness of the whole circuit. However, using multiple commitments has been discouraged due to the additional cost to the verifier and it has not been supported in the recursive in-circuit Groth16 verifier and Solidity verifier. gnark's maintainers expect the impact of the issue be very small - only for the users who have implemented the native Groth16 verifier or are using it with multiple commitments. We do not have information of such users. The issue has been patched in version 0.11.0. As a workaround, users should follow gnark maintainers' recommendation to use only a single commitment and then derive in-circuit commitments as needed using the `std/multicommit` package.</description>
-      <guid isPermaLink="false">CVE-2024-45039|2024-09-06T13:59:16.727Z</guid>
-      <pubDate>Fri, 06 Sep 2024 12:56:15 +0000</pubDate>
+      <title>CVE-2024-45040|2024-09-06T12:53:30.622Z -- consensys -- gnark</title>
+      <link>https://www.cve.org/CVERecord?id=CVE-2024-45040</link>
+      <description>gnark is a fast zk-SNARK library that offers a high-level API to design circuits. Prior to version 0.11.0, commitments to private witnesses in Groth16 as implemented break the zero-knowledge property. The vulnerability affects only Groth16 proofs with commitments. Notably, PLONK proofs are not affected. The vulnerability affects the zero-knowledge property of the proofs - in case the witness (secret or internal) values are small, then the attacker may be able to enumerate all possible choices to deduce the actual value. If the possible choices for the variables to be committed is large or there are many values committed, then it would be computationally infeasible to enumerate all valid choices. It doesn't affect the completeness/soundness of the proofs. The vulnerability has been fixed in version 0.11.0. The patch to fix the issue is to add additional randomized value to the list of committed value at proving time to mask the rest of the values which were committed. As a workaround, the user can manually commit to a randomized value.</description>
+      <guid isPermaLink="false">CVE-2024-45040|2024-09-06T12:53:30.622Z</guid>
+      <pubDate>Fri, 06 Sep 2024 12:53:30 +0000</pubDate>
+    </item>
+    <item>
+      <title>CVE-2024-45040|2024-09-06T13:57:49.796Z -- consensys -- gnark</title>
+      <link>https://www.cve.org/CVERecord?id=CVE-2024-45040</link>
+      <description>gnark is a fast zk-SNARK library that offers a high-level API to design circuits. Prior to version 0.11.0, commitments to private witnesses in Groth16 as implemented break the zero-knowledge property. The vulnerability affects only Groth16 proofs with commitments. Notably, PLONK proofs are not affected. The vulnerability affects the zero-knowledge property of the proofs - in case the witness (secret or internal) values are small, then the attacker may be able to enumerate all possible choices to deduce the actual value. If the possible choices for the variables to be committed is large or there are many values committed, then it would be computationally infeasible to enumerate all valid choices. It doesn't affect the completeness/soundness of the proofs. The vulnerability has been fixed in version 0.11.0. The patch to fix the issue is to add additional randomized value to the list of committed value at proving time to mask the rest of the values which were committed. As a workaround, the user can manually commit to a randomized value.</description>
+      <guid isPermaLink="false">CVE-2024-45040|2024-09-06T13:57:49.796Z</guid>
+      <pubDate>Fri, 06 Sep 2024 12:53:30 +0000</pubDate>
     </item>
   </channel>
 </rss>
