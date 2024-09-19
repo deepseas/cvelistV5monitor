@@ -6,42 +6,98 @@
     <description>The latest CVEs for zitadel -- all products</description>
     <docs>http://www.rssboard.org/rss-specification</docs>
     <generator>python-feedgen</generator>
-    <lastBuildDate>Tue, 17 Sep 2024 23:24:10 +0000</lastBuildDate>
+    <lastBuildDate>Thu, 19 Sep 2024 15:23:45 +0000</lastBuildDate>
     <ttl>60</ttl>
     <item>
-      <title>CVE-2023-46238|2024-09-17T14:00:54.887Z -- zitadel -- zitadel
+      <title>CVE-2023-44399|2024-09-19T14:18:10.146Z -- zitadel -- zitadel
 </title>
-      <link>https://www.cve.org/CVERecord?id=CVE-2023-46238</link>
-      <description>ZITADEL is an identity infrastructure management system. ZITADEL users can upload their own avatar image using various image types including SVG. SVG can include scripts, such as javascript, which can be executed during rendering. Due to a missing security header, an attacker could inject code to an SVG to gain access to the victim’s account in certain scenarios. A victim would need to directly open the malicious image in the browser, where a single session in ZITADEL needs to be active for this exploit to work. If the possible victim had multiple or no active sessions in ZITADEL, the attack would not succeed. This issue has been patched in version 2.39.2 and 2.38.2.</description>
-      <guid isPermaLink="false">CVE-2023-46238|2024-09-17T14:00:54.887Z</guid>
-      <pubDate>Thu, 26 Oct 2023 14:22:52 +0000</pubDate>
+      <link>https://www.cve.org/CVERecord?id=CVE-2023-44399</link>
+      <description>ZITADEL provides identity infrastructure. In versions 2.37.2 and prior, ZITADEL administrators can enable a setting called "Ignoring unknown usernames" which helps mitigate attacks that try to guess/enumerate usernames. While this settings was properly working during the authentication process it did not work correctly on the password reset flow. This meant that even if this feature was active that an attacker could use the password reset function to verify if an account exist within ZITADEL. This bug has been patched in versions 2.37.3 and 2.38.0. No known workarounds are available.</description>
+      <guid isPermaLink="false">CVE-2023-44399|2024-09-19T14:18:10.146Z</guid>
+      <pubDate>Tue, 10 Oct 2023 16:55:45 +0000</pubDate>
     </item>
     <item>
-      <title>CVE-2024-29892|2024-08-13T14:07:12.217Z -- zitadel -- zitadel</title>
-      <link>https://www.cve.org/CVERecord?id=CVE-2024-29892</link>
-      <description>ZITADEL, open source authentication management software, uses Go templates to render the login UI. Under certain circumstances an action could set reserved claims managed by ZITADEL. For example it would be possible to set the claim `urn:zitadel:iam:user:resourceowner:name`. To compensate for this we introduced a protection that does prevent actions from changing claims that start with `urn:zitadel:iam`. This vulnerability is fixed in 2.48.3, 2.47.8, 2.46.5, 2.45.5, 2.44.7, 2.43.11, and 2.42.17.</description>
-      <guid isPermaLink="false">CVE-2024-29892|2024-08-13T14:07:12.217Z</guid>
-      <pubDate>Wed, 27 Mar 2024 19:59:24 +0000</pubDate>
-    </item>
-    <item>
-      <title>CVE-2024-32868|2024-08-02T02:20:35.643Z -- zitadel -- zitadel</title>
+      <title>CVE-2024-32868|2024-08-05T16:54:00.249Z -- zitadel -- zitadel</title>
       <link>https://www.cve.org/CVERecord?id=CVE-2024-32868</link>
       <description>ZITADEL provides users the possibility to use Time-based One-Time-Password (TOTP) and One-Time-Password (OTP) through SMS and Email. While ZITADEL already gives administrators the option to define a `Lockout Policy` with a maximum amount of failed password check attempts, there was no such mechanism for (T)OTP checks. This issue has been patched in version 2.50.0.</description>
-      <guid isPermaLink="false">CVE-2024-32868|2024-08-02T02:20:35.643Z</guid>
+      <guid isPermaLink="false">CVE-2024-32868|2024-08-05T16:54:00.249Z</guid>
       <pubDate>Thu, 25 Apr 2024 23:53:37 +0000</pubDate>
     </item>
     <item>
-      <title>CVE-2024-32967|2024-08-02T02:27:53.191Z -- zitadel -- zitadel</title>
-      <link>https://www.cve.org/CVERecord?id=CVE-2024-32967</link>
+      <title>CVE-2024-39683|2024-08-02T04:26:15.915Z -- zitadel -- zitadel</title>
+      <link>https://www.cve.org/CVERecord?id=CVE-2024-39683</link>
+      <description>ZITADEL is an open-source identity infrastructure tool. ZITADEL provides users the ability to list all user sessions of the current user agent (browser). Starting in version 2.53.0 and prior to versions 2.53.8, 2.54.5, and 2.55.1, due to a missing check, user sessions without that information (e.g. when created though the session service) were incorrectly listed exposing potentially other user's sessions. Versions 2.55.1, 2.54.5, and 2.53.8 contain a fix for the issue. There is no workaround since a patch is already available.</description>
+      <guid isPermaLink="false">CVE-2024-39683|2024-08-02T04:26:15.915Z</guid>
+      <pubDate>Wed, 03 Jul 2024 19:20:08 +0000</pubDate>
+    </item>
+    <item>
+      <title>CVE-2024-29891|2024-08-02T01:17:58.325Z -- zitadel -- zitadel</title>
+      <link>https://www.cve.org/CVERecord?id=CVE-2024-29891</link>
+      <description>ZITADEL users can upload their own avatar image and various image types are allowed. Due to a missing check, an attacker could upload HTML and pretend it is an image to gain access to the victim's account in certain scenarios. A possible victim would need to directly open the supposed image in the browser, where a session in ZITADEL needs to be active for this exploit to work. The exploit could only be reproduced if the victim was using Firefox. Chrome, Safari as well as Edge did not execute the code. This vulnerability is fixed in 2.48.3, 2.47.8, 2.46.5, 2.45.5, 2.44.7, 2.43.11, and 2.42.17.</description>
+      <guid isPermaLink="false">CVE-2024-29891|2024-08-02T01:17:58.325Z</guid>
+      <pubDate>Wed, 27 Mar 2024 19:18:08 +0000</pubDate>
+    </item>
+    <item>
+      <title>CVE-2024-29892|2024-08-02T01:17:58.115Z -- zitadel -- zitadel</title>
+      <link>https://www.cve.org/CVERecord?id=CVE-2024-29892</link>
+      <description>ZITADEL, open source authentication management software, uses Go templates to render the login UI. Under certain circumstances an action could set reserved claims managed by ZITADEL. For example it would be possible to set the claim `urn:zitadel:iam:user:resourceowner:name`. To compensate for this we introduced a protection that does prevent actions from changing claims that start with `urn:zitadel:iam`. This vulnerability is fixed in 2.48.3, 2.47.8, 2.46.5, 2.45.5, 2.44.7, 2.43.11, and 2.42.17.</description>
+      <guid isPermaLink="false">CVE-2024-29892|2024-08-02T01:17:58.115Z</guid>
+      <pubDate>Wed, 27 Mar 2024 19:59:24 +0000</pubDate>
+    </item>
+    <item>
+      <title>CVE-2024-41952|2024-07-31T17:36:34.317Z -- zitadel -- zitadel</title>
+      <link>https://www.cve.org/CVERecord?id=CVE-2024-41952</link>
+      <description>Zitadel is an open source identity management system. ZITADEL administrators can enable a setting called "Ignoring unknown usernames" which helps mitigate attacks that try to guess/enumerate usernames. If enabled, ZITADEL will show the password prompt even if the user doesn't exist and report "Username or Password invalid". Due to a implementation change to prevent deadlocks calling the database, the flag would not be correctly respected in all cases and an attacker would gain information if an account exist within ZITADEL, since the error message shows "object not found" instead of the generic error message. This vulnerability is fixed in 2.58.1, 2.57.1, 2.56.2, 2.55.5, 2.54.8, and 2.53.9.</description>
+      <guid isPermaLink="false">CVE-2024-41952|2024-07-31T17:36:34.317Z</guid>
+      <pubDate>Wed, 31 Jul 2024 16:30:22 +0000</pubDate>
+    </item>
+    <item>
+      <title>CVE-2024-39683|2024-07-08T16:54:43.254Z -- zitadel -- zitadel</title>
+      <link>https://www.cve.org/CVERecord?id=CVE-2024-39683</link>
+      <description>ZITADEL is an open-source identity infrastructure tool. ZITADEL provides users the ability to list all user sessions of the current user agent (browser). Starting in version 2.53.0 and prior to versions 2.53.8, 2.54.5, and 2.55.1, due to a missing check, user sessions without that information (e.g. when created though the session service) were incorrectly listed exposing potentially other user's sessions. Versions 2.55.1, 2.54.5, and 2.53.8 contain a fix for the issue. There is no workaround since a patch is already available.</description>
+      <guid isPermaLink="false">CVE-2024-39683|2024-07-08T16:54:43.254Z</guid>
+      <pubDate>Wed, 03 Jul 2024 19:20:08 +0000</pubDate>
+    </item>
+    <item>
+      <title>CVE-2024-29891|2024-06-04T17:57:38.082Z -- zitadel -- zitadel</title>
+      <link>https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2024-29891</link>
+      <description>ZITADEL users can upload their own avatar image and various image types are allowed. Due to a missing check, an attacker could upload HTML and pretend it is an image to gain access to the victim's account in certain scenarios. A possible victim would need to directly open the supposed image in the browser, where a session in ZITADEL needs to be active for this exploit to work. The exploit could only be reproduced if the victim was using Firefox. Chrome, Safari as well as Edge did not execute the code. This vulnerability is fixed in 2.48.3, 2.47.8, 2.46.5, 2.45.5, 2.44.7, 2.43.11, and 2.42.17.</description>
+      <guid isPermaLink="false">CVE-2024-29891|2024-06-04T17:57:38.082Z</guid>
+      <pubDate>Wed, 27 Mar 2024 19:18:08 +0000</pubDate>
+    </item>
+    <item>
+      <title>CVE-2024-29892|2024-03-27T19:59:24.734Z -- zitadel -- zitadel</title>
+      <link>https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2024-29892</link>
+      <description>ZITADEL, open source authentication management software, uses Go templates to render the login UI. Under certain circumstances an action could set reserved claims managed by ZITADEL. For example it would be possible to set the claim `urn:zitadel:iam:user:resourceowner:name`. To compensate for this we introduced a protection that does prevent actions from changing claims that start with `urn:zitadel:iam`. This vulnerability is fixed in 2.48.3, 2.47.8, 2.46.5, 2.45.5, 2.44.7, 2.43.11, and 2.42.17.</description>
+      <guid isPermaLink="false">CVE-2024-29892|2024-03-27T19:59:24.734Z</guid>
+      <pubDate>Wed, 27 Mar 2024 19:59:24 +0000</pubDate>
+    </item>
+    <item>
+      <title>CVE-2024-32868|2024-04-25T23:53:37.235Z -- zitadel -- zitadel</title>
+      <link>https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2024-32868</link>
+      <description>ZITADEL provides users the possibility to use Time-based One-Time-Password (TOTP) and One-Time-Password (OTP) through SMS and Email. While ZITADEL already gives administrators the option to define a `Lockout Policy` with a maximum amount of failed password check attempts, there was no such mechanism for (T)OTP checks. This issue has been patched in version 2.50.0.</description>
+      <guid isPermaLink="false">CVE-2024-32868|2024-04-25T23:53:37.235Z</guid>
+      <pubDate>Thu, 25 Apr 2024 23:53:37 +0000</pubDate>
+    </item>
+    <item>
+      <title>CVE-2024-32967|2024-06-06T17:39:20.788Z -- zitadel -- zitadel</title>
+      <link>https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2024-32967</link>
       <description>Zitadel is an open source identity management system. In case ZITADEL could not connect to the database, connection information including db name, username and db host name could be returned to the user. This has been addressed in all supported release branches in a point release. There is no workaround since a patch is already available. Users are advised to upgrade.</description>
-      <guid isPermaLink="false">CVE-2024-32967|2024-08-02T02:27:53.191Z</guid>
+      <guid isPermaLink="false">CVE-2024-32967|2024-06-06T17:39:20.788Z</guid>
       <pubDate>Wed, 01 May 2024 06:43:36 +0000</pubDate>
     </item>
     <item>
-      <title>CVE-2024-41953|2024-08-01T13:48:32.705Z -- zitadel -- zitadel</title>
+      <title>CVE-2024-39683|2024-07-03T19:20:08.880Z -- zitadel -- zitadel</title>
+      <link>https://www.cve.org/CVERecord?id=CVE-2024-39683</link>
+      <description>ZITADEL is an open-source identity infrastructure tool. ZITADEL provides users the ability to list all user sessions of the current user agent (browser). Starting in version 2.53.0 and prior to versions 2.53.8, 2.54.5, and 2.55.1, due to a missing check, user sessions without that information (e.g. when created though the session service) were incorrectly listed exposing potentially other user's sessions. Versions 2.55.1, 2.54.5, and 2.53.8 contain a fix for the issue. There is no workaround since a patch is already available.</description>
+      <guid isPermaLink="false">CVE-2024-39683|2024-07-03T19:20:08.880Z</guid>
+      <pubDate>Wed, 03 Jul 2024 19:20:08 +0000</pubDate>
+    </item>
+    <item>
+      <title>CVE-2024-41953|2024-07-31T16:42:33.125Z -- zitadel -- zitadel</title>
       <link>https://www.cve.org/CVERecord?id=CVE-2024-41953</link>
       <description>Zitadel is an open source identity management system. ZITADEL uses HTML for emails and renders certain information such as usernames dynamically. That information can be entered by users or administrators. Due to a missing output sanitization, these emails could include malicious code. This may potentially lead to a threat where an attacker, without privileges, could send out altered notifications that are part of the registration processes. An attacker could create a malicious link, where the injected code would be rendered as part of the email. On the user's detail page, the username was also not sanitized and would also render HTML, giving an attacker the same vulnerability. While it was possible to inject HTML including javascript, the execution of such scripts would be prevented by most email clients and the Content Security Policy in Console UI. This vulnerability is fixed in 2.58.1, 2.57.1, 2.56.2, 2.55.5, 2.54.8 2.53.9, and 2.52.3.</description>
-      <guid isPermaLink="false">CVE-2024-41953|2024-08-01T13:48:32.705Z</guid>
+      <guid isPermaLink="false">CVE-2024-41953|2024-07-31T16:42:33.125Z</guid>
       <pubDate>Wed, 31 Jul 2024 16:42:33 +0000</pubDate>
     </item>
     <item>
@@ -52,88 +108,32 @@
       <pubDate>Wed, 31 Jul 2024 16:30:22 +0000</pubDate>
     </item>
     <item>
-      <title>CVE-2024-41953|2024-07-31T16:42:33.125Z -- zitadel -- zitadel</title>
+      <title>CVE-2024-41953|2024-08-01T13:48:32.705Z -- zitadel -- zitadel</title>
       <link>https://www.cve.org/CVERecord?id=CVE-2024-41953</link>
       <description>Zitadel is an open source identity management system. ZITADEL uses HTML for emails and renders certain information such as usernames dynamically. That information can be entered by users or administrators. Due to a missing output sanitization, these emails could include malicious code. This may potentially lead to a threat where an attacker, without privileges, could send out altered notifications that are part of the registration processes. An attacker could create a malicious link, where the injected code would be rendered as part of the email. On the user's detail page, the username was also not sanitized and would also render HTML, giving an attacker the same vulnerability. While it was possible to inject HTML including javascript, the execution of such scripts would be prevented by most email clients and the Content Security Policy in Console UI. This vulnerability is fixed in 2.58.1, 2.57.1, 2.56.2, 2.55.5, 2.54.8 2.53.9, and 2.52.3.</description>
-      <guid isPermaLink="false">CVE-2024-41953|2024-07-31T16:42:33.125Z</guid>
+      <guid isPermaLink="false">CVE-2024-41953|2024-08-01T13:48:32.705Z</guid>
       <pubDate>Wed, 31 Jul 2024 16:42:33 +0000</pubDate>
     </item>
     <item>
-      <title>CVE-2024-39683|2024-07-03T19:20:08.880Z -- zitadel -- zitadel</title>
-      <link>https://www.cve.org/CVERecord?id=CVE-2024-39683</link>
-      <description>ZITADEL is an open-source identity infrastructure tool. ZITADEL provides users the ability to list all user sessions of the current user agent (browser). Starting in version 2.53.0 and prior to versions 2.53.8, 2.54.5, and 2.55.1, due to a missing check, user sessions without that information (e.g. when created though the session service) were incorrectly listed exposing potentially other user's sessions. Versions 2.55.1, 2.54.5, and 2.53.8 contain a fix for the issue. There is no workaround since a patch is already available.</description>
-      <guid isPermaLink="false">CVE-2024-39683|2024-07-03T19:20:08.880Z</guid>
-      <pubDate>Wed, 03 Jul 2024 19:20:08 +0000</pubDate>
-    </item>
-    <item>
-      <title>CVE-2024-32967|2024-06-06T17:39:20.788Z -- zitadel -- zitadel</title>
-      <link>https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2024-32967</link>
+      <title>CVE-2024-32967|2024-08-02T02:27:53.191Z -- zitadel -- zitadel</title>
+      <link>https://www.cve.org/CVERecord?id=CVE-2024-32967</link>
       <description>Zitadel is an open source identity management system. In case ZITADEL could not connect to the database, connection information including db name, username and db host name could be returned to the user. This has been addressed in all supported release branches in a point release. There is no workaround since a patch is already available. Users are advised to upgrade.</description>
-      <guid isPermaLink="false">CVE-2024-32967|2024-06-06T17:39:20.788Z</guid>
+      <guid isPermaLink="false">CVE-2024-32967|2024-08-02T02:27:53.191Z</guid>
       <pubDate>Wed, 01 May 2024 06:43:36 +0000</pubDate>
     </item>
     <item>
-      <title>CVE-2024-32868|2024-04-25T23:53:37.235Z -- zitadel -- zitadel</title>
-      <link>https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2024-32868</link>
-      <description>ZITADEL provides users the possibility to use Time-based One-Time-Password (TOTP) and One-Time-Password (OTP) through SMS and Email. While ZITADEL already gives administrators the option to define a `Lockout Policy` with a maximum amount of failed password check attempts, there was no such mechanism for (T)OTP checks. This issue has been patched in version 2.50.0.</description>
-      <guid isPermaLink="false">CVE-2024-32868|2024-04-25T23:53:37.235Z</guid>
-      <pubDate>Thu, 25 Apr 2024 23:53:37 +0000</pubDate>
-    </item>
-    <item>
-      <title>CVE-2024-29892|2024-03-27T19:59:24.734Z -- zitadel -- zitadel</title>
-      <link>https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2024-29892</link>
-      <description>ZITADEL, open source authentication management software, uses Go templates to render the login UI. Under certain circumstances an action could set reserved claims managed by ZITADEL. For example it would be possible to set the claim `urn:zitadel:iam:user:resourceowner:name`. To compensate for this we introduced a protection that does prevent actions from changing claims that start with `urn:zitadel:iam`. This vulnerability is fixed in 2.48.3, 2.47.8, 2.46.5, 2.45.5, 2.44.7, 2.43.11, and 2.42.17.</description>
-      <guid isPermaLink="false">CVE-2024-29892|2024-03-27T19:59:24.734Z</guid>
-      <pubDate>Wed, 27 Mar 2024 19:59:24 +0000</pubDate>
-    </item>
-    <item>
-      <title>CVE-2024-29891|2024-06-04T17:57:38.082Z -- zitadel -- zitadel</title>
-      <link>https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2024-29891</link>
-      <description>ZITADEL users can upload their own avatar image and various image types are allowed. Due to a missing check, an attacker could upload HTML and pretend it is an image to gain access to the victim's account in certain scenarios. A possible victim would need to directly open the supposed image in the browser, where a session in ZITADEL needs to be active for this exploit to work. The exploit could only be reproduced if the victim was using Firefox. Chrome, Safari as well as Edge did not execute the code. This vulnerability is fixed in 2.48.3, 2.47.8, 2.46.5, 2.45.5, 2.44.7, 2.43.11, and 2.42.17.</description>
-      <guid isPermaLink="false">CVE-2024-29891|2024-06-04T17:57:38.082Z</guid>
-      <pubDate>Wed, 27 Mar 2024 19:18:08 +0000</pubDate>
-    </item>
-    <item>
-      <title>CVE-2024-39683|2024-07-08T16:54:43.254Z -- zitadel -- zitadel</title>
-      <link>https://www.cve.org/CVERecord?id=CVE-2024-39683</link>
-      <description>ZITADEL is an open-source identity infrastructure tool. ZITADEL provides users the ability to list all user sessions of the current user agent (browser). Starting in version 2.53.0 and prior to versions 2.53.8, 2.54.5, and 2.55.1, due to a missing check, user sessions without that information (e.g. when created though the session service) were incorrectly listed exposing potentially other user's sessions. Versions 2.55.1, 2.54.5, and 2.53.8 contain a fix for the issue. There is no workaround since a patch is already available.</description>
-      <guid isPermaLink="false">CVE-2024-39683|2024-07-08T16:54:43.254Z</guid>
-      <pubDate>Wed, 03 Jul 2024 19:20:08 +0000</pubDate>
-    </item>
-    <item>
-      <title>CVE-2024-41952|2024-07-31T17:36:34.317Z -- zitadel -- zitadel</title>
-      <link>https://www.cve.org/CVERecord?id=CVE-2024-41952</link>
-      <description>Zitadel is an open source identity management system. ZITADEL administrators can enable a setting called "Ignoring unknown usernames" which helps mitigate attacks that try to guess/enumerate usernames. If enabled, ZITADEL will show the password prompt even if the user doesn't exist and report "Username or Password invalid". Due to a implementation change to prevent deadlocks calling the database, the flag would not be correctly respected in all cases and an attacker would gain information if an account exist within ZITADEL, since the error message shows "object not found" instead of the generic error message. This vulnerability is fixed in 2.58.1, 2.57.1, 2.56.2, 2.55.5, 2.54.8, and 2.53.9.</description>
-      <guid isPermaLink="false">CVE-2024-41952|2024-07-31T17:36:34.317Z</guid>
-      <pubDate>Wed, 31 Jul 2024 16:30:22 +0000</pubDate>
-    </item>
-    <item>
-      <title>CVE-2024-29892|2024-08-02T01:17:58.115Z -- zitadel -- zitadel</title>
-      <link>https://www.cve.org/CVERecord?id=CVE-2024-29892</link>
-      <description>ZITADEL, open source authentication management software, uses Go templates to render the login UI. Under certain circumstances an action could set reserved claims managed by ZITADEL. For example it would be possible to set the claim `urn:zitadel:iam:user:resourceowner:name`. To compensate for this we introduced a protection that does prevent actions from changing claims that start with `urn:zitadel:iam`. This vulnerability is fixed in 2.48.3, 2.47.8, 2.46.5, 2.45.5, 2.44.7, 2.43.11, and 2.42.17.</description>
-      <guid isPermaLink="false">CVE-2024-29892|2024-08-02T01:17:58.115Z</guid>
-      <pubDate>Wed, 27 Mar 2024 19:59:24 +0000</pubDate>
-    </item>
-    <item>
-      <title>CVE-2024-29891|2024-08-02T01:17:58.325Z -- zitadel -- zitadel</title>
-      <link>https://www.cve.org/CVERecord?id=CVE-2024-29891</link>
-      <description>ZITADEL users can upload their own avatar image and various image types are allowed. Due to a missing check, an attacker could upload HTML and pretend it is an image to gain access to the victim's account in certain scenarios. A possible victim would need to directly open the supposed image in the browser, where a session in ZITADEL needs to be active for this exploit to work. The exploit could only be reproduced if the victim was using Firefox. Chrome, Safari as well as Edge did not execute the code. This vulnerability is fixed in 2.48.3, 2.47.8, 2.46.5, 2.45.5, 2.44.7, 2.43.11, and 2.42.17.</description>
-      <guid isPermaLink="false">CVE-2024-29891|2024-08-02T01:17:58.325Z</guid>
-      <pubDate>Wed, 27 Mar 2024 19:18:08 +0000</pubDate>
-    </item>
-    <item>
-      <title>CVE-2024-39683|2024-08-02T04:26:15.915Z -- zitadel -- zitadel</title>
-      <link>https://www.cve.org/CVERecord?id=CVE-2024-39683</link>
-      <description>ZITADEL is an open-source identity infrastructure tool. ZITADEL provides users the ability to list all user sessions of the current user agent (browser). Starting in version 2.53.0 and prior to versions 2.53.8, 2.54.5, and 2.55.1, due to a missing check, user sessions without that information (e.g. when created though the session service) were incorrectly listed exposing potentially other user's sessions. Versions 2.55.1, 2.54.5, and 2.53.8 contain a fix for the issue. There is no workaround since a patch is already available.</description>
-      <guid isPermaLink="false">CVE-2024-39683|2024-08-02T04:26:15.915Z</guid>
-      <pubDate>Wed, 03 Jul 2024 19:20:08 +0000</pubDate>
-    </item>
-    <item>
-      <title>CVE-2024-32868|2024-08-05T16:54:00.249Z -- zitadel -- zitadel</title>
+      <title>CVE-2024-32868|2024-08-02T02:20:35.643Z -- zitadel -- zitadel</title>
       <link>https://www.cve.org/CVERecord?id=CVE-2024-32868</link>
       <description>ZITADEL provides users the possibility to use Time-based One-Time-Password (TOTP) and One-Time-Password (OTP) through SMS and Email. While ZITADEL already gives administrators the option to define a `Lockout Policy` with a maximum amount of failed password check attempts, there was no such mechanism for (T)OTP checks. This issue has been patched in version 2.50.0.</description>
-      <guid isPermaLink="false">CVE-2024-32868|2024-08-05T16:54:00.249Z</guid>
+      <guid isPermaLink="false">CVE-2024-32868|2024-08-02T02:20:35.643Z</guid>
       <pubDate>Thu, 25 Apr 2024 23:53:37 +0000</pubDate>
+    </item>
+    <item>
+      <title>CVE-2024-29892|2024-08-13T14:07:12.217Z -- zitadel -- zitadel</title>
+      <link>https://www.cve.org/CVERecord?id=CVE-2024-29892</link>
+      <description>ZITADEL, open source authentication management software, uses Go templates to render the login UI. Under certain circumstances an action could set reserved claims managed by ZITADEL. For example it would be possible to set the claim `urn:zitadel:iam:user:resourceowner:name`. To compensate for this we introduced a protection that does prevent actions from changing claims that start with `urn:zitadel:iam`. This vulnerability is fixed in 2.48.3, 2.47.8, 2.46.5, 2.45.5, 2.44.7, 2.43.11, and 2.42.17.</description>
+      <guid isPermaLink="false">CVE-2024-29892|2024-08-13T14:07:12.217Z</guid>
+      <pubDate>Wed, 27 Mar 2024 19:59:24 +0000</pubDate>
     </item>
   </channel>
 </rss>
