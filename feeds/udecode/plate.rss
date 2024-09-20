@@ -6,21 +6,21 @@
     <description>The latest CVEs for udecode -- plate</description>
     <docs>http://www.rssboard.org/rss-specification</docs>
     <generator>python-feedgen</generator>
-    <lastBuildDate>Fri, 02 Aug 2024 23:22:17 +0000</lastBuildDate>
+    <lastBuildDate>Fri, 20 Sep 2024 20:23:52 +0000</lastBuildDate>
     <ttl>60</ttl>
     <item>
-      <title>CVE-2023-34245|2024-08-02T16:01:54.346Z -- udecode -- plate
+      <title>CVE-2024-47061|2024-09-20T19:16:07.245Z -- udecode -- plate
 </title>
-      <link>https://www.cve.org/CVERecord?id=CVE-2023-34245</link>
-      <description>@udecode/plate-link is the link handler for the udecode/plate rich-text editor plugin system for Slate &amp; React. Affected versions of the link plugin and link UI component do not sanitize URLs to prevent use of the `javascript:` scheme. As a result, links with JavaScript URLs can be inserted into the Plate editor through various means, including opening or pasting malicious content. `@udecode/plate-link` 20.0.0 resolves this issue by introducing an `allowedSchemes` option to the link plugin, defaulting to `['http', 'https', 'mailto', 'tel']`. URLs using a scheme that isn't in this list will not be rendered to the DOM. Users are advised to upgrade. Users unable to upgrade are advised to override the `LinkElement` and `PlateFloatingLink` components with implementations that explicitly check the URL scheme before rendering any anchor elements.</description>
-      <guid isPermaLink="false">CVE-2023-34245|2024-08-02T16:01:54.346Z</guid>
-      <pubDate>Fri, 09 Jun 2023 17:04:23 +0000</pubDate>
+      <link>https://www.cve.org/CVERecord?id=CVE-2024-47061</link>
+      <description>Plate is a javascript toolkit that makes it easier for you to develop with Slate, a popular framework for building text editors. One longstanding feature of Plate is the ability to add custom DOM attributes to any element or leaf using the `attributes` property. These attributes are passed to the node component using the `nodeProps` prop. It has come to our attention that this feature can be used for malicious purposes, including cross-site scripting (XSS) and information exposure (specifically, users' IP addresses and whether or not they have opened a malicious document). Note that the risk of information exposure via attributes is only relevant to applications in which web requests to arbitrary URLs are not ordinarily allowed. Plate editors that allow users to embed images from arbitrary URLs, for example, already carry the risk of leaking users' IP addresses to third parties. All Plate editors using an affected version of @udecode/plate-core are vulnerable to these information exposure attacks via the style attribute and other attributes that can cause web requests to be sent. In addition, whether or not a Plate editor is vulnerable to cross-site scripting attacks using attributes depends on a number of factors. The most likely DOM attributes to be vulnerable are href and src on links and iframes respectively. Any component that spreads {...nodeProps} onto an &lt;a&gt; or &lt;iframe&gt; element and does not later override href or src will be vulnerable to XSS. In patched versions of Plate, we have disabled element.attributes and leaf.attributes for most attribute names by default, with some exceptions including target, alt, width, height, colspan and rowspan on the link, image, video, table cell and table header cell plugins. If this is a breaking change for you, you can selectively re-enable attributes for certain plugins as follows. Please carefully research and assess the security implications of any attribute you allow, as even seemingly innocuous attributes such as style can be used maliciously. If you are unable to upgrade to any of the patched versions, you should use a tool like patch-package or yarn patch to remove the logic from @udecode/plate-core that adds attributes to nodeProps.</description>
+      <guid isPermaLink="false">CVE-2024-47061|2024-09-20T19:16:07.245Z</guid>
+      <pubDate>Fri, 20 Sep 2024 19:04:01 +0000</pubDate>
     </item>
     <item>
-      <title>CVE-2024-40631|2024-08-02T04:33:11.891Z -- udecode -- plate</title>
+      <title>CVE-2024-40631|2024-07-19T19:49:42.360Z -- udecode -- plate</title>
       <link>https://www.cve.org/CVERecord?id=CVE-2024-40631</link>
       <description>Plate media is an open source, rich-text editor for React. Editors that use `MediaEmbedElement` and pass custom `urlParsers` to the `useMediaState` hook may be vulnerable to XSS if a custom parser allows `javascript:`, `data:` or `vbscript:` URLs to be embedded. Editors that do not use `urlParsers` and consume the `url` property directly may also be vulnerable if the URL is not sanitised. The default parsers `parseTwitterUrl` and `parseVideoUrl` are not affected. `@udecode/plate-media` 36.0.10 resolves this issue by only allowing HTTP and HTTPS URLs during parsing. This affects only the `embed` property returned from `useMediaState`. In addition, the `url` property returned from `useMediaState` has been renamed to `unsafeUrl` to indicate that it has not been sanitised. The `url` property on `element` is also unsafe, but has not been renamed. If you're using either of these properties directly, you will still need to validate the URL yourself. Users are advised to upgrade. Users unable to upgrade should ensure that any custom `urlParsers` do not allow `javascript:`, `data:` or `vbscript:` URLs to be returned in the `url` property of their return values. If `url` is consumed directly, validate the URL protocol before passing it to the `iframe` element.</description>
-      <guid isPermaLink="false">CVE-2024-40631|2024-08-02T04:33:11.891Z</guid>
+      <guid isPermaLink="false">CVE-2024-40631|2024-07-19T19:49:42.360Z</guid>
       <pubDate>Mon, 15 Jul 2024 18:21:16 +0000</pubDate>
     </item>
     <item>
@@ -31,10 +31,10 @@
       <pubDate>Mon, 15 Jul 2024 18:21:16 +0000</pubDate>
     </item>
     <item>
-      <title>CVE-2024-40631|2024-07-19T19:49:42.360Z -- udecode -- plate</title>
+      <title>CVE-2024-40631|2024-08-02T04:33:11.891Z -- udecode -- plate</title>
       <link>https://www.cve.org/CVERecord?id=CVE-2024-40631</link>
       <description>Plate media is an open source, rich-text editor for React. Editors that use `MediaEmbedElement` and pass custom `urlParsers` to the `useMediaState` hook may be vulnerable to XSS if a custom parser allows `javascript:`, `data:` or `vbscript:` URLs to be embedded. Editors that do not use `urlParsers` and consume the `url` property directly may also be vulnerable if the URL is not sanitised. The default parsers `parseTwitterUrl` and `parseVideoUrl` are not affected. `@udecode/plate-media` 36.0.10 resolves this issue by only allowing HTTP and HTTPS URLs during parsing. This affects only the `embed` property returned from `useMediaState`. In addition, the `url` property returned from `useMediaState` has been renamed to `unsafeUrl` to indicate that it has not been sanitised. The `url` property on `element` is also unsafe, but has not been renamed. If you're using either of these properties directly, you will still need to validate the URL yourself. Users are advised to upgrade. Users unable to upgrade should ensure that any custom `urlParsers` do not allow `javascript:`, `data:` or `vbscript:` URLs to be returned in the `url` property of their return values. If `url` is consumed directly, validate the URL protocol before passing it to the `iframe` element.</description>
-      <guid isPermaLink="false">CVE-2024-40631|2024-07-19T19:49:42.360Z</guid>
+      <guid isPermaLink="false">CVE-2024-40631|2024-08-02T04:33:11.891Z</guid>
       <pubDate>Mon, 15 Jul 2024 18:21:16 +0000</pubDate>
     </item>
   </channel>
