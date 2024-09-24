@@ -6,7 +6,7 @@
     <description>The latest CVEs for  LF-Edge, Zededa -- all products</description>
     <docs>http://www.rssboard.org/rss-specification</docs>
     <generator>python-feedgen</generator>
-    <lastBuildDate>Tue, 24 Sep 2024 18:24:51 +0000</lastBuildDate>
+    <lastBuildDate>Tue, 24 Sep 2024 19:19:52 +0000</lastBuildDate>
     <ttl>60</ttl>
     <item>
       <title>CVE-2023-43633|2024-09-24T17:00:40.426Z -- lf-edge%2C%20zededa -- eve%20os
@@ -85,6 +85,58 @@ Roll an update that enforces the full 32bytes key usage.
 </description>
       <guid isPermaLink="false">CVE-2023-43637|2024-09-24T17:48:30.086Z</guid>
       <pubDate>Thu, 21 Sep 2023 13:20:05 +0000</pubDate>
+    </item>
+    <item>
+      <title>CVE-2023-43636|2024-09-24T18:32:54.341Z -- lf-edge%2C%20zededa -- eve%20os
+</title>
+      <link>https://www.cve.org/CVERecord?id=CVE-2023-43636</link>
+      <description>
+
+
+In EVE OS, the “measured boot” mechanism prevents a compromised device from accessing
+the encrypted data located in the vault.
+
+As per the “measured boot” design, the PCR values calculated at different stages of the boot
+process will change if any of their respective parts are changed.
+
+This includes, among other things, the configuration of the bios, grub, the kernel cmdline,
+initrd, and more.
+
+However, this mechanism does not validate the entire rootfs, so an attacker can edit the
+filesystem and gain control over the system.
+
+As the default filesystem used by EVE OS is squashfs, this is somewhat harder than an ext4,
+which is easily changeable.
+
+This will not stop an attacker, as an attacker can repackage the squashfs with their changes
+in it and replace the partition altogether.
+
+This can also be done directly on the device, as the “003-storage-init” container contains the
+“mksquashfs” and “unsquashfs” binaries (with the corresponding libs).
+
+
+
+
+
+
+
+An attacker can gain full control over the device without changing the PCR values, thus not
+triggering the “measured boot” mechanism, and having full access to the vault.
+
+
+
+Note:
+
+This issue was partially fixed in these commits (after disclosure to Zededa), where the config
+partition measurement was added to PCR13:
+
+• aa3501d6c57206ced222c33aea15a9169d629141
+
+• 5fef4d92e75838cc78010edaed5247dfbdae1889.
+
+This issue was made viable in version 9.0.0 when the calculation was moved to PCR14 but it was not included in the measured boot.</description>
+      <guid isPermaLink="false">CVE-2023-43636|2024-09-24T18:32:54.341Z</guid>
+      <pubDate>Wed, 20 Sep 2023 14:50:17 +0000</pubDate>
     </item>
     <item>
       <title>CVE-2023-43634|2024-09-24T16:54:58.431Z -- lf-edge%2C%20zededa -- eve%20os
@@ -192,6 +244,39 @@ partition measurement was added to PCR13:
 This issue was made viable in version 9.0.0 when the calculation was moved to PCR14 but it was not included in the measured boot.</description>
       <guid isPermaLink="false">CVE-2023-43631|2024-09-24T17:41:19.204Z</guid>
       <pubDate>Thu, 21 Sep 2023 13:17:00 +0000</pubDate>
+    </item>
+    <item>
+      <title>CVE-2023-43630|2024-09-24T18:34:19.821Z -- lf-edge%2C%20zededa -- eve%20os
+</title>
+      <link>https://www.cve.org/CVERecord?id=CVE-2023-43630</link>
+      <description>PCR14 is not in the list of PCRs that seal/unseal the “vault” key, but
+due to the change that was implemented in commit
+“7638364bc0acf8b5c481b5ce5fea11ad44ad7fd4”, fixing this issue alone would not solve the
+problem of the config partition not being measured correctly.
+
+Also, the “vault” key is sealed/unsealed with SHA1 PCRs instead of
+SHA256. 
+This issue was somewhat mitigated due to all of the PCR extend functions
+updating both the values of SHA256 and SHA1 for a given PCR ID.
+
+However, due to the change that was implemented in commit
+“7638364bc0acf8b5c481b5ce5fea11ad44ad7fd4”, this is no longer the case for PCR14, as
+the code in “measurefs.go” explicitly updates only the SHA256 instance of PCR14, which
+means that even if PCR14 were to be added to the list of PCRs sealing/unsealing the “vault”
+key, changes to the config partition would still not be measured.
+
+
+
+An attacker could modify the config partition without triggering the measured boot, this could
+result in the attacker gaining full control over the device with full access to the contents of the
+encrypted “vault” 
+
+
+
+
+</description>
+      <guid isPermaLink="false">CVE-2023-43630|2024-09-24T18:34:19.821Z</guid>
+      <pubDate>Wed, 20 Sep 2023 14:37:44 +0000</pubDate>
     </item>
   </channel>
 </rss>
