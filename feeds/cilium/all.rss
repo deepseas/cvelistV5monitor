@@ -6,61 +6,22 @@
     <description>The latest CVEs for cilium -- all products</description>
     <docs>http://www.rssboard.org/rss-specification</docs>
     <generator>python-feedgen</generator>
-    <lastBuildDate>Mon, 23 Sep 2024 23:22:58 +0000</lastBuildDate>
+    <lastBuildDate>Tue, 24 Sep 2024 14:23:03 +0000</lastBuildDate>
     <ttl>60</ttl>
     <item>
-      <title>CVE-2023-41332|2024-09-23T20:30:43.084Z -- cilium -- cilium
+      <title>CVE-2023-39347|2024-09-24T13:45:29.423Z -- cilium -- cilium
 </title>
-      <link>https://www.cve.org/CVERecord?id=CVE-2023-41332</link>
-      <description>Cilium is a networking, observability, and security solution with an eBPF-based dataplane. In Cilium clusters where Cilium's Layer 7 proxy has been disabled, creating workloads with `policy.cilium.io/proxy-visibility` annotations (in Cilium &gt;= v1.13) or `io.cilium.proxy-visibility` annotations (in Cilium &lt;= v1.12) causes the Cilium agent to segfault on the node to which the workload is assigned. Existing traffic on the affected node will continue to flow, but the Cilium agent on the node will not able to process changes to workloads running on the node. This will also prevent workloads from being able to start on the affected node. The denial of service will be limited to the node on which the workload is scheduled, however an attacker may be able to schedule workloads on the node of their choosing, which could lead to targeted attacks. This issue has been resolved in Cilium versions 1.14.2, 1.13.7, and 1.12.14. Users unable to upgrade can avoid this denial of service attack by enabling the Layer 7 proxy.
-
-</description>
-      <guid isPermaLink="false">CVE-2023-41332|2024-09-23T20:30:43.084Z</guid>
-      <pubDate>Tue, 26 Sep 2023 20:27:41 +0000</pubDate>
+      <link>https://www.cve.org/CVERecord?id=CVE-2023-39347</link>
+      <description>Cilium is a networking, observability, and security solution with an eBPF-based dataplane. An attacker with the ability to update pod labels can cause Cilium to apply incorrect network policies. This issue arises due to the fact that on pod update, Cilium incorrectly uses user-provided pod labels to select the policies which apply to the workload in question. This can affect Cilium network policies that use the namespace, service account or cluster constructs to restrict traffic, Cilium clusterwide network policies that use Cilium namespace labels to select the Pod and Kubernetes network policies. Non-existent construct names can be provided, which bypass all network policies applicable to the construct. For example, providing a pod with a non-existent namespace as the value of the `io.kubernetes.pod.namespace` label results in none of the namespaced CiliumNetworkPolicies applying to the pod in question. This attack requires the attacker to have Kubernetes API Server access, as described in the Cilium Threat Model. This issue has been resolved in: Cilium versions 1.14.2, 1.13.7, and 1.12.14. Users are advised to upgrade. As a workaround an admission webhook can be used to prevent pod label updates to the `k8s:io.kubernetes.pod.namespace` and `io.cilium.k8s.policy.*` keys.</description>
+      <guid isPermaLink="false">CVE-2023-39347|2024-09-24T13:45:29.423Z</guid>
+      <pubDate>Tue, 26 Sep 2023 18:30:00 +0000</pubDate>
     </item>
     <item>
-      <title>CVE-2023-41333|2024-09-23T20:32:01.851Z -- cilium -- cilium
-</title>
-      <link>https://www.cve.org/CVERecord?id=CVE-2023-41333</link>
-      <description>Cilium is a networking, observability, and security solution with an eBPF-based dataplane. An attacker with the ability to create or modify CiliumNetworkPolicy objects in a particular namespace is able to affect traffic on an entire Cilium cluster, potentially bypassing policy enforcement in other namespaces. By using a crafted `endpointSelector` that uses the `DoesNotExist` operator on the `reserved:init` label, the attacker can create policies that bypass namespace restrictions and affect the entire Cilium cluster. This includes potentially allowing or denying all traffic. This attack requires API server access, as described in the Kubernetes API Server Attacker section of the Cilium Threat Model. This issue has been resolved in Cilium versions 1.14.2, 1.13.7, and 1.12.14. As a workaround an admission webhook can be used to prevent the use of `endpointSelectors` that use the `DoesNotExist` operator on the `reserved:init` label in CiliumNetworkPolicies.
-</description>
-      <guid isPermaLink="false">CVE-2023-41333|2024-09-23T20:32:01.851Z</guid>
-      <pubDate>Tue, 26 Sep 2023 20:19:34 +0000</pubDate>
-    </item>
-    <item>
-      <title>CVE-2024-42488|2024-08-19T19:23:37.503Z -- cilium -- cilium</title>
-      <link>https://www.cve.org/CVERecord?id=CVE-2024-42488</link>
-      <description>Cilium is a networking, observability, and security solution with an eBPF-based dataplane. Prior to versions 1.14.14 and 1.15.8, a race condition in the Cilium agent can cause the agent to ignore labels that should be applied to a node. This could in turn cause CiliumClusterwideNetworkPolicies intended for nodes with the ignored label to not apply, leading to policy bypass. This issue has been patched in Cilium v1.14.14 and v1.15.8 As the underlying issue depends on a race condition, users unable to upgrade can restart the Cilium agent on affected nodes until the affected policies are confirmed to be working as expected.</description>
-      <guid isPermaLink="false">CVE-2024-42488|2024-08-19T19:23:37.503Z</guid>
-      <pubDate>Thu, 15 Aug 2024 20:36:29 +0000</pubDate>
-    </item>
-    <item>
-      <title>CVE-2024-42486|2024-08-16T14:54:16.632Z -- cilium -- cilium</title>
-      <link>https://www.cve.org/CVERecord?id=CVE-2024-42486</link>
-      <description>Cilium is a networking, observability, and security solution with an eBPF-based dataplane. In versions on the 1.15.x branch prior to 1.15.8 and the 1.16.x branch prior to 1.16.1, ReferenceGrant changes are not correctly propagated in Cilium's GatewayAPI controller, which could lead to Gateway resources being able to access secrets for longer than intended, or to Routes having the ability to forward traffic to backends in other namespaces for longer than intended. This issue has been patched in Cilium v1.15.8 and v1.16.1. As a workaround, any modification of a related Gateway/HTTPRoute/GRPCRoute/TCPRoute CRD (for example, adding any label to any of these resources) will trigger a reconciliation of ReferenceGrants on an affected cluster.</description>
-      <guid isPermaLink="false">CVE-2024-42486|2024-08-16T14:54:16.632Z</guid>
-      <pubDate>Fri, 16 Aug 2024 14:34:41 +0000</pubDate>
-    </item>
-    <item>
-      <title>CVE-2024-37307|2024-08-02T03:50:55.958Z -- cilium -- cilium</title>
+      <title>CVE-2024-37307|2024-08-19T17:04:31.162Z -- cilium -- cilium</title>
       <link>https://www.cve.org/CVERecord?id=CVE-2024-37307</link>
       <description>Cilium is a networking, observability, and security solution with an eBPF-based dataplane. Starting in version 1.13.0 and prior to versions 1.13.7, 1.14.12, and 1.15.6, the output of `cilium-bugtool` can contain sensitive data when the tool is run (with the `--envoy-dump` flag set) against Cilium deployments with the Envoy proxy enabled. Users of the TLS inspection, Ingress with TLS termination, Gateway API with TLS termination, and Kafka network policies with API key filtering features are affected. The sensitive data includes the CA certificate, certificate chain, and private key used by Cilium HTTP Network Policies, and when using Ingress/Gateway API and the API keys used in Kafka-related network policy. `cilium-bugtool` is a debugging tool that is typically invoked manually and does not run during the normal operation of a Cilium cluster. This issue has been patched in Cilium v1.15.6, v1.14.12, and v1.13.17. There is no workaround to this issue.</description>
-      <guid isPermaLink="false">CVE-2024-37307|2024-08-02T03:50:55.958Z</guid>
+      <guid isPermaLink="false">CVE-2024-37307|2024-08-19T17:04:31.162Z</guid>
       <pubDate>Thu, 13 Jun 2024 16:09:22 +0000</pubDate>
-    </item>
-    <item>
-      <title>CVE-2024-37307|2024-06-13T16:09:22.378Z -- cilium -- cilium</title>
-      <link>https://www.cve.org/CVERecord?id=CVE-2024-37307</link>
-      <description>Cilium is a networking, observability, and security solution with an eBPF-based dataplane. Starting in version 1.13.0 and prior to versions 1.13.7, 1.14.12, and 1.15.6, the output of `cilium-bugtool` can contain sensitive data when the tool is run (with the `--envoy-dump` flag set) against Cilium deployments with the Envoy proxy enabled. Users of the TLS inspection, Ingress with TLS termination, Gateway API with TLS termination, and Kafka network policies with API key filtering features are affected. The sensitive data includes the CA certificate, certificate chain, and private key used by Cilium HTTP Network Policies, and when using Ingress/Gateway API and the API keys used in Kafka-related network policy. `cilium-bugtool` is a debugging tool that is typically invoked manually and does not run during the normal operation of a Cilium cluster. This issue has been patched in Cilium v1.15.6, v1.14.12, and v1.13.17. There is no workaround to this issue.</description>
-      <guid isPermaLink="false">CVE-2024-37307|2024-06-13T16:09:22.378Z</guid>
-      <pubDate>Thu, 13 Jun 2024 16:09:22 +0000</pubDate>
-    </item>
-    <item>
-      <title>CVE-2024-42488|2024-08-15T20:36:29.463Z -- cilium -- cilium</title>
-      <link>https://www.cve.org/CVERecord?id=CVE-2024-42488</link>
-      <description>Cilium is a networking, observability, and security solution with an eBPF-based dataplane. Prior to versions 1.14.14 and 1.15.8, a race condition in the Cilium agent can cause the agent to ignore labels that should be applied to a node. This could in turn cause CiliumClusterwideNetworkPolicies intended for nodes with the ignored label to not apply, leading to policy bypass. This issue has been patched in Cilium v1.14.14 and v1.15.8 As the underlying issue depends on a race condition, users unable to upgrade can restart the Cilium agent on affected nodes until the affected policies are confirmed to be working as expected.</description>
-      <guid isPermaLink="false">CVE-2024-42488|2024-08-15T20:36:29.463Z</guid>
-      <pubDate>Thu, 15 Aug 2024 20:36:29 +0000</pubDate>
     </item>
     <item>
       <title>CVE-2024-42487|2024-08-15T20:46:34.910Z -- cilium -- cilium</title>
@@ -70,11 +31,39 @@
       <pubDate>Thu, 15 Aug 2024 20:26:53 +0000</pubDate>
     </item>
     <item>
-      <title>CVE-2024-37307|2024-08-19T17:04:31.162Z -- cilium -- cilium</title>
+      <title>CVE-2024-42488|2024-08-15T20:36:29.463Z -- cilium -- cilium</title>
+      <link>https://www.cve.org/CVERecord?id=CVE-2024-42488</link>
+      <description>Cilium is a networking, observability, and security solution with an eBPF-based dataplane. Prior to versions 1.14.14 and 1.15.8, a race condition in the Cilium agent can cause the agent to ignore labels that should be applied to a node. This could in turn cause CiliumClusterwideNetworkPolicies intended for nodes with the ignored label to not apply, leading to policy bypass. This issue has been patched in Cilium v1.14.14 and v1.15.8 As the underlying issue depends on a race condition, users unable to upgrade can restart the Cilium agent on affected nodes until the affected policies are confirmed to be working as expected.</description>
+      <guid isPermaLink="false">CVE-2024-42488|2024-08-15T20:36:29.463Z</guid>
+      <pubDate>Thu, 15 Aug 2024 20:36:29 +0000</pubDate>
+    </item>
+    <item>
+      <title>CVE-2024-37307|2024-06-13T16:09:22.378Z -- cilium -- cilium</title>
       <link>https://www.cve.org/CVERecord?id=CVE-2024-37307</link>
       <description>Cilium is a networking, observability, and security solution with an eBPF-based dataplane. Starting in version 1.13.0 and prior to versions 1.13.7, 1.14.12, and 1.15.6, the output of `cilium-bugtool` can contain sensitive data when the tool is run (with the `--envoy-dump` flag set) against Cilium deployments with the Envoy proxy enabled. Users of the TLS inspection, Ingress with TLS termination, Gateway API with TLS termination, and Kafka network policies with API key filtering features are affected. The sensitive data includes the CA certificate, certificate chain, and private key used by Cilium HTTP Network Policies, and when using Ingress/Gateway API and the API keys used in Kafka-related network policy. `cilium-bugtool` is a debugging tool that is typically invoked manually and does not run during the normal operation of a Cilium cluster. This issue has been patched in Cilium v1.15.6, v1.14.12, and v1.13.17. There is no workaround to this issue.</description>
-      <guid isPermaLink="false">CVE-2024-37307|2024-08-19T17:04:31.162Z</guid>
+      <guid isPermaLink="false">CVE-2024-37307|2024-06-13T16:09:22.378Z</guid>
       <pubDate>Thu, 13 Jun 2024 16:09:22 +0000</pubDate>
+    </item>
+    <item>
+      <title>CVE-2024-37307|2024-08-02T03:50:55.958Z -- cilium -- cilium</title>
+      <link>https://www.cve.org/CVERecord?id=CVE-2024-37307</link>
+      <description>Cilium is a networking, observability, and security solution with an eBPF-based dataplane. Starting in version 1.13.0 and prior to versions 1.13.7, 1.14.12, and 1.15.6, the output of `cilium-bugtool` can contain sensitive data when the tool is run (with the `--envoy-dump` flag set) against Cilium deployments with the Envoy proxy enabled. Users of the TLS inspection, Ingress with TLS termination, Gateway API with TLS termination, and Kafka network policies with API key filtering features are affected. The sensitive data includes the CA certificate, certificate chain, and private key used by Cilium HTTP Network Policies, and when using Ingress/Gateway API and the API keys used in Kafka-related network policy. `cilium-bugtool` is a debugging tool that is typically invoked manually and does not run during the normal operation of a Cilium cluster. This issue has been patched in Cilium v1.15.6, v1.14.12, and v1.13.17. There is no workaround to this issue.</description>
+      <guid isPermaLink="false">CVE-2024-37307|2024-08-02T03:50:55.958Z</guid>
+      <pubDate>Thu, 13 Jun 2024 16:09:22 +0000</pubDate>
+    </item>
+    <item>
+      <title>CVE-2024-42486|2024-08-16T14:54:16.632Z -- cilium -- cilium</title>
+      <link>https://www.cve.org/CVERecord?id=CVE-2024-42486</link>
+      <description>Cilium is a networking, observability, and security solution with an eBPF-based dataplane. In versions on the 1.15.x branch prior to 1.15.8 and the 1.16.x branch prior to 1.16.1, ReferenceGrant changes are not correctly propagated in Cilium's GatewayAPI controller, which could lead to Gateway resources being able to access secrets for longer than intended, or to Routes having the ability to forward traffic to backends in other namespaces for longer than intended. This issue has been patched in Cilium v1.15.8 and v1.16.1. As a workaround, any modification of a related Gateway/HTTPRoute/GRPCRoute/TCPRoute CRD (for example, adding any label to any of these resources) will trigger a reconciliation of ReferenceGrants on an affected cluster.</description>
+      <guid isPermaLink="false">CVE-2024-42486|2024-08-16T14:54:16.632Z</guid>
+      <pubDate>Fri, 16 Aug 2024 14:34:41 +0000</pubDate>
+    </item>
+    <item>
+      <title>CVE-2024-42488|2024-08-19T19:23:37.503Z -- cilium -- cilium</title>
+      <link>https://www.cve.org/CVERecord?id=CVE-2024-42488</link>
+      <description>Cilium is a networking, observability, and security solution with an eBPF-based dataplane. Prior to versions 1.14.14 and 1.15.8, a race condition in the Cilium agent can cause the agent to ignore labels that should be applied to a node. This could in turn cause CiliumClusterwideNetworkPolicies intended for nodes with the ignored label to not apply, leading to policy bypass. This issue has been patched in Cilium v1.14.14 and v1.15.8 As the underlying issue depends on a race condition, users unable to upgrade can restart the Cilium agent on affected nodes until the affected policies are confirmed to be working as expected.</description>
+      <guid isPermaLink="false">CVE-2024-42488|2024-08-19T19:23:37.503Z</guid>
+      <pubDate>Thu, 15 Aug 2024 20:36:29 +0000</pubDate>
     </item>
   </channel>
 </rss>
