@@ -6,10 +6,10 @@
     <description>The latest CVEs for memorysafety -- sudo-rs</description>
     <docs>http://www.rssboard.org/rss-specification</docs>
     <generator>python-feedgen</generator>
-    <lastBuildDate>Fri, 02 Aug 2024 23:22:21 +0000</lastBuildDate>
+    <lastBuildDate>Tue, 24 Sep 2024 16:24:34 +0000</lastBuildDate>
     <ttl>60</ttl>
     <item>
-      <title>CVE-2023-42456|2024-08-02T19:23:38.919Z -- memorysafety -- sudo-rs
+      <title>CVE-2023-42456|2024-09-24T15:04:33.919Z -- memorysafety -- sudo-rs
 </title>
       <link>https://www.cve.org/CVERecord?id=CVE-2023-42456</link>
       <description>Sudo-rs, a memory safe implementation of sudo and su, allows users to not have to enter authentication at every sudo attempt, but instead only requiring authentication every once in a while in every terminal or process group. Only once a configurable timeout has passed will the user have to re-authenticate themselves. Supporting this functionality is a set of session files (timestamps) for each user, stored in `/var/run/sudo-rs/ts`. These files are named according to the username from which the sudo attempt is made (the origin user).
@@ -21,7 +21,7 @@ An attacker needs to be able to login as a user with a constructed username. Giv
 The issue is patched in version 0.2.1 of sudo-rs. Sudo-rs now uses the uid for the user instead of their username for determining the filename. Note that an upgrade to this version will result in existing session files being ignored and users will be forced to re-authenticate. It also fully eliminates any possibility of path traversal, given that uids are always integer values.
 
 The `sudo -K` and `sudo -k` commands can run, even if a user has no sudo access. As a workaround, make sure that one's system does not contain any users with a specially crafted username. While this is the case and while untrusted users do not have the ability to create arbitrary users on the system, one should not be able to exploit this issue.</description>
-      <guid isPermaLink="false">CVE-2023-42456|2024-08-02T19:23:38.919Z</guid>
+      <guid isPermaLink="false">CVE-2023-42456|2024-09-24T15:04:33.919Z</guid>
       <pubDate>Thu, 21 Sep 2023 15:20:56 +0000</pubDate>
     </item>
   </channel>
