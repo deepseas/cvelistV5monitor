@@ -6,142 +6,129 @@
     <description>The latest CVEs for Xen -- Xen</description>
     <docs>http://www.rssboard.org/rss-specification</docs>
     <generator>python-feedgen</generator>
-    <lastBuildDate>Fri, 13 Sep 2024 18:24:53 +0000</lastBuildDate>
+    <lastBuildDate>Wed, 25 Sep 2024 11:21:44 +0000</lastBuildDate>
     <ttl>60</ttl>
     <item>
-      <title>CVE-2024-31143|2024-09-13T17:04:37.447Z -- xen -- xen
+      <title>CVE-2024-45817|2024-09-25T10:31:57.371Z -- xen -- xen
 </title>
+      <link>https://www.cve.org/CVERecord?id=CVE-2024-45817</link>
+      <description>In x86's APIC (Advanced Programmable Interrupt Controller) architecture,
+error conditions are reported in a status register.  Furthermore, the OS
+can opt to receive an interrupt when a new error occurs.
+
+It is possible to configure the error interrupt with an illegal vector,
+which generates an error when an error interrupt is raised.
+
+This case causes Xen to recurse through vlapic_error().  The recursion
+itself is bounded; errors accumulate in the the status register and only
+generate an interrupt when a new status bit becomes set.
+
+However, the lock protecting this state in Xen will try to be taken
+recursively, and deadlock.</description>
+      <guid isPermaLink="false">CVE-2024-45817|2024-09-25T10:31:57.371Z</guid>
+      <pubDate>Wed, 25 Sep 2024 10:31:57 +0000</pubDate>
+    </item>
+    <item>
+      <title>CVE-2024-31145|2024-09-25T10:31:43.523Z -- xen -- xen
+</title>
+      <link>https://www.cve.org/CVERecord?id=CVE-2024-31145</link>
+      <description>Certain PCI devices in a system might be assigned Reserved Memory
+Regions (specified via Reserved Memory Region Reporting, "RMRR") for
+Intel VT-d or Unity Mapping ranges for AMD-Vi.  These are typically used
+for platform tasks such as legacy USB emulation.
+
+Since the precise purpose of these regions is unknown, once a device
+associated with such a region is active, the mappings of these regions
+need to remain continuouly accessible by the device.  In the logic
+establishing these mappings, error handling was flawed, resulting in
+such mappings to potentially remain in place when they should have been
+removed again.  Respective guests would then gain access to memory
+regions which they aren't supposed to have access to.</description>
+      <guid isPermaLink="false">CVE-2024-31145|2024-09-25T10:31:43.523Z</guid>
+      <pubDate>Wed, 25 Sep 2024 10:31:43 +0000</pubDate>
+    </item>
+    <item>
+      <title>CVE-2024-31146|2024-09-25T10:31:51.154Z -- xen -- xen
+</title>
+      <link>https://www.cve.org/CVERecord?id=CVE-2024-31146</link>
+      <description>When multiple devices share resources and one of them is to be passed
+through to a guest, security of the entire system and of respective
+guests individually cannot really be guaranteed without knowing
+internals of any of the involved guests.  Therefore such a configuration
+cannot really be security-supported, yet making that explicit was so far
+missing.
+
+Resources the sharing of which is known to be problematic include, but
+are not limited to
+- - PCI Base Address Registers (BARs) of multiple devices mapping to the
+  same page (4k on x86),
+- - INTx lines.</description>
+      <guid isPermaLink="false">CVE-2024-31146|2024-09-25T10:31:51.154Z</guid>
+      <pubDate>Wed, 25 Sep 2024 10:31:51 +0000</pubDate>
+    </item>
+    <item>
+      <title>CVE-2024-31143|2024-08-21T13:39:34.427Z -- xen -- xen</title>
       <link>https://www.cve.org/CVERecord?id=CVE-2024-31143</link>
       <description>An optional feature of PCI MSI called "Multiple Message" allows a
 device to use multiple consecutive interrupt vectors.  Unlike for MSI-X,
 the setting up of these consecutive vectors needs to happen all in one
 go.  In this handling an error path could be taken in different
 situations, with or without a particular lock held.  This error path
-wrongly releases the lock even when it is not currently held.
-</description>
-      <guid isPermaLink="false">CVE-2024-31143|2024-09-13T17:04:37.447Z</guid>
+wrongly releases the lock even when it is not currently held.</description>
+      <guid isPermaLink="false">CVE-2024-31143|2024-08-21T13:39:34.427Z</guid>
       <pubDate>Thu, 18 Jul 2024 13:31:31 +0000</pubDate>
     </item>
     <item>
-      <title>CVE-2023-46839|2024-08-06T14:00:15.239Z -- xen -- xen</title>
-      <link>https://www.cve.org/CVERecord?id=CVE-2023-46839</link>
-      <description>PCI devices can make use of a functionality called phantom functions,
-that when enabled allows the device to generate requests using the IDs
-of functions that are otherwise unpopulated.  This allows a device to
-extend the number of outstanding requests.
+      <title>CVE-2024-31142|2024-08-02T01:46:04.491Z -- xen -- xen</title>
+      <link>https://www.cve.org/CVERecord?id=CVE-2024-31142</link>
+      <description>Because of a logical error in XSA-407 (Branch Type Confusion), the
+mitigation is not applied properly when it is intended to be used.
+XSA-434 (Speculative Return Stack Overflow) uses the same
+infrastructure, so is equally impacted.
 
-Such phantom functions need an IOMMU context setup, but failure to
-setup the context is not fatal when the device is assigned.  Not
-failing device assignment when such failure happens can lead to the
-primary device being assigned to a guest, while some of the phantom
-functions are assigned to a different domain.</description>
-      <guid isPermaLink="false">CVE-2023-46839|2024-08-06T14:00:15.239Z</guid>
-      <pubDate>Wed, 20 Mar 2024 10:35:52 +0000</pubDate>
+For more details, see:
+  https://xenbits.xen.org/xsa/advisory-407.html
+  https://xenbits.xen.org/xsa/advisory-434.html</description>
+      <guid isPermaLink="false">CVE-2024-31142|2024-08-02T01:46:04.491Z</guid>
+      <pubDate>Thu, 16 May 2024 13:39:42 +0000</pubDate>
     </item>
     <item>
-      <title>CVE-2023-46840|2024-08-02T20:53:21.926Z -- xen -- xen</title>
-      <link>https://www.cve.org/CVERecord?id=CVE-2023-46840</link>
-      <description>Incorrect placement of a preprocessor directive in source code results
-in logic that doesn't operate as intended when support for HVM guests is
-compiled out of Xen.</description>
-      <guid isPermaLink="false">CVE-2023-46840|2024-08-02T20:53:21.926Z</guid>
-      <pubDate>Wed, 20 Mar 2024 10:40:18 +0000</pubDate>
+      <title>CVE-2024-31143|2024-08-02T01:46:04.560Z -- xen -- xen</title>
+      <link>https://www.cve.org/CVERecord?id=CVE-2024-31143</link>
+      <description>An optional feature of PCI MSI called "Multiple Message" allows a
+device to use multiple consecutive interrupt vectors.  Unlike for MSI-X,
+the setting up of these consecutive vectors needs to happen all in one
+go.  In this handling an error path could be taken in different
+situations, with or without a particular lock held.  This error path
+wrongly releases the lock even when it is not currently held.</description>
+      <guid isPermaLink="false">CVE-2024-31143|2024-08-02T01:46:04.560Z</guid>
+      <pubDate>Thu, 18 Jul 2024 13:31:31 +0000</pubDate>
     </item>
     <item>
-      <title>CVE-2023-46842|2024-08-02T20:53:21.979Z -- xen -- xen</title>
-      <link>https://www.cve.org/CVERecord?id=CVE-2023-46842</link>
-      <description>Unlike 32-bit PV guests, HVM guests may switch freely between 64-bit and
-other modes.  This in particular means that they may set registers used
-to pass 32-bit-mode hypercall arguments to values outside of the range
-32-bit code would be able to set them to.
-
-When processing of hypercalls takes a considerable amount of time,
-the hypervisor may choose to invoke a hypercall continuation.  Doing so
-involves putting (perhaps updated) hypercall arguments in respective
-registers.  For guests not running in 64-bit mode this further involves
-a certain amount of translation of the values.
-
-Unfortunately internal sanity checking of these translated values
-assumes high halves of registers to always be clear when invoking a
-hypercall.  When this is found not to be the case, it triggers a
-consistency check in the hypervisor and causes a crash.</description>
-      <guid isPermaLink="false">CVE-2023-46842|2024-08-02T20:53:21.979Z</guid>
-      <pubDate>Thu, 16 May 2024 13:39:26 +0000</pubDate>
+      <title>CVE-2024-31143|2024-07-18T13:31:31.244Z -- xen -- xen</title>
+      <link>https://www.cve.org/CVERecord?id=CVE-2024-31143</link>
+      <description>An optional feature of PCI MSI called "Multiple Message" allows a
+device to use multiple consecutive interrupt vectors.  Unlike for MSI-X,
+the setting up of these consecutive vectors needs to happen all in one
+go.  In this handling an error path could be taken in different
+situations, with or without a particular lock held.  This error path
+wrongly releases the lock even when it is not currently held.</description>
+      <guid isPermaLink="false">CVE-2024-31143|2024-07-18T13:31:31.244Z</guid>
+      <pubDate>Thu, 18 Jul 2024 13:31:31 +0000</pubDate>
     </item>
     <item>
-      <title>CVE-2023-46841|2024-08-02T20:53:21.716Z -- xen -- xen</title>
-      <link>https://www.cve.org/CVERecord?id=CVE-2023-46841</link>
-      <description>Recent x86 CPUs offer functionality named Control-flow Enforcement
-Technology (CET).  A sub-feature of this are Shadow Stacks (CET-SS).
-CET-SS is a hardware feature designed to protect against Return Oriented
-Programming attacks. When enabled, traditional stacks holding both data
-and return addresses are accompanied by so called "shadow stacks",
-holding little more than return addresses.  Shadow stacks aren't
-writable by normal instructions, and upon function returns their
-contents are used to check for possible manipulation of a return address
-coming from the traditional stack.
+      <title>CVE-2024-31142|2024-06-04T17:36:07.065Z -- xen -- xen</title>
+      <link>https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2024-31142</link>
+      <description>Because of a logical error in XSA-407 (Branch Type Confusion), the
+mitigation is not applied properly when it is intended to be used.
+XSA-434 (Speculative Return Stack Overflow) uses the same
+infrastructure, so is equally impacted.
 
-In particular certain memory accesses need intercepting by Xen.  In
-various cases the necessary emulation involves kind of replaying of
-the instruction.  Such replaying typically involves filling and then
-invoking of a stub.  Such a replayed instruction may raise an
-exceptions, which is expected and dealt with accordingly.
-
-Unfortunately the interaction of both of the above wasn't right:
-Recovery involves removal of a call frame from the (traditional) stack.
-The counterpart of this operation for the shadow stack was missing.</description>
-      <guid isPermaLink="false">CVE-2023-46841|2024-08-02T20:53:21.716Z</guid>
-      <pubDate>Wed, 20 Mar 2024 10:40:36 +0000</pubDate>
-    </item>
-    <item>
-      <title>CVE-2023-46839|2024-08-02T20:53:21.878Z -- xen -- xen</title>
-      <link>https://www.cve.org/CVERecord?id=CVE-2023-46839</link>
-      <description>PCI devices can make use of a functionality called phantom functions,
-that when enabled allows the device to generate requests using the IDs
-of functions that are otherwise unpopulated.  This allows a device to
-extend the number of outstanding requests.
-
-Such phantom functions need an IOMMU context setup, but failure to
-setup the context is not fatal when the device is assigned.  Not
-failing device assignment when such failure happens can lead to the
-primary device being assigned to a guest, while some of the phantom
-functions are assigned to a different domain.</description>
-      <guid isPermaLink="false">CVE-2023-46839|2024-08-02T20:53:21.878Z</guid>
-      <pubDate>Wed, 20 Mar 2024 10:35:52 +0000</pubDate>
-    </item>
-    <item>
-      <title>CVE-2023-46840|2024-03-20T10:40:18.050Z -- xen -- xen</title>
-      <link>https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2023-46840</link>
-      <description>Incorrect placement of a preprocessor directive in source code results
-in logic that doesn't operate as intended when support for HVM guests is
-compiled out of Xen.</description>
-      <guid isPermaLink="false">CVE-2023-46840|2024-03-20T10:40:18.050Z</guid>
-      <pubDate>Wed, 20 Mar 2024 10:40:18 +0000</pubDate>
-    </item>
-    <item>
-      <title>CVE-2023-46841|2024-06-04T17:22:15.607Z -- xen -- xen</title>
-      <link>https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2023-46841</link>
-      <description>Recent x86 CPUs offer functionality named Control-flow Enforcement
-Technology (CET).  A sub-feature of this are Shadow Stacks (CET-SS).
-CET-SS is a hardware feature designed to protect against Return Oriented
-Programming attacks. When enabled, traditional stacks holding both data
-and return addresses are accompanied by so called "shadow stacks",
-holding little more than return addresses.  Shadow stacks aren't
-writable by normal instructions, and upon function returns their
-contents are used to check for possible manipulation of a return address
-coming from the traditional stack.
-
-In particular certain memory accesses need intercepting by Xen.  In
-various cases the necessary emulation involves kind of replaying of
-the instruction.  Such replaying typically involves filling and then
-invoking of a stub.  Such a replayed instruction may raise an
-exceptions, which is expected and dealt with accordingly.
-
-Unfortunately the interaction of both of the above wasn't right:
-Recovery involves removal of a call frame from the (traditional) stack.
-The counterpart of this operation for the shadow stack was missing.</description>
-      <guid isPermaLink="false">CVE-2023-46841|2024-06-04T17:22:15.607Z</guid>
-      <pubDate>Wed, 20 Mar 2024 10:40:36 +0000</pubDate>
+For more details, see:
+  https://xenbits.xen.org/xsa/advisory-407.html
+  https://xenbits.xen.org/xsa/advisory-434.html</description>
+      <guid isPermaLink="false">CVE-2024-31142|2024-06-04T17:36:07.065Z</guid>
+      <pubDate>Thu, 16 May 2024 13:39:42 +0000</pubDate>
     </item>
     <item>
       <title>CVE-2023-46842|2024-06-04T17:22:13.355Z -- xen -- xen</title>
@@ -165,37 +152,28 @@ consistency check in the hypervisor and causes a crash.</description>
       <pubDate>Thu, 16 May 2024 13:39:26 +0000</pubDate>
     </item>
     <item>
-      <title>CVE-2023-46839|2024-03-20T10:35:52.532Z -- xen -- xen</title>
-      <link>https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2023-46839</link>
-      <description>PCI devices can make use of a functionality called phantom functions,
-that when enabled allows the device to generate requests using the IDs
-of functions that are otherwise unpopulated.  This allows a device to
-extend the number of outstanding requests.
+      <title>CVE-2023-46842|2024-08-02T20:53:21.979Z -- xen -- xen</title>
+      <link>https://www.cve.org/CVERecord?id=CVE-2023-46842</link>
+      <description>Unlike 32-bit PV guests, HVM guests may switch freely between 64-bit and
+other modes.  This in particular means that they may set registers used
+to pass 32-bit-mode hypercall arguments to values outside of the range
+32-bit code would be able to set them to.
 
-Such phantom functions need an IOMMU context setup, but failure to
-setup the context is not fatal when the device is assigned.  Not
-failing device assignment when such failure happens can lead to the
-primary device being assigned to a guest, while some of the phantom
-functions are assigned to a different domain.</description>
-      <guid isPermaLink="false">CVE-2023-46839|2024-03-20T10:35:52.532Z</guid>
-      <pubDate>Wed, 20 Mar 2024 10:35:52 +0000</pubDate>
+When processing of hypercalls takes a considerable amount of time,
+the hypervisor may choose to invoke a hypercall continuation.  Doing so
+involves putting (perhaps updated) hypercall arguments in respective
+registers.  For guests not running in 64-bit mode this further involves
+a certain amount of translation of the values.
+
+Unfortunately internal sanity checking of these translated values
+assumes high halves of registers to always be clear when invoking a
+hypercall.  When this is found not to be the case, it triggers a
+consistency check in the hypervisor and causes a crash.</description>
+      <guid isPermaLink="false">CVE-2023-46842|2024-08-02T20:53:21.979Z</guid>
+      <pubDate>Thu, 16 May 2024 13:39:26 +0000</pubDate>
     </item>
     <item>
-      <title>CVE-2024-31142|2024-06-04T17:36:07.065Z -- xen -- xen</title>
-      <link>https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2024-31142</link>
-      <description>Because of a logical error in XSA-407 (Branch Type Confusion), the
-mitigation is not applied properly when it is intended to be used.
-XSA-434 (Speculative Return Stack Overflow) uses the same
-infrastructure, so is equally impacted.
-
-For more details, see:
-  https://xenbits.xen.org/xsa/advisory-407.html
-  https://xenbits.xen.org/xsa/advisory-434.html</description>
-      <guid isPermaLink="false">CVE-2024-31142|2024-06-04T17:36:07.065Z</guid>
-      <pubDate>Thu, 16 May 2024 13:39:42 +0000</pubDate>
-    </item>
-    <item>
-      <title>CVE-2024-31143|2024-07-18T13:31:31.244Z -- xen -- xen</title>
+      <title>CVE-2024-31143|2024-09-13T17:04:37.447Z -- xen -- xen</title>
       <link>https://www.cve.org/CVERecord?id=CVE-2024-31143</link>
       <description>An optional feature of PCI MSI called "Multiple Message" allows a
 device to use multiple consecutive interrupt vectors.  Unlike for MSI-X,
@@ -203,54 +181,7 @@ the setting up of these consecutive vectors needs to happen all in one
 go.  In this handling an error path could be taken in different
 situations, with or without a particular lock held.  This error path
 wrongly releases the lock even when it is not currently held.</description>
-      <guid isPermaLink="false">CVE-2024-31143|2024-07-18T13:31:31.244Z</guid>
-      <pubDate>Thu, 18 Jul 2024 13:31:31 +0000</pubDate>
-    </item>
-    <item>
-      <title>CVE-2024-31143|2024-08-02T01:46:04.560Z -- xen -- xen</title>
-      <link>https://www.cve.org/CVERecord?id=CVE-2024-31143</link>
-      <description>An optional feature of PCI MSI called "Multiple Message" allows a
-device to use multiple consecutive interrupt vectors.  Unlike for MSI-X,
-the setting up of these consecutive vectors needs to happen all in one
-go.  In this handling an error path could be taken in different
-situations, with or without a particular lock held.  This error path
-wrongly releases the lock even when it is not currently held.</description>
-      <guid isPermaLink="false">CVE-2024-31143|2024-08-02T01:46:04.560Z</guid>
-      <pubDate>Thu, 18 Jul 2024 13:31:31 +0000</pubDate>
-    </item>
-    <item>
-      <title>CVE-2024-31142|2024-08-02T01:46:04.491Z -- xen -- xen</title>
-      <link>https://www.cve.org/CVERecord?id=CVE-2024-31142</link>
-      <description>Because of a logical error in XSA-407 (Branch Type Confusion), the
-mitigation is not applied properly when it is intended to be used.
-XSA-434 (Speculative Return Stack Overflow) uses the same
-infrastructure, so is equally impacted.
-
-For more details, see:
-  https://xenbits.xen.org/xsa/advisory-407.html
-  https://xenbits.xen.org/xsa/advisory-434.html</description>
-      <guid isPermaLink="false">CVE-2024-31142|2024-08-02T01:46:04.491Z</guid>
-      <pubDate>Thu, 16 May 2024 13:39:42 +0000</pubDate>
-    </item>
-    <item>
-      <title>CVE-2023-46840|2024-08-05T18:59:11.852Z -- xen -- xen</title>
-      <link>https://www.cve.org/CVERecord?id=CVE-2023-46840</link>
-      <description>Incorrect placement of a preprocessor directive in source code results
-in logic that doesn't operate as intended when support for HVM guests is
-compiled out of Xen.</description>
-      <guid isPermaLink="false">CVE-2023-46840|2024-08-05T18:59:11.852Z</guid>
-      <pubDate>Wed, 20 Mar 2024 10:40:18 +0000</pubDate>
-    </item>
-    <item>
-      <title>CVE-2024-31143|2024-08-21T13:39:34.427Z -- xen -- xen</title>
-      <link>https://www.cve.org/CVERecord?id=CVE-2024-31143</link>
-      <description>An optional feature of PCI MSI called "Multiple Message" allows a
-device to use multiple consecutive interrupt vectors.  Unlike for MSI-X,
-the setting up of these consecutive vectors needs to happen all in one
-go.  In this handling an error path could be taken in different
-situations, with or without a particular lock held.  This error path
-wrongly releases the lock even when it is not currently held.</description>
-      <guid isPermaLink="false">CVE-2024-31143|2024-08-21T13:39:34.427Z</guid>
+      <guid isPermaLink="false">CVE-2024-31143|2024-09-13T17:04:37.447Z</guid>
       <pubDate>Thu, 18 Jul 2024 13:31:31 +0000</pubDate>
     </item>
   </channel>
