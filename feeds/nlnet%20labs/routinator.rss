@@ -6,47 +6,15 @@
     <description>The latest CVEs for NLnet Labs -- Routinator</description>
     <docs>http://www.rssboard.org/rss-specification</docs>
     <generator>python-feedgen</generator>
-    <lastBuildDate>Mon, 16 Sep 2024 23:21:12 +0000</lastBuildDate>
+    <lastBuildDate>Wed, 25 Sep 2024 16:25:01 +0000</lastBuildDate>
     <ttl>60</ttl>
     <item>
-      <title>CVE-2021-43173|2024-09-16T18:18:51.653Z -- nlnet%20labs -- routinator
+      <title>CVE-2023-39916|2024-09-25T15:18:29.606Z -- nlnet%20labs -- routinator
 </title>
-      <link>https://www.cve.org/CVERecord?id=CVE-2021-43173</link>
-      <description>In NLnet Labs Routinator prior to 0.10.2, a validation run can be delayed significantly by an RRDP repository by not answering but slowly drip-feeding bytes to keep the connection alive. This can be used to effectively stall validation. While Routinator has a configurable time-out value for RRDP connections, this time-out was only applied to individual read or write operations rather than the complete request. Thus, if an RRDP repository sends a little bit of data before that time-out expired, it can continuously extend the time it takes for the request to finish. Since validation will only continue once the update of an RRDP repository has concluded, this delay will cause validation to stall, leading to Routinator continuing to serve the old data set or, if in the initial validation run directly after starting, never serve any data at all.</description>
-      <guid isPermaLink="false">CVE-2021-43173|2024-09-16T18:18:51.653Z</guid>
-      <pubDate>Tue, 09 Nov 2021 16:41:40 +0000</pubDate>
-    </item>
-    <item>
-      <title>CVE-2021-43174|2024-09-16T21:08:21.566Z -- nlnet%20labs -- routinator
-</title>
-      <link>https://www.cve.org/CVERecord?id=CVE-2021-43174</link>
-      <description>NLnet Labs Routinator versions 0.9.0 up to and including 0.10.1, support the gzip transfer encoding when querying RRDP repositories. This encoding can be used by an RRDP repository to cause an out-of-memory crash in these versions of Routinator. RRDP uses XML which allows arbitrary amounts of white space in the encoded data. The gzip scheme compresses such white space extremely well, leading to very small compressed files that become huge when being decompressed for further processing, big enough that Routinator runs out of memory when parsing input data waiting for the next XML element.</description>
-      <guid isPermaLink="false">CVE-2021-43174|2024-09-16T21:08:21.566Z</guid>
-      <pubDate>Tue, 09 Nov 2021 16:41:41 +0000</pubDate>
-    </item>
-    <item>
-      <title>CVE-2022-3029|2024-09-16T17:49:23.765Z -- nlnet%20labs -- routinator
-</title>
-      <link>https://www.cve.org/CVERecord?id=CVE-2022-3029</link>
-      <description>In NLnet Labs Routinator 0.9.0 up to and including 0.11.2, due to a mistake in error handling, data in RRDP snapshot and delta files that isn’t correctly base 64 encoded is treated as a fatal error and causes Routinator to exit. Worst case impact of this vulnerability is denial of service for the RPKI data that Routinator provides to routers. This may stop your network from validating route origins based on RPKI data. This vulnerability does not allow an attacker to manipulate RPKI data.</description>
-      <guid isPermaLink="false">CVE-2022-3029|2024-09-16T17:49:23.765Z</guid>
-      <pubDate>Tue, 13 Sep 2022 15:17:57 +0000</pubDate>
-    </item>
-    <item>
-      <title>CVE-2021-43172|2024-09-16T17:03:32.303Z -- nlnet%20labs -- routinator
-</title>
-      <link>https://www.cve.org/CVERecord?id=CVE-2021-43172</link>
-      <description>NLnet Labs Routinator prior to 0.10.2 happily processes a chain of RRDP repositories of infinite length causing it to never finish a validation run. In RPKI, a CA can choose the RRDP repository it wishes to publish its data in. By continuously generating a new child CA that only consists of another CA using a different RRDP repository, a malicious CA can create a chain of CAs of de-facto infinite length. Routinator prior to version 0.10.2 did not contain a limit on the length of such a chain and will therefore continue to process this chain forever. As a result, the validation run will never finish, leading to Routinator continuing to serve the old data set or, if in the initial validation run directly after starting, never serve any data at all.</description>
-      <guid isPermaLink="false">CVE-2021-43172|2024-09-16T17:03:32.303Z</guid>
-      <pubDate>Tue, 09 Nov 2021 16:41:39 +0000</pubDate>
-    </item>
-    <item>
-      <title>CVE-2021-41531|2024-09-16T20:27:40.850Z -- nlnet%20labs -- routinator
-</title>
-      <link>https://www.cve.org/CVERecord?id=CVE-2021-41531</link>
-      <description>NLnet Labs Routinator prior to 0.10.0 produces invalid RTR payload if an RPKI CA uses too large values in the max-length parameter in a ROA. This will lead to RTR clients such as routers to reject the RPKI data set, effectively disabling Route Origin Validation.</description>
-      <guid isPermaLink="false">CVE-2021-41531|2024-09-16T20:27:40.850Z</guid>
-      <pubDate>Tue, 21 Sep 2021 13:23:17 +0000</pubDate>
+      <link>https://www.cve.org/CVERecord?id=CVE-2023-39916</link>
+      <description>NLnet Labs’ Routinator 0.9.0 up to and including 0.12.1 contains a possible path traversal vulnerability in the optional, off-by-default keep-rrdp-responses feature that allows users to store the content of responses received for RRDP requests. The location of these stored responses is constructed from the URL of the request. Due to insufficient sanitation of the URL, it is possible for an attacker to craft a URL that results in the response being stored outside of the directory specified for it.</description>
+      <guid isPermaLink="false">CVE-2023-39916|2024-09-25T15:18:29.606Z</guid>
+      <pubDate>Wed, 13 Sep 2023 14:24:08 +0000</pubDate>
     </item>
   </channel>
 </rss>
