@@ -6,177 +6,22 @@
     <description>The latest CVEs for jumpserver -- jumpserver</description>
     <docs>http://www.rssboard.org/rss-specification</docs>
     <generator>python-feedgen</generator>
-    <lastBuildDate>Mon, 23 Sep 2024 23:22:55 +0000</lastBuildDate>
+    <lastBuildDate>Wed, 25 Sep 2024 18:24:51 +0000</lastBuildDate>
     <ttl>60</ttl>
     <item>
-      <title>CVE-2023-43650|2024-09-23T19:06:26.375Z -- jumpserver -- jumpserver
+      <title>CVE-2023-42442|2024-09-25T17:27:54.293Z -- jumpserver -- jumpserver
 </title>
-      <link>https://www.cve.org/CVERecord?id=CVE-2023-43650</link>
-      <description>JumpServer is an open source bastion host. The verification code for resetting user's password is vulnerable to brute-force attacks due to the absence of rate limiting. JumpServer provides a feature allowing users to reset forgotten passwords. Affected users are sent a 6-digit verification code, ranging from 000000 to 999999, to facilitate the password reset. Although the code is only available in 1 minute, this window potentially allows for up to 1,000,000 validation attempts. This issue has been addressed in versions 2.28.20 and 3.7.1. Users are advised to upgrade. There are no known workarounds for this vulnerability.</description>
-      <guid isPermaLink="false">CVE-2023-43650|2024-09-23T19:06:26.375Z</guid>
-      <pubDate>Wed, 27 Sep 2023 18:33:46 +0000</pubDate>
-    </item>
-    <item>
-      <title>CVE-2023-42818|2024-09-23T19:02:05.186Z -- jumpserver -- jumpserver
-</title>
-      <link>https://www.cve.org/CVERecord?id=CVE-2023-42818</link>
-      <description>JumpServer is an open source bastion host. When users enable MFA and use a public key for authentication, the Koko SSH server does not verify the corresponding SSH private key. An attacker could exploit a vulnerability by utilizing a disclosed public key to attempt brute-force authentication against the SSH service This issue has been patched in versions 3.6.5 and 3.5.6. Users are advised to upgrade. There are no known workarounds for this issue.</description>
-      <guid isPermaLink="false">CVE-2023-42818|2024-09-23T19:02:05.186Z</guid>
-      <pubDate>Wed, 27 Sep 2023 20:28:30 +0000</pubDate>
-    </item>
-    <item>
-      <title>CVE-2023-43652|2024-09-23T19:07:28.412Z -- jumpserver -- jumpserver
-</title>
-      <link>https://www.cve.org/CVERecord?id=CVE-2023-43652</link>
-      <description>JumpServer is an open source bastion host. As an unauthenticated user, it is possible to authenticate to the core API with a username and an SSH public key without needing a password or the corresponding SSH private key. An SSH public key should be considered public knowledge and should not used as an authentication secret alone. JumpServer provides an API for the KoKo component to validate user private key logins. This API does not verify the source of requests and will generate a personal authentication token. Given that public keys can be easily leaked, an attacker can exploit the leaked public key and username to authenticate, subsequently gaining access to the current user's information and authorized actions. This issue has been addressed in versions 2.28.20 and 3.7.1. Users are advised to upgrade. There are no known workarounds for this vulnerability.</description>
-      <guid isPermaLink="false">CVE-2023-43652|2024-09-23T19:07:28.412Z</guid>
-      <pubDate>Wed, 27 Sep 2023 18:31:41 +0000</pubDate>
-    </item>
-    <item>
-      <title>CVE-2023-42819|2024-09-23T20:26:00.445Z -- jumpserver -- jumpserver
-</title>
-      <link>https://www.cve.org/CVERecord?id=CVE-2023-42819</link>
-      <description>JumpServer is an open source bastion host. Logged-in users can access and modify the contents of any file on the system. A user can use the 'Job-Template' menu and create a playbook named 'test'. Get the playbook id from the detail page, like 'e0adabef-c38f-492d-bd92-832bacc3df5f'. An attacker can exploit the directory traversal flaw using the provided URL to access and retrieve the contents of the file. `https://jumpserver-ip/api/v1/ops/playbook/e0adabef-c38f-492d-bd92-832bacc3df5f/file/?key=../../../../../../../etc/passwd` a similar method to modify the file content is also present. This issue has been addressed in version 3.6.5. Users are advised to upgrade. There are no known workarounds for this vulnerability.
+      <link>https://www.cve.org/CVERecord?id=CVE-2023-42442</link>
+      <description>JumpServer is an open source bastion host and a professional operation and maintenance security audit system. Starting in version 3.0.0 and prior to versions 3.5.5 and 3.6.4, session replays can download without authentication. Session replays stored in S3, OSS, or other cloud storage are not affected. The api `/api/v1/terminal/sessions/` permission control is broken and can be accessed anonymously. SessionViewSet permission classes set to `[RBACPermission | IsSessionAssignee]`, relation is or, so any permission matched will be allowed. Versions 3.5.5 and 3.6.4 have a fix. After upgrading, visit the api `$HOST/api/v1/terminal/sessions/?limit=1`. The expected http response code is 401 (`not_authenticated`).
 </description>
-      <guid isPermaLink="false">CVE-2023-42819|2024-09-23T20:26:00.445Z</guid>
-      <pubDate>Tue, 26 Sep 2023 20:40:41 +0000</pubDate>
+      <guid isPermaLink="false">CVE-2023-42442|2024-09-25T17:27:54.293Z</guid>
+      <pubDate>Fri, 15 Sep 2023 20:29:12 +0000</pubDate>
     </item>
     <item>
-      <title>CVE-2023-43651|2024-09-23T19:03:07.331Z -- jumpserver -- jumpserver
-</title>
-      <link>https://www.cve.org/CVERecord?id=CVE-2023-43651</link>
-      <description>JumpServer is an open source bastion host. An authenticated user can exploit a vulnerability in MongoDB sessions to execute arbitrary commands, leading to remote code execution. This vulnerability may further be leveraged to gain root privileges on the system. Through the WEB CLI interface provided by the koko component, a user logs into the authorized mongoDB database and exploits the MongoDB session to execute arbitrary commands. This vulnerability has been addressed in versions 2.28.20 and 3.7.1. Users are advised to upgrade. There are no known workarounds for this vulnerability.</description>
-      <guid isPermaLink="false">CVE-2023-43651|2024-09-23T19:03:07.331Z</guid>
-      <pubDate>Wed, 27 Sep 2023 20:24:08 +0000</pubDate>
-    </item>
-    <item>
-      <title>CVE-2023-42820|2024-09-23T20:26:58.683Z -- jumpserver -- jumpserver
-</title>
-      <link>https://www.cve.org/CVERecord?id=CVE-2023-42820</link>
-      <description>JumpServer is an open source bastion host. This vulnerability is due to exposing the random number seed to the API, potentially allowing the randomly generated verification codes to be replayed, which could lead to password resets. If MFA is enabled users are not affect. Users not using local authentication are also not affected. Users are advised to upgrade to either version 2.28.19 or to 3.6.5. There are no known workarounds or this issue.</description>
-      <guid isPermaLink="false">CVE-2023-42820|2024-09-23T20:26:58.683Z</guid>
-      <pubDate>Tue, 26 Sep 2023 20:35:22 +0000</pubDate>
-    </item>
-    <item>
-      <title>CVE-2024-29202|2024-08-02T01:10:54.515Z -- jumpserver -- jumpserver</title>
-      <link>https://www.cve.org/CVERecord?id=CVE-2024-29202</link>
-      <description>JumpServer is an open source bastion host and an operation and maintenance security audit system. Attackers can exploit a Jinja2 template injection vulnerability in JumpServer's Ansible to execute arbitrary code within the Celery container. Since the Celery container runs with root privileges and has database access, attackers could steal sensitive information from all hosts or manipulate the database. This vulnerability is fixed in v3.10.7.</description>
-      <guid isPermaLink="false">CVE-2024-29202|2024-08-02T01:10:54.515Z</guid>
-      <pubDate>Fri, 29 Mar 2024 14:57:43 +0000</pubDate>
-    </item>
-    <item>
-      <title>CVE-2024-29020|2024-08-02T01:03:51.654Z -- jumpserver -- jumpserver</title>
-      <link>https://www.cve.org/CVERecord?id=CVE-2024-29020</link>
-      <description>JumpServer is an open source bastion host and an operation and maintenance security audit system. An authorized attacker can obtain sensitive information contained within playbook files if they manage to learn the playbook_id of another user. This breach of confidentiality can lead to information disclosure and exposing sensitive data. This vulnerability is fixed in v3.10.6.</description>
-      <guid isPermaLink="false">CVE-2024-29020|2024-08-02T01:03:51.654Z</guid>
-      <pubDate>Fri, 29 Mar 2024 14:46:00 +0000</pubDate>
-    </item>
-    <item>
-      <title>CVE-2024-29201|2024-08-02T01:10:54.456Z -- jumpserver -- jumpserver</title>
-      <link>https://www.cve.org/CVERecord?id=CVE-2024-29201</link>
-      <description>JumpServer is an open source bastion host and an operation and maintenance security audit system. Attackers can bypass the input validation mechanism in JumpServer's Ansible to execute arbitrary code within the Celery container. Since the Celery container runs with root privileges and has database access, attackers could steal sensitive information from all hosts or manipulate the database. This vulnerability is fixed in v3.10.7.</description>
-      <guid isPermaLink="false">CVE-2024-29201|2024-08-02T01:10:54.456Z</guid>
-      <pubDate>Fri, 29 Mar 2024 14:57:40 +0000</pubDate>
-    </item>
-    <item>
-      <title>CVE-2024-29024|2024-08-02T01:03:51.546Z -- jumpserver -- jumpserver</title>
-      <link>https://www.cve.org/CVERecord?id=CVE-2024-29024</link>
-      <description>JumpServer is an open source bastion host and an operation and maintenance security audit system.
-An authenticated user can exploit the Insecure Direct Object Reference (IDOR) vulnerability in the file manager's bulk transfer by manipulating job IDs to upload malicious files,  potentially compromising the integrity and security of the system. This vulnerability is fixed in v3.10.6.</description>
-      <guid isPermaLink="false">CVE-2024-29024|2024-08-02T01:03:51.546Z</guid>
-      <pubDate>Fri, 29 Mar 2024 14:45:56 +0000</pubDate>
-    </item>
-    <item>
-      <title>CVE-2024-40629|2024-07-18T18:40:01.466Z -- jumpserver -- jumpserver</title>
-      <link>https://www.cve.org/CVERecord?id=CVE-2024-40629</link>
-      <description>JumpServer is an open-source Privileged Access Management (PAM) tool that provides DevOps and IT teams with on-demand and secure access to SSH, RDP, Kubernetes, Database and RemoteApp endpoints through a web browser. An attacker can exploit the Ansible playbook to write arbitrary files, leading to remote code execution (RCE) in the Celery container. The Celery container runs as root and has database access, allowing an attacker to steal all secrets for hosts, create a new JumpServer account with admin privileges, or manipulate the database in other ways. This issue has been patched in release versions 3.10.12 and 4.0.0. It is recommended to upgrade the safe versions. There are no known workarounds for this vulnerability.</description>
-      <guid isPermaLink="false">CVE-2024-40629|2024-07-18T18:40:01.466Z</guid>
-      <pubDate>Thu, 18 Jul 2024 17:04:10 +0000</pubDate>
-    </item>
-    <item>
-      <title>CVE-2024-29020|2024-06-20T18:06:37.056Z -- jumpserver -- jumpserver</title>
-      <link>https://www.cve.org/CVERecord?id=CVE-2024-29020</link>
-      <description>JumpServer is an open source bastion host and an operation and maintenance security audit system. An authorized attacker can obtain sensitive information contained within playbook files if they manage to learn the playbook_id of another user. This breach of confidentiality can lead to information disclosure and exposing sensitive data. This vulnerability is fixed in v3.10.6.</description>
-      <guid isPermaLink="false">CVE-2024-29020|2024-06-20T18:06:37.056Z</guid>
-      <pubDate>Fri, 29 Mar 2024 14:46:00 +0000</pubDate>
-    </item>
-    <item>
-      <title>CVE-2024-29201|2024-06-20T18:04:08.370Z -- jumpserver -- jumpserver</title>
-      <link>https://www.cve.org/CVERecord?id=CVE-2024-29201</link>
-      <description>JumpServer is an open source bastion host and an operation and maintenance security audit system. Attackers can bypass the input validation mechanism in JumpServer's Ansible to execute arbitrary code within the Celery container. Since the Celery container runs with root privileges and has database access, attackers could steal sensitive information from all hosts or manipulate the database. This vulnerability is fixed in v3.10.7.</description>
-      <guid isPermaLink="false">CVE-2024-29201|2024-06-20T18:04:08.370Z</guid>
-      <pubDate>Fri, 29 Mar 2024 14:57:40 +0000</pubDate>
-    </item>
-    <item>
-      <title>CVE-2024-29202|2024-06-20T18:02:30.181Z -- jumpserver -- jumpserver</title>
-      <link>https://www.cve.org/CVERecord?id=CVE-2024-29202</link>
-      <description>JumpServer is an open source bastion host and an operation and maintenance security audit system. Attackers can exploit a Jinja2 template injection vulnerability in JumpServer's Ansible to execute arbitrary code within the Celery container. Since the Celery container runs with root privileges and has database access, attackers could steal sensitive information from all hosts or manipulate the database. This vulnerability is fixed in v3.10.7.</description>
-      <guid isPermaLink="false">CVE-2024-29202|2024-06-20T18:02:30.181Z</guid>
-      <pubDate>Fri, 29 Mar 2024 14:57:43 +0000</pubDate>
-    </item>
-    <item>
-      <title>CVE-2024-29024|2024-06-20T18:03:16.461Z -- jumpserver -- jumpserver</title>
-      <link>https://www.cve.org/CVERecord?id=CVE-2024-29024</link>
-      <description>JumpServer is an open source bastion host and an operation and maintenance security audit system.
-An authenticated user can exploit the Insecure Direct Object Reference (IDOR) vulnerability in the file manager's bulk transfer by manipulating job IDs to upload malicious files,  potentially compromising the integrity and security of the system. This vulnerability is fixed in v3.10.6.</description>
-      <guid isPermaLink="false">CVE-2024-29024|2024-06-20T18:03:16.461Z</guid>
-      <pubDate>Fri, 29 Mar 2024 14:45:56 +0000</pubDate>
-    </item>
-    <item>
-      <title>CVE-2024-29020|2024-03-29T14:46:00.417Z -- jumpserver -- jumpserver</title>
-      <link>https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2024-29020</link>
-      <description>JumpServer is an open source bastion host and an operation and maintenance security audit system. An authorized attacker can obtain sensitive information contained within playbook files if they manage to learn the playbook_id of another user. This breach of confidentiality can lead to information disclosure and exposing sensitive data. This vulnerability is fixed in v3.10.6.</description>
-      <guid isPermaLink="false">CVE-2024-29020|2024-03-29T14:46:00.417Z</guid>
-      <pubDate>Fri, 29 Mar 2024 14:46:00 +0000</pubDate>
-    </item>
-    <item>
-      <title>CVE-2024-29201|2024-03-29T14:57:40.323Z -- jumpserver -- jumpserver</title>
-      <link>https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2024-29201</link>
-      <description>JumpServer is an open source bastion host and an operation and maintenance security audit system. Attackers can bypass the input validation mechanism in JumpServer's Ansible to execute arbitrary code within the Celery container. Since the Celery container runs with root privileges and has database access, attackers could steal sensitive information from all hosts or manipulate the database. This vulnerability is fixed in v3.10.7.</description>
-      <guid isPermaLink="false">CVE-2024-29201|2024-03-29T14:57:40.323Z</guid>
-      <pubDate>Fri, 29 Mar 2024 14:57:40 +0000</pubDate>
-    </item>
-    <item>
-      <title>CVE-2024-29202|2024-03-29T14:57:43.606Z -- jumpserver -- jumpserver</title>
-      <link>https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2024-29202</link>
-      <description>JumpServer is an open source bastion host and an operation and maintenance security audit system. Attackers can exploit a Jinja2 template injection vulnerability in JumpServer's Ansible to execute arbitrary code within the Celery container. Since the Celery container runs with root privileges and has database access, attackers could steal sensitive information from all hosts or manipulate the database. This vulnerability is fixed in v3.10.7.</description>
-      <guid isPermaLink="false">CVE-2024-29202|2024-03-29T14:57:43.606Z</guid>
-      <pubDate>Fri, 29 Mar 2024 14:57:43 +0000</pubDate>
-    </item>
-    <item>
-      <title>CVE-2024-29024|2024-03-29T14:45:56.377Z -- jumpserver -- jumpserver</title>
-      <link>https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2024-29024</link>
-      <description>JumpServer is an open source bastion host and an operation and maintenance security audit system.
-An authenticated user can exploit the Insecure Direct Object Reference (IDOR) vulnerability in the file manager's bulk transfer by manipulating job IDs to upload malicious files,  potentially compromising the integrity and security of the system. This vulnerability is fixed in v3.10.6.</description>
-      <guid isPermaLink="false">CVE-2024-29024|2024-03-29T14:45:56.377Z</guid>
-      <pubDate>Fri, 29 Mar 2024 14:45:56 +0000</pubDate>
-    </item>
-    <item>
-      <title>CVE-2024-40628|2024-07-18T17:05:21.662Z -- jumpserver -- jumpserver</title>
+      <title>CVE-2024-40628|2024-08-13T20:47:59.072Z -- jumpserver -- jumpserver</title>
       <link>https://www.cve.org/CVERecord?id=CVE-2024-40628</link>
       <description>JumpServer is an open-source Privileged Access Management (PAM) tool that provides DevOps and IT teams with on-demand and secure access to SSH, RDP, Kubernetes, Database and RemoteApp endpoints through a web browser. An attacker can exploit the ansible playbook to read arbitrary files in the celery container, leading to sensitive information disclosure. The Celery container runs as root and has database access, allowing the attacker to steal all secrets for hosts, create a new JumpServer account with admin privileges, or manipulate the database in other ways. This issue has been addressed in release versions 3.10.12 and 4.0.0. It is recommended to upgrade the safe versions. There is no known workarounds for this vulnerability.</description>
-      <guid isPermaLink="false">CVE-2024-40628|2024-07-18T17:05:21.662Z</guid>
-      <pubDate>Thu, 18 Jul 2024 17:05:21 +0000</pubDate>
-    </item>
-    <item>
-      <title>CVE-2024-40629|2024-07-18T17:04:10.251Z -- jumpserver -- jumpserver</title>
-      <link>https://www.cve.org/CVERecord?id=CVE-2024-40629</link>
-      <description>JumpServer is an open-source Privileged Access Management (PAM) tool that provides DevOps and IT teams with on-demand and secure access to SSH, RDP, Kubernetes, Database and RemoteApp endpoints through a web browser. An attacker can exploit the Ansible playbook to write arbitrary files, leading to remote code execution (RCE) in the Celery container. The Celery container runs as root and has database access, allowing an attacker to steal all secrets for hosts, create a new JumpServer account with admin privileges, or manipulate the database in other ways. This issue has been patched in release versions 3.10.12 and 4.0.0. It is recommended to upgrade the safe versions. There are no known workarounds for this vulnerability.</description>
-      <guid isPermaLink="false">CVE-2024-40629|2024-07-18T17:04:10.251Z</guid>
-      <pubDate>Thu, 18 Jul 2024 17:04:10 +0000</pubDate>
-    </item>
-    <item>
-      <title>CVE-2024-40628|2024-07-19T14:36:11.017Z -- jumpserver -- jumpserver</title>
-      <link>https://www.cve.org/CVERecord?id=CVE-2024-40628</link>
-      <description>JumpServer is an open-source Privileged Access Management (PAM) tool that provides DevOps and IT teams with on-demand and secure access to SSH, RDP, Kubernetes, Database and RemoteApp endpoints through a web browser. An attacker can exploit the ansible playbook to read arbitrary files in the celery container, leading to sensitive information disclosure. The Celery container runs as root and has database access, allowing the attacker to steal all secrets for hosts, create a new JumpServer account with admin privileges, or manipulate the database in other ways. This issue has been addressed in release versions 3.10.12 and 4.0.0. It is recommended to upgrade the safe versions. There is no known workarounds for this vulnerability.</description>
-      <guid isPermaLink="false">CVE-2024-40628|2024-07-19T14:36:11.017Z</guid>
-      <pubDate>Thu, 18 Jul 2024 17:05:21 +0000</pubDate>
-    </item>
-    <item>
-      <title>CVE-2024-40628|2024-08-02T04:33:11.849Z -- jumpserver -- jumpserver</title>
-      <link>https://www.cve.org/CVERecord?id=CVE-2024-40628</link>
-      <description>JumpServer is an open-source Privileged Access Management (PAM) tool that provides DevOps and IT teams with on-demand and secure access to SSH, RDP, Kubernetes, Database and RemoteApp endpoints through a web browser. An attacker can exploit the ansible playbook to read arbitrary files in the celery container, leading to sensitive information disclosure. The Celery container runs as root and has database access, allowing the attacker to steal all secrets for hosts, create a new JumpServer account with admin privileges, or manipulate the database in other ways. This issue has been addressed in release versions 3.10.12 and 4.0.0. It is recommended to upgrade the safe versions. There is no known workarounds for this vulnerability.</description>
-      <guid isPermaLink="false">CVE-2024-40628|2024-08-02T04:33:11.849Z</guid>
+      <guid isPermaLink="false">CVE-2024-40628|2024-08-13T20:47:59.072Z</guid>
       <pubDate>Thu, 18 Jul 2024 17:05:21 +0000</pubDate>
     </item>
     <item>
@@ -187,11 +32,39 @@ An authenticated user can exploit the Insecure Direct Object Reference (IDOR) vu
       <pubDate>Thu, 18 Jul 2024 17:04:10 +0000</pubDate>
     </item>
     <item>
-      <title>CVE-2024-40628|2024-08-13T20:47:59.072Z -- jumpserver -- jumpserver</title>
+      <title>CVE-2024-40628|2024-08-02T04:33:11.849Z -- jumpserver -- jumpserver</title>
       <link>https://www.cve.org/CVERecord?id=CVE-2024-40628</link>
       <description>JumpServer is an open-source Privileged Access Management (PAM) tool that provides DevOps and IT teams with on-demand and secure access to SSH, RDP, Kubernetes, Database and RemoteApp endpoints through a web browser. An attacker can exploit the ansible playbook to read arbitrary files in the celery container, leading to sensitive information disclosure. The Celery container runs as root and has database access, allowing the attacker to steal all secrets for hosts, create a new JumpServer account with admin privileges, or manipulate the database in other ways. This issue has been addressed in release versions 3.10.12 and 4.0.0. It is recommended to upgrade the safe versions. There is no known workarounds for this vulnerability.</description>
-      <guid isPermaLink="false">CVE-2024-40628|2024-08-13T20:47:59.072Z</guid>
+      <guid isPermaLink="false">CVE-2024-40628|2024-08-02T04:33:11.849Z</guid>
       <pubDate>Thu, 18 Jul 2024 17:05:21 +0000</pubDate>
+    </item>
+    <item>
+      <title>CVE-2024-40628|2024-07-19T14:36:11.017Z -- jumpserver -- jumpserver</title>
+      <link>https://www.cve.org/CVERecord?id=CVE-2024-40628</link>
+      <description>JumpServer is an open-source Privileged Access Management (PAM) tool that provides DevOps and IT teams with on-demand and secure access to SSH, RDP, Kubernetes, Database and RemoteApp endpoints through a web browser. An attacker can exploit the ansible playbook to read arbitrary files in the celery container, leading to sensitive information disclosure. The Celery container runs as root and has database access, allowing the attacker to steal all secrets for hosts, create a new JumpServer account with admin privileges, or manipulate the database in other ways. This issue has been addressed in release versions 3.10.12 and 4.0.0. It is recommended to upgrade the safe versions. There is no known workarounds for this vulnerability.</description>
+      <guid isPermaLink="false">CVE-2024-40628|2024-07-19T14:36:11.017Z</guid>
+      <pubDate>Thu, 18 Jul 2024 17:05:21 +0000</pubDate>
+    </item>
+    <item>
+      <title>CVE-2024-40629|2024-07-18T17:04:10.251Z -- jumpserver -- jumpserver</title>
+      <link>https://www.cve.org/CVERecord?id=CVE-2024-40629</link>
+      <description>JumpServer is an open-source Privileged Access Management (PAM) tool that provides DevOps and IT teams with on-demand and secure access to SSH, RDP, Kubernetes, Database and RemoteApp endpoints through a web browser. An attacker can exploit the Ansible playbook to write arbitrary files, leading to remote code execution (RCE) in the Celery container. The Celery container runs as root and has database access, allowing an attacker to steal all secrets for hosts, create a new JumpServer account with admin privileges, or manipulate the database in other ways. This issue has been patched in release versions 3.10.12 and 4.0.0. It is recommended to upgrade the safe versions. There are no known workarounds for this vulnerability.</description>
+      <guid isPermaLink="false">CVE-2024-40629|2024-07-18T17:04:10.251Z</guid>
+      <pubDate>Thu, 18 Jul 2024 17:04:10 +0000</pubDate>
+    </item>
+    <item>
+      <title>CVE-2024-40628|2024-07-18T17:05:21.662Z -- jumpserver -- jumpserver</title>
+      <link>https://www.cve.org/CVERecord?id=CVE-2024-40628</link>
+      <description>JumpServer is an open-source Privileged Access Management (PAM) tool that provides DevOps and IT teams with on-demand and secure access to SSH, RDP, Kubernetes, Database and RemoteApp endpoints through a web browser. An attacker can exploit the ansible playbook to read arbitrary files in the celery container, leading to sensitive information disclosure. The Celery container runs as root and has database access, allowing the attacker to steal all secrets for hosts, create a new JumpServer account with admin privileges, or manipulate the database in other ways. This issue has been addressed in release versions 3.10.12 and 4.0.0. It is recommended to upgrade the safe versions. There is no known workarounds for this vulnerability.</description>
+      <guid isPermaLink="false">CVE-2024-40628|2024-07-18T17:05:21.662Z</guid>
+      <pubDate>Thu, 18 Jul 2024 17:05:21 +0000</pubDate>
+    </item>
+    <item>
+      <title>CVE-2024-40629|2024-07-18T18:40:01.466Z -- jumpserver -- jumpserver</title>
+      <link>https://www.cve.org/CVERecord?id=CVE-2024-40629</link>
+      <description>JumpServer is an open-source Privileged Access Management (PAM) tool that provides DevOps and IT teams with on-demand and secure access to SSH, RDP, Kubernetes, Database and RemoteApp endpoints through a web browser. An attacker can exploit the Ansible playbook to write arbitrary files, leading to remote code execution (RCE) in the Celery container. The Celery container runs as root and has database access, allowing an attacker to steal all secrets for hosts, create a new JumpServer account with admin privileges, or manipulate the database in other ways. This issue has been patched in release versions 3.10.12 and 4.0.0. It is recommended to upgrade the safe versions. There are no known workarounds for this vulnerability.</description>
+      <guid isPermaLink="false">CVE-2024-40629|2024-07-18T18:40:01.466Z</guid>
+      <pubDate>Thu, 18 Jul 2024 17:04:10 +0000</pubDate>
     </item>
   </channel>
 </rss>
