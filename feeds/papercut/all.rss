@@ -6,31 +6,102 @@
     <description>The latest CVEs for PaperCut -- all products</description>
     <docs>http://www.rssboard.org/rss-specification</docs>
     <generator>python-feedgen</generator>
-    <lastBuildDate>Thu, 26 Sep 2024 01:50:56 +0000</lastBuildDate>
+    <lastBuildDate>Thu, 26 Sep 2024 02:38:52 +0000</lastBuildDate>
     <ttl>60</ttl>
     <item>
-      <title>CVE-2023-6006|2024-09-26T01:04:28.934Z -- papercut -- papercut%20ng%2C%20papercut%20mf
+      <title>CVE-2024-3037|2024-09-26T01:15:01.885Z -- papercut -- papercut%20ng%2C%20papercut%20mf
+</title>
+      <link>https://www.cve.org/CVERecord?id=CVE-2024-3037</link>
+      <description>An arbitrary file deletion vulnerability exists in PaperCut NG/MF, specifically affecting Windows servers with Web Print enabled. To exploit this vulnerability, an attacker must first obtain local login access to the Windows Server hosting PaperCut NG/MF and be capable of executing low-privilege code directly on the server. 
+
+Important: In most installations, this risk is mitigated by the default Windows Server configuration, which typically restricts local login access to Administrators only. However, this vulnerability could pose a risk to customers who allow non-administrative users to log in to the local console of the Windows environment hosting the PaperCut NG/MF application server.
+
+Note: This CVE has been split into two separate CVEs (CVE-2024-3037 and CVE-2024-8404) and it’s been rescored with a "Privileges Required (PR)" rating of low, and “Attack Complexity (AC)” rating of low, reflecting the worst-case scenario where an Administrator has granted local login access to standard users on the host server.</description>
+      <guid isPermaLink="false">CVE-2024-3037|2024-09-26T01:15:01.885Z</guid>
+      <pubDate>Tue, 14 May 2024 00:12:37 +0000</pubDate>
+    </item>
+    <item>
+      <title>CVE-2023-6006|2024-09-26T01:19:25.248Z -- papercut -- papercut%20ng%2C%20papercut%20mf
 </title>
       <link>https://www.cve.org/CVERecord?id=CVE-2023-6006</link>
-      <description>This vulnerability potentially allows local attackers to escalate privileges on affected installations of PaperCut NG. An attacker must be able to write into the local C Drive. In addition, the attacker must have admin privileges to enable Print Archiving or encounter a misconfigured system. This vulnerability does not apply to PaperCut NG installs that have Print Archiving enabled and configured as per the recommended set up procedure. This specific flaw exists within the pc-pdl-to-image process. The process loads an executable from an unsecured location. An attacker can leverage this vulnerability to escalate privileges and execute arbitrary code in the context of SYSTEM</description>
-      <guid isPermaLink="false">CVE-2023-6006|2024-09-26T01:04:28.934Z</guid>
+      <description>This vulnerability potentially allows local attackers to escalate privileges on affected installations of PaperCut NG. An attacker must have local write access to the C Drive. In addition, Print Archiving must be enabled or the attacker needs to encounter a misconfigured system. This vulnerability does not apply to PaperCut NG installs that have Print Archiving enabled and configured as per the recommended set up procedure. This specific flaw exists within the pc-pdl-to-image process. The process loads an executable from an unsecured location. An attacker can leverage this vulnerability to escalate privileges and execute arbitrary code in the context of SYSTEM
+
+Note: This CVE has been rescored with a "Privileges Required (PR)" rating of low, and “Attack Complexity (AC)” rating of low, reflecting the worst-case scenario where an Administrator has granted local login access to standard network users on the host server.</description>
+      <guid isPermaLink="false">CVE-2023-6006|2024-09-26T01:19:25.248Z</guid>
       <pubDate>Tue, 14 Nov 2023 04:04:03 +0000</pubDate>
     </item>
     <item>
-      <title>CVE-2023-39469|2024-08-02T18:10:20.806Z -- papercut -- ng</title>
-      <link>https://www.cve.org/CVERecord?id=CVE-2023-39469</link>
-      <description>PaperCut NG External User Lookup Code Injection Remote Code Execution Vulnerability. This vulnerability allows remote attackers to execute arbitrary code on affected installations of PaperCut NG. Authentication is required to exploit this vulnerability.
+      <title>CVE-2024-8405|2024-09-26T01:36:26.364Z -- papercut -- papercut%20ng%2C%20papercut%20mf
+</title>
+      <link>https://www.cve.org/CVERecord?id=CVE-2024-8405</link>
+      <description>An arbitrary file creation vulnerability exists in PaperCut NG/MF that only affects Windows servers with Web Print enabled. This specific flaw exists within the web-print.exe process, which can incorrectly create files that don’t exist when a maliciously formed payload is provided. This can be used to flood disk space and result in a Denial of Service (DoS) attack.
 
-The specific flaw exists within the External User Lookup functionality. The issue results from the lack of proper validation of a user-supplied string before using it to execute Java code. An attacker can leverage this vulnerability to execute code in the context of SYSTEM. Was ZDI-CAN-21013.</description>
-      <guid isPermaLink="false">CVE-2023-39469|2024-08-02T18:10:20.806Z</guid>
-      <pubDate>Fri, 03 May 2024 01:59:31 +0000</pubDate>
+Note: 
+
+This CVE has been split from CVE-2024-4712.</description>
+      <guid isPermaLink="false">CVE-2024-8405|2024-09-26T01:36:26.364Z</guid>
+      <pubDate>Thu, 26 Sep 2024 01:36:26 +0000</pubDate>
     </item>
     <item>
-      <title>CVE-2024-3037|2024-08-01T19:32:42.646Z -- papercut -- papercut%20ng%2C%20papercut%20mf</title>
+      <title>CVE-2024-8404|2024-09-26T01:42:49.400Z -- papercut -- papercut%20ng%2C%20papercut%20mf
+</title>
+      <link>https://www.cve.org/CVERecord?id=CVE-2024-8404</link>
+      <description>An arbitrary file deletion vulnerability exists in PaperCut NG/MF, specifically affecting Windows servers with Web Print enabled. To exploit this vulnerability, an attacker must first obtain local login access to the Windows Server hosting PaperCut NG/MF and be capable of executing low-privilege code directly on the server via the web-print-hot-folder. 
+
+Important: In most installations, this risk is mitigated by the default Windows Server configuration, which restricts local login access to Administrators only. However, this vulnerability could pose a risk to customers who allow non-administrative users to log into the local console of the Windows environment hosting the PaperCut NG/MF application server.
+
+Note: 
+
+This CVE has been split from CVE-2024-3037.</description>
+      <guid isPermaLink="false">CVE-2024-8404|2024-09-26T01:42:49.400Z</guid>
+      <pubDate>Thu, 26 Sep 2024 01:42:49 +0000</pubDate>
+    </item>
+    <item>
+      <title>CVE-2024-4712|2024-09-26T01:27:50.169Z -- papercut -- papercut%20ng%2C%20papercut%20mf
+</title>
+      <link>https://www.cve.org/CVERecord?id=CVE-2024-4712</link>
+      <description>An arbitrary file creation vulnerability exists in PaperCut NG/MF that only affects Windows servers with Web Print enabled. This specific flaw exists within the image-handler process, which can incorrectly create files that don’t exist when a maliciously formed payload is provided. This can lead to local privilege escalation.
+
+Note: 
+
+This CVE has been split into two (CVE-2024-4712 and CVE-2024-8405) and it’s been rescored with a "Privileges Required (PR)" rating of low, and “Attack Complexity (AC)” rating of low, reflecting the worst-case scenario where an Administrator has granted local login access to standard network users on the host server.</description>
+      <guid isPermaLink="false">CVE-2024-4712|2024-09-26T01:27:50.169Z</guid>
+      <pubDate>Tue, 14 May 2024 00:13:47 +0000</pubDate>
+    </item>
+    <item>
+      <title>CVE-2024-4712|2024-08-01T20:47:41.691Z -- papercut -- papercut%20ng%2C%20papercut%20mf</title>
+      <link>https://www.cve.org/CVERecord?id=CVE-2024-4712</link>
+      <description>An arbitrary file creation vulnerability exists in PaperCut NG/MF that only affects Windows servers with Web Print enabled. This vulnerability requires local login/console  access to the PaperCut NG/MF server (eg: member of a domain admin group).</description>
+      <guid isPermaLink="false">CVE-2024-4712|2024-08-01T20:47:41.691Z</guid>
+      <pubDate>Tue, 14 May 2024 00:13:47 +0000</pubDate>
+    </item>
+    <item>
+      <title>CVE-2024-3037|2024-08-01T20:42:25.605Z -- papercut -- papercut%20ng%2C%20papercut%20mf</title>
       <link>https://www.cve.org/CVERecord?id=CVE-2024-3037</link>
       <description>An arbitrary file deletion vulnerability exists in PaperCut NG/MF that only affects Windows servers with Web Print enabled. This vulnerability requires local login/console  access to the PaperCut NG/MF server (eg: member of a domain admin group).</description>
-      <guid isPermaLink="false">CVE-2024-3037|2024-08-01T19:32:42.646Z</guid>
+      <guid isPermaLink="false">CVE-2024-3037|2024-08-01T20:42:25.605Z</guid>
       <pubDate>Tue, 14 May 2024 00:12:37 +0000</pubDate>
+    </item>
+    <item>
+      <title>CVE-2024-4712|2024-06-20T19:40:12.502Z -- papercut -- papercut%20ng%2C%20papercut%20mf</title>
+      <link>https://www.cve.org/CVERecord?id=CVE-2024-4712</link>
+      <description>An arbitrary file creation vulnerability exists in PaperCut NG/MF that only affects Windows servers with Web Print enabled. This vulnerability requires local login/console  access to the PaperCut NG/MF server (eg: member of a domain admin group).</description>
+      <guid isPermaLink="false">CVE-2024-4712|2024-06-20T19:40:12.502Z</guid>
+      <pubDate>Tue, 14 May 2024 00:13:47 +0000</pubDate>
+    </item>
+    <item>
+      <title>CVE-2024-3037|2024-05-14T00:12:37.696Z -- papercut -- papercut%20ng%2C%20papercut%20mf</title>
+      <link>https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2024-3037</link>
+      <description>An arbitrary file deletion vulnerability exists in PaperCut NG/MF that only affects Windows servers with Web Print enabled. This vulnerability requires local login/console  access to the PaperCut NG/MF server (eg: member of a domain admin group).</description>
+      <guid isPermaLink="false">CVE-2024-3037|2024-05-14T00:12:37.696Z</guid>
+      <pubDate>Tue, 14 May 2024 00:12:37 +0000</pubDate>
+    </item>
+    <item>
+      <title>CVE-2024-4712|2024-05-14T00:13:47.600Z -- papercut -- papercut%20ng%2C%20papercut%20mf</title>
+      <link>https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2024-4712</link>
+      <description>An arbitrary file creation vulnerability exists in PaperCut NG/MF that only affects Windows servers with Web Print enabled. This vulnerability requires local login/console  access to the PaperCut NG/MF server (eg: member of a domain admin group).</description>
+      <guid isPermaLink="false">CVE-2024-4712|2024-05-14T00:13:47.600Z</guid>
+      <pubDate>Tue, 14 May 2024 00:13:47 +0000</pubDate>
     </item>
     <item>
       <title>CVE-2023-39469|2024-06-04T17:27:06.117Z -- papercut -- ng</title>
@@ -42,39 +113,20 @@ The specific flaw exists within the External User Lookup functionality. The issu
       <pubDate>Fri, 03 May 2024 01:59:31 +0000</pubDate>
     </item>
     <item>
-      <title>CVE-2024-4712|2024-05-14T00:13:47.600Z -- papercut -- papercut%20ng%2C%20papercut%20mf</title>
-      <link>https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2024-4712</link>
-      <description>An arbitrary file creation vulnerability exists in PaperCut NG/MF that only affects Windows servers with Web Print enabled. This vulnerability requires local login/console  access to the PaperCut NG/MF server (eg: member of a domain admin group).</description>
-      <guid isPermaLink="false">CVE-2024-4712|2024-05-14T00:13:47.600Z</guid>
-      <pubDate>Tue, 14 May 2024 00:13:47 +0000</pubDate>
-    </item>
-    <item>
-      <title>CVE-2024-3037|2024-05-14T00:12:37.696Z -- papercut -- papercut%20ng%2C%20papercut%20mf</title>
-      <link>https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2024-3037</link>
-      <description>An arbitrary file deletion vulnerability exists in PaperCut NG/MF that only affects Windows servers with Web Print enabled. This vulnerability requires local login/console  access to the PaperCut NG/MF server (eg: member of a domain admin group).</description>
-      <guid isPermaLink="false">CVE-2024-3037|2024-05-14T00:12:37.696Z</guid>
-      <pubDate>Tue, 14 May 2024 00:12:37 +0000</pubDate>
-    </item>
-    <item>
-      <title>CVE-2024-4712|2024-06-20T19:40:12.502Z -- papercut -- papercut%20ng%2C%20papercut%20mf</title>
-      <link>https://www.cve.org/CVERecord?id=CVE-2024-4712</link>
-      <description>An arbitrary file creation vulnerability exists in PaperCut NG/MF that only affects Windows servers with Web Print enabled. This vulnerability requires local login/console  access to the PaperCut NG/MF server (eg: member of a domain admin group).</description>
-      <guid isPermaLink="false">CVE-2024-4712|2024-06-20T19:40:12.502Z</guid>
-      <pubDate>Tue, 14 May 2024 00:13:47 +0000</pubDate>
-    </item>
-    <item>
-      <title>CVE-2024-3037|2024-08-01T20:42:25.605Z -- papercut -- papercut%20ng%2C%20papercut%20mf</title>
+      <title>CVE-2024-3037|2024-08-01T19:32:42.646Z -- papercut -- papercut%20ng%2C%20papercut%20mf</title>
       <link>https://www.cve.org/CVERecord?id=CVE-2024-3037</link>
       <description>An arbitrary file deletion vulnerability exists in PaperCut NG/MF that only affects Windows servers with Web Print enabled. This vulnerability requires local login/console  access to the PaperCut NG/MF server (eg: member of a domain admin group).</description>
-      <guid isPermaLink="false">CVE-2024-3037|2024-08-01T20:42:25.605Z</guid>
+      <guid isPermaLink="false">CVE-2024-3037|2024-08-01T19:32:42.646Z</guid>
       <pubDate>Tue, 14 May 2024 00:12:37 +0000</pubDate>
     </item>
     <item>
-      <title>CVE-2024-4712|2024-08-01T20:47:41.691Z -- papercut -- papercut%20ng%2C%20papercut%20mf</title>
-      <link>https://www.cve.org/CVERecord?id=CVE-2024-4712</link>
-      <description>An arbitrary file creation vulnerability exists in PaperCut NG/MF that only affects Windows servers with Web Print enabled. This vulnerability requires local login/console  access to the PaperCut NG/MF server (eg: member of a domain admin group).</description>
-      <guid isPermaLink="false">CVE-2024-4712|2024-08-01T20:47:41.691Z</guid>
-      <pubDate>Tue, 14 May 2024 00:13:47 +0000</pubDate>
+      <title>CVE-2023-39469|2024-08-02T18:10:20.806Z -- papercut -- ng</title>
+      <link>https://www.cve.org/CVERecord?id=CVE-2023-39469</link>
+      <description>PaperCut NG External User Lookup Code Injection Remote Code Execution Vulnerability. This vulnerability allows remote attackers to execute arbitrary code on affected installations of PaperCut NG. Authentication is required to exploit this vulnerability.
+
+The specific flaw exists within the External User Lookup functionality. The issue results from the lack of proper validation of a user-supplied string before using it to execute Java code. An attacker can leverage this vulnerability to execute code in the context of SYSTEM. Was ZDI-CAN-21013.</description>
+      <guid isPermaLink="false">CVE-2023-39469|2024-08-02T18:10:20.806Z</guid>
+      <pubDate>Fri, 03 May 2024 01:59:31 +0000</pubDate>
     </item>
   </channel>
 </rss>
