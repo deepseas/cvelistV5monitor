@@ -6,56 +6,35 @@
     <description>The latest CVEs for NixOS -- all products</description>
     <docs>http://www.rssboard.org/rss-specification</docs>
     <generator>python-feedgen</generator>
-    <lastBuildDate>Tue, 10 Sep 2024 17:22:23 +0000</lastBuildDate>
+    <lastBuildDate>Thu, 26 Sep 2024 18:24:45 +0000</lastBuildDate>
     <ttl>60</ttl>
     <item>
-      <title>CVE-2024-45593|2024-09-10T16:06:16.016Z -- nixos -- nix
+      <title>CVE-2024-47174|2024-09-26T17:49:28.342Z -- nixos -- nix
 </title>
+      <link>https://www.cve.org/CVERecord?id=CVE-2024-47174</link>
+      <description>Nix is a package manager for Linux and other Unix systems. Starting in version 1.11 and prior to versions 2.18.8 and 2.24.8, `&lt;nix/fetchurl.nix&gt;` did not verify TLS certificates on HTTPS connections. This could lead to connection details such as full URLs or credentials leaking in case of a man-in-the-middle (MITM) attack. `&lt;nix/fetchurl.nix&gt;` is also known as the builtin derivation builder `builtin:fetchurl`. It's not to be confused with the evaluation-time function `builtins.fetchurl`, which was not affected by this issue. A user may be affected by the risk of leaking credentials if they have a `netrc` file for authentication, or rely on derivations with `impureEnvVars` set to use credentials from the environment. In addition, the commonplace trust-on-first-use (TOFU) technique of updating dependencies by specifying an invalid hash and obtaining it from a remote  store was also vulnerable to a MITM injecting arbitrary store objects. This also applied to the impure derivations experimental feature. Note that this may also happen when using Nixpkgs fetchers to obtain new hashes when not using the fake hash method, although that mechanism is not implemented in Nix itself but rather in Nixpkgs using a fixed-output derivation. The behavior was introduced in version 1.11 to make it consistent with the Nixpkgs `pkgs.fetchurl` and to make `&lt;nix/fetchurl.nix&gt;` work in the derivation builder sandbox, which back then did not have access to the CA bundles by default. Nowadays, CA bundles are bind-mounted on Linux. This issue has been fixed in Nix 2.18.8 and 2.24.8. As a workaround, implement (authenticated) fetching with `pkgs.fetchurl` from Nixpkgs, using `impureEnvVars` and `curlOpts` as needed.</description>
+      <guid isPermaLink="false">CVE-2024-47174|2024-09-26T17:49:28.342Z</guid>
+      <pubDate>Thu, 26 Sep 2024 17:27:53 +0000</pubDate>
+    </item>
+    <item>
+      <title>CVE-2024-45593|2024-09-10T15:51:07.881Z -- nixos -- nix</title>
       <link>https://www.cve.org/CVERecord?id=CVE-2024-45593</link>
       <description>Nix is a package manager for Linux and other Unix systems. A bug in Nix 2.24 prior to 2.24.6 allows a substituter or malicious user to craft a NAR that, when unpacked by Nix, causes Nix to write to arbitrary file system locations to which the Nix process has access. This will be with root permissions when using the Nix daemon. This issue is fixed in Nix 2.24.6.</description>
-      <guid isPermaLink="false">CVE-2024-45593|2024-09-10T16:06:16.016Z</guid>
+      <guid isPermaLink="false">CVE-2024-45593|2024-09-10T15:51:07.881Z</guid>
       <pubDate>Tue, 10 Sep 2024 15:51:07 +0000</pubDate>
     </item>
     <item>
-      <title>CVE-2024-43378|2024-09-03T18:02:47.756Z -- nixos -- calamares-nixos-extensions</title>
-      <link>https://www.cve.org/CVERecord?id=CVE-2024-43378</link>
-      <description>calamares-nixos-extensions provides Calamares branding and modules for NixOS, a distribution of GNU/Linux. Users who installed NixOS through the graphical installer who used manual disk partitioning to create a setup where the system was booted via legacy BIOS rather than UEFI; some disk partitions are encrypted; but the partitions containing either `/` or `/boot` are unencrypted; have their LUKS disk encryption key file in plain text either in `/crypto_keyfile.bin`, or in a CPIO archive attached to their NixOS initrd. `nixos-install` is not affected, nor are UEFI installations, nor was the default automatic partitioning configuration on legacy BIOS systems. The problem has been fixed in calamares-nixos-extensions 0.3.17, which was included in NixOS. The current installer images for the NixOS 24.05 and unstable (24.11) channels are unaffected. The fix reached 24.05 at 2024-08-13 20:06:59 UTC, and unstable at 2024-08-15 09:00:20 UTC. Installer images downloaded before those times may be vulnerable. The best solution for affected users is probably to back up their data and do a complete reinstallation. However, the mitigation procedure in GHSA-3rvf-24q2-24ww should work solely for the case where `/` is encrypted but `/boot` is not. If `/` is unencrypted, then the `/crypto_keyfile.bin` file will need to be deleted in addition to the remediation steps in the previous advisory. This issue is a partial regression of CVE-2023-36476 / GHSA-3rvf-24q2-24ww, which was more severe as it applied to the default configuration on BIOS systems.</description>
-      <guid isPermaLink="false">CVE-2024-43378|2024-09-03T18:02:47.756Z</guid>
-      <pubDate>Thu, 15 Aug 2024 23:53:07 +0000</pubDate>
-    </item>
-    <item>
-      <title>CVE-2024-45049|2024-08-27T20:33:01.326Z -- nixos -- hydra</title>
+      <title>CVE-2024-45049|2024-08-28T14:03:00.616Z -- nixos -- hydra</title>
       <link>https://www.cve.org/CVERecord?id=CVE-2024-45049</link>
       <description>Hydra is a Continuous Integration service for Nix based projects. It is possible to trigger evaluations in Hydra without any authentication. Depending on the size of evaluations, this can impact the availability of systems. The problem can be fixed by applying https://github.com/NixOS/hydra/commit/f73043378907c2c7e44f633ad764c8bdd1c947d5 to any Hydra package. Users are advised to upgrade. Users unable to upgrade should deny the `/api/push` route in a reverse proxy. This also breaks the "Evaluate jobset" button in the frontend.</description>
-      <guid isPermaLink="false">CVE-2024-45049|2024-08-27T20:33:01.326Z</guid>
+      <guid isPermaLink="false">CVE-2024-45049|2024-08-28T14:03:00.616Z</guid>
       <pubDate>Tue, 27 Aug 2024 20:33:01 +0000</pubDate>
     </item>
     <item>
-      <title>CVE-2024-38531|2024-08-02T04:12:25.386Z -- nixos -- nix</title>
-      <link>https://www.cve.org/CVERecord?id=CVE-2024-38531</link>
-      <description>Nix is a package manager for Linux and other Unix systems that makes package management reliable and reproducible. A build process has access to and can change the permissions of the build directory. After creating a setuid binary in a globally accessible location, a malicious local user can assume the permissions of a Nix daemon worker and hijack all future builds. This issue was patched in version(s) 2.23.1, 2.22.2, 2.21.3, 2.20.7, 2.19.5 and 2.18.4.</description>
-      <guid isPermaLink="false">CVE-2024-38531|2024-08-02T04:12:25.386Z</guid>
-      <pubDate>Fri, 28 Jun 2024 13:18:58 +0000</pubDate>
-    </item>
-    <item>
-      <title>CVE-2024-38531|2024-06-28T13:18:58.604Z -- nixos -- nix</title>
-      <link>https://www.cve.org/CVERecord?id=CVE-2024-38531</link>
-      <description>Nix is a package manager for Linux and other Unix systems that makes package management reliable and reproducible. A build process has access to and can change the permissions of the build directory. After creating a setuid binary in a globally accessible location, a malicious local user can assume the permissions of a Nix daemon worker and hijack all future builds. This issue was patched in version(s) 2.23.1, 2.22.2, 2.21.3, 2.20.7, 2.19.5 and 2.18.4.</description>
-      <guid isPermaLink="false">CVE-2024-38531|2024-06-28T13:18:58.604Z</guid>
-      <pubDate>Fri, 28 Jun 2024 13:18:58 +0000</pubDate>
-    </item>
-    <item>
-      <title>CVE-2024-32657|2024-06-04T17:51:03.498Z -- nixos -- hydra</title>
-      <link>https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2024-32657</link>
-      <description>Hydra is a Continuous Integration service for Nix based projects. Attackers can execute arbitrary code in the browser context of Hydra and execute authenticated HTTP requests. The abused feature allows Nix builds to specify files that Hydra serves to clients. One use of this functionality is serving NixOS `.iso` files. The issue is only with html files served by Hydra. The issue has been patched on https://hydra.nixos.org around 2024-04-21 14:30 UTC. The nixpkgs package were fixed in unstable and 23.11. Users with custom Hydra packages can apply the fix commit to their local installations. The vulnerability is only triggered when opening HTML build artifacts, so not opening them until the vulnerability is fixed works around the issue.</description>
-      <guid isPermaLink="false">CVE-2024-32657|2024-06-04T17:51:03.498Z</guid>
-      <pubDate>Mon, 22 Apr 2024 22:24:06 +0000</pubDate>
-    </item>
-    <item>
-      <title>CVE-2024-32657|2024-06-18T18:08:52.714Z -- nixos -- hydra</title>
+      <title>CVE-2024-32657|2024-08-02T02:13:40.333Z -- nixos -- hydra</title>
       <link>https://www.cve.org/CVERecord?id=CVE-2024-32657</link>
       <description>Hydra is a Continuous Integration service for Nix based projects. Attackers can execute arbitrary code in the browser context of Hydra and execute authenticated HTTP requests. The abused feature allows Nix builds to specify files that Hydra serves to clients. One use of this functionality is serving NixOS `.iso` files. The issue is only with html files served by Hydra. The issue has been patched on https://hydra.nixos.org around 2024-04-21 14:30 UTC. The nixpkgs package were fixed in unstable and 23.11. Users with custom Hydra packages can apply the fix commit to their local installations. The vulnerability is only triggered when opening HTML build artifacts, so not opening them until the vulnerability is fixed works around the issue.</description>
-      <guid isPermaLink="false">CVE-2024-32657|2024-06-18T18:08:52.714Z</guid>
+      <guid isPermaLink="false">CVE-2024-32657|2024-08-02T02:13:40.333Z</guid>
       <pubDate>Mon, 22 Apr 2024 22:24:06 +0000</pubDate>
     </item>
     <item>
@@ -66,24 +45,52 @@
       <pubDate>Fri, 28 Jun 2024 13:18:58 +0000</pubDate>
     </item>
     <item>
-      <title>CVE-2024-32657|2024-08-02T02:13:40.333Z -- nixos -- hydra</title>
+      <title>CVE-2024-32657|2024-06-18T18:08:52.714Z -- nixos -- hydra</title>
       <link>https://www.cve.org/CVERecord?id=CVE-2024-32657</link>
       <description>Hydra is a Continuous Integration service for Nix based projects. Attackers can execute arbitrary code in the browser context of Hydra and execute authenticated HTTP requests. The abused feature allows Nix builds to specify files that Hydra serves to clients. One use of this functionality is serving NixOS `.iso` files. The issue is only with html files served by Hydra. The issue has been patched on https://hydra.nixos.org around 2024-04-21 14:30 UTC. The nixpkgs package were fixed in unstable and 23.11. Users with custom Hydra packages can apply the fix commit to their local installations. The vulnerability is only triggered when opening HTML build artifacts, so not opening them until the vulnerability is fixed works around the issue.</description>
-      <guid isPermaLink="false">CVE-2024-32657|2024-08-02T02:13:40.333Z</guid>
+      <guid isPermaLink="false">CVE-2024-32657|2024-06-18T18:08:52.714Z</guid>
       <pubDate>Mon, 22 Apr 2024 22:24:06 +0000</pubDate>
     </item>
     <item>
-      <title>CVE-2024-45049|2024-08-28T14:03:00.616Z -- nixos -- hydra</title>
+      <title>CVE-2024-32657|2024-06-04T17:51:03.498Z -- nixos -- hydra</title>
+      <link>https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2024-32657</link>
+      <description>Hydra is a Continuous Integration service for Nix based projects. Attackers can execute arbitrary code in the browser context of Hydra and execute authenticated HTTP requests. The abused feature allows Nix builds to specify files that Hydra serves to clients. One use of this functionality is serving NixOS `.iso` files. The issue is only with html files served by Hydra. The issue has been patched on https://hydra.nixos.org around 2024-04-21 14:30 UTC. The nixpkgs package were fixed in unstable and 23.11. Users with custom Hydra packages can apply the fix commit to their local installations. The vulnerability is only triggered when opening HTML build artifacts, so not opening them until the vulnerability is fixed works around the issue.</description>
+      <guid isPermaLink="false">CVE-2024-32657|2024-06-04T17:51:03.498Z</guid>
+      <pubDate>Mon, 22 Apr 2024 22:24:06 +0000</pubDate>
+    </item>
+    <item>
+      <title>CVE-2024-38531|2024-06-28T13:18:58.604Z -- nixos -- nix</title>
+      <link>https://www.cve.org/CVERecord?id=CVE-2024-38531</link>
+      <description>Nix is a package manager for Linux and other Unix systems that makes package management reliable and reproducible. A build process has access to and can change the permissions of the build directory. After creating a setuid binary in a globally accessible location, a malicious local user can assume the permissions of a Nix daemon worker and hijack all future builds. This issue was patched in version(s) 2.23.1, 2.22.2, 2.21.3, 2.20.7, 2.19.5 and 2.18.4.</description>
+      <guid isPermaLink="false">CVE-2024-38531|2024-06-28T13:18:58.604Z</guid>
+      <pubDate>Fri, 28 Jun 2024 13:18:58 +0000</pubDate>
+    </item>
+    <item>
+      <title>CVE-2024-38531|2024-08-02T04:12:25.386Z -- nixos -- nix</title>
+      <link>https://www.cve.org/CVERecord?id=CVE-2024-38531</link>
+      <description>Nix is a package manager for Linux and other Unix systems that makes package management reliable and reproducible. A build process has access to and can change the permissions of the build directory. After creating a setuid binary in a globally accessible location, a malicious local user can assume the permissions of a Nix daemon worker and hijack all future builds. This issue was patched in version(s) 2.23.1, 2.22.2, 2.21.3, 2.20.7, 2.19.5 and 2.18.4.</description>
+      <guid isPermaLink="false">CVE-2024-38531|2024-08-02T04:12:25.386Z</guid>
+      <pubDate>Fri, 28 Jun 2024 13:18:58 +0000</pubDate>
+    </item>
+    <item>
+      <title>CVE-2024-45049|2024-08-27T20:33:01.326Z -- nixos -- hydra</title>
       <link>https://www.cve.org/CVERecord?id=CVE-2024-45049</link>
       <description>Hydra is a Continuous Integration service for Nix based projects. It is possible to trigger evaluations in Hydra without any authentication. Depending on the size of evaluations, this can impact the availability of systems. The problem can be fixed by applying https://github.com/NixOS/hydra/commit/f73043378907c2c7e44f633ad764c8bdd1c947d5 to any Hydra package. Users are advised to upgrade. Users unable to upgrade should deny the `/api/push` route in a reverse proxy. This also breaks the "Evaluate jobset" button in the frontend.</description>
-      <guid isPermaLink="false">CVE-2024-45049|2024-08-28T14:03:00.616Z</guid>
+      <guid isPermaLink="false">CVE-2024-45049|2024-08-27T20:33:01.326Z</guid>
       <pubDate>Tue, 27 Aug 2024 20:33:01 +0000</pubDate>
     </item>
     <item>
-      <title>CVE-2024-45593|2024-09-10T15:51:07.881Z -- nixos -- nix</title>
+      <title>CVE-2024-43378|2024-09-03T18:02:47.756Z -- nixos -- calamares-nixos-extensions</title>
+      <link>https://www.cve.org/CVERecord?id=CVE-2024-43378</link>
+      <description>calamares-nixos-extensions provides Calamares branding and modules for NixOS, a distribution of GNU/Linux. Users who installed NixOS through the graphical installer who used manual disk partitioning to create a setup where the system was booted via legacy BIOS rather than UEFI; some disk partitions are encrypted; but the partitions containing either `/` or `/boot` are unencrypted; have their LUKS disk encryption key file in plain text either in `/crypto_keyfile.bin`, or in a CPIO archive attached to their NixOS initrd. `nixos-install` is not affected, nor are UEFI installations, nor was the default automatic partitioning configuration on legacy BIOS systems. The problem has been fixed in calamares-nixos-extensions 0.3.17, which was included in NixOS. The current installer images for the NixOS 24.05 and unstable (24.11) channels are unaffected. The fix reached 24.05 at 2024-08-13 20:06:59 UTC, and unstable at 2024-08-15 09:00:20 UTC. Installer images downloaded before those times may be vulnerable. The best solution for affected users is probably to back up their data and do a complete reinstallation. However, the mitigation procedure in GHSA-3rvf-24q2-24ww should work solely for the case where `/` is encrypted but `/boot` is not. If `/` is unencrypted, then the `/crypto_keyfile.bin` file will need to be deleted in addition to the remediation steps in the previous advisory. This issue is a partial regression of CVE-2023-36476 / GHSA-3rvf-24q2-24ww, which was more severe as it applied to the default configuration on BIOS systems.</description>
+      <guid isPermaLink="false">CVE-2024-43378|2024-09-03T18:02:47.756Z</guid>
+      <pubDate>Thu, 15 Aug 2024 23:53:07 +0000</pubDate>
+    </item>
+    <item>
+      <title>CVE-2024-45593|2024-09-10T16:06:16.016Z -- nixos -- nix</title>
       <link>https://www.cve.org/CVERecord?id=CVE-2024-45593</link>
       <description>Nix is a package manager for Linux and other Unix systems. A bug in Nix 2.24 prior to 2.24.6 allows a substituter or malicious user to craft a NAR that, when unpacked by Nix, causes Nix to write to arbitrary file system locations to which the Nix process has access. This will be with root permissions when using the Nix daemon. This issue is fixed in Nix 2.24.6.</description>
-      <guid isPermaLink="false">CVE-2024-45593|2024-09-10T15:51:07.881Z</guid>
+      <guid isPermaLink="false">CVE-2024-45593|2024-09-10T16:06:16.016Z</guid>
       <pubDate>Tue, 10 Sep 2024 15:51:07 +0000</pubDate>
     </item>
   </channel>

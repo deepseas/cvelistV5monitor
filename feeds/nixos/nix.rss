@@ -6,21 +6,28 @@
     <description>The latest CVEs for NixOS -- nix</description>
     <docs>http://www.rssboard.org/rss-specification</docs>
     <generator>python-feedgen</generator>
-    <lastBuildDate>Tue, 10 Sep 2024 17:22:23 +0000</lastBuildDate>
+    <lastBuildDate>Thu, 26 Sep 2024 18:24:45 +0000</lastBuildDate>
     <ttl>60</ttl>
     <item>
-      <title>CVE-2024-45593|2024-09-10T16:06:16.016Z -- nixos -- nix
+      <title>CVE-2024-47174|2024-09-26T17:49:28.342Z -- nixos -- nix
 </title>
+      <link>https://www.cve.org/CVERecord?id=CVE-2024-47174</link>
+      <description>Nix is a package manager for Linux and other Unix systems. Starting in version 1.11 and prior to versions 2.18.8 and 2.24.8, `&lt;nix/fetchurl.nix&gt;` did not verify TLS certificates on HTTPS connections. This could lead to connection details such as full URLs or credentials leaking in case of a man-in-the-middle (MITM) attack. `&lt;nix/fetchurl.nix&gt;` is also known as the builtin derivation builder `builtin:fetchurl`. It's not to be confused with the evaluation-time function `builtins.fetchurl`, which was not affected by this issue. A user may be affected by the risk of leaking credentials if they have a `netrc` file for authentication, or rely on derivations with `impureEnvVars` set to use credentials from the environment. In addition, the commonplace trust-on-first-use (TOFU) technique of updating dependencies by specifying an invalid hash and obtaining it from a remote  store was also vulnerable to a MITM injecting arbitrary store objects. This also applied to the impure derivations experimental feature. Note that this may also happen when using Nixpkgs fetchers to obtain new hashes when not using the fake hash method, although that mechanism is not implemented in Nix itself but rather in Nixpkgs using a fixed-output derivation. The behavior was introduced in version 1.11 to make it consistent with the Nixpkgs `pkgs.fetchurl` and to make `&lt;nix/fetchurl.nix&gt;` work in the derivation builder sandbox, which back then did not have access to the CA bundles by default. Nowadays, CA bundles are bind-mounted on Linux. This issue has been fixed in Nix 2.18.8 and 2.24.8. As a workaround, implement (authenticated) fetching with `pkgs.fetchurl` from Nixpkgs, using `impureEnvVars` and `curlOpts` as needed.</description>
+      <guid isPermaLink="false">CVE-2024-47174|2024-09-26T17:49:28.342Z</guid>
+      <pubDate>Thu, 26 Sep 2024 17:27:53 +0000</pubDate>
+    </item>
+    <item>
+      <title>CVE-2024-45593|2024-09-10T15:51:07.881Z -- nixos -- nix</title>
       <link>https://www.cve.org/CVERecord?id=CVE-2024-45593</link>
       <description>Nix is a package manager for Linux and other Unix systems. A bug in Nix 2.24 prior to 2.24.6 allows a substituter or malicious user to craft a NAR that, when unpacked by Nix, causes Nix to write to arbitrary file system locations to which the Nix process has access. This will be with root permissions when using the Nix daemon. This issue is fixed in Nix 2.24.6.</description>
-      <guid isPermaLink="false">CVE-2024-45593|2024-09-10T16:06:16.016Z</guid>
+      <guid isPermaLink="false">CVE-2024-45593|2024-09-10T15:51:07.881Z</guid>
       <pubDate>Tue, 10 Sep 2024 15:51:07 +0000</pubDate>
     </item>
     <item>
-      <title>CVE-2024-38531|2024-08-02T04:12:25.386Z -- nixos -- nix</title>
+      <title>CVE-2024-38531|2024-06-28T13:18:58.604Z -- nixos -- nix</title>
       <link>https://www.cve.org/CVERecord?id=CVE-2024-38531</link>
       <description>Nix is a package manager for Linux and other Unix systems that makes package management reliable and reproducible. A build process has access to and can change the permissions of the build directory. After creating a setuid binary in a globally accessible location, a malicious local user can assume the permissions of a Nix daemon worker and hijack all future builds. This issue was patched in version(s) 2.23.1, 2.22.2, 2.21.3, 2.20.7, 2.19.5 and 2.18.4.</description>
-      <guid isPermaLink="false">CVE-2024-38531|2024-08-02T04:12:25.386Z</guid>
+      <guid isPermaLink="false">CVE-2024-38531|2024-06-28T13:18:58.604Z</guid>
       <pubDate>Fri, 28 Jun 2024 13:18:58 +0000</pubDate>
     </item>
     <item>
@@ -31,17 +38,17 @@
       <pubDate>Fri, 28 Jun 2024 13:18:58 +0000</pubDate>
     </item>
     <item>
-      <title>CVE-2024-38531|2024-06-28T13:18:58.604Z -- nixos -- nix</title>
+      <title>CVE-2024-38531|2024-08-02T04:12:25.386Z -- nixos -- nix</title>
       <link>https://www.cve.org/CVERecord?id=CVE-2024-38531</link>
       <description>Nix is a package manager for Linux and other Unix systems that makes package management reliable and reproducible. A build process has access to and can change the permissions of the build directory. After creating a setuid binary in a globally accessible location, a malicious local user can assume the permissions of a Nix daemon worker and hijack all future builds. This issue was patched in version(s) 2.23.1, 2.22.2, 2.21.3, 2.20.7, 2.19.5 and 2.18.4.</description>
-      <guid isPermaLink="false">CVE-2024-38531|2024-06-28T13:18:58.604Z</guid>
+      <guid isPermaLink="false">CVE-2024-38531|2024-08-02T04:12:25.386Z</guid>
       <pubDate>Fri, 28 Jun 2024 13:18:58 +0000</pubDate>
     </item>
     <item>
-      <title>CVE-2024-45593|2024-09-10T15:51:07.881Z -- nixos -- nix</title>
+      <title>CVE-2024-45593|2024-09-10T16:06:16.016Z -- nixos -- nix</title>
       <link>https://www.cve.org/CVERecord?id=CVE-2024-45593</link>
       <description>Nix is a package manager for Linux and other Unix systems. A bug in Nix 2.24 prior to 2.24.6 allows a substituter or malicious user to craft a NAR that, when unpacked by Nix, causes Nix to write to arbitrary file system locations to which the Nix process has access. This will be with root permissions when using the Nix daemon. This issue is fixed in Nix 2.24.6.</description>
-      <guid isPermaLink="false">CVE-2024-45593|2024-09-10T15:51:07.881Z</guid>
+      <guid isPermaLink="false">CVE-2024-45593|2024-09-10T16:06:16.016Z</guid>
       <pubDate>Tue, 10 Sep 2024 15:51:07 +0000</pubDate>
     </item>
   </channel>

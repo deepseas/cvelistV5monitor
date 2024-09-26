@@ -6,47 +6,15 @@
     <description>The latest CVEs for ory -- all products</description>
     <docs>http://www.rssboard.org/rss-specification</docs>
     <generator>python-feedgen</generator>
-    <lastBuildDate>Sun, 04 Aug 2024 23:23:21 +0000</lastBuildDate>
+    <lastBuildDate>Thu, 26 Sep 2024 18:24:45 +0000</lastBuildDate>
     <ttl>60</ttl>
     <item>
-      <title>CVE-2020-15222|2024-08-04T13:08:22.899Z -- ory -- fosite
+      <title>CVE-2024-45042|2024-09-26T17:04:59.235Z -- ory -- kratos
 </title>
-      <link>https://www.cve.org/CVERecord?id=CVE-2020-15222</link>
-      <description>In ORY Fosite (the security first OAuth2 &amp; OpenID Connect framework for Go) before version 0.31.0, when using "private_key_jwt" authentication the uniqueness of the `jti` value is not checked. When using client authentication method "private_key_jwt", OpenId specification says the following about assertion `jti`: "A unique identifier for the token, which can be used to prevent reuse of the token. These tokens MUST only be used once, unless conditions for reuse were negotiated between the parties". Hydra does not seem to check the uniqueness of this `jti` value. This problem is fixed in version 0.31.0.</description>
-      <guid isPermaLink="false">CVE-2020-15222|2024-08-04T13:08:22.899Z</guid>
-      <pubDate>Thu, 24 Sep 2020 16:15:52 +0000</pubDate>
-    </item>
-    <item>
-      <title>CVE-2020-5300|2024-08-04T08:22:09.093Z -- ory -- hydra
-</title>
-      <link>https://www.cve.org/CVERecord?id=CVE-2020-5300</link>
-      <description>In Hydra (an OAuth2 Server and OpenID Certified™ OpenID Connect Provider written in Go), before version 1.4.0+oryOS.17, when using client authentication method 'private_key_jwt' [1], OpenId specification says the following about assertion `jti`: "A unique identifier for the token, which can be used to prevent reuse of the token. These tokens MUST only be used once, unless conditions for reuse were negotiated between the parties". Hydra does not check the uniqueness of this `jti` value. Exploiting this vulnerability is somewhat difficult because: - TLS protects against MITM which makes it difficult to intercept valid tokens for replay attacks - The expiry time of the JWT gives only a short window of opportunity where it could be replayed This has been patched in version v1.4.0+oryOS.17</description>
-      <guid isPermaLink="false">CVE-2020-5300|2024-08-04T08:22:09.093Z</guid>
-      <pubDate>Mon, 06 Apr 2020 16:30:14 +0000</pubDate>
-    </item>
-    <item>
-      <title>CVE-2020-15234|2024-08-04T13:08:23.189Z -- ory -- fosite
-</title>
-      <link>https://www.cve.org/CVERecord?id=CVE-2020-15234</link>
-      <description>ORY Fosite is a security first OAuth2 &amp; OpenID Connect framework for Go. In Fosite before version 0.34.1, the OAuth 2.0 Client's registered redirect URLs and the redirect URL provided at the OAuth2 Authorization Endpoint where compared using strings.ToLower while they should have been compared with a simple string match. This allows an attacker to register a client with allowed redirect URL https://example.com/callback. Then perform an OAuth2 flow and requesting redirect URL https://example.com/CALLBACK. Instead of an error (invalid redirect URL), the browser is redirected to https://example.com/CALLBACK with a potentially successful OAuth2 response, depending on the state of the overall OAuth2 flow (the user might still deny the request for example). This vulnerability has been patched in ORY Fosite v0.34.1.</description>
-      <guid isPermaLink="false">CVE-2020-15234|2024-08-04T13:08:23.189Z</guid>
-      <pubDate>Fri, 02 Oct 2020 20:40:12 +0000</pubDate>
-    </item>
-    <item>
-      <title>CVE-2020-15233|2024-08-04T13:08:22.914Z -- ory -- fosite
-</title>
-      <link>https://www.cve.org/CVERecord?id=CVE-2020-15233</link>
-      <description>ORY Fosite is a security first OAuth2 &amp; OpenID Connect framework for Go. In Fosite from version 0.30.2 and before version 0.34.1, there is an issue in which an an attacker can override the registered redirect URL by performing an OAuth flow and requesting a redirect URL that is to the loopback adapter. Attackers can provide both custom URL query parameters to their loopback redirect URL, as well as actually overriding the host of the registered redirect URL. These attacks are only applicable in scenarios where the attacker has access over the loopback interface. This vulnerability has been patched in ORY Fosite v0.34.1.</description>
-      <guid isPermaLink="false">CVE-2020-15233|2024-08-04T13:08:22.914Z</guid>
-      <pubDate>Fri, 02 Oct 2020 20:40:17 +0000</pubDate>
-    </item>
-    <item>
-      <title>CVE-2020-15223|2024-08-04T13:08:22.904Z -- ory -- fosite
-</title>
-      <link>https://www.cve.org/CVERecord?id=CVE-2020-15223</link>
-      <description>In ORY Fosite (the security first OAuth2 &amp; OpenID Connect framework for Go) before version 0.34.0, the `TokenRevocationHandler` ignores errors coming from the storage. This can lead to unexpected 200 status codes indicating successful revocation while the token is still valid. Whether an attacker can use this for her advantage depends on the ability to trigger errors in the store. This is fixed in version 0.34.0</description>
-      <guid isPermaLink="false">CVE-2020-15223|2024-08-04T13:08:22.904Z</guid>
-      <pubDate>Thu, 24 Sep 2020 16:15:45 +0000</pubDate>
+      <link>https://www.cve.org/CVERecord?id=CVE-2024-45042</link>
+      <description>Ory Kratos is an identity, user management and authentication system for cloud services. Prior to version 1.3.0, given a number of preconditions, the `highest_available` setting will incorrectly assume that the identity’s highest available AAL is `aal1` even though it really is `aal2`. This means that the `highest_available` configuration will act as if the user has only one factor set up, for that particular user. This means that they can call the settings and whoami endpoint without a `aal2` session, even though that should be disallowed. An attacker would need to steal or guess a valid login OTP of a user who has only OTP for login enabled and who has an incorrect `available_aal` value stored, to exploit this vulnerability. All other aspects of the session (e.g. the session’s aal) are not impacted by this issue. On the Ory Network, only 0.00066% of registered users were affected by this issue, and most of those users appeared to be test users. Their respective AAL values have since been updated and they are no longer vulnerable to this attack. Version 1.3.0 is not affected by this issue. As a workaround, those who require MFA should disable the passwordless code login method. If that is not possible, check the sessions `aal` to identify if the user has `aal1` or `aal2`.</description>
+      <guid isPermaLink="false">CVE-2024-45042|2024-09-26T17:04:59.235Z</guid>
+      <pubDate>Thu, 26 Sep 2024 17:04:59 +0000</pubDate>
     </item>
   </channel>
 </rss>
