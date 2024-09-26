@@ -6,26 +6,44 @@
     <description>The latest CVEs for Google -- gRPC</description>
     <docs>http://www.rssboard.org/rss-specification</docs>
     <generator>python-feedgen</generator>
-    <lastBuildDate>Wed, 25 Sep 2024 23:22:44 +0000</lastBuildDate>
+    <lastBuildDate>Thu, 26 Sep 2024 20:23:54 +0000</lastBuildDate>
     <ttl>60</ttl>
     <item>
-      <title>CVE-2023-4785|2024-09-25T18:05:52.337Z -- google -- grpc
+      <title>CVE-2023-1428|2024-09-26T18:58:56.654Z -- google -- grpc
 </title>
-      <link>https://www.cve.org/CVERecord?id=CVE-2023-4785</link>
-      <description>Lack of error handling in the TCP server in Google's gRPC starting version 1.23 on posix-compatible platforms (ex. Linux) allows an attacker to cause a denial of service by initiating a significant number of connections with the server. Note that gRPC C++ Python, and Ruby are affected, but gRPC Java, and Go are NOT affected. </description>
-      <guid isPermaLink="false">CVE-2023-4785|2024-09-25T18:05:52.337Z</guid>
-      <pubDate>Wed, 13 Sep 2023 16:31:55 +0000</pubDate>
+      <link>https://www.cve.org/CVERecord?id=CVE-2023-1428</link>
+      <description>There exists an vulnerability causing an abort() to be called in gRPC. 
+The following headers cause gRPC's C++ implementation to abort() when called via http2:
+
+te: x (x != trailers)
+
+:scheme: x (x != http, https)
+
+grpclb_client_stats: x (x == anything)
+
+On top of sending one of those headers, a later header must be sent that gets the total header size past 8KB. We recommend upgrading past git commit 2485fa94bd8a723e5c977d55a3ce10b301b437f8 or v1.53 and above.
+
+</description>
+      <guid isPermaLink="false">CVE-2023-1428|2024-09-26T18:58:56.654Z</guid>
+      <pubDate>Fri, 09 Jun 2023 10:46:54 +0000</pubDate>
     </item>
     <item>
-      <title>CVE-2024-7246|2024-08-06T13:17:59.082Z -- google -- grpc</title>
-      <link>https://www.cve.org/CVERecord?id=CVE-2024-7246</link>
-      <description>It's possible for a gRPC client communicating with a HTTP/2 proxy to poison the HPACK table between the proxy and the backend such that other clients see failed requests. It's also possible to use this vulnerability to leak other clients HTTP header keys, but not values.
-
-This occurs because the error status for a misencoded header is not cleared between header reads, resulting in subsequent (incrementally indexed) added headers in the first request being poisoned until cleared from the HPACK table.
-
-Please update to a fixed version of gRPC as soon as possible. This bug has been fixed in 1.58.3, 1.59.5, 1.60.2, 1.61.3, 1.62.3, 1.63.2, 1.64.3, 1.65.4.</description>
-      <guid isPermaLink="false">CVE-2024-7246|2024-08-06T13:17:59.082Z</guid>
-      <pubDate>Tue, 06 Aug 2024 10:14:28 +0000</pubDate>
+      <title>CVE-2023-32731|2024-09-26T19:12:06.245Z -- google -- grpc
+</title>
+      <link>https://www.cve.org/CVERecord?id=CVE-2023-32731</link>
+      <description>When gRPC HTTP2 stack raised a header size exceeded error, it skipped parsing the rest of the HPACK frame. This caused any HPACK table mutations to also be skipped, resulting in a desynchronization of HPACK tables between sender and receiver. If leveraged, say, between a proxy and a backend, this could lead to requests from the proxy being interpreted as containing headers from different proxy clients - leading to an information leak that can be used for privilege escalation or data exfiltration. We recommend upgrading beyond the commit contained in  https://github.com/grpc/grpc/pull/33005 https://github.com/grpc/grpc/pull/33005 
+</description>
+      <guid isPermaLink="false">CVE-2023-32731|2024-09-26T19:12:06.245Z</guid>
+      <pubDate>Fri, 09 Jun 2023 10:54:08 +0000</pubDate>
+    </item>
+    <item>
+      <title>CVE-2023-32732|2024-09-26T19:03:12.183Z -- google -- grpc
+</title>
+      <link>https://www.cve.org/CVERecord?id=CVE-2023-32732</link>
+      <description>gRPC contains a vulnerability whereby a client can cause a termination of connection between a HTTP2 proxy and a gRPC server: a base64 encoding error for `-bin` suffixed headers will result in a disconnection by the gRPC server, but is typically allowed by HTTP2 proxies. We recommend upgrading beyond the commit in  https://github.com/grpc/grpc/pull/32309 https://www.google.com/url 
+</description>
+      <guid isPermaLink="false">CVE-2023-32732|2024-09-26T19:03:12.183Z</guid>
+      <pubDate>Fri, 09 Jun 2023 10:48:15 +0000</pubDate>
     </item>
     <item>
       <title>CVE-2024-7246|2024-08-06T10:14:28.492Z -- google -- grpc</title>
@@ -36,6 +54,17 @@ This occurs because the error status for a misencoded header is not cleared betw
 
 Please update to a fixed version of gRPC as soon as possible. This bug has been fixed in 1.58.3, 1.59.5, 1.60.2, 1.61.3, 1.62.3, 1.63.2, 1.64.3, 1.65.4.</description>
       <guid isPermaLink="false">CVE-2024-7246|2024-08-06T10:14:28.492Z</guid>
+      <pubDate>Tue, 06 Aug 2024 10:14:28 +0000</pubDate>
+    </item>
+    <item>
+      <title>CVE-2024-7246|2024-08-06T13:17:59.082Z -- google -- grpc</title>
+      <link>https://www.cve.org/CVERecord?id=CVE-2024-7246</link>
+      <description>It's possible for a gRPC client communicating with a HTTP/2 proxy to poison the HPACK table between the proxy and the backend such that other clients see failed requests. It's also possible to use this vulnerability to leak other clients HTTP header keys, but not values.
+
+This occurs because the error status for a misencoded header is not cleared between header reads, resulting in subsequent (incrementally indexed) added headers in the first request being poisoned until cleared from the HPACK table.
+
+Please update to a fixed version of gRPC as soon as possible. This bug has been fixed in 1.58.3, 1.59.5, 1.60.2, 1.61.3, 1.62.3, 1.63.2, 1.64.3, 1.65.4.</description>
+      <guid isPermaLink="false">CVE-2024-7246|2024-08-06T13:17:59.082Z</guid>
       <pubDate>Tue, 06 Aug 2024 10:14:28 +0000</pubDate>
     </item>
   </channel>
