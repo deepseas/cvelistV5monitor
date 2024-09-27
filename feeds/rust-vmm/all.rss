@@ -6,15 +6,16 @@
     <description>The latest CVEs for rust-vmm -- all products</description>
     <docs>http://www.rssboard.org/rss-specification</docs>
     <generator>python-feedgen</generator>
-    <lastBuildDate>Mon, 26 Aug 2024 23:22:44 +0000</lastBuildDate>
+    <lastBuildDate>Fri, 27 Sep 2024 17:22:57 +0000</lastBuildDate>
     <ttl>60</ttl>
     <item>
-      <title>CVE-2023-50711|2024-08-26T18:53:29.950Z -- rust-vmm -- vmm-sys-util
+      <title>CVE-2023-41051|2024-09-27T16:04:04.802Z -- rust-vmm -- vm-memory
 </title>
-      <link>https://www.cve.org/CVERecord?id=CVE-2023-50711</link>
-      <description>vmm-sys-util is a collection of modules that provides helpers and utilities used by multiple rust-vmm components. Starting in version 0.5.0 and prior to version 0.12.0, an issue in the `FamStructWrapper::deserialize` implementation provided by the crate for `vmm_sys_util::fam::FamStructWrapper` can lead to out of bounds memory accesses. The deserialization does not check that the length stored in the header matches the flexible array length. Mismatch in the lengths might allow out of bounds memory access through Rust-safe methods. The issue was corrected in version 0.12.0 by inserting a check that verifies the lengths of compared flexible arrays are equal for any deserialized header and aborting deserialization otherwise. Moreover, the API was changed so that header length can only be modified through Rust-unsafe code. This ensures that users cannot trigger out-of-bounds memory access from Rust-safe code.</description>
-      <guid isPermaLink="false">CVE-2023-50711|2024-08-26T18:53:29.950Z</guid>
-      <pubDate>Tue, 02 Jan 2024 20:02:28 +0000</pubDate>
+      <link>https://www.cve.org/CVERecord?id=CVE-2023-41051</link>
+      <description>In a typical Virtual Machine Monitor (VMM) there are several components, such as boot loader, virtual device drivers, virtio backend drivers and vhost drivers, that need to access the VM physical memory. The vm-memory rust crate provides a set of traits to decouple VM memory consumers from VM memory providers. An issue was discovered in the default implementations of the `VolatileMemory::{get_atomic_ref, aligned_as_ref, aligned_as_mut, get_ref, get_array_ref}` trait functions, which allows out-of-bounds memory access if the `VolatileMemory::get_slice` function returns a `VolatileSlice` whose length is less than the function’s `count` argument. No implementations of `get_slice` provided in `vm_memory` are affected. Users of custom `VolatileMemory` implementations may be impacted if the custom implementation does not adhere to `get_slice`'s documentation. The issue started in version 0.1.0 but was fixed in version 0.12.2 by inserting a check that verifies that the `VolatileSlice` returned by `get_slice` is of the correct length. Users are advised to upgrade. There are no known workarounds for this issue.
+</description>
+      <guid isPermaLink="false">CVE-2023-41051|2024-09-27T16:04:04.802Z</guid>
+      <pubDate>Fri, 01 Sep 2023 18:22:53 +0000</pubDate>
     </item>
   </channel>
 </rss>
