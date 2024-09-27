@@ -6,108 +6,28 @@
     <description>The latest CVEs for mudler -- all products</description>
     <docs>http://www.rssboard.org/rss-specification</docs>
     <generator>python-feedgen</generator>
-    <lastBuildDate>Thu, 01 Aug 2024 22:22:34 +0000</lastBuildDate>
+    <lastBuildDate>Fri, 27 Sep 2024 16:24:44 +0000</lastBuildDate>
     <ttl>60</ttl>
     <item>
-      <title>CVE-2024-6095|2024-08-01T21:33:03.282Z -- mudler -- mudler%2Flocalai
+      <title>CVE-2024-6983|2024-09-27T15:43:51.011Z -- mudler -- mudler%2Flocalai
 </title>
-      <link>https://www.cve.org/CVERecord?id=CVE-2024-6095</link>
-      <description>A vulnerability in the /models/apply endpoint of mudler/localai versions 2.15.0 allows for Server-Side Request Forgery (SSRF) and partial Local File Inclusion (LFI). The endpoint supports both http(s):// and file:// schemes, where the latter can lead to LFI. However, the output is limited due to the length of the error message. This vulnerability can be exploited by an attacker with network access to the LocalAI instance, potentially allowing unauthorized access to internal HTTP(s) servers and partial reading of local files. The issue is fixed in version 2.17.</description>
-      <guid isPermaLink="false">CVE-2024-6095|2024-08-01T21:33:03.282Z</guid>
-      <pubDate>Sat, 06 Jul 2024 17:48:46 +0000</pubDate>
+      <link>https://www.cve.org/CVERecord?id=CVE-2024-6983</link>
+      <description>mudler/localai version 2.17.1 is vulnerable to remote code execution. The vulnerability arises because the localai backend receives inputs not only from the configuration file but also from other inputs, allowing an attacker to upload a binary file and execute malicious code. This can lead to the attacker gaining full control over the system.</description>
+      <guid isPermaLink="false">CVE-2024-6983|2024-09-27T15:43:51.011Z</guid>
+      <pubDate>Fri, 27 Sep 2024 15:43:51 +0000</pubDate>
     </item>
     <item>
-      <title>CVE-2024-5182|2024-08-01T21:03:10.990Z -- mudler -- mudler%2Flocalai
-</title>
-      <link>https://www.cve.org/CVERecord?id=CVE-2024-5182</link>
-      <description>A path traversal vulnerability exists in mudler/localai version 2.14.0, where an attacker can exploit the `model` parameter during the model deletion process to delete arbitrary files. Specifically, by crafting a request with a manipulated `model` parameter, an attacker can traverse the directory structure and target files outside of the intended directory, leading to the deletion of sensitive data. This vulnerability is due to insufficient input validation and sanitization of the `model` parameter.</description>
-      <guid isPermaLink="false">CVE-2024-5182|2024-08-01T21:03:10.990Z</guid>
-      <pubDate>Wed, 19 Jun 2024 23:30:38 +0000</pubDate>
-    </item>
-    <item>
-      <title>CVE-2024-5181|2024-08-01T21:03:11.039Z -- mudler -- mudler%2Flocalai
-</title>
-      <link>https://www.cve.org/CVERecord?id=CVE-2024-5181</link>
-      <description>A command injection vulnerability exists in the mudler/localai version 2.14.0. The vulnerability arises from the application's handling of the backend parameter in the configuration file, which is used in the name of the initialized process. An attacker can exploit this vulnerability by manipulating the path of the vulnerable binary file specified in the backend parameter, allowing the execution of arbitrary code on the system. This issue is due to improper neutralization of special elements used in an OS command, leading to potential full control over the affected system.</description>
-      <guid isPermaLink="false">CVE-2024-5181|2024-08-01T21:03:11.039Z</guid>
-      <pubDate>Wed, 26 Jun 2024 02:53:58 +0000</pubDate>
-    </item>
-    <item>
-      <title>CVE-2024-5616|2024-08-01T21:18:06.438Z -- mudler -- mudler%2Flocalai
-</title>
-      <link>https://www.cve.org/CVERecord?id=CVE-2024-5616</link>
-      <description>A Cross-Site Request Forgery (CSRF) vulnerability exists in mudler/LocalAI versions up to and including 2.15.0, which allows attackers to trick victims into deleting installed models. By crafting a malicious HTML page, an attacker can cause the deletion of a model, such as 'gpt-4-vision-preview', without the victim's consent. The vulnerability is due to insufficient CSRF protection mechanisms on the model deletion functionality.</description>
-      <guid isPermaLink="false">CVE-2024-5616|2024-08-01T21:18:06.438Z</guid>
-      <pubDate>Sat, 06 Jul 2024 08:38:02 +0000</pubDate>
-    </item>
-    <item>
-      <title>CVE-2024-2029|2024-08-01T18:56:22.784Z -- mudler -- mudler%2Flocalai</title>
-      <link>https://www.cve.org/CVERecord?id=CVE-2024-2029</link>
-      <description>A command injection vulnerability exists in the `TranscriptEndpoint` of mudler/localai, specifically within the `audioToWav` function used for converting audio files to WAV format for transcription. The vulnerability arises due to the lack of sanitization of user-supplied filenames before passing them to ffmpeg via a shell command, allowing an attacker to execute arbitrary commands on the host system. Successful exploitation could lead to unauthorized access, data breaches, or other detrimental impacts, depending on the privileges of the process executing the code.</description>
-      <guid isPermaLink="false">CVE-2024-2029|2024-08-01T18:56:22.784Z</guid>
-      <pubDate>Wed, 10 Apr 2024 17:08:05 +0000</pubDate>
-    </item>
-    <item>
-      <title>CVE-2024-3135|2024-07-17T15:43:03.657Z -- mudler -- mudler%2Flocalai</title>
+      <title>CVE-2024-3135|2024-08-01T19:32:42.865Z -- mudler -- mudler%2Flocalai</title>
       <link>https://www.cve.org/CVERecord?id=CVE-2024-3135</link>
       <description>A Cross-Site Request Forgery (CSRF) vulnerability exists in the mudler/localai application, allowing attackers to craft malicious webpages that, when visited by a victim, perform unauthorized actions on the victim's local LocalAI instance without their consent. This vulnerability enables attackers to exhaust system resources, consume credits, and fill disk space by making numerous resource-intensive API calls, such as generating images or uploading files. The vulnerability stems from the application's acceptance of simple request content-types without requiring CSRF tokens or implementing other CSRF mitigation measures. Successful exploitation does not require network access to the vulnerable LocalAI environment.</description>
-      <guid isPermaLink="false">CVE-2024-3135|2024-07-17T15:43:03.657Z</guid>
+      <guid isPermaLink="false">CVE-2024-3135|2024-08-01T19:32:42.865Z</guid>
       <pubDate>Mon, 01 Apr 2024 18:45:07 +0000</pubDate>
     </item>
     <item>
-      <title>CVE-2024-6095|2024-07-06T17:48:46.735Z -- mudler -- mudler%2Flocalai</title>
-      <link>https://www.cve.org/CVERecord?id=CVE-2024-6095</link>
-      <description>A vulnerability in the /models/apply endpoint of mudler/localai versions 2.15.0 allows for Server-Side Request Forgery (SSRF) and partial Local File Inclusion (LFI). The endpoint supports both http(s):// and file:// schemes, where the latter can lead to LFI. However, the output is limited due to the length of the error message. This vulnerability can be exploited by an attacker with network access to the LocalAI instance, potentially allowing unauthorized access to internal HTTP(s) servers and partial reading of local files. The issue is fixed in version 2.17.</description>
-      <guid isPermaLink="false">CVE-2024-6095|2024-07-06T17:48:46.735Z</guid>
-      <pubDate>Sat, 06 Jul 2024 17:48:46 +0000</pubDate>
-    </item>
-    <item>
-      <title>CVE-2024-5181|2024-06-26T13:53:08.103Z -- mudler -- mudler%2Flocalai</title>
-      <link>https://www.cve.org/CVERecord?id=CVE-2024-5181</link>
-      <description>A command injection vulnerability exists in the mudler/localai version 2.14.0. The vulnerability arises from the application's handling of the backend parameter in the configuration file, which is used in the name of the initialized process. An attacker can exploit this vulnerability by manipulating the path of the vulnerable binary file specified in the backend parameter, allowing the execution of arbitrary code on the system. This issue is due to improper neutralization of special elements used in an OS command, leading to potential full control over the affected system.</description>
-      <guid isPermaLink="false">CVE-2024-5181|2024-06-26T13:53:08.103Z</guid>
-      <pubDate>Wed, 26 Jun 2024 02:53:58 +0000</pubDate>
-    </item>
-    <item>
-      <title>CVE-2024-5182|2024-06-20T16:15:08.227Z -- mudler -- mudler%2Flocalai</title>
-      <link>https://www.cve.org/CVERecord?id=CVE-2024-5182</link>
-      <description>A path traversal vulnerability exists in mudler/localai version 2.14.0, where an attacker can exploit the `model` parameter during the model deletion process to delete arbitrary files. Specifically, by crafting a request with a manipulated `model` parameter, an attacker can traverse the directory structure and target files outside of the intended directory, leading to the deletion of sensitive data. This vulnerability is due to insufficient input validation and sanitization of the `model` parameter.</description>
-      <guid isPermaLink="false">CVE-2024-5182|2024-06-20T16:15:08.227Z</guid>
-      <pubDate>Wed, 19 Jun 2024 23:30:38 +0000</pubDate>
-    </item>
-    <item>
-      <title>CVE-2024-3135|2024-04-16T11:10:25.797Z -- mudler -- mudler%2Flocalai</title>
-      <link>https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2024-3135</link>
-      <description>A Cross-Site Request Forgery (CSRF) vulnerability exists in the mudler/localai application, allowing attackers to craft malicious webpages that, when visited by a victim, perform unauthorized actions on the victim's local LocalAI instance without their consent. This vulnerability enables attackers to exhaust system resources, consume credits, and fill disk space by making numerous resource-intensive API calls, such as generating images or uploading files. The vulnerability stems from the application's acceptance of simple request content-types without requiring CSRF tokens or implementing other CSRF mitigation measures. Successful exploitation does not require network access to the vulnerable LocalAI environment.</description>
-      <guid isPermaLink="false">CVE-2024-3135|2024-04-16T11:10:25.797Z</guid>
-      <pubDate>Mon, 01 Apr 2024 18:45:07 +0000</pubDate>
-    </item>
-    <item>
-      <title>CVE-2024-2029|2024-04-16T11:10:34.081Z -- mudler -- mudler%2Flocalai</title>
-      <link>https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2024-2029</link>
-      <description>A command injection vulnerability exists in the `TranscriptEndpoint` of mudler/localai, specifically within the `audioToWav` function used for converting audio files to WAV format for transcription. The vulnerability arises due to the lack of sanitization of user-supplied filenames before passing them to ffmpeg via a shell command, allowing an attacker to execute arbitrary commands on the host system. Successful exploitation could lead to unauthorized access, data breaches, or other detrimental impacts, depending on the privileges of the process executing the code.</description>
-      <guid isPermaLink="false">CVE-2024-2029|2024-04-16T11:10:34.081Z</guid>
-      <pubDate>Wed, 10 Apr 2024 17:08:05 +0000</pubDate>
-    </item>
-    <item>
-      <title>CVE-2024-2029|2024-06-19T19:35:21.035Z -- mudler -- mudler%2Flocalai</title>
-      <link>https://www.cve.org/CVERecord?id=CVE-2024-2029</link>
-      <description>A command injection vulnerability exists in the `TranscriptEndpoint` of mudler/localai, specifically within the `audioToWav` function used for converting audio files to WAV format for transcription. The vulnerability arises due to the lack of sanitization of user-supplied filenames before passing them to ffmpeg via a shell command, allowing an attacker to execute arbitrary commands on the host system. Successful exploitation could lead to unauthorized access, data breaches, or other detrimental impacts, depending on the privileges of the process executing the code.</description>
-      <guid isPermaLink="false">CVE-2024-2029|2024-06-19T19:35:21.035Z</guid>
-      <pubDate>Wed, 10 Apr 2024 17:08:05 +0000</pubDate>
-    </item>
-    <item>
-      <title>CVE-2024-5181|2024-06-26T02:53:58.461Z -- mudler -- mudler%2Flocalai</title>
-      <link>https://www.cve.org/CVERecord?id=CVE-2024-5181</link>
-      <description>A command injection vulnerability exists in the mudler/localai version 2.14.0. The vulnerability arises from the application's handling of the backend parameter in the configuration file, which is used in the name of the initialized process. An attacker can exploit this vulnerability by manipulating the path of the vulnerable binary file specified in the backend parameter, allowing the execution of arbitrary code on the system. This issue is due to improper neutralization of special elements used in an OS command, leading to potential full control over the affected system.</description>
-      <guid isPermaLink="false">CVE-2024-5181|2024-06-26T02:53:58.461Z</guid>
-      <pubDate>Wed, 26 Jun 2024 02:53:58 +0000</pubDate>
-    </item>
-    <item>
-      <title>CVE-2024-5616|2024-07-06T08:38:02.339Z -- mudler -- mudler%2Flocalai</title>
+      <title>CVE-2024-5616|2024-07-22T17:56:07.120Z -- mudler -- mudler%2Flocalai</title>
       <link>https://www.cve.org/CVERecord?id=CVE-2024-5616</link>
       <description>A Cross-Site Request Forgery (CSRF) vulnerability exists in mudler/LocalAI versions up to and including 2.15.0, which allows attackers to trick victims into deleting installed models. By crafting a malicious HTML page, an attacker can cause the deletion of a model, such as 'gpt-4-vision-preview', without the victim's consent. The vulnerability is due to insufficient CSRF protection mechanisms on the model deletion functionality.</description>
-      <guid isPermaLink="false">CVE-2024-5616|2024-07-06T08:38:02.339Z</guid>
+      <guid isPermaLink="false">CVE-2024-5616|2024-07-22T17:56:07.120Z</guid>
       <pubDate>Sat, 06 Jul 2024 08:38:02 +0000</pubDate>
     </item>
     <item>
@@ -118,18 +38,102 @@
       <pubDate>Sat, 06 Jul 2024 17:48:46 +0000</pubDate>
     </item>
     <item>
-      <title>CVE-2024-5616|2024-07-22T17:56:07.120Z -- mudler -- mudler%2Flocalai</title>
+      <title>CVE-2024-5616|2024-07-06T08:38:02.339Z -- mudler -- mudler%2Flocalai</title>
       <link>https://www.cve.org/CVERecord?id=CVE-2024-5616</link>
       <description>A Cross-Site Request Forgery (CSRF) vulnerability exists in mudler/LocalAI versions up to and including 2.15.0, which allows attackers to trick victims into deleting installed models. By crafting a malicious HTML page, an attacker can cause the deletion of a model, such as 'gpt-4-vision-preview', without the victim's consent. The vulnerability is due to insufficient CSRF protection mechanisms on the model deletion functionality.</description>
-      <guid isPermaLink="false">CVE-2024-5616|2024-07-22T17:56:07.120Z</guid>
+      <guid isPermaLink="false">CVE-2024-5616|2024-07-06T08:38:02.339Z</guid>
       <pubDate>Sat, 06 Jul 2024 08:38:02 +0000</pubDate>
     </item>
     <item>
-      <title>CVE-2024-3135|2024-08-01T19:32:42.865Z -- mudler -- mudler%2Flocalai</title>
+      <title>CVE-2024-5181|2024-06-26T02:53:58.461Z -- mudler -- mudler%2Flocalai</title>
+      <link>https://www.cve.org/CVERecord?id=CVE-2024-5181</link>
+      <description>A command injection vulnerability exists in the mudler/localai version 2.14.0. The vulnerability arises from the application's handling of the backend parameter in the configuration file, which is used in the name of the initialized process. An attacker can exploit this vulnerability by manipulating the path of the vulnerable binary file specified in the backend parameter, allowing the execution of arbitrary code on the system. This issue is due to improper neutralization of special elements used in an OS command, leading to potential full control over the affected system.</description>
+      <guid isPermaLink="false">CVE-2024-5181|2024-06-26T02:53:58.461Z</guid>
+      <pubDate>Wed, 26 Jun 2024 02:53:58 +0000</pubDate>
+    </item>
+    <item>
+      <title>CVE-2024-2029|2024-06-19T19:35:21.035Z -- mudler -- mudler%2Flocalai</title>
+      <link>https://www.cve.org/CVERecord?id=CVE-2024-2029</link>
+      <description>A command injection vulnerability exists in the `TranscriptEndpoint` of mudler/localai, specifically within the `audioToWav` function used for converting audio files to WAV format for transcription. The vulnerability arises due to the lack of sanitization of user-supplied filenames before passing them to ffmpeg via a shell command, allowing an attacker to execute arbitrary commands on the host system. Successful exploitation could lead to unauthorized access, data breaches, or other detrimental impacts, depending on the privileges of the process executing the code.</description>
+      <guid isPermaLink="false">CVE-2024-2029|2024-06-19T19:35:21.035Z</guid>
+      <pubDate>Wed, 10 Apr 2024 17:08:05 +0000</pubDate>
+    </item>
+    <item>
+      <title>CVE-2024-2029|2024-04-16T11:10:34.081Z -- mudler -- mudler%2Flocalai</title>
+      <link>https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2024-2029</link>
+      <description>A command injection vulnerability exists in the `TranscriptEndpoint` of mudler/localai, specifically within the `audioToWav` function used for converting audio files to WAV format for transcription. The vulnerability arises due to the lack of sanitization of user-supplied filenames before passing them to ffmpeg via a shell command, allowing an attacker to execute arbitrary commands on the host system. Successful exploitation could lead to unauthorized access, data breaches, or other detrimental impacts, depending on the privileges of the process executing the code.</description>
+      <guid isPermaLink="false">CVE-2024-2029|2024-04-16T11:10:34.081Z</guid>
+      <pubDate>Wed, 10 Apr 2024 17:08:05 +0000</pubDate>
+    </item>
+    <item>
+      <title>CVE-2024-3135|2024-04-16T11:10:25.797Z -- mudler -- mudler%2Flocalai</title>
+      <link>https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2024-3135</link>
+      <description>A Cross-Site Request Forgery (CSRF) vulnerability exists in the mudler/localai application, allowing attackers to craft malicious webpages that, when visited by a victim, perform unauthorized actions on the victim's local LocalAI instance without their consent. This vulnerability enables attackers to exhaust system resources, consume credits, and fill disk space by making numerous resource-intensive API calls, such as generating images or uploading files. The vulnerability stems from the application's acceptance of simple request content-types without requiring CSRF tokens or implementing other CSRF mitigation measures. Successful exploitation does not require network access to the vulnerable LocalAI environment.</description>
+      <guid isPermaLink="false">CVE-2024-3135|2024-04-16T11:10:25.797Z</guid>
+      <pubDate>Mon, 01 Apr 2024 18:45:07 +0000</pubDate>
+    </item>
+    <item>
+      <title>CVE-2024-5182|2024-06-20T16:15:08.227Z -- mudler -- mudler%2Flocalai</title>
+      <link>https://www.cve.org/CVERecord?id=CVE-2024-5182</link>
+      <description>A path traversal vulnerability exists in mudler/localai version 2.14.0, where an attacker can exploit the `model` parameter during the model deletion process to delete arbitrary files. Specifically, by crafting a request with a manipulated `model` parameter, an attacker can traverse the directory structure and target files outside of the intended directory, leading to the deletion of sensitive data. This vulnerability is due to insufficient input validation and sanitization of the `model` parameter.</description>
+      <guid isPermaLink="false">CVE-2024-5182|2024-06-20T16:15:08.227Z</guid>
+      <pubDate>Wed, 19 Jun 2024 23:30:38 +0000</pubDate>
+    </item>
+    <item>
+      <title>CVE-2024-5181|2024-06-26T13:53:08.103Z -- mudler -- mudler%2Flocalai</title>
+      <link>https://www.cve.org/CVERecord?id=CVE-2024-5181</link>
+      <description>A command injection vulnerability exists in the mudler/localai version 2.14.0. The vulnerability arises from the application's handling of the backend parameter in the configuration file, which is used in the name of the initialized process. An attacker can exploit this vulnerability by manipulating the path of the vulnerable binary file specified in the backend parameter, allowing the execution of arbitrary code on the system. This issue is due to improper neutralization of special elements used in an OS command, leading to potential full control over the affected system.</description>
+      <guid isPermaLink="false">CVE-2024-5181|2024-06-26T13:53:08.103Z</guid>
+      <pubDate>Wed, 26 Jun 2024 02:53:58 +0000</pubDate>
+    </item>
+    <item>
+      <title>CVE-2024-6095|2024-07-06T17:48:46.735Z -- mudler -- mudler%2Flocalai</title>
+      <link>https://www.cve.org/CVERecord?id=CVE-2024-6095</link>
+      <description>A vulnerability in the /models/apply endpoint of mudler/localai versions 2.15.0 allows for Server-Side Request Forgery (SSRF) and partial Local File Inclusion (LFI). The endpoint supports both http(s):// and file:// schemes, where the latter can lead to LFI. However, the output is limited due to the length of the error message. This vulnerability can be exploited by an attacker with network access to the LocalAI instance, potentially allowing unauthorized access to internal HTTP(s) servers and partial reading of local files. The issue is fixed in version 2.17.</description>
+      <guid isPermaLink="false">CVE-2024-6095|2024-07-06T17:48:46.735Z</guid>
+      <pubDate>Sat, 06 Jul 2024 17:48:46 +0000</pubDate>
+    </item>
+    <item>
+      <title>CVE-2024-3135|2024-07-17T15:43:03.657Z -- mudler -- mudler%2Flocalai</title>
       <link>https://www.cve.org/CVERecord?id=CVE-2024-3135</link>
       <description>A Cross-Site Request Forgery (CSRF) vulnerability exists in the mudler/localai application, allowing attackers to craft malicious webpages that, when visited by a victim, perform unauthorized actions on the victim's local LocalAI instance without their consent. This vulnerability enables attackers to exhaust system resources, consume credits, and fill disk space by making numerous resource-intensive API calls, such as generating images or uploading files. The vulnerability stems from the application's acceptance of simple request content-types without requiring CSRF tokens or implementing other CSRF mitigation measures. Successful exploitation does not require network access to the vulnerable LocalAI environment.</description>
-      <guid isPermaLink="false">CVE-2024-3135|2024-08-01T19:32:42.865Z</guid>
+      <guid isPermaLink="false">CVE-2024-3135|2024-07-17T15:43:03.657Z</guid>
       <pubDate>Mon, 01 Apr 2024 18:45:07 +0000</pubDate>
+    </item>
+    <item>
+      <title>CVE-2024-2029|2024-08-01T18:56:22.784Z -- mudler -- mudler%2Flocalai</title>
+      <link>https://www.cve.org/CVERecord?id=CVE-2024-2029</link>
+      <description>A command injection vulnerability exists in the `TranscriptEndpoint` of mudler/localai, specifically within the `audioToWav` function used for converting audio files to WAV format for transcription. The vulnerability arises due to the lack of sanitization of user-supplied filenames before passing them to ffmpeg via a shell command, allowing an attacker to execute arbitrary commands on the host system. Successful exploitation could lead to unauthorized access, data breaches, or other detrimental impacts, depending on the privileges of the process executing the code.</description>
+      <guid isPermaLink="false">CVE-2024-2029|2024-08-01T18:56:22.784Z</guid>
+      <pubDate>Wed, 10 Apr 2024 17:08:05 +0000</pubDate>
+    </item>
+    <item>
+      <title>CVE-2024-5616|2024-08-01T21:18:06.438Z -- mudler -- mudler%2Flocalai</title>
+      <link>https://www.cve.org/CVERecord?id=CVE-2024-5616</link>
+      <description>A Cross-Site Request Forgery (CSRF) vulnerability exists in mudler/LocalAI versions up to and including 2.15.0, which allows attackers to trick victims into deleting installed models. By crafting a malicious HTML page, an attacker can cause the deletion of a model, such as 'gpt-4-vision-preview', without the victim's consent. The vulnerability is due to insufficient CSRF protection mechanisms on the model deletion functionality.</description>
+      <guid isPermaLink="false">CVE-2024-5616|2024-08-01T21:18:06.438Z</guid>
+      <pubDate>Sat, 06 Jul 2024 08:38:02 +0000</pubDate>
+    </item>
+    <item>
+      <title>CVE-2024-5181|2024-08-01T21:03:11.039Z -- mudler -- mudler%2Flocalai</title>
+      <link>https://www.cve.org/CVERecord?id=CVE-2024-5181</link>
+      <description>A command injection vulnerability exists in the mudler/localai version 2.14.0. The vulnerability arises from the application's handling of the backend parameter in the configuration file, which is used in the name of the initialized process. An attacker can exploit this vulnerability by manipulating the path of the vulnerable binary file specified in the backend parameter, allowing the execution of arbitrary code on the system. This issue is due to improper neutralization of special elements used in an OS command, leading to potential full control over the affected system.</description>
+      <guid isPermaLink="false">CVE-2024-5181|2024-08-01T21:03:11.039Z</guid>
+      <pubDate>Wed, 26 Jun 2024 02:53:58 +0000</pubDate>
+    </item>
+    <item>
+      <title>CVE-2024-5182|2024-08-01T21:03:10.990Z -- mudler -- mudler%2Flocalai</title>
+      <link>https://www.cve.org/CVERecord?id=CVE-2024-5182</link>
+      <description>A path traversal vulnerability exists in mudler/localai version 2.14.0, where an attacker can exploit the `model` parameter during the model deletion process to delete arbitrary files. Specifically, by crafting a request with a manipulated `model` parameter, an attacker can traverse the directory structure and target files outside of the intended directory, leading to the deletion of sensitive data. This vulnerability is due to insufficient input validation and sanitization of the `model` parameter.</description>
+      <guid isPermaLink="false">CVE-2024-5182|2024-08-01T21:03:10.990Z</guid>
+      <pubDate>Wed, 19 Jun 2024 23:30:38 +0000</pubDate>
+    </item>
+    <item>
+      <title>CVE-2024-6095|2024-08-01T21:33:03.282Z -- mudler -- mudler%2Flocalai</title>
+      <link>https://www.cve.org/CVERecord?id=CVE-2024-6095</link>
+      <description>A vulnerability in the /models/apply endpoint of mudler/localai versions 2.15.0 allows for Server-Side Request Forgery (SSRF) and partial Local File Inclusion (LFI). The endpoint supports both http(s):// and file:// schemes, where the latter can lead to LFI. However, the output is limited due to the length of the error message. This vulnerability can be exploited by an attacker with network access to the LocalAI instance, potentially allowing unauthorized access to internal HTTP(s) servers and partial reading of local files. The issue is fixed in version 2.17.</description>
+      <guid isPermaLink="false">CVE-2024-6095|2024-08-01T21:33:03.282Z</guid>
+      <pubDate>Sat, 06 Jul 2024 17:48:46 +0000</pubDate>
     </item>
   </channel>
 </rss>
