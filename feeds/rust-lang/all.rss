@@ -6,7 +6,7 @@
     <description>The latest CVEs for rust-lang -- all products</description>
     <docs>http://www.rssboard.org/rss-specification</docs>
     <generator>python-feedgen</generator>
-    <lastBuildDate>Mon, 30 Sep 2024 20:23:51 +0000</lastBuildDate>
+    <lastBuildDate>Mon, 30 Sep 2024 21:22:50 +0000</lastBuildDate>
     <ttl>60</ttl>
     <item>
       <title>CVE-2023-40030|2024-09-30T19:09:34.361Z -- rust-lang -- cargo
@@ -19,6 +19,13 @@ Rust 1.60.0 introduced `cargo build --timings`, which produces a report of how l
 This issue was fixed in Rust 1.72 by turning the future incompatibility warning into an error. Users should still exercise care in which package they download, by only including trusted dependencies in their projects. Please note that even with these vulnerabilities fixed, by design Cargo allows arbitrary code execution at build time thanks to build scripts and procedural macros: a malicious dependency will be able to cause damage regardless of these vulnerabilities. crates.io has server-side checks preventing this attack, and there are no packages on crates.io exploiting these vulnerabilities. crates.io users still need to excercise care in choosing their dependencies though, as remote code execution is allowed by design there as well.</description>
       <guid isPermaLink="false">CVE-2023-40030|2024-09-30T19:09:34.361Z</guid>
       <pubDate>Thu, 24 Aug 2023 22:56:41 +0000</pubDate>
+    </item>
+    <item>
+      <title>CVE-2024-43402|2024-09-04T15:50:20.290Z -- rust-lang -- rust</title>
+      <link>https://www.cve.org/CVERecord?id=CVE-2024-43402</link>
+      <description>Rust is a programming language. The fix for CVE-2024-24576, where `std::process::Command` incorrectly escaped arguments when invoking batch files on Windows, was incomplete. Prior to Rust version 1.81.0, it was possible to bypass the fix when the batch file name had trailing whitespace or periods (which are ignored and stripped by Windows). To determine whether to apply the `cmd.exe` escaping rules, the original fix for the vulnerability checked whether the command name ended with `.bat` or `.cmd`. At the time that seemed enough, as we refuse to invoke batch scripts with no file extension. Windows removes trailing whitespace and periods when parsing file paths. For example, `.bat. .` is interpreted by Windows as `.bat`, but the original fix didn't check for that. Affected users who are using Rust 1.77.2 or greater can remove the trailing whitespace (ASCII 0x20) and trailing periods (ASCII 0x2E) from the batch file name to bypass the incomplete fix and enable the mitigations. Users are affected if their code or one of their dependencies invoke a batch script on Windows with trailing whitespace or trailing periods in the name, and pass untrusted arguments to it. Rust 1.81.0 will update the standard library to apply the CVE-2024-24576 mitigations to all batch files invocations, regardless of the trailing chars in the file name.</description>
+      <guid isPermaLink="false">CVE-2024-43402|2024-09-04T15:50:20.290Z</guid>
+      <pubDate>Wed, 04 Sep 2024 15:29:04 +0000</pubDate>
     </item>
     <item>
       <title>CVE-2024-24576|2024-06-06T14:12:09.344Z -- rust-lang -- rust</title>
@@ -36,13 +43,6 @@ Due to the complexity of `cmd.exe`, we didn't identify a solution that would cor
 The fix is included in Rust 1.77.2. Note that the new escaping logic for batch files errs on the conservative side, and could reject valid arguments. Those who implement the escaping themselves or only handle trusted inputs on Windows can also use the `CommandExt::raw_arg` method to bypass the standard library's escaping logic.</description>
       <guid isPermaLink="false">CVE-2024-24576|2024-06-06T14:12:09.344Z</guid>
       <pubDate>Tue, 09 Apr 2024 17:28:41 +0000</pubDate>
-    </item>
-    <item>
-      <title>CVE-2024-43402|2024-09-04T15:50:20.290Z -- rust-lang -- rust</title>
-      <link>https://www.cve.org/CVERecord?id=CVE-2024-43402</link>
-      <description>Rust is a programming language. The fix for CVE-2024-24576, where `std::process::Command` incorrectly escaped arguments when invoking batch files on Windows, was incomplete. Prior to Rust version 1.81.0, it was possible to bypass the fix when the batch file name had trailing whitespace or periods (which are ignored and stripped by Windows). To determine whether to apply the `cmd.exe` escaping rules, the original fix for the vulnerability checked whether the command name ended with `.bat` or `.cmd`. At the time that seemed enough, as we refuse to invoke batch scripts with no file extension. Windows removes trailing whitespace and periods when parsing file paths. For example, `.bat. .` is interpreted by Windows as `.bat`, but the original fix didn't check for that. Affected users who are using Rust 1.77.2 or greater can remove the trailing whitespace (ASCII 0x20) and trailing periods (ASCII 0x2E) from the batch file name to bypass the incomplete fix and enable the mitigations. Users are affected if their code or one of their dependencies invoke a batch script on Windows with trailing whitespace or trailing periods in the name, and pass untrusted arguments to it. Rust 1.81.0 will update the standard library to apply the CVE-2024-24576 mitigations to all batch files invocations, regardless of the trailing chars in the file name.</description>
-      <guid isPermaLink="false">CVE-2024-43402|2024-09-04T15:50:20.290Z</guid>
-      <pubDate>Wed, 04 Sep 2024 15:29:04 +0000</pubDate>
     </item>
   </channel>
 </rss>
