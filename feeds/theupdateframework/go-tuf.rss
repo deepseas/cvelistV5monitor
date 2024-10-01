@@ -6,15 +6,15 @@
     <description>The latest CVEs for theupdateframework -- go-tuf</description>
     <docs>http://www.rssboard.org/rss-specification</docs>
     <generator>python-feedgen</generator>
-    <lastBuildDate>Sat, 03 Aug 2024 23:23:02 +0000</lastBuildDate>
+    <lastBuildDate>Tue, 01 Oct 2024 16:24:45 +0000</lastBuildDate>
     <ttl>60</ttl>
     <item>
-      <title>CVE-2022-29173|2024-08-03T06:17:54.093Z -- theupdateframework -- go-tuf
+      <title>CVE-2024-47534|2024-10-01T15:17:47.363Z -- theupdateframework -- go-tuf
 </title>
-      <link>https://www.cve.org/CVERecord?id=CVE-2022-29173</link>
-      <description>go-tuf is a Go implementation of The Update Framework (TUF). go-tuf does not correctly implement the client workflow for updating the metadata files for roles other than the root role. Specifically, checks for rollback attacks are not implemented correctly meaning an attacker can cause clients to install software that is older than the software which the client previously knew to be available, and may include software with known vulnerabilities. In more detail, the client code of go-tuf has several issues in regards to preventing rollback attacks: 1. It does not take into account the content of any previously trusted metadata, if available, before proceeding with updating roles other than the root role (i.e., steps 5.4.3.1 and 5.5.5 of the detailed client workflow). This means that any form of version verification done on the newly-downloaded metadata is made using the default value of zero, which always passes. 2. For both timestamp and snapshot roles, go-tuf saves these metadata files as trusted before verifying if the version of the metafiles they refer to is correct (i.e., steps 5.5.4 and 5.6.4 of the detailed client workflow). A fix is available in version 0.3.0 or newer. No workarounds are known for this issue apart from upgrading.</description>
-      <guid isPermaLink="false">CVE-2022-29173|2024-08-03T06:17:54.093Z</guid>
-      <pubDate>Thu, 05 May 2022 22:30:12 +0000</pubDate>
+      <link>https://www.cve.org/CVERecord?id=CVE-2024-47534</link>
+      <description>go-tuf is a Go implementation of The Update Framework (TUF). The go-tuf client inconsistently traces the delegations. For example, if targets delegate to "A", and to "B", and "B" delegates to "C", then the client should trace the delegations in the order "A" then "B" then "C" but it may incorrectly trace the delegations "B"-&gt;"C"-&gt;"A". This vulnerability is fixed in 2.0.1.</description>
+      <guid isPermaLink="false">CVE-2024-47534|2024-10-01T15:17:47.363Z</guid>
+      <pubDate>Tue, 01 Oct 2024 15:17:47 +0000</pubDate>
     </item>
   </channel>
 </rss>
