@@ -6,43 +6,56 @@
     <description>The latest CVEs for goauthentik -- all products</description>
     <docs>http://www.rssboard.org/rss-specification</docs>
     <generator>python-feedgen</generator>
-    <lastBuildDate>Fri, 27 Sep 2024 18:24:50 +0000</lastBuildDate>
+    <lastBuildDate>Tue, 01 Oct 2024 21:23:25 +0000</lastBuildDate>
     <ttl>60</ttl>
     <item>
-      <title>CVE-2024-47070|2024-09-27T17:55:55.382Z -- goauthentik -- authentik
+      <title>CVE-2023-39522|2024-10-01T20:19:58.448Z -- goauthentik -- authentik
 </title>
+      <link>https://www.cve.org/CVERecord?id=CVE-2023-39522</link>
+      <description>goauthentik is an open-source Identity Provider. In affected versions using a recovery flow with an identification stage an attacker is able to determine if a username exists. Only setups configured with a recovery flow are impacted by this. Anyone with a user account on a system with the recovery flow described above is susceptible to having their username/email revealed as existing. An attacker can easily enumerate and check users' existence using the recovery flow, as a clear message is shown when a user doesn't exist. Depending on configuration this can either be done by username, email, or both. This issue has been addressed in versions 2023.5.6 and 2023.6.2. Users are advised to upgrade. There are no known workarounds for this issue.</description>
+      <guid isPermaLink="false">CVE-2023-39522|2024-10-01T20:19:58.448Z</guid>
+      <pubDate>Tue, 29 Aug 2023 17:23:37 +0000</pubDate>
+    </item>
+    <item>
+      <title>CVE-2024-47070|2024-09-27T15:29:58.025Z -- goauthentik -- authentik</title>
       <link>https://www.cve.org/CVERecord?id=CVE-2024-47070</link>
       <description>authentik is an open-source identity provider. A vulnerability that exists in versions prior to 2024.8.3 and 2024.6.5 allows bypassing password login by adding X-Forwarded-For header with an unparsable IP address, e.g. `a`. This results in a possibility of logging into any account with a known login or email address. The vulnerability requires the authentik instance to trust X-Forwarded-For header provided by the attacker, thus it is not reproducible from external hosts on a properly configured environment.  The issue occurs due to the password stage having a policy bound to it, which skips the password stage if the Identification stage is setup to also contain a password stage. Due to the invalid X-Forwarded-For header, which does not get validated to be an IP Address early enough, the exception happens later and the policy fails. The default blueprint doesn't correctly set `failure_result` to `True` on the policy binding meaning that due to this exception the policy returns false and the password stage is skipped. Versions 2024.8.3 and 2024.6.5 fix this issue.</description>
-      <guid isPermaLink="false">CVE-2024-47070|2024-09-27T17:55:55.382Z</guid>
+      <guid isPermaLink="false">CVE-2024-47070|2024-09-27T15:29:58.025Z</guid>
       <pubDate>Fri, 27 Sep 2024 15:18:03 +0000</pubDate>
     </item>
     <item>
-      <title>CVE-2024-47077|2024-09-27T17:51:19.674Z -- goauthentik -- authentik
-</title>
+      <title>CVE-2024-47077|2024-09-27T15:26:20.683Z -- goauthentik -- authentik</title>
       <link>https://www.cve.org/CVERecord?id=CVE-2024-47077</link>
       <description>authentik is an open-source identity provider. Prior to versions 2024.8.3 and 2024.6.5, access tokens issued to one application can be stolen by that application and used to impersonate the user against any other proxy provider. Also, a user can steal an access token they were legitimately issued for one application and use it to access another application that they aren't allowed to access. Anyone who has more than one proxy provider application with different trust domains or different access control is affected. Versions 2024.8.3 and 2024.6.5 fix the issue.</description>
-      <guid isPermaLink="false">CVE-2024-47077|2024-09-27T17:51:19.674Z</guid>
+      <guid isPermaLink="false">CVE-2024-47077|2024-09-27T15:26:20.683Z</guid>
       <pubDate>Fri, 27 Sep 2024 15:26:20 +0000</pubDate>
     </item>
     <item>
-      <title>CVE-2024-42490|2024-08-22T16:04:32.442Z -- goauthentik -- authentik</title>
+      <title>CVE-2024-42490|2024-08-22T15:34:45.815Z -- goauthentik -- authentik</title>
       <link>https://www.cve.org/CVERecord?id=CVE-2024-42490</link>
       <description>authentik is an open-source Identity Provider. Several API endpoints can be accessed by users without correct authentication/authorization. The main API endpoints affected by this are /api/v3/crypto/certificatekeypairs//view_certificate/, /api/v3/crypto/certificatekeypairs//view_private_key/, and /api/v3/.../used_by/. Note that all of the affected API endpoints require the knowledge of the ID of an object, which especially for certificates is not accessible to an unprivileged user. Additionally the IDs for most objects are UUIDv4, meaning they are not easily guessable/enumerable. authentik 2024.4.4, 2024.6.4 and 2024.8.0 fix this issue.</description>
-      <guid isPermaLink="false">CVE-2024-42490|2024-08-22T16:04:32.442Z</guid>
+      <guid isPermaLink="false">CVE-2024-42490|2024-08-22T15:34:45.815Z</guid>
       <pubDate>Thu, 22 Aug 2024 15:34:45 +0000</pubDate>
     </item>
     <item>
-      <title>CVE-2024-38371|2024-08-02T04:04:25.257Z -- goauthentik -- authentik</title>
+      <title>CVE-2024-38371|2024-06-28T20:10:55.919Z -- goauthentik -- authentik</title>
       <link>https://www.cve.org/CVERecord?id=CVE-2024-38371</link>
       <description>authentik is an open-source Identity Provider. Access restrictions assigned to an application were not checked when using the OAuth2 Device code flow. This could potentially allow users without the correct authorization to get OAuth tokens for an application and access it. This issue has been patched in version(s) 2024.6.0, 2024.2.4 and 2024.4.3.</description>
-      <guid isPermaLink="false">CVE-2024-38371|2024-08-02T04:04:25.257Z</guid>
+      <guid isPermaLink="false">CVE-2024-38371|2024-06-28T20:10:55.919Z</guid>
       <pubDate>Fri, 28 Jun 2024 17:58:48 +0000</pubDate>
     </item>
     <item>
-      <title>CVE-2024-37905|2024-08-02T04:04:23.359Z -- goauthentik -- authentik</title>
+      <title>CVE-2024-38371|2024-06-28T17:58:48.169Z -- goauthentik -- authentik</title>
+      <link>https://www.cve.org/CVERecord?id=CVE-2024-38371</link>
+      <description>authentik is an open-source Identity Provider. Access restrictions assigned to an application were not checked when using the OAuth2 Device code flow. This could potentially allow users without the correct authorization to get OAuth tokens for an application and access it. This issue has been patched in version(s) 2024.6.0, 2024.2.4 and 2024.4.3.</description>
+      <guid isPermaLink="false">CVE-2024-38371|2024-06-28T17:58:48.169Z</guid>
+      <pubDate>Fri, 28 Jun 2024 17:58:48 +0000</pubDate>
+    </item>
+    <item>
+      <title>CVE-2024-37905|2024-06-28T17:09:24.090Z -- goauthentik -- authentik</title>
       <link>https://www.cve.org/CVERecord?id=CVE-2024-37905</link>
       <description>authentik is an open-source Identity Provider that emphasizes flexibility and versatility. Authentik API-Access-Token mechanism can be exploited to gain admin user privileges. A successful exploit of the issue will result in a user gaining full admin access to the Authentik application, including resetting user passwords and more. This issue has been patched in version(s) 2024.2.4, 2024.4.2 and 2024.6.0.</description>
-      <guid isPermaLink="false">CVE-2024-37905|2024-08-02T04:04:23.359Z</guid>
+      <guid isPermaLink="false">CVE-2024-37905|2024-06-28T17:09:24.090Z</guid>
       <pubDate>Fri, 28 Jun 2024 17:09:24 +0000</pubDate>
     </item>
     <item>
@@ -53,45 +66,38 @@
       <pubDate>Fri, 28 Jun 2024 17:09:24 +0000</pubDate>
     </item>
     <item>
-      <title>CVE-2024-37905|2024-06-28T17:09:24.090Z -- goauthentik -- authentik</title>
+      <title>CVE-2024-37905|2024-08-02T04:04:23.359Z -- goauthentik -- authentik</title>
       <link>https://www.cve.org/CVERecord?id=CVE-2024-37905</link>
       <description>authentik is an open-source Identity Provider that emphasizes flexibility and versatility. Authentik API-Access-Token mechanism can be exploited to gain admin user privileges. A successful exploit of the issue will result in a user gaining full admin access to the Authentik application, including resetting user passwords and more. This issue has been patched in version(s) 2024.2.4, 2024.4.2 and 2024.6.0.</description>
-      <guid isPermaLink="false">CVE-2024-37905|2024-06-28T17:09:24.090Z</guid>
+      <guid isPermaLink="false">CVE-2024-37905|2024-08-02T04:04:23.359Z</guid>
       <pubDate>Fri, 28 Jun 2024 17:09:24 +0000</pubDate>
     </item>
     <item>
-      <title>CVE-2024-38371|2024-06-28T17:58:48.169Z -- goauthentik -- authentik</title>
+      <title>CVE-2024-38371|2024-08-02T04:04:25.257Z -- goauthentik -- authentik</title>
       <link>https://www.cve.org/CVERecord?id=CVE-2024-38371</link>
       <description>authentik is an open-source Identity Provider. Access restrictions assigned to an application were not checked when using the OAuth2 Device code flow. This could potentially allow users without the correct authorization to get OAuth tokens for an application and access it. This issue has been patched in version(s) 2024.6.0, 2024.2.4 and 2024.4.3.</description>
-      <guid isPermaLink="false">CVE-2024-38371|2024-06-28T17:58:48.169Z</guid>
+      <guid isPermaLink="false">CVE-2024-38371|2024-08-02T04:04:25.257Z</guid>
       <pubDate>Fri, 28 Jun 2024 17:58:48 +0000</pubDate>
     </item>
     <item>
-      <title>CVE-2024-38371|2024-06-28T20:10:55.919Z -- goauthentik -- authentik</title>
-      <link>https://www.cve.org/CVERecord?id=CVE-2024-38371</link>
-      <description>authentik is an open-source Identity Provider. Access restrictions assigned to an application were not checked when using the OAuth2 Device code flow. This could potentially allow users without the correct authorization to get OAuth tokens for an application and access it. This issue has been patched in version(s) 2024.6.0, 2024.2.4 and 2024.4.3.</description>
-      <guid isPermaLink="false">CVE-2024-38371|2024-06-28T20:10:55.919Z</guid>
-      <pubDate>Fri, 28 Jun 2024 17:58:48 +0000</pubDate>
-    </item>
-    <item>
-      <title>CVE-2024-42490|2024-08-22T15:34:45.815Z -- goauthentik -- authentik</title>
+      <title>CVE-2024-42490|2024-08-22T16:04:32.442Z -- goauthentik -- authentik</title>
       <link>https://www.cve.org/CVERecord?id=CVE-2024-42490</link>
       <description>authentik is an open-source Identity Provider. Several API endpoints can be accessed by users without correct authentication/authorization. The main API endpoints affected by this are /api/v3/crypto/certificatekeypairs//view_certificate/, /api/v3/crypto/certificatekeypairs//view_private_key/, and /api/v3/.../used_by/. Note that all of the affected API endpoints require the knowledge of the ID of an object, which especially for certificates is not accessible to an unprivileged user. Additionally the IDs for most objects are UUIDv4, meaning they are not easily guessable/enumerable. authentik 2024.4.4, 2024.6.4 and 2024.8.0 fix this issue.</description>
-      <guid isPermaLink="false">CVE-2024-42490|2024-08-22T15:34:45.815Z</guid>
+      <guid isPermaLink="false">CVE-2024-42490|2024-08-22T16:04:32.442Z</guid>
       <pubDate>Thu, 22 Aug 2024 15:34:45 +0000</pubDate>
     </item>
     <item>
-      <title>CVE-2024-47077|2024-09-27T15:26:20.683Z -- goauthentik -- authentik</title>
+      <title>CVE-2024-47077|2024-09-27T17:51:19.674Z -- goauthentik -- authentik</title>
       <link>https://www.cve.org/CVERecord?id=CVE-2024-47077</link>
       <description>authentik is an open-source identity provider. Prior to versions 2024.8.3 and 2024.6.5, access tokens issued to one application can be stolen by that application and used to impersonate the user against any other proxy provider. Also, a user can steal an access token they were legitimately issued for one application and use it to access another application that they aren't allowed to access. Anyone who has more than one proxy provider application with different trust domains or different access control is affected. Versions 2024.8.3 and 2024.6.5 fix the issue.</description>
-      <guid isPermaLink="false">CVE-2024-47077|2024-09-27T15:26:20.683Z</guid>
+      <guid isPermaLink="false">CVE-2024-47077|2024-09-27T17:51:19.674Z</guid>
       <pubDate>Fri, 27 Sep 2024 15:26:20 +0000</pubDate>
     </item>
     <item>
-      <title>CVE-2024-47070|2024-09-27T15:29:58.025Z -- goauthentik -- authentik</title>
+      <title>CVE-2024-47070|2024-09-27T17:55:55.382Z -- goauthentik -- authentik</title>
       <link>https://www.cve.org/CVERecord?id=CVE-2024-47070</link>
       <description>authentik is an open-source identity provider. A vulnerability that exists in versions prior to 2024.8.3 and 2024.6.5 allows bypassing password login by adding X-Forwarded-For header with an unparsable IP address, e.g. `a`. This results in a possibility of logging into any account with a known login or email address. The vulnerability requires the authentik instance to trust X-Forwarded-For header provided by the attacker, thus it is not reproducible from external hosts on a properly configured environment.  The issue occurs due to the password stage having a policy bound to it, which skips the password stage if the Identification stage is setup to also contain a password stage. Due to the invalid X-Forwarded-For header, which does not get validated to be an IP Address early enough, the exception happens later and the policy fails. The default blueprint doesn't correctly set `failure_result` to `True` on the policy binding meaning that due to this exception the policy returns false and the password stage is skipped. Versions 2024.8.3 and 2024.6.5 fix this issue.</description>
-      <guid isPermaLink="false">CVE-2024-47070|2024-09-27T15:29:58.025Z</guid>
+      <guid isPermaLink="false">CVE-2024-47070|2024-09-27T17:55:55.382Z</guid>
       <pubDate>Fri, 27 Sep 2024 15:18:03 +0000</pubDate>
     </item>
   </channel>
