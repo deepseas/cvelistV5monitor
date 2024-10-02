@@ -6,25 +6,21 @@
     <description>The latest CVEs for metal3-io -- all products</description>
     <docs>http://www.rssboard.org/rss-specification</docs>
     <generator>python-feedgen</generator>
-    <lastBuildDate>Tue, 03 Sep 2024 20:23:28 +0000</lastBuildDate>
+    <lastBuildDate>Wed, 02 Oct 2024 15:23:50 +0000</lastBuildDate>
     <ttl>60</ttl>
     <item>
-      <title>CVE-2024-43803|2024-09-03T19:30:44.895Z -- metal3-io -- baremetal-operator
+      <title>CVE-2023-40585|2024-10-02T14:43:47.455Z -- metal3-io -- ironic-image
 </title>
-      <link>https://www.cve.org/CVERecord?id=CVE-2024-43803</link>
-      <description>The Bare Metal Operator (BMO) implements a Kubernetes API for managing bare metal hosts in Metal3. The `BareMetalHost` (BMH) CRD allows the `userData`, `metaData`, and `networkData` for the provisioned host to be specified as links to Kubernetes Secrets. There are fields for both the `Name` and `Namespace` of the Secret, meaning that versions of the baremetal-operator prior to 0.8.0, 0.6.2, and 0.5.2 will read a `Secret` from any namespace. A user with access to create or edit a `BareMetalHost` can thus exfiltrate a `Secret` from another namespace by using it as e.g. the `userData` for provisioning some host (note that this need not be a real host, it could be a VM somewhere).
-
-BMO will only read a key with the name `value` (or `userData`, `metaData`, or `networkData`), so that limits the exposure somewhat. `value` is probably a pretty common key though. Secrets used by _other_ `BareMetalHost`s in different namespaces are always vulnerable. It is probably relatively unusual for anyone other than cluster administrators to have RBAC access to create/edit a `BareMetalHost`. This vulnerability is only meaningful, if the cluster has users other than administrators and users' privileges are limited to their respective namespaces.
-
-The patch prevents BMO from accepting links to Secrets from other namespaces as BMH input. Any BMH configuration is only read from the same namespace only. The problem is patched in BMO releases v0.7.0, v0.6.2 and v0.5.2 and users should upgrade to those versions. Prior upgrading, duplicate the BMC Secrets to the namespace where the corresponding BMH is. After upgrade, remove the old Secrets. As a workaround, an operator can configure BMO RBAC to be namespace scoped for Secrets, instead of cluster scoped, to prevent BMO from accessing Secrets from other namespaces.</description>
-      <guid isPermaLink="false">CVE-2024-43803|2024-09-03T19:30:44.895Z</guid>
-      <pubDate>Tue, 03 Sep 2024 18:56:29 +0000</pubDate>
+      <link>https://www.cve.org/CVERecord?id=CVE-2023-40585</link>
+      <description>ironic-image is a container image to run OpenStack Ironic as part of Metal³. Prior to version capm3-v1.4.3, if Ironic is not deployed with TLS and it does not have API and Conductor split into separate services, access to the API is not protected by any authentication. Ironic API is also listening in host network. In case the node is not behind a firewall, the API could be accessed by anyone via network without authentication. By default, Ironic API in Metal3 is protected by TLS and basic authentication, so this vulnerability requires operator to configure API without TLS for it to be vulnerable. TLS and authentication however should not be coupled as they are in versions prior to capm3-v1.4.3. A patch exists in versions capm3-v1.4.3 and newer. Some workarounds are available. Either configure TLS for Ironic API (`deploy.sh -t ...`, `IRONIC_TLS_SETUP=true`) or split Ironic API and Conductor via configuration change (old implementation, not recommended). With both workarounds, services are configured with httpd front-end, which has proper authentication configuration in place.</description>
+      <guid isPermaLink="false">CVE-2023-40585|2024-10-02T14:43:47.455Z</guid>
+      <pubDate>Fri, 25 Aug 2023 20:31:50 +0000</pubDate>
     </item>
     <item>
-      <title>CVE-2024-31463|2024-08-02T01:52:57.081Z -- metal3-io -- ironic-image</title>
+      <title>CVE-2024-31463|2024-07-05T17:22:59.080Z -- metal3-io -- ironic-image</title>
       <link>https://www.cve.org/CVERecord?id=CVE-2024-31463</link>
       <description>Ironic-image is an OpenStack Ironic deployment packaged and configured by Metal3. When the reverse proxy mode is enabled by the `IRONIC_REVERSE_PROXY_SETUP` variable set to `true`, 1) HTTP basic credentials are validated on the HTTPD side in a separate container, not in the Ironic service itself and 2) Ironic listens in host network on a private port 6388 on localhost by default. As a result, when the reverse proxy mode is used, any Pod or local Unix user on the control plane Node can access the Ironic API on the private port without authentication. A similar problem affects Ironic Inspector (`INSPECTOR_REVERSE_PROXY_SETUP` set to `true`), although the attack potential is smaller there. This issue affects operators deploying ironic-image in the reverse proxy mode, which is the recommended mode when TLS is used (also recommended), with the `IRONIC_PRIVATE_PORT` variable unset or set to a numeric value. In this case, an attacker with enough privileges to launch a pod on the control plane with host networking can access Ironic API and use it to modify bare-metal machine, e.g. provision them with a new image or change their BIOS settings. This vulnerability is fixed in 24.1.1.</description>
-      <guid isPermaLink="false">CVE-2024-31463|2024-08-02T01:52:57.081Z</guid>
+      <guid isPermaLink="false">CVE-2024-31463|2024-07-05T17:22:59.080Z</guid>
       <pubDate>Wed, 17 Apr 2024 15:21:49 +0000</pubDate>
     </item>
     <item>
@@ -35,11 +31,22 @@ The patch prevents BMO from accepting links to Secrets from other namespaces as 
       <pubDate>Wed, 17 Apr 2024 15:21:49 +0000</pubDate>
     </item>
     <item>
-      <title>CVE-2024-31463|2024-07-05T17:22:59.080Z -- metal3-io -- ironic-image</title>
+      <title>CVE-2024-31463|2024-08-02T01:52:57.081Z -- metal3-io -- ironic-image</title>
       <link>https://www.cve.org/CVERecord?id=CVE-2024-31463</link>
       <description>Ironic-image is an OpenStack Ironic deployment packaged and configured by Metal3. When the reverse proxy mode is enabled by the `IRONIC_REVERSE_PROXY_SETUP` variable set to `true`, 1) HTTP basic credentials are validated on the HTTPD side in a separate container, not in the Ironic service itself and 2) Ironic listens in host network on a private port 6388 on localhost by default. As a result, when the reverse proxy mode is used, any Pod or local Unix user on the control plane Node can access the Ironic API on the private port without authentication. A similar problem affects Ironic Inspector (`INSPECTOR_REVERSE_PROXY_SETUP` set to `true`), although the attack potential is smaller there. This issue affects operators deploying ironic-image in the reverse proxy mode, which is the recommended mode when TLS is used (also recommended), with the `IRONIC_PRIVATE_PORT` variable unset or set to a numeric value. In this case, an attacker with enough privileges to launch a pod on the control plane with host networking can access Ironic API and use it to modify bare-metal machine, e.g. provision them with a new image or change their BIOS settings. This vulnerability is fixed in 24.1.1.</description>
-      <guid isPermaLink="false">CVE-2024-31463|2024-07-05T17:22:59.080Z</guid>
+      <guid isPermaLink="false">CVE-2024-31463|2024-08-02T01:52:57.081Z</guid>
       <pubDate>Wed, 17 Apr 2024 15:21:49 +0000</pubDate>
+    </item>
+    <item>
+      <title>CVE-2024-43803|2024-09-03T19:30:44.895Z -- metal3-io -- baremetal-operator</title>
+      <link>https://www.cve.org/CVERecord?id=CVE-2024-43803</link>
+      <description>The Bare Metal Operator (BMO) implements a Kubernetes API for managing bare metal hosts in Metal3. The `BareMetalHost` (BMH) CRD allows the `userData`, `metaData`, and `networkData` for the provisioned host to be specified as links to Kubernetes Secrets. There are fields for both the `Name` and `Namespace` of the Secret, meaning that versions of the baremetal-operator prior to 0.8.0, 0.6.2, and 0.5.2 will read a `Secret` from any namespace. A user with access to create or edit a `BareMetalHost` can thus exfiltrate a `Secret` from another namespace by using it as e.g. the `userData` for provisioning some host (note that this need not be a real host, it could be a VM somewhere).
+
+BMO will only read a key with the name `value` (or `userData`, `metaData`, or `networkData`), so that limits the exposure somewhat. `value` is probably a pretty common key though. Secrets used by _other_ `BareMetalHost`s in different namespaces are always vulnerable. It is probably relatively unusual for anyone other than cluster administrators to have RBAC access to create/edit a `BareMetalHost`. This vulnerability is only meaningful, if the cluster has users other than administrators and users' privileges are limited to their respective namespaces.
+
+The patch prevents BMO from accepting links to Secrets from other namespaces as BMH input. Any BMH configuration is only read from the same namespace only. The problem is patched in BMO releases v0.7.0, v0.6.2 and v0.5.2 and users should upgrade to those versions. Prior upgrading, duplicate the BMC Secrets to the namespace where the corresponding BMH is. After upgrade, remove the old Secrets. As a workaround, an operator can configure BMO RBAC to be namespace scoped for Secrets, instead of cluster scoped, to prevent BMO from accessing Secrets from other namespaces.</description>
+      <guid isPermaLink="false">CVE-2024-43803|2024-09-03T19:30:44.895Z</guid>
+      <pubDate>Tue, 03 Sep 2024 18:56:29 +0000</pubDate>
     </item>
   </channel>
 </rss>
