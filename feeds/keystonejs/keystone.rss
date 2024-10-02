@@ -6,23 +6,15 @@
     <description>The latest CVEs for keystonejs -- keystone</description>
     <docs>http://www.rssboard.org/rss-specification</docs>
     <generator>python-feedgen</generator>
-    <lastBuildDate>Sat, 03 Aug 2024 23:22:58 +0000</lastBuildDate>
+    <lastBuildDate>Wed, 02 Oct 2024 18:25:21 +0000</lastBuildDate>
     <ttl>60</ttl>
     <item>
-      <title>CVE-2022-39322|2024-08-03T12:00:44.121Z -- keystonejs -- keystone
+      <title>CVE-2023-40027|2024-10-02T17:45:51.611Z -- keystonejs -- keystone
 </title>
-      <link>https://www.cve.org/CVERecord?id=CVE-2022-39322</link>
-      <description>@keystone-6/core is a core package for Keystone 6, a content management system for Node.js. Starting with version 2.2.0 and prior to version 2.3.1, users who expected their `multiselect` fields to use the field-level access control - if configured - are vulnerable to their field-level access control not being used. List-level access control is not affected. Field-level access control for fields other than `multiselect` are not affected. Version 2.3.1 contains a fix for this issue. As a workaround, stop using the `multiselect` field.</description>
-      <guid isPermaLink="false">CVE-2022-39322|2024-08-03T12:00:44.121Z</guid>
-      <pubDate>Tue, 25 Oct 2022 00:00:00 +0000</pubDate>
-    </item>
-    <item>
-      <title>CVE-2022-39382|2024-08-03T12:07:41.230Z -- keystonejs -- keystone
-</title>
-      <link>https://www.cve.org/CVERecord?id=CVE-2022-39382</link>
-      <description>Keystone is a headless CMS for Node.js — built with GraphQL and React.`@keystone-6/core@3.0.0 || 3.0.1` users that use `NODE_ENV` to trigger security-sensitive functionality in their production builds are vulnerable to `NODE_ENV` being inlined to `"development"` for user code, irrespective of what your environment variables. If you do not use `NODE_ENV` in your user code to trigger security-sensitive functionality, you are not impacted by this vulnerability. Any dependencies that use `NODE_ENV` to trigger particular behaviors (optimizations, security or otherwise) should still respect your environment's configured `NODE_ENV` variable. The application's dependencies, as found in `node_modules` (including `@keystone-6/core`), are typically not compiled as part of this process, and thus should be unaffected. We have tested this assumption by verifying that `NODE_ENV=production yarn keystone start` still uses secure cookies when using `statelessSessions`. This vulnerability has been fixed in @keystone-6/core@3.0.2, regression tests have been added for this vulnerability in #8063.</description>
-      <guid isPermaLink="false">CVE-2022-39382|2024-08-03T12:07:41.230Z</guid>
-      <pubDate>Thu, 03 Nov 2022 00:00:00 +0000</pubDate>
+      <link>https://www.cve.org/CVERecord?id=CVE-2023-40027</link>
+      <description>Keystone is an open source headless CMS for Node.js — built with GraphQL and React. When `ui.isAccessAllowed` is set as `undefined`, the `adminMeta` GraphQL query is publicly accessible (no session required). This is different to the behaviour of the default AdminUI middleware, which by default will only be publicly accessible (no session required) if a `session` strategy is not defined. This vulnerability does not affect developers using the `@keystone-6/auth` package, or any users that have written their own `ui.isAccessAllowed` (that is to say, `isAccessAllowed` is not `undefined`). This vulnerability does affect users who believed that their `session` strategy will, by default, enforce that `adminMeta` is inaccessible by the public in accordance with that strategy; akin to the behaviour of the AdminUI middleware. This vulnerability has been patched in `@keystone-6/core` version `5.5.1`. Users are advised to upgrade. Users unable to upgrade may opt to write their own `isAccessAllowed` functionality to work-around this vulnerability.</description>
+      <guid isPermaLink="false">CVE-2023-40027|2024-10-02T17:45:51.611Z</guid>
+      <pubDate>Tue, 15 Aug 2023 17:45:54 +0000</pubDate>
     </item>
   </channel>
 </rss>

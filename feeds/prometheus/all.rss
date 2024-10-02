@@ -6,31 +6,15 @@
     <description>The latest CVEs for prometheus -- all products</description>
     <docs>http://www.rssboard.org/rss-specification</docs>
     <generator>python-feedgen</generator>
-    <lastBuildDate>Sat, 03 Aug 2024 23:23:04 +0000</lastBuildDate>
+    <lastBuildDate>Wed, 02 Oct 2024 18:25:18 +0000</lastBuildDate>
     <ttl>60</ttl>
     <item>
-      <title>CVE-2021-29622|2024-08-03T22:11:06.291Z -- prometheus -- prometheus
+      <title>CVE-2023-40577|2024-10-02T17:48:58.532Z -- prometheus -- alertmanager
 </title>
-      <link>https://www.cve.org/CVERecord?id=CVE-2021-29622</link>
-      <description>Prometheus is an open-source monitoring system and time series database. In 2.23.0, Prometheus changed its default UI to the New ui. To ensure a seamless transition, the URL's prefixed by /new redirect to /. Due to a bug in the code, it is possible for an attacker to craft an URL that can redirect to any other URL, in the /new endpoint. If a user visits a prometheus server with a specially crafted address, they can be redirected to an arbitrary URL. The issue was patched in the 2.26.1 and 2.27.1 releases. In 2.28.0, the /new endpoint will be removed completely. The workaround is to disable access to /new via a reverse proxy in front of Prometheus.</description>
-      <guid isPermaLink="false">CVE-2021-29622|2024-08-03T22:11:06.291Z</guid>
-      <pubDate>Wed, 19 May 2021 20:00:13 +0000</pubDate>
-    </item>
-    <item>
-      <title>CVE-2022-46146|2024-08-03T14:24:03.295Z -- prometheus -- exporter-toolkit
-</title>
-      <link>https://www.cve.org/CVERecord?id=CVE-2022-46146</link>
-      <description>Prometheus Exporter Toolkit is a utility package to build exporters. Prior to versions 0.7.2 and 0.8.2, if someone has access to a Prometheus web.yml file and users' bcrypted passwords, they can bypass security by poisoning the built-in authentication cache. Versions 0.7.2 and 0.8.2 contain a fix for the issue. There is no workaround, but attacker must have access to the hashed password to use this functionality.</description>
-      <guid isPermaLink="false">CVE-2022-46146|2024-08-03T14:24:03.295Z</guid>
-      <pubDate>Tue, 29 Nov 2022 00:00:00 +0000</pubDate>
-    </item>
-    <item>
-      <title>CVE-2022-21698|2024-08-03T02:53:34.814Z -- prometheus -- client_golang
-</title>
-      <link>https://www.cve.org/CVERecord?id=CVE-2022-21698</link>
-      <description>client_golang is the instrumentation library for Go applications in Prometheus, and the promhttp package in client_golang provides tooling around HTTP servers and clients. In client_golang prior to version 1.11.1, HTTP server is susceptible to a Denial of Service through unbounded cardinality, and potential memory exhaustion, when handling requests with non-standard HTTP methods. In order to be affected, an instrumented software must use any of `promhttp.InstrumentHandler*` middleware except `RequestsInFlight`; not filter any specific methods (e.g GET) before middleware; pass metric with `method` label name to our middleware; and not have any firewall/LB/proxy that filters away requests with unknown `method`. client_golang version 1.11.1 contains a patch for this issue. Several workarounds are available, including removing the `method` label name from counter/gauge used in the InstrumentHandler; turning off affected promhttp handlers; adding custom middleware before promhttp handler that will sanitize the request method given by Go http.Request; and using a reverse proxy or web application firewall, configured to only allow a limited set of methods.</description>
-      <guid isPermaLink="false">CVE-2022-21698|2024-08-03T02:53:34.814Z</guid>
-      <pubDate>Tue, 15 Feb 2022 00:00:00 +0000</pubDate>
+      <link>https://www.cve.org/CVERecord?id=CVE-2023-40577</link>
+      <description>Alertmanager handles alerts sent by client applications such as the Prometheus server. An attacker with the permission to perform POST requests on the /api/v1/alerts endpoint could be able to execute arbitrary JavaScript code on the users of Prometheus Alertmanager. This issue has been fixed in Alertmanager version 0.2.51.</description>
+      <guid isPermaLink="false">CVE-2023-40577|2024-10-02T17:48:58.532Z</guid>
+      <pubDate>Fri, 25 Aug 2023 00:12:13 +0000</pubDate>
     </item>
   </channel>
 </rss>
