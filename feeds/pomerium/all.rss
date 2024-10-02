@@ -6,45 +6,21 @@
     <description>The latest CVEs for pomerium -- all products</description>
     <docs>http://www.rssboard.org/rss-specification</docs>
     <generator>python-feedgen</generator>
-    <lastBuildDate>Sun, 04 Aug 2024 23:23:15 +0000</lastBuildDate>
+    <lastBuildDate>Wed, 02 Oct 2024 22:23:36 +0000</lastBuildDate>
     <ttl>60</ttl>
     <item>
-      <title>CVE-2021-39204|2024-08-04T01:58:18.254Z -- pomerium -- pomerium
+      <title>CVE-2024-47616|2024-10-02T21:10:24.146Z -- pomerium -- pomerium
 </title>
-      <link>https://www.cve.org/CVERecord?id=CVE-2021-39204</link>
-      <description>Pomerium is an open source identity-aware access proxy. Envoy, which Pomerium is based on, incorrectly handles resetting of HTTP/2 streams with excessive complexity. This can lead to high CPU utilization when a large number of streams are reset. This can result in a DoS condition. Pomerium versions 0.14.8 and 0.15.1 contain an upgraded envoy binary with this vulnerability patched.</description>
-      <guid isPermaLink="false">CVE-2021-39204|2024-08-04T01:58:18.254Z</guid>
-      <pubDate>Thu, 09 Sep 2021 22:10:09 +0000</pubDate>
+      <link>https://www.cve.org/CVERecord?id=CVE-2024-47616</link>
+      <description>Pomerium is an identity and context-aware access proxy. The Pomerium databroker service is responsible for managing all persistent Pomerium application state. Requests to the databroker service API are authorized by the presence of a JSON Web Token (JWT) signed by a key known by all Pomerium services in the same deployment. However, incomplete validation of this JWT meant that some service account access tokens would incorrectly be treated as valid for the purpose of databroker API authorization. Improper access to the databroker API could allow exfiltration of user info, spoofing of user sessions, or tampering with Pomerium routes, policies, and other settings. A Pomerium deployment is susceptible to this issue if all of the following conditions are met, you have issued a service account access token using Pomerium Zero or Pomerium Enterprise, the access token has an explicit expiration date in the future, and the core Pomerium databroker gRPC API is not otherwise secured by network access controls. This vulnerability is fixed in 0.27.1.</description>
+      <guid isPermaLink="false">CVE-2024-47616|2024-10-02T21:10:24.146Z</guid>
+      <pubDate>Wed, 02 Oct 2024 21:10:24 +0000</pubDate>
     </item>
     <item>
-      <title>CVE-2021-39206|2024-08-04T01:58:18.262Z -- pomerium -- pomerium
-</title>
-      <link>https://www.cve.org/CVERecord?id=CVE-2021-39206</link>
-      <description>Pomerium is an open source identity-aware access proxy. Envoy, which Pomerium is based on, contains two authorization related vulnerabilities CVE-2021-32777 and CVE-2021-32779. This may lead to incorrect routing or authorization policy decisions. With specially crafted requests, incorrect authorization or routing decisions may be made by Pomerium. Pomerium v0.14.8 and v0.15.1 contain an upgraded envoy binary with these vulnerabilities patched. This issue can only be triggered when using path prefix based policy. Removing any such policies should provide mitigation.</description>
-      <guid isPermaLink="false">CVE-2021-39206|2024-08-04T01:58:18.262Z</guid>
-      <pubDate>Thu, 09 Sep 2021 22:10:15 +0000</pubDate>
-    </item>
-    <item>
-      <title>CVE-2021-39162|2024-08-04T01:58:18.235Z -- pomerium -- pomerium
-</title>
-      <link>https://www.cve.org/CVERecord?id=CVE-2021-39162</link>
-      <description>Pomerium is an open source identity-aware access proxy. Envoy, which Pomerium is based on, can abnormally terminate if an H/2 GOAWAY and SETTINGS frame are received in the same IO event. This can lead to a DoS in the presence of untrusted *upstream* servers. 0.15.1 contains an upgraded envoy binary with this vulnerability patched. If only trusted upstreams are configured, there is not substantial risk of this condition being triggered.</description>
-      <guid isPermaLink="false">CVE-2021-39162|2024-08-04T01:58:18.235Z</guid>
-      <pubDate>Thu, 09 Sep 2021 22:05:11 +0000</pubDate>
-    </item>
-    <item>
-      <title>CVE-2021-41230|2024-08-04T03:08:31.639Z -- pomerium -- pomerium
-</title>
-      <link>https://www.cve.org/CVERecord?id=CVE-2021-41230</link>
-      <description>Pomerium is an open source identity-aware access proxy. In affected versions changes to the OIDC claims of a user after initial login are not reflected in policy evaluation when using `allowed_idp_claims` as part of policy. If using `allowed_idp_claims` and a user's claims are changed, Pomerium can make incorrect authorization decisions. This issue has been resolved in v0.15.6. For users unable to upgrade clear data on `databroker` service by clearing redis or restarting the in-memory databroker to force claims to be updated.</description>
-      <guid isPermaLink="false">CVE-2021-41230|2024-08-04T03:08:31.639Z</guid>
-      <pubDate>Fri, 05 Nov 2021 22:40:12 +0000</pubDate>
-    </item>
-    <item>
-      <title>CVE-2024-39315|2024-07-22T16:30:27.504Z -- pomerium -- pomerium</title>
+      <title>CVE-2024-39315|2024-08-02T04:19:20.747Z -- pomerium -- pomerium</title>
       <link>https://www.cve.org/CVERecord?id=CVE-2024-39315</link>
       <description>Pomerium is an identity and context-aware access proxy. Prior to version 0.26.1, the Pomerium user info page (at `/.pomerium`) unintentionally included serialized OAuth2 access and ID tokens from the logged-in user's session. These tokens are not intended to be exposed to end users. This issue may be more severe in the presence of a cross-site scripting vulnerability in an upstream application proxied through Pomerium. If an attacker could insert a malicious script onto a web page proxied through Pomerium, that script could access these tokens by making a request to the `/.pomerium` endpoint. Upstream applications that authenticate only the ID token may be vulnerable to user impersonation using a token obtained in this manner. Note that an OAuth2 access token or ID token by itself is not sufficient to hijack a user's Pomerium session. Upstream applications should not be vulnerable to user impersonation via these tokens provided the application verifies the Pomerium JWT for each request, the connection between Pomerium and the application is secured by mTLS, or the connection between Pomerium and the application is otherwise secured at the network layer. The issue is patched in Pomerium v0.26.1. No known workarounds are available.</description>
-      <guid isPermaLink="false">CVE-2024-39315|2024-07-22T16:30:27.504Z</guid>
+      <guid isPermaLink="false">CVE-2024-39315|2024-08-02T04:19:20.747Z</guid>
       <pubDate>Tue, 02 Jul 2024 20:02:06 +0000</pubDate>
     </item>
     <item>
@@ -55,10 +31,10 @@
       <pubDate>Tue, 02 Jul 2024 20:02:06 +0000</pubDate>
     </item>
     <item>
-      <title>CVE-2024-39315|2024-08-02T04:19:20.747Z -- pomerium -- pomerium</title>
+      <title>CVE-2024-39315|2024-07-22T16:30:27.504Z -- pomerium -- pomerium</title>
       <link>https://www.cve.org/CVERecord?id=CVE-2024-39315</link>
       <description>Pomerium is an identity and context-aware access proxy. Prior to version 0.26.1, the Pomerium user info page (at `/.pomerium`) unintentionally included serialized OAuth2 access and ID tokens from the logged-in user's session. These tokens are not intended to be exposed to end users. This issue may be more severe in the presence of a cross-site scripting vulnerability in an upstream application proxied through Pomerium. If an attacker could insert a malicious script onto a web page proxied through Pomerium, that script could access these tokens by making a request to the `/.pomerium` endpoint. Upstream applications that authenticate only the ID token may be vulnerable to user impersonation using a token obtained in this manner. Note that an OAuth2 access token or ID token by itself is not sufficient to hijack a user's Pomerium session. Upstream applications should not be vulnerable to user impersonation via these tokens provided the application verifies the Pomerium JWT for each request, the connection between Pomerium and the application is secured by mTLS, or the connection between Pomerium and the application is otherwise secured at the network layer. The issue is patched in Pomerium v0.26.1. No known workarounds are available.</description>
-      <guid isPermaLink="false">CVE-2024-39315|2024-08-02T04:19:20.747Z</guid>
+      <guid isPermaLink="false">CVE-2024-39315|2024-07-22T16:30:27.504Z</guid>
       <pubDate>Tue, 02 Jul 2024 20:02:06 +0000</pubDate>
     </item>
   </channel>
