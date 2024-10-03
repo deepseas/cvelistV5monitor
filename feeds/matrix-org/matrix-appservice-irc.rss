@@ -6,7 +6,7 @@
     <description>The latest CVEs for matrix-org -- matrix-appservice-irc</description>
     <docs>http://www.rssboard.org/rss-specification</docs>
     <generator>python-feedgen</generator>
-    <lastBuildDate>Thu, 03 Oct 2024 20:24:16 +0000</lastBuildDate>
+    <lastBuildDate>Thu, 03 Oct 2024 21:22:35 +0000</lastBuildDate>
     <ttl>60</ttl>
     <item>
       <title>CVE-2023-38700|2024-10-03T18:08:51.929Z -- matrix-org -- matrix-appservice-irc
@@ -17,31 +17,10 @@
       <pubDate>Fri, 04 Aug 2023 18:05:43 +0000</pubDate>
     </item>
     <item>
-      <title>CVE-2024-32000|2024-08-02T01:59:50.908Z -- matrix-org -- matrix-appservice-irc</title>
-      <link>https://www.cve.org/CVERecord?id=CVE-2024-32000</link>
-      <description>matrix-appservice-irc is a Node.js IRC bridge for the Matrix messaging protocol. matrix-appservice-irc before version 2.0.0 can be exploited to leak the truncated body of a message if a malicious user sends a Matrix reply to an event ID they don't have access to. As a precondition to the attack, the malicious user needs to know the event ID of the message they want to leak, as well as to be joined to both the Matrix room and the IRC channel it is bridged to. The message reply containing the leaked message content is visible to IRC channel members when this happens. matrix-appservice-irc 2.0.0 checks whether the user has permission to view an event before constructing a reply. Administrators should upgrade to this version. It's possible to limit the amount of information leaked by setting a reply template that doesn't contain the original message. See these lines `601-604` in the configuration file linked.</description>
-      <guid isPermaLink="false">CVE-2024-32000|2024-08-02T01:59:50.908Z</guid>
-      <pubDate>Fri, 12 Apr 2024 20:02:51 +0000</pubDate>
-    </item>
-    <item>
-      <title>CVE-2024-39691|2024-07-08T15:48:21.210Z -- matrix-org -- matrix-appservice-irc</title>
+      <title>CVE-2024-39691|2024-08-02T04:26:15.991Z -- matrix-org -- matrix-appservice-irc</title>
       <link>https://www.cve.org/CVERecord?id=CVE-2024-39691</link>
       <description>matrix-appservice-irc is a Node.js IRC bridge for the Matrix messaging protocol. The fix for GHSA-wm4w-7h2q-3pf7 / CVE-2024-32000 included in matrix-appservice-irc 2.0.0 relied on the Matrix homeserver-provided timestamp to determine whether a user has access to the event they're replying to when determining whether or not to include a truncated version of the original event in the IRC message. Since this value is controlled by external entities, a malicious Matrix homeserver joined to a room in which a matrix-appservice-irc bridge instance (before version 2.0.1) is present can fabricate the timestamp with the intent of tricking the bridge into leaking room messages the homeserver should not have access to. matrix-appservice-irc 2.0.1 drops the reliance on `origin_server_ts` when determining whether or not an event should be visible to a user, instead tracking the event timestamps internally. As a workaround, it's possible to limit the amount of information leaked by setting a reply template that doesn't contain the original message.</description>
-      <guid isPermaLink="false">CVE-2024-39691|2024-07-08T15:48:21.210Z</guid>
-      <pubDate>Fri, 05 Jul 2024 18:42:06 +0000</pubDate>
-    </item>
-    <item>
-      <title>CVE-2024-32000|2024-04-12T20:02:51.987Z -- matrix-org -- matrix-appservice-irc</title>
-      <link>https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2024-32000</link>
-      <description>matrix-appservice-irc is a Node.js IRC bridge for the Matrix messaging protocol. matrix-appservice-irc before version 2.0.0 can be exploited to leak the truncated body of a message if a malicious user sends a Matrix reply to an event ID they don't have access to. As a precondition to the attack, the malicious user needs to know the event ID of the message they want to leak, as well as to be joined to both the Matrix room and the IRC channel it is bridged to. The message reply containing the leaked message content is visible to IRC channel members when this happens. matrix-appservice-irc 2.0.0 checks whether the user has permission to view an event before constructing a reply. Administrators should upgrade to this version. It's possible to limit the amount of information leaked by setting a reply template that doesn't contain the original message. See these lines `601-604` in the configuration file linked.</description>
-      <guid isPermaLink="false">CVE-2024-32000|2024-04-12T20:02:51.987Z</guid>
-      <pubDate>Fri, 12 Apr 2024 20:02:51 +0000</pubDate>
-    </item>
-    <item>
-      <title>CVE-2024-39691|2024-07-05T18:42:06.864Z -- matrix-org -- matrix-appservice-irc</title>
-      <link>https://www.cve.org/CVERecord?id=CVE-2024-39691</link>
-      <description>matrix-appservice-irc is a Node.js IRC bridge for the Matrix messaging protocol. The fix for GHSA-wm4w-7h2q-3pf7 / CVE-2024-32000 included in matrix-appservice-irc 2.0.0 relied on the Matrix homeserver-provided timestamp to determine whether a user has access to the event they're replying to when determining whether or not to include a truncated version of the original event in the IRC message. Since this value is controlled by external entities, a malicious Matrix homeserver joined to a room in which a matrix-appservice-irc bridge instance (before version 2.0.1) is present can fabricate the timestamp with the intent of tricking the bridge into leaking room messages the homeserver should not have access to. matrix-appservice-irc 2.0.1 drops the reliance on `origin_server_ts` when determining whether or not an event should be visible to a user, instead tracking the event timestamps internally. As a workaround, it's possible to limit the amount of information leaked by setting a reply template that doesn't contain the original message.</description>
-      <guid isPermaLink="false">CVE-2024-39691|2024-07-05T18:42:06.864Z</guid>
+      <guid isPermaLink="false">CVE-2024-39691|2024-08-02T04:26:15.991Z</guid>
       <pubDate>Fri, 05 Jul 2024 18:42:06 +0000</pubDate>
     </item>
     <item>
@@ -52,11 +31,32 @@
       <pubDate>Fri, 12 Apr 2024 20:02:51 +0000</pubDate>
     </item>
     <item>
-      <title>CVE-2024-39691|2024-08-02T04:26:15.991Z -- matrix-org -- matrix-appservice-irc</title>
+      <title>CVE-2024-39691|2024-07-05T18:42:06.864Z -- matrix-org -- matrix-appservice-irc</title>
       <link>https://www.cve.org/CVERecord?id=CVE-2024-39691</link>
       <description>matrix-appservice-irc is a Node.js IRC bridge for the Matrix messaging protocol. The fix for GHSA-wm4w-7h2q-3pf7 / CVE-2024-32000 included in matrix-appservice-irc 2.0.0 relied on the Matrix homeserver-provided timestamp to determine whether a user has access to the event they're replying to when determining whether or not to include a truncated version of the original event in the IRC message. Since this value is controlled by external entities, a malicious Matrix homeserver joined to a room in which a matrix-appservice-irc bridge instance (before version 2.0.1) is present can fabricate the timestamp with the intent of tricking the bridge into leaking room messages the homeserver should not have access to. matrix-appservice-irc 2.0.1 drops the reliance on `origin_server_ts` when determining whether or not an event should be visible to a user, instead tracking the event timestamps internally. As a workaround, it's possible to limit the amount of information leaked by setting a reply template that doesn't contain the original message.</description>
-      <guid isPermaLink="false">CVE-2024-39691|2024-08-02T04:26:15.991Z</guid>
+      <guid isPermaLink="false">CVE-2024-39691|2024-07-05T18:42:06.864Z</guid>
       <pubDate>Fri, 05 Jul 2024 18:42:06 +0000</pubDate>
+    </item>
+    <item>
+      <title>CVE-2024-32000|2024-04-12T20:02:51.987Z -- matrix-org -- matrix-appservice-irc</title>
+      <link>https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2024-32000</link>
+      <description>matrix-appservice-irc is a Node.js IRC bridge for the Matrix messaging protocol. matrix-appservice-irc before version 2.0.0 can be exploited to leak the truncated body of a message if a malicious user sends a Matrix reply to an event ID they don't have access to. As a precondition to the attack, the malicious user needs to know the event ID of the message they want to leak, as well as to be joined to both the Matrix room and the IRC channel it is bridged to. The message reply containing the leaked message content is visible to IRC channel members when this happens. matrix-appservice-irc 2.0.0 checks whether the user has permission to view an event before constructing a reply. Administrators should upgrade to this version. It's possible to limit the amount of information leaked by setting a reply template that doesn't contain the original message. See these lines `601-604` in the configuration file linked.</description>
+      <guid isPermaLink="false">CVE-2024-32000|2024-04-12T20:02:51.987Z</guid>
+      <pubDate>Fri, 12 Apr 2024 20:02:51 +0000</pubDate>
+    </item>
+    <item>
+      <title>CVE-2024-39691|2024-07-08T15:48:21.210Z -- matrix-org -- matrix-appservice-irc</title>
+      <link>https://www.cve.org/CVERecord?id=CVE-2024-39691</link>
+      <description>matrix-appservice-irc is a Node.js IRC bridge for the Matrix messaging protocol. The fix for GHSA-wm4w-7h2q-3pf7 / CVE-2024-32000 included in matrix-appservice-irc 2.0.0 relied on the Matrix homeserver-provided timestamp to determine whether a user has access to the event they're replying to when determining whether or not to include a truncated version of the original event in the IRC message. Since this value is controlled by external entities, a malicious Matrix homeserver joined to a room in which a matrix-appservice-irc bridge instance (before version 2.0.1) is present can fabricate the timestamp with the intent of tricking the bridge into leaking room messages the homeserver should not have access to. matrix-appservice-irc 2.0.1 drops the reliance on `origin_server_ts` when determining whether or not an event should be visible to a user, instead tracking the event timestamps internally. As a workaround, it's possible to limit the amount of information leaked by setting a reply template that doesn't contain the original message.</description>
+      <guid isPermaLink="false">CVE-2024-39691|2024-07-08T15:48:21.210Z</guid>
+      <pubDate>Fri, 05 Jul 2024 18:42:06 +0000</pubDate>
+    </item>
+    <item>
+      <title>CVE-2024-32000|2024-08-02T01:59:50.908Z -- matrix-org -- matrix-appservice-irc</title>
+      <link>https://www.cve.org/CVERecord?id=CVE-2024-32000</link>
+      <description>matrix-appservice-irc is a Node.js IRC bridge for the Matrix messaging protocol. matrix-appservice-irc before version 2.0.0 can be exploited to leak the truncated body of a message if a malicious user sends a Matrix reply to an event ID they don't have access to. As a precondition to the attack, the malicious user needs to know the event ID of the message they want to leak, as well as to be joined to both the Matrix room and the IRC channel it is bridged to. The message reply containing the leaked message content is visible to IRC channel members when this happens. matrix-appservice-irc 2.0.0 checks whether the user has permission to view an event before constructing a reply. Administrators should upgrade to this version. It's possible to limit the amount of information leaked by setting a reply template that doesn't contain the original message. See these lines `601-604` in the configuration file linked.</description>
+      <guid isPermaLink="false">CVE-2024-32000|2024-08-02T01:59:50.908Z</guid>
+      <pubDate>Fri, 12 Apr 2024 20:02:51 +0000</pubDate>
     </item>
   </channel>
 </rss>
