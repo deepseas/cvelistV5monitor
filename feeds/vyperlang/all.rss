@@ -6,7 +6,7 @@
     <description>The latest CVEs for vyperlang -- all products</description>
     <docs>http://www.rssboard.org/rss-specification</docs>
     <generator>python-feedgen</generator>
-    <lastBuildDate>Thu, 03 Oct 2024 22:23:32 +0000</lastBuildDate>
+    <lastBuildDate>Thu, 03 Oct 2024 23:23:26 +0000</lastBuildDate>
     <ttl>60</ttl>
     <item>
       <title>CVE-2023-39363|2024-10-03T18:06:48.980Z -- vyperlang -- vyper
@@ -25,38 +25,52 @@
       <pubDate>Tue, 25 Jul 2023 20:05:40 +0000</pubDate>
     </item>
     <item>
-      <title>CVE-2024-32646|2024-06-04T17:49:53.303Z -- vyperlang -- vyper</title>
-      <link>https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2024-32646</link>
-      <description>Vyper is a pythonic Smart Contract Language for the Ethereum virtual machine. In versions 0.3.10 and prior, using the `slice` builtin can result in a double eval vulnerability when the buffer argument is either `msg.data`, `self.code` or `&lt;address&gt;.code` and either the `start` or `length` arguments have side-effects. It can be easily triggered only with the versions `&lt;0.3.4` as `0.3.4` introduced the unique symbol fence. No vulnerable production contracts were found. Additionally, double evaluation of side-effects should be easily discoverable in client tests. As such, the impact is low. As of time of publication, no fixed versions are available.</description>
-      <guid isPermaLink="false">CVE-2024-32646|2024-06-04T17:49:53.303Z</guid>
-      <pubDate>Thu, 25 Apr 2024 17:21:59 +0000</pubDate>
-    </item>
-    <item>
-      <title>CVE-2024-32647|2024-06-04T17:50:09.845Z -- vyperlang -- vyper</title>
-      <link>https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2024-32647</link>
-      <description>Vyper is a pythonic Smart Contract Language for the Ethereum virtual machine. In versions 0.3.10 and prior, using the `create_from_blueprint` builtin can result in a double eval vulnerability when `raw_args=True` and the `args` argument has side-effects. It can be seen that the `_build_create_IR` function of the `create_from_blueprint` builtin doesn't cache the mentioned `args` argument to the stack. As such, it can be evaluated multiple times (instead of retrieving the value from the stack). No vulnerable production contracts were found. Additionally, double evaluation of side-effects should be easily discoverable in client tests. As such, the impact is low. As of time of publication, no fixed versions exist.</description>
-      <guid isPermaLink="false">CVE-2024-32647|2024-06-04T17:50:09.845Z</guid>
-      <pubDate>Thu, 25 Apr 2024 17:41:44 +0000</pubDate>
-    </item>
-    <item>
-      <title>CVE-2024-32481|2024-06-04T17:51:33.592Z -- vyperlang -- vyper</title>
-      <link>https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2024-32481</link>
-      <description>Vyper is a pythonic Smart Contract Language for the Ethereum virtual machine. Starting in version 0.3.8 and prior to version 0.4.0b1, when looping over a `range` of the form `range(start, start + N)`, if `start` is negative, the execution will always revert. This issue is caused by an incorrect assertion inserted by the code generation of the range `stmt.parse_For_range()`. The issue arises when `start` is signed, instead of using `sle`, `le` is used and `start` is interpreted as an unsigned integer for the comparison. If it is a negative number, its 255th bit is set to `1` and is hence interpreted as a very large unsigned integer making the assertion always fail. Any contract having a `range(start, start + N)` where `start` is a signed integer with the possibility for `start` to be negative is affected. If a call goes through the loop while supplying a negative `start` the execution will revert. Version 0.4.0b1 fixes the issue.</description>
-      <guid isPermaLink="false">CVE-2024-32481|2024-06-04T17:51:33.592Z</guid>
-      <pubDate>Thu, 25 Apr 2024 17:00:54 +0000</pubDate>
-    </item>
-    <item>
-      <title>CVE-2024-32648|2024-06-04T17:51:45.656Z -- vyperlang -- vyper</title>
-      <link>https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2024-32648</link>
+      <title>CVE-2024-32648|2024-08-02T02:13:40.467Z -- vyperlang -- vyper</title>
+      <link>https://www.cve.org/CVERecord?id=CVE-2024-32648</link>
       <description>Vyper is a pythonic Smart Contract Language for the Ethereum virtual machine. Prior to version 0.3.0, default functions don't respect nonreentrancy keys and the lock isn't emitted. No vulnerable production contracts were found. Additionally, using a lock on a `default` function is a very sparsely used pattern. As such, the impact is low. Version 0.3.0 contains a patch for the issue.</description>
-      <guid isPermaLink="false">CVE-2024-32648|2024-06-04T17:51:45.656Z</guid>
+      <guid isPermaLink="false">CVE-2024-32648|2024-08-02T02:13:40.467Z</guid>
       <pubDate>Thu, 25 Apr 2024 17:48:32 +0000</pubDate>
     </item>
     <item>
-      <title>CVE-2024-32645|2024-04-25T17:22:15.234Z -- vyperlang -- vyper</title>
-      <link>https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2024-32645</link>
+      <title>CVE-2024-32481|2024-08-02T02:13:39.300Z -- vyperlang -- vyper</title>
+      <link>https://www.cve.org/CVERecord?id=CVE-2024-32481</link>
+      <description>Vyper is a pythonic Smart Contract Language for the Ethereum virtual machine. Starting in version 0.3.8 and prior to version 0.4.0b1, when looping over a `range` of the form `range(start, start + N)`, if `start` is negative, the execution will always revert. This issue is caused by an incorrect assertion inserted by the code generation of the range `stmt.parse_For_range()`. The issue arises when `start` is signed, instead of using `sle`, `le` is used and `start` is interpreted as an unsigned integer for the comparison. If it is a negative number, its 255th bit is set to `1` and is hence interpreted as a very large unsigned integer making the assertion always fail. Any contract having a `range(start, start + N)` where `start` is a signed integer with the possibility for `start` to be negative is affected. If a call goes through the loop while supplying a negative `start` the execution will revert. Version 0.4.0b1 fixes the issue.</description>
+      <guid isPermaLink="false">CVE-2024-32481|2024-08-02T02:13:39.300Z</guid>
+      <pubDate>Thu, 25 Apr 2024 17:00:54 +0000</pubDate>
+    </item>
+    <item>
+      <title>CVE-2024-32645|2024-08-02T02:13:40.291Z -- vyperlang -- vyper</title>
+      <link>https://www.cve.org/CVERecord?id=CVE-2024-32645</link>
       <description>Vyper is a pythonic Smart Contract Language for the Ethereum virtual machine. In versions 0.3.10 and prior, incorrect values can be logged when `raw_log` builtin is called with memory or storage arguments to be used as topics. A contract search was performed and no vulnerable contracts were found in production. The `build_IR` function of the `RawLog` class fails to properly unwrap the variables provided as topics. Consequently, incorrect values are logged as topics. As of time of publication, no fixed version is available.</description>
-      <guid isPermaLink="false">CVE-2024-32645|2024-04-25T17:22:15.234Z</guid>
+      <guid isPermaLink="false">CVE-2024-32645|2024-08-02T02:13:40.291Z</guid>
+      <pubDate>Thu, 25 Apr 2024 17:18:27 +0000</pubDate>
+    </item>
+    <item>
+      <title>CVE-2024-32647|2024-08-02T02:13:40.122Z -- vyperlang -- vyper</title>
+      <link>https://www.cve.org/CVERecord?id=CVE-2024-32647</link>
+      <description>Vyper is a pythonic Smart Contract Language for the Ethereum virtual machine. In versions 0.3.10 and prior, using the `create_from_blueprint` builtin can result in a double eval vulnerability when `raw_args=True` and the `args` argument has side-effects. It can be seen that the `_build_create_IR` function of the `create_from_blueprint` builtin doesn't cache the mentioned `args` argument to the stack. As such, it can be evaluated multiple times (instead of retrieving the value from the stack). No vulnerable production contracts were found. Additionally, double evaluation of side-effects should be easily discoverable in client tests. As such, the impact is low. As of time of publication, no fixed versions exist.</description>
+      <guid isPermaLink="false">CVE-2024-32647|2024-08-02T02:13:40.122Z</guid>
+      <pubDate>Thu, 25 Apr 2024 17:41:44 +0000</pubDate>
+    </item>
+    <item>
+      <title>CVE-2024-32649|2024-08-02T02:13:40.270Z -- vyperlang -- vyper</title>
+      <link>https://www.cve.org/CVERecord?id=CVE-2024-32649</link>
+      <description>Vyper is a pythonic Smart Contract Language for the Ethereum virtual machine. In versions 0.3.10 and prior, using the `sqrt` builtin can result in double eval vulnerability when the argument has side-effects. It can be seen that the `build_IR` function of the `sqrt` builtin doesn't cache the argument to the stack. As such, it can be evaluated multiple times (instead of retrieving the value from the stack). No vulnerable production contracts were found. Additionally, double evaluation of side-effects should be easily discoverable in client tests. As such, the impact is low. As of time of publication, no fixed versions are available.</description>
+      <guid isPermaLink="false">CVE-2024-32649|2024-08-02T02:13:40.270Z</guid>
+      <pubDate>Thu, 25 Apr 2024 17:53:01 +0000</pubDate>
+    </item>
+    <item>
+      <title>CVE-2024-32646|2024-08-02T02:13:40.232Z -- vyperlang -- vyper</title>
+      <link>https://www.cve.org/CVERecord?id=CVE-2024-32646</link>
+      <description>Vyper is a pythonic Smart Contract Language for the Ethereum virtual machine. In versions 0.3.10 and prior, using the `slice` builtin can result in a double eval vulnerability when the buffer argument is either `msg.data`, `self.code` or `&lt;address&gt;.code` and either the `start` or `length` arguments have side-effects. It can be easily triggered only with the versions `&lt;0.3.4` as `0.3.4` introduced the unique symbol fence. No vulnerable production contracts were found. Additionally, double evaluation of side-effects should be easily discoverable in client tests. As such, the impact is low. As of time of publication, no fixed versions are available.</description>
+      <guid isPermaLink="false">CVE-2024-32646|2024-08-02T02:13:40.232Z</guid>
+      <pubDate>Thu, 25 Apr 2024 17:21:59 +0000</pubDate>
+    </item>
+    <item>
+      <title>CVE-2024-32645|2024-07-03T21:01:57.984Z -- vyperlang -- vyper</title>
+      <link>https://www.cve.org/CVERecord?id=CVE-2024-32645</link>
+      <description>Vyper is a pythonic Smart Contract Language for the Ethereum virtual machine. In versions 0.3.10 and prior, incorrect values can be logged when `raw_log` builtin is called with memory or storage arguments to be used as topics. A contract search was performed and no vulnerable contracts were found in production. The `build_IR` function of the `RawLog` class fails to properly unwrap the variables provided as topics. Consequently, incorrect values are logged as topics. As of time of publication, no fixed version is available.</description>
+      <guid isPermaLink="false">CVE-2024-32645|2024-07-03T21:01:57.984Z</guid>
       <pubDate>Thu, 25 Apr 2024 17:18:27 +0000</pubDate>
     </item>
     <item>
@@ -67,53 +81,39 @@
       <pubDate>Thu, 25 Apr 2024 17:53:01 +0000</pubDate>
     </item>
     <item>
-      <title>CVE-2024-32645|2024-07-03T21:01:57.984Z -- vyperlang -- vyper</title>
-      <link>https://www.cve.org/CVERecord?id=CVE-2024-32645</link>
+      <title>CVE-2024-32645|2024-04-25T17:22:15.234Z -- vyperlang -- vyper</title>
+      <link>https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2024-32645</link>
       <description>Vyper is a pythonic Smart Contract Language for the Ethereum virtual machine. In versions 0.3.10 and prior, incorrect values can be logged when `raw_log` builtin is called with memory or storage arguments to be used as topics. A contract search was performed and no vulnerable contracts were found in production. The `build_IR` function of the `RawLog` class fails to properly unwrap the variables provided as topics. Consequently, incorrect values are logged as topics. As of time of publication, no fixed version is available.</description>
-      <guid isPermaLink="false">CVE-2024-32645|2024-07-03T21:01:57.984Z</guid>
+      <guid isPermaLink="false">CVE-2024-32645|2024-04-25T17:22:15.234Z</guid>
       <pubDate>Thu, 25 Apr 2024 17:18:27 +0000</pubDate>
     </item>
     <item>
-      <title>CVE-2024-32646|2024-08-02T02:13:40.232Z -- vyperlang -- vyper</title>
-      <link>https://www.cve.org/CVERecord?id=CVE-2024-32646</link>
-      <description>Vyper is a pythonic Smart Contract Language for the Ethereum virtual machine. In versions 0.3.10 and prior, using the `slice` builtin can result in a double eval vulnerability when the buffer argument is either `msg.data`, `self.code` or `&lt;address&gt;.code` and either the `start` or `length` arguments have side-effects. It can be easily triggered only with the versions `&lt;0.3.4` as `0.3.4` introduced the unique symbol fence. No vulnerable production contracts were found. Additionally, double evaluation of side-effects should be easily discoverable in client tests. As such, the impact is low. As of time of publication, no fixed versions are available.</description>
-      <guid isPermaLink="false">CVE-2024-32646|2024-08-02T02:13:40.232Z</guid>
-      <pubDate>Thu, 25 Apr 2024 17:21:59 +0000</pubDate>
+      <title>CVE-2024-32648|2024-06-04T17:51:45.656Z -- vyperlang -- vyper</title>
+      <link>https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2024-32648</link>
+      <description>Vyper is a pythonic Smart Contract Language for the Ethereum virtual machine. Prior to version 0.3.0, default functions don't respect nonreentrancy keys and the lock isn't emitted. No vulnerable production contracts were found. Additionally, using a lock on a `default` function is a very sparsely used pattern. As such, the impact is low. Version 0.3.0 contains a patch for the issue.</description>
+      <guid isPermaLink="false">CVE-2024-32648|2024-06-04T17:51:45.656Z</guid>
+      <pubDate>Thu, 25 Apr 2024 17:48:32 +0000</pubDate>
     </item>
     <item>
-      <title>CVE-2024-32649|2024-08-02T02:13:40.270Z -- vyperlang -- vyper</title>
-      <link>https://www.cve.org/CVERecord?id=CVE-2024-32649</link>
-      <description>Vyper is a pythonic Smart Contract Language for the Ethereum virtual machine. In versions 0.3.10 and prior, using the `sqrt` builtin can result in double eval vulnerability when the argument has side-effects. It can be seen that the `build_IR` function of the `sqrt` builtin doesn't cache the argument to the stack. As such, it can be evaluated multiple times (instead of retrieving the value from the stack). No vulnerable production contracts were found. Additionally, double evaluation of side-effects should be easily discoverable in client tests. As such, the impact is low. As of time of publication, no fixed versions are available.</description>
-      <guid isPermaLink="false">CVE-2024-32649|2024-08-02T02:13:40.270Z</guid>
-      <pubDate>Thu, 25 Apr 2024 17:53:01 +0000</pubDate>
-    </item>
-    <item>
-      <title>CVE-2024-32647|2024-08-02T02:13:40.122Z -- vyperlang -- vyper</title>
-      <link>https://www.cve.org/CVERecord?id=CVE-2024-32647</link>
-      <description>Vyper is a pythonic Smart Contract Language for the Ethereum virtual machine. In versions 0.3.10 and prior, using the `create_from_blueprint` builtin can result in a double eval vulnerability when `raw_args=True` and the `args` argument has side-effects. It can be seen that the `_build_create_IR` function of the `create_from_blueprint` builtin doesn't cache the mentioned `args` argument to the stack. As such, it can be evaluated multiple times (instead of retrieving the value from the stack). No vulnerable production contracts were found. Additionally, double evaluation of side-effects should be easily discoverable in client tests. As such, the impact is low. As of time of publication, no fixed versions exist.</description>
-      <guid isPermaLink="false">CVE-2024-32647|2024-08-02T02:13:40.122Z</guid>
-      <pubDate>Thu, 25 Apr 2024 17:41:44 +0000</pubDate>
-    </item>
-    <item>
-      <title>CVE-2024-32645|2024-08-02T02:13:40.291Z -- vyperlang -- vyper</title>
-      <link>https://www.cve.org/CVERecord?id=CVE-2024-32645</link>
-      <description>Vyper is a pythonic Smart Contract Language for the Ethereum virtual machine. In versions 0.3.10 and prior, incorrect values can be logged when `raw_log` builtin is called with memory or storage arguments to be used as topics. A contract search was performed and no vulnerable contracts were found in production. The `build_IR` function of the `RawLog` class fails to properly unwrap the variables provided as topics. Consequently, incorrect values are logged as topics. As of time of publication, no fixed version is available.</description>
-      <guid isPermaLink="false">CVE-2024-32645|2024-08-02T02:13:40.291Z</guid>
-      <pubDate>Thu, 25 Apr 2024 17:18:27 +0000</pubDate>
-    </item>
-    <item>
-      <title>CVE-2024-32481|2024-08-02T02:13:39.300Z -- vyperlang -- vyper</title>
-      <link>https://www.cve.org/CVERecord?id=CVE-2024-32481</link>
+      <title>CVE-2024-32481|2024-06-04T17:51:33.592Z -- vyperlang -- vyper</title>
+      <link>https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2024-32481</link>
       <description>Vyper is a pythonic Smart Contract Language for the Ethereum virtual machine. Starting in version 0.3.8 and prior to version 0.4.0b1, when looping over a `range` of the form `range(start, start + N)`, if `start` is negative, the execution will always revert. This issue is caused by an incorrect assertion inserted by the code generation of the range `stmt.parse_For_range()`. The issue arises when `start` is signed, instead of using `sle`, `le` is used and `start` is interpreted as an unsigned integer for the comparison. If it is a negative number, its 255th bit is set to `1` and is hence interpreted as a very large unsigned integer making the assertion always fail. Any contract having a `range(start, start + N)` where `start` is a signed integer with the possibility for `start` to be negative is affected. If a call goes through the loop while supplying a negative `start` the execution will revert. Version 0.4.0b1 fixes the issue.</description>
-      <guid isPermaLink="false">CVE-2024-32481|2024-08-02T02:13:39.300Z</guid>
+      <guid isPermaLink="false">CVE-2024-32481|2024-06-04T17:51:33.592Z</guid>
       <pubDate>Thu, 25 Apr 2024 17:00:54 +0000</pubDate>
     </item>
     <item>
-      <title>CVE-2024-32648|2024-08-02T02:13:40.467Z -- vyperlang -- vyper</title>
-      <link>https://www.cve.org/CVERecord?id=CVE-2024-32648</link>
-      <description>Vyper is a pythonic Smart Contract Language for the Ethereum virtual machine. Prior to version 0.3.0, default functions don't respect nonreentrancy keys and the lock isn't emitted. No vulnerable production contracts were found. Additionally, using a lock on a `default` function is a very sparsely used pattern. As such, the impact is low. Version 0.3.0 contains a patch for the issue.</description>
-      <guid isPermaLink="false">CVE-2024-32648|2024-08-02T02:13:40.467Z</guid>
-      <pubDate>Thu, 25 Apr 2024 17:48:32 +0000</pubDate>
+      <title>CVE-2024-32647|2024-06-04T17:50:09.845Z -- vyperlang -- vyper</title>
+      <link>https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2024-32647</link>
+      <description>Vyper is a pythonic Smart Contract Language for the Ethereum virtual machine. In versions 0.3.10 and prior, using the `create_from_blueprint` builtin can result in a double eval vulnerability when `raw_args=True` and the `args` argument has side-effects. It can be seen that the `_build_create_IR` function of the `create_from_blueprint` builtin doesn't cache the mentioned `args` argument to the stack. As such, it can be evaluated multiple times (instead of retrieving the value from the stack). No vulnerable production contracts were found. Additionally, double evaluation of side-effects should be easily discoverable in client tests. As such, the impact is low. As of time of publication, no fixed versions exist.</description>
+      <guid isPermaLink="false">CVE-2024-32647|2024-06-04T17:50:09.845Z</guid>
+      <pubDate>Thu, 25 Apr 2024 17:41:44 +0000</pubDate>
+    </item>
+    <item>
+      <title>CVE-2024-32646|2024-06-04T17:49:53.303Z -- vyperlang -- vyper</title>
+      <link>https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2024-32646</link>
+      <description>Vyper is a pythonic Smart Contract Language for the Ethereum virtual machine. In versions 0.3.10 and prior, using the `slice` builtin can result in a double eval vulnerability when the buffer argument is either `msg.data`, `self.code` or `&lt;address&gt;.code` and either the `start` or `length` arguments have side-effects. It can be easily triggered only with the versions `&lt;0.3.4` as `0.3.4` introduced the unique symbol fence. No vulnerable production contracts were found. Additionally, double evaluation of side-effects should be easily discoverable in client tests. As such, the impact is low. As of time of publication, no fixed versions are available.</description>
+      <guid isPermaLink="false">CVE-2024-32646|2024-06-04T17:49:53.303Z</guid>
+      <pubDate>Thu, 25 Apr 2024 17:21:59 +0000</pubDate>
     </item>
   </channel>
 </rss>
