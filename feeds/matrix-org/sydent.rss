@@ -6,39 +6,15 @@
     <description>The latest CVEs for matrix-org -- sydent</description>
     <docs>http://www.rssboard.org/rss-specification</docs>
     <generator>python-feedgen</generator>
-    <lastBuildDate>Sat, 03 Aug 2024 23:23:03 +0000</lastBuildDate>
+    <lastBuildDate>Tue, 08 Oct 2024 18:24:44 +0000</lastBuildDate>
     <ttl>60</ttl>
     <item>
-      <title>CVE-2021-29430|2024-08-03T22:02:51.883Z -- matrix-org -- sydent
+      <title>CVE-2023-38686|2024-10-08T17:50:55.903Z -- matrix-org -- sydent
 </title>
-      <link>https://www.cve.org/CVERecord?id=CVE-2021-29430</link>
-      <description>Sydent is a reference Matrix identity server. Sydent does not limit the size of requests it receives from HTTP clients. A malicious user could send an HTTP request with a very large body, leading to memory exhaustion and denial of service. Sydent also does not limit response size for requests it makes to remote Matrix homeservers. A malicious homeserver could return a very large response, again leading to memory exhaustion and denial of service. This affects any server which accepts registration requests from untrusted clients. This issue has been patched by releases 89071a1, 0523511, f56eee3. As a workaround request sizes can be limited in an HTTP reverse-proxy. There are no known workarounds for the problem with overlarge responses.</description>
-      <guid isPermaLink="false">CVE-2021-29430|2024-08-03T22:02:51.883Z</guid>
-      <pubDate>Thu, 15 Apr 2021 20:35:19 +0000</pubDate>
-    </item>
-    <item>
-      <title>CVE-2021-29433|2024-08-03T22:02:51.915Z -- matrix-org -- sydent
-</title>
-      <link>https://www.cve.org/CVERecord?id=CVE-2021-29433</link>
-      <description>Sydent is a reference Matrix identity server. In Sydent versions 2.2.0 and prior, sissing input validation of some parameters on the endpoints used to confirm third-party identifiers could cause excessive use of disk space and memory leading to resource exhaustion. A patch for the vulnerability is in version 2.3.0. No workarounds are known to exist.</description>
-      <guid isPermaLink="false">CVE-2021-29433|2024-08-03T22:02:51.915Z</guid>
-      <pubDate>Thu, 15 Apr 2021 17:55:11 +0000</pubDate>
-    </item>
-    <item>
-      <title>CVE-2021-29431|2024-08-03T22:02:51.856Z -- matrix-org -- sydent
-</title>
-      <link>https://www.cve.org/CVERecord?id=CVE-2021-29431</link>
-      <description>Sydent is a reference Matrix identity server. Sydent can be induced to send HTTP GET requests to internal systems, due to lack of parameter validation or IP address blacklisting. It is not possible to exfiltrate data or control request headers, but it might be possible to use the attack to perform an internal port enumeration. This issue has been addressed in in 9e57334, 8936925, 3d531ed, 0f00412. A potential workaround would be to use a firewall to ensure that Sydent cannot reach internal HTTP resources.</description>
-      <guid isPermaLink="false">CVE-2021-29431|2024-08-03T22:02:51.856Z</guid>
-      <pubDate>Thu, 15 Apr 2021 21:00:16 +0000</pubDate>
-    </item>
-    <item>
-      <title>CVE-2021-29432|2024-08-03T22:02:51.936Z -- matrix-org -- sydent
-</title>
-      <link>https://www.cve.org/CVERecord?id=CVE-2021-29432</link>
-      <description>Sydent is a reference matrix identity server. A malicious user could abuse Sydent to send out arbitrary emails from the Sydent email address. This could be used to construct plausible phishing emails, for example. This issue has been fixed in 4469d1d.</description>
-      <guid isPermaLink="false">CVE-2021-29432|2024-08-03T22:02:51.936Z</guid>
-      <pubDate>Thu, 15 Apr 2021 20:45:15 +0000</pubDate>
+      <link>https://www.cve.org/CVERecord?id=CVE-2023-38686</link>
+      <description>Sydent is an identity server for the Matrix communications protocol. Prior to version 2.5.6, if configured to send emails using TLS, Sydent does not verify SMTP servers' certificates. This makes  Sydent's emails vulnerable to interception via a man-in-the-middle (MITM) attack. Attackers with privileged access to the network can intercept room invitations and address confirmation emails. This is patched in Sydent 2.5.6. When patching, make sure that Sydent trusts the certificate of the server it is connecting to. This should happen automatically when using properly issued certificates. Those who use self-signed certificates should make sure to copy their Certification Authority certificate, or their self signed certificate if using only one, to the trust store of your operating system. As a workaround, one can ensure Sydent's emails fail to send by setting the configured SMTP server to a loopback or non-routable address under one's control which does not have a listening SMTP server.</description>
+      <guid isPermaLink="false">CVE-2023-38686|2024-10-08T17:50:55.903Z</guid>
+      <pubDate>Fri, 04 Aug 2023 15:57:15 +0000</pubDate>
     </item>
   </channel>
 </rss>
