@@ -6,15 +6,26 @@
     <description>The latest CVEs for miraheze -- CreateWiki</description>
     <docs>http://www.rssboard.org/rss-specification</docs>
     <generator>python-feedgen</generator>
-    <lastBuildDate>Mon, 07 Oct 2024 22:23:40 +0000</lastBuildDate>
+    <lastBuildDate>Tue, 08 Oct 2024 15:24:03 +0000</lastBuildDate>
     <ttl>60</ttl>
     <item>
-      <title>CVE-2024-47781|2024-10-07T21:30:23.058Z -- miraheze -- createwiki
+      <title>CVE-2024-47781|2024-10-08T14:13:28.705Z -- miraheze -- createwiki
 </title>
       <link>https://www.cve.org/CVERecord?id=CVE-2024-47781</link>
       <description>CreateWiki is an extension used at Miraheze for requesting &amp; creating wikis. The name of requested wikis is not escaped on Special:RequestWikiQueue, so a user can insert arbitrary HTML that is displayed in the request wiki queue when requesting a wiki. If a wiki creator comes across the XSS payload, their user session can be abused to retrieve deleted wiki requests, which typically contains private information. Likewise, this can also be abused on those with the ability to suppress requests to view sensitive information. This issue has been patched with commit `693a220` and all users are advised to apply the patch. Users unable to upgrade should disable Javascript and/or prevent access to the vulnerable page (Special:RequestWikiQueue).</description>
-      <guid isPermaLink="false">CVE-2024-47781|2024-10-07T21:30:23.058Z</guid>
+      <guid isPermaLink="false">CVE-2024-47781|2024-10-08T14:13:28.705Z</guid>
       <pubDate>Mon, 07 Oct 2024 21:30:23 +0000</pubDate>
+    </item>
+    <item>
+      <title>CVE-2024-34701|2024-06-06T19:06:13.272Z -- miraheze -- createwiki</title>
+      <link>https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2024-34701</link>
+      <description>CreateWiki is Miraheze's MediaWiki extension for requesting &amp; creating wikis. It is possible for users to be considered as the requester of a specific wiki request if their local user ID on any wiki in a wiki farm matches the local ID of the requester at the wiki where the wiki request was made. This allows them to go to that request entry's on Special:RequestWikiQueue on the wiki where their local user ID matches and take any actions that the wiki requester is allowed to take from there.
+
+Commit 02e0f298f8d35155c39aa74193cb7b867432c5b8 fixes the issue. Important note about the fix: This vulnerability has been fixed by disabling access to the REST API and special pages outside of the wiki configured as the "global wiki" in `$wgCreateWikiGlobalWiki` in a user's MediaWiki settings.
+
+As a workaround, it is possible to disable the special pages outside of one's own global wiki by doing something similar to `miraheze/mw-config` commit e5664995fbb8644f9a80b450b4326194f20f9ddc that is adapted to one's own setup. As for the REST API, before the fix, there wasn't any REST endpoint that allowed one to make writes. Regardless, it is possible to also disable it outside of the global wiki by using `$wgCreateWikiDisableRESTAPI` and `$wgConf` in the configuration for one's own wiki farm..</description>
+      <guid isPermaLink="false">CVE-2024-34701|2024-06-06T19:06:13.272Z</guid>
+      <pubDate>Mon, 13 May 2024 15:54:12 +0000</pubDate>
     </item>
     <item>
       <title>CVE-2024-34701|2024-08-02T02:59:21.802Z -- miraheze -- createwiki</title>
@@ -28,15 +39,11 @@ As a workaround, it is possible to disable the special pages outside of one's ow
       <pubDate>Mon, 13 May 2024 15:54:12 +0000</pubDate>
     </item>
     <item>
-      <title>CVE-2024-34701|2024-06-06T19:06:13.272Z -- miraheze -- createwiki</title>
-      <link>https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2024-34701</link>
-      <description>CreateWiki is Miraheze's MediaWiki extension for requesting &amp; creating wikis. It is possible for users to be considered as the requester of a specific wiki request if their local user ID on any wiki in a wiki farm matches the local ID of the requester at the wiki where the wiki request was made. This allows them to go to that request entry's on Special:RequestWikiQueue on the wiki where their local user ID matches and take any actions that the wiki requester is allowed to take from there.
-
-Commit 02e0f298f8d35155c39aa74193cb7b867432c5b8 fixes the issue. Important note about the fix: This vulnerability has been fixed by disabling access to the REST API and special pages outside of the wiki configured as the "global wiki" in `$wgCreateWikiGlobalWiki` in a user's MediaWiki settings.
-
-As a workaround, it is possible to disable the special pages outside of one's own global wiki by doing something similar to `miraheze/mw-config` commit e5664995fbb8644f9a80b450b4326194f20f9ddc that is adapted to one's own setup. As for the REST API, before the fix, there wasn't any REST endpoint that allowed one to make writes. Regardless, it is possible to also disable it outside of the global wiki by using `$wgCreateWikiDisableRESTAPI` and `$wgConf` in the configuration for one's own wiki farm..</description>
-      <guid isPermaLink="false">CVE-2024-34701|2024-06-06T19:06:13.272Z</guid>
-      <pubDate>Mon, 13 May 2024 15:54:12 +0000</pubDate>
+      <title>CVE-2024-47781|2024-10-07T21:30:23.058Z -- miraheze -- createwiki</title>
+      <link>https://www.cve.org/CVERecord?id=CVE-2024-47781</link>
+      <description>CreateWiki is an extension used at Miraheze for requesting &amp; creating wikis. The name of requested wikis is not escaped on Special:RequestWikiQueue, so a user can insert arbitrary HTML that is displayed in the request wiki queue when requesting a wiki. If a wiki creator comes across the XSS payload, their user session can be abused to retrieve deleted wiki requests, which typically contains private information. Likewise, this can also be abused on those with the ability to suppress requests to view sensitive information. This issue has been patched with commit `693a220` and all users are advised to apply the patch. Users unable to upgrade should disable Javascript and/or prevent access to the vulnerable page (Special:RequestWikiQueue).</description>
+      <guid isPermaLink="false">CVE-2024-47781|2024-10-07T21:30:23.058Z</guid>
+      <pubDate>Mon, 07 Oct 2024 21:30:23 +0000</pubDate>
     </item>
   </channel>
 </rss>
