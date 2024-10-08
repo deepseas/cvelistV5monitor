@@ -6,61 +6,38 @@
     <description>The latest CVEs for PHPOffice -- PhpSpreadsheet</description>
     <docs>http://www.rssboard.org/rss-specification</docs>
     <generator>python-feedgen</generator>
-    <lastBuildDate>Mon, 07 Oct 2024 21:23:00 +0000</lastBuildDate>
+    <lastBuildDate>Tue, 08 Oct 2024 19:19:22 +0000</lastBuildDate>
     <ttl>60</ttl>
     <item>
-      <title>CVE-2024-45293|2024-10-07T20:25:10.635Z -- phpoffice -- phpspreadsheet
-</title>
-      <link>https://www.cve.org/CVERecord?id=CVE-2024-45293</link>
-      <description>PHPSpreadsheet is a pure PHP library for reading and writing spreadsheet files. The security scanner responsible for preventing XXE attacks in the XLSX reader can be bypassed by slightly modifying the XML structure, utilizing white-spaces. On servers that allow users to upload their own Excel (XLSX) sheets, Server files and sensitive information can be disclosed by providing a crafted sheet. The security scan function in src/PhpSpreadsheet/Reader/Security/XmlScanner.php contains a flawed XML encoding check to retrieve the input file's XML encoding in the toUtf8 function. The function searches for the XML encoding through a defined regex which looks for `encoding="*"` and/or `encoding='*'`, if not found, it defaults to the UTF-8 encoding which bypasses the conversion logic. This logic can be used to pass a UTF-7 encoded XXE payload, by utilizing a whitespace before or after the = in the attribute definition. Sensitive information disclosure through the XXE on sites that allow users to upload their own excel spreadsheets, and parse them using PHPSpreadsheet's Excel parser. This issue has been addressed in release versions 1.29.1, 2.1.1, and 2.3.0. All users are advised to upgrade. There are no known workarounds for this vulnerability.</description>
-      <guid isPermaLink="false">CVE-2024-45293|2024-10-07T20:25:10.635Z</guid>
-      <pubDate>Mon, 07 Oct 2024 20:03:27 +0000</pubDate>
-    </item>
-    <item>
-      <title>CVE-2024-45292|2024-10-07T20:26:37.224Z -- phpoffice -- phpspreadsheet
-</title>
-      <link>https://www.cve.org/CVERecord?id=CVE-2024-45292</link>
-      <description>PHPSpreadsheet is a pure PHP library for reading and writing spreadsheet files. `\PhpOffice\PhpSpreadsheet\Writer\Html` does not sanitize "javascript:" URLs from hyperlink `href` attributes, resulting in a Cross-Site Scripting vulnerability. This issue has been addressed in release versions 1.29.2, 2.1.1, and 2.3.0. All users are advised to upgrade. There are no known workarounds for this vulnerability.</description>
-      <guid isPermaLink="false">CVE-2024-45292|2024-10-07T20:26:37.224Z</guid>
-      <pubDate>Mon, 07 Oct 2024 20:06:13 +0000</pubDate>
-    </item>
-    <item>
-      <title>CVE-2024-45291|2024-10-07T20:09:58.029Z -- phpoffice -- phpspreadsheet
+      <title>CVE-2024-45291|2024-10-08T18:32:25.328Z -- phpoffice -- phpspreadsheet
 </title>
       <link>https://www.cve.org/CVERecord?id=CVE-2024-45291</link>
       <description>PHPSpreadsheet is a pure PHP library for reading and writing spreadsheet files. It's possible for an attacker to construct an XLSX file that links images from arbitrary paths. When embedding images has been enabled in HTML writer with `$writer-&gt;setEmbedImages(true);` those files will be included in the output as `data:` URLs, regardless of the file's type. Also URLs can be used for embedding, resulting in a Server-Side Request Forgery vulnerability. When embedding images has been enabled, an attacker can read arbitrary files on the server and perform arbitrary HTTP GET requests. Note that any PHP protocol wrappers can be used, meaning that if for example the `expect://` wrapper is enabled, also remote code execution is possible. This issue has been addressed in release versions 1.29.2, 2.1.1, and 2.3.0. All users are advised to upgrade. there are no known workarounds for this vulnerability.</description>
-      <guid isPermaLink="false">CVE-2024-45291|2024-10-07T20:09:58.029Z</guid>
+      <guid isPermaLink="false">CVE-2024-45291|2024-10-08T18:32:25.328Z</guid>
       <pubDate>Mon, 07 Oct 2024 20:09:58 +0000</pubDate>
     </item>
     <item>
-      <title>CVE-2024-45060|2024-10-07T20:15:35.087Z -- phpoffice -- phpspreadsheet
+      <title>CVE-2024-45060|2024-10-08T18:28:48.263Z -- phpoffice -- phpspreadsheet
 </title>
       <link>https://www.cve.org/CVERecord?id=CVE-2024-45060</link>
       <description>PHPSpreadsheet is a pure PHP library for reading and writing spreadsheet files. One of the sample scripts in PhpSpreadsheet is susceptible to a cross-site scripting (XSS) vulnerability due to improper handling of input where a number is expected leading to formula injection. The code in in `45_Quadratic_equation_solver.php` concatenates the user supplied parameters directly into spreadsheet formulas. This allows an attacker to take control over the formula and output unsanitized data into the page, resulting in JavaScript execution. This issue has been addressed in release versions 1.29.2, 2.1.1, and 2.3.0. All users are advised to upgrade. There are no known workarounds for this vulnerability.</description>
-      <guid isPermaLink="false">CVE-2024-45060|2024-10-07T20:15:35.087Z</guid>
+      <guid isPermaLink="false">CVE-2024-45060|2024-10-08T18:28:48.263Z</guid>
       <pubDate>Mon, 07 Oct 2024 20:15:35 +0000</pubDate>
     </item>
     <item>
-      <title>CVE-2024-45290|2024-10-07T20:12:38.190Z -- phpoffice -- phpspreadsheet
+      <title>CVE-2024-45290|2024-10-08T18:31:06.318Z -- phpoffice -- phpspreadsheet
 </title>
       <link>https://www.cve.org/CVERecord?id=CVE-2024-45290</link>
       <description>PHPSpreadsheet is a pure PHP library for reading and writing spreadsheet files. It's possible for an attacker to construct an XLSX file which links media from external URLs. When opening the XLSX file, PhpSpreadsheet retrieves the image size and type by reading the file contents, if the provided path is a URL. By using specially crafted `php://filter` URLs an attacker can leak the contents of any file or URL. Note that this vulnerability is different from GHSA-w9xv-qf98-ccq4, and resides in a different component. An attacker can access any file on the server, or leak information form arbitrary URLs, potentially exposing sensitive information such as AWS IAM credentials. This issue has been addressed in release versions 1.29.2, 2.1.1, and 2.3.0. All users are advised to upgrade. There are no known workarounds for this vulnerability.</description>
-      <guid isPermaLink="false">CVE-2024-45290|2024-10-07T20:12:38.190Z</guid>
+      <guid isPermaLink="false">CVE-2024-45290|2024-10-08T18:31:06.318Z</guid>
       <pubDate>Mon, 07 Oct 2024 20:12:38 +0000</pubDate>
     </item>
     <item>
-      <title>CVE-2024-45046|2024-08-28T20:41:23.628Z -- phpoffice -- phpspreadsheet</title>
+      <title>CVE-2024-45046|2024-08-29T13:11:25.969Z -- phpoffice -- phpspreadsheet</title>
       <link>https://www.cve.org/CVERecord?id=CVE-2024-45046</link>
       <description>PHPSpreadsheet is a pure PHP library for reading and writing spreadsheet files. In affected versions `\PhpOffice\PhpSpreadsheet\Writer\Html` doesn't sanitize spreadsheet styling information such as font names, allowing an attacker to inject arbitrary JavaScript on the page. As a result an attacker may used a crafted spreadsheet to fully takeover a session of a user viewing spreadsheet files as HTML. This issue has been addressed in release version 2.1.0. All users are advised to upgrade. There are no known workarounds for this vulnerability.</description>
-      <guid isPermaLink="false">CVE-2024-45046|2024-08-28T20:41:23.628Z</guid>
+      <guid isPermaLink="false">CVE-2024-45046|2024-08-29T13:11:25.969Z</guid>
       <pubDate>Wed, 28 Aug 2024 20:41:23 +0000</pubDate>
-    </item>
-    <item>
-      <title>CVE-2024-45048|2024-08-28T20:38:29.486Z -- phpoffice -- phpspreadsheet</title>
-      <link>https://www.cve.org/CVERecord?id=CVE-2024-45048</link>
-      <description>PHPSpreadsheet is a pure PHP library for reading and writing spreadsheet files. Affected versions are subject to a bypassing of a filter which allows for an XXE-attack. This in turn allows attacker to obtain contents of local files, even if error reporting is muted. This vulnerability has been addressed in release version 2.2.1. All users are advised to upgrade. There are no known workarounds for this vulnerability.</description>
-      <guid isPermaLink="false">CVE-2024-45048|2024-08-28T20:38:29.486Z</guid>
-      <pubDate>Wed, 28 Aug 2024 20:38:29 +0000</pubDate>
     </item>
     <item>
       <title>CVE-2024-45048|2024-08-29T13:10:20.156Z -- phpoffice -- phpspreadsheet</title>
@@ -70,11 +47,53 @@
       <pubDate>Wed, 28 Aug 2024 20:38:29 +0000</pubDate>
     </item>
     <item>
-      <title>CVE-2024-45046|2024-08-29T13:11:25.969Z -- phpoffice -- phpspreadsheet</title>
+      <title>CVE-2024-45048|2024-08-28T20:38:29.486Z -- phpoffice -- phpspreadsheet</title>
+      <link>https://www.cve.org/CVERecord?id=CVE-2024-45048</link>
+      <description>PHPSpreadsheet is a pure PHP library for reading and writing spreadsheet files. Affected versions are subject to a bypassing of a filter which allows for an XXE-attack. This in turn allows attacker to obtain contents of local files, even if error reporting is muted. This vulnerability has been addressed in release version 2.2.1. All users are advised to upgrade. There are no known workarounds for this vulnerability.</description>
+      <guid isPermaLink="false">CVE-2024-45048|2024-08-28T20:38:29.486Z</guid>
+      <pubDate>Wed, 28 Aug 2024 20:38:29 +0000</pubDate>
+    </item>
+    <item>
+      <title>CVE-2024-45046|2024-08-28T20:41:23.628Z -- phpoffice -- phpspreadsheet</title>
       <link>https://www.cve.org/CVERecord?id=CVE-2024-45046</link>
       <description>PHPSpreadsheet is a pure PHP library for reading and writing spreadsheet files. In affected versions `\PhpOffice\PhpSpreadsheet\Writer\Html` doesn't sanitize spreadsheet styling information such as font names, allowing an attacker to inject arbitrary JavaScript on the page. As a result an attacker may used a crafted spreadsheet to fully takeover a session of a user viewing spreadsheet files as HTML. This issue has been addressed in release version 2.1.0. All users are advised to upgrade. There are no known workarounds for this vulnerability.</description>
-      <guid isPermaLink="false">CVE-2024-45046|2024-08-29T13:11:25.969Z</guid>
+      <guid isPermaLink="false">CVE-2024-45046|2024-08-28T20:41:23.628Z</guid>
       <pubDate>Wed, 28 Aug 2024 20:41:23 +0000</pubDate>
+    </item>
+    <item>
+      <title>CVE-2024-45290|2024-10-07T20:12:38.190Z -- phpoffice -- phpspreadsheet</title>
+      <link>https://www.cve.org/CVERecord?id=CVE-2024-45290</link>
+      <description>PHPSpreadsheet is a pure PHP library for reading and writing spreadsheet files. It's possible for an attacker to construct an XLSX file which links media from external URLs. When opening the XLSX file, PhpSpreadsheet retrieves the image size and type by reading the file contents, if the provided path is a URL. By using specially crafted `php://filter` URLs an attacker can leak the contents of any file or URL. Note that this vulnerability is different from GHSA-w9xv-qf98-ccq4, and resides in a different component. An attacker can access any file on the server, or leak information form arbitrary URLs, potentially exposing sensitive information such as AWS IAM credentials. This issue has been addressed in release versions 1.29.2, 2.1.1, and 2.3.0. All users are advised to upgrade. There are no known workarounds for this vulnerability.</description>
+      <guid isPermaLink="false">CVE-2024-45290|2024-10-07T20:12:38.190Z</guid>
+      <pubDate>Mon, 07 Oct 2024 20:12:38 +0000</pubDate>
+    </item>
+    <item>
+      <title>CVE-2024-45060|2024-10-07T20:15:35.087Z -- phpoffice -- phpspreadsheet</title>
+      <link>https://www.cve.org/CVERecord?id=CVE-2024-45060</link>
+      <description>PHPSpreadsheet is a pure PHP library for reading and writing spreadsheet files. One of the sample scripts in PhpSpreadsheet is susceptible to a cross-site scripting (XSS) vulnerability due to improper handling of input where a number is expected leading to formula injection. The code in in `45_Quadratic_equation_solver.php` concatenates the user supplied parameters directly into spreadsheet formulas. This allows an attacker to take control over the formula and output unsanitized data into the page, resulting in JavaScript execution. This issue has been addressed in release versions 1.29.2, 2.1.1, and 2.3.0. All users are advised to upgrade. There are no known workarounds for this vulnerability.</description>
+      <guid isPermaLink="false">CVE-2024-45060|2024-10-07T20:15:35.087Z</guid>
+      <pubDate>Mon, 07 Oct 2024 20:15:35 +0000</pubDate>
+    </item>
+    <item>
+      <title>CVE-2024-45291|2024-10-07T20:09:58.029Z -- phpoffice -- phpspreadsheet</title>
+      <link>https://www.cve.org/CVERecord?id=CVE-2024-45291</link>
+      <description>PHPSpreadsheet is a pure PHP library for reading and writing spreadsheet files. It's possible for an attacker to construct an XLSX file that links images from arbitrary paths. When embedding images has been enabled in HTML writer with `$writer-&gt;setEmbedImages(true);` those files will be included in the output as `data:` URLs, regardless of the file's type. Also URLs can be used for embedding, resulting in a Server-Side Request Forgery vulnerability. When embedding images has been enabled, an attacker can read arbitrary files on the server and perform arbitrary HTTP GET requests. Note that any PHP protocol wrappers can be used, meaning that if for example the `expect://` wrapper is enabled, also remote code execution is possible. This issue has been addressed in release versions 1.29.2, 2.1.1, and 2.3.0. All users are advised to upgrade. there are no known workarounds for this vulnerability.</description>
+      <guid isPermaLink="false">CVE-2024-45291|2024-10-07T20:09:58.029Z</guid>
+      <pubDate>Mon, 07 Oct 2024 20:09:58 +0000</pubDate>
+    </item>
+    <item>
+      <title>CVE-2024-45292|2024-10-07T20:26:37.224Z -- phpoffice -- phpspreadsheet</title>
+      <link>https://www.cve.org/CVERecord?id=CVE-2024-45292</link>
+      <description>PHPSpreadsheet is a pure PHP library for reading and writing spreadsheet files. `\PhpOffice\PhpSpreadsheet\Writer\Html` does not sanitize "javascript:" URLs from hyperlink `href` attributes, resulting in a Cross-Site Scripting vulnerability. This issue has been addressed in release versions 1.29.2, 2.1.1, and 2.3.0. All users are advised to upgrade. There are no known workarounds for this vulnerability.</description>
+      <guid isPermaLink="false">CVE-2024-45292|2024-10-07T20:26:37.224Z</guid>
+      <pubDate>Mon, 07 Oct 2024 20:06:13 +0000</pubDate>
+    </item>
+    <item>
+      <title>CVE-2024-45293|2024-10-07T20:25:10.635Z -- phpoffice -- phpspreadsheet</title>
+      <link>https://www.cve.org/CVERecord?id=CVE-2024-45293</link>
+      <description>PHPSpreadsheet is a pure PHP library for reading and writing spreadsheet files. The security scanner responsible for preventing XXE attacks in the XLSX reader can be bypassed by slightly modifying the XML structure, utilizing white-spaces. On servers that allow users to upload their own Excel (XLSX) sheets, Server files and sensitive information can be disclosed by providing a crafted sheet. The security scan function in src/PhpSpreadsheet/Reader/Security/XmlScanner.php contains a flawed XML encoding check to retrieve the input file's XML encoding in the toUtf8 function. The function searches for the XML encoding through a defined regex which looks for `encoding="*"` and/or `encoding='*'`, if not found, it defaults to the UTF-8 encoding which bypasses the conversion logic. This logic can be used to pass a UTF-7 encoded XXE payload, by utilizing a whitespace before or after the = in the attribute definition. Sensitive information disclosure through the XXE on sites that allow users to upload their own excel spreadsheets, and parse them using PHPSpreadsheet's Excel parser. This issue has been addressed in release versions 1.29.1, 2.1.1, and 2.3.0. All users are advised to upgrade. There are no known workarounds for this vulnerability.</description>
+      <guid isPermaLink="false">CVE-2024-45293|2024-10-07T20:25:10.635Z</guid>
+      <pubDate>Mon, 07 Oct 2024 20:03:27 +0000</pubDate>
     </item>
   </channel>
 </rss>
