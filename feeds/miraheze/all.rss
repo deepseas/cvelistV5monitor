@@ -6,41 +6,52 @@
     <description>The latest CVEs for miraheze -- all products</description>
     <docs>http://www.rssboard.org/rss-specification</docs>
     <generator>python-feedgen</generator>
-    <lastBuildDate>Tue, 08 Oct 2024 15:24:03 +0000</lastBuildDate>
+    <lastBuildDate>Wed, 09 Oct 2024 19:21:15 +0000</lastBuildDate>
     <ttl>60</ttl>
     <item>
-      <title>CVE-2024-47781|2024-10-08T14:13:28.705Z -- miraheze -- createwiki
+      <title>CVE-2024-47815|2024-10-09T18:21:58.981Z -- miraheze -- incidentreporting
 </title>
+      <link>https://www.cve.org/CVERecord?id=CVE-2024-47815</link>
+      <description>IncidentReporting is a MediaWiki extension for moving incident reports from wikitext to database tables. There are a variety of Cross-site Scripting issues, though all of them require elevated permissions. Some are available to anyone who has the `editincidents` right, some are available to those who can edit interface messages (typically administrators and interface admins), and one is available to those who can edit LocalSettings.php. These issues have been addressed in commit `43896a4` and all users are advised to upgrade. Users unable to upgrade should prevent access to the Special:IncidentReports page.</description>
+      <guid isPermaLink="false">CVE-2024-47815|2024-10-09T18:21:58.981Z</guid>
+      <pubDate>Wed, 09 Oct 2024 18:21:58 +0000</pubDate>
+    </item>
+    <item>
+      <title>CVE-2024-47816|2024-10-09T18:19:17.108Z -- miraheze -- importdump
+</title>
+      <link>https://www.cve.org/CVERecord?id=CVE-2024-47816</link>
+      <description>ImportDump is a mediawiki extension designed to automate user import requests. A user's local actor ID is stored in the database to tell who made what requests. Therefore, if a user on another wiki happens to have the same actor ID as someone on the central wiki, the user on the other wiki can act as if they're the original wiki requester. This can be abused to create new comments, edit the request, and view the request if it's marked private. This issue has been addressed in commit `5c91dfc` and all users are advised to update. Users unable to update may disable the special page outside of their global wiki. See `miraheze/mw-config@e566499` for details on that.</description>
+      <guid isPermaLink="false">CVE-2024-47816|2024-10-09T18:19:17.108Z</guid>
+      <pubDate>Wed, 09 Oct 2024 18:19:17 +0000</pubDate>
+    </item>
+    <item>
+      <title>CVE-2024-47812|2024-10-09T18:12:31.929Z -- miraheze -- importdump
+</title>
+      <link>https://www.cve.org/CVERecord?id=CVE-2024-47812</link>
+      <description>ImportDump is an extension for mediawiki designed to automate user import requests. Anyone who can edit the interface strings of a wiki (typically administrators and interface admins) can embed XSS payloads in the messages for dates, and thus XSS anyone who views Special:RequestImportQueue. This issue has been patched in commit `d054b95` and all users are advised to apply this commit to their branch. Users unable to upgrade may either Prevent access to Special:RequestImportQueue on all wikis, except for the global wiki; and If an interface administrator (or equivalent) level protection is available (which is not provided by default) on the global wiki, protect the affected messages up to that level. This causes the XSS to be virtually useless as users with those rights can already edit Javascript pages. Or Prevent access to Special:RequestImportQueue altogether.</description>
+      <guid isPermaLink="false">CVE-2024-47812|2024-10-09T18:12:31.929Z</guid>
+      <pubDate>Wed, 09 Oct 2024 18:12:31 +0000</pubDate>
+    </item>
+    <item>
+      <title>CVE-2024-47781|2024-10-07T21:30:23.058Z -- miraheze -- createwiki</title>
       <link>https://www.cve.org/CVERecord?id=CVE-2024-47781</link>
       <description>CreateWiki is an extension used at Miraheze for requesting &amp; creating wikis. The name of requested wikis is not escaped on Special:RequestWikiQueue, so a user can insert arbitrary HTML that is displayed in the request wiki queue when requesting a wiki. If a wiki creator comes across the XSS payload, their user session can be abused to retrieve deleted wiki requests, which typically contains private information. Likewise, this can also be abused on those with the ability to suppress requests to view sensitive information. This issue has been patched with commit `693a220` and all users are advised to apply the patch. Users unable to upgrade should disable Javascript and/or prevent access to the vulnerable page (Special:RequestWikiQueue).</description>
-      <guid isPermaLink="false">CVE-2024-47781|2024-10-08T14:13:28.705Z</guid>
+      <guid isPermaLink="false">CVE-2024-47781|2024-10-07T21:30:23.058Z</guid>
       <pubDate>Mon, 07 Oct 2024 21:30:23 +0000</pubDate>
     </item>
     <item>
-      <title>CVE-2024-47782|2024-10-08T14:11:43.995Z -- miraheze -- wikidiscover
-</title>
+      <title>CVE-2024-47782|2024-10-07T21:28:01.299Z -- miraheze -- wikidiscover</title>
       <link>https://www.cve.org/CVERecord?id=CVE-2024-47782</link>
       <description>WikiDiscover is an extension designed for use with a CreateWiki managed farm to display wikis. Special:WikiDiscover is a special page that lists all wikis on the wiki farm. However, the special page does not make any effort to escape the wiki name or description. Therefore, if a wiki sets its name and/or description to an XSS payload, the XSS will execute whenever the wiki is shown on Special:WikiDiscover. This issue has been patched with commit `2ce846dd93` and all users are advised to apply that patch. User unable to upgrade should block access to `Special:WikiDiscover`.</description>
-      <guid isPermaLink="false">CVE-2024-47782|2024-10-08T14:11:43.995Z</guid>
+      <guid isPermaLink="false">CVE-2024-47782|2024-10-07T21:28:01.299Z</guid>
       <pubDate>Mon, 07 Oct 2024 21:28:01 +0000</pubDate>
     </item>
     <item>
-      <title>CVE-2024-47612|2024-10-02T15:12:04.288Z -- miraheze -- datadump</title>
+      <title>CVE-2024-47612|2024-10-02T14:22:52.059Z -- miraheze -- datadump</title>
       <link>https://www.cve.org/CVERecord?id=CVE-2024-47612</link>
       <description>DataDump is a MediaWiki extension that provides dumps of wikis. Several interface messages are unescaped (more specifically, (datadump-table-column-queued), (datadump-table-column-in-progress), (datadump-table-column-completed), (datadump-table-column-failed)). If these messages are edited (which requires the (editinterface) right by default), anyone who can view Special:DataDump (which requires the (view-dump) right by default) can be XSSed. This vulnerability is fixed with 601688ee8e8808a23b102fa305b178f27cbd226d.</description>
-      <guid isPermaLink="false">CVE-2024-47612|2024-10-02T15:12:04.288Z</guid>
+      <guid isPermaLink="false">CVE-2024-47612|2024-10-02T14:22:52.059Z</guid>
       <pubDate>Wed, 02 Oct 2024 14:22:52 +0000</pubDate>
-    </item>
-    <item>
-      <title>CVE-2024-34701|2024-06-06T19:06:13.272Z -- miraheze -- createwiki</title>
-      <link>https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2024-34701</link>
-      <description>CreateWiki is Miraheze's MediaWiki extension for requesting &amp; creating wikis. It is possible for users to be considered as the requester of a specific wiki request if their local user ID on any wiki in a wiki farm matches the local ID of the requester at the wiki where the wiki request was made. This allows them to go to that request entry's on Special:RequestWikiQueue on the wiki where their local user ID matches and take any actions that the wiki requester is allowed to take from there.
-
-Commit 02e0f298f8d35155c39aa74193cb7b867432c5b8 fixes the issue. Important note about the fix: This vulnerability has been fixed by disabling access to the REST API and special pages outside of the wiki configured as the "global wiki" in `$wgCreateWikiGlobalWiki` in a user's MediaWiki settings.
-
-As a workaround, it is possible to disable the special pages outside of one's own global wiki by doing something similar to `miraheze/mw-config` commit e5664995fbb8644f9a80b450b4326194f20f9ddc that is adapted to one's own setup. As for the REST API, before the fix, there wasn't any REST endpoint that allowed one to make writes. Regardless, it is possible to also disable it outside of the global wiki by using `$wgCreateWikiDisableRESTAPI` and `$wgConf` in the configuration for one's own wiki farm..</description>
-      <guid isPermaLink="false">CVE-2024-34701|2024-06-06T19:06:13.272Z</guid>
-      <pubDate>Mon, 13 May 2024 15:54:12 +0000</pubDate>
     </item>
     <item>
       <title>CVE-2024-34701|2024-08-02T02:59:21.802Z -- miraheze -- createwiki</title>
@@ -54,24 +65,35 @@ As a workaround, it is possible to disable the special pages outside of one's ow
       <pubDate>Mon, 13 May 2024 15:54:12 +0000</pubDate>
     </item>
     <item>
-      <title>CVE-2024-47612|2024-10-02T14:22:52.059Z -- miraheze -- datadump</title>
+      <title>CVE-2024-34701|2024-06-06T19:06:13.272Z -- miraheze -- createwiki</title>
+      <link>https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2024-34701</link>
+      <description>CreateWiki is Miraheze's MediaWiki extension for requesting &amp; creating wikis. It is possible for users to be considered as the requester of a specific wiki request if their local user ID on any wiki in a wiki farm matches the local ID of the requester at the wiki where the wiki request was made. This allows them to go to that request entry's on Special:RequestWikiQueue on the wiki where their local user ID matches and take any actions that the wiki requester is allowed to take from there.
+
+Commit 02e0f298f8d35155c39aa74193cb7b867432c5b8 fixes the issue. Important note about the fix: This vulnerability has been fixed by disabling access to the REST API and special pages outside of the wiki configured as the "global wiki" in `$wgCreateWikiGlobalWiki` in a user's MediaWiki settings.
+
+As a workaround, it is possible to disable the special pages outside of one's own global wiki by doing something similar to `miraheze/mw-config` commit e5664995fbb8644f9a80b450b4326194f20f9ddc that is adapted to one's own setup. As for the REST API, before the fix, there wasn't any REST endpoint that allowed one to make writes. Regardless, it is possible to also disable it outside of the global wiki by using `$wgCreateWikiDisableRESTAPI` and `$wgConf` in the configuration for one's own wiki farm..</description>
+      <guid isPermaLink="false">CVE-2024-34701|2024-06-06T19:06:13.272Z</guid>
+      <pubDate>Mon, 13 May 2024 15:54:12 +0000</pubDate>
+    </item>
+    <item>
+      <title>CVE-2024-47612|2024-10-02T15:12:04.288Z -- miraheze -- datadump</title>
       <link>https://www.cve.org/CVERecord?id=CVE-2024-47612</link>
       <description>DataDump is a MediaWiki extension that provides dumps of wikis. Several interface messages are unescaped (more specifically, (datadump-table-column-queued), (datadump-table-column-in-progress), (datadump-table-column-completed), (datadump-table-column-failed)). If these messages are edited (which requires the (editinterface) right by default), anyone who can view Special:DataDump (which requires the (view-dump) right by default) can be XSSed. This vulnerability is fixed with 601688ee8e8808a23b102fa305b178f27cbd226d.</description>
-      <guid isPermaLink="false">CVE-2024-47612|2024-10-02T14:22:52.059Z</guid>
+      <guid isPermaLink="false">CVE-2024-47612|2024-10-02T15:12:04.288Z</guid>
       <pubDate>Wed, 02 Oct 2024 14:22:52 +0000</pubDate>
     </item>
     <item>
-      <title>CVE-2024-47782|2024-10-07T21:28:01.299Z -- miraheze -- wikidiscover</title>
+      <title>CVE-2024-47782|2024-10-08T14:11:43.995Z -- miraheze -- wikidiscover</title>
       <link>https://www.cve.org/CVERecord?id=CVE-2024-47782</link>
       <description>WikiDiscover is an extension designed for use with a CreateWiki managed farm to display wikis. Special:WikiDiscover is a special page that lists all wikis on the wiki farm. However, the special page does not make any effort to escape the wiki name or description. Therefore, if a wiki sets its name and/or description to an XSS payload, the XSS will execute whenever the wiki is shown on Special:WikiDiscover. This issue has been patched with commit `2ce846dd93` and all users are advised to apply that patch. User unable to upgrade should block access to `Special:WikiDiscover`.</description>
-      <guid isPermaLink="false">CVE-2024-47782|2024-10-07T21:28:01.299Z</guid>
+      <guid isPermaLink="false">CVE-2024-47782|2024-10-08T14:11:43.995Z</guid>
       <pubDate>Mon, 07 Oct 2024 21:28:01 +0000</pubDate>
     </item>
     <item>
-      <title>CVE-2024-47781|2024-10-07T21:30:23.058Z -- miraheze -- createwiki</title>
+      <title>CVE-2024-47781|2024-10-08T14:13:28.705Z -- miraheze -- createwiki</title>
       <link>https://www.cve.org/CVERecord?id=CVE-2024-47781</link>
       <description>CreateWiki is an extension used at Miraheze for requesting &amp; creating wikis. The name of requested wikis is not escaped on Special:RequestWikiQueue, so a user can insert arbitrary HTML that is displayed in the request wiki queue when requesting a wiki. If a wiki creator comes across the XSS payload, their user session can be abused to retrieve deleted wiki requests, which typically contains private information. Likewise, this can also be abused on those with the ability to suppress requests to view sensitive information. This issue has been patched with commit `693a220` and all users are advised to apply the patch. Users unable to upgrade should disable Javascript and/or prevent access to the vulnerable page (Special:RequestWikiQueue).</description>
-      <guid isPermaLink="false">CVE-2024-47781|2024-10-07T21:30:23.058Z</guid>
+      <guid isPermaLink="false">CVE-2024-47781|2024-10-08T14:13:28.705Z</guid>
       <pubDate>Mon, 07 Oct 2024 21:30:23 +0000</pubDate>
     </item>
   </channel>
