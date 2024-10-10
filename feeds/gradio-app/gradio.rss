@@ -6,55 +6,97 @@
     <description>The latest CVEs for gradio-app -- gradio</description>
     <docs>http://www.rssboard.org/rss-specification</docs>
     <generator>python-feedgen</generator>
-    <lastBuildDate>Thu, 10 Oct 2024 22:23:30 +0000</lastBuildDate>
+    <lastBuildDate>Thu, 10 Oct 2024 23:23:03 +0000</lastBuildDate>
     <ttl>60</ttl>
     <item>
-      <title>CVE-2024-47164|2024-10-10T21:52:27.377Z -- gradio-app -- gradio
+      <title>CVE-2024-47872|2024-10-10T22:12:27.305Z -- gradio-app -- gradio
 </title>
-      <link>https://www.cve.org/CVERecord?id=CVE-2024-47164</link>
-      <description>Gradio is an open-source Python package designed for quick prototyping. This vulnerability relates to the **bypass of directory traversal checks** within the `is_in_or_equal` function. This function, intended to check if a file resides within a given directory, can be bypassed with certain payloads that manipulate file paths using `..` (parent directory) sequences. Attackers could potentially access restricted files if they are able to exploit this flaw, although the difficulty is high. This primarily impacts users relying on Gradio’s blocklist or directory access validation, particularly when handling file uploads. Users are advised to upgrade to `gradio&gt;=5.0` to address this issue. As a workaround, users can manually sanitize and normalize file paths in their Gradio deployment before passing them to the `is_in_or_equal` function. Ensuring that all file paths are properly resolved and absolute can help mitigate the bypass vulnerabilities caused by the improper handling of `..` sequences or malformed paths.</description>
-      <guid isPermaLink="false">CVE-2024-47164|2024-10-10T21:52:27.377Z</guid>
-      <pubDate>Thu, 10 Oct 2024 21:52:27 +0000</pubDate>
+      <link>https://www.cve.org/CVERecord?id=CVE-2024-47872</link>
+      <description>Gradio is an open-source Python package designed for quick prototyping. This vulnerability involves **Cross-Site Scripting (XSS)** on any Gradio server that allows file uploads. Authenticated users can upload files such as HTML, JavaScript, or SVG files containing malicious scripts. When other users download or view these files, the scripts will execute in their browser, allowing attackers to perform unauthorized actions or steal sensitive information from their sessions. This impacts any Gradio server that allows file uploads, particularly those using components that process or display user-uploaded files. Users are advised to upgrade to `gradio&gt;=5` to address this issue. As a workaround, users can restrict the types of files that can be uploaded to the Gradio server by limiting uploads to non-executable file types such as images or text. Additionally, developers can implement server-side validation to sanitize uploaded files, ensuring that HTML, JavaScript, and SVG files are properly handled or rejected before being stored or displayed to users.</description>
+      <guid isPermaLink="false">CVE-2024-47872|2024-10-10T22:12:27.305Z</guid>
+      <pubDate>Thu, 10 Oct 2024 22:12:27 +0000</pubDate>
     </item>
     <item>
-      <title>CVE-2024-47166|2024-10-10T21:48:54.416Z -- gradio-app -- gradio
+      <title>CVE-2024-47871|2024-10-10T22:14:00.923Z -- gradio-app -- gradio
 </title>
-      <link>https://www.cve.org/CVERecord?id=CVE-2024-47166</link>
-      <description>Gradio is an open-source Python package designed for quick prototyping. This vulnerability involves a **one-level read path traversal** in the `/custom_component` endpoint. Attackers can exploit this flaw to access and leak source code from custom Gradio components by manipulating the file path in the request. Although the traversal is limited to a single directory level, it could expose proprietary or sensitive code that developers intended to keep private. This impacts users who have developed custom Gradio components and are hosting them on publicly accessible servers. Users are advised to upgrade to `gradio&gt;=4.44` to address this issue. As a workaround, developers can sanitize the file paths and ensure that components are not stored in publicly accessible directories.</description>
-      <guid isPermaLink="false">CVE-2024-47166|2024-10-10T21:48:54.416Z</guid>
-      <pubDate>Thu, 10 Oct 2024 21:48:54 +0000</pubDate>
+      <link>https://www.cve.org/CVERecord?id=CVE-2024-47871</link>
+      <description>Gradio is an open-source Python package designed for quick prototyping. This vulnerability involves **insecure communication** between the FRP (Fast Reverse Proxy) client and server when Gradio's `share=True` option is used. HTTPS is not enforced on the connection, allowing attackers to intercept and read files uploaded to the Gradio server, as well as modify responses or data sent between the client and server. This impacts users who are sharing Gradio demos publicly over the internet using `share=True` without proper encryption, exposing sensitive data to potential eavesdroppers. Users are advised to upgrade to `gradio&gt;=5` to address this issue. As a workaround, users can avoid using `share=True` in production environments and instead host their Gradio applications on servers with HTTPS enabled to ensure secure communication.</description>
+      <guid isPermaLink="false">CVE-2024-47871|2024-10-10T22:14:00.923Z</guid>
+      <pubDate>Thu, 10 Oct 2024 22:14:00 +0000</pubDate>
     </item>
     <item>
-      <title>CVE-2024-47168|2024-10-10T21:45:48.052Z -- gradio-app -- gradio
+      <title>CVE-2024-47870|2024-10-10T22:15:05.594Z -- gradio-app -- gradio
 </title>
-      <link>https://www.cve.org/CVERecord?id=CVE-2024-47168</link>
-      <description>Gradio is an open-source Python package designed for quick prototyping. This vulnerability involves data exposure due to the enable_monitoring flag not properly disabling monitoring when set to False. Even when monitoring is supposedly disabled, an attacker or unauthorized user can still access the monitoring dashboard by directly requesting the /monitoring endpoint. This means that sensitive application analytics may still be exposed, particularly in environments where monitoring is expected to be disabled. Users who set enable_monitoring=False to prevent unauthorized access to monitoring data are impacted. Users are advised to upgrade to gradio&gt;=4.44 to address this issue. There are no known workarounds for this vulnerability.</description>
-      <guid isPermaLink="false">CVE-2024-47168|2024-10-10T21:45:48.052Z</guid>
-      <pubDate>Thu, 10 Oct 2024 21:44:51 +0000</pubDate>
+      <link>https://www.cve.org/CVERecord?id=CVE-2024-47870</link>
+      <description>Gradio is an open-source Python package designed for quick prototyping. This vulnerability involves a **race condition** in the `update_root_in_config` function, allowing an attacker to modify the `root` URL used by the Gradio frontend to communicate with the backend. By exploiting this flaw, an attacker can redirect user traffic to a malicious server. This could lead to the interception of sensitive data such as authentication credentials or uploaded files. This impacts all users who connect to a Gradio server, especially those exposed to the internet, where malicious actors could exploit this race condition. Users are advised to upgrade to `gradio&gt;=5` to address this issue. There are no known workarounds for this issue.</description>
+      <guid isPermaLink="false">CVE-2024-47870|2024-10-10T22:15:05.594Z</guid>
+      <pubDate>Thu, 10 Oct 2024 22:15:05 +0000</pubDate>
     </item>
     <item>
-      <title>CVE-2024-47165|2024-10-10T21:50:08.186Z -- gradio-app -- gradio
+      <title>CVE-2024-47869|2024-10-10T22:16:11.346Z -- gradio-app -- gradio
 </title>
-      <link>https://www.cve.org/CVERecord?id=CVE-2024-47165</link>
-      <description>Gradio is an open-source Python package designed for quick prototyping. This vulnerability relates to **CORS origin validation accepting a null origin**. When a Gradio server is deployed locally, the `localhost_aliases` variable includes "null" as a valid origin. This allows attackers to make unauthorized requests from sandboxed iframes or other sources with a null origin, potentially leading to data theft, such as user authentication tokens or uploaded files. This impacts users running Gradio locally, especially those using basic authentication. Users are advised to upgrade to `gradio&gt;=5.0` to address this issue. As a workaround, users can manually modify the `localhost_aliases` list in their local Gradio deployment to exclude "null" as a valid origin. By removing this value, the Gradio server will no longer accept requests from sandboxed iframes or sources with a null origin, mitigating the potential for exploitation.</description>
-      <guid isPermaLink="false">CVE-2024-47165|2024-10-10T21:50:08.186Z</guid>
-      <pubDate>Thu, 10 Oct 2024 21:50:08 +0000</pubDate>
+      <link>https://www.cve.org/CVERecord?id=CVE-2024-47869</link>
+      <description>Gradio is an open-source Python package designed for quick prototyping. This vulnerability involves a **timing attack** in the way Gradio compares hashes for the `analytics_dashboard` function. Since the comparison is not done in constant time, an attacker could exploit this by measuring the response time of different requests to infer the correct hash byte-by-byte. This can lead to unauthorized access to the analytics dashboard, especially if the attacker can repeatedly query the system with different keys. Users are advised to upgrade to `gradio&gt;4.44` to mitigate this issue. To mitigate the risk before applying the patch, developers can manually patch the `analytics_dashboard` dashboard to use a **constant-time comparison** function for comparing sensitive values, such as hashes. Alternatively, access to the analytics dashboard can be disabled.</description>
+      <guid isPermaLink="false">CVE-2024-47869|2024-10-10T22:16:11.346Z</guid>
+      <pubDate>Thu, 10 Oct 2024 22:16:11 +0000</pubDate>
     </item>
     <item>
-      <title>CVE-2024-47084|2024-10-10T21:53:51.940Z -- gradio-app -- gradio
+      <title>CVE-2024-47868|2024-10-10T22:18:02.068Z -- gradio-app -- gradio
 </title>
+      <link>https://www.cve.org/CVERecord?id=CVE-2024-47868</link>
+      <description>Gradio is an open-source Python package designed for quick prototyping. This is a **data validation vulnerability** affecting several Gradio components, which allows arbitrary file leaks through the post-processing step. Attackers can exploit these components by crafting requests that bypass expected input constraints. This issue could lead to sensitive files being exposed to unauthorized users, especially when combined with other vulnerabilities, such as issue TOB-GRADIO-15. The components most at risk are those that return or handle file data. Vulnerable Components: 1. **String to FileData:** DownloadButton, Audio, ImageEditor, Video, Model3D, File, UploadButton. 2. **Complex data to FileData:** Chatbot, MultimodalTextbox. 3. **Direct file read in preprocess:** Code. 4. **Dictionary converted to FileData:** ParamViewer, Dataset. Exploit Scenarios: 1. A developer creates a Dropdown list that passes values to a DownloadButton. An attacker bypasses the allowed inputs, sends an arbitrary file path (like `/etc/passwd`), and downloads sensitive files. 2. An attacker crafts a malicious payload in a ParamViewer component, leaking sensitive files from a server through the arbitrary file leak. This issue has been resolved in `gradio&gt;5.0`. Upgrading to the latest version will mitigate this vulnerability. There are no known workarounds for this vulnerability.</description>
+      <guid isPermaLink="false">CVE-2024-47868|2024-10-10T22:18:02.068Z</guid>
+      <pubDate>Thu, 10 Oct 2024 22:18:02 +0000</pubDate>
+    </item>
+    <item>
+      <title>CVE-2024-47867|2024-10-10T22:19:11.631Z -- gradio-app -- gradio
+</title>
+      <link>https://www.cve.org/CVERecord?id=CVE-2024-47867</link>
+      <description>Gradio is an open-source Python package designed for quick prototyping. This vulnerability is a **lack of integrity check** on the downloaded FRP client, which could potentially allow attackers to introduce malicious code. If an attacker gains access to the remote URL from which the FRP client is downloaded, they could modify the binary without detection, as the Gradio server does not verify the file's checksum or signature.  Any users utilizing the Gradio server's sharing mechanism that downloads the FRP client could be affected by this vulnerability, especially those relying on the executable binary for secure data tunneling. There is no direct workaround for this issue without upgrading. However, users can manually validate the integrity of the downloaded FRP client by implementing checksum or signature verification in their own environment to ensure the binary hasn't been tampered with.</description>
+      <guid isPermaLink="false">CVE-2024-47867|2024-10-10T22:19:11.631Z</guid>
+      <pubDate>Thu, 10 Oct 2024 22:19:11 +0000</pubDate>
+    </item>
+    <item>
+      <title>CVE-2024-47167|2024-10-10T21:47:29.389Z -- gradio-app -- gradio</title>
+      <link>https://www.cve.org/CVERecord?id=CVE-2024-47167</link>
+      <description>Gradio is an open-source Python package designed for quick prototyping. This vulnerability relates to **Server-Side Request Forgery (SSRF)** in the `/queue/join` endpoint. Gradio’s `async_save_url_to_cache` function allows attackers to force the Gradio server to send HTTP requests to user-controlled URLs. This could enable attackers to target internal servers or services within a local network and possibly exfiltrate data or cause unwanted internal requests. Additionally, the content from these URLs is stored locally, making it easier for attackers to upload potentially malicious files to the server. This impacts users deploying Gradio servers that use components like the Video component which involve URL fetching. Users are advised to upgrade to `gradio&gt;=5` to address this issue.  As a workaround, users can disable or heavily restrict URL-based inputs in their Gradio applications to trusted domains only. Additionally, implementing stricter URL validation (such as allowinglist-based validation) and ensuring that local or internal network addresses cannot be requested via the `/queue/join` endpoint can help mitigate the risk of SSRF attacks.</description>
+      <guid isPermaLink="false">CVE-2024-47167|2024-10-10T21:47:29.389Z</guid>
+      <pubDate>Thu, 10 Oct 2024 21:47:29 +0000</pubDate>
+    </item>
+    <item>
+      <title>CVE-2024-47084|2024-10-10T21:53:51.940Z -- gradio-app -- gradio</title>
       <link>https://www.cve.org/CVERecord?id=CVE-2024-47084</link>
       <description>Gradio is an open-source Python package designed for quick prototyping. This vulnerability is related to **CORS origin validation**, where the Gradio server fails to validate the request origin when a cookie is present. This allows an attacker’s website to make unauthorized requests to a local Gradio server. Potentially, attackers can upload files, steal authentication tokens, and access user data if the victim visits a malicious website while logged into Gradio. This impacts users who have deployed Gradio locally and use basic authentication. Users are advised to upgrade to `gradio&gt;4.44` to address this issue. As a workaround, users can manually enforce stricter CORS origin validation by modifying the `CustomCORSMiddleware` class in their local Gradio server code. Specifically, they can bypass the condition that skips CORS validation for requests containing cookies to prevent potential exploitation.</description>
       <guid isPermaLink="false">CVE-2024-47084|2024-10-10T21:53:51.940Z</guid>
       <pubDate>Thu, 10 Oct 2024 21:53:51 +0000</pubDate>
     </item>
     <item>
-      <title>CVE-2024-47167|2024-10-10T21:47:29.389Z -- gradio-app -- gradio
-</title>
-      <link>https://www.cve.org/CVERecord?id=CVE-2024-47167</link>
-      <description>Gradio is an open-source Python package designed for quick prototyping. This vulnerability relates to **Server-Side Request Forgery (SSRF)** in the `/queue/join` endpoint. Gradio’s `async_save_url_to_cache` function allows attackers to force the Gradio server to send HTTP requests to user-controlled URLs. This could enable attackers to target internal servers or services within a local network and possibly exfiltrate data or cause unwanted internal requests. Additionally, the content from these URLs is stored locally, making it easier for attackers to upload potentially malicious files to the server. This impacts users deploying Gradio servers that use components like the Video component which involve URL fetching. Users are advised to upgrade to `gradio&gt;=5` to address this issue.  As a workaround, users can disable or heavily restrict URL-based inputs in their Gradio applications to trusted domains only. Additionally, implementing stricter URL validation (such as allowinglist-based validation) and ensuring that local or internal network addresses cannot be requested via the `/queue/join` endpoint can help mitigate the risk of SSRF attacks.</description>
-      <guid isPermaLink="false">CVE-2024-47167|2024-10-10T21:47:29.389Z</guid>
-      <pubDate>Thu, 10 Oct 2024 21:47:29 +0000</pubDate>
+      <title>CVE-2024-47165|2024-10-10T21:50:08.186Z -- gradio-app -- gradio</title>
+      <link>https://www.cve.org/CVERecord?id=CVE-2024-47165</link>
+      <description>Gradio is an open-source Python package designed for quick prototyping. This vulnerability relates to **CORS origin validation accepting a null origin**. When a Gradio server is deployed locally, the `localhost_aliases` variable includes "null" as a valid origin. This allows attackers to make unauthorized requests from sandboxed iframes or other sources with a null origin, potentially leading to data theft, such as user authentication tokens or uploaded files. This impacts users running Gradio locally, especially those using basic authentication. Users are advised to upgrade to `gradio&gt;=5.0` to address this issue. As a workaround, users can manually modify the `localhost_aliases` list in their local Gradio deployment to exclude "null" as a valid origin. By removing this value, the Gradio server will no longer accept requests from sandboxed iframes or sources with a null origin, mitigating the potential for exploitation.</description>
+      <guid isPermaLink="false">CVE-2024-47165|2024-10-10T21:50:08.186Z</guid>
+      <pubDate>Thu, 10 Oct 2024 21:50:08 +0000</pubDate>
+    </item>
+    <item>
+      <title>CVE-2024-47168|2024-10-10T21:45:48.052Z -- gradio-app -- gradio</title>
+      <link>https://www.cve.org/CVERecord?id=CVE-2024-47168</link>
+      <description>Gradio is an open-source Python package designed for quick prototyping. This vulnerability involves data exposure due to the enable_monitoring flag not properly disabling monitoring when set to False. Even when monitoring is supposedly disabled, an attacker or unauthorized user can still access the monitoring dashboard by directly requesting the /monitoring endpoint. This means that sensitive application analytics may still be exposed, particularly in environments where monitoring is expected to be disabled. Users who set enable_monitoring=False to prevent unauthorized access to monitoring data are impacted. Users are advised to upgrade to gradio&gt;=4.44 to address this issue. There are no known workarounds for this vulnerability.</description>
+      <guid isPermaLink="false">CVE-2024-47168|2024-10-10T21:45:48.052Z</guid>
+      <pubDate>Thu, 10 Oct 2024 21:44:51 +0000</pubDate>
+    </item>
+    <item>
+      <title>CVE-2024-47166|2024-10-10T21:48:54.416Z -- gradio-app -- gradio</title>
+      <link>https://www.cve.org/CVERecord?id=CVE-2024-47166</link>
+      <description>Gradio is an open-source Python package designed for quick prototyping. This vulnerability involves a **one-level read path traversal** in the `/custom_component` endpoint. Attackers can exploit this flaw to access and leak source code from custom Gradio components by manipulating the file path in the request. Although the traversal is limited to a single directory level, it could expose proprietary or sensitive code that developers intended to keep private. This impacts users who have developed custom Gradio components and are hosting them on publicly accessible servers. Users are advised to upgrade to `gradio&gt;=4.44` to address this issue. As a workaround, developers can sanitize the file paths and ensure that components are not stored in publicly accessible directories.</description>
+      <guid isPermaLink="false">CVE-2024-47166|2024-10-10T21:48:54.416Z</guid>
+      <pubDate>Thu, 10 Oct 2024 21:48:54 +0000</pubDate>
+    </item>
+    <item>
+      <title>CVE-2024-47164|2024-10-10T21:52:27.377Z -- gradio-app -- gradio</title>
+      <link>https://www.cve.org/CVERecord?id=CVE-2024-47164</link>
+      <description>Gradio is an open-source Python package designed for quick prototyping. This vulnerability relates to the **bypass of directory traversal checks** within the `is_in_or_equal` function. This function, intended to check if a file resides within a given directory, can be bypassed with certain payloads that manipulate file paths using `..` (parent directory) sequences. Attackers could potentially access restricted files if they are able to exploit this flaw, although the difficulty is high. This primarily impacts users relying on Gradio’s blocklist or directory access validation, particularly when handling file uploads. Users are advised to upgrade to `gradio&gt;=5.0` to address this issue. As a workaround, users can manually sanitize and normalize file paths in their Gradio deployment before passing them to the `is_in_or_equal` function. Ensuring that all file paths are properly resolved and absolute can help mitigate the bypass vulnerabilities caused by the improper handling of `..` sequences or malformed paths.</description>
+      <guid isPermaLink="false">CVE-2024-47164|2024-10-10T21:52:27.377Z</guid>
+      <pubDate>Thu, 10 Oct 2024 21:52:27 +0000</pubDate>
     </item>
   </channel>
 </rss>
