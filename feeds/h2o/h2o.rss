@@ -6,15 +6,31 @@
     <description>The latest CVEs for h2o -- h2o</description>
     <docs>http://www.rssboard.org/rss-specification</docs>
     <generator>python-feedgen</generator>
-    <lastBuildDate>Sun, 04 Aug 2024 23:23:22 +0000</lastBuildDate>
+    <lastBuildDate>Fri, 11 Oct 2024 15:23:38 +0000</lastBuildDate>
     <ttl>60</ttl>
     <item>
-      <title>CVE-2021-43848|2024-08-04T04:10:17.083Z -- h2o -- h2o
+      <title>CVE-2024-45403|2024-10-11T14:40:53.132Z -- h2o -- h2o
 </title>
-      <link>https://www.cve.org/CVERecord?id=CVE-2021-43848</link>
-      <description>h2o is an open source http server. In code prior to the `8c0eca3` commit h2o may attempt to access uninitialized memory. When receiving QUIC frames in certain order, HTTP/3 server-side implementation of h2o can be misguided to treat uninitialized memory as HTTP/3 frames that have been received. When h2o is used as a reverse proxy, an attacker can abuse this vulnerability to send internal state of h2o to backend servers controlled by the attacker or third party. Also, if there is an HTTP endpoint that reflects the traffic sent from the client, an attacker can use that reflector to obtain internal state of h2o. This internal state includes traffic of other connections in unencrypted form and TLS session tickets. This vulnerability exists in h2o server with HTTP/3 support, between commit 93af138 and d1f0f65. None of the released versions of h2o are affected by this vulnerability. There are no known workarounds. Users of unreleased versions of h2o using HTTP/3 are advised to upgrade immediately.</description>
-      <guid isPermaLink="false">CVE-2021-43848|2024-08-04T04:10:17.083Z</guid>
-      <pubDate>Tue, 01 Feb 2022 12:13:56 +0000</pubDate>
+      <link>https://www.cve.org/CVERecord?id=CVE-2024-45403</link>
+      <description>h2o is an HTTP server with support for HTTP/1.x, HTTP/2 and HTTP/3. When h2o is configured as a reverse proxy and HTTP/3 requests are cancelled by the client, h2o might crash due to an assertion failure. The crash can be exploited by an attacker to mount a Denial-of-Service attack. By default, the h2o standalone server automatically restarts, minimizing the impact. However, HTTP requests that were served concurrently will still be disrupted. The vulnerability has been addressed in commit 1ed32b2. Users may disable the use of HTTP/3 to mitigate the issue.</description>
+      <guid isPermaLink="false">CVE-2024-45403|2024-10-11T14:40:53.132Z</guid>
+      <pubDate>Fri, 11 Oct 2024 14:28:35 +0000</pubDate>
+    </item>
+    <item>
+      <title>CVE-2024-45397|2024-10-11T14:42:24.963Z -- h2o -- h2o
+</title>
+      <link>https://www.cve.org/CVERecord?id=CVE-2024-45397</link>
+      <description>h2o is an HTTP server with support for HTTP/1.x, HTTP/2 and HTTP/3. When an HTTP request using TLS/1.3 early data on top of TCP Fast Open or QUIC 0-RTT packets is received and the IP-address-based access control is used, the access control does not detect and prohibit HTTP requests conveyed by packets with a spoofed source address. This behavior allows attackers on the network to execute HTTP requests from addresses that are otherwise rejected by the address-based access control. The vulnerability has been addressed in commit 15ed15a. Users may disable the use of TCP FastOpen and QUIC to mitigate the issue.</description>
+      <guid isPermaLink="false">CVE-2024-45397|2024-10-11T14:42:24.963Z</guid>
+      <pubDate>Fri, 11 Oct 2024 14:24:57 +0000</pubDate>
+    </item>
+    <item>
+      <title>CVE-2024-25622|2024-10-11T14:46:36.996Z -- h2o -- h2o
+</title>
+      <link>https://www.cve.org/CVERecord?id=CVE-2024-25622</link>
+      <description>h2o is an HTTP server with support for HTTP/1.x, HTTP/2 and HTTP/3. The configuration directives provided by the headers handler allows users to modify the response headers being sent by h2o. The configuration file of h2o has scopes, and the inner scopes (e.g., path level) are expected to inherit the configuration defined in outer scopes (e.g., global level). However, if a header directive is used in the inner scope, all the definition in outer scopes are ignored. This can lead to headers not being modified as expected. Depending on the headers being added or removed unexpectedly, this behavior could lead to unexpected client behavior. This vulnerability is fixed in commit 123f5e2b65dcdba8f7ef659a00d24bd1249141be.</description>
+      <guid isPermaLink="false">CVE-2024-25622|2024-10-11T14:46:36.996Z</guid>
+      <pubDate>Fri, 11 Oct 2024 14:20:31 +0000</pubDate>
     </item>
   </channel>
 </rss>
