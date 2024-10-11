@@ -6,47 +6,50 @@
     <description>The latest CVEs for h2o -- all products</description>
     <docs>http://www.rssboard.org/rss-specification</docs>
     <generator>python-feedgen</generator>
-    <lastBuildDate>Fri, 11 Oct 2024 15:23:38 +0000</lastBuildDate>
+    <lastBuildDate>Fri, 11 Oct 2024 16:24:22 +0000</lastBuildDate>
     <ttl>60</ttl>
     <item>
-      <title>CVE-2024-45403|2024-10-11T14:40:53.132Z -- h2o -- h2o
+      <title>CVE-2024-45396|2024-10-11T15:01:59.401Z -- h2o -- quicly
 </title>
-      <link>https://www.cve.org/CVERecord?id=CVE-2024-45403</link>
-      <description>h2o is an HTTP server with support for HTTP/1.x, HTTP/2 and HTTP/3. When h2o is configured as a reverse proxy and HTTP/3 requests are cancelled by the client, h2o might crash due to an assertion failure. The crash can be exploited by an attacker to mount a Denial-of-Service attack. By default, the h2o standalone server automatically restarts, minimizing the impact. However, HTTP requests that were served concurrently will still be disrupted. The vulnerability has been addressed in commit 1ed32b2. Users may disable the use of HTTP/3 to mitigate the issue.</description>
-      <guid isPermaLink="false">CVE-2024-45403|2024-10-11T14:40:53.132Z</guid>
-      <pubDate>Fri, 11 Oct 2024 14:28:35 +0000</pubDate>
+      <link>https://www.cve.org/CVERecord?id=CVE-2024-45396</link>
+      <description>Quicly is an IETF QUIC protocol implementation. Quicly up to commtit d720707 is susceptible to a denial-of-service attack. A remote attacker can exploit these bugs to trigger an assertion failure that crashes process using quicly. The vulnerability is addressed with commit 2a95896104901589c495bc41460262e64ffcad5c.</description>
+      <guid isPermaLink="false">CVE-2024-45396|2024-10-11T15:01:59.401Z</guid>
+      <pubDate>Fri, 11 Oct 2024 14:36:38 +0000</pubDate>
     </item>
     <item>
-      <title>CVE-2024-45397|2024-10-11T14:42:24.963Z -- h2o -- h2o
-</title>
-      <link>https://www.cve.org/CVERecord?id=CVE-2024-45397</link>
-      <description>h2o is an HTTP server with support for HTTP/1.x, HTTP/2 and HTTP/3. When an HTTP request using TLS/1.3 early data on top of TCP Fast Open or QUIC 0-RTT packets is received and the IP-address-based access control is used, the access control does not detect and prohibit HTTP requests conveyed by packets with a spoofed source address. This behavior allows attackers on the network to execute HTTP requests from addresses that are otherwise rejected by the address-based access control. The vulnerability has been addressed in commit 15ed15a. Users may disable the use of TCP FastOpen and QUIC to mitigate the issue.</description>
-      <guid isPermaLink="false">CVE-2024-45397|2024-10-11T14:42:24.963Z</guid>
-      <pubDate>Fri, 11 Oct 2024 14:24:57 +0000</pubDate>
+      <title>CVE-2024-45396|2024-10-11T14:36:38.172Z -- h2o -- quicly</title>
+      <link>https://www.cve.org/CVERecord?id=CVE-2024-45396</link>
+      <description>Quicly is an IETF QUIC protocol implementation. Quicly up to commtit d720707 is susceptible to a denial-of-service attack. A remote attacker can exploit these bugs to trigger an assertion failure that crashes process using quicly. The vulnerability is addressed with commit 2a95896104901589c495bc41460262e64ffcad5c.</description>
+      <guid isPermaLink="false">CVE-2024-45396|2024-10-11T14:36:38.172Z</guid>
+      <pubDate>Fri, 11 Oct 2024 14:36:38 +0000</pubDate>
     </item>
     <item>
-      <title>CVE-2024-45402|2024-10-11T14:53:27.016Z -- h2o -- picotls
-</title>
-      <link>https://www.cve.org/CVERecord?id=CVE-2024-45402</link>
-      <description>Picotls is a TLS protocol library that allows users select different crypto backends based on their use case. When parsing a spoofed TLS handshake message, picotls (specifically, bindings within picotls that call the crypto libraries) may attempt to free the same memory twice. This double free occurs during the disposal of multiple objects without any intervening calls to malloc Typically, this triggers the malloc implementation to detect the error and abort the process. However, depending on the internals of malloc and the crypto backend being used, the flaw could potentially lead to a use-after-free scenario, which might allow for arbitrary code execution. The vulnerability is addressed with commit 9b88159ce763d680e4a13b6e8f3171ae923a535d.</description>
-      <guid isPermaLink="false">CVE-2024-45402|2024-10-11T14:53:27.016Z</guid>
-      <pubDate>Fri, 11 Oct 2024 14:38:59 +0000</pubDate>
-    </item>
-    <item>
-      <title>CVE-2024-25622|2024-10-11T14:46:36.996Z -- h2o -- h2o
-</title>
+      <title>CVE-2024-25622|2024-10-11T14:46:36.996Z -- h2o -- h2o</title>
       <link>https://www.cve.org/CVERecord?id=CVE-2024-25622</link>
       <description>h2o is an HTTP server with support for HTTP/1.x, HTTP/2 and HTTP/3. The configuration directives provided by the headers handler allows users to modify the response headers being sent by h2o. The configuration file of h2o has scopes, and the inner scopes (e.g., path level) are expected to inherit the configuration defined in outer scopes (e.g., global level). However, if a header directive is used in the inner scope, all the definition in outer scopes are ignored. This can lead to headers not being modified as expected. Depending on the headers being added or removed unexpectedly, this behavior could lead to unexpected client behavior. This vulnerability is fixed in commit 123f5e2b65dcdba8f7ef659a00d24bd1249141be.</description>
       <guid isPermaLink="false">CVE-2024-25622|2024-10-11T14:46:36.996Z</guid>
       <pubDate>Fri, 11 Oct 2024 14:20:31 +0000</pubDate>
     </item>
     <item>
-      <title>CVE-2024-45396|2024-10-11T14:36:38.172Z -- h2o -- quicly
-</title>
-      <link>https://www.cve.org/CVERecord?id=CVE-2024-45396</link>
-      <description>Quicly is an IETF QUIC protocol implementation. Quicly up to commtit d720707 is susceptible to a denial-of-service attack. A remote attacker can exploit these bugs to trigger an assertion failure that crashes process using quicly. The vulnerability is addressed with commit 2a95896104901589c495bc41460262e64ffcad5c.</description>
-      <guid isPermaLink="false">CVE-2024-45396|2024-10-11T14:36:38.172Z</guid>
-      <pubDate>Fri, 11 Oct 2024 14:36:38 +0000</pubDate>
+      <title>CVE-2024-45402|2024-10-11T14:53:27.016Z -- h2o -- picotls</title>
+      <link>https://www.cve.org/CVERecord?id=CVE-2024-45402</link>
+      <description>Picotls is a TLS protocol library that allows users select different crypto backends based on their use case. When parsing a spoofed TLS handshake message, picotls (specifically, bindings within picotls that call the crypto libraries) may attempt to free the same memory twice. This double free occurs during the disposal of multiple objects without any intervening calls to malloc Typically, this triggers the malloc implementation to detect the error and abort the process. However, depending on the internals of malloc and the crypto backend being used, the flaw could potentially lead to a use-after-free scenario, which might allow for arbitrary code execution. The vulnerability is addressed with commit 9b88159ce763d680e4a13b6e8f3171ae923a535d.</description>
+      <guid isPermaLink="false">CVE-2024-45402|2024-10-11T14:53:27.016Z</guid>
+      <pubDate>Fri, 11 Oct 2024 14:38:59 +0000</pubDate>
+    </item>
+    <item>
+      <title>CVE-2024-45397|2024-10-11T14:42:24.963Z -- h2o -- h2o</title>
+      <link>https://www.cve.org/CVERecord?id=CVE-2024-45397</link>
+      <description>h2o is an HTTP server with support for HTTP/1.x, HTTP/2 and HTTP/3. When an HTTP request using TLS/1.3 early data on top of TCP Fast Open or QUIC 0-RTT packets is received and the IP-address-based access control is used, the access control does not detect and prohibit HTTP requests conveyed by packets with a spoofed source address. This behavior allows attackers on the network to execute HTTP requests from addresses that are otherwise rejected by the address-based access control. The vulnerability has been addressed in commit 15ed15a. Users may disable the use of TCP FastOpen and QUIC to mitigate the issue.</description>
+      <guid isPermaLink="false">CVE-2024-45397|2024-10-11T14:42:24.963Z</guid>
+      <pubDate>Fri, 11 Oct 2024 14:24:57 +0000</pubDate>
+    </item>
+    <item>
+      <title>CVE-2024-45403|2024-10-11T14:40:53.132Z -- h2o -- h2o</title>
+      <link>https://www.cve.org/CVERecord?id=CVE-2024-45403</link>
+      <description>h2o is an HTTP server with support for HTTP/1.x, HTTP/2 and HTTP/3. When h2o is configured as a reverse proxy and HTTP/3 requests are cancelled by the client, h2o might crash due to an assertion failure. The crash can be exploited by an attacker to mount a Denial-of-Service attack. By default, the h2o standalone server automatically restarts, minimizing the impact. However, HTTP requests that were served concurrently will still be disrupted. The vulnerability has been addressed in commit 1ed32b2. Users may disable the use of HTTP/3 to mitigate the issue.</description>
+      <guid isPermaLink="false">CVE-2024-45403|2024-10-11T14:40:53.132Z</guid>
+      <pubDate>Fri, 11 Oct 2024 14:28:35 +0000</pubDate>
     </item>
   </channel>
 </rss>
