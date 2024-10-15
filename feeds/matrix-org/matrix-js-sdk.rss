@@ -6,21 +6,28 @@
     <description>The latest CVEs for matrix-org -- matrix-js-sdk</description>
     <docs>http://www.rssboard.org/rss-specification</docs>
     <generator>python-feedgen</generator>
-    <lastBuildDate>Tue, 03 Sep 2024 18:24:36 +0000</lastBuildDate>
+    <lastBuildDate>Tue, 15 Oct 2024 15:24:06 +0000</lastBuildDate>
     <ttl>60</ttl>
     <item>
-      <title>CVE-2024-42369|2024-09-03T17:06:42.231Z -- matrix-org -- matrix-js-sdk
+      <title>CVE-2024-47080|2024-10-15T14:53:01.752Z -- matrix-org -- matrix-js-sdk
 </title>
-      <link>https://www.cve.org/CVERecord?id=CVE-2024-42369</link>
-      <description>matrix-js-sdk is a Matrix messaging protocol Client-Server SDK for JavaScript. A malicious homeserver can craft a room or room structure such that the predecessors form a cycle. The matrix-js-sdk's getRoomUpgradeHistory function will infinitely recurse in this case, causing the code to hang. This method is public but also called by the 'leaveRoomChain()' method, so leaving a room will also trigger the bug. This was patched in matrix-js-sdk 34.3.1.</description>
-      <guid isPermaLink="false">CVE-2024-42369|2024-09-03T17:06:42.231Z</guid>
-      <pubDate>Tue, 20 Aug 2024 14:37:19 +0000</pubDate>
+      <link>https://www.cve.org/CVERecord?id=CVE-2024-47080</link>
+      <description>matrix-js-sdk is the Matrix Client-Server SDK for JavaScript and TypeScript. In matrix-js-sdk versions versions 9.11.0 through 34.7.0, the method `MatrixClient.sendSharedHistoryKeys` is vulnerable to interception by malicious homeservers.  The method was introduced by MSC3061) and is commonly used to share historical message keys with newly invited users, granting them access to past messages in the room. However, it unconditionally sends these "shared" keys to all of the invited user's devices, regardless of whether the user's cryptographic identity is verified or whether the user's devices are signed by that identity. This allows the attacker to potentially inject its own devices to receive sensitive historical keys without proper security checks. Note that this only affects clients running the SDK with the legacy crypto stack. Clients using the new Rust cryptography stack (i.e. those that call `MatrixClient.initRustCrypto()` instead of `MatrixClient.initCrypto()`) are unaffected by this vulnerability, because `MatrixClient.sendSharedHistoryKeys()` raises an exception in such environments. The vulnerability was fixed in matrix-js-sdk 34.8.0 by removing the vulnerable functionality. As a workaround, remove use of affected functionality from clients.</description>
+      <guid isPermaLink="false">CVE-2024-47080|2024-10-15T14:53:01.752Z</guid>
+      <pubDate>Tue, 15 Oct 2024 14:53:01 +0000</pubDate>
     </item>
     <item>
       <title>CVE-2024-42369|2024-08-20T14:37:19.226Z -- matrix-org -- matrix-js-sdk</title>
       <link>https://www.cve.org/CVERecord?id=CVE-2024-42369</link>
       <description>matrix-js-sdk is a Matrix messaging protocol Client-Server SDK for JavaScript. A malicious homeserver can craft a room or room structure such that the predecessors form a cycle. The matrix-js-sdk's getRoomUpgradeHistory function will infinitely recurse in this case, causing the code to hang. This method is public but also called by the 'leaveRoomChain()' method, so leaving a room will also trigger the bug. This was patched in matrix-js-sdk 34.3.1.</description>
       <guid isPermaLink="false">CVE-2024-42369|2024-08-20T14:37:19.226Z</guid>
+      <pubDate>Tue, 20 Aug 2024 14:37:19 +0000</pubDate>
+    </item>
+    <item>
+      <title>CVE-2024-42369|2024-09-03T17:06:42.231Z -- matrix-org -- matrix-js-sdk</title>
+      <link>https://www.cve.org/CVERecord?id=CVE-2024-42369</link>
+      <description>matrix-js-sdk is a Matrix messaging protocol Client-Server SDK for JavaScript. A malicious homeserver can craft a room or room structure such that the predecessors form a cycle. The matrix-js-sdk's getRoomUpgradeHistory function will infinitely recurse in this case, causing the code to hang. This method is public but also called by the 'leaveRoomChain()' method, so leaving a room will also trigger the bug. This was patched in matrix-js-sdk 34.3.1.</description>
+      <guid isPermaLink="false">CVE-2024-42369|2024-09-03T17:06:42.231Z</guid>
       <pubDate>Tue, 20 Aug 2024 14:37:19 +0000</pubDate>
     </item>
   </channel>
