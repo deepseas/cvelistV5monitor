@@ -6,132 +6,116 @@
     <description>The latest CVEs for goTenna -- Pro ATAK Plugin</description>
     <docs>http://www.rssboard.org/rss-specification</docs>
     <generator>python-feedgen</generator>
-    <lastBuildDate>Thu, 17 Oct 2024 17:22:51 +0000</lastBuildDate>
+    <lastBuildDate>Thu, 17 Oct 2024 18:24:51 +0000</lastBuildDate>
     <ttl>60</ttl>
     <item>
-      <title>CVE-2024-45838|2024-10-17T16:54:51.865Z -- gotenna -- pro%20atak%20plugin
+      <title>CVE-2024-43814|2024-10-17T17:06:00.394Z -- gotenna -- pro%20atak%20plugin
 </title>
-      <link>https://www.cve.org/CVERecord?id=CVE-2024-45838</link>
-      <description>The goTenna Pro ATAK Plugin does not encrypt callsigns in messages. It 
-is advised to not use sensitive information in callsigns when using this
- and previous versions of the plugin. Update to current plugin version 
-which uses AES-256 encryption for callsigns in encrypted operation</description>
-      <guid isPermaLink="false">CVE-2024-45838|2024-10-17T16:54:51.865Z</guid>
-      <pubDate>Thu, 26 Sep 2024 17:31:45 +0000</pubDate>
+      <link>https://www.cve.org/CVERecord?id=CVE-2024-43814</link>
+      <description>The goTenna Pro ATAK Plugin's default settings are to share Automatic 
+Position, Location, and Information (PLI) updates every 60 seconds once 
+the plugin is active and goTenna is connected. Users that are unaware of
+ their settings and have not activated encryption before a mission may 
+accidentally broadcast their location unencrypted. It is advised to 
+verify PLI settings are the desired rate and activate encryption prior 
+to mission. Update to the latest Plugin to disable this default setting.</description>
+      <guid isPermaLink="false">CVE-2024-43814|2024-10-17T17:06:00.394Z</guid>
+      <pubDate>Thu, 26 Sep 2024 17:48:06 +0000</pubDate>
     </item>
     <item>
-      <title>CVE-2024-43108|2024-10-17T16:53:16.231Z -- gotenna -- pro%20atak%20plugin
+      <title>CVE-2024-41931|2024-10-17T17:01:08.613Z -- gotenna -- pro%20atak%20plugin
 </title>
-      <link>https://www.cve.org/CVERecord?id=CVE-2024-43108</link>
-      <description>The goTenna Pro ATAK Plugin uses AES CTR type encryption for short, 
-encrypted messages without any additional integrity checking mechanisms.
- This leaves messages malleable to an attacker that can access the 
-message. It is advised to continue to use encryption in the plugin and 
-update to the current release for enhanced encryption protocols.</description>
-      <guid isPermaLink="false">CVE-2024-43108|2024-10-17T16:53:16.231Z</guid>
-      <pubDate>Thu, 26 Sep 2024 17:28:10 +0000</pubDate>
+      <link>https://www.cve.org/CVERecord?id=CVE-2024-41931</link>
+      <description>The goTenna Pro ATAK Plugin encryption key name is always sent 
+unencrypted when the key is sent over RF through a broadcast message. It
+ is advised to share the encryption key via local QR for higher security
+ operations.</description>
+      <guid isPermaLink="false">CVE-2024-41931|2024-10-17T17:01:08.613Z</guid>
+      <pubDate>Thu, 26 Sep 2024 17:42:16 +0000</pubDate>
     </item>
     <item>
-      <title>CVE-2024-45374|2024-10-17T16:15:16.527Z -- gotenna -- pro%20atak%20plugin
+      <title>CVE-2024-41715|2024-10-17T17:03:47.283Z -- gotenna -- pro%20atak%20plugin
 </title>
-      <link>https://www.cve.org/CVERecord?id=CVE-2024-45374</link>
-      <description>The goTenna Pro ATAK plugin uses a weak password for sharing encryption 
-keys via the key broadcast method. If the broadcasted encryption key is 
-captured over RF, and password is cracked via brute force attack, it is 
-possible to decrypt it and use it to decrypt all future and past 
-messages sent via encrypted broadcast with that particular key. This 
-only applies when the key is broadcasted over RF. This is an optional 
-feature, so it is advised to use local QR encryption key sharing for 
-additional security on this and previous versions.</description>
-      <guid isPermaLink="false">CVE-2024-45374|2024-10-17T16:15:16.527Z</guid>
-      <pubDate>Thu, 26 Sep 2024 17:08:13 +0000</pubDate>
+      <link>https://www.cve.org/CVERecord?id=CVE-2024-41715</link>
+      <description>The goTenna Pro ATAK Plugin does not inject extra characters into 
+broadcasted frames to obfuscate the length of messages. This makes it 
+possible to tell the length of the payload regardless of the encryption 
+used.</description>
+      <guid isPermaLink="false">CVE-2024-41715|2024-10-17T17:03:47.283Z</guid>
+      <pubDate>Thu, 26 Sep 2024 17:46:05 +0000</pubDate>
     </item>
     <item>
-      <title>CVE-2024-43108|2024-09-26T17:46:55.907Z -- gotenna -- pro%20atak%20plugin</title>
-      <link>https://www.cve.org/CVERecord?id=CVE-2024-43108</link>
-      <description>The goTenna Pro ATAK Plugin use AES CTR mode for short, encrypted 
-messages without any additional integrity checking mechanisms. This 
-leaves messages malleable to any attacker that can access the message.</description>
-      <guid isPermaLink="false">CVE-2024-43108|2024-09-26T17:46:55.907Z</guid>
-      <pubDate>Thu, 26 Sep 2024 17:28:10 +0000</pubDate>
+      <title>CVE-2024-45723|2024-10-17T16:56:55.574Z -- gotenna -- pro%20atak%20plugin
+</title>
+      <link>https://www.cve.org/CVERecord?id=CVE-2024-45723</link>
+      <description>The goTenna Pro ATAK Plugin does not use SecureRandom when generating 
+passwords for sharing cryptographic keys. The random function in use 
+makes it easier for attackers to brute force this password if the 
+broadcasted encryption key is captured over RF. This only applies to the
+ optional broadcast of an encryption key, so it is advised to share the 
+key with local QR code for higher security operations.</description>
+      <guid isPermaLink="false">CVE-2024-45723|2024-10-17T16:56:55.574Z</guid>
+      <pubDate>Thu, 26 Sep 2024 17:37:26 +0000</pubDate>
     </item>
     <item>
-      <title>CVE-2024-41715|2024-09-26T17:46:05.011Z -- gotenna -- pro%20atak%20plugin</title>
+      <title>CVE-2024-41722|2024-10-17T16:59:45.950Z -- gotenna -- pro%20atak%20plugin
+</title>
+      <link>https://www.cve.org/CVERecord?id=CVE-2024-41722</link>
+      <description>In the goTenna Pro ATAK Plugin there is a vulnerability that makes it 
+possible to inject any custom message with any GID and Callsign using a 
+software defined radio in existing goTenna mesh networks. This 
+vulnerability can be exploited if the device is being used in an 
+unencrypted environment or if the cryptography has already been 
+compromised. It is advised to use encryption shared with local QR code 
+for higher security operations.</description>
+      <guid isPermaLink="false">CVE-2024-41722|2024-10-17T16:59:45.950Z</guid>
+      <pubDate>Thu, 26 Sep 2024 17:39:46 +0000</pubDate>
+    </item>
+    <item>
+      <title>CVE-2024-41715|2024-09-26T18:21:36.788Z -- gotenna -- pro%20atak%20plugin</title>
       <link>https://www.cve.org/CVERecord?id=CVE-2024-41715</link>
       <description>The goTenna Pro ATAK Plugin has a payload length vulnerability that 
 makes it possible to tell the length of the payload regardless of the 
 encryption used.</description>
-      <guid isPermaLink="false">CVE-2024-41715|2024-09-26T17:46:05.011Z</guid>
+      <guid isPermaLink="false">CVE-2024-41715|2024-09-26T18:21:36.788Z</guid>
       <pubDate>Thu, 26 Sep 2024 17:46:05 +0000</pubDate>
     </item>
     <item>
-      <title>CVE-2024-43694|2024-09-26T17:25:52.840Z -- gotenna -- pro%20atak%20plugin</title>
+      <title>CVE-2024-43694|2024-09-26T18:26:54.248Z -- gotenna -- pro%20atak%20plugin</title>
       <link>https://www.cve.org/CVERecord?id=CVE-2024-43694</link>
       <description>In the goTenna Pro ATAK Plugin application, the encryption keys are 
 stored along with a static IV on the device. This allows for complete 
 decryption of keys stored on the device. This allows an attacker to 
 decrypt all encrypted broadcast communications based on broadcast keys 
 stored on the device.</description>
-      <guid isPermaLink="false">CVE-2024-43694|2024-09-26T17:25:52.840Z</guid>
+      <guid isPermaLink="false">CVE-2024-43694|2024-09-26T18:26:54.248Z</guid>
       <pubDate>Thu, 26 Sep 2024 17:25:52 +0000</pubDate>
     </item>
     <item>
-      <title>CVE-2024-45838|2024-09-26T17:31:45.575Z -- gotenna -- pro%20atak%20plugin</title>
+      <title>CVE-2024-45838|2024-09-26T18:06:06.029Z -- gotenna -- pro%20atak%20plugin</title>
       <link>https://www.cve.org/CVERecord?id=CVE-2024-45838</link>
       <description>The goTenna Pro ATAK Plugin does not encrypt the callsigns of its users.
  These callsigns reveal information about the users and can also be 
 leveraged for other vulnerabilities.</description>
-      <guid isPermaLink="false">CVE-2024-45838|2024-09-26T17:31:45.575Z</guid>
+      <guid isPermaLink="false">CVE-2024-45838|2024-09-26T18:06:06.029Z</guid>
       <pubDate>Thu, 26 Sep 2024 17:31:45 +0000</pubDate>
     </item>
     <item>
-      <title>CVE-2024-41931|2024-09-26T17:42:16.640Z -- gotenna -- pro%20atak%20plugin</title>
+      <title>CVE-2024-41931|2024-09-26T18:30:58.747Z -- gotenna -- pro%20atak%20plugin</title>
       <link>https://www.cve.org/CVERecord?id=CVE-2024-41931</link>
       <description>The goTenna Pro ATAK Plugin broadcast key name is always sent unencrypted and could reveal the location of operation.</description>
-      <guid isPermaLink="false">CVE-2024-41931|2024-09-26T17:42:16.640Z</guid>
+      <guid isPermaLink="false">CVE-2024-41931|2024-09-26T18:30:58.747Z</guid>
       <pubDate>Thu, 26 Sep 2024 17:42:16 +0000</pubDate>
     </item>
     <item>
-      <title>CVE-2024-45723|2024-09-26T18:01:18.449Z -- gotenna -- pro%20atak%20plugin</title>
-      <link>https://www.cve.org/CVERecord?id=CVE-2024-45723</link>
-      <description>The goTenna Pro ATAK Plugin does not use SecureRandom when generating 
-its cryptographic keys. The random function in use is not suitable for 
-cryptographic use.</description>
-      <guid isPermaLink="false">CVE-2024-45723|2024-09-26T18:01:18.449Z</guid>
-      <pubDate>Thu, 26 Sep 2024 17:37:26 +0000</pubDate>
-    </item>
-    <item>
-      <title>CVE-2024-43814|2024-09-26T17:48:06.316Z -- gotenna -- pro%20atak%20plugin</title>
+      <title>CVE-2024-43814|2024-09-26T18:10:20.508Z -- gotenna -- pro%20atak%20plugin</title>
       <link>https://www.cve.org/CVERecord?id=CVE-2024-43814</link>
       <description>goTenna Pro ATAK Plugin by default enables frequent unencrypted 
 Position, Location and Information (PLI) transmission. This transmission
  is done without user's knowledge, revealing the exact location 
 transmitted in unencrypted form.</description>
-      <guid isPermaLink="false">CVE-2024-43814|2024-09-26T17:48:06.316Z</guid>
+      <guid isPermaLink="false">CVE-2024-43814|2024-09-26T18:10:20.508Z</guid>
       <pubDate>Thu, 26 Sep 2024 17:48:06 +0000</pubDate>
-    </item>
-    <item>
-      <title>CVE-2024-45374|2024-09-26T17:22:03.841Z -- gotenna -- pro%20atak%20plugin</title>
-      <link>https://www.cve.org/CVERecord?id=CVE-2024-45374</link>
-      <description>In the goTenna Pro ATAK Plugin application, the encryption keys are 
-stored along with a static IV on the device. This allows for complete 
-decryption of keys stored on the device. This allows an attacker to 
-decrypt all encrypted broadcast communications based on broadcast keys 
-stored on the device.</description>
-      <guid isPermaLink="false">CVE-2024-45374|2024-09-26T17:22:03.841Z</guid>
-      <pubDate>Thu, 26 Sep 2024 17:08:13 +0000</pubDate>
-    </item>
-    <item>
-      <title>CVE-2024-41722|2024-09-26T17:39:46.735Z -- gotenna -- pro%20atak%20plugin</title>
-      <link>https://www.cve.org/CVERecord?id=CVE-2024-41722</link>
-      <description>In the goTenna Pro ATAK Plugin there is a vulnerability that makes it 
-possible to inject any custom message with any GID and Callsign using a 
-software defined radio in existing gotenna mesh networks. This 
-vulnerability can be exploited if the device is being used in a 
-unencrypted environment or if the cryptography has already been 
-compromised.</description>
-      <guid isPermaLink="false">CVE-2024-41722|2024-09-26T17:39:46.735Z</guid>
-      <pubDate>Thu, 26 Sep 2024 17:39:46 +0000</pubDate>
     </item>
     <item>
       <title>CVE-2024-41722|2024-09-26T18:31:39.315Z -- gotenna -- pro%20atak%20plugin</title>
@@ -146,50 +130,126 @@ compromised.</description>
       <pubDate>Thu, 26 Sep 2024 17:39:46 +0000</pubDate>
     </item>
     <item>
-      <title>CVE-2024-43814|2024-09-26T18:10:20.508Z -- gotenna -- pro%20atak%20plugin</title>
+      <title>CVE-2024-41722|2024-09-26T17:39:46.735Z -- gotenna -- pro%20atak%20plugin</title>
+      <link>https://www.cve.org/CVERecord?id=CVE-2024-41722</link>
+      <description>In the goTenna Pro ATAK Plugin there is a vulnerability that makes it 
+possible to inject any custom message with any GID and Callsign using a 
+software defined radio in existing gotenna mesh networks. This 
+vulnerability can be exploited if the device is being used in a 
+unencrypted environment or if the cryptography has already been 
+compromised.</description>
+      <guid isPermaLink="false">CVE-2024-41722|2024-09-26T17:39:46.735Z</guid>
+      <pubDate>Thu, 26 Sep 2024 17:39:46 +0000</pubDate>
+    </item>
+    <item>
+      <title>CVE-2024-45374|2024-09-26T17:22:03.841Z -- gotenna -- pro%20atak%20plugin</title>
+      <link>https://www.cve.org/CVERecord?id=CVE-2024-45374</link>
+      <description>In the goTenna Pro ATAK Plugin application, the encryption keys are 
+stored along with a static IV on the device. This allows for complete 
+decryption of keys stored on the device. This allows an attacker to 
+decrypt all encrypted broadcast communications based on broadcast keys 
+stored on the device.</description>
+      <guid isPermaLink="false">CVE-2024-45374|2024-09-26T17:22:03.841Z</guid>
+      <pubDate>Thu, 26 Sep 2024 17:08:13 +0000</pubDate>
+    </item>
+    <item>
+      <title>CVE-2024-43814|2024-09-26T17:48:06.316Z -- gotenna -- pro%20atak%20plugin</title>
       <link>https://www.cve.org/CVERecord?id=CVE-2024-43814</link>
       <description>goTenna Pro ATAK Plugin by default enables frequent unencrypted 
 Position, Location and Information (PLI) transmission. This transmission
  is done without user's knowledge, revealing the exact location 
 transmitted in unencrypted form.</description>
-      <guid isPermaLink="false">CVE-2024-43814|2024-09-26T18:10:20.508Z</guid>
+      <guid isPermaLink="false">CVE-2024-43814|2024-09-26T17:48:06.316Z</guid>
       <pubDate>Thu, 26 Sep 2024 17:48:06 +0000</pubDate>
     </item>
     <item>
-      <title>CVE-2024-41931|2024-09-26T18:30:58.747Z -- gotenna -- pro%20atak%20plugin</title>
+      <title>CVE-2024-45723|2024-09-26T18:01:18.449Z -- gotenna -- pro%20atak%20plugin</title>
+      <link>https://www.cve.org/CVERecord?id=CVE-2024-45723</link>
+      <description>The goTenna Pro ATAK Plugin does not use SecureRandom when generating 
+its cryptographic keys. The random function in use is not suitable for 
+cryptographic use.</description>
+      <guid isPermaLink="false">CVE-2024-45723|2024-09-26T18:01:18.449Z</guid>
+      <pubDate>Thu, 26 Sep 2024 17:37:26 +0000</pubDate>
+    </item>
+    <item>
+      <title>CVE-2024-41931|2024-09-26T17:42:16.640Z -- gotenna -- pro%20atak%20plugin</title>
       <link>https://www.cve.org/CVERecord?id=CVE-2024-41931</link>
       <description>The goTenna Pro ATAK Plugin broadcast key name is always sent unencrypted and could reveal the location of operation.</description>
-      <guid isPermaLink="false">CVE-2024-41931|2024-09-26T18:30:58.747Z</guid>
+      <guid isPermaLink="false">CVE-2024-41931|2024-09-26T17:42:16.640Z</guid>
       <pubDate>Thu, 26 Sep 2024 17:42:16 +0000</pubDate>
     </item>
     <item>
-      <title>CVE-2024-45838|2024-09-26T18:06:06.029Z -- gotenna -- pro%20atak%20plugin</title>
+      <title>CVE-2024-45838|2024-09-26T17:31:45.575Z -- gotenna -- pro%20atak%20plugin</title>
       <link>https://www.cve.org/CVERecord?id=CVE-2024-45838</link>
       <description>The goTenna Pro ATAK Plugin does not encrypt the callsigns of its users.
  These callsigns reveal information about the users and can also be 
 leveraged for other vulnerabilities.</description>
-      <guid isPermaLink="false">CVE-2024-45838|2024-09-26T18:06:06.029Z</guid>
+      <guid isPermaLink="false">CVE-2024-45838|2024-09-26T17:31:45.575Z</guid>
       <pubDate>Thu, 26 Sep 2024 17:31:45 +0000</pubDate>
     </item>
     <item>
-      <title>CVE-2024-43694|2024-09-26T18:26:54.248Z -- gotenna -- pro%20atak%20plugin</title>
+      <title>CVE-2024-43694|2024-09-26T17:25:52.840Z -- gotenna -- pro%20atak%20plugin</title>
       <link>https://www.cve.org/CVERecord?id=CVE-2024-43694</link>
       <description>In the goTenna Pro ATAK Plugin application, the encryption keys are 
 stored along with a static IV on the device. This allows for complete 
 decryption of keys stored on the device. This allows an attacker to 
 decrypt all encrypted broadcast communications based on broadcast keys 
 stored on the device.</description>
-      <guid isPermaLink="false">CVE-2024-43694|2024-09-26T18:26:54.248Z</guid>
+      <guid isPermaLink="false">CVE-2024-43694|2024-09-26T17:25:52.840Z</guid>
       <pubDate>Thu, 26 Sep 2024 17:25:52 +0000</pubDate>
     </item>
     <item>
-      <title>CVE-2024-41715|2024-09-26T18:21:36.788Z -- gotenna -- pro%20atak%20plugin</title>
+      <title>CVE-2024-41715|2024-09-26T17:46:05.011Z -- gotenna -- pro%20atak%20plugin</title>
       <link>https://www.cve.org/CVERecord?id=CVE-2024-41715</link>
       <description>The goTenna Pro ATAK Plugin has a payload length vulnerability that 
 makes it possible to tell the length of the payload regardless of the 
 encryption used.</description>
-      <guid isPermaLink="false">CVE-2024-41715|2024-09-26T18:21:36.788Z</guid>
+      <guid isPermaLink="false">CVE-2024-41715|2024-09-26T17:46:05.011Z</guid>
       <pubDate>Thu, 26 Sep 2024 17:46:05 +0000</pubDate>
+    </item>
+    <item>
+      <title>CVE-2024-43108|2024-09-26T17:46:55.907Z -- gotenna -- pro%20atak%20plugin</title>
+      <link>https://www.cve.org/CVERecord?id=CVE-2024-43108</link>
+      <description>The goTenna Pro ATAK Plugin use AES CTR mode for short, encrypted 
+messages without any additional integrity checking mechanisms. This 
+leaves messages malleable to any attacker that can access the message.</description>
+      <guid isPermaLink="false">CVE-2024-43108|2024-09-26T17:46:55.907Z</guid>
+      <pubDate>Thu, 26 Sep 2024 17:28:10 +0000</pubDate>
+    </item>
+    <item>
+      <title>CVE-2024-45374|2024-10-17T16:15:16.527Z -- gotenna -- pro%20atak%20plugin</title>
+      <link>https://www.cve.org/CVERecord?id=CVE-2024-45374</link>
+      <description>The goTenna Pro ATAK plugin uses a weak password for sharing encryption 
+keys via the key broadcast method. If the broadcasted encryption key is 
+captured over RF, and password is cracked via brute force attack, it is 
+possible to decrypt it and use it to decrypt all future and past 
+messages sent via encrypted broadcast with that particular key. This 
+only applies when the key is broadcasted over RF. This is an optional 
+feature, so it is advised to use local QR encryption key sharing for 
+additional security on this and previous versions.</description>
+      <guid isPermaLink="false">CVE-2024-45374|2024-10-17T16:15:16.527Z</guid>
+      <pubDate>Thu, 26 Sep 2024 17:08:13 +0000</pubDate>
+    </item>
+    <item>
+      <title>CVE-2024-43108|2024-10-17T16:53:16.231Z -- gotenna -- pro%20atak%20plugin</title>
+      <link>https://www.cve.org/CVERecord?id=CVE-2024-43108</link>
+      <description>The goTenna Pro ATAK Plugin uses AES CTR type encryption for short, 
+encrypted messages without any additional integrity checking mechanisms.
+ This leaves messages malleable to an attacker that can access the 
+message. It is advised to continue to use encryption in the plugin and 
+update to the current release for enhanced encryption protocols.</description>
+      <guid isPermaLink="false">CVE-2024-43108|2024-10-17T16:53:16.231Z</guid>
+      <pubDate>Thu, 26 Sep 2024 17:28:10 +0000</pubDate>
+    </item>
+    <item>
+      <title>CVE-2024-45838|2024-10-17T16:54:51.865Z -- gotenna -- pro%20atak%20plugin</title>
+      <link>https://www.cve.org/CVERecord?id=CVE-2024-45838</link>
+      <description>The goTenna Pro ATAK Plugin does not encrypt callsigns in messages. It 
+is advised to not use sensitive information in callsigns when using this
+ and previous versions of the plugin. Update to current plugin version 
+which uses AES-256 encryption for callsigns in encrypted operation</description>
+      <guid isPermaLink="false">CVE-2024-45838|2024-10-17T16:54:51.865Z</guid>
+      <pubDate>Thu, 26 Sep 2024 17:31:45 +0000</pubDate>
     </item>
   </channel>
 </rss>
