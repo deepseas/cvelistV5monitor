@@ -6,7 +6,7 @@
     <description>The latest CVEs for Fedora -- all products</description>
     <docs>http://www.rssboard.org/rss-specification</docs>
     <generator>python-feedgen</generator>
-    <lastBuildDate>Thu, 17 Oct 2024 20:24:03 +0000</lastBuildDate>
+    <lastBuildDate>Thu, 17 Oct 2024 21:23:10 +0000</lastBuildDate>
     <ttl>60</ttl>
     <item>
       <title>CVE-2023-6246|2024-10-17T17:53:03.744Z -- fedora -- fedora
@@ -25,114 +25,14 @@
       <pubDate>Tue, 21 Nov 2023 20:21:20 +0000</pubDate>
     </item>
     <item>
-      <title>CVE-2024-1930|2024-08-01T18:56:22.475Z -- fedora -- dnf5daemon-server</title>
-      <link>https://www.cve.org/CVERecord?id=CVE-2024-1930</link>
-      <description>No Limit on Number of Open Sessions / Bad Session Close Behaviour  in dnf5daemon-server before 5.1.17 allows a malicious user to impact Availability via No Limit on Number of Open Sessions.
-
-There is no limit on how many sessions D-Bus clients may create using the `open_session()` D-Bus method. For each session a thread is created in dnf5daemon-server. This spends a couple of hundred megabytes of memory in the process. Further connections will become impossible, likely because no more threads can be spawned by the D-Bus service.</description>
-      <guid isPermaLink="false">CVE-2024-1930|2024-08-01T18:56:22.475Z</guid>
-      <pubDate>Wed, 08 May 2024 01:52:54 +0000</pubDate>
-    </item>
-    <item>
-      <title>CVE-2024-1929|2024-08-01T18:56:22.902Z -- fedora -- dnf5daemon-server</title>
+      <title>CVE-2024-1929|2024-09-17T21:32:39.341Z -- fedora -- dnf5daemon-server</title>
       <link>https://www.cve.org/CVERecord?id=CVE-2024-1929</link>
       <description>Local Root Exploit via Configuration Dictionary  in dnf5daemon-server before 5.1.17 allows a malicious user to impact Confidentiality and Integrity via Configuration Dictionary.
 
 There are issues with the D-Bus interface long before Polkit is invoked. The `org.rpm.dnf.v0.SessionManager.open_session` method takes a key/value map of configuration entries. A sub-entry in this map, placed under the "config" key, is another key/value map. The configuration values found in it will be forwarded as configuration overrides to the `libdnf5::Base` configuration. 
 
 Practically all libdnf5 configuration aspects can be influenced here. Already when opening the session via D-Bus, the libdnf5 will be initialized using these override configuration values. There is no sanity checking of the content of this "config" map, which is untrusted data. It is possible to make the library loading a plug-in shared library under control of an unprivileged user, hence achieving root access.</description>
-      <guid isPermaLink="false">CVE-2024-1929|2024-08-01T18:56:22.902Z</guid>
-      <pubDate>Wed, 08 May 2024 01:53:34 +0000</pubDate>
-    </item>
-    <item>
-      <title>CVE-2024-2746|2024-05-08T01:55:10.092Z -- fedora -- dnf5daemon-server</title>
-      <link>https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2024-2746</link>
-      <description>Incomplete fix for CVE-2024-1929
-
-The problem with CVE-2024-1929 was that the dnf5 D-Bus daemon accepted arbitrary configuration parameters from unprivileged users, which allowed a
-local root exploit by tricking the daemon into loading a user controlled "plugin". All of this happened before Polkit authentication was even started.
-
-The dnf5 library code does not check whether non-root users control the directory in question. 
-
-On one hand, this poses a Denial-of-Service attack vector by making the daemonoperate on a blocking file (e.g. named FIFO special file) or a very large file
-that causes an out-of-memory situation (e.g. /dev/zero). On the other hand, this can be used to let the daemon process privileged files like /etc/shadow.
-The file in question is parsed as an INI file. Error diagnostics resulting from parsing privileged files could cause information leaks, if these diagnostics
-are accessible to unprivileged users. In the case of libdnf5, no such user accessible diagnostics should exist, though.
-
-Also, a local attacker can place a valid repository configuration file in this directory. This configuration file allows to specify
-a plethora of additional configuration options. This makes various additional code paths in libdnf5 accessible to the attacker.</description>
-      <guid isPermaLink="false">CVE-2024-2746|2024-05-08T01:55:10.092Z</guid>
-      <pubDate>Wed, 08 May 2024 01:55:10 +0000</pubDate>
-    </item>
-    <item>
-      <title>CVE-2024-1929|2024-06-04T18:00:10.005Z -- fedora -- dnf5daemon-server</title>
-      <link>https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2024-1929</link>
-      <description>Local Root Exploit via Configuration Dictionary  in dnf5daemon-server before 5.1.17 allows a malicious user to impact Confidentiality and Integrity via Configuration Dictionary.
-
-There are issues with the D-Bus interface long before Polkit is invoked. The `org.rpm.dnf.v0.SessionManager.open_session` method takes a key/value map of configuration entries. A sub-entry in this map, placed under the "config" key, is another key/value map. The configuration values found in it will be forwarded as configuration overrides to the `libdnf5::Base` configuration. 
-
-Practically all libdnf5 configuration aspects can be influenced here. Already when opening the session via D-Bus, the libdnf5 will be initialized using these override configuration values. There is no sanity checking of the content of this "config" map, which is untrusted data. It is possible to make the library loading a plug-in shared library under control of an unprivileged user, hence achieving root access.</description>
-      <guid isPermaLink="false">CVE-2024-1929|2024-06-04T18:00:10.005Z</guid>
-      <pubDate>Wed, 08 May 2024 01:53:34 +0000</pubDate>
-    </item>
-    <item>
-      <title>CVE-2024-1930|2024-06-06T13:19:28.577Z -- fedora -- dnf5daemon-server</title>
-      <link>https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2024-1930</link>
-      <description>No Limit on Number of Open Sessions / Bad Session Close Behaviour  in dnf5daemon-server before 5.1.17 allows a malicious user to impact Availability via No Limit on Number of Open Sessions.
-
-There is no limit on how many sessions D-Bus clients may create using the `open_session()` D-Bus method. For each session a thread is created in dnf5daemon-server. This spends a couple of hundred megabytes of memory in the process. Further connections will become impossible, likely because no more threads can be spawned by the D-Bus service.</description>
-      <guid isPermaLink="false">CVE-2024-1930|2024-06-06T13:19:28.577Z</guid>
-      <pubDate>Wed, 08 May 2024 01:52:54 +0000</pubDate>
-    </item>
-    <item>
-      <title>CVE-2024-2746|2024-07-12T19:00:40.624Z -- fedora -- dnf5daemon-server</title>
-      <link>https://www.cve.org/CVERecord?id=CVE-2024-2746</link>
-      <description>Incomplete fix for CVE-2024-1929
-
-The problem with CVE-2024-1929 was that the dnf5 D-Bus daemon accepted arbitrary configuration parameters from unprivileged users, which allowed a
-local root exploit by tricking the daemon into loading a user controlled "plugin". All of this happened before Polkit authentication was even started.
-
-The dnf5 library code does not check whether non-root users control the directory in question. 
-
-On one hand, this poses a Denial-of-Service attack vector by making the daemonoperate on a blocking file (e.g. named FIFO special file) or a very large file
-that causes an out-of-memory situation (e.g. /dev/zero). On the other hand, this can be used to let the daemon process privileged files like /etc/shadow.
-The file in question is parsed as an INI file. Error diagnostics resulting from parsing privileged files could cause information leaks, if these diagnostics
-are accessible to unprivileged users. In the case of libdnf5, no such user accessible diagnostics should exist, though.
-
-Also, a local attacker can place a valid repository configuration file in this directory. This configuration file allows to specify
-a plethora of additional configuration options. This makes various additional code paths in libdnf5 accessible to the attacker.</description>
-      <guid isPermaLink="false">CVE-2024-2746|2024-07-12T19:00:40.624Z</guid>
-      <pubDate>Wed, 08 May 2024 01:55:10 +0000</pubDate>
-    </item>
-    <item>
-      <title>CVE-2024-2746|2024-08-01T19:25:41.295Z -- fedora -- dnf5daemon-server</title>
-      <link>https://www.cve.org/CVERecord?id=CVE-2024-2746</link>
-      <description>Incomplete fix for CVE-2024-1929
-
-The problem with CVE-2024-1929 was that the dnf5 D-Bus daemon accepted arbitrary configuration parameters from unprivileged users, which allowed a
-local root exploit by tricking the daemon into loading a user controlled "plugin". All of this happened before Polkit authentication was even started.
-
-The dnf5 library code does not check whether non-root users control the directory in question. 
-
-On one hand, this poses a Denial-of-Service attack vector by making the daemonoperate on a blocking file (e.g. named FIFO special file) or a very large file
-that causes an out-of-memory situation (e.g. /dev/zero). On the other hand, this can be used to let the daemon process privileged files like /etc/shadow.
-The file in question is parsed as an INI file. Error diagnostics resulting from parsing privileged files could cause information leaks, if these diagnostics
-are accessible to unprivileged users. In the case of libdnf5, no such user accessible diagnostics should exist, though.
-
-Also, a local attacker can place a valid repository configuration file in this directory. This configuration file allows to specify
-a plethora of additional configuration options. This makes various additional code paths in libdnf5 accessible to the attacker.</description>
-      <guid isPermaLink="false">CVE-2024-2746|2024-08-01T19:25:41.295Z</guid>
-      <pubDate>Wed, 08 May 2024 01:55:10 +0000</pubDate>
-    </item>
-    <item>
-      <title>CVE-2024-1929|2024-08-12T18:26:42.569Z -- fedora -- dnf5daemon-server</title>
-      <link>https://www.cve.org/CVERecord?id=CVE-2024-1929</link>
-      <description>Local Root Exploit via Configuration Dictionary  in dnf5daemon-server before 5.1.17 allows a malicious user to impact Confidentiality and Integrity via Configuration Dictionary.
-
-There are issues with the D-Bus interface long before Polkit is invoked. The `org.rpm.dnf.v0.SessionManager.open_session` method takes a key/value map of configuration entries. A sub-entry in this map, placed under the "config" key, is another key/value map. The configuration values found in it will be forwarded as configuration overrides to the `libdnf5::Base` configuration. 
-
-Practically all libdnf5 configuration aspects can be influenced here. Already when opening the session via D-Bus, the libdnf5 will be initialized using these override configuration values. There is no sanity checking of the content of this "config" map, which is untrusted data. It is possible to make the library loading a plug-in shared library under control of an unprivileged user, hence achieving root access.</description>
-      <guid isPermaLink="false">CVE-2024-1929|2024-08-12T18:26:42.569Z</guid>
+      <guid isPermaLink="false">CVE-2024-1929|2024-09-17T21:32:39.341Z</guid>
       <pubDate>Wed, 08 May 2024 01:53:34 +0000</pubDate>
     </item>
     <item>
@@ -156,15 +56,115 @@ a plethora of additional configuration options. This makes various additional c
       <pubDate>Wed, 08 May 2024 01:55:10 +0000</pubDate>
     </item>
     <item>
-      <title>CVE-2024-1929|2024-09-17T21:32:39.341Z -- fedora -- dnf5daemon-server</title>
+      <title>CVE-2024-1929|2024-08-12T18:26:42.569Z -- fedora -- dnf5daemon-server</title>
       <link>https://www.cve.org/CVERecord?id=CVE-2024-1929</link>
       <description>Local Root Exploit via Configuration Dictionary  in dnf5daemon-server before 5.1.17 allows a malicious user to impact Confidentiality and Integrity via Configuration Dictionary.
 
 There are issues with the D-Bus interface long before Polkit is invoked. The `org.rpm.dnf.v0.SessionManager.open_session` method takes a key/value map of configuration entries. A sub-entry in this map, placed under the "config" key, is another key/value map. The configuration values found in it will be forwarded as configuration overrides to the `libdnf5::Base` configuration. 
 
 Practically all libdnf5 configuration aspects can be influenced here. Already when opening the session via D-Bus, the libdnf5 will be initialized using these override configuration values. There is no sanity checking of the content of this "config" map, which is untrusted data. It is possible to make the library loading a plug-in shared library under control of an unprivileged user, hence achieving root access.</description>
-      <guid isPermaLink="false">CVE-2024-1929|2024-09-17T21:32:39.341Z</guid>
+      <guid isPermaLink="false">CVE-2024-1929|2024-08-12T18:26:42.569Z</guid>
       <pubDate>Wed, 08 May 2024 01:53:34 +0000</pubDate>
+    </item>
+    <item>
+      <title>CVE-2024-2746|2024-08-01T19:25:41.295Z -- fedora -- dnf5daemon-server</title>
+      <link>https://www.cve.org/CVERecord?id=CVE-2024-2746</link>
+      <description>Incomplete fix for CVE-2024-1929
+
+The problem with CVE-2024-1929 was that the dnf5 D-Bus daemon accepted arbitrary configuration parameters from unprivileged users, which allowed a
+local root exploit by tricking the daemon into loading a user controlled "plugin". All of this happened before Polkit authentication was even started.
+
+The dnf5 library code does not check whether non-root users control the directory in question. 
+
+On one hand, this poses a Denial-of-Service attack vector by making the daemonoperate on a blocking file (e.g. named FIFO special file) or a very large file
+that causes an out-of-memory situation (e.g. /dev/zero). On the other hand, this can be used to let the daemon process privileged files like /etc/shadow.
+The file in question is parsed as an INI file. Error diagnostics resulting from parsing privileged files could cause information leaks, if these diagnostics
+are accessible to unprivileged users. In the case of libdnf5, no such user accessible diagnostics should exist, though.
+
+Also, a local attacker can place a valid repository configuration file in this directory. This configuration file allows to specify
+a plethora of additional configuration options. This makes various additional code paths in libdnf5 accessible to the attacker.</description>
+      <guid isPermaLink="false">CVE-2024-2746|2024-08-01T19:25:41.295Z</guid>
+      <pubDate>Wed, 08 May 2024 01:55:10 +0000</pubDate>
+    </item>
+    <item>
+      <title>CVE-2024-2746|2024-07-12T19:00:40.624Z -- fedora -- dnf5daemon-server</title>
+      <link>https://www.cve.org/CVERecord?id=CVE-2024-2746</link>
+      <description>Incomplete fix for CVE-2024-1929
+
+The problem with CVE-2024-1929 was that the dnf5 D-Bus daemon accepted arbitrary configuration parameters from unprivileged users, which allowed a
+local root exploit by tricking the daemon into loading a user controlled "plugin". All of this happened before Polkit authentication was even started.
+
+The dnf5 library code does not check whether non-root users control the directory in question. 
+
+On one hand, this poses a Denial-of-Service attack vector by making the daemonoperate on a blocking file (e.g. named FIFO special file) or a very large file
+that causes an out-of-memory situation (e.g. /dev/zero). On the other hand, this can be used to let the daemon process privileged files like /etc/shadow.
+The file in question is parsed as an INI file. Error diagnostics resulting from parsing privileged files could cause information leaks, if these diagnostics
+are accessible to unprivileged users. In the case of libdnf5, no such user accessible diagnostics should exist, though.
+
+Also, a local attacker can place a valid repository configuration file in this directory. This configuration file allows to specify
+a plethora of additional configuration options. This makes various additional code paths in libdnf5 accessible to the attacker.</description>
+      <guid isPermaLink="false">CVE-2024-2746|2024-07-12T19:00:40.624Z</guid>
+      <pubDate>Wed, 08 May 2024 01:55:10 +0000</pubDate>
+    </item>
+    <item>
+      <title>CVE-2024-1930|2024-06-06T13:19:28.577Z -- fedora -- dnf5daemon-server</title>
+      <link>https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2024-1930</link>
+      <description>No Limit on Number of Open Sessions / Bad Session Close Behaviour  in dnf5daemon-server before 5.1.17 allows a malicious user to impact Availability via No Limit on Number of Open Sessions.
+
+There is no limit on how many sessions D-Bus clients may create using the `open_session()` D-Bus method. For each session a thread is created in dnf5daemon-server. This spends a couple of hundred megabytes of memory in the process. Further connections will become impossible, likely because no more threads can be spawned by the D-Bus service.</description>
+      <guid isPermaLink="false">CVE-2024-1930|2024-06-06T13:19:28.577Z</guid>
+      <pubDate>Wed, 08 May 2024 01:52:54 +0000</pubDate>
+    </item>
+    <item>
+      <title>CVE-2024-1929|2024-06-04T18:00:10.005Z -- fedora -- dnf5daemon-server</title>
+      <link>https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2024-1929</link>
+      <description>Local Root Exploit via Configuration Dictionary  in dnf5daemon-server before 5.1.17 allows a malicious user to impact Confidentiality and Integrity via Configuration Dictionary.
+
+There are issues with the D-Bus interface long before Polkit is invoked. The `org.rpm.dnf.v0.SessionManager.open_session` method takes a key/value map of configuration entries. A sub-entry in this map, placed under the "config" key, is another key/value map. The configuration values found in it will be forwarded as configuration overrides to the `libdnf5::Base` configuration. 
+
+Practically all libdnf5 configuration aspects can be influenced here. Already when opening the session via D-Bus, the libdnf5 will be initialized using these override configuration values. There is no sanity checking of the content of this "config" map, which is untrusted data. It is possible to make the library loading a plug-in shared library under control of an unprivileged user, hence achieving root access.</description>
+      <guid isPermaLink="false">CVE-2024-1929|2024-06-04T18:00:10.005Z</guid>
+      <pubDate>Wed, 08 May 2024 01:53:34 +0000</pubDate>
+    </item>
+    <item>
+      <title>CVE-2024-2746|2024-05-08T01:55:10.092Z -- fedora -- dnf5daemon-server</title>
+      <link>https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2024-2746</link>
+      <description>Incomplete fix for CVE-2024-1929
+
+The problem with CVE-2024-1929 was that the dnf5 D-Bus daemon accepted arbitrary configuration parameters from unprivileged users, which allowed a
+local root exploit by tricking the daemon into loading a user controlled "plugin". All of this happened before Polkit authentication was even started.
+
+The dnf5 library code does not check whether non-root users control the directory in question. 
+
+On one hand, this poses a Denial-of-Service attack vector by making the daemonoperate on a blocking file (e.g. named FIFO special file) or a very large file
+that causes an out-of-memory situation (e.g. /dev/zero). On the other hand, this can be used to let the daemon process privileged files like /etc/shadow.
+The file in question is parsed as an INI file. Error diagnostics resulting from parsing privileged files could cause information leaks, if these diagnostics
+are accessible to unprivileged users. In the case of libdnf5, no such user accessible diagnostics should exist, though.
+
+Also, a local attacker can place a valid repository configuration file in this directory. This configuration file allows to specify
+a plethora of additional configuration options. This makes various additional code paths in libdnf5 accessible to the attacker.</description>
+      <guid isPermaLink="false">CVE-2024-2746|2024-05-08T01:55:10.092Z</guid>
+      <pubDate>Wed, 08 May 2024 01:55:10 +0000</pubDate>
+    </item>
+    <item>
+      <title>CVE-2024-1929|2024-08-01T18:56:22.902Z -- fedora -- dnf5daemon-server</title>
+      <link>https://www.cve.org/CVERecord?id=CVE-2024-1929</link>
+      <description>Local Root Exploit via Configuration Dictionary  in dnf5daemon-server before 5.1.17 allows a malicious user to impact Confidentiality and Integrity via Configuration Dictionary.
+
+There are issues with the D-Bus interface long before Polkit is invoked. The `org.rpm.dnf.v0.SessionManager.open_session` method takes a key/value map of configuration entries. A sub-entry in this map, placed under the "config" key, is another key/value map. The configuration values found in it will be forwarded as configuration overrides to the `libdnf5::Base` configuration. 
+
+Practically all libdnf5 configuration aspects can be influenced here. Already when opening the session via D-Bus, the libdnf5 will be initialized using these override configuration values. There is no sanity checking of the content of this "config" map, which is untrusted data. It is possible to make the library loading a plug-in shared library under control of an unprivileged user, hence achieving root access.</description>
+      <guid isPermaLink="false">CVE-2024-1929|2024-08-01T18:56:22.902Z</guid>
+      <pubDate>Wed, 08 May 2024 01:53:34 +0000</pubDate>
+    </item>
+    <item>
+      <title>CVE-2024-1930|2024-08-01T18:56:22.475Z -- fedora -- dnf5daemon-server</title>
+      <link>https://www.cve.org/CVERecord?id=CVE-2024-1930</link>
+      <description>No Limit on Number of Open Sessions / Bad Session Close Behaviour  in dnf5daemon-server before 5.1.17 allows a malicious user to impact Availability via No Limit on Number of Open Sessions.
+
+There is no limit on how many sessions D-Bus clients may create using the `open_session()` D-Bus method. For each session a thread is created in dnf5daemon-server. This spends a couple of hundred megabytes of memory in the process. Further connections will become impossible, likely because no more threads can be spawned by the D-Bus service.</description>
+      <guid isPermaLink="false">CVE-2024-1930|2024-08-01T18:56:22.475Z</guid>
+      <pubDate>Wed, 08 May 2024 01:52:54 +0000</pubDate>
     </item>
   </channel>
 </rss>
