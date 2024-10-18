@@ -6,10 +6,10 @@
     <description>The latest CVEs for MessagePack-CSharp -- all products</description>
     <docs>http://www.rssboard.org/rss-specification</docs>
     <generator>python-feedgen</generator>
-    <lastBuildDate>Thu, 17 Oct 2024 21:23:06 +0000</lastBuildDate>
+    <lastBuildDate>Fri, 18 Oct 2024 18:24:50 +0000</lastBuildDate>
     <ttl>60</ttl>
     <item>
-      <title>CVE-2024-48924|2024-10-17T20:36:40.570Z -- messagepack-csharp -- messagepack-csharp
+      <title>CVE-2024-48924|2024-10-18T17:20:11.062Z -- messagepack-csharp -- messagepack-csharp
 </title>
       <link>https://www.cve.org/CVERecord?id=CVE-2024-48924</link>
       <description>### Impact
@@ -31,6 +31,45 @@ If upgrading MessagePack to a patched version is not an option for you, you may 
 
 1. Declare a class that derives from `MessagePackSecurity`.
 2. Override the `GetHashCollisionResistantEqualityComparer&lt;T&gt;` method to provide a collision-resistant hash function of your own and avoid calling `base.GetHashCollisionResistantEqualityComparer&lt;T&gt;()`.
+3. Configure a `MessagePackSerializerOptions` with an instance of your derived type by calling `WithSecurity` on an existing options object.
+4. Use your custom options object for all deserialization operations. This may be by setting the `MessagePackSerializer.DefaultOptions` static property, if you call methods that rely on this default property, and/or by passing in the options object explicitly to any `Deserialize` method.
+
+### References
+
+- Learn more about best security practices when reading untrusted data with [MessagePack 1.x](https://github.com/MessagePack-CSharp/MessagePack-CSharp/tree/v1.x#security) or [MessagePack 2.x](https://github.com/MessagePack-CSharp/MessagePack-CSharp#security).
+- The .NET team's [discussion on hash collision vulnerabilities of their `HashCode` struct](https://github.com/GrabYourPitchforks/runtime/blob/threat_models/docs/design/security/System.HashCode.md).
+
+### For more information
+
+If you have any questions or comments about this advisory:
+
+* [Start a public discussion](https://github.com/MessagePack-CSharp/MessagePack-CSharp/discussions)
+* [Email us privately](mailto:andrewarnott@live.com)</description>
+      <guid isPermaLink="false">CVE-2024-48924|2024-10-18T17:20:11.062Z</guid>
+      <pubDate>Thu, 17 Oct 2024 20:36:40 +0000</pubDate>
+    </item>
+    <item>
+      <title>CVE-2024-48924|2024-10-17T20:36:40.570Z -- messagepack-csharp -- messagepack-csharp</title>
+      <link>https://www.cve.org/CVERecord?id=CVE-2024-48924</link>
+      <description>### Impact
+
+When this library is used to deserialize messagepack data from an untrusted source, there is a risk of a denial of service attack by an attacker that sends data contrived to produce hash collisions, leading to large CPU consumption disproportionate to the size of the data being deserialized.
+
+This is similar to [a prior advisory](https://github.com/MessagePack-CSharp/MessagePack-CSharp/security/advisories/GHSA-7q36-4xx7-xcxf), which provided an inadequate fix for the hash collision part of the vulnerability.
+
+### Patches
+
+The following steps are required to mitigate this risk.
+
+1. Upgrade to a version of the library where a fix is available.
+1. Review the steps in [this previous advisory](https://github.com/MessagePack-CSharp/MessagePack-CSharp/security/advisories/GHSA-7q36-4xx7-xcxf) to ensure you have your application configured for untrusted data.
+
+### Workarounds
+
+If upgrading MessagePack to a patched version is not an option for you, you may apply a manual workaround as follows:
+
+1. Declare a class that derives from `MessagePackSecurity`.
+2. Override the `GetHashCollisionResistantEqualityComparer` method to provide a collision-resistant hash function of your own and avoid calling `base.GetHashCollisionResistantEqualityComparer()`.
 3. Configure a `MessagePackSerializerOptions` with an instance of your derived type by calling `WithSecurity` on an existing options object.
 4. Use your custom options object for all deserialization operations. This may be by setting the `MessagePackSerializer.DefaultOptions` static property, if you call methods that rely on this default property, and/or by passing in the options object explicitly to any `Deserialize` method.
 
