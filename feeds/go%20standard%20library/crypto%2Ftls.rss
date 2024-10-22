@@ -6,23 +6,15 @@
     <description>The latest CVEs for Go standard library -- crypto/tls</description>
     <docs>http://www.rssboard.org/rss-specification</docs>
     <generator>python-feedgen</generator>
-    <lastBuildDate>Thu, 26 Sep 2024 23:23:58 +0000</lastBuildDate>
+    <lastBuildDate>Tue, 22 Oct 2024 15:23:58 +0000</lastBuildDate>
     <ttl>60</ttl>
     <item>
-      <title>CVE-2023-39321|2024-09-26T17:25:25.677Z -- go%20standard%20library -- crypto%2Ftls
+      <title>CVE-2023-29409|2024-10-22T14:16:01.839Z -- go%20standard%20library -- crypto%2Ftls
 </title>
-      <link>https://www.cve.org/CVERecord?id=CVE-2023-39321</link>
-      <description>Processing an incomplete post-handshake message for a QUIC connection can cause a panic.</description>
-      <guid isPermaLink="false">CVE-2023-39321|2024-09-26T17:25:25.677Z</guid>
-      <pubDate>Fri, 08 Sep 2023 16:13:30 +0000</pubDate>
-    </item>
-    <item>
-      <title>CVE-2023-39322|2024-09-26T15:56:13.357Z -- go%20standard%20library -- crypto%2Ftls
-</title>
-      <link>https://www.cve.org/CVERecord?id=CVE-2023-39322</link>
-      <description>QUIC connections do not set an upper bound on the amount of data buffered when reading post-handshake messages, allowing a malicious QUIC connection to cause unbounded memory growth. With fix, connections now consistently reject messages larger than 65KiB in size.</description>
-      <guid isPermaLink="false">CVE-2023-39322|2024-09-26T15:56:13.357Z</guid>
-      <pubDate>Fri, 08 Sep 2023 16:13:32 +0000</pubDate>
+      <link>https://www.cve.org/CVERecord?id=CVE-2023-29409</link>
+      <description>Extremely large RSA keys in certificate chains can cause a client/server to expend significant CPU time verifying signatures. With fix, the size of RSA keys transmitted during handshakes is restricted to &lt;= 8192 bits. Based on a survey of publicly trusted RSA keys, there are currently only three certificates in circulation with keys larger than this, and all three appear to be test certificates that are not actively deployed. It is possible there are larger keys in use in private PKIs, but we target the web PKI, so causing breakage here in the interests of increasing the default safety of users of crypto/tls seems reasonable.</description>
+      <guid isPermaLink="false">CVE-2023-29409|2024-10-22T14:16:01.839Z</guid>
+      <pubDate>Wed, 02 Aug 2023 19:47:23 +0000</pubDate>
     </item>
   </channel>
 </rss>
