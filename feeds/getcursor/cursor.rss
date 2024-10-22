@@ -6,11 +6,20 @@
     <description>The latest CVEs for getcursor -- cursor</description>
     <docs>http://www.rssboard.org/rss-specification</docs>
     <generator>python-feedgen</generator>
-    <lastBuildDate>Tue, 24 Sep 2024 19:19:51 +0000</lastBuildDate>
+    <lastBuildDate>Tue, 22 Oct 2024 22:23:37 +0000</lastBuildDate>
     <ttl>60</ttl>
     <item>
-      <title>CVE-2024-45599|2024-09-24T18:35:10.233Z -- getcursor -- cursor
+      <title>CVE-2024-48919|2024-10-22T20:58:21.962Z -- getcursor -- cursor
 </title>
+      <link>https://www.cve.org/CVERecord?id=CVE-2024-48919</link>
+      <description>Cursor is a code editor built for programming with AI. Prior to Sep 27, 2024, if a user generated a terminal command via Cursor's Terminal Cmd-K/Ctrl-K feature and if the user explicitly imported a malicious web page into the Terminal Cmd-K prompt, an attacker with control over the referenced web page could have a significant chance of influencing a language model to output arbitrary commands for execution in the user's terminal. This scenario would require the user explicitly opt-in to including the contents of a compromised webpage, and it would require that the attacker display prompt injection text in the the contents of the compromised webpage.
+
+A server-side patch to not stream back newlines or control characters was released on September 27, 2024, within two hours of the issue being reported. Additionally, Cursor 0.42 includes client-side mitigations to prevent any newline or control character from being streamed into the terminal directly. It also contains a new setting, `"cursor.terminal.usePreviewBox"`, which, if set to true, streams the response into a preview box whose contents then have to be manually accepted before being inserted into the terminal. This setting is useful if you're working in a shell environment where commands can be executed without pressing enter or any control character. The patch has been applied server-side, so no additional action is needed, even on older versions of Cursor. Separately, Cursor's maintainers also recommend, as best practice, to only include trusted pieces of context in prompts.</description>
+      <guid isPermaLink="false">CVE-2024-48919|2024-10-22T20:58:21.962Z</guid>
+      <pubDate>Tue, 22 Oct 2024 20:58:21 +0000</pubDate>
+    </item>
+    <item>
+      <title>CVE-2024-45599|2024-09-24T18:35:10.233Z -- getcursor -- cursor</title>
       <link>https://www.cve.org/CVERecord?id=CVE-2024-45599</link>
       <description>Cursor is an artificial intelligence code editor. Prior to version 0.41.0, if a user on macOS has granted Cursor access to the camera or microphone, any program that is run on the machine is able to access the camera or the microphone without explicitly being granted access, through a DyLib Injection using DYLD_INSERT_LIBRARIES environment variable. The usage of `com.apple.security.cs.allow-dyld-environment-variables` and `com.apple.security.cs.disable-library-validation` allows an external dynamic library to be injected into the application using DYLD_INSERT_LIBRARIES environment variable. 
 Moreover, the entitlement `com.apple.security.device.camera` allows the application to use the host camera and `com.apple.security.device.audio-input` allows the application to use the microphone. This means that untrusted code that is executed on the user's machine can access the camera or the microphone, if the user has already given permission for Cursor to do so. In version 0.41.0, the entitlements have been split by process: the main process gets the camera and microphone entitlements, but not the DyLib entitlements, whereas the extension host process gets the DyLib entitlements but not the camera or microphone entitlements. As a workaround, do not explicitly give Cursor the permission to access the camera or microphone if untrusted users can run arbitrary commands on the affected machine.</description>
