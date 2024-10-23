@@ -6,19 +6,19 @@
     <description>The latest CVEs for getkirby -- kirby</description>
     <docs>http://www.rssboard.org/rss-specification</docs>
     <generator>python-feedgen</generator>
-    <lastBuildDate>Tue, 22 Oct 2024 23:23:55 +0000</lastBuildDate>
+    <lastBuildDate>Wed, 23 Oct 2024 14:23:03 +0000</lastBuildDate>
     <ttl>60</ttl>
     <item>
-      <title>CVE-2023-38492|2024-10-22T20:19:13.669Z -- getkirby -- kirby
+      <title>CVE-2023-38489|2024-10-23T13:34:03.258Z -- getkirby -- kirby
 </title>
-      <link>https://www.cve.org/CVERecord?id=CVE-2023-38492</link>
-      <description>Kirby is a content management system. A vulnerability in versions prior to 3.5.8.3, 3.6.6.3, 3.7.5.2, 3.8.4.1, and 3.9.6 affects all Kirby sites with user accounts (unless Kirby's API and Panel are disabled in the config). The real-world impact of this vulnerability is limited, however we still recommend to update to one of the patch releases because they also fix more severe vulnerabilities.
+      <link>https://www.cve.org/CVERecord?id=CVE-2023-38489</link>
+      <description>Kirby is a content management system. A vulnerability in versions prior to 3.5.8.3, 3.6.6.3, 3.7.5.2, 3.8.4.1, and 3.9.6 affects all Kirby sites with user accounts (unless Kirby's API and Panel are disabled in the config). It can only be abused if a Kirby user is logged in on a device or browser that is shared with potentially untrusted users or if an attacker already maliciously used a previous password to log in to a Kirby site as the affected user.
 
-Kirby's authentication endpoint did not limit the password length. This allowed attackers to provide a password with a length up to the server's maximum request body length. Validating that password against the user's actual password requires hashing the provided password, which requires more CPU and memory resources (and therefore processing time) the longer the provided password gets. This could be abused by an attacker to cause the website to become unresponsive or unavailable. Because Kirby comes with a built-in brute force protection, the impact of this vulnerability is limited to 10 failed logins from each IP address and 10 failed logins for each existing user per hour.
+Insufficient Session Expiration is when a web site permits an attacker to reuse old session credentials or session IDs for authorization. In the variation described in this advisory, it allows attackers to stay logged in to a Kirby site on another device even if the logged in user has since changed their password. Kirby did not invalidate user sessions that were created with a password that was since changed by the user or by a site admin. If a user changed their password to lock out an attacker who was already in possession of the previous password or of a login session on another device or browser, the attacker would not be reliably prevented from accessing the Kirby site as the affected user.
 
-The problem has been patched in Kirby 3.5.8.3, 3.6.6.3, 3.7.5.2, 3.8.4.1, and 3.9.6. In all of the mentioned releases, the maintainers have added password length limits in the affected code so that passwords longer than 1000 bytes are immediately blocked, both when setting a password and when logging in.</description>
-      <guid isPermaLink="false">CVE-2023-38492|2024-10-22T20:19:13.669Z</guid>
-      <pubDate>Thu, 27 Jul 2023 15:43:55 +0000</pubDate>
+The problem has been patched in Kirby 3.5.8.3, 3.6.6.3, 3.7.5.2, 3.8.4.1, and 3.9.6. In all of the mentioned releases, the maintainers have updated the authentication implementation to keep track of the hashed password in each active session. If the password changed since the login, the session is invalidated. To enforce this fix even if the vulnerability was previously abused, all users are logged out from the Kirby site after updating to one of the patched releases.</description>
+      <guid isPermaLink="false">CVE-2023-38489|2024-10-23T13:34:03.258Z</guid>
+      <pubDate>Thu, 27 Jul 2023 14:36:46 +0000</pubDate>
     </item>
     <item>
       <title>CVE-2024-41964|2024-08-29T16:36:08.820Z -- getkirby -- kirby</title>
