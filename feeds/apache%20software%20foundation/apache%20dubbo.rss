@@ -6,55 +6,17 @@
     <description>The latest CVEs for Apache Software Foundation -- Apache Dubbo</description>
     <docs>http://www.rssboard.org/rss-specification</docs>
     <generator>python-feedgen</generator>
-    <lastBuildDate>Sun, 04 Aug 2024 23:23:12 +0000</lastBuildDate>
+    <lastBuildDate>Wed, 23 Oct 2024 17:22:59 +0000</lastBuildDate>
     <ttl>60</ttl>
     <item>
-      <title>CVE-2021-37579|2024-08-04T01:23:01.305Z -- apache%20software%20foundation -- apache%20dubbo
+      <title>CVE-2023-23638|2024-10-23T16:41:29.622Z -- apache%20software%20foundation -- apache%20dubbo
 </title>
-      <link>https://www.cve.org/CVERecord?id=CVE-2021-37579</link>
-      <description>The Dubbo Provider will check the incoming request and the corresponding serialization type of this request meet the configuration set by the server. But there's an exception that the attacker can use to skip the security check (when enabled) and reaching a deserialization operation with native java serialization. Apache Dubbo 2.7.13, 3.0.2 fixed this issue by quickly fail when any unrecognized request was found.</description>
-      <guid isPermaLink="false">CVE-2021-37579|2024-08-04T01:23:01.305Z</guid>
-      <pubDate>Thu, 09 Sep 2021 07:45:12 +0000</pubDate>
-    </item>
-    <item>
-      <title>CVE-2021-36163|2024-08-04T00:47:43.869Z -- apache%20software%20foundation -- apache%20dubbo
-</title>
-      <link>https://www.cve.org/CVERecord?id=CVE-2021-36163</link>
-      <description>In Apache Dubbo, users may choose to use the Hessian protocol. The Hessian protocol is implemented on top of HTTP and passes the body of a POST request directly to a HessianSkeleton: New HessianSkeleton are created without any configuration of the serialization factory and therefore without applying the dubbo properties for applying allowed or blocked type lists. In addition, the generic service is always exposed and therefore attackers do not need to figure out a valid service/method name pair. This is fixed in 2.7.13, 2.6.10.1</description>
-      <guid isPermaLink="false">CVE-2021-36163|2024-08-04T00:47:43.869Z</guid>
-      <pubDate>Tue, 07 Sep 2021 09:25:11 +0000</pubDate>
-    </item>
-    <item>
-      <title>CVE-2021-36161|2024-08-04T00:47:43.813Z -- apache%20software%20foundation -- apache%20dubbo
-</title>
-      <link>https://www.cve.org/CVERecord?id=CVE-2021-36161</link>
-      <description>Some component in Dubbo will try to print the formated string of the input arguments, which will possibly cause RCE for a maliciously customized bean with special toString method. In the latest version, we fix the toString call in timeout, cache and some other places. Fixed in Apache Dubbo 2.7.13</description>
-      <guid isPermaLink="false">CVE-2021-36161|2024-08-04T00:47:43.813Z</guid>
-      <pubDate>Thu, 09 Sep 2021 07:45:11 +0000</pubDate>
-    </item>
-    <item>
-      <title>CVE-2021-43297|2024-08-04T03:55:28.375Z -- apache%20software%20foundation -- apache%20dubbo
-</title>
-      <link>https://www.cve.org/CVERecord?id=CVE-2021-43297</link>
-      <description>A deserialization vulnerability existed in dubbo hessian-lite 3.2.11 and its earlier versions, which could lead to malicious code execution. Most Dubbo users use Hessian2 as the default serialization/deserialization protocol, during Hessian catch unexpected exceptions, Hessian will log out some imformation for users, which may cause remote command execution. This issue affects Apache Dubbo Apache Dubbo 2.6.x versions prior to 2.6.12; Apache Dubbo 2.7.x versions prior to 2.7.15; Apache Dubbo 3.0.x versions prior to 3.0.5.</description>
-      <guid isPermaLink="false">CVE-2021-43297|2024-08-04T03:55:28.375Z</guid>
-      <pubDate>Mon, 10 Jan 2022 15:25:48 +0000</pubDate>
-    </item>
-    <item>
-      <title>CVE-2020-11995|2024-08-04T11:48:57.070Z -- apache%20software%20foundation -- apache%20dubbo
-</title>
-      <link>https://www.cve.org/CVERecord?id=CVE-2020-11995</link>
-      <description>A deserialization vulnerability existed in dubbo 2.7.5 and its earlier versions, which could lead to malicious code execution. Most Dubbo users use Hessian2 as the default serialization/deserialization protool, during Hessian2 deserializing the HashMap object, some functions in the classes stored in HasMap will be executed after a series of program calls, however, those special functions may cause remote command execution. For example, the hashCode() function of the EqualsBean class in rome-1.7.0.jar will cause the remotely load malicious classes and execute malicious code by constructing a malicious request. This issue was fixed in Apache Dubbo 2.6.9 and 2.7.8.</description>
-      <guid isPermaLink="false">CVE-2020-11995|2024-08-04T11:48:57.070Z</guid>
-      <pubDate>Mon, 11 Jan 2021 09:40:19 +0000</pubDate>
-    </item>
-    <item>
-      <title>CVE-2021-36162|2024-08-04T00:47:43.888Z -- apache%20software%20foundation -- apache%20dubbo
-</title>
-      <link>https://www.cve.org/CVERecord?id=CVE-2021-36162</link>
-      <description>Apache Dubbo supports various rules to support configuration override or traffic routing (called routing in Dubbo). These rules are loaded into the configuration center (eg: Zookeeper, Nacos, ...) and retrieved by the customers when making a request in order to find the right endpoint. When parsing these YAML rules, Dubbo customers will use SnakeYAML library to load the rules which by default will enable calling arbitrary constructors. An attacker with access to the configuration center he will be able to poison the rule so when retrieved by the consumers, it will get RCE on all of them. This was fixed in Dubbo 2.7.13, 3.0.2</description>
-      <guid isPermaLink="false">CVE-2021-36162|2024-08-04T00:47:43.888Z</guid>
-      <pubDate>Tue, 07 Sep 2021 09:25:10 +0000</pubDate>
+      <link>https://www.cve.org/CVERecord?id=CVE-2023-23638</link>
+      <description>A deserialization vulnerability existed when dubbo generic invoke, which could lead to malicious code execution. 
+
+This issue affects Apache Dubbo 2.7.x version 2.7.21 and prior versions; Apache Dubbo 3.0.x version 3.0.13 and prior versions; Apache Dubbo 3.1.x version 3.1.5 and prior versions. </description>
+      <guid isPermaLink="false">CVE-2023-23638|2024-10-23T16:41:29.622Z</guid>
+      <pubDate>Wed, 08 Mar 2023 10:48:58 +0000</pubDate>
     </item>
   </channel>
 </rss>
