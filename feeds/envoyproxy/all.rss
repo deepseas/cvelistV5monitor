@@ -6,7 +6,7 @@
     <description>The latest CVEs for envoyproxy -- all products</description>
     <docs>http://www.rssboard.org/rss-specification</docs>
     <generator>python-feedgen</generator>
-    <lastBuildDate>Wed, 23 Oct 2024 21:22:52 +0000</lastBuildDate>
+    <lastBuildDate>Wed, 23 Oct 2024 22:23:48 +0000</lastBuildDate>
     <ttl>60</ttl>
     <item>
       <title>CVE-2023-35944|2024-10-23T20:18:42.493Z -- envoyproxy -- envoy
@@ -17,94 +17,108 @@
       <pubDate>Tue, 25 Jul 2023 18:35:59 +0000</pubDate>
     </item>
     <item>
-      <title>CVE-2024-32976|2024-09-03T15:41:58.146Z -- envoyproxy -- envoy</title>
-      <link>https://www.cve.org/CVERecord?id=CVE-2024-32976</link>
-      <description>Envoy is a cloud-native, open source edge and service proxy. Envoyproxy with a Brotli filter can get into an endless loop during decompression of Brotli data with extra input.</description>
-      <guid isPermaLink="false">CVE-2024-32976|2024-09-03T15:41:58.146Z</guid>
-      <pubDate>Tue, 04 Jun 2024 20:59:59 +0000</pubDate>
+      <title>CVE-2024-45807|2024-09-20T17:26:33.330Z -- envoyproxy -- envoy</title>
+      <link>https://www.cve.org/CVERecord?id=CVE-2024-45807</link>
+      <description>Envoy is a cloud-native high-performance edge/middle/service proxy. Envoy's 1.31 is using `oghttp` as the default HTTP/2 codec, and there are potential bugs around stream management in the codec. To resolve this Envoy will switch off the `oghttp2` by default. The impact of this issue is that envoy will crash. This issue has been addressed in release version 1.31.2. All users are advised to upgrade. There are no known workarounds for this issue.</description>
+      <guid isPermaLink="false">CVE-2024-45807|2024-09-20T17:26:33.330Z</guid>
+      <pubDate>Thu, 19 Sep 2024 23:34:28 +0000</pubDate>
     </item>
     <item>
-      <title>CVE-2024-39305|2024-08-02T04:19:20.740Z -- envoyproxy -- envoy</title>
-      <link>https://www.cve.org/CVERecord?id=CVE-2024-39305</link>
-      <description>Envoy is a cloud-native, open source edge and service proxy. Prior to versions 1.30.4, 1.29.7, 1.28.5, and 1.27.7. Envoy references already freed memory when route hash policy is configured with cookie attributes. Note that this vulnerability has been fixed in the open as the effect would be immediately apparent if it was configured. Memory allocated for holding attribute values is freed after configuration was parsed. During request processing Envoy will attempt to copy content of de-allocated memory into request cookie header. This can lead to arbitrary content of Envoy's memory to be sent to the upstream service or abnormal process termination. This vulnerability is fixed in Envoy versions v1.30.4, v1.29.7, v1.28.5, and v1.27.7. As a workaround, do not use cookie attributes in route action hash policy.</description>
-      <guid isPermaLink="false">CVE-2024-39305|2024-08-02T04:19:20.740Z</guid>
-      <pubDate>Mon, 01 Jul 2024 21:10:23 +0000</pubDate>
+      <title>CVE-2024-45806|2024-09-20T17:28:05.598Z -- envoyproxy -- envoy</title>
+      <link>https://www.cve.org/CVERecord?id=CVE-2024-45806</link>
+      <description>Envoy is a cloud-native high-performance edge/middle/service proxy. A security vulnerability in Envoy allows external clients to manipulate Envoy headers, potentially leading to unauthorized access or other malicious actions within the mesh. This issue arises due to Envoy's default configuration of internal trust boundaries, which considers all RFC1918 private address ranges as internal. The default behavior for handling internal addresses in Envoy has been changed. Previously, RFC1918 IP addresses were automatically considered internal, even if the internal_address_config was empty.  The default configuration of Envoy will continue to trust internal addresses while in this release and it will not trust them by default in next release. If you have tooling such as probes on your private network which need to be treated as trusted (e.g. changing arbitrary x-envoy headers) please explicitly include those addresses or CIDR ranges into `internal_address_config`. Successful exploitation could allow attackers to bypass security controls, access sensitive data, or disrupt services within the mesh, like Istio. This issue has been addressed in versions 1.31.2, 1.30.6, 1.29.9, and 1.28.7. Users are advised to upgrade. There are no known workarounds for this vulnerability.</description>
+      <guid isPermaLink="false">CVE-2024-45806|2024-09-20T17:28:05.598Z</guid>
+      <pubDate>Thu, 19 Sep 2024 23:34:30 +0000</pubDate>
     </item>
     <item>
-      <title>CVE-2024-23326|2024-08-01T22:59:32.189Z -- envoyproxy -- envoy</title>
-      <link>https://www.cve.org/CVERecord?id=CVE-2024-23326</link>
-      <description>Envoy is a cloud-native, open source edge and service proxy. A theoretical request smuggling vulnerability exists through Envoy if a server can be tricked into adding an upgrade header into a response. Per RFC https://www.rfc-editor.org/rfc/rfc7230#section-6.7 a server sends 101 when switching protocols. Envoy incorrectly accepts a 200 response from a server when requesting a protocol upgrade, but 200 does not indicate protocol switch. This opens up the possibility of request smuggling through Envoy if the server can be tricked into adding the upgrade header to the response.</description>
-      <guid isPermaLink="false">CVE-2024-23326|2024-08-01T22:59:32.189Z</guid>
-      <pubDate>Tue, 04 Jun 2024 20:05:48 +0000</pubDate>
+      <title>CVE-2024-45809|2024-09-20T17:23:17.537Z -- envoyproxy -- envoy</title>
+      <link>https://www.cve.org/CVERecord?id=CVE-2024-45809</link>
+      <description>Envoy is a cloud-native high-performance edge/middle/service proxy. Jwt filter will lead to an Envoy crash when clear route cache with remote JWKs. In the following case: 1. remote JWKs are used, which requires async header processing; 2. clear_route_cache is enabled on the provider; 3. header operations are enabled in JWT filter, e.g. header to claims feature; 4. the routing table is configured in a way that the JWT header operations modify requests to not match any route. When these conditions are met, a crash is triggered in the upstream code due to nullptr reference conversion from route(). The root cause is the ordering of continueDecoding and clearRouteCache. This issue has been addressed in versions 1.31.2, 1.30.6, and 1.29.9. Users are advised to upgrade. There are no known workarounds for this vulnerability.</description>
+      <guid isPermaLink="false">CVE-2024-45809|2024-09-20T17:23:17.537Z</guid>
+      <pubDate>Thu, 19 Sep 2024 23:34:24 +0000</pubDate>
     </item>
     <item>
-      <title>CVE-2024-23326|2024-07-23T15:53:07.177Z -- envoyproxy -- envoy</title>
-      <link>https://www.cve.org/CVERecord?id=CVE-2024-23326</link>
-      <description>Envoy is a cloud-native, open source edge and service proxy. A theoretical request smuggling vulnerability exists through Envoy if a server can be tricked into adding an upgrade header into a response. Per RFC https://www.rfc-editor.org/rfc/rfc7230#section-6.7 a server sends 101 when switching protocols. Envoy incorrectly accepts a 200 response from a server when requesting a protocol upgrade, but 200 does not indicate protocol switch. This opens up the possibility of request smuggling through Envoy if the server can be tricked into adding the upgrade header to the response.</description>
-      <guid isPermaLink="false">CVE-2024-23326|2024-07-23T15:53:07.177Z</guid>
-      <pubDate>Tue, 04 Jun 2024 20:05:48 +0000</pubDate>
+      <title>CVE-2024-45810|2024-09-20T17:17:39.663Z -- envoyproxy -- envoy</title>
+      <link>https://www.cve.org/CVERecord?id=CVE-2024-45810</link>
+      <description>Envoy is a cloud-native high-performance edge/middle/service proxy. Envoy will crash when the http async client is handling `sendLocalReply` under some circumstance, e.g., websocket upgrade, and requests mirroring. The http async client will crash during the `sendLocalReply()` in http async client, one reason is http async client is duplicating the status code, another one is the destroy of router is called at the destructor of the async stream, while the stream is deferred deleted at first. There will be problems that the stream decoder is destroyed but its reference is called in `router.onDestroy()`, causing segment fault. This will impact ext_authz if the `upgrade` and `connection` header are allowed, and request mirrorring. This issue has been addressed in versions 1.31.2, 1.30.6, 1.29.9, and 1.28.7. Users are advised to upgrade. There are no known workarounds for this vulnerability.</description>
+      <guid isPermaLink="false">CVE-2024-45810|2024-09-20T17:17:39.663Z</guid>
+      <pubDate>Thu, 19 Sep 2024 23:34:22 +0000</pubDate>
     </item>
     <item>
-      <title>CVE-2024-39305|2024-07-01T21:10:23.566Z -- envoyproxy -- envoy</title>
-      <link>https://www.cve.org/CVERecord?id=CVE-2024-39305</link>
-      <description>Envoy is a cloud-native, open source edge and service proxy. Prior to versions 1.30.4, 1.29.7, 1.28.5, and 1.27.7. Envoy references already freed memory when route hash policy is configured with cookie attributes. Note that this vulnerability has been fixed in the open as the effect would be immediately apparent if it was configured. Memory allocated for holding attribute values is freed after configuration was parsed. During request processing Envoy will attempt to copy content of de-allocated memory into request cookie header. This can lead to arbitrary content of Envoy's memory to be sent to the upstream service or abnormal process termination. This vulnerability is fixed in Envoy versions v1.30.4, v1.29.7, v1.28.5, and v1.27.7. As a workaround, do not use cookie attributes in route action hash policy.</description>
-      <guid isPermaLink="false">CVE-2024-39305|2024-07-01T21:10:23.566Z</guid>
-      <pubDate>Mon, 01 Jul 2024 21:10:23 +0000</pubDate>
+      <title>CVE-2024-45808|2024-09-20T17:25:17.393Z -- envoyproxy -- envoy</title>
+      <link>https://www.cve.org/CVERecord?id=CVE-2024-45808</link>
+      <description>Envoy is a cloud-native high-performance edge/middle/service proxy. A vulnerability has been identified in Envoy that allows malicious attackers to inject unexpected content into access logs. This is achieved by exploiting the lack of validation for the `REQUESTED_SERVER_NAME` field for access loggers. This issue has been addressed in versions 1.31.2, 1.30.6, 1.29.9, and 1.28.7. Users are advised to upgrade. There are no known workarounds for this vulnerability.</description>
+      <guid isPermaLink="false">CVE-2024-45808|2024-09-20T17:25:17.393Z</guid>
+      <pubDate>Thu, 19 Sep 2024 23:34:26 +0000</pubDate>
     </item>
     <item>
-      <title>CVE-2024-34363|2024-06-21T17:23:47.147Z -- envoyproxy -- envoy</title>
-      <link>https://www.cve.org/CVERecord?id=CVE-2024-34363</link>
-      <description>Envoy is a cloud-native, open source edge and service proxy. Due to how Envoy invoked the nlohmann JSON library, the library could throw an uncaught exception from downstream data if incomplete UTF-8 strings were serialized. The uncaught exception would cause Envoy to crash.</description>
-      <guid isPermaLink="false">CVE-2024-34363|2024-06-21T17:23:47.147Z</guid>
-      <pubDate>Tue, 04 Jun 2024 20:59:52 +0000</pubDate>
-    </item>
-    <item>
-      <title>CVE-2024-32976|2024-06-04T20:59:59.683Z -- envoyproxy -- envoy</title>
-      <link>https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2024-32976</link>
-      <description>Envoy is a cloud-native, open source edge and service proxy. Envoyproxy with a Brotli filter can get into an endless loop during decompression of Brotli data with extra input.</description>
-      <guid isPermaLink="false">CVE-2024-32976|2024-06-04T20:59:59.683Z</guid>
-      <pubDate>Tue, 04 Jun 2024 20:59:59 +0000</pubDate>
-    </item>
-    <item>
-      <title>CVE-2024-32974|2024-06-04T21:00:07.788Z -- envoyproxy -- envoy</title>
-      <link>https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2024-32974</link>
-      <description>Envoy is a cloud-native, open source edge and service proxy. A crash was observed in `EnvoyQuicServerStream::OnInitialHeadersComplete()` with following call stack. It is a use-after-free caused by QUICHE continuing push request headers after `StopReading()` being called on the stream. As after `StopReading()`, the HCM's `ActiveStream` might have already be destroyed and any up calls from QUICHE could potentially cause use after free.</description>
-      <guid isPermaLink="false">CVE-2024-32974|2024-06-04T21:00:07.788Z</guid>
-      <pubDate>Tue, 04 Jun 2024 21:00:07 +0000</pubDate>
-    </item>
-    <item>
-      <title>CVE-2024-32975|2024-06-04T21:00:03.208Z -- envoyproxy -- envoy</title>
-      <link>https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2024-32975</link>
-      <description>Envoy is a cloud-native, open source edge and service proxy. There is a crash at `QuicheDataReader::PeekVarInt62Length()`. It is caused by integer underflow in the `QuicStreamSequencerBuffer::PeekRegion()` implementation.</description>
-      <guid isPermaLink="false">CVE-2024-32975|2024-06-04T21:00:03.208Z</guid>
-      <pubDate>Tue, 04 Jun 2024 21:00:03 +0000</pubDate>
-    </item>
-    <item>
-      <title>CVE-2024-23326|2024-06-04T20:05:48.230Z -- envoyproxy -- envoy</title>
-      <link>https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2024-23326</link>
-      <description>Envoy is a cloud-native, open source edge and service proxy. A theoretical request smuggling vulnerability exists through Envoy if a server can be tricked into adding an upgrade header into a response. Per RFC https://www.rfc-editor.org/rfc/rfc7230#section-6.7 a server sends 101 when switching protocols. Envoy incorrectly accepts a 200 response from a server when requesting a protocol upgrade, but 200 does not indicate protocol switch. This opens up the possibility of request smuggling through Envoy if the server can be tricked into adding the upgrade header to the response.</description>
-      <guid isPermaLink="false">CVE-2024-23326|2024-06-04T20:05:48.230Z</guid>
-      <pubDate>Tue, 04 Jun 2024 20:05:48 +0000</pubDate>
-    </item>
-    <item>
-      <title>CVE-2024-34363|2024-06-04T20:59:52.773Z -- envoyproxy -- envoy</title>
-      <link>https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2024-34363</link>
-      <description>Envoy is a cloud-native, open source edge and service proxy. Due to how Envoy invoked the nlohmann JSON library, the library could throw an uncaught exception from downstream data if incomplete UTF-8 strings were serialized. The uncaught exception would cause Envoy to crash.</description>
-      <guid isPermaLink="false">CVE-2024-34363|2024-06-04T20:59:52.773Z</guid>
-      <pubDate>Tue, 04 Jun 2024 20:59:52 +0000</pubDate>
-    </item>
-    <item>
-      <title>CVE-2024-34362|2024-06-04T20:59:56.390Z -- envoyproxy -- envoy</title>
-      <link>https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2024-34362</link>
+      <title>CVE-2024-34362|2024-08-19T15:35:54.588Z -- envoyproxy -- envoy</title>
+      <link>https://www.cve.org/CVERecord?id=CVE-2024-34362</link>
       <description>Envoy is a cloud-native, open source edge and service proxy. There is a use-after-free in `HttpConnectionManager` (HCM) with `EnvoyQuicServerStream` that can crash Envoy. An attacker can exploit this vulnerability by sending a request without `FIN`, then a `RESET_STREAM` frame, and then after receiving the response, closing the connection.</description>
-      <guid isPermaLink="false">CVE-2024-34362|2024-06-04T20:59:56.390Z</guid>
+      <guid isPermaLink="false">CVE-2024-34362|2024-08-19T15:35:54.588Z</guid>
       <pubDate>Tue, 04 Jun 2024 20:59:56 +0000</pubDate>
     </item>
     <item>
-      <title>CVE-2024-34364|2024-06-04T20:59:48.968Z -- envoyproxy -- envoy</title>
-      <link>https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2024-34364</link>
+      <title>CVE-2024-34364|2024-08-02T02:51:10.805Z -- envoyproxy -- envoy</title>
+      <link>https://www.cve.org/CVERecord?id=CVE-2024-34364</link>
       <description>Envoy is a cloud-native, open source edge and service proxy. Envoy exposed an out-of-memory (OOM) vector from the mirror response, since async HTTP client will buffer the response with an unbounded buffer.</description>
-      <guid isPermaLink="false">CVE-2024-34364|2024-06-04T20:59:48.968Z</guid>
+      <guid isPermaLink="false">CVE-2024-34364|2024-08-02T02:51:10.805Z</guid>
+      <pubDate>Tue, 04 Jun 2024 20:59:48 +0000</pubDate>
+    </item>
+    <item>
+      <title>CVE-2024-32975|2024-08-02T02:27:53.295Z -- envoyproxy -- envoy</title>
+      <link>https://www.cve.org/CVERecord?id=CVE-2024-32975</link>
+      <description>Envoy is a cloud-native, open source edge and service proxy. There is a crash at `QuicheDataReader::PeekVarInt62Length()`. It is caused by integer underflow in the `QuicStreamSequencerBuffer::PeekRegion()` implementation.</description>
+      <guid isPermaLink="false">CVE-2024-32975|2024-08-02T02:27:53.295Z</guid>
+      <pubDate>Tue, 04 Jun 2024 21:00:03 +0000</pubDate>
+    </item>
+    <item>
+      <title>CVE-2024-34362|2024-08-02T02:51:10.938Z -- envoyproxy -- envoy</title>
+      <link>https://www.cve.org/CVERecord?id=CVE-2024-34362</link>
+      <description>Envoy is a cloud-native, open source edge and service proxy. There is a use-after-free in `HttpConnectionManager` (HCM) with `EnvoyQuicServerStream` that can crash Envoy. An attacker can exploit this vulnerability by sending a request without `FIN`, then a `RESET_STREAM` frame, and then after receiving the response, closing the connection.</description>
+      <guid isPermaLink="false">CVE-2024-34362|2024-08-02T02:51:10.938Z</guid>
+      <pubDate>Tue, 04 Jun 2024 20:59:56 +0000</pubDate>
+    </item>
+    <item>
+      <title>CVE-2024-32976|2024-08-02T02:27:53.632Z -- envoyproxy -- envoy</title>
+      <link>https://www.cve.org/CVERecord?id=CVE-2024-32976</link>
+      <description>Envoy is a cloud-native, open source edge and service proxy. Envoyproxy with a Brotli filter can get into an endless loop during decompression of Brotli data with extra input.</description>
+      <guid isPermaLink="false">CVE-2024-32976|2024-08-02T02:27:53.632Z</guid>
+      <pubDate>Tue, 04 Jun 2024 20:59:59 +0000</pubDate>
+    </item>
+    <item>
+      <title>CVE-2024-32974|2024-08-02T02:27:53.474Z -- envoyproxy -- envoy</title>
+      <link>https://www.cve.org/CVERecord?id=CVE-2024-32974</link>
+      <description>Envoy is a cloud-native, open source edge and service proxy. A crash was observed in `EnvoyQuicServerStream::OnInitialHeadersComplete()` with following call stack. It is a use-after-free caused by QUICHE continuing push request headers after `StopReading()` being called on the stream. As after `StopReading()`, the HCM's `ActiveStream` might have already be destroyed and any up calls from QUICHE could potentially cause use after free.</description>
+      <guid isPermaLink="false">CVE-2024-32974|2024-08-02T02:27:53.474Z</guid>
+      <pubDate>Tue, 04 Jun 2024 21:00:07 +0000</pubDate>
+    </item>
+    <item>
+      <title>CVE-2024-34363|2024-08-02T02:51:11.160Z -- envoyproxy -- envoy</title>
+      <link>https://www.cve.org/CVERecord?id=CVE-2024-34363</link>
+      <description>Envoy is a cloud-native, open source edge and service proxy. Due to how Envoy invoked the nlohmann JSON library, the library could throw an uncaught exception from downstream data if incomplete UTF-8 strings were serialized. The uncaught exception would cause Envoy to crash.</description>
+      <guid isPermaLink="false">CVE-2024-34363|2024-08-02T02:51:11.160Z</guid>
+      <pubDate>Tue, 04 Jun 2024 20:59:52 +0000</pubDate>
+    </item>
+    <item>
+      <title>CVE-2024-39305|2024-07-31T20:34:09.900Z -- envoyproxy -- envoy</title>
+      <link>https://www.cve.org/CVERecord?id=CVE-2024-39305</link>
+      <description>Envoy is a cloud-native, open source edge and service proxy. Prior to versions 1.30.4, 1.29.7, 1.28.5, and 1.27.7. Envoy references already freed memory when route hash policy is configured with cookie attributes. Note that this vulnerability has been fixed in the open as the effect would be immediately apparent if it was configured. Memory allocated for holding attribute values is freed after configuration was parsed. During request processing Envoy will attempt to copy content of de-allocated memory into request cookie header. This can lead to arbitrary content of Envoy's memory to be sent to the upstream service or abnormal process termination. This vulnerability is fixed in Envoy versions v1.30.4, v1.29.7, v1.28.5, and v1.27.7. As a workaround, do not use cookie attributes in route action hash policy.</description>
+      <guid isPermaLink="false">CVE-2024-39305|2024-07-31T20:34:09.900Z</guid>
+      <pubDate>Mon, 01 Jul 2024 21:10:23 +0000</pubDate>
+    </item>
+    <item>
+      <title>CVE-2024-32974|2024-07-19T18:30:25.520Z -- envoyproxy -- envoy</title>
+      <link>https://www.cve.org/CVERecord?id=CVE-2024-32974</link>
+      <description>Envoy is a cloud-native, open source edge and service proxy. A crash was observed in `EnvoyQuicServerStream::OnInitialHeadersComplete()` with following call stack. It is a use-after-free caused by QUICHE continuing push request headers after `StopReading()` being called on the stream. As after `StopReading()`, the HCM's `ActiveStream` might have already be destroyed and any up calls from QUICHE could potentially cause use after free.</description>
+      <guid isPermaLink="false">CVE-2024-32974|2024-07-19T18:30:25.520Z</guid>
+      <pubDate>Tue, 04 Jun 2024 21:00:07 +0000</pubDate>
+    </item>
+    <item>
+      <title>CVE-2024-34364|2024-06-25T18:21:22.154Z -- envoyproxy -- envoy</title>
+      <link>https://www.cve.org/CVERecord?id=CVE-2024-34364</link>
+      <description>Envoy is a cloud-native, open source edge and service proxy. Envoy exposed an out-of-memory (OOM) vector from the mirror response, since async HTTP client will buffer the response with an unbounded buffer.</description>
+      <guid isPermaLink="false">CVE-2024-34364|2024-06-25T18:21:22.154Z</guid>
       <pubDate>Tue, 04 Jun 2024 20:59:48 +0000</pubDate>
     </item>
     <item>
@@ -115,109 +129,95 @@
       <pubDate>Tue, 04 Jun 2024 21:00:03 +0000</pubDate>
     </item>
     <item>
-      <title>CVE-2024-34364|2024-06-25T18:21:22.154Z -- envoyproxy -- envoy</title>
-      <link>https://www.cve.org/CVERecord?id=CVE-2024-34364</link>
+      <title>CVE-2024-34364|2024-06-04T20:59:48.968Z -- envoyproxy -- envoy</title>
+      <link>https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2024-34364</link>
       <description>Envoy is a cloud-native, open source edge and service proxy. Envoy exposed an out-of-memory (OOM) vector from the mirror response, since async HTTP client will buffer the response with an unbounded buffer.</description>
-      <guid isPermaLink="false">CVE-2024-34364|2024-06-25T18:21:22.154Z</guid>
+      <guid isPermaLink="false">CVE-2024-34364|2024-06-04T20:59:48.968Z</guid>
       <pubDate>Tue, 04 Jun 2024 20:59:48 +0000</pubDate>
     </item>
     <item>
-      <title>CVE-2024-32974|2024-07-19T18:30:25.520Z -- envoyproxy -- envoy</title>
-      <link>https://www.cve.org/CVERecord?id=CVE-2024-32974</link>
-      <description>Envoy is a cloud-native, open source edge and service proxy. A crash was observed in `EnvoyQuicServerStream::OnInitialHeadersComplete()` with following call stack. It is a use-after-free caused by QUICHE continuing push request headers after `StopReading()` being called on the stream. As after `StopReading()`, the HCM's `ActiveStream` might have already be destroyed and any up calls from QUICHE could potentially cause use after free.</description>
-      <guid isPermaLink="false">CVE-2024-32974|2024-07-19T18:30:25.520Z</guid>
-      <pubDate>Tue, 04 Jun 2024 21:00:07 +0000</pubDate>
+      <title>CVE-2024-34362|2024-06-04T20:59:56.390Z -- envoyproxy -- envoy</title>
+      <link>https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2024-34362</link>
+      <description>Envoy is a cloud-native, open source edge and service proxy. There is a use-after-free in `HttpConnectionManager` (HCM) with `EnvoyQuicServerStream` that can crash Envoy. An attacker can exploit this vulnerability by sending a request without `FIN`, then a `RESET_STREAM` frame, and then after receiving the response, closing the connection.</description>
+      <guid isPermaLink="false">CVE-2024-34362|2024-06-04T20:59:56.390Z</guid>
+      <pubDate>Tue, 04 Jun 2024 20:59:56 +0000</pubDate>
     </item>
     <item>
-      <title>CVE-2024-39305|2024-07-31T20:34:09.900Z -- envoyproxy -- envoy</title>
-      <link>https://www.cve.org/CVERecord?id=CVE-2024-39305</link>
-      <description>Envoy is a cloud-native, open source edge and service proxy. Prior to versions 1.30.4, 1.29.7, 1.28.5, and 1.27.7. Envoy references already freed memory when route hash policy is configured with cookie attributes. Note that this vulnerability has been fixed in the open as the effect would be immediately apparent if it was configured. Memory allocated for holding attribute values is freed after configuration was parsed. During request processing Envoy will attempt to copy content of de-allocated memory into request cookie header. This can lead to arbitrary content of Envoy's memory to be sent to the upstream service or abnormal process termination. This vulnerability is fixed in Envoy versions v1.30.4, v1.29.7, v1.28.5, and v1.27.7. As a workaround, do not use cookie attributes in route action hash policy.</description>
-      <guid isPermaLink="false">CVE-2024-39305|2024-07-31T20:34:09.900Z</guid>
-      <pubDate>Mon, 01 Jul 2024 21:10:23 +0000</pubDate>
-    </item>
-    <item>
-      <title>CVE-2024-34363|2024-08-02T02:51:11.160Z -- envoyproxy -- envoy</title>
-      <link>https://www.cve.org/CVERecord?id=CVE-2024-34363</link>
+      <title>CVE-2024-34363|2024-06-04T20:59:52.773Z -- envoyproxy -- envoy</title>
+      <link>https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2024-34363</link>
       <description>Envoy is a cloud-native, open source edge and service proxy. Due to how Envoy invoked the nlohmann JSON library, the library could throw an uncaught exception from downstream data if incomplete UTF-8 strings were serialized. The uncaught exception would cause Envoy to crash.</description>
-      <guid isPermaLink="false">CVE-2024-34363|2024-08-02T02:51:11.160Z</guid>
+      <guid isPermaLink="false">CVE-2024-34363|2024-06-04T20:59:52.773Z</guid>
       <pubDate>Tue, 04 Jun 2024 20:59:52 +0000</pubDate>
     </item>
     <item>
-      <title>CVE-2024-32974|2024-08-02T02:27:53.474Z -- envoyproxy -- envoy</title>
-      <link>https://www.cve.org/CVERecord?id=CVE-2024-32974</link>
-      <description>Envoy is a cloud-native, open source edge and service proxy. A crash was observed in `EnvoyQuicServerStream::OnInitialHeadersComplete()` with following call stack. It is a use-after-free caused by QUICHE continuing push request headers after `StopReading()` being called on the stream. As after `StopReading()`, the HCM's `ActiveStream` might have already be destroyed and any up calls from QUICHE could potentially cause use after free.</description>
-      <guid isPermaLink="false">CVE-2024-32974|2024-08-02T02:27:53.474Z</guid>
-      <pubDate>Tue, 04 Jun 2024 21:00:07 +0000</pubDate>
+      <title>CVE-2024-23326|2024-06-04T20:05:48.230Z -- envoyproxy -- envoy</title>
+      <link>https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2024-23326</link>
+      <description>Envoy is a cloud-native, open source edge and service proxy. A theoretical request smuggling vulnerability exists through Envoy if a server can be tricked into adding an upgrade header into a response. Per RFC https://www.rfc-editor.org/rfc/rfc7230#section-6.7 a server sends 101 when switching protocols. Envoy incorrectly accepts a 200 response from a server when requesting a protocol upgrade, but 200 does not indicate protocol switch. This opens up the possibility of request smuggling through Envoy if the server can be tricked into adding the upgrade header to the response.</description>
+      <guid isPermaLink="false">CVE-2024-23326|2024-06-04T20:05:48.230Z</guid>
+      <pubDate>Tue, 04 Jun 2024 20:05:48 +0000</pubDate>
     </item>
     <item>
-      <title>CVE-2024-32976|2024-08-02T02:27:53.632Z -- envoyproxy -- envoy</title>
-      <link>https://www.cve.org/CVERecord?id=CVE-2024-32976</link>
-      <description>Envoy is a cloud-native, open source edge and service proxy. Envoyproxy with a Brotli filter can get into an endless loop during decompression of Brotli data with extra input.</description>
-      <guid isPermaLink="false">CVE-2024-32976|2024-08-02T02:27:53.632Z</guid>
-      <pubDate>Tue, 04 Jun 2024 20:59:59 +0000</pubDate>
-    </item>
-    <item>
-      <title>CVE-2024-34362|2024-08-02T02:51:10.938Z -- envoyproxy -- envoy</title>
-      <link>https://www.cve.org/CVERecord?id=CVE-2024-34362</link>
-      <description>Envoy is a cloud-native, open source edge and service proxy. There is a use-after-free in `HttpConnectionManager` (HCM) with `EnvoyQuicServerStream` that can crash Envoy. An attacker can exploit this vulnerability by sending a request without `FIN`, then a `RESET_STREAM` frame, and then after receiving the response, closing the connection.</description>
-      <guid isPermaLink="false">CVE-2024-34362|2024-08-02T02:51:10.938Z</guid>
-      <pubDate>Tue, 04 Jun 2024 20:59:56 +0000</pubDate>
-    </item>
-    <item>
-      <title>CVE-2024-32975|2024-08-02T02:27:53.295Z -- envoyproxy -- envoy</title>
-      <link>https://www.cve.org/CVERecord?id=CVE-2024-32975</link>
+      <title>CVE-2024-32975|2024-06-04T21:00:03.208Z -- envoyproxy -- envoy</title>
+      <link>https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2024-32975</link>
       <description>Envoy is a cloud-native, open source edge and service proxy. There is a crash at `QuicheDataReader::PeekVarInt62Length()`. It is caused by integer underflow in the `QuicStreamSequencerBuffer::PeekRegion()` implementation.</description>
-      <guid isPermaLink="false">CVE-2024-32975|2024-08-02T02:27:53.295Z</guid>
+      <guid isPermaLink="false">CVE-2024-32975|2024-06-04T21:00:03.208Z</guid>
       <pubDate>Tue, 04 Jun 2024 21:00:03 +0000</pubDate>
     </item>
     <item>
-      <title>CVE-2024-34364|2024-08-02T02:51:10.805Z -- envoyproxy -- envoy</title>
-      <link>https://www.cve.org/CVERecord?id=CVE-2024-34364</link>
-      <description>Envoy is a cloud-native, open source edge and service proxy. Envoy exposed an out-of-memory (OOM) vector from the mirror response, since async HTTP client will buffer the response with an unbounded buffer.</description>
-      <guid isPermaLink="false">CVE-2024-34364|2024-08-02T02:51:10.805Z</guid>
-      <pubDate>Tue, 04 Jun 2024 20:59:48 +0000</pubDate>
+      <title>CVE-2024-32974|2024-06-04T21:00:07.788Z -- envoyproxy -- envoy</title>
+      <link>https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2024-32974</link>
+      <description>Envoy is a cloud-native, open source edge and service proxy. A crash was observed in `EnvoyQuicServerStream::OnInitialHeadersComplete()` with following call stack. It is a use-after-free caused by QUICHE continuing push request headers after `StopReading()` being called on the stream. As after `StopReading()`, the HCM's `ActiveStream` might have already be destroyed and any up calls from QUICHE could potentially cause use after free.</description>
+      <guid isPermaLink="false">CVE-2024-32974|2024-06-04T21:00:07.788Z</guid>
+      <pubDate>Tue, 04 Jun 2024 21:00:07 +0000</pubDate>
     </item>
     <item>
-      <title>CVE-2024-34362|2024-08-19T15:35:54.588Z -- envoyproxy -- envoy</title>
-      <link>https://www.cve.org/CVERecord?id=CVE-2024-34362</link>
-      <description>Envoy is a cloud-native, open source edge and service proxy. There is a use-after-free in `HttpConnectionManager` (HCM) with `EnvoyQuicServerStream` that can crash Envoy. An attacker can exploit this vulnerability by sending a request without `FIN`, then a `RESET_STREAM` frame, and then after receiving the response, closing the connection.</description>
-      <guid isPermaLink="false">CVE-2024-34362|2024-08-19T15:35:54.588Z</guid>
-      <pubDate>Tue, 04 Jun 2024 20:59:56 +0000</pubDate>
+      <title>CVE-2024-32976|2024-06-04T20:59:59.683Z -- envoyproxy -- envoy</title>
+      <link>https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2024-32976</link>
+      <description>Envoy is a cloud-native, open source edge and service proxy. Envoyproxy with a Brotli filter can get into an endless loop during decompression of Brotli data with extra input.</description>
+      <guid isPermaLink="false">CVE-2024-32976|2024-06-04T20:59:59.683Z</guid>
+      <pubDate>Tue, 04 Jun 2024 20:59:59 +0000</pubDate>
     </item>
     <item>
-      <title>CVE-2024-45808|2024-09-20T17:25:17.393Z -- envoyproxy -- envoy</title>
-      <link>https://www.cve.org/CVERecord?id=CVE-2024-45808</link>
-      <description>Envoy is a cloud-native high-performance edge/middle/service proxy. A vulnerability has been identified in Envoy that allows malicious attackers to inject unexpected content into access logs. This is achieved by exploiting the lack of validation for the `REQUESTED_SERVER_NAME` field for access loggers. This issue has been addressed in versions 1.31.2, 1.30.6, 1.29.9, and 1.28.7. Users are advised to upgrade. There are no known workarounds for this vulnerability.</description>
-      <guid isPermaLink="false">CVE-2024-45808|2024-09-20T17:25:17.393Z</guid>
-      <pubDate>Thu, 19 Sep 2024 23:34:26 +0000</pubDate>
+      <title>CVE-2024-34363|2024-06-21T17:23:47.147Z -- envoyproxy -- envoy</title>
+      <link>https://www.cve.org/CVERecord?id=CVE-2024-34363</link>
+      <description>Envoy is a cloud-native, open source edge and service proxy. Due to how Envoy invoked the nlohmann JSON library, the library could throw an uncaught exception from downstream data if incomplete UTF-8 strings were serialized. The uncaught exception would cause Envoy to crash.</description>
+      <guid isPermaLink="false">CVE-2024-34363|2024-06-21T17:23:47.147Z</guid>
+      <pubDate>Tue, 04 Jun 2024 20:59:52 +0000</pubDate>
     </item>
     <item>
-      <title>CVE-2024-45810|2024-09-20T17:17:39.663Z -- envoyproxy -- envoy</title>
-      <link>https://www.cve.org/CVERecord?id=CVE-2024-45810</link>
-      <description>Envoy is a cloud-native high-performance edge/middle/service proxy. Envoy will crash when the http async client is handling `sendLocalReply` under some circumstance, e.g., websocket upgrade, and requests mirroring. The http async client will crash during the `sendLocalReply()` in http async client, one reason is http async client is duplicating the status code, another one is the destroy of router is called at the destructor of the async stream, while the stream is deferred deleted at first. There will be problems that the stream decoder is destroyed but its reference is called in `router.onDestroy()`, causing segment fault. This will impact ext_authz if the `upgrade` and `connection` header are allowed, and request mirrorring. This issue has been addressed in versions 1.31.2, 1.30.6, 1.29.9, and 1.28.7. Users are advised to upgrade. There are no known workarounds for this vulnerability.</description>
-      <guid isPermaLink="false">CVE-2024-45810|2024-09-20T17:17:39.663Z</guid>
-      <pubDate>Thu, 19 Sep 2024 23:34:22 +0000</pubDate>
+      <title>CVE-2024-39305|2024-07-01T21:10:23.566Z -- envoyproxy -- envoy</title>
+      <link>https://www.cve.org/CVERecord?id=CVE-2024-39305</link>
+      <description>Envoy is a cloud-native, open source edge and service proxy. Prior to versions 1.30.4, 1.29.7, 1.28.5, and 1.27.7. Envoy references already freed memory when route hash policy is configured with cookie attributes. Note that this vulnerability has been fixed in the open as the effect would be immediately apparent if it was configured. Memory allocated for holding attribute values is freed after configuration was parsed. During request processing Envoy will attempt to copy content of de-allocated memory into request cookie header. This can lead to arbitrary content of Envoy's memory to be sent to the upstream service or abnormal process termination. This vulnerability is fixed in Envoy versions v1.30.4, v1.29.7, v1.28.5, and v1.27.7. As a workaround, do not use cookie attributes in route action hash policy.</description>
+      <guid isPermaLink="false">CVE-2024-39305|2024-07-01T21:10:23.566Z</guid>
+      <pubDate>Mon, 01 Jul 2024 21:10:23 +0000</pubDate>
     </item>
     <item>
-      <title>CVE-2024-45809|2024-09-20T17:23:17.537Z -- envoyproxy -- envoy</title>
-      <link>https://www.cve.org/CVERecord?id=CVE-2024-45809</link>
-      <description>Envoy is a cloud-native high-performance edge/middle/service proxy. Jwt filter will lead to an Envoy crash when clear route cache with remote JWKs. In the following case: 1. remote JWKs are used, which requires async header processing; 2. clear_route_cache is enabled on the provider; 3. header operations are enabled in JWT filter, e.g. header to claims feature; 4. the routing table is configured in a way that the JWT header operations modify requests to not match any route. When these conditions are met, a crash is triggered in the upstream code due to nullptr reference conversion from route(). The root cause is the ordering of continueDecoding and clearRouteCache. This issue has been addressed in versions 1.31.2, 1.30.6, and 1.29.9. Users are advised to upgrade. There are no known workarounds for this vulnerability.</description>
-      <guid isPermaLink="false">CVE-2024-45809|2024-09-20T17:23:17.537Z</guid>
-      <pubDate>Thu, 19 Sep 2024 23:34:24 +0000</pubDate>
+      <title>CVE-2024-23326|2024-07-23T15:53:07.177Z -- envoyproxy -- envoy</title>
+      <link>https://www.cve.org/CVERecord?id=CVE-2024-23326</link>
+      <description>Envoy is a cloud-native, open source edge and service proxy. A theoretical request smuggling vulnerability exists through Envoy if a server can be tricked into adding an upgrade header into a response. Per RFC https://www.rfc-editor.org/rfc/rfc7230#section-6.7 a server sends 101 when switching protocols. Envoy incorrectly accepts a 200 response from a server when requesting a protocol upgrade, but 200 does not indicate protocol switch. This opens up the possibility of request smuggling through Envoy if the server can be tricked into adding the upgrade header to the response.</description>
+      <guid isPermaLink="false">CVE-2024-23326|2024-07-23T15:53:07.177Z</guid>
+      <pubDate>Tue, 04 Jun 2024 20:05:48 +0000</pubDate>
     </item>
     <item>
-      <title>CVE-2024-45806|2024-09-20T17:28:05.598Z -- envoyproxy -- envoy</title>
-      <link>https://www.cve.org/CVERecord?id=CVE-2024-45806</link>
-      <description>Envoy is a cloud-native high-performance edge/middle/service proxy. A security vulnerability in Envoy allows external clients to manipulate Envoy headers, potentially leading to unauthorized access or other malicious actions within the mesh. This issue arises due to Envoy's default configuration of internal trust boundaries, which considers all RFC1918 private address ranges as internal. The default behavior for handling internal addresses in Envoy has been changed. Previously, RFC1918 IP addresses were automatically considered internal, even if the internal_address_config was empty.  The default configuration of Envoy will continue to trust internal addresses while in this release and it will not trust them by default in next release. If you have tooling such as probes on your private network which need to be treated as trusted (e.g. changing arbitrary x-envoy headers) please explicitly include those addresses or CIDR ranges into `internal_address_config`. Successful exploitation could allow attackers to bypass security controls, access sensitive data, or disrupt services within the mesh, like Istio. This issue has been addressed in versions 1.31.2, 1.30.6, 1.29.9, and 1.28.7. Users are advised to upgrade. There are no known workarounds for this vulnerability.</description>
-      <guid isPermaLink="false">CVE-2024-45806|2024-09-20T17:28:05.598Z</guid>
-      <pubDate>Thu, 19 Sep 2024 23:34:30 +0000</pubDate>
+      <title>CVE-2024-23326|2024-08-01T22:59:32.189Z -- envoyproxy -- envoy</title>
+      <link>https://www.cve.org/CVERecord?id=CVE-2024-23326</link>
+      <description>Envoy is a cloud-native, open source edge and service proxy. A theoretical request smuggling vulnerability exists through Envoy if a server can be tricked into adding an upgrade header into a response. Per RFC https://www.rfc-editor.org/rfc/rfc7230#section-6.7 a server sends 101 when switching protocols. Envoy incorrectly accepts a 200 response from a server when requesting a protocol upgrade, but 200 does not indicate protocol switch. This opens up the possibility of request smuggling through Envoy if the server can be tricked into adding the upgrade header to the response.</description>
+      <guid isPermaLink="false">CVE-2024-23326|2024-08-01T22:59:32.189Z</guid>
+      <pubDate>Tue, 04 Jun 2024 20:05:48 +0000</pubDate>
     </item>
     <item>
-      <title>CVE-2024-45807|2024-09-20T17:26:33.330Z -- envoyproxy -- envoy</title>
-      <link>https://www.cve.org/CVERecord?id=CVE-2024-45807</link>
-      <description>Envoy is a cloud-native high-performance edge/middle/service proxy. Envoy's 1.31 is using `oghttp` as the default HTTP/2 codec, and there are potential bugs around stream management in the codec. To resolve this Envoy will switch off the `oghttp2` by default. The impact of this issue is that envoy will crash. This issue has been addressed in release version 1.31.2. All users are advised to upgrade. There are no known workarounds for this issue.</description>
-      <guid isPermaLink="false">CVE-2024-45807|2024-09-20T17:26:33.330Z</guid>
-      <pubDate>Thu, 19 Sep 2024 23:34:28 +0000</pubDate>
+      <title>CVE-2024-39305|2024-08-02T04:19:20.740Z -- envoyproxy -- envoy</title>
+      <link>https://www.cve.org/CVERecord?id=CVE-2024-39305</link>
+      <description>Envoy is a cloud-native, open source edge and service proxy. Prior to versions 1.30.4, 1.29.7, 1.28.5, and 1.27.7. Envoy references already freed memory when route hash policy is configured with cookie attributes. Note that this vulnerability has been fixed in the open as the effect would be immediately apparent if it was configured. Memory allocated for holding attribute values is freed after configuration was parsed. During request processing Envoy will attempt to copy content of de-allocated memory into request cookie header. This can lead to arbitrary content of Envoy's memory to be sent to the upstream service or abnormal process termination. This vulnerability is fixed in Envoy versions v1.30.4, v1.29.7, v1.28.5, and v1.27.7. As a workaround, do not use cookie attributes in route action hash policy.</description>
+      <guid isPermaLink="false">CVE-2024-39305|2024-08-02T04:19:20.740Z</guid>
+      <pubDate>Mon, 01 Jul 2024 21:10:23 +0000</pubDate>
+    </item>
+    <item>
+      <title>CVE-2024-32976|2024-09-03T15:41:58.146Z -- envoyproxy -- envoy</title>
+      <link>https://www.cve.org/CVERecord?id=CVE-2024-32976</link>
+      <description>Envoy is a cloud-native, open source edge and service proxy. Envoyproxy with a Brotli filter can get into an endless loop during decompression of Brotli data with extra input.</description>
+      <guid isPermaLink="false">CVE-2024-32976|2024-09-03T15:41:58.146Z</guid>
+      <pubDate>Tue, 04 Jun 2024 20:59:59 +0000</pubDate>
     </item>
   </channel>
 </rss>
