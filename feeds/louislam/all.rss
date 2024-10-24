@@ -6,15 +6,16 @@
     <description>The latest CVEs for louislam -- all products</description>
     <docs>http://www.rssboard.org/rss-specification</docs>
     <generator>python-feedgen</generator>
-    <lastBuildDate>Fri, 18 Oct 2024 23:22:47 +0000</lastBuildDate>
+    <lastBuildDate>Thu, 24 Oct 2024 19:21:18 +0000</lastBuildDate>
     <ttl>60</ttl>
     <item>
-      <title>CVE-2023-36821|2024-10-18T19:20:42.222Z -- louislam -- uptime-kuma
+      <title>CVE-2023-36822|2024-10-24T18:11:44.833Z -- louislam -- uptime-kuma
 </title>
-      <link>https://www.cve.org/CVERecord?id=CVE-2023-36821</link>
-      <description>Uptime Kuma, a self-hosted monitoring tool, allows an authenticated attacker to install a maliciously crafted plugin in versions prior to 1.22.1, which may lead to remote code execution. Uptime Kuma allows authenticated users to install plugins from an official list of plugins. This feature is currently disabled in the web interface, but the corresponding API endpoints are still available after login. After downloading a plugin, it's installed by calling `npm install` in the installation directory of the plugin. Because the plugin is not validated against the official list of plugins or installed with `npm install --ignore-scripts`, a maliciously crafted plugin taking advantage of npm scripts can gain remote code execution. Version 1.22.1 contains a patch for this issue.</description>
-      <guid isPermaLink="false">CVE-2023-36821|2024-10-18T19:20:42.222Z</guid>
-      <pubDate>Wed, 05 Jul 2023 21:14:44 +0000</pubDate>
+      <link>https://www.cve.org/CVERecord?id=CVE-2023-36822</link>
+      <description>Uptime Kuma, a self-hosted monitoring tool, has a path traversal vulnerability in versions prior to 1.22.1. Uptime Kuma allows authenticated users to install plugins from an official list of plugins. This feature is currently disabled in the web interface, but the corresponding API endpoints are still available after login. Before a plugin is downloaded, the plugin installation directory is checked for existence. If it exists, it's removed before the plugin installation. Because the plugin is not validated against the official list of plugins or sanitized, the check for existence and the removal of the plugin installation directory are prone to path traversal. This vulnerability allows an authenticated attacker to delete files from the server Uptime Kuma is running on. Depending on which files are deleted, Uptime Kuma or the whole system may become unavailable due to data loss.
+</description>
+      <guid isPermaLink="false">CVE-2023-36822|2024-10-24T18:11:44.833Z</guid>
+      <pubDate>Wed, 05 Jul 2023 21:18:09 +0000</pubDate>
     </item>
   </channel>
 </rss>
